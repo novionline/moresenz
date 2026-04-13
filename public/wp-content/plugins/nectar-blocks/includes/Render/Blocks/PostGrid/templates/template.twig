@@ -1,0 +1,145 @@
+{% set blockClassName = 'nectar-blocks-post-grid' %}
+
+{% set blockClassNames = blockClassName %}
+{% if settings.className %}
+  {% set blockClassNames = blockClassNames ~ " " ~ settings.className|e %}
+{% endif %}
+{% set blockClassNames = blockClassNames ~ " l--" ~ settings.layout|e %}
+{% set blockClassNames = blockClassNames ~ " il--" ~ settings.itemLayout|e %}
+{% if settings.align %}
+  {% set blockClassNames = blockClassNames ~ " align" ~ settings.align|e %}
+{% endif %}
+
+<div id="{{ blockId|e }}" class="{{ blockClassNames }}"
+  {% if animationAttrs is defined and animationAttrs is not empty and not isEditor %}
+    {% for key, value in animationAttrs %}
+      {{ key }}="{{ value|raw }}"
+    {% endfor %}
+  {% endif %}
+  {% if settings.pagination.enabled %}
+    data-pagination-type="{{ settings.pagination.type }}"
+    data-pagination-current-page="0"
+    data-pagination-posts-per-page="{{ settings.postsPerPage }}"
+    data-order-by="{{ settings.orderBy }}"
+    data-offset="{{ settings.postOffset }}"
+  {% endif %}
+>
+  {% if settings.pagination.enabled %}
+    <div class="{{ blockClassName }}__inner">
+      <div class="{{ blockClassName }}__content">
+  {% else %}
+    <div class="{{ blockClassName }}__inner {{ blockClassName }}__content">
+  {% endif %}
+
+  {% set nectarMetaTypes = [
+    'taxonomies',
+    'excerpt',
+    'date',
+    'title',
+    'author',
+    'read_more',
+    'spacer',
+    'estimated_read_time',
+    'custom'
+  ] %}
+
+{% macro render_meta_list(metaItems, nectarMetaTypes, blockClassName, post, settings) %}
+  {% set inlineMetaGroup = [] %}
+  {% for metaData in metaItems %}
+    {% set isInline = metaData.type in ['author', 'date', 'estimated_read_time'] or (metaData.settings is defined and metaData.settings.display is defined and metaData.settings.display == 'inline') %}
+    {% if isInline %}
+      {% set inlineMetaGroup = inlineMetaGroup|merge([metaData]) %}
+    {% else %}
+      {% if inlineMetaGroup|length > 0 %}
+        <div class="nectar-blocks-post-grid__item__inline-meta">
+          {% for inlineMeta in inlineMetaGroup %}
+            {% if inlineMeta.type in nectarMetaTypes %}
+              {% include './templates/meta/' ~ inlineMeta.type ~ '.twig' with { metaData: inlineMeta, blockClassName: blockClassName, post: post, settings: settings } %}
+            {% endif %}
+          {% endfor %}
+        </div>
+        {% set inlineMetaGroup = [] %}
+      {% endif %}
+      {% if metaData.type in nectarMetaTypes %}
+        {% include './templates/meta/' ~ metaData.type ~ '.twig' with { metaData: metaData, blockClassName: blockClassName, post: post, settings: settings } %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+  {% if inlineMetaGroup|length > 0 %}
+    <div class="nectar-blocks-post-grid__item__inline-meta">
+      {% for inlineMeta in inlineMetaGroup %}
+        {% if inlineMeta.type in nectarMetaTypes %}
+          {% include './templates/meta/' ~ inlineMeta.type ~ '.twig' with { metaData: inlineMeta, blockClassName: blockClassName, post: post, settings: settings } %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endmacro %}
+{% import _self as MetaMacros %}
+
+      {% for post in queryData %}
+        <article class="{{ blockClassName }}__item">
+          {% if settings.linkType is defined and settings.linkType is same as('wrap-all') %}
+            <a href="{{ post.permalink|e }}" aria-label="{{ post.title|e }}" class="{{ blockClassName }}__link">
+          {% endif %}
+          <div class="{{ blockClassName }}__item__inner">
+            {% set isContentSideLayout = settings.itemLayout is same as('content-side') %}
+            {% set mediaMetaItems = post.media_meta is defined ? post.media_meta : [] %}
+            {% set mediaMetaAbove = [] %}
+            {% set mediaMetaBelow = [] %}
+            {% set isBeforeMediaElement = true %}
+            {% for mediaMeta in mediaMetaItems %}
+              {% if mediaMeta.type is same as('featured_media') %}
+                {% set isBeforeMediaElement = false %}
+              {% else %}
+                {% if isBeforeMediaElement %}
+                  {% set mediaMetaAbove = mediaMetaAbove|merge([mediaMeta]) %}
+                {% else %}
+                  {% set mediaMetaBelow = mediaMetaBelow|merge([mediaMeta]) %}
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+
+            {% set shouldWrapMediaStack = isContentSideLayout and (mediaMetaAbove|length > 0 or mediaMetaBelow|length > 0) %}
+
+            {% if shouldWrapMediaStack %}
+              <div class="{{ blockClassName }}__item__media-stack">
+                {% if mediaMetaAbove|length > 0 %}
+                  <div class="{{ blockClassName }}__item__media-meta {{ blockClassName }}__item__media-meta--above">
+                    {{ MetaMacros.render_meta_list(mediaMetaAbove, nectarMetaTypes, blockClassName, post, settings) }}
+                  </div>
+                {% endif %}
+                {% include './templates/featured_image.twig' %}
+                {% if mediaMetaBelow|length > 0 %}
+                  <div class="{{ blockClassName }}__item__media-meta {{ blockClassName }}__item__media-meta--below">
+                    {{ MetaMacros.render_meta_list(mediaMetaBelow, nectarMetaTypes, blockClassName, post, settings) }}
+                  </div>
+                {% endif %}
+              </div>
+            {% else %}
+              {% include './templates/featured_image.twig' %}
+            {% endif %}
+            <div class="{{ blockClassName }}__item__content">
+              <div class="{{ blockClassName }}__item__content__inner">
+                {{ actionsHooks.nectar_post_grid_item_content_before|raw }}
+
+                {{ MetaMacros.render_meta_list(post.meta, nectarMetaTypes, blockClassName, post, settings) }}
+
+                {{ actionsHooks.nectar_post_grid_item_content_after|raw }}
+              </div>
+            </div>
+           </div>
+            {% if settings.linkType is defined and settings.linkType is same as('wrap-all') %}
+              </a>
+            {% endif %}
+        </article>
+      {% endfor %}
+
+    {% if settings.pagination.enabled %}
+      </div>
+    {% endif %}
+
+    {% include './templates/pagination.twig' %}
+
+  </div>
+</div>

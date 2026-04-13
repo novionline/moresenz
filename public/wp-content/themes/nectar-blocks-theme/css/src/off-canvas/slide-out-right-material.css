@@ -1,0 +1,190 @@
+/*
+Theme Name:  Nectar Blocks
+Description: Off canvas menu set to "Slide Out From Right" in theme options with Material Skin
+*/
+
+:root {
+  --ocm-transition-duration: 0.7s;
+  --ocm-transition-easing: cubic-bezier(.15,0.2,.1,1);
+}
+#slide-out-widget-area.slide-out-from-right  {
+  z-index: 10000;
+}
+
+#slide-out-widget-area.slide-out-from-right .inner-wrap {
+  opacity: 0;
+}
+body.material-ocm-open #slide-out-widget-area.slide-out-from-right .inner-wrap {
+  opacity: 1;
+}
+#slide-out-widget-area.slide-out-from-right #slide-out-widget-area .inner > div,
+#slide-out-widget-area.slide-out-from-right .inner {
+  width: auto;
+}
+
+
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li:first-child a {
+  padding-left: 0;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li a i:after {
+  z-index: 10000;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li {
+  padding: 0;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li a {
+  height: 24px;
+  display: block;
+  width: auto;
+  line-height: 38px;
+  opacity: 1;
+  padding: 0 14px;
+  box-sizing: content-box;
+  text-align: center;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li i:before {
+  z-index: 10;
+  display: block;
+  position: relative;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"].material #slide-out-widget-area .off-canvas-social-links li i {
+  height: 26px;
+  width: auto;
+}
+body.material[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li i {
+  font-size: 20px;
+}
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .off-canvas-social-links li i {
+  line-height: 28px;
+  display: block;
+  position: relative;
+  top: auto;
+  backface-visibility: hidden;
+  transition: color 0.2s ease;
+  vertical-align: middle;
+}
+
+
+body.material #slide-out-widget-area.slide-out-from-right .off-canvas-menu-container .current-menu-item > a {
+  opacity: 1;
+}
+
+.material-ocm-open .container-wrap {
+  cursor: pointer;
+}
+
+@media only screen and ( max-width: 1024px ) {
+  #slide-out-widget-area.slide-out-from-right {
+    min-width: calc(100vw - (var(--offset, 0px) * 2));
+    --nectar-root-width: calc(100vw - (var(--offset, 0px) * 2));
+  }
+}
+
+
+#slide-out-widget-area.slide-out-from-right .nectar-global-section .full-width-content {
+  width: 100%!important;
+  left: 0!important;
+  margin: 0!important;
+}
+
+#slide-out-widget-area.slide-out-from-right .inner > div{
+  margin-bottom: 0;
+}
+
+#slide-out-widget-area.slide-out-from-right .inner-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#slide-out-widget-area.slide-out-from-right .inner > div,
+#slide-out-widget-area.slide-out-from-right .bottom-meta-wrap {
+  -webkit-transform: translateX(50px);
+  -webkit-transition: all var(--ocm-transition-duration) var(--ocm-transition-easing);
+  transform: translateX(50px);
+  transition: all var(--ocm-transition-duration) var(--ocm-transition-easing);
+}
+#slide-out-widget-area.slide-out-from-right.material-open .inner > div,
+#slide-out-widget-area.slide-out-from-right.material-open .bottom-meta-wrap {
+  -ms-transform: translateX(0px);
+  -webkit-transform: translateX(0px);
+  transform: translateX(0px);
+}
+
+body #slide-out-widget-area-bg.slide-out-from-right {
+  z-index: 9999;
+}
+
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area {
+  pointer-events: none;
+  visibility: hidden;
+  -webkit-transition: visibility 0.7s step-end;
+  transition: visibility 0.7s step-end;
+  -webkit-animation: nectar_ocm_reveal_right_close 0.7s cubic-bezier(.15,0.2,.1,1) forwards;
+  animation: nectar_ocm_reveal_right_close 0.7s cubic-bezier(.15,0.2,.1,1) forwards;
+}
+
+body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area.material-open {
+  pointer-events: all;
+  visibility: visible;
+  -webkit-transition: visibility 0.7s step-start;
+  transition: visibility 0.7s step-start;
+  -webkit-animation: nectar_ocm_reveal_right_open 0.7s cubic-bezier(.15,0.2,.1,1) forwards;
+  animation: nectar_ocm_reveal_right_open 0.7s cubic-bezier(.15,0.2,.1,1) forwards;
+}
+
+
+@media only screen and (min-width: 1025px) {
+
+  /* body[data-slide-out-widget-area-style="slide-out-from-right"] .ocm-effect-wrap.material-ocm-open {
+    transform-origin: center;
+    transform: translateX(-32vw)!important;
+  }
+  body[data-slide-out-widget-area-style="slide-out-from-right"] .follow-body.slide_out_area_close {
+    transform: translateY(-50%) translateX(-35.55vw);
+  } */
+
+}
+
+@keyframes nectar_ocm_reveal_right_open {
+  0% {
+    -webkit-clip-path: polygon(101% 0, 100% 0, 101% 100%, 110% 100%);
+    clip-path: polygon(101% 0, 100% 0, 101% 100%, 110% 100%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+}
+@keyframes nectar_ocm_reveal_right_close {
+  0% {
+    -webkit-clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+  100% {
+    -webkit-clip-path: polygon(101% 0, 100% 0, 101% 100%, 110% 100%);
+    clip-path: polygon(101% 0, 100% 0, 101% 100%, 110% 100%);
+  }
+}
+
+@keyframes nectar_ocm_reveal_left_open {
+  0% {
+    -webkit-clip-path: polygon(-1% 0, 0 0, -1% 100%, -10% 100%);
+    clip-path: polygon(-1% 0, 0 0, -1% 100%, -10% 100%);
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+}
+
+@keyframes nectar_ocm_reveal_left_close {
+  0% {
+    -webkit-clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+    clip-path: polygon(0 0, 101% 0, 101% 101%, 0 101%);
+  }
+  100% {
+    -webkit-clip-path: polygon(-1% 0, 0 0, -1% 100%, -10% 100%);
+    clip-path: polygon(-1% 0, 0 0, -1% 100%, -10% 100%);
+  }
+}

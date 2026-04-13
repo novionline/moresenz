@@ -1,0 +1,13 @@
+{
+  "apiVersion": 3,
+  "name": "nectar-blocks/video-player",
+  "title": "Nectar Video Player",
+  "category": "nectar",
+  "description": "Video Player block.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "nectar-blocks",
+  "viewScript": "nectar-blocks-video-player",
+  "usesContext": [ "postId" ]
+}

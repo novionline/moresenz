@@ -1,0 +1,80 @@
+/* match NectarBlocks code editor modal (nectar-blocks/build/editor.css: .nectar-component__modal.nectar-code-editor { background-color: #1e1e1e }) */
+.ncs-code-field {
+    background-color: #1e1e1e;
+}
+
+.ncs-beautify-toolbar {
+    margin-bottom: 8px;
+}
+
+/* explicit height so CodeMirror grows (it otherwise sizes from textarea rows); !important overrides inline height */
+.ncs-code-field .CodeMirror {
+    height: calc(60vh - 48px) !important;
+    min-height: 300px !important;
+    background: #1e1e1e;
+    color: #d4d4d4;
+    border: 1px solid #333;
+}
+
+.ncs-code-field .CodeMirror-gutters {
+    background: #252526;
+    border-right: 1px solid #333;
+}
+
+.ncs-code-field .CodeMirror-linenumber {
+    color: #858585;
+}
+
+.ncs-code-field .CodeMirror-cursor {
+    border-left-color: #aeafad;
+}
+
+.ncs-code-field .CodeMirror-selected {
+    background: #264f78;
+}
+
+/* current line: subtle highlight so text stays readable (match NectarBlocks / VS Code dark) */
+.ncs-code-field .CodeMirror-activeline-background {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* syntax highlighting so code is readable on dark */
+.ncs-code-field .cm-s-default .cm-keyword { color: #569cd6; }
+.ncs-code-field .cm-s-default .cm-atom { color: #569cd6; }
+.ncs-code-field .cm-s-default .cm-number { color: #b5cea8; }
+.ncs-code-field .cm-s-default .cm-def { color: #dcdcaa; }
+.ncs-code-field .cm-s-default .cm-variable,
+.ncs-code-field .cm-s-default .cm-variable-2,
+.ncs-code-field .cm-s-default .cm-property { color: #9cdcfe; }
+.ncs-code-field .cm-s-default .cm-operator { color: #d4d4d4; }
+.ncs-code-field .cm-s-default .cm-comment { color: #6a9955; }
+.ncs-code-field .cm-s-default .cm-string,
+.ncs-code-field .cm-s-default .cm-string-2 { color: #ce9178; }
+.ncs-code-field .cm-s-default .cm-meta { color: #d4d4d4; }
+.ncs-code-field .cm-s-default .cm-qualifier { color: #d7ba7d; }
+.ncs-code-field .cm-s-default .cm-builtin { color: #4ec9b0; }
+.ncs-code-field .cm-s-default .cm-bracket { color: #808080; }
+.ncs-code-field .cm-s-default .cm-tag { color: #569cd6; }
+.ncs-code-field .cm-s-default .cm-attribute { color: #9cdcfe; }
+.ncs-code-field .cm-s-default .cm-error { color: #f44747; }
+
+/* validity feedback below code editor */
+.ncs-validity-feedback {
+    margin-top: 8px;
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 4px;
+    border: 1px solid #333;
+}
+.ncs-validity-feedback .ncs-validity-valid {
+    color: #4ec9b0;
+}
+.ncs-validity-feedback .ncs-validity-invalid {
+    color: #f44747;
+}
+.ncs-validity-feedback .ncs-validity-message {
+    color: #ce9178;
+}
+.ncs-validity-feedback .ncs-validity-location {
+    color: #858585;
+}

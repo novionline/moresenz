@@ -1,0 +1,216 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Novi Online\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-25 15:03+0100\n"
+"PO-Revision-Date: 2026-02-25 15:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"POT-Revision-Date: Tue Jul 28 2020 10:14:17 GMT+0200 (Central European Summer Time)\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-KeywordsList: "
+"_:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;__:1;_e:1;_c:1;_n:1,2;_n_noop:1,2;_nc:1,2;__ngettext:1,2;__ngettext_noop:1,2;_x:1,2c;_ex:1,2c;_nx:1,2,4c;_nx_noop:1,2,3c;_n_js:1,2;_nx_js:1,2,3c;esc_attr__:1;esc_html__:1;esc_attr_e:1;esc_html_e:1;esc_attr_x:1,2c;esc_html_x:1,2c;comments_number_link:2,3;t:1;st:1;trans:1;transChoice:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+
+#: blocks/datalyzer-animated-grid/DatalyzerAnimatedGridBlock.php:30
+msgid "Display an animated grid SVG."
+msgstr "แสดงผล Grid SVG แบบเคลื่อนไหว"
+
+#: blocks/datalyzer-animated-grid/DatalyzerAnimatedGridBlock.php:65
+msgid "Datalyzer square grid"
+msgstr "Datalyzer square grid"
+
+#: blocks/datalyzer-dots-grid/DatalyzerDotsGridBlock.php:30
+msgid "Display an animated dots grid SVG."
+msgstr "แสดงผล Dots grid SVG แบบเคลื่อนไหว"
+
+#: blocks/datalyzer-dots-grid/DatalyzerDotsGridBlock.php:65
+msgid "Datalyzer dots grid"
+msgstr "Datalyzer dots grid"
+
+#: blocks/novi-menu/NoviMenuBlock.php:32
+msgid "Display a centralized WordPress menu."
+msgstr "แสดงผลเมนู WordPress แบบรวมศูนย์"
+
+#: blocks/novi-menu/NoviMenuBlock.php:107
+msgid "Novi menu"
+msgstr "Novi menu"
+
+#: blocks/novi-menu/partials/novi-menu.php:54
+msgid "Please select a menu."
+msgstr "กรุณาเลือกเมนู"
+
+#: blocks/novi-menu/partials/novi-menu.php:91
+#, php-format
+msgid "Toggle %s"
+msgstr "สลับ %s"
+
+#: classes/components/GravityFormsComponent.php:44
+msgid "Submit"
+msgstr "ส่งข้อมูล"
+
+#: classes/components/GravityFormsValidationComponent.php:62
+msgid "None"
+msgstr "ไม่มี"
+
+#: classes/components/GravityFormsValidationComponent.php:64
+msgid "Only a-z characters"
+msgstr "เฉพาะตัวอักษร a-z เท่านั้น"
+
+#: classes/components/GravityFormsValidationComponent.php:66
+msgid "Only +, spaces, round brackets and numeric values"
+msgstr "เฉพาะเครื่องหมาย +, เว้นวรรค, วงเล็บ และตัวเลขเท่านั้น"
+
+#: classes/components/GravityFormsValidationComponent.php:98
+#: classes/components/GravityFormsValidationComponent.php:116
+msgid "Regex Validation"
+msgstr "Regex Validation"
+
+#: classes/components/GravityFormsValidationComponent.php:117
+msgid ""
+"Select a validation pattern to restrict input for this field. The validation will be checked "
+"when the form is submitted."
+msgstr "เลือกรูปแบบการตรวจสอบเพื่อจำกัดการกรอกข้อมูลในฟิลด์นี้ ระบบจะตรวจสอบความถูกต้องเมื่อมีการส่งฟอร์ม"
+
+#: classes/components/GravityFormsValidationComponent.php:152
+msgid "This field can only contain letters (a-z)"
+msgstr "ฟิลด์นี้สามารถใส่ได้เฉพาะตัวอักษร (a-z) เท่านั้น"
+
+#: classes/components/GravityFormsValidationComponent.php:155
+msgid "This field can only contain numbers, spaces, the + character, and round brackets."
+msgstr "ฟิลด์นี้สามารถใส่ได้เฉพาะตัวเลข, เว้นวรรค, เครื่องหมาย + และวงเล็บเท่านั้น"
+
+#: classes/components/GravityFormsValidationComponent.php:157
+msgid "Invalid input format."
+msgstr "รูปแบบการกรอกข้อมูลไม่ถูกต้อง"
+
+#: classes/components/NectarBlocksComponent.php:47 classes/components/NectarBlocksComponent.php:48
+#: classes/components/NectarBlocksComponent.php:73 classes/components/NectarBlocksComponent.php:74
+msgid "Patterns"
+msgstr "Patterns"
+
+#: classes/components/OwnerRoleComponent.php:104
+msgid "Owner"
+msgstr "เจ้าของ"
+
+#: classes/components/SearchComponent.php:187 search.php:86
+msgid "Blog Post"
+msgstr "โพสต์บล็อก"
+
+#: classes/components/SearchComponent.php:189 search.php:88
+msgid "Page"
+msgstr "หน้า"
+
+#: classes/components/SearchComponent.php:191
+msgid "Portfolio Item"
+msgstr "รายการผลงาน"
+
+#: classes/components/SearchComponent.php:193 classes/post-types/ProductPostType.php:45
+#: search.php:90
+msgid "Product"
+msgstr "สินค้า"
+
+#: classes/post-types/CasePostType.php:53
+msgid "Case"
+msgstr "Case"
+
+#: classes/post-types/CasePostType.php:54
+msgid "Cases"
+msgstr "Cases"
+
+#: classes/post-types/CasePostType.php:77
+msgid "Case category"
+msgstr "หมวดหมู่ Case"
+
+#: classes/post-types/CasePostType.php:78
+msgid "Case categories"
+msgstr "หมวดหมู่ Case ทั้งหมด"
+
+#: classes/post-types/ProductPostType.php:46
+msgid "Products"
+msgstr "สินค้าทั้งหมด"
+
+#: classes/post-types/ResourcePostType.php:53
+msgid "Resource"
+msgstr "Resource"
+
+#: classes/post-types/ResourcePostType.php:54
+msgid "Resources"
+msgstr "Resources"
+
+#: classes/post-types/ResourcePostType.php:77
+msgid "Resource category"
+msgstr "หมวดหมู่ Resource"
+
+#: classes/post-types/ResourcePostType.php:78
+msgid "Resource categories"
+msgstr "หมวดหมู่ Resource ทั้งหมด"
+
+#: classes/post-types/SolutionPostType.php:45
+msgid "Solution"
+msgstr "โซลูชัน"
+
+#: classes/post-types/SolutionPostType.php:46
+msgid "Solutions"
+msgstr "โซลูชันทั้งหมด"
+
+#: classes/post-types/VacancyPostType.php:45
+msgid "Vacancy"
+msgstr "ตำแหน่งงานว่าง"
+
+#: classes/post-types/VacancyPostType.php:46
+msgid "Vacancies"
+msgstr "ตำแหน่งงานว่างทั้งหมด"
+
+#: classes/scripts/FrontendScripts.php:32
+msgid "Add to module list"
+msgstr "เพิ่มลงในรายการมอดูล"
+
+#: classes/scripts/FrontendScripts.php:33
+msgid "Added to module list"
+msgstr "เพิ่มลงในรายการมอดูลแล้ว"
+
+#: search.php:44
+msgid "Results For"
+msgstr "ผลการค้นหาสำหรับ"
+
+#: search.php:47
+msgid "results found"
+msgstr "รายการที่พบ"
+
+#: search.php:146
+msgid "Sorry, no results were found."
+msgstr "ขออภัย ไม่พบผลการค้นหา"
+
+#: search.php:147
+msgid "Please try again with different keywords."
+msgstr "กรุณาลองใหม่อีกครั้งด้วยคำสำคัญอื่น"
+
+#. Theme Name of the plugin/theme
+msgid "Nectarblocks Child Theme"
+msgstr "Nectarblocks Child Theme"
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://nectarblocks.com"
+msgstr "https://nectarblocks.com"
+
+#. Description of the plugin/theme
+msgid "Child theme for Nectarblocks."
+msgstr "ธีมลูกสำหรับ Nectarblocks"
+
+#. Author of the plugin/theme
+msgid "NectarBlocks"
+msgstr "NectarBlocks"

@@ -1,0 +1,831 @@
+/* Novi Login – static two-column layout */
+
+/* brand palette and typography tokens (Sora-based) */
+:root {
+    --nectar-gc-ARhfHdTk7F: #ffffff;
+    --nectar-gc-SbGo7AY24c: #9c6af1;
+    --nectar-gc-2fSGF7oI2P: #443364;
+    --nectar-gc-ekPPEdSHkU: #45355f;
+    --nectar-gc-5RjK03enQw: #beb8c7;
+    --nectar-gc-t7SlFf58ym: #2f1e4c;
+    --nectar-gc-7LmOM0UkCk: #f3f2f5;
+    --nectar-gc-MChZtvlvLK: #a4fda1;
+    --nectar-gc-txmGLhu6qr: #f05e5e;
+    --nectar-gc-g7jOSfdaGZ: #ddfedc;
+    --nectar-gc-S8Dv5Un4eJ: #066e02;
+
+    --light: #fbfaf9;
+    --accentLight: #fafaff;
+    --accentPrimary: #945ef0;
+    --accentDark: #392954;
+    --dark: #160237;
+
+    --nectar-gc-gxN1razFxQ: linear-gradient(135deg, rgba(189, 12, 8, 1) 0%, rgba(245, 85, 54, 1) 100%);
+    --nectar-gc-yX9shT38ar: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0.00%, rgba(0, 0, 0, 0.1) 100.00%);
+    --gradient-1: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0.00%, rgba(0, 0, 0, 0.15) 100.00%);
+    --gradient-2: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0.00%, rgba(0, 0, 0, 0.15) 74.00%, rgb(22, 2, 55) 100.00%);
+    --gradient-3: linear-gradient(180deg, #fbfaf9 0%, #f6c062 100%);
+    --gradient-4: linear-gradient(135deg, #e8e6e0 0%, #000000 100%);
+    --gradient-5: linear-gradient(225deg, #fbfaf9 25%, rgba(251, 250, 249, 0.2) 100%);
+
+    --body-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --body-font-style: normal;
+    --body-font-weight: 200;
+    --body-letter-spacing: 0em;
+    --body-text-transform: none;
+    --body-color: var(--nectar-gc-ekPPEdSHkU);
+
+    --h1-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h1-font-style: normal;
+    --h1-font-weight: 600;
+    --h1-letter-spacing: -0.04em;
+    --h1-text-transform: none;
+    --h1-color: var(--dark);
+
+    --h2-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h2-font-style: normal;
+    --h2-font-weight: 600;
+    --h2-letter-spacing: -0.04em;
+    --h2-text-transform: none;
+    --h2-color: var(--dark);
+
+    --h3-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h3-font-style: normal;
+    --h3-font-weight: 600;
+    --h3-letter-spacing: -1.198px;
+    --h3-text-transform: none;
+    --h3-color: var(--dark);
+
+    --h4-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h4-font-style: normal;
+    --h4-font-weight: 600;
+    --h4-letter-spacing: -0.04em;
+    --h4-text-transform: none;
+    --h4-color: var(--dark);
+
+    --h5-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h5-font-style: normal;
+    --h5-font-weight: 600;
+    --h5-letter-spacing: -0.04em;
+    --h5-text-transform: none;
+    --h5-color: var(--dark);
+
+    --h6-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --h6-font-style: normal;
+    --h6-font-weight: 600;
+    --h6-letter-spacing: -0.04em;
+    --h6-text-transform: none;
+    --h6-color: var(--dark);
+
+    --label-font-family: Sora, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --label-font-style: normal;
+    --label-font-weight: 600;
+    --label-letter-spacing: 0em;
+
+    --nectar-accent-color: var(--accentPrimary);
+    --nectar-accent-text-color: #ffffff;
+    --nectar-header-font-color: #45355f;
+    --nectar-border-radius: 0px;
+}
+
+body.login {
+    margin: 0;
+    padding: 0;
+
+    /* core design tokens – Novi branding (matches novionline.css) */
+    --novi-login-bg-image: none;
+    --novi-login-overlay-color: #000000;
+    --novi-login-overlay-opacity: 0.2;
+    --novi-login-text-color: var(--light);
+    --novi-login-accent-color: var(--accentPrimary);
+    --novi-login-card-bg: #ffffff;
+    --novi-login-card-text-color: var(--dark);
+    --novi-login-surface-radius: 0;
+    --novi-login-gutter: 2rem;
+    --novi-login-max-width: 100%;
+    --novi-login-font-family: var(--body-font-family);
+
+    /* form/input and button tokens – Novi typography and colors */
+    --novi-font-heading: var(--h1-font-family);
+    --novi-font-body: var(--body-font-family);
+    --novi-font-button: var(--body-font-family);
+    --novi-font-label: var(--label-font-family);
+    --novi-font-color-primary: var(--nectar-header-font-color, var(--body-color));
+    --novi-font-color-secondary: var(--accentPrimary);
+    --novi-color-primary: var(--dark);
+    --novi-color-light: var(--light);
+    --novi-color-body-accent: var(--nectar-gc-7LmOM0UkCk, #f3f2f5);
+    --novi-input-field-height: 4rem;
+    --novi-input-color: var(--nectar-gc-5RjK03enQw, #beb8c7);
+    --novi-input-border-color: var(--nectar-gc-5RjK03enQw, #beb8c7);
+    --novi-input-background-color: transparent;
+    --novi-shadow-sm: none;
+    --novi-button-border-radius: var(--nectar-border-radius, 0);
+    --novi-border-radius-sm: var(--nectar-border-radius, 0);
+    --novi-btn-primary-back: var(--accentPrimary);
+    --novi-btn-primary-front: var(--nectar-accent-text-color, #ffffff);
+    --novi-btn-primary-back-hover: #9c6af1;
+    --novi-btn-primary-front-hover: var(--nectar-accent-text-color, #ffffff);
+    --novi-btn-primary-light-back: var(--light);
+    --novi-btn-primary-light-front: var(--dark);
+}
+
+body.login * {
+    box-sizing: border-box;
+}
+
+body.login div::selection,
+body.login p::selection,
+body.login i::selection,
+body.login u::selection,
+body.login strong::selection,
+body.login em::selection,
+body.login span::selection,
+body.login a::selection,
+body.login li::selection,
+body.login h1::selection,
+body.login h2::selection,
+body.login h3::selection,
+body.login h4::selection,
+body.login h5::selection,
+body.login h6::selection,
+body.login input::selection,
+body.login textarea::selection,
+body.login label::selection,
+body.login legend::selection,
+body.login time::selection,
+body.login mark::selection {
+    background-color: var(--nectar-accent-color, purple);
+    color: var(--nectar-gc-ARhfHdTk7F, white);
+}
+
+body.login #login {
+    margin: 0;
+    padding: 0;
+}
+
+body.login #backtoblog,
+body.login #nav {
+    text-align: center;
+}
+
+.novi-login {
+    container-type: inline-size;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: var(--novi-login-font-family);
+}
+
+/* design-system headings and labels inside novi-login */
+.novi-login h1 {
+    font-family: var(--h1-font-family);
+    font-style: var(--h1-font-style);
+    font-weight: var(--h1-font-weight);
+    letter-spacing: var(--h1-letter-spacing);
+    text-transform: var(--h1-text-transform);
+    color: var(--h1-color);
+    line-height: 1em;
+    font-size: 4rem;
+    text-align: left;
+}
+
+.novi-login h2 {
+    font-family: var(--h2-font-family);
+    font-style: var(--h2-font-style);
+    font-weight: var(--h2-font-weight);
+    letter-spacing: var(--h2-letter-spacing);
+    text-transform: var(--h2-text-transform);
+    color: var(--h2-color);
+    line-height: 1.15em;
+    font-size: 3rem;
+}
+
+.novi-login h3 {
+    font-family: var(--h3-font-family);
+    font-style: var(--h3-font-style);
+    font-weight: var(--h3-font-weight);
+    letter-spacing: var(--h3-letter-spacing);
+    text-transform: var(--h3-text-transform);
+    color: var(--h3-color);
+    line-height: 1.15em;
+    font-size: 2rem;
+}
+
+.novi-login h4 {
+    font-family: var(--h4-font-family);
+    font-style: var(--h4-font-style);
+    font-weight: var(--h4-font-weight);
+    letter-spacing: var(--h4-letter-spacing);
+    text-transform: var(--h4-text-transform);
+    color: var(--h4-color);
+    line-height: 1.3em;
+    font-size: 2rem;
+}
+
+.novi-login h5 {
+    font-family: var(--h5-font-family);
+    font-style: var(--h5-font-style);
+    font-weight: var(--h5-font-weight);
+    letter-spacing: var(--h5-letter-spacing);
+    text-transform: var(--h5-text-transform);
+    color: var(--h5-color);
+    line-height: 1.15em;
+    font-size: 1.5rem;
+}
+
+.novi-login h6 {
+    font-family: var(--h6-font-family);
+    font-style: var(--h6-font-style);
+    font-weight: var(--h6-font-weight);
+    letter-spacing: var(--h6-letter-spacing);
+    text-transform: var(--h6-text-transform);
+    color: var(--h6-color);
+    line-height: 1.6em;
+    font-size: 1.25rem;
+}
+
+@media (max-width: 1024px) {
+    .novi-login h1 { font-size: 4rem; }
+    .novi-login h2 { font-size: 3rem; }
+    .novi-login h3 { font-size: 2.5rem; }
+}
+
+@media (max-width: 767px) {
+    .novi-login h1 { font-size: 3rem; }
+    .novi-login h2 { font-size: 2.5rem; }
+    .novi-login h3 { font-size: 2rem; }
+    .novi-login h4 { font-size: 1.5rem; }
+    .novi-login h5 { font-size: 1.25rem; }
+    .novi-login h6 { font-size: 1rem; }
+}
+
+.novi-login label {
+    font-family: var(--label-font-family);
+    font-style: var(--label-font-style);
+    font-weight: var(--label-font-weight);
+    letter-spacing: var(--label-letter-spacing);
+    font-size: 1rem;
+    line-height: 2em;
+}
+
+.novi-login__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.novi-login__panel--left {
+    position: relative;
+    flex: 1 1 55%;
+    color: var(--novi-login-text-color);
+    background-color: var(--dark);
+    padding: calc(var(--novi-login-gutter) * 1.5);
+    overflow: hidden;
+}
+
+.novi-login__panel--left::before {
+    content: '';
+    position: absolute;
+    left: -25%;
+    top: -25%;
+    width: 150%;
+    height: 150%;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse 90% 80% at 50% 50%, rgba(148, 94, 240, 0.55) 0%, rgba(148, 94, 240, 0.15) 45%, rgba(148, 94, 240, 0.04) 70%, transparent 85%);
+    animation: novi-login-bg-pulse 14s ease-in-out infinite alternate;
+}
+
+.novi-login__background {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.novi-login__background-art {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    animation: novi-login-svg-drift var(--drift-duration,90s) linear infinite alternate;
+}
+
+@keyframes novi-login-bg-pulse {
+    0% {
+        transform: translate(-12%, 10%);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(12%, -10%);
+        opacity: 1;
+    }
+}
+
+@keyframes novi-login-svg-drift {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(var(--drift-x, 45px), var(--drift-y, -28px)) rotate(var(--drift-rotate, 3deg));
+    }
+}
+
+.novi-login__panel-inner {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+}
+
+.novi-login__brand {
+    margin: 0 0 calc(var(--novi-login-gutter) * 1.5);
+    max-width: 5rem;
+}
+
+.novi-login__brand-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.novi-login__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--novi-login-gutter);
+    flex: 1;
+    justify-content: center;    
+}
+
+/* h1 styling – left panel heading (color overridden for dark bg) */
+.novi-login__heading {
+    margin: 0;
+    font-family: var(--h1-font-family);
+    font-style: var(--h1-font-style);
+    font-weight: var(--h1-font-weight);
+    letter-spacing: var(--h1-letter-spacing);
+    text-transform: var(--h1-text-transform);
+    color: var(--novi-login-text-color);
+    line-height: 1em;
+    font-size: 5rem;
+}
+
+@media (max-width: 1024px) {
+    .novi-login__heading {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .novi-login__heading {
+        font-size: 3rem;
+    }
+}
+
+/* ensure left-panel heading is light on dark background */
+.novi-login__panel--left .novi-login__heading {
+    color: var(--light);
+}
+
+.novi-login__intro {
+    margin: 0;
+    font-size: 1.125rem;
+}
+
+.novi-login__support {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.novi-login__support-card {
+    gap: 0.5rem;
+    max-width: 37.5rem;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;    
+    align-items: flex-start;
+    background-color: var(--novi-login-card-bg);
+    color: var(--novi-login-card-text-color);
+    border-radius: var(--novi-login-surface-radius);
+    padding: 2rem;
+    clip-path: polygon(0 0, calc(100% - 1.5rem) 0, 100% 1.5rem, 100% 100%, 1.5rem 100%, 0 calc(100% - 1.5rem));    
+}
+
+/* h4 styling – support card title */
+.novi-login__support-title {
+    margin: 0 0 0.5rem;
+    font-family: var(--h4-font-family);
+    font-style: var(--h4-font-style);
+    font-weight: var(--h4-font-weight);
+    letter-spacing: var(--h4-letter-spacing);
+    text-transform: var(--h4-text-transform);
+    color: var(--h4-color);
+    line-height: 1.3em;
+    font-size: 2rem;
+}
+
+@media (max-width: 767px) {
+    .novi-login__support-title {
+        font-size: 1.5rem;
+    }
+}
+
+.novi-login__support-text {
+    margin: 0 0 1rem;
+    font-size: 1.125rem;
+}
+
+.novi-login__support-body {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: calc(var(--novi-login-gutter) * 0.75);
+}
+
+.novi-login__support-avatar {
+    margin: 0;
+    width: 6rem;
+    height: auto;
+    clip-path: polygon(0 0, calc(100% - 1rem) 0, 100% 1rem, 100% 100%, 1rem 100%, 0 calc(100% - 1rem));    
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.novi-login__support-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.novi-login__support-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex: 1 1 auto;
+}
+
+.novi-login__support-person {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.125rem;    
+}
+
+.novi-login__support-name {
+    display: block;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.novi-login__support-role {
+    margin: 0;
+    font-size: .875rem;
+}
+
+.novi-login__support-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.novi-login__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6875rem 1.5rem;
+    border-radius: var(--novi-button-border-radius);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+    font-family: var(--novi-font-button), sans-serif;
+    font-size: 1rem;
+    line-height: 1.25em;
+    font-weight: 500;
+    text-decoration: none;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    outline: none;
+    text-shadow: none;
+    box-shadow: none;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+}
+
+.novi-login__button--primary {
+    background-color: var(--novi-btn-primary-back);
+    color: var(--novi-btn-primary-front);
+    border: none;
+}
+
+.novi-login__button--primary:hover,
+.novi-login__button--primary:focus {
+    background-color: var(--novi-btn-primary-back-hover);
+    color: var(--novi-btn-primary-front-hover);
+}
+
+.novi-login__button--secondary {
+    background-color: transparent;
+    color: var(--novi-btn-primary-back);
+    border: 1px solid var(--novi-btn-primary-back);
+}
+
+.novi-login__button--secondary:hover,
+.novi-login__button--secondary:focus {
+    background-color: var(--novi-btn-primary-back);
+    color: var(--novi-btn-primary-front);
+    border-color: var(--novi-btn-primary-back);
+}
+
+.novi-login__button-text {
+    white-space: nowrap;
+}
+
+.novi-login__panel--right {
+    flex: 1 1 45%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    background-color: var(--accentLight);
+}
+
+.novi-login__form-inner {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    margin: auto;
+    max-width: 31.25rem;
+    width: calc(100% - 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.novi-login__client-logo {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.novi-login__client-logo .custom-logo-link,
+.novi-login__client-logo .novi-login__client-logo-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.novi-login__client-logo img,
+.novi-login__client-logo .novi-login__client-logo-img {
+    max-width: 200px;
+    height: auto;
+}
+
+.novi-login__client-logo--text {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+/* restyle core login box inside novi-login layout */
+
+.novi-login #login {
+    margin: auto !important;
+    width: calc(100% - 3rem);
+    max-width: 31.25rem;
+}
+
+.novi-login #login form {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 3rem 2rem;
+    border: 1px solid var(--novi-color-body-accent);
+    border-radius: var(--novi-border-radius-sm, 1rem);
+    background-color: var(--novi-login-card-bg);
+    box-shadow: var(--novi-shadow-sm);
+    filter: drop-shadow(1px 3px 4px rgba(0, 0, 0, .06));
+}
+
+/* material input (floating label) */
+.novi-login #login form .material-input {
+    position: relative;
+    height: 100%;
+}
+
+.novi-login #login form .material-input label {
+    position: absolute;
+    top: calc(1em / 2 + (var(--novi-input-field-height) / 3));
+    left: calc(var(--novi-input-field-height) / 4);
+    color: var(--novi-input-color);
+    transform-origin: left center;
+    transform: translateY(-50%) scale(1);
+    transition: 0.1s ease-in-out all;
+    user-select: none;
+    opacity: 1;
+    font-size: 1rem;
+    padding: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.novi-login #login form .material-input label:empty {
+    display: none;
+}
+
+.novi-login #login form .material-input .input {
+    height: var(--novi-input-field-height);
+    font-size: 1.25rem;
+    padding-inline: calc(var(--novi-input-field-height) / 6);
+    border-color: var(--novi-input-border-color);
+    background-color: var(--novi-input-background-color);
+    margin: 0;
+    border-radius: var(--novi-border-radius-sm);
+    outline: none;
+}
+
+.novi-login #login form .material-input .input:focus {
+    outline: 2px solid var(--novi-btn-primary-back);
+    outline-offset: 0;
+}
+
+.novi-login #login form .material-input.material-input--active label {
+    opacity: 0.8;
+    color: var(--novi-font-color-primary);
+    top: calc(var(--novi-input-field-height) / 14);
+    left: calc(var(--novi-input-field-height) / 6);
+    transform: scale(0.7);
+}
+
+.novi-login #login form .material-input.material-input--active .input {
+    padding: calc(var(--novi-input-field-height) / 3) calc(var(--novi-input-field-height) / 6) 0;
+}
+
+.novi-login #login form .material-input + .button.wp-hide-pw {
+    height: var(--novi-input-field-height);
+}
+
+.novi-login #login label {
+    font-weight: 500;
+}
+
+.novi-login #login .input,
+.novi-login #login input[type="text"],
+.novi-login #login input[type="password"] {
+    border-radius: var(--novi-border-radius-sm);
+}
+
+.novi-login #login input[type="submit"] {
+    width: 100%;
+    min-height: 3.5rem;
+    align-items: center;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    display: inline-flex;
+    padding: 0.6875rem 1.5rem;
+    font-family: var(--novi-font-button), sans-serif;
+    font-size: 1rem;
+    line-height: 1.25em;
+    outline: none;
+    text-shadow: none;
+    box-shadow: none;
+    text-decoration: none;
+    border-radius: var(--novi-button-border-radius);
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    background-color: var(--novi-btn-primary-back);
+    color: var(--novi-btn-primary-front);
+    border: none;
+}
+
+.novi-login #login input[type="submit"]:hover,
+.novi-login #login input[type="submit"]:focus {
+    background-color: var(--novi-btn-primary-back-hover);
+    color: var(--novi-btn-primary-front-hover);
+}
+
+.novi-login.novi-login--dark #login input[type="submit"] {
+    background-color: var(--novi-btn-primary-light-back);
+    color: var(--novi-btn-primary-light-front);
+}
+
+.novi-login.novi-login--dark #login input[type="submit"]:hover,
+.novi-login.novi-login--dark #login input[type="submit"]:focus {
+    background-color: var(--novi-btn-primary-light-back);
+    color: var(--novi-btn-primary-light-front);
+    opacity: 0.9;
+}
+
+.novi-login #login .button-primary {
+    width: 100%;
+    min-height: 3.5rem;
+    border-radius: var(--novi-button-border-radius);
+    background: var(--novi-btn-primary-back);
+    color: var(--novi-btn-primary-front);
+    border-color: transparent;
+    box-shadow: none;
+    text-shadow: none;
+}
+
+.novi-login #login .button-primary:hover,
+.novi-login #login .button-primary:focus {
+    background: var(--novi-btn-primary-back-hover);
+    color: var(--novi-btn-primary-front-hover);
+}
+
+.novi-login #loginform,
+.novi-login #lostpasswordform {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.novi-login p.forgetmenot {
+    display: flex;
+    align-items: center;
+    gap: 0.375em;
+}
+
+/* notice and links */
+.novi-login #login .notice {
+    margin-top: 1rem;
+}
+
+.novi-login #login .notice > p {
+    font-size: 0.875rem;
+}
+
+.novi-login #login a,
+.novi-login .novi-login__form-inner a,
+.novi-login__support-website {
+    text-decoration: none;
+    opacity: 1;
+    font-weight: 500;
+    transition: 0.2s ease-in-out opacity;
+    color: var(--novi-font-color-primary);
+}
+
+.novi-login #login a:hover,
+.novi-login .novi-login__form-inner a:hover,
+.novi-login__support-website:hover {
+    opacity: 0.75;
+    color: var(--novi-font-color-primary);
+}
+
+.novi-login #nav,
+.novi-login #backtoblog {
+    margin: 0.5rem 0 0;
+}
+
+/* responsive */
+
+@media (max-width: 1280px) {
+    .novi-login {
+        grid-template-columns: revert;
+    }
+
+    .novi-login__panel--left {
+        display: none;
+    }
+}
+
+@media (max-width: 960px) {
+    .novi-login__panel--left {
+        flex-basis: auto;
+        min-height: 50vh;
+    }
+
+    .novi-login__panel-inner {
+        max-width: none;
+    }
+
+    .novi-login__panel--right {
+        flex-basis: auto;
+    }
+
+    .novi-login__form-inner {
+        min-height: auto;
+        padding-top: var(--novi-login-gutter);
+        padding-bottom: var(--novi-login-gutter);
+    }
+
+    .novi-login #login {
+        width: calc(100% - 1rem);
+    }
+}
+
+@media (max-height: 640px) {
+    .novi-login__brand {
+        display: none;
+    }
+}
+

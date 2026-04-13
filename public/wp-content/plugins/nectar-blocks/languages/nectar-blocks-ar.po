@@ -1,0 +1,5864 @@
+# Copyright (C) 2023 J$ + P$
+# This file is distributed under the same license as the Nectar Blocks plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Nectar Blocks 0.0.9\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/nectar-blocks\n"
+"POT-Creation-Date: 2023-12-13T16:22:55+00:00\n"
+"PO-Revision-Date: 2024-05-23 08:48-0400\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Domain: nectar-blocks\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#: includes/API/Media/Image_Upload_API.php:71
+msgid "Error accessing unsplash image"
+msgstr "خطأ في الوصول إلى صورة unsplash"
+
+#: includes/API/Media/Image_Upload_API.php:84
+msgid "Image upload failure, please try again. Errors: "
+msgstr "فشل تحميل الصورة، يرجى المحاولة مرة أخرى. "
+
+#: includes/API/Media/Image_Upload_API.php:89
+msgid "Image type could not be determined"
+msgstr "لا يمكن تحديد نوع الصورة"
+
+#: includes/API/Media/Image_Upload_API.php:106
+msgid "Unable to insert attachment."
+msgstr "غير قادر على إدراج المرفق."
+
+#: includes/API/Media/Image_Upload_API.php:115
+msgid "Image uploaded successfully. "
+msgstr "تم تحميل الصورة بنجاح. "
+
+#: includes/Editor/Blocks.php:663 build/editor.js:17985 build/editor.js:20365
+#: build/editor.js:87912 build/editor.js:88600
+msgid "Desktop"
+msgstr "سطح المكتب"
+
+#: includes/Editor/Blocks.php:664 build/editor.js:17985 build/editor.js:20379
+#: build/editor.js:87912 build/editor.js:88604
+msgid "Tablet"
+msgstr "الكمبيوتر اللوحي"
+
+#: includes/Editor/Blocks.php:665
+msgid "Phone"
+msgstr "الهاتف"
+
+#: includes/Global_Settings/Global_Colors.php:93
+msgid "Core Gradient #1"
+msgstr "Core Gradient #1"
+
+#: includes/Global_Settings/Global_Colors.php:98
+msgid "Core Gradient #2"
+msgstr "Core Gradient #2"
+
+#: includes/Global_Settings/Global_Colors.php:103
+msgid "Core Gradient #3"
+msgstr "Core Gradient #3"
+
+#: includes/Global_Settings/Global_Colors.php:129
+msgid "Light"
+msgstr "Light"
+
+#: includes/Global_Settings/Global_Colors.php:134
+msgid "Accent Light"
+msgstr "Accent Light"
+
+#: includes/Global_Settings/Global_Colors.php:139
+msgid "Accent Primary"
+msgstr "Accent Primary"
+
+#: includes/Global_Settings/Global_Colors.php:144
+msgid "Accent Dark"
+msgstr "Accent Dark"
+
+#: includes/Global_Settings/Global_Colors.php:149
+msgid "Dark"
+msgstr "Dark"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+msgid "By"
+msgstr "بواسطة"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:358
+#: includes/Render/Blocks/PostGrid/PostGrid.php:362 build/editor.js:61438
+msgid "Read More"
+msgstr "اقرأ المزيد"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:715
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219
+#: build/editor.js:62689
+msgid "Load More"
+msgstr "تحميل المزيد"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:716
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220
+#: build/editor.js:42034 build/editor.js:52698
+msgid "Previous"
+msgstr "السابق"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:717
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221
+#: build/editor.js:42042 build/editor.js:52710
+msgid "Next"
+msgstr "التالى"
+
+#: build/adminPanel.js:1435
+msgid "Save Options"
+msgstr "حفظ الخيارات"
+
+#: includes/Menu_Options/Modal.php:58 build/adminPanel.js:1438
+msgid "Error Saving"
+msgstr "Error Saving"
+
+#: build/adminPanel.js:1441
+msgid "Options Saved"
+msgstr "الخيارات المحفوظة"
+
+#: build/adminPanel.js:1639
+msgid "Active License"
+msgstr "رخصة نشطة"
+
+#: build/adminPanel.js:1642
+msgid "Invalid License"
+msgstr "رخصة غير صالحة"
+
+#: build/adminPanel.js:1714
+msgid "Theme License Code"
+msgstr "رمز ترخيص القالب"
+
+#: build/adminPanel.js:1848
+msgid "Custom CSS"
+msgstr "CSS مخصص"
+
+#: build/adminPanel.js:3348
+msgid "Authorization"
+msgstr "تسجيل دخول"
+
+#: build/adminPanel.js:3360
+msgid "Custom Code"
+msgstr "كود مخصص"
+
+#: includes/Menu_Options/Setting_Field.php:264
+#: includes/Menu_Options/Setting_Field.php:304
+#: includes/Menu_Options/Setting_Field.php:337 build/editor.js:19164
+#: build/editor.js:20003 build/editor.js:23279 build/editor.js:24691
+#: build/editor.js:27874 build/editor.js:29717 build/editor.js:30284
+#: build/editor.js:35635 build/editor.js:55672 build/editor.js:61332
+#: build/editor.js:75005 build/editor.js:85898 build/editor.js:86404
+#: build/editor.js:89854 build/editor.js:94108
+msgid "Remove"
+msgstr "إزالة"
+
+#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:17369
+#: build/editor.js:18253 build/editor.js:20702 build/editor.js:28459
+#: build/editor.js:28809 build/editor.js:29243 build/editor.js:34349
+#: build/editor.js:34865 build/editor.js:39370 build/editor.js:53950
+#: build/editor.js:60338 build/editor.js:61746 build/editor.js:74174
+#: build/editor.js:86146 build/editor.js:86504 build/editor.js:86515
+#: build/editor.js:86595 build/editor.js:90060 build/editor.js:94283
+msgid "None"
+msgstr "لا شيء"
+
+#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
+#: build/blocks/post-grid/frontend-script.js:256 build/editor.js:19348
+#: build/editor.js:46085 build/editor.js:46624 build/editor.js:53515
+#: build/editor.js:61743 build/editor.js:62276 build/editor.js:62328
+#: build/editor.js:63835
+msgid "Default"
+msgstr "افتراضي"
+
+#: build/adminPanel.js:2091 build/adminPanel.js:2119 build/editor.js:88825
+#: build/editor.js:93959
+msgid "Delete"
+msgstr "حذف"
+
+#: includes/Menu_Options/Modal.php:314 build/editor.js:38005
+#: build/editor.js:39518 build/editor.js:40596 build/editor.js:48020
+#: build/editor.js:48210 build/editor.js:49040 build/editor.js:49441
+#: build/editor.js:49443 build/editor.js:49984 build/editor.js:50096
+#: build/editor.js:70925 build/editor.js:79565 build/editor.js:84630
+msgid "Icon"
+msgstr "أيقونة"
+
+#: includes/Global_Sections/Global_Sections.php:144
+#: includes/Menu_Options/Setting_Field.php:385 build/editor.js:17255
+#: build/editor.js:20535 build/editor.js:23677 build/editor.js:23969
+#: build/editor.js:33527 build/editor.js:42270 build/editor.js:48506
+#: build/editor.js:70173 build/editor.js:70183 build/editor.js:70190
+#: build/editor.js:70210
+msgid "Top"
+msgstr "أعلى"
+
+#: includes/Global_Sections/Global_Sections.php:203
+#: includes/Menu_Options/Setting_Field.php:386 build/editor.js:17317
+#: build/editor.js:20538 build/editor.js:33531 build/editor.js:42282
+#: build/editor.js:48518 build/editor.js:70169 build/editor.js:70176
+#: build/editor.js:70196 build/editor.js:70213
+msgid "Bottom"
+msgstr "الأسفل"
+
+#: build/adminPanel.js:3366 build/editor.js:21810 build/editor.js:36748
+msgid "Custom Fonts"
+msgstr "الخطوط المخصصة"
+
+#: includes/Editor/Post_Meta.php:76 build/editor.js:26667
+#: build/editor.js:37282 build/editor.js:84389 build/editor.js:84750
+#: build/editor.js:101005
+msgid "Video"
+msgstr "فيديو"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:153
+#: build/editor.js:18256 build/editor.js:20978 build/editor.js:28806
+#: build/editor.js:62286 build/editor.js:95855
+msgid "All"
+msgstr "الكل"
+
+#: build/adminPanel.js:2880 build/editor.js:37730 build/editor.js:39381
+#: build/editor.js:40568 build/editor.js:41592 build/editor.js:43080
+#: build/editor.js:45071 build/editor.js:46333 build/editor.js:47310
+#: build/editor.js:48208 build/editor.js:49297 build/editor.js:49975
+#: build/editor.js:52605 build/editor.js:56958 build/editor.js:57965
+#: build/editor.js:58777 build/editor.js:65012 build/editor.js:66529
+#: build/editor.js:68083 build/editor.js:68704 build/editor.js:69301
+#: build/editor.js:70894 build/editor.js:76791 build/editor.js:77778
+#: build/editor.js:78726 build/editor.js:82439 build/editor.js:84061
+#: build/editor.js:85431
+msgid "General Settings"
+msgstr "الإعدادات العامة"
+
+#: includes/Editor/Post_Meta.php:93 build/editor.js:48239
+#: build/editor.js:49169 build/editor.js:50752 build/editor.js:54623
+#: build/editor.js:70931 build/editor.js:101033
+msgid "Description"
+msgstr "الوصف"
+
+#: includes/Editor/Post_Meta.php:43 build/editor.js:61435
+#: build/editor.js:63077 build/editor.js:75673 build/editor.js:100992
+msgid "Date"
+msgstr "التاريخ"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:61
+#: includes/Dynamic_Data/Dynamic_Helpers.php:65
+#: includes/Dynamic_Data/Dynamic_Helpers.php:69
+#: includes/Dynamic_Data/Dynamic_Helpers.php:74
+#: includes/Dynamic_Data/Dynamic_Helpers.php:79
+#: includes/Dynamic_Data/Dynamic_Helpers.php:83
+#: includes/Dynamic_Data/Dynamic_Helpers.php:87 build/editor.js:61437
+#: build/editor.js:63076 build/editor.js:75672
+msgid "Author"
+msgstr "مؤلف"
+
+#: includes/Menu_Options/Settings.php:107 build/editor.js:62601
+msgid "Button Color"
+msgstr "لون الزر"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:50 build/editor.js:19004
+#: build/editor.js:63302 build/editor.js:75847
+msgid "Post Type"
+msgstr "نوع المشاركة"
+
+#: includes/Menu_Options/Modal.php:323 build/editor.js:95480
+msgid "Close"
+msgstr "إغلاق"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:95870
+msgid "Media"
+msgstr "الوسائط"
+
+#: includes/Portfolio/Portfolio_Register.php:71
+#: includes/Portfolio/Portfolio_Register.php:81 build/editor.js:95876
+msgid "Portfolio"
+msgstr "المحفظة"
+
+#: build/adminPanel.js:2558 build/adminPanel.js:2743 build/adminPanel.js:3091
+#: build/editor.js:96944
+msgid "Global Settings"
+msgstr "الإعدادات العامة"
+
+#: build/adminPanel.js:2753 build/editor.js:100761
+msgid "Global Colors"
+msgstr "الألوان العالمية"
+
+#: build/adminPanel.js:2755 build/adminPanel.js:3286 build/editor.js:100804
+msgid "Global Typography"
+msgstr "الطباعة العالمية"
+
+#: build/blocks/button/block.json
+msgctxt "block title"
+msgid "Nectar Button"
+msgstr "زر الرحيق"
+
+#: build/blocks/button/block.json
+msgctxt "block description"
+msgid "Button block."
+msgstr "كتلة الزر."
+
+#: build/blocks/column/block.json
+msgctxt "block title"
+msgid "Nectar Column"
+msgstr "عمود الرحيق"
+
+#: build/blocks/column/block.json
+msgctxt "block description"
+msgid "Column container block."
+msgstr "كتلة حاوية العمود."
+
+#: build/blocks/divider/block.json
+msgctxt "block title"
+msgid "Nectar Divider"
+msgstr "مقسم الرحيق"
+
+#: build/blocks/divider/block.json
+msgctxt "block description"
+msgid "Divider block."
+msgstr "كتلة المقسم."
+
+#: build/blocks/icon/block.json
+msgctxt "block title"
+msgid "Nectar Icon"
+msgstr "أيقونة الرحيق"
+
+#: build/blocks/icon/block.json
+msgctxt "block description"
+msgid "Icon block."
+msgstr "كتلة أيقونة."
+
+#: build/blocks/image-gallery/block.json
+msgctxt "block title"
+msgid "Nectar Image Gallery"
+msgstr "معرض صور الرحيق"
+
+#: build/blocks/image-gallery/block.json
+msgctxt "block description"
+msgid "Image Gallery block."
+msgstr "كتلة معرض الصور."
+
+#: build/blocks/image/block.json
+msgctxt "block title"
+msgid "Nectar Image"
+msgstr "صورة الرحيق"
+
+#: build/blocks/image/block.json
+msgctxt "block description"
+msgid "Image block."
+msgstr "كتلة الصورة."
+
+#: build/blocks/milestone/block.json
+msgctxt "block title"
+msgid "Nectar Milestone"
+msgstr "معلم الرحيق"
+
+#: build/blocks/milestone/block.json
+msgctxt "block description"
+msgid "Milestone block."
+msgstr "كتلة معلم."
+
+#: build/blocks/post-grid/block.json
+msgctxt "block title"
+msgid "Post Grid"
+msgstr "شبكة البريد"
+
+#: build/blocks/post-grid/block.json
+msgctxt "block description"
+msgid "Post Grid."
+msgstr "شبكة البريد."
+
+#: build/blocks/scrolling-marquee/block.json
+msgctxt "block title"
+msgid "Nectar Scrolling Marquee"
+msgstr "سرادق الرحيق المتحرك"
+
+#: build/blocks/scrolling-marquee/block.json
+msgctxt "block description"
+msgid "Scrolling content block."
+msgstr "كتلة محتوى التمرير."
+
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Nectar Text"
+msgstr "نص الرحيق"
+
+#: build/blocks/text/block.json
+msgctxt "block description"
+msgid "Text block."
+msgstr "كتلة النص."
+
+#: build/blocks/video-lightbox/block.json
+msgctxt "block title"
+msgid "Nectar Video Lightbox"
+msgstr "العرض المبسط لفيديو الرحيق"
+
+#: build/blocks/video-lightbox/block.json
+msgctxt "block description"
+msgid "Video Lightbox block."
+msgstr "كتلة العرض المبسط للفيديو."
+
+#: build/blocks/video-player/block.json
+msgctxt "block title"
+msgid "Nectar Video Player"
+msgstr "مشغل فيديو نكتار"
+
+#: build/blocks/video-player/block.json
+msgctxt "block description"
+msgid "Video Player block."
+msgstr "كتلة مشغل الفيديو."
+
+#. Plugin Name of the plugin
+#: nectar-blocks.php includes/Editor/Blocks.php:681 build/editor.js:28132
+msgid "Nectarblocks"
+msgstr "Nectarblocks"
+
+#. Description of the plugin
+#: nectar-blocks.php
+msgid ""
+"Step into the future of WordPress with Nectarblocks, where innovation meets "
+"seamless design. Unleash the full potential of your website by transforming "
+"the core WordPress editor into a dynamic and robust full-site editor."
+msgstr ""
+"ادخل إلى مستقبل ووردبريس مع Nectarblocks، حيث تلتقي الابتكار بالتصميم السلس."
+" اطلق العنان للإمكانيات ال"
+
+#. Author of the plugin
+#: nectar-blocks.php
+msgid "NectarBlocks"
+msgstr "NectarBlocks"
+
+#. Author URI of the plugin
+#: nectar-blocks.php
+msgid "https://nectarblocks.com/"
+msgstr "https://nectarblocks.com/"
+
+#: includes/Admin_Panel/Panel.php:19
+msgid "Nectarblocks Options"
+msgstr "خيارات Nectarblocks"
+
+#: includes/Global_Sections/Global_Sections.php:148
+msgid "Inside Header Navigation Top"
+msgstr "داخل قائمة التنقل العلوية في الهيدر"
+
+#: includes/Global_Sections/Global_Sections.php:152
+msgid "After Header Navigation"
+msgstr "بعد شريط التنقل العلوي"
+
+#: includes/Global_Sections/Global_Sections.php:161
+msgid "Before Page/Post Content"
+msgstr "قبل محتوى الصفحة/المقال"
+
+#: includes/Global_Sections/Global_Sections.php:165
+msgid "After Page/Post Content"
+msgstr "بعد محتوى الصفحة/المنشور"
+
+#: includes/Global_Sections/Global_Sections.php:169
+msgid "Sidebar Top"
+msgstr "الشريط الجانبي العلوي"
+
+#: includes/Global_Sections/Global_Sections.php:173
+msgid "Sidebar Bottom"
+msgstr "الشريط الجانبي السفلي"
+
+#: includes/Global_Sections/Global_Sections.php:177
+msgid "Before Blog Loop"
+msgstr "قبل حلقة المدونة"
+
+#: includes/Global_Sections/Global_Sections.php:181
+msgid "After Blog Loop"
+msgstr "بعد حلقة المدونة"
+
+#: includes/Global_Sections/Global_Sections.php:190
+msgid "Before Off Canvas Menu Items"
+msgstr "قبل عناصر القائمة الجانبية المخفية"
+
+#: includes/Global_Sections/Global_Sections.php:194
+msgid "After Off Canvas Menu Items"
+msgstr "بعد عناصر القائمة الجانبية الخارجية"
+
+#: includes/Global_Sections/Global_Sections.php:198
+msgid "Off Canvas Menu Meta Area"
+msgstr "منطقة البيانات الفرعية للقائمة الجانبية الخارجية"
+
+#: includes/Global_Sections/Global_Sections.php:186
+#: includes/Global_Sections/Global_Sections.php:207 build/editor.js:95867
+msgid "Footer"
+msgstr "تذييل"
+
+#: includes/Global_Sections/Global_Sections.php:211
+msgid "Footer Parallax"
+msgstr "تأثير البارالاكس للتذييل"
+
+#: includes/Global_Sections/Global_Sections.php:216
+msgid "After Footer"
+msgstr "بعد التذييل"
+
+#: includes/Global_Sections/Global_Sections.php:225
+msgid "Before Shop Loop"
+msgstr "قبل حلقة المتجر"
+
+#: includes/Global_Sections/Global_Sections.php:229
+msgid "After Shop Loop"
+msgstr "بعد حلقة المتجر"
+
+#: includes/Global_Sections/Global_Sections.php:233
+msgid "Single Product Before Summary"
+msgstr "المنتج الواحد قبل الملخص"
+
+#: includes/Global_Sections/Global_Sections.php:237
+msgid "Single Product Before Add to Cart"
+msgstr "المنتج الفردي قبل الإضافة إلى السلة"
+
+#: includes/Global_Sections/Global_Sections.php:241
+msgid "Single Product After Add to Cart"
+msgstr "المنتج الواحد بعد إضافته إلى السلة"
+
+#: includes/Global_Sections/Global_Sections.php:245
+msgid "Single Product After Summary"
+msgstr "المنتج الفردي بعد الملخص"
+
+#: includes/Global_Sections/Global_Sections.php:249
+msgid "Checkout Before Billing Form"
+msgstr "استمارة الدفع قبل الفاتورة"
+
+#: includes/Global_Sections/Global_Sections.php:253
+msgid "Checkout After Billing Form"
+msgstr "استمارة الدفع بعد الفحص"
+
+#: includes/Global_Sections/Global_Sections.php:257
+msgid "Checkout Before Shipping Form"
+msgstr "استمارة الدفع قبل الشحن"
+
+#: includes/Global_Sections/Global_Sections.php:261
+msgid "Checkout Before Order Notes"
+msgstr "ملاحظات الطلب قبل الدفع"
+
+#: includes/Global_Sections/Global_Sections.php:265
+msgid "Checkout After Order Notes"
+msgstr "ملاحظات الدفع بعد الطلب"
+
+#: includes/Global_Sections/Global_Sections.php:269
+msgid "Checkout Before Order Review"
+msgstr "التحقق قبل مراجعة الطلبية"
+
+#: includes/Global_Sections/Global_Sections.php:273
+msgid "Checkout Before Review Order Payment"
+msgstr "الدفع قبل مراجعة الطلب"
+
+#: includes/Global_Sections/Global_Sections.php:277
+msgid "Checkout After Review Order Payment"
+msgstr "الدفع بعد مراجعة الطلب"
+
+#: includes/Global_Sections/Global_Sections.php:282
+msgid "Cart Coupon"
+msgstr "قسيمة العربة"
+
+#: includes/Global_Sections/Global_Sections.php:286
+msgid "Cart Before Totals"
+msgstr "العربة قبل الإجماليات"
+
+#: includes/Global_Sections/Global_Sections.php:290
+msgid "Cart Before Shipping"
+msgstr "العربة قبل الشحن"
+
+#: includes/Global_Sections/Global_Sections.php:294
+msgid "Cart Before Shipping Calculator"
+msgstr "حساب تكلفة الشحن قبل السلة"
+
+#: includes/Global_Sections/Global_Sections.php:298
+msgid "Cart After Shipping Calculator"
+msgstr "عربة التسوق بعد حاسب الشحن"
+
+#: includes/Global_Sections/Global_Sections.php:302
+msgid "Cart Proceed to Checkout"
+msgstr "انتقل إلى الخروج"
+
+#: includes/Global_Sections/Global_Sections.php:86
+msgid "Everywhere"
+msgstr "في كل مكان"
+
+#: includes/Global_Sections/Global_Sections.php:91
+msgid "Archive"
+msgstr "أرشيف"
+
+#: includes/Global_Sections/Global_Sections.php:95
+msgid "Front Page"
+msgstr "الصفحة الأولى"
+
+#: includes/Global_Sections/Global_Sections.php:99
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: includes/Global_Sections/Global_Sections.php:104
+msgid "Single"
+msgstr "واحد"
+
+#: includes/Global_Sections/Global_Sections.php:118
+#: includes/Nectar_Templates/Nectar_Templates.php:116
+msgid "User Logged In"
+msgstr "تم تسجيل دخول المستخدم"
+
+#: includes/Global_Sections/Global_Sections.php:124
+#: includes/Nectar_Templates/Nectar_Templates.php:122
+msgid "User Not Logged In"
+msgstr "المستخدم غير مسجل الدخول"
+
+#: includes/Global_Sections/Global_Sections.php:157
+msgid "Main Content"
+msgstr "المحتوى الرئيسي"
+
+#: includes/Global_Sections/Global_Sections.php:221 build/adminPanel.js:2602
+msgid "WooCommerce"
+msgstr "ووكوميرس"
+
+#: includes/Global_Sections/Global_Sections_Register.php:97
+#: includes/Global_Sections/Global_Sections_Register.php:100
+msgid "Global Sections"
+msgstr "الأقسام العالمية"
+
+#: includes/Global_Sections/Global_Sections_Register.php:98
+msgid "Global Section"
+msgstr "القسم العالمي"
+
+#: includes/Global_Sections/Global_Sections_Register.php:99
+msgid "Search Global Sections"
+msgstr "ابحث عن الأقسام العالمية"
+
+#: includes/Global_Sections/Global_Sections_Register.php:101
+msgid "Parent Global Section"
+msgstr "القسم العالمي الرئيسي"
+
+#: includes/Global_Sections/Global_Sections_Register.php:102
+msgid "Edit Global Section"
+msgstr "تعديل القسم العالمي"
+
+#: includes/Global_Sections/Global_Sections_Register.php:103
+msgid "Update Global Section"
+msgstr "تحديث القسم العالمي"
+
+#: includes/Global_Sections/Global_Sections_Register.php:104
+#: includes/Global_Sections/Global_Sections_Register.php:105
+#: includes/Global_Sections/Visual_Hook_Locations.php:95
+msgid "Add New Global Section"
+msgstr "إضافة قسم عام جديد"
+
+#: includes/Global_Sections/Global_Sections_Register.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:79
+msgid "Section"
+msgstr "القسم"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:51
+msgid "Display Nectar Hooks"
+msgstr "عرض خطافات النكتار"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:56
+msgid "Hide Nectar Hooks"
+msgstr "إخفاء هوكس نيكتار"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:98
+msgid "Hook:"
+msgstr "الخطاف:"
+
+#: includes/Global_Settings/Global_Colors.php:108
+msgid "Core Gradient #4"
+msgstr "التدرج الأساسي #4"
+
+#: build/adminPanel.js:1577
+msgid "Register"
+msgstr "سجل"
+
+#: build/adminPanel.js:1599
+msgid "Successfully activated."
+msgstr "تم التنشيط بنجاح."
+
+#: build/adminPanel.js:1603
+msgid "Unsuccessfully activated."
+msgstr "تم التنشيط بنجاح."
+
+#: build/adminPanel.js:1607
+msgid "Deregister"
+msgstr "إلغاء التسجيل"
+
+#: build/adminPanel.js:1619
+msgid "Successfully deactivated."
+msgstr "تم إلغاء التنشيط بنجاح."
+
+#: build/adminPanel.js:1623
+msgid "Unsuccessfully deactivated."
+msgstr "لم يتم إلغاء التنشيط بنجاح."
+
+#: build/adminPanel.js:1720
+msgid "license key"
+msgstr "مفتاح الترخيص"
+
+#: build/adminPanel.js:1736
+msgid "Enable Updates"
+msgstr "تمكين التحديثات"
+
+#: build/adminPanel.js:1840
+msgid "CSS"
+msgstr ""
+"CSS\n"
+"CSS"
+
+#: build/adminPanel.js:1842
+msgid "Custom JS/HTML"
+msgstr "JS/HTML مخصص"
+
+#: build/adminPanel.js:1867
+msgid "Custom Code (JS/HTML) in Head"
+msgstr "الكود المخصص (JS/HTML) في الرأس"
+
+#: build/adminPanel.js:1870 build/adminPanel.js:1888
+msgid "If using JS, ensure to include script tags."
+msgstr "إذا كنت تستخدم جافا سكريبت، تأكد من تضمين علامات النص البرمجي."
+
+#: build/adminPanel.js:1885
+msgid "Custom Code (JS/HTML) After Body Open"
+msgstr "الكود المخصص (JS/HTML) بعد فتح الجسم"
+
+#: build/adminPanel.js:2349
+msgid "Welcome to the future of WordPress"
+msgstr "مرحبًا بك في مستقبل ووردبريس"
+
+#: build/adminPanel.js:2351
+msgid ""
+"Nectarblocks elevates the WordPress Gutenberg editor to an exceptionally "
+"powerful editor. Explore the key features below to begin your journey."
+msgstr ""
+"ترقي Nectarblocks محرر ووردبريس غوتنبرغ إلى محرر قوي بشكل استثنائي. استكشف "
+"الميزات الرئيسية أدناه"
+
+#: build/adminPanel.js:2359
+msgid "Block Collection"
+msgstr "مجموعة الكتل"
+
+#: build/adminPanel.js:2360
+msgid ""
+"A robust collection of powerful blocks designed to simplify the process of "
+"building your website."
+msgstr "مجموعة قوية من الكتل المصممة لتبسيط عملية بناء موقع الويب الخاص بك."
+
+#: build/adminPanel.js:2365
+msgid "The Template Library"
+msgstr "مكتبة القوالب"
+
+#: build/adminPanel.js:2366
+msgid ""
+"Jump start your Website creation with our professionally designed collection"
+" of pre-made templates"
+msgstr ""
+"ابدأ إنشاء موقع الويب الخاص بك باستخدام مجموعتنا المصممة بشكل احترافي من "
+"القوالب الجاهزة"
+
+#: build/adminPanel.js:2371
+msgid "Streamlined Global Settings"
+msgstr "الإعدادات العالمية المبسطة"
+
+#: build/adminPanel.js:2377
+msgid "Extensively Customizable Block Settings"
+msgstr "إعدادات الكتل قابلة للتخصيص بشكل شامل"
+
+#: build/adminPanel.js:2383
+msgid "Next-Gen Responsive Editing"
+msgstr "التحرير الاستجابي للجيل القادم"
+
+#: build/adminPanel.js:2384
+msgid ""
+"Effortlessly customize block settings for different devices using a single, "
+"intuitive control interface. Whether adjusting settings for each device "
+"individually or hovering over elements, you can instantly see the changes in"
+" an active preview."
+msgstr ""
+"قم بتخصيص إعدادات الكتل بسهولة لأجهزة مختلفة باستخدام واجهة تحكم واحدة "
+"وبديهية. سواء كن"
+
+#: build/adminPanel.js:2389
+msgid "Integrated Unsplash Images"
+msgstr "الصور المتكاملة من Unsplash"
+
+#: build/adminPanel.js:2390
+msgid ""
+"Nectarblocks seamlessly integrates with Unsplash to provide you with a vast "
+"library of high quality images to choose from."
+msgstr ""
+"تدمج Nectarblocks بسهولة مع Unsplash لتوفير لك مكتبة واسعة من الصور عالية "
+"الجودة للاختيار من بينها."
+
+#: build/adminPanel.js:2533
+msgid "Demo Content"
+msgstr "محتوى تجريبي"
+
+#: build/adminPanel.js:2545 build/adminPanel.js:3386
+msgid "Theme Options"
+msgstr "خيارات السمة"
+
+#: build/adminPanel.js:2586
+msgid ""
+"The duration of prebuilt website imports can vary. Ensure that your server"
+msgstr ""
+"مدة استيراد المواقع الإلكترونية الجاهزة يمكن أن تتفاوت. تأكد من أن خادمك"
+
+#: build/adminPanel.js:2590
+msgid "fulfills all necessary requirements"
+msgstr "يفي بجميع المتطلبات الضرورية"
+
+#: build/adminPanel.js:2591
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"لنجاح عملية الاستيراد. بمجرد بدء عملية الاستيراد، يرجى عدم تحديث الصفحة حتى "
+"اكتمالها."
+
+#: build/adminPanel.js:2628
+msgid "Successfully imported demo."
+msgstr "تم استيراد العرض بنجاح."
+
+#: build/adminPanel.js:2631
+msgid "Failed to import demo."
+msgstr "فشل في استيراد العرض التوضيحي."
+
+#: build/adminPanel.js:2635
+msgid "Import Demo"
+msgstr "استيراد العرض"
+
+#: build/adminPanel.js:2645
+msgid "You are not using the included"
+msgstr "أنت لا تستخدم المُدرج"
+
+#: build/adminPanel.js:2649
+msgid "Nectarblocks theme"
+msgstr "سمة Nectarblocks"
+
+#: build/adminPanel.js:2650
+msgid ", which is recommended for demo imports."
+msgstr "، والذي يُوصى به لاستيراد العروض التوضيحية."
+
+#: build/adminPanel.js:2737 build/adminPanel.js:2772 build/adminPanel.js:2864
+#: build/adminPanel.js:2902
+msgid "Export"
+msgstr "تصدير"
+
+#: build/adminPanel.js:2739 build/adminPanel.js:2866
+msgid "Export all"
+msgstr "تصدير الكل"
+
+#: build/adminPanel.js:2744 build/adminPanel.js:2871
+msgid "from Nectarblocks."
+msgstr "من Nectarblocks."
+
+#: build/adminPanel.js:2746
+msgid ""
+"Global Settings are primarily located in the right-hand side of \n"
+"            of the editor when clicking on the Nectarblocks logo, and a few are \n"
+"            contained in this options panel."
+msgstr ""
+"تقع إعدادات العالمية أساسًا في الجانب الأيمن من المحرر عند النقر على شعار "
+"Nectarblocks، وبعضها موجود في لوح"
+
+#: build/adminPanel.js:2750 build/adminPanel.js:2877
+msgid "Your export will include the following data:"
+msgstr "سيتضمن تصديرك البيانات التالية:"
+
+#: build/adminPanel.js:2757
+msgid "Global Custom Code"
+msgstr "الكود المخصص العالمي"
+
+#: build/adminPanel.js:2766
+msgid "Failed to export plugin settings."
+msgstr "فشل تصدير إعدادات الإضافة."
+
+#: build/adminPanel.js:2770
+msgid "Successfully exported plugin settings."
+msgstr "تم تصدير إعدادات الإضافة بنجاح."
+
+#: build/adminPanel.js:2261 build/adminPanel.js:2776 build/adminPanel.js:2810
+#: build/adminPanel.js:2906 build/adminPanel.js:2939
+msgid "Import"
+msgstr "استيراد"
+
+#: build/adminPanel.js:2778
+msgid ""
+"Import a nectarblocks_plugin.json here to restore a \n"
+"            previously exported set of Global Settings."
+msgstr ""
+"استيراد ملف nectarblocks_plugin.json هنا لاستعادة مجموعة من الإعدادات العامة"
+" المصدرة مسبقًا."
+
+#: build/adminPanel.js:2240 build/adminPanel.js:2794 build/adminPanel.js:2923
+msgid "Please select a file to import."
+msgstr "يرجى تحديد ملف للاستيراد."
+
+#: build/adminPanel.js:2801
+msgid "Successfully imported plugin settings."
+msgstr "تم استيراد إعدادات الإضافة بنجاح."
+
+#: build/adminPanel.js:2807
+msgid "Failed to import plugin settings."
+msgstr "فشل في استيراد إعدادات المكون الإضافي."
+
+#: build/adminPanel.js:2815 build/editor.js:100893
+msgid "Nectarblocks Settings"
+msgstr "إعدادات نيكتاربلوكس"
+
+#: build/adminPanel.js:2870
+msgid "Theme Customizer Settings"
+msgstr "إعدادات تخصيص السمة"
+
+#: build/adminPanel.js:2873
+msgid ""
+"Theme Customizer settings are available in the \n"
+"            WordPress Customizer (Appearance → Customize) and handle all\n"
+"            the general styling for the Nectarblocks theme."
+msgstr ""
+"تتوفر إعدادات مُخصّص السمة في مُخصّص ووردبريس (المظهر → تخصيص) وتدير جميع "
+"التنسيقات العامة"
+
+#: build/adminPanel.js:2882
+msgid "Typography Settings"
+msgstr "إعدادات التصميم الطباعي"
+
+#: build/adminPanel.js:2884
+msgid "Layout Settings"
+msgstr "إعدادات التخطيط"
+
+#: build/adminPanel.js:2886
+msgid "Post Types Settings"
+msgstr "إعدادات أنواع المنشورات"
+
+#: build/adminPanel.js:2888
+msgid "General WordPress Page Settings"
+msgstr "إعدادات الصفحة العامة في ووردبريس"
+
+#: build/adminPanel.js:2896
+msgid "Failed to export customizer settings."
+msgstr "فشل تصدير إعدادات المُخصص."
+
+#: build/adminPanel.js:2900
+msgid "Successfully exported customizer settings."
+msgstr "تم تصدير إعدادات المُخصص بنجاح."
+
+#: build/adminPanel.js:2908
+msgid ""
+"Import a nectarblocks_theme.json here to restore a \n"
+"            previously exported set of Theme Customizer Settings."
+msgstr ""
+"استيراد ملف nectarblocks_theme.json هنا لاستعادة مجموعة من إعدادات تخصيص "
+"السمات المصدرة سابقًا."
+
+#: build/adminPanel.js:2930
+msgid "Successfully imported customizer settings."
+msgstr "تم استيراد إعدادات التخصيص بنجاح."
+
+#: build/adminPanel.js:2936
+msgid "Failed to import customizer settings."
+msgstr "فشل في استيراد إعدادات المُخصص."
+
+#: build/adminPanel.js:2944
+msgid "Nectarblocks Theme Customizer Settings"
+msgstr "إعدادات تخصيص سمة Nectarblocks"
+
+#: build/adminPanel.js:3089
+msgid "Demos"
+msgstr "عروض تجريبية"
+
+#: build/adminPanel.js:3093
+msgid "Theme Customizer"
+msgstr "مُخصص السمة"
+
+#: build/adminPanel.js:3342
+msgid "Getting Started"
+msgstr "البدء"
+
+#: build/adminPanel.js:3378
+msgid "Import/Export"
+msgstr "استيراد/تصدير"
+
+#: build/adminPanel.js:3394
+msgid "Documentation"
+msgstr "التوثيق"
+
+#: build/blocks/accordion-section/block.json
+msgctxt "block title"
+msgid "Accordion Section"
+msgstr "عنوان البلوك"
+
+#: build/blocks/accordion-section/block.json
+msgctxt "block description"
+msgid "A section for content inside each accordion."
+msgstr "وصف الكتلة"
+
+#: build/blocks/accordion/block.json
+msgctxt "block title"
+msgid "Accordion"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/accordion/block.json
+msgctxt "block description"
+msgid ""
+"A collapsible and expandable component that organizes content into sections."
+msgstr "وصف الكتلة"
+
+#: build/blocks/carousel-item/block.json
+msgctxt "block title"
+msgid "Carousel Item"
+msgstr "عنوان البلوك"
+
+#: build/blocks/carousel-item/block.json
+msgctxt "block description"
+msgid "A section for content inside each carousel."
+msgstr "وصف الكتلة"
+
+#: build/blocks/carousel/block.json
+msgctxt "block title"
+msgid "Carousel"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/carousel/block.json
+msgctxt "block description"
+msgid ""
+"Rotate through a series of content items, displayed in a horizontally "
+"scrolling format."
+msgstr "وصف الكتلة"
+
+#: build/blocks/flex-box/block.json
+msgctxt "block title"
+msgid "Nectar Flex Box"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/flex-box/block.json
+msgctxt "block description"
+msgid "Flex box block."
+msgstr "وصف الكتلة"
+
+#: build/blocks/icon-list-item/block.json
+msgctxt "block title"
+msgid "Icon List Item"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/icon-list-item/block.json
+msgctxt "block description"
+msgid "A single list item used inside of the Icon List block."
+msgstr "وصف الكتلة"
+
+#: build/blocks/icon-list/block.json
+msgctxt "block title"
+msgid "Icon List"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/icon-list/block.json
+msgctxt "block description"
+msgid "A list that allows icons alongside each item."
+msgstr "وصف الكتلة"
+
+#: build/blocks/star-rating/block.json
+msgctxt "block title"
+msgid "Nectar Star Rating"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/star-rating/block.json
+msgctxt "block description"
+msgid "Star Rating block."
+msgstr "وصف الكتلة"
+
+#: build/blocks/tab-section/block.json
+msgctxt "block title"
+msgid "Tab Section"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/tab-section/block.json
+msgctxt "block description"
+msgid "A section for content inside each tab."
+msgstr "وصف الكتلة"
+
+#: build/blocks/tabs/block.json
+msgctxt "block title"
+msgid "Tabs"
+msgstr "عنوان البلوك"
+
+#: build/blocks/tabs/block.json
+msgctxt "block description"
+msgid ""
+"Organize your content into distinct tabs, reducing clutter and improving "
+"navigation."
+msgstr "وصف الكتلة"
+
+#: build/blocks/testimonial/block.json
+msgctxt "block title"
+msgid "Testimonial"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/testimonial/block.json
+msgctxt "block description"
+msgid "Testimonial block."
+msgstr "وصف الكتلة"
+
+#: build/adminPanel.js:4669 build/editor.js:101298
+msgid "Unknown Color"
+msgstr "لون غير معروف"
+
+#: includes/API/Global_Settings/Custom_Fonts_API.php:105
+msgid "Font upload failure, please try again. Errors: "
+msgstr "فشل تحميل الخط، يرجى المحاولة مرة أخرى. الأخطاء:"
+
+#: includes/Global_Settings/Global_Colors.php:113
+msgid "Core Gradient #5"
+msgstr "التدرج الأساسي #5"
+
+#: includes/Menu_Options/Modal.php:55
+msgid "Menu Item Options"
+msgstr "خيارات عناصر القائمة"
+
+#: includes/Menu_Options/Modal.php:57
+msgid "Saving..."
+msgstr "جارٍ الحفظ..."
+
+#: includes/Menu_Options/Modal.php:59
+msgid "Saved Successfully"
+msgstr "تم الحفظ بنجاح"
+
+#: includes/Menu_Options/Modal.php:311
+msgid "Options"
+msgstr "خيارات"
+
+#: includes/Menu_Options/Modal.php:313
+msgid "Menu Item"
+msgstr "عنصر القائمة"
+
+#: includes/Menu_Options/Modal.php:326 build/editor.js:101160
+msgid "Save Changes"
+msgstr "احفظ التغييرات"
+
+#: includes/Menu_Options/Settings.php:13
+msgid "Select a Global Section"
+msgstr "اختر قسمًا عالميًا"
+
+#: includes/Menu_Options/Settings.php:36
+msgid "Enable Mega Menu"
+msgstr "تمكين القائمة الضخمة"
+
+#: includes/Menu_Options/Settings.php:37
+msgid "Turns this menu item into a megamenu."
+msgstr "حوّل هذا العنصر في القائمة إلى قائمة كبيرة."
+
+#: includes/Menu_Options/Settings.php:48
+msgid "Mega Menu Global Section"
+msgstr "قسم القائمة الشاملة العالمية"
+
+#: includes/Menu_Options/Settings.php:49
+msgid "Assign a Global Section to display as your mega menu."
+msgstr "قم بتعيين قسم عالمي ليتم عرضه كقائمة ميجا."
+
+#: includes/Menu_Options/Settings.php:58
+msgid "Mega Menu Global Section Mobile"
+msgstr "القسم العالمي لقائمة ميجا على الجوال"
+
+#: includes/Menu_Options/Settings.php:59
+msgid ""
+"Assign a Global Section to display as your mega menu in the Off Canvas Menu."
+" Not compatible with fullscreen menus."
+msgstr ""
+"قم بتعيين قسم عالمي ليتم عرضه كقائمة ضخمة في قائمة Off Canvas. غير متوافق مع"
+" القوائم بملء الشاشة."
+
+#: includes/Menu_Options/Settings.php:68
+msgid "Persist In Mobile Navigation Header"
+msgstr "استمر في شريط التنقل العلوي للجوال"
+
+#: includes/Menu_Options/Settings.php:69
+msgid ""
+"This will cause the link to remain visible in your mobile header navigation "
+"instead of the default location within the off canvas menu."
+msgstr ""
+"سيؤدي ذلك إلى بقاء الرابط مرئيًا في شريط التنقل العلوي على هاتفك المحمول "
+"بدلاً من الموقع الافتراضي داخل قائمة الأوف كانفاس."
+
+#: includes/Menu_Options/Settings.php:77
+msgid "Menu Item Link Button Style"
+msgstr "نمط زر رابط عنصر القائمة"
+
+#: includes/Menu_Options/Settings.php:78
+msgid "Choose a style for your menu item."
+msgstr "اختر نمطًا لعنصر قائمتك."
+
+#: includes/Menu_Options/Settings.php:82
+msgid "Solid Background"
+msgstr "خلفية صلبة"
+
+#: includes/Menu_Options/Settings.php:83
+msgid "Bordered"
+msgstr "محدود بحواف"
+
+#: includes/Menu_Options/Settings.php:93
+msgid "Menu Item Link Text Hover"
+msgstr "نص رابط عنصر القائمة عند التمرير"
+
+#: includes/Menu_Options/Settings.php:94
+msgid "Optionally set a link hover animation."
+msgstr "قم بتعيين حركة تحويم الرابط بشكل اختياري."
+
+#: includes/Menu_Options/Settings.php:99
+msgid "Wave"
+msgstr "موجة"
+
+#: includes/Menu_Options/Settings.php:119
+#: includes/Menu_Options/Settings.php:169
+msgid "Button Text Color"
+msgstr "لون نص الزر"
+
+#: includes/Menu_Options/Settings.php:131
+msgid "Button Hover/Active Color"
+msgstr "لون الزر عند التحويم/التفعيل"
+
+#: includes/Menu_Options/Settings.php:143
+msgid "Button Text Hover/Active Color"
+msgstr "لون النص عند تمرير المؤشر/التفعيل"
+
+#: includes/Menu_Options/Settings.php:157
+msgid "Button Border Color"
+msgstr "لون حدود الزر"
+
+#: includes/Menu_Options/Settings.php:181
+msgid "Button Border Color Hover"
+msgstr "لون حدود الزر عند التحويم"
+
+#: includes/Menu_Options/Settings.php:312
+msgid "Icon Selection"
+msgstr "اختيار الأيقونة"
+
+#: includes/Menu_Options/Settings.php:313
+msgid "Upload an icon to display next to the menu item title."
+msgstr "قم بتحميل أيقونة لعرضها بجانب عنوان عنصر القائمة."
+
+#: includes/Menu_Options/Settings.php:323
+msgid "Menu Icon Size"
+msgstr "حجم أيقونة القائمة"
+
+#: includes/Menu_Options/Settings.php:324
+msgid ""
+"Define a custom size for your icon. Leave this blank for the default value."
+msgstr "حدد حجمًا مخصصًا لأيقونتك. اترك هذا الحقل فارغًا للقيمة الافتراضية."
+
+#: includes/Menu_Options/Settings.php:335
+msgid "Menu Icon Position"
+msgstr "موضع أيقونة القائمة"
+
+#: includes/Menu_Options/Settings.php:336
+msgid ""
+"Determines where the menu icon will be aligned relative to the text. (Only "
+"applies to submenu items)"
+msgstr ""
+"يحدد مكان محاذاة أيقونة القائمة بالنسبة للنص. (ينطبق فقط على عناصر القائمة "
+"الفرعية)"
+
+#: includes/Menu_Options/Settings.php:340
+msgid "Next To Text"
+msgstr "بجوار النص"
+
+#: includes/Menu_Options/Settings.php:341
+msgid "Above Text"
+msgstr "النص أعلاه"
+
+#: includes/Menu_Options/Settings.php:347
+msgid "Menu Icon Spacing"
+msgstr "تباعد أيقونات القائمة"
+
+#: includes/Menu_Options/Settings.php:348
+msgid ""
+"Define a custom amount of spacing between your icon and menu item text. "
+"Leave this blank for the default value. (Only applies to submenu items)"
+msgstr ""
+"حدد مقدارًا مخصصًا من المسافة بين الأيقونة ونص عنصر القائمة. اترك هذا الحقل "
+"فارغًا للقيمة الافتراضية. (ينطبق فقط على عناصر القائمة الفرعية)"
+
+#: includes/Notifications/Notifications_Register.php:23
+msgid ""
+"Please note that the Gutenberg plugin is intended for testing new Block "
+"Editor features, and Nectarblocks may not be fully compatible with it."
+msgstr ""
+"يرجى ملاحظة أن إضافة Gutenberg مخصصة لاختبار ميزات محرر الكتل الجديدة، وقد "
+"لا تكون Nectarblocks متوافقة تمامًا معها."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:733
+msgid "No posts found."
+msgstr "لم يتم العثور على منشورات."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:734
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
+msgid "Try adjusting your query parameters."
+msgstr "حاول تعديل معلمات الاستعلام الخاصة بك."
+
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:230
+msgid "No taxonomies selected."
+msgstr "لم يتم اختيار أي تصنيفات."
+
+#: build/adminPanel.js:1415
+msgid "Failed to save settings."
+msgstr "فشل في حفظ الإعدادات."
+
+#: build/adminPanel.js:1424
+msgid "Successfully saved settings for:"
+msgstr "تم حفظ الإعدادات بنجاح لـ:"
+
+#: build/adminPanel.js:1428
+msgid "Failed to save settings for:"
+msgstr "فشل في حفظ الإعدادات لـ:"
+
+#: build/adminPanel.js:1721
+msgid "to enable the full feature set and updates."
+msgstr "لتمكين مجموعة الميزات الكاملة والتحديثات."
+
+#: build/adminPanel.js:1739
+msgid ""
+"Allows WordPress to check for Nectarblocks updates automatically. Updates "
+"are checked every 4 hours."
+msgstr ""
+"يسمح لـ WordPress بالتحقق من تحديثات Nectarblocks تلقائيًا. يتم التحقق من "
+"التحديثات كل 4 ساعات."
+
+#: build/adminPanel.js:1753 build/adminPanel.js:1760
+msgid "Check for Updates"
+msgstr "تحقق من التحديثات"
+
+#: build/adminPanel.js:1756
+msgid "Force an immediate check of updates for Nectarblocks."
+msgstr "قم بإجراء فحص فوري للتحديثات لـ Nectarblocks."
+
+#: build/adminPanel.js:1945
+msgid "Add a New Font"
+msgstr "إضافة خط جديد"
+
+#: build/adminPanel.js:1952
+msgid "Enter the name of your font.."
+msgstr "أدخل اسم الخط الخاص بك."
+
+#: build/adminPanel.js:1966
+msgid "Please enter a font name."
+msgstr "يرجى إدخال اسم الخط."
+
+#: build/adminPanel.js:1972
+msgid "Failed to update custom font."
+msgstr "فشل في تحديث الخط المخصص."
+
+#: build/adminPanel.js:1974
+msgid "Successfully updated custom font."
+msgstr "تم تحديث الخط المخصص بنجاح."
+
+#: build/adminPanel.js:1979
+msgid "Add Font"
+msgstr "إضافة خط"
+
+#: build/adminPanel.js:2064
+msgid "No changes were made."
+msgstr "لم يتم إجراء أي تغييرات."
+
+#: build/adminPanel.js:2069
+msgid "Failed to update custom font variation."
+msgstr "فشل في تحديث تنويع الخط المخصص."
+
+#: build/adminPanel.js:2071
+msgid "Successfully updated custom font variation."
+msgstr "تم تحديث تنويع الخط المخصص بنجاح."
+
+#: build/adminPanel.js:2076
+msgid "Update Font Data"
+msgstr "تحديث بيانات الخط"
+
+#: build/adminPanel.js:2085
+msgid "Failed to delete custom font variation"
+msgstr "فشل في حذف تنويع الخط المخصص"
+
+#: build/adminPanel.js:2087
+msgid "Successfully deleted custom font variation."
+msgstr "تم حذف تنويع الخط المخصص بنجاح."
+
+#: build/adminPanel.js:2113
+msgid "Failed to delete custom font."
+msgstr "فشل في حذف الخط المخصص."
+
+#: build/adminPanel.js:2115
+msgid "Successfully deleted custom font."
+msgstr "تم حذف الخط المخصص بنجاح."
+
+#: build/adminPanel.js:2205
+msgid "Add a Font Variation"
+msgstr "أضف تنوعًا في الخط"
+
+#: build/adminPanel.js:2226
+msgid "Choose a .ttf, .woff, or .woff2 file"
+msgstr "اختر ملف .ttf أو .woff أو .woff2"
+
+#: build/adminPanel.js:2248
+msgid "Successfully custom font."
+msgstr "تم تخصيص الخط بنجاح."
+
+#: build/adminPanel.js:2258
+msgid "Failed to import custom font."
+msgstr "فشل في استيراد الخط المخصص."
+
+#: build/adminPanel.js:2372
+msgid ""
+"Establish reusable color schemes and typography rules that can be "
+"effortlessly applied to Nectar blocks across all your pages."
+msgstr ""
+"قم بإنشاء مخططات ألوان قابلة لإعادة الاستخدام وقواعد الطباعة التي يمكن "
+"تطبيقها بسهولة على Nectar blocks عبر جميع صفحاتك."
+
+#: build/adminPanel.js:2378
+msgid ""
+"Experience unparalleled control with our extensively customizable block "
+"settings. Tailor each element to your unique design requirements."
+msgstr ""
+"اختبر تحكمًا لا مثيل له مع إعدادات الكتل القابلة للتخصيص بشكل واسع. قم "
+"بتخصيص كل عنصر وفقًا لمتطلبات التصميم الفريدة الخاصة بك."
+
+#: build/adminPanel.js:2570
+msgid "Widgets"
+msgstr "الأدوات المصغّرة"
+
+#: build/adminPanel.js:2598
+msgid "Warning: This demo requires"
+msgstr "تحذير: يتطلب هذا العرض التوضيحي"
+
+#: build/adminPanel.js:2603
+msgid "but the plugin is not currently active in your setup."
+msgstr "لكن المكون الإضافي غير نشط حاليًا في إعدادك."
+
+#: build/adminPanel.js:3266
+msgid "Hide Page Titles"
+msgstr "إخفاء عناوين الصفحات"
+
+#: build/adminPanel.js:3267
+msgid "Hide titles by default on all pages."
+msgstr "إخفاء العناوين بشكل افتراضي على جميع الصفحات."
+
+#: build/adminPanel.js:3280
+msgid "Disable Core Typography Rules"
+msgstr "تعطيل قواعد الطباعة الأساسية"
+
+#: build/adminPanel.js:3282
+msgid "Disable the core "
+msgstr "تعطيل النواة"
+
+#: build/adminPanel.js:3287
+msgid ""
+" rules to allow your theme to control typography, rather than Nectarblocks."
+msgstr "قواعد للسماح لموضوعك بالتحكم في الطباعة، بدلاً من Nectarblocks."
+
+#: build/adminPanel.js:3354
+msgid "Plugin Options"
+msgstr "خيارات الإضافة"
+
+#: includes/Global_Sections/Global_Sections.php:82 build/editor.js:55279
+msgid "General"
+msgstr "عام"
+
+#: build/blocks/image-grid/block.json
+msgctxt "block title"
+msgid "Nectar Image Grid"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/row/block.json
+msgctxt "block title"
+msgid "Row"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/row/block.json
+msgctxt "block description"
+msgid ""
+"A container for columns. The fundamental building block for designing your "
+"layouts."
+msgstr "وصف الكتلة"
+
+#: build/blocks/taxonomy-grid/block.json
+msgctxt "block title"
+msgid "Taxonomy Grid"
+msgstr "عنوان الكتلة"
+
+#: includes/API/Post_Data_API.php:438
+msgid "ACF Fields"
+msgstr "حقول ACF"
+
+#: includes/API/Post_Data_API.php:445
+msgid "Custom Fields"
+msgstr "الحقول المخصصة"
+
+#. translators: the Meta Field name
+#: includes/API/Post_Data_API.php:482
+#, php-format
+msgid "Meta Fields: %s"
+msgstr "الحقول الوصفية: %s"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:18983
+msgid "Post Title"
+msgstr "عنوان المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgid "Post"
+msgstr "نشر"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:18986
+msgid "Post URL"
+msgstr "رابط المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:30 build/editor.js:18989
+msgid "Post ID"
+msgstr "معرّف المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:34 build/editor.js:18992
+msgid "Post Slug"
+msgstr "الرمز المختصر للمنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:38 build/editor.js:18995
+msgid "Post Excerpt"
+msgstr "مقتطف من المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:42 build/editor.js:18998
+msgid "Post Date"
+msgstr "تاريخ النشر"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:46
+msgid "Post Modified"
+msgstr "تم تعديل المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:54 build/editor.js:19007
+msgid "Post Status"
+msgstr "حالة المنشور"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:60 build/editor.js:19013
+msgid "Author Name"
+msgstr "اسم المؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:64 build/editor.js:19016
+msgid "Author ID"
+msgstr "معرف المؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:68 build/editor.js:19019
+msgid "Author URL"
+msgstr "عنوان المؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:73 build/editor.js:19022
+msgid "Author Profile Picture URL"
+msgstr "عنوان URL لصورة الملف الشخصي للمؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:78 build/editor.js:19025
+msgid "Author First Name"
+msgstr "الاسم الأول للمؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:82 build/editor.js:19028
+msgid "Author Last Name"
+msgstr "اسم المؤلف الأخير"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:86 build/editor.js:19031
+msgid "Author Bio"
+msgstr "السيرة الذاتية للمؤلف"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:91 build/editor.js:19037
+msgid "Comment Number"
+msgstr "رقم التعليق"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:92
+msgid "Comment"
+msgstr "تعليق"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:100 build/editor.js:19048
+msgid "Featured Image URL"
+msgstr "عنوان URL للصورة المميزة"
+
+#: includes/Dynamic_Data/Sources/ACF.php:197
+msgid "The field type provided is not valid."
+msgstr "نوع الحقل المقدم غير صالح."
+
+#: includes/Dynamic_Data/Sources/ACF.php:225
+msgid "This is a placeholder for the content of this field:"
+msgstr "هذا نص بديل لمحتوى هذا الحقل:"
+
+#: includes/Dynamic_Data/Sources/ACF.php:227
+msgid "The full content will be rendered on the frontend."
+msgstr "سيتم عرض المحتوى الكامل على الواجهة الأمامية."
+
+#: includes/Dynamic_Data/Sources/Other_Posts.php:283
+msgid "Open"
+msgstr "افتح"
+
+#: includes/Dynamic_Data/Sources/Other_Posts.php:283
+msgid "Closed"
+msgstr "مغلق"
+
+#: includes/Editor/Post_Meta.php:35
+msgid "Client Name"
+msgstr "اسم العميل"
+
+#: includes/Editor/Post_Meta.php:51 build/editor.js:101019
+msgid "Project Link"
+msgstr "رابط المشروع"
+
+#: includes/Editor/Post_Meta.php:101
+msgid "Project URL"
+msgstr "رابط المشروع"
+
+#: includes/Global_Sections/Global_Sections.php:109
+msgid "Post Types"
+msgstr "أنواع المنشورات"
+
+#: includes/Global_Sections/Global_Sections.php:113
+#: includes/Nectar_Templates/Nectar_Templates.php:111
+msgid "User Roles/Permissions"
+msgstr "أدوار/أذونات المستخدم"
+
+#: includes/Global_Sections/Global_Sections_Register.php:137
+msgid "Locations"
+msgstr "المواقع"
+
+#: includes/Global_Sections/Global_Sections_Register.php:138
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: build/editor.js:100659
+msgid "Conditions"
+msgstr "الشروط"
+
+#: includes/Menu_Options/Settings.php:98 build/editor.js:60342
+msgid "Reveal"
+msgstr "كشف"
+
+#: includes/Menu_Options/Settings.php:285
+msgid "Icon Type"
+msgstr "نوع الأيقونة"
+
+#: includes/Menu_Options/Settings.php:297
+msgid "Image Icon"
+msgstr "أيقونة الصورة"
+
+#: includes/Menu_Options/Settings.php:298
+msgid "Text (Emoji)"
+msgstr "نص (رمز تعبيري)"
+
+#: includes/Menu_Options/Settings.php:304
+msgid "Menu Icon Text (Emoji)"
+msgstr "نص رمز القائمة (رمز تعبيري)"
+
+#: includes/Menu_Options/Settings.php:305
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu title."
+msgstr "أضف رمزًا أو إيموجي ليظهر كأيقونة بجانب عنوان قائمتك."
+
+#: includes/Menu_Options/Settings.php:305
+msgid "To add an Emoji:"
+msgstr "لإضافة رمز تعبيري:"
+
+#: includes/Menu_Options/Settings.php:305
+msgid ""
+"Windows: On your keyboard, press and hold the Windows button and either the "
+"period (.) or semicolon (;)"
+msgstr ""
+"ويندوز: على لوحة المفاتيح الخاصة بك، اضغط مع الاستمرار على زر الويندوز وأي "
+"من النقطة (.) أو الفاصلة المنقوطة (؛)"
+
+#: includes/Menu_Options/Settings.php:305
+msgid "Mac: On your keyboard, press Command + Control + Space"
+msgstr "ماك: على لوحة المفاتيح الخاصة بك، اضغط على Command + Control + Space"
+
+#: includes/Menu_Options/Setting_Field.php:201
+msgid "Default Opacity"
+msgstr "التعتيم الافتراضي"
+
+#: includes/Menu_Options/Setting_Field.php:208
+msgid "Hover Opacity"
+msgstr "تعتيم التحويم"
+
+#: includes/Menu_Options/Setting_Field.php:265
+msgid "Search for an icon..."
+msgstr "ابحث عن أيقونة..."
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Select Video"
+msgstr "اختر الفيديو"
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Choose Your Video"
+msgstr "اختر الفيديو الخاص بك"
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Add Video"
+msgstr "إضافة فيديو"
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Select Image"
+msgstr "اختر صورة"
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Choose Your Image"
+msgstr "اختر صورتك"
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Add Image"
+msgstr "إضافة صورة"
+
+#: includes/Menu_Options/Setting_Field.php:378
+#: includes/Menu_Options/Setting_Field.php:385
+#: includes/Menu_Options/Setting_Field.php:386
+msgid "Automatic"
+msgstr "تلقائي"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:44
+msgid "Select a Template"
+msgstr "اختر قالبًا"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:56
+msgid "Single:"
+msgstr "أعزب:"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:67
+msgid "Archive:"
+msgstr "أرشيف:"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:74
+msgid "404 Template"
+msgstr "قالب 404"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:65
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+msgid "Templates"
+msgstr "قوالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:104
+#: build/editor.js:100129
+msgid "Template"
+msgstr "قالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
+msgid "Search Templates"
+msgstr "البحث عن القوالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+msgid "Parent Template"
+msgstr "القالب الرئيسي"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+msgid "Edit Template"
+msgstr "تحرير القالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+msgid "Update Template"
+msgstr "تحديث القالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
+msgid "Add New Template"
+msgstr "إضافة قالب جديد"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:207
+msgid "None Assigned"
+msgstr "غير معين"
+
+#: includes/Notifications/Notifications_Register.php:22
+msgid ""
+"Nectarblocks Alert: We detected that the Gutenberg plugin is currently "
+"active."
+msgstr "تنبيه Nectarblocks: لقد اكتشفنا أن إضافة Gutenberg نشطة حاليًا."
+
+#: includes/Notifications/Notifications_Register.php:34
+msgid ""
+"Nectarblocks Alert: We detected that the CoBlocks plugin is currently "
+"active."
+msgstr "تنبيه Nectarblocks: لقد اكتشفنا أن إضافة CoBlocks نشطة حاليًا."
+
+#: includes/Notifications/Notifications_Register.php:35
+msgid ""
+"This may cause conflicts when used alongside other block plugins, including "
+"Nectarblocks. To ensure the best performance and compatibility, we recommend"
+" deactivating the CoBlocks plugin while using Nectarblocks."
+msgstr ""
+"قد يتسبب ذلك في حدوث تعارضات عند استخدامه بجانب إضافات الكتل الأخرى، بما في "
+"ذلك Nectarblocks. لضمان أفضل أداء وتوافق، نوصي بتعطيل إضافة CoBlocks أثناء "
+"استخدام Nectarblocks."
+
+#: includes/Portfolio/Portfolio_Register.php:72
+msgid "Project"
+msgstr "مشروع"
+
+#: includes/Portfolio/Portfolio_Register.php:73
+msgid "Add New"
+msgstr "إضافة جديد"
+
+#: includes/Portfolio/Portfolio_Register.php:74
+msgid "Add New Project"
+msgstr "إضافة مشروع جديد"
+
+#: includes/Portfolio/Portfolio_Register.php:75
+msgid "Edit Project"
+msgstr "تحرير المشروع"
+
+#: includes/Portfolio/Portfolio_Register.php:76
+msgid "New Project"
+msgstr "مشروع جديد"
+
+#: includes/Portfolio/Portfolio_Register.php:77
+msgid "View Project"
+msgstr "عرض المشروع"
+
+#: includes/Portfolio/Portfolio_Register.php:78
+msgid "Search Portfolio"
+msgstr "ابحث في المحفظة"
+
+#: includes/Portfolio/Portfolio_Register.php:79
+msgid "No Project found"
+msgstr "لم يتم العثور على مشروع"
+
+#: includes/Portfolio/Portfolio_Register.php:80
+msgid "No Project found in Trash"
+msgstr "لم يتم العثور على مشروع في سلة المهملات"
+
+#: includes/Portfolio/Portfolio_Register.php:100
+msgid "Categories"
+msgstr "الفئات"
+
+#: includes/Portfolio/Portfolio_Register.php:114
+msgid "Tags"
+msgstr "العلامات"
+
+#: includes/Portfolio/Portfolio_Register.php:188
+msgid "Portfolio Permalinks"
+msgstr "روابط دائمة للمحفظة"
+
+#: includes/Portfolio/Portfolio_Register.php:190
+msgid "Customize the portfolio permalink structure."
+msgstr "تخصيص هيكل الرابط الثابت للمحفظة."
+
+#: includes/Portfolio/Portfolio_Register.php:197
+msgid "Portfolio Slug"
+msgstr "الاسم المختصر للمحفظة"
+
+#: includes/Portfolio/Portfolio_Register.php:198
+msgid "Portfolio Category Base"
+msgstr "قاعدة فئة المحفظة"
+
+#: includes/Portfolio/Portfolio_Register.php:199
+msgid "Portfolio Tag Base"
+msgstr "قاعدة علامات المحفظة"
+
+#: includes/Portfolio/Portfolio_Register.php:247
+msgid ""
+"Portfolio permalink structure updated. Please refresh permalinks by visiting"
+" Settings > Permalinks and clicking \"Save Changes\"."
+msgstr ""
+"تم تحديث هيكل الروابط الدائمة للمحفظة. يرجى تحديث الروابط الدائمة عن طريق "
+"زيارة الإعدادات > الروابط الدائمة والنقر على \"حفظ التغييرات\"."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:22
+msgid ""
+"This is the Content block, it will display all the blocks in any single post"
+" or page."
+msgstr "هذا هو كتلة المحتوى، ستعرض جميع الكتل في أي منشور أو صفحة واحدة."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:23
+msgid ""
+"That might be a simple arrangement like consecutive paragraphs in a blog "
+"post, or a more elaborate composition that includes image galleries, videos,"
+" tables, columns, and any other block types."
+msgstr ""
+"قد يكون ذلك ترتيبًا بسيطًا مثل الفقرات المتتالية في منشور مدونة، أو تكوينًا "
+"أكثر تعقيدًا يتضمن معارض الصور، مقاطع الفيديو، الجداول، الأعمدة، وأي أنواع "
+"أخرى من الكتل."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:24
+msgid ""
+"If there are any Custom Post Types registered at your site, the Content "
+"block can display the contents of those entries as well."
+msgstr ""
+"إذا كان هناك أي أنواع منشورات مخصصة مسجلة في موقعك، يمكن لكتلة المحتوى عرض "
+"محتويات تلك الإدخالات أيضًا."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+msgid "min read"
+msgstr "دقيقة قراءة"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:466
+msgid "Pagination Navigation"
+msgstr "التنقل بين الصفحات"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:49
+#: build/editor.js:77431
+msgid "Select a Taxonomy"
+msgstr "اختر تصنيفًا"
+
+#. translators: the taxonomy name
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:55
+#, php-format
+msgid "\"%s\" terms will render here."
+msgstr "سيتم عرض الشروط \"%s\" هنا."
+
+#. translators: the taxonomy name
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:61
+#, php-format
+msgid "No terms in \"%s\""
+msgstr "لا توجد مصطلحات في \"%s\""
+
+#: build/adminPanel.js:3372
+msgid "Modules"
+msgstr "الوحدات"
+
+#: build/adminPanel.js:1765
+msgid "Successfully checked for updates."
+msgstr "تم التحقق من التحديثات بنجاح."
+
+#: build/adminPanel.js:1767
+msgid "Failed to check for updates."
+msgstr "فشل في التحقق من التحديثات."
+
+#: build/adminPanel.js:1770
+msgid "Error attempting to check for updates."
+msgstr "خطأ في محاولة التحقق من التحديثات."
+
+#: build/adminPanel.js:2466
+msgid ""
+"The title font used in the live demo is \"Kyrlon\" by Tom Karlsson and can "
+"be "
+msgstr ""
+"الخط المستخدم في العنوان في العرض المباشر هو \"Kyrlon\" من تصميم توم كارلسون"
+" ويمكن أن يكون"
+
+#: build/adminPanel.js:2470
+msgid "downloaded here."
+msgstr "تم التنزيل هنا."
+
+#: build/adminPanel.js:3075
+msgid ""
+"Please authorize Nectarblocks with your license key to access the Demo "
+"Importer. That can be done in Authorization tab in the Admin Panel."
+msgstr ""
+"يرجى تفويض Nectarblocks باستخدام مفتاح الترخيص الخاص بك للوصول إلى مستورد "
+"العرض التوضيحي. يمكن القيام بذلك في علامة التبويب التفويض في لوحة الإدارة."
+
+#: build/adminPanel.js:3080
+msgid ""
+"You must install the Nectarblocks Importer/Exporter plugin to access the "
+"Demo Importer."
+msgstr ""
+"يجب عليك تثبيت إضافة Nectarblocks Importer/Exporter للوصول إلى مستورد العرض "
+"التوضيحي."
+
+#: build/adminPanel.js:3193
+msgid "Portfolio Post Type"
+msgstr "نوع المنشور في المحفظة"
+
+#: build/adminPanel.js:3194
+msgid "Registers a post type for Portfolio projects."
+msgstr "يسجل نوع منشور لمشاريع المحفظة."
+
+#: build/blocks/post-grid/frontend-script.js:259 build/editor.js:63838
+msgid "Wrap All"
+msgstr "لف جميع العناصر"
+
+#: build/blocks/post-grid/frontend-script.js:263 build/editor.js:63842
+msgid "Grid Item"
+msgstr "عنصر الشبكة"
+
+#: build/blocks/post-grid/frontend-script.js:266 build/editor.js:63845
+msgid "Featured Media"
+msgstr "الوسائط المميزة"
+
+#: build/blocks/image-grid/block.json
+msgctxt "block description"
+msgid ""
+"A highly customizable image grid display that allows you to organize images "
+"using different layouts."
+msgstr "وصف الكتلة"
+
+#: build/blocks/post-content/block.json
+msgctxt "block title"
+msgid "Post Content"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/post-content/block.json
+msgctxt "block description"
+msgid "Displays the content of a post."
+msgstr "وصف الكتلة"
+
+#: build/blocks/taxonomy-grid/block.json
+msgctxt "block description"
+msgid ""
+"A highly customizable taxonomy grid display that can query data from any "
+"taxonomy type."
+msgstr "وصف الكتلة"
+
+#: build/blocks/taxonomy-terms/block.json
+msgctxt "block title"
+msgid "Taxonomy Terms"
+msgstr "عنوان الكتلة"
+
+#: build/blocks/taxonomy-terms/block.json
+msgctxt "block description"
+msgid "Display the selected taxonomy terms for your post."
+msgstr "وصف الكتلة"
+
+#: build/editor.js:85884 build/editor.js:89839
+msgid "Change Image"
+msgstr "تغيير الصورة"
+
+#: build/editor.js:86092
+msgid "Background Image"
+msgstr "صورة الخلفية"
+
+#: build/editor.js:24363 build/editor.js:24397 build/editor.js:30932
+#: build/editor.js:72803 build/editor.js:86032 build/editor.js:86625
+msgid "Opacity"
+msgstr "عتامة"
+
+#: build/editor.js:19339 build/editor.js:35088 build/editor.js:39530
+#: build/editor.js:43689 build/editor.js:59827 build/editor.js:66532
+#: build/editor.js:68939 build/editor.js:72969 build/editor.js:79590
+#: build/editor.js:79712 build/editor.js:79860 build/editor.js:84592
+#: build/editor.js:86198
+msgid "Size"
+msgstr "الحجم"
+
+#: build/editor.js:34862 build/editor.js:86206 build/editor.js:86589
+msgid "Cover"
+msgstr "الغلاف"
+
+#: build/editor.js:34859 build/editor.js:86209 build/editor.js:86592
+msgid "Contain"
+msgstr "احتوى"
+
+#: build/editor.js:34355 build/editor.js:61441 build/editor.js:75072
+#: build/editor.js:86212
+msgid "Custom"
+msgstr "تخصيص"
+
+#: build/editor.js:86226
+msgid "Repeat"
+msgstr "كرر"
+
+#: build/editor.js:86233
+msgid "No Repeat"
+msgstr "لا تكرار"
+
+#: build/editor.js:86237
+msgid "Repeat All Directions"
+msgstr "كرر جميع الاتجاهات"
+
+#: build/editor.js:86241
+msgid "Repeat Horizontal"
+msgstr "كرر أفقيا"
+
+#: build/editor.js:86245
+msgid "Repeat Vertical"
+msgstr "كرر عموديا"
+
+#: build/editor.js:17402 build/editor.js:43408 build/editor.js:45091
+#: build/editor.js:86262
+msgid "Width"
+msgstr "العرض"
+
+#: build/editor.js:20622 build/editor.js:86280
+msgid "Height"
+msgstr "الطول"
+
+#: build/editor.js:86299
+msgid "Attachment"
+msgstr "المرفق"
+
+#: build/editor.js:86304
+msgid "Scroll"
+msgstr "تمرير"
+
+#: build/editor.js:86307
+msgid "Fixed"
+msgstr "تم التصحيح"
+
+#: build/editor.js:86387 build/editor.js:94092
+msgid "Change Video"
+msgstr "تغيير الفيديو"
+
+#: build/editor.js:86523
+msgid "Background Video"
+msgstr "فيديو الخلفية"
+
+#: build/editor.js:44088 build/editor.js:51679 build/editor.js:85743
+#: build/editor.js:86559
+msgid "Loop"
+msgstr "حلقة"
+
+#: build/editor.js:85698 build/editor.js:85749 build/editor.js:85772
+#: build/editor.js:85794 build/editor.js:86565
+msgid "Enable"
+msgstr "تمكين"
+
+#: build/editor.js:85701 build/editor.js:85752 build/editor.js:85775
+#: build/editor.js:85797 build/editor.js:86568
+msgid "Disable"
+msgstr "تعطيل"
+
+#: build/editor.js:57535 build/editor.js:86583
+msgid "Fit"
+msgstr "لائق"
+
+#: build/editor.js:22241 build/editor.js:43839 build/editor.js:62637
+#: build/editor.js:86610
+msgid "Alignment"
+msgstr "محاذاة"
+
+#: build/editor.js:17041
+msgid "Block Presets"
+msgstr "القوالب المسبقة"
+
+#: build/editor.js:17103
+msgid "Select Preset"
+msgstr "اختر الإعداد المسبق"
+
+#: build/editor.js:17281 build/editor.js:86839
+msgid "Unlink Sides"
+msgstr "إلغاء الربط بين الجانبين"
+
+#: build/editor.js:17281 build/editor.js:21041 build/editor.js:86839
+msgid "Link Sides"
+msgstr "رابط الجوانب"
+
+#: build/editor.js:87241 build/editor.js:89242
+msgid "Nectar"
+msgstr "نكتار"
+
+#: build/editor.js:87250 build/editor.js:87313
+msgid "Nectar Global Colors"
+msgstr "Nectar Global Colors"
+
+#: build/editor.js:87255
+msgid "WP Custom Color Scheme"
+msgstr "WP Custom Color Scheme"
+
+#: build/editor.js:87261
+msgid "WP Theme Color Scheme"
+msgstr "WP Theme Color Scheme"
+
+#: build/editor.js:87274
+msgid "WP Theme"
+msgstr "WP Theme"
+
+#: build/editor.js:87284
+msgid "WP Custom"
+msgstr "WP Custom"
+
+#: build/editor.js:87429
+msgid "Background Color"
+msgstr "Background Color"
+
+#: build/editor.js:87481 build/editor.js:87494 build/editor.js:90684
+msgid "Transparent"
+msgstr "شفاف"
+
+#: build/editor.js:87484
+msgid "Radial Gradient"
+msgstr "التدرج الشعاعي"
+
+#: build/editor.js:87486
+msgid "Linear Gradient"
+msgstr "التدرج الخطي"
+
+#: build/editor.js:19340 build/editor.js:21765 build/editor.js:36693
+#: build/editor.js:87492 build/editor.js:89697 build/editor.js:93912
+msgid "Inherit"
+msgstr "يرث"
+
+#: build/editor.js:17373 build/editor.js:87603
+msgid "Solid"
+msgstr "صلب"
+
+#: build/editor.js:87606
+msgid "Gradient"
+msgstr "التدرج"
+
+#: build/editor.js:87663 build/editor.js:90626
+msgid "Remove Color"
+msgstr "إزالة اللون"
+
+#: build/editor.js:20393 build/editor.js:88608
+msgid "Mobile"
+msgstr "الجوال"
+
+#: build/editor.js:88712
+msgid "Pick a color"
+msgstr "اختر اللون"
+
+#: build/editor.js:19347 build/editor.js:19515 build/editor.js:20640
+#: build/editor.js:29055 build/editor.js:43472
+msgid "Align"
+msgstr "محاذاة"
+
+#: build/editor.js:19419 build/editor.js:36736
+msgid "Font Settings"
+msgstr "إعدادات الخط"
+
+#: build/editor.js:19434 build/editor.js:19595 build/editor.js:93739
+msgid "Font Size"
+msgstr "حجم الخط"
+
+#: build/editor.js:19459
+msgid "Font Clamp"
+msgstr "مشبك الخط"
+
+#: build/editor.js:19491 build/editor.js:93812
+msgid "Line Height"
+msgstr "ارتفاع الخط"
+
+#: build/editor.js:75449 build/editor.js:88819
+msgid "Label"
+msgstr "التسمية"
+
+#: build/editor.js:19191 build/editor.js:19679 build/editor.js:88831
+#: build/editor.js:93966
+msgid "Save"
+msgstr "حفظ"
+
+#: build/editor.js:27535 build/editor.js:55837 build/editor.js:61596
+#: build/editor.js:75188 build/editor.js:88857 build/editor.js:89665
+msgid "Editing"
+msgstr "التحرير"
+
+#: build/editor.js:88902
+msgid "Add Global Color"
+msgstr "إضافة اللون العالمي"
+
+#: build/editor.js:88904
+msgid "Add Global Gradient"
+msgstr "إضافة التدرج العالمي"
+
+#: build/editor.js:89069 build/editor.js:89077
+msgid "Palette Presets"
+msgstr "إعدادات لوحة الألوان المسبقة"
+
+#: build/editor.js:89151
+msgid "Delete Global Color Confirmation"
+msgstr "حذف تأكيد اللون العالمي"
+
+#: build/editor.js:89158 build/editor.js:92568
+msgid "Are you sure you want to delete"
+msgstr "هل أنت متأكد أنك تريد الحذف"
+
+#: build/editor.js:89160 build/editor.js:92570
+msgid "This is a destructive action that can not be undone."
+msgstr "هذا عمل مدمر لا يمكن التراجع عنه."
+
+#: build/editor.js:89164
+msgid ""
+"If you're already using this color in blocks, you can optionally reassign it"
+" to another."
+msgstr ""
+"إذا كنت تستخدم هذا اللون بالفعل في الكتل، فيمكنك اختياريًا إعادة تعيينه إلى "
+"لون آخر."
+
+#: build/editor.js:89166 build/editor.js:92576
+msgid "to nothing"
+msgstr "إلى لا شيء"
+
+#: build/editor.js:89191 build/editor.js:92587
+msgid "Confirm Delete"
+msgstr "تأكيد الحذف"
+
+#: build/editor.js:89252
+msgid "Majestic Forest"
+msgstr "الغابة المهيبة"
+
+#: build/editor.js:89262
+msgid "Rustic Sunset"
+msgstr "غروب الشمس الريفي"
+
+#: build/editor.js:89272
+msgid "Savannah"
+msgstr "سافانا"
+
+#: build/editor.js:89302
+msgid "Camp Fire"
+msgstr "نار المخيم"
+
+#: build/editor.js:89282
+msgid "Bright Royal"
+msgstr "برايت رويال"
+
+#: build/editor.js:89232
+msgid "Tranquility"
+msgstr "السكينة"
+
+#: build/editor.js:89292
+msgid "Organic Zen"
+msgstr "زن عضوي"
+
+#: build/editor.js:89349
+msgid "Core Colors"
+msgstr "الألوان الأساسية"
+
+#: build/editor.js:89350
+msgid "Custom Colors"
+msgstr "ألوان مخصصة"
+
+#: build/editor.js:89351
+msgid "Core Gradients"
+msgstr "التدرجات الأساسية"
+
+#: build/editor.js:89352
+msgid "Custom Gradients"
+msgstr "التدرجات المخصصة"
+
+#: build/editor.js:89379
+msgid "Solids"
+msgstr "المواد الصلبة"
+
+#: build/editor.js:89399
+msgid "Gradients"
+msgstr "التدرجات"
+
+#: build/editor.js:19988 build/editor.js:89478 build/editor.js:90210
+msgid "Edit"
+msgstr "تحرير"
+
+#: build/editor.js:89534
+msgid "Rename Font"
+msgstr "إعادة تسمية الخط"
+
+#: build/editor.js:89559
+msgid "New Name"
+msgstr "الاسم الجديد"
+
+#: build/editor.js:89587
+msgid "Save Font Name"
+msgstr "حفظ اسم الخط"
+
+#: build/editor.js:89654
+msgid "Rename"
+msgstr "إعادة تسمية"
+
+#: build/editor.js:89717
+msgid "Add New Font Rule"
+msgstr "إضافة قاعدة خط جديدة"
+
+#: build/editor.js:89731
+msgid "Core Font Rules"
+msgstr "قواعد الخط الأساسية"
+
+#: build/editor.js:89748
+msgid "Custom Font Rules"
+msgstr "قواعد الخط المخصص"
+
+#: build/editor.js:32264
+msgid "Select Icon"
+msgstr "اختر أيقونة"
+
+#: build/editor.js:18934 build/editor.js:32363 build/editor.js:86540
+#: build/editor.js:94211
+msgid "Source"
+msgstr "المصدر"
+
+#: build/editor.js:32393 build/editor.js:95468 build/editor.js:96063
+msgid "Search"
+msgstr "بحث"
+
+#: build/editor.js:32395
+msgid "Enter a keyword..."
+msgstr "أدخل كلمة أساسية..."
+
+#: build/editor.js:50916 build/editor.js:54824
+msgid "Remove Image"
+msgstr "إزالة الصورة"
+
+#: build/editor.js:19663
+msgid "Insert From URL"
+msgstr "إدراج من URL"
+
+#: build/editor.js:19669
+msgid "Enter URL"
+msgstr "أدخل URL"
+
+#: build/editor.js:19687 build/editor.js:90218 build/editor.js:101145
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: build/editor.js:19786 build/editor.js:21924
+msgid "Media Library"
+msgstr "مكتبة الوسائط"
+
+#: build/editor.js:19829 build/editor.js:21981 build/editor.js:57373
+msgid "Upload"
+msgstr "تحميل"
+
+#: build/editor.js:19836
+msgid "Or"
+msgstr "أو"
+
+#: build/editor.js:79699 build/editor.js:89919
+msgid "Image Settings"
+msgstr "إعدادات الصورة"
+
+#: build/editor.js:27757 build/editor.js:55467 build/editor.js:58010
+#: build/editor.js:60926 build/editor.js:74742 build/editor.js:89960
+msgid "Resolution"
+msgstr "القرار"
+
+#: build/editor.js:27719 build/editor.js:38632 build/editor.js:50694
+#: build/editor.js:54565 build/editor.js:55727 build/editor.js:57977
+#: build/editor.js:61436 build/editor.js:63084 build/editor.js:75070
+#: build/editor.js:75680 build/editor.js:89978
+msgid "Title"
+msgstr "عنوان"
+
+#: build/editor.js:27737 build/editor.js:50714 build/editor.js:54585
+#: build/editor.js:57993 build/editor.js:89992
+msgid "Alt Text"
+msgstr "نص بديل"
+
+#: build/editor.js:90387
+msgid "Top Left"
+msgstr "أعلى اليسار"
+
+#: build/editor.js:90388
+msgid "Top Center"
+msgstr "المركز العلوي"
+
+#: build/editor.js:90389
+msgid "Top Right"
+msgstr "أعلى اليمين"
+
+#: build/editor.js:90390
+msgid "Center Left"
+msgstr "مركز اليسار"
+
+#: build/editor.js:90391
+msgid "Center Center"
+msgstr "مركز المركز"
+
+#: build/editor.js:90392
+msgid "Center Right"
+msgstr "مركز اليمين"
+
+#: build/editor.js:90393
+msgid "Bottom Left"
+msgstr "أسفل اليسار"
+
+#: build/editor.js:90394
+msgid "Bottom Center"
+msgstr "مركز القاع"
+
+#: build/editor.js:90395
+msgid "Bottom Right"
+msgstr "أسفل اليمين"
+
+#: build/editor.js:20325 build/editor.js:22785 build/editor.js:24064
+#: build/editor.js:25942 build/editor.js:54223 build/editor.js:59159
+#: build/editor.js:60612 build/editor.js:74446 build/editor.js:84498
+msgid "Preview Animation"
+msgstr "معاينة الرسوم المتحركة"
+
+#: build/editor.js:20541
+msgid "Top & Bottom"
+msgstr "أعلى"
+
+#: build/editor.js:20549
+msgid "Background Shape"
+msgstr "شكل الخلفية"
+
+#: build/editor.js:16793 build/editor.js:17441 build/editor.js:19256
+#: build/editor.js:20579 build/editor.js:29513 build/editor.js:30082
+#: build/editor.js:30725 build/editor.js:39247 build/editor.js:49999
+#: build/editor.js:59735 build/editor.js:79489 build/editor.js:79627
+#: build/editor.js:79939 build/editor.js:80964 build/editor.js:84929
+#: build/editor.js:93891 build/editor.js:100378
+msgid "Color"
+msgstr "لون"
+
+#: build/editor.js:20605 build/editor.js:22841 build/editor.js:34381
+#: build/editor.js:34460 build/editor.js:43817 build/editor.js:62410
+#: build/editor.js:72684 build/editor.js:72847 build/editor.js:72925
+msgid "Position"
+msgstr "الموقف"
+
+#: build/editor.js:18250 build/editor.js:20628 build/editor.js:28453
+#: build/editor.js:28803 build/editor.js:29237 build/editor.js:33755
+#: build/editor.js:34334 build/editor.js:34352 build/editor.js:34790
+#: build/editor.js:34793 build/editor.js:34853 build/editor.js:86057
+#: build/editor.js:86650
+msgid "Auto"
+msgstr "سيارة"
+
+#: build/editor.js:20646
+msgid "Inside"
+msgstr "الداخل"
+
+#: build/editor.js:20649
+msgid "Outside"
+msgstr "خارج"
+
+#: build/editor.js:20668
+msgid "Shape Color"
+msgstr "لون الشكل"
+
+#: build/editor.js:22125 build/editor.js:92277
+msgid "Align Left"
+msgstr "محاذاة إلى اليسار"
+
+#: build/editor.js:22129 build/editor.js:92281
+msgid "Align Center"
+msgstr "محاذاة المركز"
+
+#: build/editor.js:22133 build/editor.js:92285
+msgid "Align Right"
+msgstr "محاذاة لليمين"
+
+#: build/editor.js:92419
+msgid "Change Text Element"
+msgstr "تغيير عنصر النص"
+
+#: build/editor.js:21804 build/editor.js:36743
+msgid "Core Fonts"
+msgstr "الخطوط الأساسية"
+
+#: build/editor.js:92561
+msgid "Delete Global Font Confirmation"
+msgstr "حذف تأكيد الخط العالمي"
+
+#: build/editor.js:92574
+msgid ""
+"If you're already using this font in blocks, you can optionally reassign it "
+"to another."
+msgstr ""
+"إذا كنت تستخدم هذا الخط بالفعل في الكتل، فيمكنك اختياريًا إعادة تعيينه إلى "
+"خط آخر."
+
+#: build/editor.js:92777
+msgid "Min"
+msgstr "دقيقة"
+
+#: build/editor.js:92796
+msgid "Max"
+msgstr "ماكس"
+
+#: build/editor.js:92929
+msgid "Select a font"
+msgstr "اختر الخط"
+
+#: build/editor.js:93107
+msgid "Font Preview"
+msgstr "معاينة الخط"
+
+#: build/editor.js:93114
+msgid ""
+"The quick brown fox jumps over the lazy dog and feels as if he were in the "
+"seventh heaven of typography."
+msgstr ""
+"يقفز الثعلب البني السريع فوق الكلب الكسول ويشعر كما لو كان في السماء السابعة"
+" للطباعة."
+
+#: build/editor.js:93668
+msgid "Font Source"
+msgstr "مصدر الخط"
+
+#: build/editor.js:93681
+msgid "Font Family"
+msgstr "عائلة الخط"
+
+#: build/editor.js:93697
+msgid "Font Weight"
+msgstr "وزن الخط"
+
+#: build/editor.js:36831 build/editor.js:49171 build/editor.js:93710
+msgid "Font Style"
+msgstr "نمط الخط"
+
+#: build/editor.js:93722
+msgid "Responsive Sizing"
+msgstr "التحجيم المستجيب"
+
+#: build/editor.js:93852
+msgid "Font Subset"
+msgstr "مجموعة الخط الفرعية"
+
+#: build/editor.js:35777 build/editor.js:93865
+msgid "Transform"
+msgstr "التحويل"
+
+#: build/editor.js:93875
+msgid "Letter Spacing"
+msgstr "تباعد الحروف"
+
+#: build/editor.js:19292 build/editor.js:93923
+msgid "Font Color"
+msgstr "لون الخط"
+
+#: build/editor.js:21986
+msgid "Uploading..."
+msgstr "جاري التحميل..."
+
+#: build/editor.js:94194
+msgid "Video Settings"
+msgstr "إعدادات الفيديو"
+
+#: build/editor.js:99712
+msgid "Custom Font"
+msgstr "خط مخصص"
+
+#: build/editor.js:102651
+msgid "Heading 1"
+msgstr "العنوان 1"
+
+#: build/editor.js:102654
+msgid "Heading 2"
+msgstr "العنوان 2"
+
+#: build/editor.js:102657
+msgid "Heading 3"
+msgstr "العنوان 3"
+
+#: build/editor.js:102660
+msgid "Heading 4"
+msgstr "العنوان 4"
+
+#: build/editor.js:102663
+msgid "Heading 5"
+msgstr "العنوان 5"
+
+#: build/editor.js:102666
+msgid "Heading 6"
+msgstr "العنوان 6"
+
+#: build/editor.js:102669
+msgid "Paragraph"
+msgstr "فقرة"
+
+#: build/editor.js:18765 build/editor.js:18873 build/editor.js:22076
+#: build/editor.js:62334 build/editor.js:63290 build/editor.js:63450
+#: build/editor.js:75833 build/editor.js:75940 build/editor.js:77437
+msgid "Sorry there was an error."
+msgstr "آسف كان هناك خطأ."
+
+#: build/editor.js:18759 build/editor.js:18867 build/editor.js:22081
+#: build/editor.js:99918 build/editor.js:100114 build/editor.js:100562
+msgid "Loading..."
+msgstr "جارٍ التحميل..."
+
+#: build/editor.js:22339
+msgid "From Left"
+msgstr "من اليسار"
+
+#: build/editor.js:22342
+msgid "From Right"
+msgstr "من اليمين"
+
+#: build/editor.js:22349 build/editor.js:29039 build/editor.js:33548
+#: build/editor.js:45094 build/editor.js:68130 build/editor.js:73089
+#: build/editor.js:77092
+msgid "Direction"
+msgstr "الإتجاه"
+
+#: build/editor.js:22357
+msgid "In"
+msgstr "في"
+
+#: build/editor.js:22360
+msgid "Out"
+msgstr "خارج"
+
+#: build/editor.js:22463 build/editor.js:24499
+msgid "Click"
+msgstr "انقر"
+
+#: build/editor.js:22468
+msgid "Animation Type"
+msgstr "نوع الرسوم المتحركة"
+
+#: build/editor.js:22511 build/editor.js:22755 build/editor.js:24046
+#: build/editor.js:25927 build/editor.js:54204 build/editor.js:59128
+#: build/editor.js:60593 build/editor.js:74427 build/editor.js:81784
+msgid "Trigger On"
+msgstr "تشغيل"
+
+#: build/editor.js:22646 build/editor.js:24501
+msgid "Scroll Into View"
+msgstr "قم بالتمرير إلى العرض"
+
+#: build/editor.js:22651 build/editor.js:43934 build/editor.js:44027
+#: build/editor.js:51528 build/editor.js:51620 build/editor.js:62706
+#: build/editor.js:84479
+msgid "Type"
+msgstr "النوع"
+
+#: build/editor.js:22738 build/editor.js:81712
+msgid "Easing"
+msgstr "التيسير"
+
+#: build/editor.js:22824
+msgid "Circle Amount"
+msgstr "مبلغ الدائرة"
+
+#: build/editor.js:22889
+msgid "Mask Inset Amount"
+msgstr "كمية إدخال القناع"
+
+#: build/editor.js:22903 build/editor.js:84611
+msgid "Roundness"
+msgstr "الاستدارة"
+
+#: build/editor.js:22952 build/editor.js:30586 build/editor.js:32653
+#: build/editor.js:32733 build/editor.js:34434
+msgid "Value"
+msgstr "القيمة"
+
+#: build/editor.js:23255 build/editor.js:27835 build/editor.js:29693
+#: build/editor.js:30260 build/editor.js:35611 build/editor.js:55648
+#: build/editor.js:61308 build/editor.js:74981
+msgid "Move Up"
+msgstr "تحرك لأعلى"
+
+#: build/editor.js:23267 build/editor.js:27847 build/editor.js:29705
+#: build/editor.js:30272 build/editor.js:35623 build/editor.js:55660
+#: build/editor.js:61320 build/editor.js:74993
+msgid "Move Down"
+msgstr "تحرك للأسفل"
+
+#: build/editor.js:23297
+msgid "Edit Animation Property"
+msgstr "تحرير خاصية الرسوم المتحركة"
+
+#: build/editor.js:23364
+msgid "Animation Property"
+msgstr "خاصية الرسوم المتحركة"
+
+#: build/editor.js:23368 build/editor.js:24376
+msgid "Transforms"
+msgstr "التحولات"
+
+#: build/editor.js:17419 build/editor.js:23369 build/editor.js:24394
+#: build/editor.js:40580 build/editor.js:43667 build/editor.js:51400
+#: build/editor.js:61758 build/editor.js:62365 build/editor.js:79576
+#: build/editor.js:84966 build/editor.js:90455
+msgid "Style"
+msgstr "ستايل"
+
+#: build/editor.js:23370 build/editor.js:24403 build/editor.js:31445
+msgid "Filters"
+msgstr "المرشحات"
+
+#: build/editor.js:23371 build/editor.js:24424
+msgid "Masks"
+msgstr "أقنعة"
+
+#: build/editor.js:23681
+msgid "View Center"
+msgstr "مركز العرض"
+
+#: build/editor.js:23684
+msgid "Fully Visible"
+msgstr "مرئي بالكامل"
+
+#: build/editor.js:23711 build/editor.js:25876 build/editor.js:54141
+#: build/editor.js:60530 build/editor.js:74364
+msgid "Scroll Animation"
+msgstr "التمرير الرسوم المتحركة"
+
+#: build/editor.js:18089 build/editor.js:18171 build/editor.js:23734
+#: build/editor.js:28522 build/editor.js:28752 build/editor.js:70200
+msgid "Start"
+msgstr "ابدأ"
+
+#: build/editor.js:18097 build/editor.js:18179 build/editor.js:23737
+#: build/editor.js:28530 build/editor.js:28760 build/editor.js:70206
+msgid "End"
+msgstr "النهاية"
+
+#: build/editor.js:23760 build/editor.js:23773
+msgid "Add Animation Property"
+msgstr "إضافة خاصية الرسوم المتحركة"
+
+#: build/editor.js:23799
+msgid "Animation Boundaries"
+msgstr "حدود الرسوم المتحركة"
+
+#: build/editor.js:23935
+msgid "End After Scrolling"
+msgstr "الانتهاء بعد التمرير"
+
+#: build/editor.js:23935
+msgid "End On"
+msgstr "انتهى"
+
+#: build/editor.js:23991
+msgid "Custom End Offset"
+msgstr "إزاحة نهاية مخصصة"
+
+#: build/editor.js:24019
+msgid ""
+"The boundaries of this scroll animation are locked to the parent block which"
+" is set to use"
+msgstr ""
+"حدود الرسوم المتحركة التمريرية هذه مقفلة على الكتلة الأصلية التي تم ضبطها "
+"للاستخدام"
+
+#: build/editor.js:24020
+msgid "\"Pin While Animating\""
+msgstr "\"التثبيت أثناء التحريك\""
+
+#: build/editor.js:24357 build/editor.js:24385 build/editor.js:35925
+msgid "Rotate"
+msgstr "تدوير"
+
+#: build/editor.js:24358 build/editor.js:24382 build/editor.js:35924
+msgid "Scale"
+msgstr "مقياس"
+
+#: build/editor.js:24359 build/editor.js:24388 build/editor.js:35926
+msgid "Skew"
+msgstr "انحراف"
+
+#: build/editor.js:24360 build/editor.js:24379 build/editor.js:35923
+msgid "Translate"
+msgstr "ترجم"
+
+#: build/editor.js:24362 build/editor.js:24400 build/editor.js:29735
+#: build/editor.js:29886
+msgid "Box Shadow"
+msgstr "ظل الصندوق"
+
+#: build/editor.js:24364 build/editor.js:24406 build/editor.js:30045
+#: build/editor.js:30512 build/editor.js:30801 build/editor.js:53952
+msgid "Blur"
+msgstr "طمس"
+
+#: build/editor.js:24365 build/editor.js:24409 build/editor.js:30804
+msgid "Brightness"
+msgstr "السطوع"
+
+#: build/editor.js:24366 build/editor.js:24412 build/editor.js:30802
+msgid "Contrast"
+msgstr "التباين"
+
+#: build/editor.js:24367 build/editor.js:30808
+msgid "Drop Shadow"
+msgstr "الظل المسقط"
+
+#: build/editor.js:24368 build/editor.js:24415 build/editor.js:30803
+#: build/editor.js:96099
+msgid "Grayscale"
+msgstr "تدرج الرمادي"
+
+#: build/editor.js:24369 build/editor.js:24418 build/editor.js:30805
+msgid "Hue Rotate"
+msgstr "تدوير هوى"
+
+#: build/editor.js:24370 build/editor.js:29512 build/editor.js:30806
+msgid "Saturation"
+msgstr "التشبع"
+
+#: build/editor.js:24371 build/editor.js:24421 build/editor.js:30807
+msgid "Sepia"
+msgstr "بني داكن"
+
+#: build/editor.js:24372 build/editor.js:24427
+msgid "Inset"
+msgstr "أقحم"
+
+#: build/editor.js:24373 build/editor.js:24430
+msgid "Circle"
+msgstr "دائرة"
+
+#: build/editor.js:24500
+msgid "Scroll Position"
+msgstr "وضعية التمرير"
+
+#: build/editor.js:24717
+msgid "Animation Trigger Type"
+msgstr "نوع تشغيل الرسوم المتحركة"
+
+#: build/editor.js:24748
+msgid "Add Animation Trigger"
+msgstr "إضافة مشغل الرسوم المتحركة"
+
+#: build/editor.js:19924 build/editor.js:25660 build/editor.js:28070
+#: build/editor.js:58112 build/editor.js:58127 build/editor.js:58189
+#: build/editor.js:79686 build/editor.js:79697 build/editor.js:84736
+msgid "Image"
+msgstr "صورة"
+
+#: build/editor.js:25888 build/editor.js:54157 build/editor.js:54182
+#: build/editor.js:60546 build/editor.js:74380 build/editor.js:74405
+#: build/editor.js:81655 build/editor.js:100412
+msgid "Effect"
+msgstr "التأثير"
+
+#: build/editor.js:26214
+msgid "Shape"
+msgstr "الشكل"
+
+#: build/editor.js:17268 build/editor.js:33518 build/editor.js:39995
+#: build/editor.js:42219 build/editor.js:42245 build/editor.js:48499
+#: build/editor.js:59480 build/editor.js:70180
+msgid "Left"
+msgstr "يسار"
+
+#: build/editor.js:17304 build/editor.js:33522 build/editor.js:39998
+#: build/editor.js:42231 build/editor.js:42257 build/editor.js:48502
+#: build/editor.js:59483 build/editor.js:70186
+msgid "Right"
+msgstr "صحيح"
+
+#: build/editor.js:17379
+msgid "Dashed"
+msgstr "متقطع"
+
+#: build/editor.js:17385
+msgid "Dotted"
+msgstr "منقط"
+
+#: build/editor.js:17604 build/editor.js:68476 build/editor.js:79801
+msgid "Outline"
+msgstr "الخطوط العريضة"
+
+#: build/editor.js:17764
+msgid "Unlinked"
+msgstr "غير مرتبط"
+
+#: build/editor.js:17764
+msgid "Linked"
+msgstr "مرتبط"
+
+#: build/editor.js:17902
+msgid "Corner Radius"
+msgstr "نصف قطر الزاوية"
+
+#: build/editor.js:27610 build/editor.js:55902 build/editor.js:61037
+#: build/editor.js:61661 build/editor.js:62963 build/editor.js:74847
+#: build/editor.js:75253 build/editor.js:75611
+msgid "Content"
+msgstr "المحتوى"
+
+#: build/editor.js:27699 build/editor.js:51285 build/editor.js:54480
+#: build/editor.js:58029
+msgid "Image Ratio"
+msgstr "نسبة الصورة"
+
+#: build/editor.js:27859
+msgid "Duplicate"
+msgstr "مكررة"
+
+#: build/editor.js:27981 build/editor.js:28067 build/editor.js:54280
+#: build/editor.js:60669 build/editor.js:74503 build/editor.js:82687
+#: build/editor.js:84894
+msgid "Text"
+msgstr "نص"
+
+#: build/editor.js:28012
+msgid "Outline Effect"
+msgstr "تأثير المخطط التفصيلي"
+
+#: build/editor.js:28082
+msgid "Content Type"
+msgstr "نوع المحتوى"
+
+#: build/editor.js:28456
+msgid "Flex"
+msgstr "فليكس"
+
+#: build/editor.js:29240 build/editor.js:61847
+msgid "Block"
+msgstr "بلوك"
+
+#: build/editor.js:33752
+msgid "Hidden"
+msgstr "مخفي"
+
+#: build/editor.js:18093 build/editor.js:18175 build/editor.js:23674
+#: build/editor.js:23966 build/editor.js:28526 build/editor.js:28756
+#: build/editor.js:42225 build/editor.js:42251 build/editor.js:42276
+#: build/editor.js:48512 build/editor.js:70193 build/editor.js:70203
+msgid "Center"
+msgstr "المركز"
+
+#: build/editor.js:18101 build/editor.js:18192 build/editor.js:28534
+#: build/editor.js:59653 build/editor.js:77259 build/editor.js:80720
+msgid "Stretch"
+msgstr "تمتد"
+
+#: build/editor.js:28594 build/editor.js:68017
+msgid "Vertical"
+msgstr "عمودي"
+
+#: build/editor.js:28598 build/editor.js:45096 build/editor.js:68014
+msgid "Horizontal"
+msgstr "أفقي"
+
+#: build/editor.js:28690
+msgid "No Wrap"
+msgstr "لا التفاف"
+
+#: build/editor.js:28693
+msgid "Wrap"
+msgstr "التفاف"
+
+#: build/editor.js:18185 build/editor.js:28764 build/editor.js:42263
+msgid "Space Between"
+msgstr "المسافة بين"
+
+#: build/editor.js:29024 build/editor.js:29027 build/editor.js:29410
+#: build/editor.js:29412 build/editor.js:61963 build/editor.js:62381
+msgid "Display"
+msgstr "عرض"
+
+#: build/editor.js:29079
+msgid "Flex Wrap"
+msgstr "غلاف مرن"
+
+#: build/editor.js:29686
+msgid "box-shadow"
+msgstr "ظل الصندوق"
+
+#: build/editor.js:30009
+msgid "X-Axis"
+msgstr "المحور السيني"
+
+#: build/editor.js:30027
+msgid "Y-Axis"
+msgstr "المحور ص"
+
+#: build/editor.js:30063
+msgid "Spread"
+msgstr "انتشار"
+
+#: build/editor.js:30113
+msgid "Box Shadow Color"
+msgstr "لون ظل الصندوق"
+
+#: build/editor.js:30302
+msgid "Edit Filter"
+msgstr "تحرير الفلتر"
+
+#: build/editor.js:30670
+msgid "Offset X"
+msgstr "الإزاحة X"
+
+#: build/editor.js:30688
+msgid "Offset Y"
+msgstr "إزاحة Y"
+
+#: build/editor.js:30706
+msgid "Blur Radius"
+msgstr "نصف القطر الضبابي"
+
+#: build/editor.js:30754
+msgid "Drop Shadow Color"
+msgstr "لون الظل المسقط"
+
+#: build/editor.js:30824
+msgid "Effect Type"
+msgstr "نوع التأثير"
+
+#: build/editor.js:31448
+msgid "Backdrop Filters"
+msgstr "مرشحات الخلفية"
+
+#: build/editor.js:31918
+msgid "Size/Align"
+msgstr "الحجم/المحاذاة"
+
+#: build/editor.js:32602
+msgid "Empty"
+msgstr "فارغة"
+
+#: build/editor.js:32612
+msgid "Editing Attribute"
+msgstr "تحرير السمة"
+
+#: build/editor.js:32632 build/editor.js:32704
+msgid "Attribute"
+msgstr "السمة"
+
+#: build/editor.js:32644
+msgid "This attribute is reserved and cannot be used."
+msgstr "هذه السمة محجوزة ولا يمكن استخدامها."
+
+#: build/editor.js:32711
+msgid "Example: rel"
+msgstr "مثال: rel"
+
+#: build/editor.js:32729
+msgid "This attribute already exists."
+msgstr "هذه السمة موجودة بالفعل."
+
+#: build/editor.js:32737
+msgid "Example: nofollow"
+msgstr "مثال: nofollow"
+
+#: build/editor.js:32777
+msgid "Add Link Attribute"
+msgstr "إضافة سمة الارتباط"
+
+#: build/editor.js:32814
+msgid "Regular Link"
+msgstr "الرابط العادي"
+
+#: build/editor.js:32817
+msgid "Open Lightbox"
+msgstr "فتح العرض المبسط"
+
+#: build/editor.js:32830
+msgid "On Click"
+msgstr "عند النقر"
+
+#: build/editor.js:32891 build/editor.js:59384
+msgid "Target"
+msgstr "الهدف"
+
+#: build/editor.js:32893
+msgid "Open in new tab"
+msgstr "فتح في علامة تبويب جديدة"
+
+#: build/editor.js:32968
+msgid "URL"
+msgstr "رابط"
+
+#: build/editor.js:33033
+msgid "Remove URL"
+msgstr "إزالة URL"
+
+#: build/editor.js:33167 build/editor.js:54672 build/editor.js:61774
+#: build/editor.js:62397 build/editor.js:73739 build/editor.js:84364
+msgid "Link"
+msgstr "الرابط"
+
+#: build/editor.js:33171
+msgid "Custom Attributes"
+msgstr "السمات المخصصة"
+
+#: build/editor.js:33751
+msgid "Visible"
+msgstr "مرئية"
+
+#: build/editor.js:33753
+msgid "Scroll-X"
+msgstr "التمرير-X"
+
+#: build/editor.js:33754
+msgid "Scroll-Y"
+msgstr "التمرير-Y"
+
+#: build/editor.js:33876 build/editor.js:33878
+msgid "Overflow"
+msgstr "تجاوز"
+
+#: build/editor.js:34337
+msgid "Relative"
+msgstr "نسبي"
+
+#: build/editor.js:34340
+msgid "Absolute"
+msgstr "مطلق"
+
+#: build/editor.js:34343
+msgid "Static"
+msgstr "ثابت"
+
+#: build/editor.js:34346 build/editor.js:59685
+msgid "Sticky"
+msgstr "لزجة"
+
+#: build/editor.js:34383 build/editor.js:86051 build/editor.js:86644
+msgid "Z-Index"
+msgstr "مؤشر Z"
+
+#: build/editor.js:34796 build/editor.js:34799 build/editor.js:60194
+msgid "∞"
+msgstr "لا شيء"
+
+#: build/editor.js:34802 build/editor.js:58767
+msgid "0"
+msgstr "صفر"
+
+#: build/editor.js:34856
+msgid "Fill"
+msgstr "املأ"
+
+#: build/editor.js:20914
+msgid "Margin"
+msgstr "الهامش"
+
+#: build/editor.js:20930 build/editor.js:53882 build/editor.js:60267
+#: build/editor.js:74106
+msgid "Padding"
+msgstr "الحشو"
+
+#: build/editor.js:20972
+msgid "Left / Right"
+msgstr "يسار / يمين"
+
+#: build/editor.js:20975
+msgid "Top / Bottom"
+msgstr "أعلى/أسفل"
+
+#: build/editor.js:35427 build/editor.js:39455 build/editor.js:43111
+#: build/editor.js:43856 build/editor.js:73422 build/editor.js:73540
+#: build/editor.js:73647 build/editor.js:77826
+msgid "Spacing"
+msgstr "تباعد"
+
+#: build/editor.js:35949
+msgid "Transform Type"
+msgstr "نوع التحويل"
+
+#: build/editor.js:36152
+msgid "Scale X"
+msgstr "المقياس العاشر"
+
+#: build/editor.js:36171
+msgid "Scale Y"
+msgstr "مقياس Y"
+
+#: build/editor.js:36298
+msgid "Translate X"
+msgstr "ترجم X"
+
+#: build/editor.js:36336
+msgid "Translate Y"
+msgstr "ترجمة ي"
+
+#: build/editor.js:36762
+msgid "Select a font rule"
+msgstr "حدد قاعدة الخط"
+
+#: build/editor.js:40548
+msgid "Add Your Text..."
+msgstr "أضف النص الخاص بك..."
+
+#: build/editor.js:41596 build/editor.js:43108 build/editor.js:43754
+#: build/editor.js:45269 build/editor.js:47385 build/editor.js:47916
+#: build/editor.js:48952 build/editor.js:52639 build/editor.js:56965
+#: build/editor.js:58791 build/editor.js:65029 build/editor.js:66656
+#: build/editor.js:69308 build/editor.js:76804 build/editor.js:78745
+msgid "Background"
+msgstr "الخلفية"
+
+#: build/editor.js:39224 build/editor.js:40633 build/editor.js:41599
+#: build/editor.js:45276 build/editor.js:47392 build/editor.js:47919
+#: build/editor.js:48955 build/editor.js:50008 build/editor.js:58054
+#: build/editor.js:58796 build/editor.js:65026 build/editor.js:66663
+#: build/editor.js:68207 build/editor.js:69311 build/editor.js:73437
+#: build/editor.js:73555 build/editor.js:73662 build/editor.js:76801
+#: build/editor.js:78748 build/editor.js:82486 build/editor.js:84083
+#: build/editor.js:85454
+msgid "Border"
+msgstr "الحدود"
+
+#: build/editor.js:38659 build/editor.js:40640 build/editor.js:41606
+#: build/editor.js:43132 build/editor.js:45283 build/editor.js:46348
+#: build/editor.js:47399 build/editor.js:47926 build/editor.js:48962
+#: build/editor.js:50015 build/editor.js:58061 build/editor.js:58803
+#: build/editor.js:65039 build/editor.js:66671 build/editor.js:68214
+#: build/editor.js:68715 build/editor.js:70953 build/editor.js:76811
+#: build/editor.js:77842 build/editor.js:78755 build/editor.js:82504
+#: build/editor.js:84090 build/editor.js:85461
+msgid "Effects / Transforms"
+msgstr "التأثيرات / التحولات"
+
+#: build/editor.js:40755 build/editor.js:40923 build/editor.js:41031
+#: build/editor.js:41183 build/editor.js:41371 build/editor.js:62279
+msgid "Button"
+msgstr "زر"
+
+#: build/editor.js:40756
+msgid "A button block for links and call to actions."
+msgstr "كتلة زر للارتباطات والدعوة إلى اتخاذ إجراء."
+
+#: build/editor.js:40763
+msgid "button"
+msgstr "زر"
+
+#: build/editor.js:37848 build/editor.js:38749 build/editor.js:40763
+#: build/editor.js:41702 build/editor.js:43217 build/editor.js:45429
+#: build/editor.js:46440 build/editor.js:47521 build/editor.js:48020
+#: build/editor.js:49040 build/editor.js:50104 build/editor.js:52773
+#: build/editor.js:57084 build/editor.js:58197 build/editor.js:58938
+#: build/editor.js:59311 build/editor.js:65178 build/editor.js:66810
+#: build/editor.js:68305 build/editor.js:68802 build/editor.js:69377
+#: build/editor.js:71050 build/editor.js:76939 build/editor.js:77932
+#: build/editor.js:78860 build/editor.js:82695 build/editor.js:84208
+#: build/editor.js:85563
+msgid "nectar"
+msgstr "رحيق"
+
+#: build/editor.js:38102 build/editor.js:69489
+msgid "Content Gap"
+msgstr "فجوة المحتوى"
+
+#: build/editor.js:45421
+msgid "Column"
+msgstr "عمود"
+
+#: build/editor.js:45422
+msgid "Container for content."
+msgstr "حاوية للمحتوى."
+
+#: build/editor.js:45429
+msgid "column"
+msgstr "عمود"
+
+#: build/editor.js:46086 build/editor.js:46627
+msgid "Small Gradient"
+msgstr "التدرج الصغير"
+
+#: build/editor.js:46087 build/editor.js:46630 build/editor.js:66537
+#: build/editor.js:73248
+msgid "Full Width"
+msgstr "العرض الكامل"
+
+#: build/editor.js:46088 build/editor.js:46633
+msgid "Invisible"
+msgstr "غير مرئي"
+
+#: build/editor.js:39383 build/editor.js:40571 build/editor.js:46336
+#: build/editor.js:49978 build/editor.js:70896 build/editor.js:79381
+msgid "Preset"
+msgstr "مسبقا"
+
+#: build/editor.js:46432 build/editor.js:59717
+msgid "Divider"
+msgstr "المقسم"
+
+#: build/editor.js:46433
+msgid "A divider block to separate sections."
+msgstr "كتلة مقسمة إلى أقسام منفصلة."
+
+#: build/editor.js:46440
+msgid "divider"
+msgstr "المقسم"
+
+#: build/editor.js:46440
+msgid "spacer"
+msgstr "فاصل"
+
+#: build/editor.js:50097
+msgid "A block for adding icons."
+msgstr "كتلة لإضافة الرموز."
+
+#: build/editor.js:50104
+msgid "icon"
+msgstr "أيقونة"
+
+#: build/editor.js:50683 build/editor.js:54554
+msgid ""
+"The image could not be located. It has likely been deleted from the server."
+msgstr "تعذر تحديد موقع الصورة."
+
+#: build/editor.js:50733 build/editor.js:54604 build/editor.js:55283
+#: build/editor.js:55726
+msgid "Caption"
+msgstr "تسمية توضيحية"
+
+#: build/editor.js:50771 build/editor.js:54642
+msgid "Full URL"
+msgstr "عنوان URL الكامل"
+
+#: build/editor.js:50878 build/editor.js:54786
+msgid "Swap Image"
+msgstr "تبديل الصورة"
+
+#: build/editor.js:50905 build/editor.js:54813
+msgid "Add Media"
+msgstr "إضافة الوسائط"
+
+#: build/editor.js:51087 build/editor.js:55001 build/editor.js:55352
+msgid "No images added yet"
+msgstr "لم تتم إضافة أي صور بعد"
+
+#: build/editor.js:51089 build/editor.js:55003 build/editor.js:55354
+msgid "Start adding images by clicking on \"Add Media\""
+msgstr "ابدأ بإضافة الصور بالضغط على \"إضافة وسائط\""
+
+#: build/editor.js:51350
+msgid "Color Type"
+msgstr "نوع اللون"
+
+#: build/editor.js:43638 build/editor.js:51371 build/editor.js:68204
+msgid "Coloring"
+msgstr "التلوين"
+
+#: build/editor.js:43642 build/editor.js:51375
+msgid "Controls Color"
+msgstr "التحكم في اللون"
+
+#: build/editor.js:43655 build/editor.js:51388 build/editor.js:62691
+msgid "Arrows"
+msgstr "السهام"
+
+#: build/editor.js:51422
+msgid "Button BG"
+msgstr "زر بي جي"
+
+#: build/editor.js:43770 build/editor.js:43774 build/editor.js:51438
+#: build/editor.js:51442
+msgid "Arrow Color"
+msgstr "لون السهم"
+
+#: build/editor.js:43788 build/editor.js:51456
+msgid "Pagination"
+msgstr "ترقيم الصفحات"
+
+#: build/editor.js:43878 build/editor.js:51472
+msgid "Scrollbar"
+msgstr "شريط التمرير"
+
+#: build/editor.js:51547
+msgid "Transition Speed (s)"
+msgstr "سرعة (سرعات) الانتقال"
+
+#: build/editor.js:44015 build/editor.js:51608 build/editor.js:85692
+msgid "Autoplay"
+msgstr "التشغيل التلقائي"
+
+#: build/editor.js:51643
+msgid "Time Between (s)"
+msgstr "الوقت بين (ق)"
+
+#: build/editor.js:44071 build/editor.js:51662
+msgid "Pause on Hover"
+msgstr "توقف مؤقتًا عند التحويم"
+
+#: build/editor.js:44100 build/editor.js:51691
+msgid "Free Mode"
+msgstr "الوضع الحر"
+
+#: build/editor.js:51755
+msgid "Equal Height"
+msgstr "ارتفاع متساوي"
+
+#: build/editor.js:51766
+msgid "Slide Height"
+msgstr "ارتفاع الشريحة"
+
+#: build/editor.js:52612
+msgid "Slider Parameters"
+msgstr "معلمات شريط التمرير"
+
+#: build/editor.js:43087 build/editor.js:52618
+msgid "Slider Effects"
+msgstr "تأثيرات المنزلق"
+
+#: build/editor.js:43093 build/editor.js:52624
+msgid "Slider Controls"
+msgstr "عناصر التحكم في شريط التمرير"
+
+#: build/editor.js:43099 build/editor.js:52630
+msgid "Slider Modes"
+msgstr "أوضاع شريط التمرير"
+
+#: build/editor.js:52664
+msgid "Edit Photos in Image Gallery"
+msgstr "تحرير الصور في معرض الصور"
+
+#: build/editor.js:52683 build/editor.js:52685 build/editor.js:57012
+#: build/editor.js:57014
+msgid "Edit Photos"
+msgstr "تحرير الصور"
+
+#: build/editor.js:52765
+msgid "Image Gallery"
+msgstr "معرض الصور"
+
+#: build/editor.js:52766 build/editor.js:57077
+msgid "Seamlessly display visually captivating collections of images."
+msgstr "عرض مجموعات الصور الجذابة بصريًا بسلاسة."
+
+#: build/editor.js:52773
+msgid "image-gallery"
+msgstr "معرض الصور"
+
+#: build/editor.js:57381
+msgid "Current media URL:"
+msgstr "عنوان URL للوسائط الحالية:"
+
+#: build/editor.js:57410
+msgid "Replace Image"
+msgstr "استبدال الصورة"
+
+#: build/editor.js:58132
+msgid ""
+"Upload an image file, pick one from your media library, or add one with a "
+"URL."
+msgstr ""
+"قم بتحميل ملف صورة، أو اختر واحدًا من مكتبة الوسائط الخاصة بك، أو قم بإضافة "
+"ملف بعنوان URL."
+
+#: build/editor.js:58190
+msgid "Insert an image to make a visual statement."
+msgstr "أدخل صورة لعمل بيان مرئي."
+
+#: build/editor.js:58197
+msgid "image"
+msgstr "صورة"
+
+#: build/editor.js:58930
+msgid "Milestone"
+msgstr "معلم"
+
+#: build/editor.js:58931
+msgid "Highlight an important event or attribute."
+msgstr "تسليط الضوء على حدث أو سمة مهمة."
+
+#: build/editor.js:58938
+msgid "milestone"
+msgstr "معلم"
+
+#: build/editor.js:22694 build/editor.js:59110 build/editor.js:81746
+msgid "Duration"
+msgstr "المدة"
+
+#: build/editor.js:53284 build/editor.js:53318 build/editor.js:59491
+#: build/editor.js:59524 build/editor.js:59558 build/editor.js:73815
+#: build/editor.js:73846
+msgid "Content Alignment"
+msgstr "محاذاة المحتوى"
+
+#: build/editor.js:59588
+msgid "Media Position"
+msgstr "موقف وسائل الإعلام"
+
+#: build/editor.js:59620
+msgid "Media Size"
+msgstr "حجم الوسائط"
+
+#: build/editor.js:29502 build/editor.js:53795 build/editor.js:59989
+#: build/editor.js:74019 build/editor.js:84788 build/editor.js:84807
+msgid "Overlay"
+msgstr "تراكب"
+
+#: build/editor.js:53951 build/editor.js:60339 build/editor.js:74175
+msgid "Underline"
+msgstr "تسطير"
+
+#: build/editor.js:53953 build/editor.js:60340 build/editor.js:74176
+msgid "Zoom"
+msgstr "تكبير"
+
+#: build/editor.js:53954 build/editor.js:60341 build/editor.js:74177
+msgid "Zoom Underline"
+msgstr "تكبير التسطير"
+
+#: build/editor.js:54040 build/editor.js:60429 build/editor.js:74263
+#: build/editor.js:84824
+msgid "Overlay Opacity"
+msgstr "تراكب العتامة"
+
+#: build/editor.js:60872 build/editor.js:74688
+msgid "Item Ratio"
+msgstr "نسبة السلعة"
+
+#: build/editor.js:60989 build/editor.js:74803
+msgid "Standard Grid"
+msgstr "الشبكة القياسية"
+
+#: build/editor.js:60993 build/editor.js:74807
+msgid "Masonry Grid"
+msgstr "شبكة البناء"
+
+#: build/editor.js:53397 build/editor.js:60998 build/editor.js:74812
+msgid "Overlaid"
+msgstr "متراكبة"
+
+#: build/editor.js:53401 build/editor.js:61002 build/editor.js:74816
+msgid "Underneath"
+msgstr "تحت"
+
+#: build/editor.js:61006 build/editor.js:70166
+msgid "Side"
+msgstr "الجانب"
+
+#: build/editor.js:61433 build/editor.js:63470 build/editor.js:75960
+msgid "Taxonomies"
+msgstr "التصنيفات"
+
+#: build/editor.js:61434
+msgid "Excerpt"
+msgstr "مقتطفات"
+
+#: build/editor.js:55914 build/editor.js:61673 build/editor.js:75265
+msgid "Meta Display"
+msgstr "عرض ميتا"
+
+#: build/editor.js:61733
+msgid "Simple"
+msgstr "بسيط"
+
+#: build/editor.js:61736
+msgid "With Gravatar"
+msgstr "مع غرافاتار"
+
+#: build/editor.js:61739
+msgid "With \"By\" Text"
+msgstr "With \"By\" Text"
+
+#: build/editor.js:55979 build/editor.js:56055 build/editor.js:61791
+#: build/editor.js:61980 build/editor.js:62028 build/editor.js:62076
+#: build/editor.js:62143 build/editor.js:62191 build/editor.js:62427
+#: build/editor.js:62502 build/editor.js:75372 build/editor.js:75464
+#: build/editor.js:75540
+msgid "Typography"
+msgstr "الطباعة"
+
+#: build/editor.js:75332
+msgid "Custom Post Meta Key"
+msgstr "مفتاح التعريف المخصص للنشر"
+
+#: build/editor.js:75333
+msgid "The name of a custom meta field to query from. e.g. \"_sku\""
+msgstr "اسم حقل تعريف مخصص للاستعلام منه."
+
+#: build/editor.js:61939 build/editor.js:75346
+msgid "Before Text"
+msgstr "قبل النص"
+
+#: build/editor.js:61951 build/editor.js:75359
+msgid "After Text"
+msgstr "بعد النص"
+
+#: build/editor.js:18628 build/editor.js:62126
+msgid "Length"
+msgstr "الطول"
+
+#: build/editor.js:62289
+msgid "Parent Only"
+msgstr "الوالدين فقط"
+
+#: build/editor.js:62293
+msgid "Inline with Meta"
+msgstr "مضمنة مع ميتا"
+
+#: build/editor.js:62296
+msgid "Top Corner"
+msgstr "الزاوية العليا"
+
+#: build/editor.js:56038 build/editor.js:62485 build/editor.js:75433
+#: build/editor.js:75523
+msgid "HTML Tag"
+msgstr "علامة HTML"
+
+#: build/editor.js:62613
+msgid "Button BG Color"
+msgstr "لون الزر BG"
+
+#: build/editor.js:62625
+msgid "Text Color"
+msgstr "لون النص"
+
+#: build/editor.js:62690
+msgid "Numbered"
+msgstr "مرقمة"
+
+#: build/editor.js:62849
+msgid "Use Pagination"
+msgstr "استخدم ترقيم الصفحات"
+
+#: build/editor.js:62959 build/editor.js:75607 build/editor.js:95882
+msgid "Query"
+msgstr "استعلام"
+
+#: build/editor.js:55544 build/editor.js:62961 build/editor.js:75609
+#: build/editor.js:90450
+msgid "Layout"
+msgstr "التخطيط"
+
+#: build/editor.js:55281 build/editor.js:62965 build/editor.js:75613
+msgid "Design"
+msgstr "التصميم"
+
+#: build/editor.js:63078 build/editor.js:75674
+msgid "ID"
+msgstr "معرف"
+
+#: build/editor.js:63079 build/editor.js:75675
+msgid "Modified"
+msgstr "تم التعديل"
+
+#: build/editor.js:63080 build/editor.js:75676
+msgid "Rand"
+msgstr "راند"
+
+#: build/editor.js:63081 build/editor.js:75677
+msgid "Parent"
+msgstr "الوالد"
+
+#: build/editor.js:63082 build/editor.js:75678
+msgid "Relevance"
+msgstr "الأهمية"
+
+#: build/editor.js:63083 build/editor.js:75679 build/editor.js:79424
+msgid "Name"
+msgstr "الاسم"
+
+#: build/editor.js:63085 build/editor.js:75681
+msgid "Menu Order"
+msgstr "ترتيب القائمة"
+
+#: build/editor.js:63100 build/editor.js:75696
+msgid "Order By"
+msgstr "الطلب حسب"
+
+#: build/editor.js:63156
+msgid "Post Offset"
+msgstr "إزاحة ما بعد"
+
+#: build/editor.js:63202 build/editor.js:75745
+msgid "Descending"
+msgstr "تنازلي"
+
+#: build/editor.js:63205 build/editor.js:75748
+msgid "Ascending"
+msgstr "تصاعدي"
+
+#: build/editor.js:63216 build/editor.js:75759
+msgid "Post Order"
+msgstr "طلب آخر"
+
+#: build/editor.js:63309 build/editor.js:75854
+msgid "Select Post Type"
+msgstr "حدد نوع المشاركة"
+
+#: build/editor.js:63476 build/editor.js:75966
+msgid "Select Taxonomies"
+msgstr "اختر التصنيفات"
+
+#: build/editor.js:56097 build/editor.js:63569 build/editor.js:76047
+msgid "1"
+msgstr "١"
+
+#: build/editor.js:56100 build/editor.js:63572 build/editor.js:76050
+msgid "2"
+msgstr ""
+"2\n"
+"2"
+
+#: build/editor.js:56103 build/editor.js:63575 build/editor.js:76053
+msgid "3"
+msgstr "3"
+
+#: build/editor.js:56106 build/editor.js:63578 build/editor.js:76056
+msgid "4"
+msgstr "4"
+
+#: build/editor.js:65167
+msgid "Post Grid"
+msgstr "شبكة البريد"
+
+#: build/editor.js:65168
+msgid ""
+"A highly customizable grid display that can query data from any post type."
+msgstr ""
+"شاشة عرض شبكية قابلة للتخصيص بدرجة كبيرة يمكنها الاستعلام عن البيانات من أي "
+"نوع منشور."
+
+#: build/editor.js:65178
+msgid "post grid"
+msgstr "شبكة البريد"
+
+#: build/editor.js:66549
+msgid "Contained Content"
+msgstr "المحتوى المتضمن"
+
+#: build/editor.js:66633
+msgid "Constraint"
+msgstr "القيد"
+
+#: build/editor.js:43376 build/editor.js:51794 build/editor.js:56119
+#: build/editor.js:63588 build/editor.js:66560 build/editor.js:67228
+#: build/editor.js:76066
+msgid "Columns"
+msgstr "الأعمدة"
+
+#: build/editor.js:39435 build/editor.js:39560 build/editor.js:43531
+#: build/editor.js:45225 build/editor.js:47329 build/editor.js:49217
+#: build/editor.js:49339 build/editor.js:51866 build/editor.js:56163
+#: build/editor.js:63675 build/editor.js:66584 build/editor.js:68151
+#: build/editor.js:68969 build/editor.js:72999 build/editor.js:73275
+#: build/editor.js:76110 build/editor.js:77148 build/editor.js:79450
+#: build/editor.js:79896
+msgid "Gap"
+msgstr "فجوة"
+
+#: build/editor.js:66810
+msgid "row"
+msgstr "صف"
+
+#: build/editor.js:67232
+msgid "Select a variation to start with."
+msgstr "حدد الاختلاف للبدء به."
+
+#: build/editor.js:57467 build/editor.js:60571 build/editor.js:68086
+msgid "Speed"
+msgstr "السرعة"
+
+#: build/editor.js:68170
+msgid "Mask Edges"
+msgstr "حواف القناع"
+
+#: build/editor.js:68075
+msgid "Image Height"
+msgstr "ارتفاع الصورة"
+
+#: build/editor.js:68297
+msgid "Scrolling Marquee"
+msgstr "سرادق التمرير"
+
+#: build/editor.js:68298
+msgid "A block for scrolling content."
+msgstr "كتلة لتمرير المحتوى."
+
+#: build/editor.js:68305
+msgid "marquee"
+msgstr "سرادق"
+
+#: build/editor.js:68305
+msgid "scrolling"
+msgstr "التمرير"
+
+#: build/editor.js:68305 build/editor.js:82695
+msgid "text"
+msgstr "نص"
+
+#: build/editor.js:80913
+msgid "Highlight Type"
+msgstr "نوع التمييز"
+
+#: build/editor.js:39272 build/editor.js:80945
+msgid "Thickness"
+msgstr "سمك"
+
+#: build/editor.js:80990
+msgid "Remove Effect"
+msgstr "إزالة التأثير"
+
+#: build/editor.js:81016
+msgid "Highlight Color"
+msgstr "لون التمييز"
+
+#: build/editor.js:81038 build/editor.js:81053 build/editor.js:81074
+msgid "Text Highlight"
+msgstr "تمييز النص"
+
+#: build/editor.js:81696
+msgid "Highlight Draw"
+msgstr "تمييز الرسم"
+
+#: build/editor.js:44051 build/editor.js:72664
+msgid "Time Between"
+msgstr "الوقت بين"
+
+#: build/editor.js:22716 build/editor.js:81765 build/editor.js:100433
+msgid "Delay"
+msgstr "تأخير"
+
+#: build/editor.js:81832
+msgid "Preview Animations"
+msgstr "معاينة الرسوم المتحركة"
+
+#: build/editor.js:82614
+msgid "Text block"
+msgstr "كتلة النص"
+
+#: build/editor.js:82614
+msgid "Empty block; start writing or type forward slash to choose a block"
+msgstr "كتلة فارغة؛ "
+
+#: build/editor.js:82616
+msgid "Type / to choose a block or start typing..."
+msgstr "اكتب / لاختيار كتلة أو ابدأ الكتابة..."
+
+#: build/editor.js:82695
+msgid "paragraph"
+msgstr "فقرة"
+
+#: build/editor.js:82695
+msgid "heading"
+msgstr "عنوان"
+
+#: build/editor.js:82717
+msgid ""
+"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+"my website. I live in Los Angeles, have a great dog named Jack, and I like "
+"piña coladas. (And gettin' caught in the rain.)"
+msgstr ""
+"مرحبًا! أنا رسول دراجات نارية نهارًا، وممثل طموح ليلاً، وهذا موقعي على "
+"الإنترنت. أ"
+
+#: build/editor.js:83454 build/editor.js:83703
+msgid "Watch Video"
+msgstr "شاهد الفيديو"
+
+#: build/editor.js:84200
+msgid "Video Lightbox"
+msgstr "صندوق الفيديو"
+
+#: build/editor.js:84201
+msgid "Open a video in a lightbox."
+msgstr "افتح فيديو في صندوق ضوئي."
+
+#: build/editor.js:84208 build/editor.js:85563
+msgid "video"
+msgstr "فيديو"
+
+#: build/editor.js:84208
+msgid "lightbox"
+msgstr "صندوق الإضاءة"
+
+#: build/editor.js:84370
+msgid "Local"
+msgstr "محلي"
+
+#: build/editor.js:84373
+msgid "External"
+msgstr "خارجي"
+
+#: build/editor.js:84406
+msgid "Video URL"
+msgstr "رابط الفيديو"
+
+#: build/editor.js:84468
+msgid "Mouse Attract"
+msgstr "جذب الفأر"
+
+#: build/editor.js:84581
+msgid "Play Button"
+msgstr "زر التشغيل"
+
+#: build/editor.js:84639
+msgid "Play Icon Color"
+msgstr "لون أيقونة التشغيل"
+
+#: build/editor.js:84648
+msgid "Icon BG"
+msgstr "رمز الخلفية"
+
+#: build/editor.js:84657
+msgid "Play Icon BG Color"
+msgstr "لون خلفية أيقونة التشغيل"
+
+#: build/editor.js:84725
+msgid "Preview"
+msgstr "معاينة"
+
+#: build/editor.js:84738 build/editor.js:85438
+msgid "Preview Image Settings"
+msgstr "إعدادات صورة المعاينة"
+
+#: build/editor.js:47366 build/editor.js:84767 build/editor.js:85674
+msgid "Aspect Ratio"
+msgstr "نسبة العرض إلى الارتفاع"
+
+#: build/editor.js:84905
+msgid "Flow"
+msgstr "تدفق"
+
+#: build/editor.js:84910
+msgid "New Line"
+msgstr "سطر جديد"
+
+#: build/editor.js:61850 build/editor.js:84913
+msgid "Inline"
+msgstr "في السطر"
+
+#: build/editor.js:84949
+msgid "Play Text Color"
+msgstr "العب لون النص"
+
+#: build/editor.js:85436
+msgid "Preview Image"
+msgstr "صورة معاينة"
+
+#: build/editor.js:85494 build/editor.js:85555
+msgid "Video Player"
+msgstr "مشغل الفيديو"
+
+#: build/editor.js:85499
+msgid "Upload a video file, pick one from your media library."
+msgstr "قم بتحميل ملف فيديو، اختر واحدًا من مكتبة الوسائط الخاصة بك."
+
+#: build/editor.js:85556
+msgid "Play a self-hosted video."
+msgstr "تشغيل مقطع فيديو مستضاف ذاتيًا."
+
+#: build/editor.js:85714
+msgid "Autoplay Trigger"
+msgstr "مشغل التشغيل التلقائي"
+
+#: build/editor.js:85734
+msgid "Learn more about using this trigger in the"
+msgstr "تعرف على المزيد حول استخدام هذا المشغل في"
+
+#: build/editor.js:85738
+msgid "documentation"
+msgstr "التوثيق"
+
+#: build/editor.js:85765
+msgid "Muted"
+msgstr "كتم الصوت"
+
+#: build/editor.js:85788
+msgid "Controls"
+msgstr "الضوابط"
+
+#: build/editor.js:88115 build/editor.js:88148 build/editor.js:88181
+msgid "Swift"
+msgstr "سريع"
+
+#: build/editor.js:88119 build/editor.js:88152 build/editor.js:88185
+msgid "Sine"
+msgstr "جيب"
+
+#: build/editor.js:88123 build/editor.js:88156 build/editor.js:88189
+msgid "Cubic"
+msgstr "مكعب"
+
+#: build/editor.js:88127 build/editor.js:88160 build/editor.js:88193
+msgid "Quint"
+msgstr "كوينت"
+
+#: build/editor.js:88131 build/editor.js:88164 build/editor.js:88197
+msgid "Circular"
+msgstr "تعميم"
+
+#: build/editor.js:88135 build/editor.js:88168 build/editor.js:88201
+msgid "Quad"
+msgstr "رباعية"
+
+#: build/editor.js:88139 build/editor.js:88172 build/editor.js:88205
+msgid "Quart"
+msgstr "كوارت"
+
+#: build/editor.js:88143 build/editor.js:88176 build/editor.js:88209
+msgid "Expo"
+msgstr "المعرض"
+
+#: build/editor.js:88294
+msgid "Easing Preview"
+msgstr "تخفيف المعاينة"
+
+#: build/editor.js:88349
+msgid "Ease In Out"
+msgstr "سهولة الدخول للخارج"
+
+#: build/editor.js:88392
+msgid "Ease Out"
+msgstr "تخفيف"
+
+#: build/editor.js:88417
+msgid "Ease In"
+msgstr "سهولة في"
+
+#: build/editor.js:94612
+msgid "Desktop (Main)"
+msgstr "سطح المكتب (الرئيسي)"
+
+#: build/editor.js:94614
+msgid "Changes waterfall down through all screen sizes,"
+msgstr "تغيير الشلال عبر كافة أحجام الشاشة،"
+
+#: build/editor.js:94614
+msgid "unless values are overridden in smaller responsive modes."
+msgstr "ما لم يتم تجاوز القيم في أوضاع الاستجابة الأصغر."
+
+#: build/editor.js:94621
+msgid "Tablet (1024px and smaller)"
+msgstr "جهاز لوحي (1024 بكسل وأصغر)"
+
+#: build/editor.js:94623
+msgid "Changes waterfall down through all screen sizes smaller than 1024px."
+msgstr "تغيير الشلال عبر كافة أحجام الشاشة الأصغر من 1024 بكسل."
+
+#: build/editor.js:94623
+msgid "unless values are overridden in the \"Phone\" responsive mode."
+msgstr "ما لم يتم تجاوز القيم في وضع الاستجابة \"الهاتف\"."
+
+#: build/editor.js:94630
+msgid "Phone (768px and smaller)"
+msgstr "هاتف (768 بكسل وأصغر)"
+
+#: build/editor.js:94632
+msgid "Changes waterfall down through all screen sizes smaller than 768px."
+msgstr "تغيير الشلال عبر كافة أحجام الشاشة الأصغر من 768 بكسل."
+
+#: build/editor.js:94699
+msgid "Hover State"
+msgstr "حالة التحويم"
+
+#: build/editor.js:94701
+msgid "Freezes the hover state of all elements for easy style adjustments."
+msgstr "تجميد حالة التمرير لجميع العناصر لإجراء تعديلات سهلة على النمط."
+
+#: build/editor.js:94701
+msgid "Setting hover values will override all responsive values."
+msgstr "سيؤدي تحديد قيم التمرير إلى تجاوز كافة القيم المستجيبة."
+
+#: build/editor.js:94788
+msgid "Template Library"
+msgstr "مكتبة النماذج"
+
+#: build/editor.js:95425
+msgid "Search templates.."
+msgstr "قوالب البحث.."
+
+#: build/editor.js:95858
+msgid "About"
+msgstr "حول"
+
+#: build/editor.js:95861
+msgid "Call To Action"
+msgstr "دعوة للعمل"
+
+#: build/editor.js:95873
+msgid "Intro"
+msgstr "المقدمة"
+
+#: build/editor.js:95885
+msgid "Quotes"
+msgstr "الاقتباسات"
+
+#: build/editor.js:96025
+msgid "Search for images by keywords..."
+msgstr "البحث عن الصور بالكلمات الرئيسية..."
+
+#: build/editor.js:96099
+msgid "All Colors"
+msgstr "جميع الألوان"
+
+#: build/editor.js:96099
+msgid "Black"
+msgstr "أسود"
+
+#: build/editor.js:96099
+msgid "White"
+msgstr "أبيض"
+
+#: build/editor.js:96099
+msgid "Yellow"
+msgstr "أصفر"
+
+#: build/editor.js:96099
+msgid "Orange"
+msgstr "برتقالي"
+
+#: build/editor.js:96099
+msgid "Red"
+msgstr "أحمر"
+
+#: build/editor.js:96099
+msgid "Magenta"
+msgstr "أرجواني"
+
+#: build/editor.js:96099
+msgid "Purple"
+msgstr "أرجواني"
+
+#: build/editor.js:96099
+msgid "Blue"
+msgstr "أزرق"
+
+#: build/editor.js:96099
+msgid "Teal"
+msgstr "البط البري"
+
+#: build/editor.js:96099
+msgid "Green"
+msgstr "أخضر"
+
+#: build/editor.js:96163
+msgid "All Orientations"
+msgstr "جميع التوجهات"
+
+#: build/editor.js:96163
+msgid "Landscape"
+msgstr "منظر طبيعي"
+
+#: build/editor.js:96163
+msgid "Portrait"
+msgstr "صورة شخصية"
+
+#: build/editor.js:96163
+msgid "Squarish"
+msgstr "تربيع"
+
+#: build/editor.js:96261
+msgid "Photo by"
+msgstr "تصوير"
+
+#: build/editor.js:96338
+msgid "There was an error importing"
+msgstr "حدث خطأ أثناء الاستيراد"
+
+#: build/editor.js:96371 build/editor.js:96375
+msgid "Import Image"
+msgstr "استيراد الصورة"
+
+#: build/editor.js:96615
+msgid "No results found"
+msgstr "لم يتم العثور على نتائج"
+
+#: build/editor.js:96617
+msgid "Try searching again."
+msgstr "حاول البحث مرة أخرى."
+
+#: build/editor.js:96899
+msgid "Welcome Guide"
+msgstr "دليل الترحيب"
+
+#: build/editor.js:96967
+msgid "Block Settings"
+msgstr "إعدادات الحظر"
+
+#: build/editor.js:96971
+msgid ""
+"To access settings for a block, simply click on the Settings icon while the "
+"desired block is selected."
+msgstr ""
+"للوصول إلى إعدادات الكتلة، ما عليك سوى النقر على أيقونة الإعدادات أثناء "
+"تحديد الكتلة المطلوبة."
+
+#: build/editor.js:96975
+msgid ""
+"Each block offers an extensive range of customization options and settings, "
+"empowering you to harness your global settings effectively. You can easily "
+"maintain consistency and coherence across your entire design."
+msgstr ""
+"توفر كل كتلة نطاقًا واسعًا من خيارات التخصيص والإعدادات، مما يمكّنك من "
+"الاستفادة من إعداداتك العالمية بشكل فعال. "
+
+#: build/editor.js:96985
+msgid "Pro tip: "
+msgstr "نصيحة احترافية: "
+
+#: build/editor.js:96998
+msgid "Responsive and Hover Modes"
+msgstr "أوضاع الاستجابة والتحويم"
+
+#: build/editor.js:97002
+msgid ""
+"To switch between editing modes, click on one of the icons located at the "
+"top-middle of the interface. Any changes you make to the settings will "
+"affect the selected mode only. This allows for easy customization to "
+"responsive and hover settings."
+msgstr ""
+"للتبديل بين أوضاع التحرير، انقر فوق أحد الأيقونات الموجودة في الجزء العلوي "
+"الأوسط من الواجهة. "
+
+#: build/editor.js:97004
+msgid "Keep an eye out for settings highlighted in"
+msgstr "راقب الإعدادات المميزة فيها"
+
+#: build/editor.js:97006
+msgid "green"
+msgstr "أخضر"
+
+#: build/editor.js:97007
+msgid "— these are unique to the selected mode and can be edited separately."
+msgstr "— هذه فريدة للوضع المحدد ويمكن تحريرها بشكل منفصل."
+
+#: build/editor.js:97016
+msgid "It's time to start building"
+msgstr "حان الوقت لبدء البناء"
+
+#: build/editor.js:100350
+msgid "Hide Title"
+msgstr "إخفاء العنوان"
+
+#: build/editor.js:100845
+msgid "Display Tutorial"
+msgstr "عرض البرنامج التعليمي"
+
+#: build/editor.js:99816
+msgid "Display Locations"
+msgstr "عرض المواقع"
+
+#: build/editor.js:99821
+msgid ""
+"Set the priority and location of where to render this section on your site. "
+"The priority will determine the order of sections when multiple are assigned"
+" to the same location."
+msgstr ""
+"حدد أولوية وموقع عرض هذا القسم على موقعك. ستحدد الأولوية ترتيب الأقسام عند "
+"تعيين عدة أقس"
+
+#: build/editor.js:17445
+msgid "Border Color"
+msgstr "لون الحدود"
+
+#: build/editor.js:22333
+msgid "From Bottom"
+msgstr "من القاع"
+
+#: build/editor.js:22336
+msgid "From Top"
+msgstr "من الأعلى"
+
+#: build/editor.js:23671
+msgid "Enter"
+msgstr "أدخل"
+
+#: build/editor.js:23804
+msgid "Pin"
+msgstr "دبوس"
+
+#: build/editor.js:23807
+msgid ""
+"\"Pin\" the block in place within the viewport while the animation plays "
+"through."
+msgstr "\"تثبيت\" الكتلة في مكانها داخل نافذة العرض أثناء تشغيل الرسوم المتحركة."
+
+#: build/editor.js:23972
+msgid "Exit"
+msgstr "الخروج"
+
+#: build/editor.js:24024
+msgid "Smooth"
+msgstr "ناعم"
+
+#: build/editor.js:24027
+msgid "Adds smoothing to the animation while scrolling."
+msgstr "يضيف تنعيمًا للرسوم المتحركة أثناء التمرير."
+
+#: build/editor.js:24361 build/editor.js:24391 build/editor.js:35927
+#: build/editor.js:35998
+msgid "Perspective"
+msgstr "المنظور"
+
+#: build/editor.js:24658
+msgid "Block Animation"
+msgstr "تحريك الكتل"
+
+#: build/editor.js:25909
+msgid "Strength"
+msgstr "القوة"
+
+#: build/editor.js:27781 build/editor.js:28025
+msgid "Spin Effect"
+msgstr "تأثير الدوران"
+
+#: build/editor.js:28270
+msgid "Custom ID"
+msgstr "معرف مخصص"
+
+#: build/editor.js:28285
+msgid "Invalid element ID / anchor"
+msgstr "معرف العنصر / الرابط غير صالح"
+
+#: build/editor.js:28628
+msgid "Reverse"
+msgstr "عكس"
+
+#: build/editor.js:29067 build/editor.js:43500 build/editor.js:92290
+msgid "Justify"
+msgstr "تبرير"
+
+#: build/editor.js:29906
+msgid "Shadow Presets"
+msgstr "الإعدادات المسبقة للظلال"
+
+#: build/editor.js:29919
+msgid "Presets"
+msgstr "الإعدادات المسبقة"
+
+#: build/editor.js:31098 build/editor.js:41225 build/editor.js:78907
+msgid "Small"
+msgstr "صغير"
+
+#: build/editor.js:31186
+msgid "Medium"
+msgstr "متوسط"
+
+#: build/editor.js:31232
+msgid "Large"
+msgstr "كبير"
+
+#: build/editor.js:33536 build/editor.js:82456
+msgid "Mask"
+msgstr "قناع"
+
+#: build/editor.js:33588 build/editor.js:33623 build/editor.js:39226
+msgid "Sides"
+msgstr "الجوانب"
+
+#: build/editor.js:33658
+msgid "Amount"
+msgstr "المبلغ"
+
+#: build/editor.js:27995 build/editor.js:34712 build/editor.js:38020
+msgid "Tag"
+msgstr "وسم"
+
+#: build/editor.js:36223
+msgid "Skew X"
+msgstr "ميل X"
+
+#: build/editor.js:36243
+msgid "Skew Y"
+msgstr "مائل Y"
+
+#: build/editor.js:37507
+msgid "Are you certain you want to proceed with deleting this accordion?"
+msgstr "هل أنت متأكد أنك تريد المتابعة في حذف هذا الأكورديون؟"
+
+#: build/editor.js:37516
+msgid "Duplicate Accordion"
+msgstr "تكرار الأكورديون"
+
+#: build/editor.js:37522
+msgid "Delete Accordion"
+msgstr "حذف الأكورديون"
+
+#: build/editor.js:37787
+msgid "Accordion Title.."
+msgstr "عنوان الأكورديون"
+
+#: build/editor.js:37840
+msgid "Accordion Section"
+msgstr "قسم الأكورديون"
+
+#: build/editor.js:37841
+msgid "A section for content inside each accordion."
+msgstr "قسم للمحتوى داخل كل أكورديون."
+
+#: build/editor.js:37848
+msgid "accordions"
+msgstr "الأكورديونات"
+
+#: build/editor.js:38035
+msgid "Indicator"
+msgstr "مؤشر"
+
+#: build/editor.js:38066
+msgid "Indicator Size"
+msgstr "حجم المؤشر"
+
+#: build/editor.js:38135 build/editor.js:41837 build/editor.js:48265
+msgid "Go to Parent Settings"
+msgstr "اذهب إلى إعدادات الوالدين"
+
+#: build/editor.js:38188
+msgid "Add New Accordion"
+msgstr "إضافة أكورديون جديد"
+
+#: build/editor.js:38627
+msgid "Panel Titles"
+msgstr "عناوين اللوحة"
+
+#: build/editor.js:38634
+msgid "Title Active"
+msgstr "العنوان نشط"
+
+#: build/editor.js:38741
+msgid "Accordion"
+msgstr "أكورديون"
+
+#: build/editor.js:38742
+msgid ""
+"A collapsible and expandable component that organizes content into sections."
+msgstr "مكون قابل للطي والتوسيع ينظم المحتوى في أقسام."
+
+#: build/editor.js:38749
+msgid "accordion"
+msgstr ""
+"لا يوجد ترجمة محددة لكلمة \"accordion\" في اللغة العربية، يمكن استخدام "
+"الكلمة بنفس الشكل."
+
+#: build/editor.js:39410
+msgid "Start Open"
+msgstr "ابدأ مفتوحًا"
+
+#: build/editor.js:39617 build/editor.js:39692 build/editor.js:40626
+#: build/editor.js:50001 build/editor.js:53708 build/editor.js:59902
+#: build/editor.js:72705 build/editor.js:73399 build/editor.js:73517
+#: build/editor.js:73635 build/editor.js:73932 build/editor.js:77808
+#: build/editor.js:78011 build/editor.js:82448
+msgid "BG Color"
+msgstr "لون الخلفية"
+
+#: build/editor.js:39726
+msgid "Shadow"
+msgstr "الظل"
+
+#: build/editor.js:40608 build/editor.js:49494
+msgid "Icon Align"
+msgstr "محاذاة الأيقونة"
+
+#: build/editor.js:40624 build/editor.js:82446
+msgid "Color / Background"
+msgstr "اللون / الخلفية"
+
+#: build/editor.js:40836
+msgid "Download"
+msgstr "تحميل"
+
+#: build/editor.js:40870
+msgid "Get Started"
+msgstr "ابدأ"
+
+#: build/editor.js:41694
+msgid "Carousel Item"
+msgstr "عنصر الدائري"
+
+#: build/editor.js:41695
+msgid "A section for content inside each carousel."
+msgstr "قسم للمحتوى داخل كل كاروسيل."
+
+#: build/editor.js:41702 build/editor.js:43217
+msgid "carousel"
+msgstr "دائري"
+
+#: build/editor.js:41702
+msgid "carousel item"
+msgstr "عنصر السياروسيل"
+
+#: build/editor.js:42020 build/editor.js:42025
+msgid "Add Slide"
+msgstr "إضافة شريحة"
+
+#: build/editor.js:42029 build/editor.js:52689
+msgid "Slide Prev"
+msgstr "الشريحة السابقة"
+
+#: build/editor.js:42036 build/editor.js:52700
+msgid "Slide Next"
+msgstr "انتقل للشريحة التالية"
+
+#: build/editor.js:43118
+msgid "Exclude Controls?"
+msgstr "استبعد الضوابط؟"
+
+#: build/editor.js:43209
+msgid "Carousel"
+msgstr "دائري"
+
+#: build/editor.js:43210
+msgid ""
+"Rotate through content items, displayed in a horizontally scrolling format."
+msgstr "تنقل بين عناصر المحتوى، عرضها بتنسيق تمرير أفقي."
+
+#: build/editor.js:43439 build/editor.js:51829
+msgid "Group"
+msgstr "مجموعة"
+
+#: build/editor.js:43559 build/editor.js:51893
+msgid "Center Slides"
+msgstr "مركز الشرائح"
+
+#: build/editor.js:43720
+msgid "H. Align"
+msgstr "محاذاة اليسار"
+
+#: build/editor.js:43737
+msgid "V. Align"
+msgstr "محاذاة V."
+
+#: build/editor.js:47513
+msgid "Flex Box"
+msgstr "صندوق مرن"
+
+#: build/editor.js:47514
+msgid ""
+"A box for displaying content horizontally or vertically using CSS flexbox."
+msgstr "صندوق لعرض المحتوى أفقيًا أو عموديًا باستخدام تقنية CSS Flexbox."
+
+#: build/editor.js:47521
+msgid "flex"
+msgstr "تمديد"
+
+#: build/editor.js:47521
+msgid "box"
+msgstr "صندوق"
+
+#: build/editor.js:47890
+msgid "Title.."
+msgstr "العنوان.."
+
+#: build/editor.js:47906 build/editor.js:69776
+msgid "Description.."
+msgstr "الوصف.."
+
+#: build/editor.js:48012
+msgid "List Item"
+msgstr "بند في القائمة"
+
+#: build/editor.js:48013
+msgid "A single item within the Icon List block."
+msgstr "عنصر واحد ضمن كتلة قائمة الرموز."
+
+#: build/editor.js:48020 build/editor.js:49040
+msgid "list"
+msgstr "قائمة"
+
+#: build/editor.js:48232 build/editor.js:49533
+msgid "Icon Color"
+msgstr "لون الأيقونة"
+
+#: build/editor.js:49032
+msgid "Icon List"
+msgstr "قائمة الأيقونات"
+
+#: build/editor.js:49033
+msgid ""
+"A list that allows icons alongside each item for better visual "
+"communication."
+msgstr "قائمة تسمح بوجود رموز بجانب كل عنصر لتحسين التواصل البصري."
+
+#: build/editor.js:49309
+msgid "V. Space"
+msgstr "V. المساحة"
+
+#: build/editor.js:49474
+msgid "Icon Size"
+msgstr "حجم الأيقونة"
+
+#: build/editor.js:49513
+msgid "Icon V. Align"
+msgstr "رمز V. محاذاة"
+
+#: build/editor.js:57455
+msgid "Spin"
+msgstr "دوران"
+
+#: build/editor.js:59099
+msgid "Count Animation"
+msgstr "عد الرسوم المتحركة"
+
+#: build/editor.js:53970 build/editor.js:60359 build/editor.js:74193
+msgid "Hover"
+msgstr "تحويم"
+
+#: build/editor.js:63373
+msgid "Per Page"
+msgstr "لكل صفحة"
+
+#: build/editor.js:66537
+msgid "Contained"
+msgstr "محتوى"
+
+#: build/editor.js:68026
+msgid "Up"
+msgstr "فوق"
+
+#: build/editor.js:68029
+msgid "Down"
+msgstr "أسفل"
+
+#: build/editor.js:68078
+msgid "Image Width"
+msgstr "عرض الصورة"
+
+#: build/editor.js:68109
+msgid "Mode"
+msgstr "الوضع"
+
+#: build/editor.js:68470 build/editor.js:79795
+msgid "Filled"
+msgstr "ممتلئ"
+
+#: build/editor.js:68794 build/editor.js:79820
+msgid "Star Rating"
+msgstr "تقييم النجوم"
+
+#: build/editor.js:68795
+msgid "A star rating block to visually represent a numerical rating."
+msgstr "كتلة تقييم النجوم لتمثيل بصري لتقييم رقمي."
+
+#: build/editor.js:68802 build/editor.js:78860
+msgid "star"
+msgstr "نجم"
+
+#: build/editor.js:68802 build/editor.js:78860
+msgid "rating"
+msgstr "تقييم"
+
+#: build/editor.js:68916 build/editor.js:79831
+msgid "Star Style"
+msgstr "نمط النجم"
+
+#: build/editor.js:68927 build/editor.js:79845
+msgid "Rating"
+msgstr "تقييم"
+
+#: build/editor.js:69369
+msgid "Tab Section"
+msgstr "قسم التبويبات"
+
+#: build/editor.js:69370
+msgid "A section for content inside each tab."
+msgstr "قسم للمحتوى داخل كل علامة تبويب."
+
+#: build/editor.js:69377 build/editor.js:71050
+msgid "tabs"
+msgstr "علامات التبويب"
+
+#: build/editor.js:69766
+msgid "Tab Title.."
+msgstr "عنوان التبويب"
+
+#: build/editor.js:69891
+msgid "Tab Title"
+msgstr "عنوان التبويب"
+
+#: build/editor.js:69925
+msgid "Are you certain you want to proceed with deleting this tab?"
+msgstr "هل أنت متأكد أنك تريد المتابعة في حذف هذه العلامة؟"
+
+#: build/editor.js:69949
+msgid "Move Tab Up"
+msgstr "نقل علامة التبويب لأعلى"
+
+#: build/editor.js:69949
+msgid "Move Tab Left"
+msgstr "انقل العلامة إلى اليسار"
+
+#: build/editor.js:69960
+msgid "Move Tab Down"
+msgstr "انقل التبويب لأسفل"
+
+#: build/editor.js:69960
+msgid "Move Tab Right"
+msgstr "نقل علامة التبويب إلى اليمين"
+
+#: build/editor.js:48457 build/editor.js:69975
+msgid "Add New Tab"
+msgstr "إضافة علامة تبويب جديدة"
+
+#: build/editor.js:69981
+msgid "Duplicate Tab"
+msgstr "تكرار علامة التبويب"
+
+#: build/editor.js:69987
+msgid "Delete Tab"
+msgstr "حذف العلامة التبويب"
+
+#: build/editor.js:70101
+msgid "Tab 1"
+msgstr "تبويب ١"
+
+#: build/editor.js:70106
+msgid "Tab 2"
+msgstr "تاب ٢"
+
+#: build/editor.js:70111
+msgid "Tab 3"
+msgstr "تاب ٣"
+
+#: build/editor.js:70937
+msgid "Auto Rotate"
+msgstr "تدوير تلقائي"
+
+#: build/editor.js:70946
+msgid "Styling"
+msgstr "التنسيق"
+
+#: build/editor.js:71042
+msgid "Tabs"
+msgstr "علامات التبويب"
+
+#: build/editor.js:71043
+msgid ""
+"Organize content into distinct tabs, reducing clutter and improve "
+"navigation."
+msgstr "نظم المحتوى في ألسنة متميزة، مما يقلل من الفوضى ويحسن التصفح."
+
+#: build/editor.js:72652 build/editor.js:72791
+msgid "Enabled"
+msgstr "تمكين"
+
+#: build/editor.js:72717
+msgid "Stop on Interaction"
+msgstr "توقف عن التفاعل"
+
+#: build/editor.js:72734
+msgid "Preview Auto Rotate"
+msgstr "معاينة التدوير التلقائي"
+
+#: build/editor.js:53533 build/editor.js:72824
+msgid "Visibility"
+msgstr "الوضوح"
+
+#: build/editor.js:72943
+msgid "Horizontal Alignment"
+msgstr "المحاذاة الأفقية"
+
+#: build/editor.js:72943
+msgid "Vertical Alignment"
+msgstr "محاذاة عمودية"
+
+#: build/editor.js:73124
+msgid "Nav Width"
+msgstr "عرض شريط التنقل"
+
+#: build/editor.js:73163
+msgid "Tab Location"
+msgstr "موقع التبويب"
+
+#: build/editor.js:73195
+msgid "Item Overflow"
+msgstr "تجاوز العناصر"
+
+#: build/editor.js:73220
+msgid "Starting Tab"
+msgstr "بدء التبويب"
+
+#: build/editor.js:73378
+msgid "Min Width"
+msgstr "الحد الأدنى للعرض"
+
+#: build/editor.js:73688
+msgid "Stretch Panel"
+msgstr "لوحة مرنة"
+
+#: build/editor.js:73741
+msgid "Link Active"
+msgstr "الرابط نشط"
+
+#: build/editor.js:73743
+msgid "Nav Panel"
+msgstr "لوحة التنقل"
+
+#: build/editor.js:78186
+msgid "John Doe.."
+msgstr "جون دو.."
+
+#: build/editor.js:78197
+msgid "@nectarblocks.."
+msgstr "‫nectarblocks.."
+
+#: build/editor.js:78795
+msgid "“Enter the testimonial text here..”"
+msgstr "\"أدخل نص الشهادة هنا..\""
+
+#: build/editor.js:78852
+msgid "Testimonial"
+msgstr "شهادة"
+
+#: build/editor.js:78853
+msgid "Build trust and credibility by showcasing customer feedback."
+msgstr "قم ببناء الثقة والمصداقية من خلال عرض تعليقات العملاء."
+
+#: build/editor.js:79026
+msgid ""
+"This is a testimonial block. Incorporating genuine testimonials not only "
+"enhances your reputation but also fosters a sense of transparency and "
+"assurance, helping prospective customers make informed decisions with "
+"confidence."
+msgstr ""
+"هذه هي كتلة الشهادات. إدراج الشهادات الحقيقية لا يعزز سمعتك فقط ولكنه أيضًا "
+"يعزز الشفاف"
+
+#: build/editor.js:79212
+msgid ""
+"This is a testimonial block. Incorporating <mark style=\"background-"
+"color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
+"only enhances your reputation but also fosters a sense of transparency and "
+"assurance, helping prospective customers make <mark style=\"background-"
+"color:#f1ffa8\" class=\"has-inline-color\">informed decisions with "
+"confidence.</mark>"
+msgstr ""
+"هذا كتلة الشهادات. إدماج الشهادات الحقيقية لا يعزز سمعتك فقط ولكنه يعزز "
+"أيضًا الشفافية و"
+
+#: build/editor.js:79400
+msgid "Quote"
+msgstr "اقتباس"
+
+#: build/editor.js:79413
+msgid "Quote Size"
+msgstr "حجم الاقتباس"
+
+#: build/editor.js:79437
+msgid "Subtitle"
+msgstr "عنوان فرعي"
+
+#: build/editor.js:79541
+msgid "Style 1"
+msgstr "النمط ١"
+
+#: build/editor.js:79547
+msgid "Style 2"
+msgstr "النمط ٢"
+
+#: build/editor.js:81675
+msgid "Trigger"
+msgstr "الزناد"
+
+#: build/editor.js:81676
+msgid ""
+"Note: Using the Scroll Position option will remove any text highlights."
+msgstr "ملاحظة: سيؤدي استخدام خيار موضع التمرير إلى إزالة أي تحديدات نصية."
+
+#: build/editor.js:81727
+msgid "Stagger"
+msgstr "تترنح"
+
+#: build/editor.js:82459
+msgid ""
+"Clip the background color/image to the text. Enabling this will disable text"
+" animations and text highlights."
+msgstr ""
+"قص لون/صورة الخلفية عن النص. تمكين هذا سيعطل الرسوم المتحركة للنص وتحديد "
+"النص."
+
+#: build/editor.js:82492
+msgid "Text Animation"
+msgstr "تحريك النص"
+
+#: build/editor.js:82688
+msgid "The core block for adding text & headings."
+msgstr "الكتلة الأساسية لإضافة النصوص والعناوين."
+
+#: build/editor.js:85810 build/editor.js:86067 build/editor.js:86660
+msgid "Lazy Load"
+msgstr "تحميل كسلان"
+
+#: build/editor.js:86052 build/editor.js:86645
+msgid "Set a custom stacking order."
+msgstr "قم بتعيين ترتيب تراص مخصص."
+
+#: build/editor.js:89312
+msgid "Electric Harmony"
+msgstr "تناغم كهربائي"
+
+#: build/editor.js:90460
+msgid "Motion / FX"
+msgstr "الحركة / الأثر البصري"
+
+#: build/editor.js:95412
+msgid "Nectarblocks Template Library"
+msgstr "مكتبة قوالب نيكتاربلوكس"
+
+#: build/editor.js:95709
+msgid "Nectarblocks license not active."
+msgstr "ترخيص Nectarblocks غير نشط."
+
+#: build/editor.js:95711
+msgid "Please add your license key to the"
+msgstr "يرجى إضافة مفتاح الترخيص الخاص بك إلى"
+
+#: build/editor.js:95715
+msgid "Nectarblocks Authorization tab."
+msgstr "لوحة تفويض Nectarblocks."
+
+#: build/editor.js:95787
+msgid "Try a different search query or category."
+msgstr "جرب استعمال استعلام بحث آخر أو فئة مختلفة."
+
+#: build/editor.js:95879
+msgid "Pricing"
+msgstr "التسعير"
+
+#: build/editor.js:95888
+msgid "Scroll Section"
+msgstr "قسم التمرير"
+
+#: build/editor.js:95891
+msgid "Text Layouts"
+msgstr "تنسيق النصوص"
+
+#: build/editor.js:96678 build/editor.js:96719
+msgid "Nectar Images"
+msgstr "صور نكتار"
+
+#: build/editor.js:96910
+msgid "Getting Started with Nectarblocks"
+msgstr "البدء مع كتل النكتار"
+
+#: build/editor.js:96914
+msgid ""
+"To start creating a page, you can add blocks by clicking the plus icon "
+"located on the left of the top toolbar."
+msgstr ""
+"لبدء إنشاء صفحة، يمكنك إضافة كتل عن طريق النقر على أيقونة الزائد الموجودة "
+"على اليسار في شر"
+
+#: build/editor.js:96918
+msgid ""
+"The Nectarblocks category will appear at the top of the block list, with "
+"each block highlighted in blue for easy identification."
+msgstr ""
+"سيظهر قسم Nectarblocks في أعلى قائمة الكتل، مع تمييز كل كتلة باللون الأزرق "
+"لسهولة التعرف عليها."
+
+#: build/editor.js:96927
+msgid "Meet the Template Library"
+msgstr "التقاء مكتبة النماذج"
+
+#: build/editor.js:96931
+msgid ""
+"Jump-start your website creation with our professionally designed collection"
+" of pre-made templates."
+msgstr ""
+"انطلق في إنشاء موقع الويب الخاص بك باستخدام مجموعتنا المصممة بشكل احترافي من"
+" القوالب الجاهزة."
+
+#: build/editor.js:96935
+msgid ""
+"You can easily access the library by clicking on the \"Template Library\" "
+"button on the top toolbar. All templates from Nectarblocks are dynamic and "
+"will adapt to fit your current global color and typography settings."
+msgstr ""
+"يمكنك الوصول بسهولة إلى المكتبة عن طريق النقر على زر \"مكتبة القوالب\" في "
+"شريط الأدوات العلوي"
+
+#: build/editor.js:96957
+msgid ""
+"Access global settings by clicking the Nectarblocks logo at the top right. "
+"Create reusable color schemes and typography rules that can then be applied "
+"to blocks throughout your pages."
+msgstr ""
+"قم بالوصول إلى الإعدادات العالمية عن طريق النقر على شعار Nectarblocks في "
+"أعلى الزاوية اليمنى. قم بإنشاء مجم"
+
+#: build/editor.js:96988
+msgid ""
+"If you're struggling to select a specific block, check the Document Overview"
+" to easily see the full structure of your page."
+msgstr ""
+"إذا كنت تواجه صعوبة في اختيار كتلة معينة، تحقق من نظرة عامة على المستند "
+"لرؤية بنية الصفحة ب"
+
+#: build/editor.js:97020
+msgid ""
+"To see this guide again, click the “Display Tutorial” button at the bottom "
+"of the Nectarblocks Global Settings panel."
+msgstr ""
+"لرؤية هذا الدليل مرة أخرى، انقر على زر \"عرض البرنامج التعليمي\" في أسفل "
+"لوحة الإعدادات العامة"
+
+#: build/editor.js:100346
+msgid "Nectarblocks Post Options"
+msgstr "خيارات نيكتاربلوكس للمنشورات"
+
+#: build/editor.js:100366
+msgid "Transparent Header"
+msgstr "رأس الصفحة شفاف"
+
+#: build/editor.js:100400
+msgid "Header Animation"
+msgstr "تحريك العنوان"
+
+#: build/editor.js:100837
+msgid "Nectarblocks Guide"
+msgstr "دليل نيكتاربلوكس"
+
+#. translators: %s: search query
+#: build/editor.js:95785
+#, js-format
+msgid "No templates found for \"%s\"."
+msgstr "لم يتم العثور على قوالب لـ \"%s\"."
+
+#: build/editor.js:23688
+msgid "In View"
+msgstr "في العرض"
+
+#: build/editor.js:23691
+msgid "On Pin"
+msgstr "على الدبوس"
+
+#: build/editor.js:23830
+msgid "Overlap"
+msgstr "تداخل"
+
+#: build/editor.js:23833
+msgid ""
+"Advanced Option: This should typically remain disabled. By default, padding "
+"is added to the bottom to push other elements down when your block is "
+"pinned. Enable this option to allow content to scroll over the pinned block."
+msgstr ""
+"الخيار المتقدم: يجب أن يبقى هذا الخيار معطلاً عادةً. بشكل افتراضي، يتم إضافة"
+" حشو إلى الأسفل لدفع العناصر الأخرى للأسفل عندما يتم تثبيت الكتلة الخاصة بك."
+" قم بتمكين هذا الخيار للسماح للمحتوى بالتمرير فوق الكتلة المثبتة."
+
+#: build/editor.js:23855
+msgid "Begin Animations"
+msgstr "ابدأ الرسوم المتحركة"
+
+#: build/editor.js:23880
+msgid "Stagger Children"
+msgstr "ترتيب الأطفال بشكل متدرج"
+
+#: build/editor.js:23910
+msgid "Pin On"
+msgstr "تثبيت على"
+
+#: build/editor.js:29499
+msgid "Normal"
+msgstr "عادي"
+
+#: build/editor.js:29500
+msgid "Multiply"
+msgstr "ضرب"
+
+#: build/editor.js:29501
+msgid "Screen"
+msgstr "شاشة"
+
+#: build/editor.js:29503
+msgid "Darken"
+msgstr "أظلم"
+
+#: build/editor.js:29504
+msgid "Lighten"
+msgstr "خفف"
+
+#: build/editor.js:29505
+msgid "Color Dodge"
+msgstr "تجنب اللون"
+
+#: build/editor.js:29506
+msgid "Color Burn"
+msgstr "حرق اللون"
+
+#: build/editor.js:29507
+msgid "Hard Light"
+msgstr "ضوء قوي"
+
+#: build/editor.js:29508
+msgid "Soft Light"
+msgstr "ضوء ناعم"
+
+#: build/editor.js:29509
+msgid "Difference"
+msgstr "الفرق"
+
+#: build/editor.js:29510
+msgid "Exclusion"
+msgstr "استبعاد"
+
+#: build/editor.js:29511
+msgid "Hue"
+msgstr "درجات اللون"
+
+#: build/editor.js:29514
+msgid "Luminosity"
+msgstr "السطوع"
+
+#: build/editor.js:29548
+msgid "Blending"
+msgstr "مزج"
+
+#: build/editor.js:53414
+msgid "Caption Layout"
+msgstr "تخطيط التسمية التوضيحية"
+
+#: build/editor.js:53516
+msgid "Fade In"
+msgstr "تلاشي تدريجي في الظهور"
+
+#: build/editor.js:53517
+msgid "Fade Up"
+msgstr "تلاشى تدريجياً"
+
+#: build/editor.js:53592
+msgid "Show Captions"
+msgstr "إظهار التسميات التوضيحية"
+
+#: build/editor.js:54654
+msgid "Image Click"
+msgstr "انقر على الصورة"
+
+#: build/editor.js:55410
+msgid "Click Event"
+msgstr "حدث النقر"
+
+#: build/editor.js:55523
+msgid "Standard"
+msgstr "قياسي"
+
+#: build/editor.js:55527
+msgid "Mosaic"
+msgstr "فسيفساء"
+
+#: build/editor.js:55531
+msgid "Masonry"
+msgstr "البناء الحجري"
+
+#: build/editor.js:56109
+msgid "5"
+msgstr "٥"
+
+#: build/editor.js:56990
+msgid "Edit Photos in Image Grid"
+msgstr "تحرير الصور في شبكة الصور"
+
+#: build/editor.js:57076
+msgid "Image Grid"
+msgstr "شبكة الصور"
+
+#: build/editor.js:57084
+msgid "image-grid"
+msgstr "شبكة الصور"
+
+#: build/editor.js:61019 build/editor.js:74829
+msgid "Grid"
+msgstr "شبكة"
+
+#: build/editor.js:75071
+msgid "Post Count"
+msgstr "عدد المشاركات"
+
+#: build/editor.js:75450
+msgid ""
+"Whether to include the single post type label after the post count. e.g. \"2"
+" Posts\"."
+msgstr ""
+"ما إذا كان يجب تضمين تسمية نوع المنشور الفردي بعد عدد المنشورات. على سبيل "
+"المثال: \"2 منشورات\"."
+
+#: build/editor.js:76928
+msgid "Taxonomy Grid"
+msgstr "شبكة التصنيف"
+
+#: build/editor.js:76929
+msgid ""
+"A highly customizable grid display that can query data from any taxonomy "
+"type."
+msgstr ""
+"عرض شبكة قابل للتخصيص بشكل كبير يمكنه استعلام البيانات من أي نوع تصنيف."
+
+#: build/editor.js:76939
+msgid "taxonomy grid"
+msgstr "شبكة التصنيف"
+
+#: build/editor.js:90210
+msgid "Done"
+msgstr "تم"
+
+#: build/editor.js:95864
+msgid "Features"
+msgstr "الميزات"
+
+#: build/editor.js:100453
+msgid "CSS Code"
+msgstr "كود CSS"
+
+#: build/editor.js:100464
+msgid "JS Code"
+msgstr "كود جافا سكريبت"
+
+#: build/editor.js:101099
+msgid "Open Editor"
+msgstr "افتح المحرر"
+
+#: build/editor.js:101121
+#, js-format
+msgid "Edit %s on This Page"
+msgstr "تحرير %s في هذه الصفحة"
+
+#: build/editor.js:101156
+msgid "Updated. Remember to Save The Post!"
+msgstr "تم التحديث. تذكر حفظ المنشور!"
+
+#: build/editor.js:23910
+msgid "Start On"
+msgstr "البدء"
+
+#: build/editor.js:45093
+msgid "Row"
+msgstr "صف"
+
+#: build/editor.js:18310 build/editor.js:80668 build/editor.js:95894
+msgid "Dynamic Data"
+msgstr "البيانات الديناميكية"
+
+#: build/editor.js:18362
+msgid "Field"
+msgstr "حقل"
+
+#: build/editor.js:18370
+msgid "Select Field"
+msgstr "اختر الحقل"
+
+#: build/editor.js:18532
+msgid "Text When False"
+msgstr "نص عندما يكون خطأ"
+
+#: build/editor.js:18543
+msgid "Text When True"
+msgstr "نص عندما يكون صحيحًا"
+
+#: build/editor.js:18616
+msgid "Strip HTML"
+msgstr "إزالة HTML"
+
+#: build/editor.js:18700
+msgid "Image Size"
+msgstr "حجم الصورة"
+
+#: build/editor.js:18877
+msgid "Posts/Pages"
+msgstr "المنشورات/الصفحات"
+
+#: build/editor.js:18883
+msgid "Select Post/Page"
+msgstr "اختر منشور/صفحة"
+
+#: build/editor.js:18940
+msgid "Select Source"
+msgstr "اختر المصدر"
+
+#: build/editor.js:19001
+msgid "Post Date Modified"
+msgstr "تاريخ تعديل النشر"
+
+#: build/editor.js:19052
+msgid "Current Post"
+msgstr "المنشور الحالي"
+
+#: build/editor.js:19053
+msgid "Other Posts"
+msgstr "منشورات أخرى"
+
+#: build/editor.js:23783
+msgid "Preview Starting State"
+msgstr "معاينة الحالة الابتدائية"
+
+#: build/editor.js:29091
+msgid "Pointer"
+msgstr "المؤشر"
+
+#: build/editor.js:29092
+msgid "Pointer events: Control how the block can be interacted with."
+msgstr "أحداث المؤشر: التحكم في كيفية التفاعل مع الكتلة."
+
+#: build/editor.js:32364
+msgid "Be sure to follow the trademark guidelines for your selected icon."
+msgstr "تأكد من اتباع إرشادات العلامة التجارية للأيقونة التي اخترتها."
+
+#: build/editor.js:43361
+msgid "Width Type"
+msgstr "نوع العرض"
+
+#: build/editor.js:43953
+msgid "Transition Speed"
+msgstr "سرعة الانتقال"
+
+#: build/editor.js:44029
+msgid "Note: The autoplay functionality is disabled in the editor."
+msgstr "ملاحظة: تم تعطيل وظيفة التشغيل التلقائي في المحرر."
+
+#: build/editor.js:45093
+msgid "Set the parent"
+msgstr "تعيين الأصل"
+
+#: build/editor.js:45093
+msgid "block"
+msgstr "كتلة"
+
+#: build/editor.js:45095
+msgid "to"
+msgstr "إلى"
+
+#: build/editor.js:45097
+msgid "to adjust column width."
+msgstr "لتعديل عرض العمود."
+
+#: build/editor.js:59303
+msgid "Post Content"
+msgstr "محتوى المنشور"
+
+#: build/editor.js:59304
+msgid "Displays the content of a post."
+msgstr "يعرض محتوى المنشور."
+
+#: build/editor.js:59311
+msgid "post content"
+msgstr "نشر المحتوى"
+
+#: build/editor.js:59382
+msgid "Animation Configuration"
+msgstr "تكوين الرسوم المتحركة"
+
+#: build/editor.js:59654
+msgid "Ensure the media and content are the same height."
+msgstr "تأكد من أن الوسائط والمحتوى لهما نفس الارتفاع."
+
+#: build/editor.js:59686
+msgid "Keeps your content in the same position when scrolling."
+msgstr "يبقي المحتوى في نفس الموضع عند التمرير."
+
+#: build/editor.js:59813
+msgid "Arrow"
+msgstr "سهم"
+
+#: build/editor.js:60081
+msgid "Meta Gap"
+msgstr "فجوة ميتا"
+
+#: build/editor.js:60175
+msgid "Max W."
+msgstr "ماكس و."
+
+#: build/editor.js:60176
+msgid "Max width of the content area in each post."
+msgstr "الحد الأقصى لعرض منطقة المحتوى في كل منشور."
+
+#: build/editor.js:60343
+msgid "Zoom Reveal"
+msgstr "تكبير الكشف"
+
+#: build/editor.js:61149
+msgid "Link Type"
+msgstr "نوع الرابط"
+
+#: build/editor.js:61212
+msgid "Variant"
+msgstr "متغير"
+
+#: build/editor.js:61213
+msgid "Each variant offers a different arrangement of items."
+msgstr "كل نوع يقدم ترتيبًا مختلفًا من العناصر."
+
+#: build/editor.js:61439
+msgid "Estimated Read Time"
+msgstr "الوقت المقدر للقراءة"
+
+#: build/editor.js:61440
+msgid "Spacer"
+msgstr "فاصل"
+
+#: build/editor.js:61924
+msgid "Meta Key"
+msgstr "المفتاح الرئيسي"
+
+#: build/editor.js:61927
+msgid ""
+"The name of a custom meta field key to query from. e.g. \"_sku\". You can "
+"insert one above or manually enter your own."
+msgstr ""
+"اسم مفتاح الحقل المخصص للاستعلام منه. على سبيل المثال، \"_sku\". يمكنك إدخال"
+" واحد أعلاه أو إدخال خاص بك يدويًا."
+
+#: build/editor.js:62230
+msgid ""
+"This will add a gap between your meta items when using the \"Side\" aligned "
+"content layout."
+msgstr ""
+"سيضيف هذا فجوة بين عناصر الميتا الخاصة بك عند استخدام تخطيط المحتوى المحاذي "
+"\"للجانب\"."
+
+#: build/editor.js:62282
+msgid "Button Border"
+msgstr "حدود الزر"
+
+#: build/editor.js:62349 build/editor.js:77452
+msgid "Taxonomy"
+msgstr "التصنيف"
+
+#: build/editor.js:62972
+msgid ""
+"Query settings are automatically determined from the Global Section archive."
+msgstr "يتم تحديد إعدادات الاستعلام تلقائيًا من أرشيف القسم العالمي."
+
+#: build/editor.js:63032
+msgid "Exclude Current Post"
+msgstr "استبعاد المنشور الحالي"
+
+#: build/editor.js:63632
+msgid "Full Height"
+msgstr "الارتفاع الكامل"
+
+#: build/editor.js:77123
+msgid "Show"
+msgstr "عرض"
+
+#: build/editor.js:77168
+msgid "Delimiter"
+msgstr "الفاصل"
+
+#: build/editor.js:77179
+msgid "Term Link"
+msgstr "رابط المصطلح"
+
+#: build/editor.js:77188
+msgid "\"All\" Link"
+msgstr "\"الكل\" رابط"
+
+#: build/editor.js:77199
+msgid "Hover FX"
+msgstr "تحويم FX"
+
+#: build/editor.js:77794
+msgid "Style Settings"
+msgstr "إعدادات النمط"
+
+#: build/editor.js:77802
+msgid "Default State"
+msgstr "الحالة الافتراضية"
+
+#: build/editor.js:77804
+msgid "Active State"
+msgstr "الحالة النشطة"
+
+#: build/editor.js:77924
+msgid "Taxonomy Terms"
+msgstr "مصطلحات التصنيف"
+
+#: build/editor.js:77925
+msgid "Display the selected taxonomy terms for your post."
+msgstr "عرض مصطلحات التصنيف المحددة لمنشورك."
+
+#: build/editor.js:77932
+msgid "taxonomy"
+msgstr "التصنيف"
+
+#: build/editor.js:77932
+msgid "terms"
+msgstr "الشروط"
+
+#: build/editor.js:80645
+msgid "Insert Dynamic Data"
+msgstr "إدراج بيانات ديناميكية"
+
+#: build/editor.js:80677
+msgid "Dynamic Content"
+msgstr "المحتوى الديناميكي"
+
+#: build/editor.js:81893
+msgid "Indent"
+msgstr "مسافة بادئة"
+
+#: build/editor.js:89734
+msgid ""
+"Warning: Core Global Typography Settings have been disabled via the "
+"Nectarblocks Plugin Options."
+msgstr ""
+"تحذير: تم تعطيل إعدادات الطباعة الأساسية العالمية عبر خيارات ملحق "
+"Nectarblocks."
+
+#: build/editor.js:99864
+msgid "Add New Location"
+msgstr "إضافة موقع جديد"
+
+#: build/editor.js:99923 build/editor.js:100119 build/editor.js:100567
+msgid "Error loading template parts."
+msgstr "خطأ في تحميل أجزاء القالب."
+
+#: build/editor.js:100055
+msgid "Global Section Options"
+msgstr "خيارات القسم العالمي"
+
+#: build/editor.js:100230
+msgid "Template Options"
+msgstr "خيارات القوالب"
+
+#: build/editor.js:100702
+msgid "Add New Condition"
+msgstr "إضافة شرط جديد"
+
+#: build/editor.js:100975
+msgid "Project Options"
+msgstr "خيارات المشروع"
+
+#: build/editor.js:100979
+msgid "Client"
+msgstr "عميل"
+
+#: build/editor.js:101006
+msgid "Select a video preview for this project to replace the featured image."
+msgstr "اختر معاينة فيديو لهذا المشروع لاستبدال الصورة المميزة."
+
+#~ msgid "Custom Icon"
+#~ msgstr "أيقونة مخصصة"
+
+#~ msgid "Duration (s)"
+#~ msgstr "المدة (المدد)"
+
+#~ msgid "Delay (s)"
+#~ msgstr "تأخير (تأخير)"
+
+#~ msgid "Media Stretch"
+#~ msgstr "امتداد وسائل الإعلام"
+
+#~ msgid "404 Content"
+#~ msgstr "404 المحتوى"
+
+#~ msgid "Menu"
+#~ msgstr "القائمة"
+
+#~ msgid "True"
+#~ msgstr "صحيح"
+
+#~ msgid "False"
+#~ msgstr "خطأ"
+
+#~ msgid "And"
+#~ msgstr "و"
+
+#~ msgid "Add new condition"
+#~ msgstr "أضف شرطًا جديدًا"
+
+#~ msgid "Add new location"
+#~ msgstr "أضف موقعًا جديدًا"
+
+#~ msgid "Display Conditions"
+#~ msgstr "عرض الشروط"
+
+#~ msgid ""
+#~ "Optionally limit the display of your section based on certain conditions "
+#~ "such as user privilege, post type etc."
+#~ msgstr ""
+#~ "قم باختيار عرض القسم الخاص بك بناءً على شروط معينة مثل امتياز المستخدم، نوع "
+#~ "المنشور، إلخ."
+
+#~ msgid "Global Section Display"
+#~ msgstr "عرض القسم العالمي"
+
+#~ msgid "Global Section Categories"
+#~ msgstr "فئات القسم العالمي"
+
+#~ msgid "Global Section Category"
+#~ msgstr "القسم العالمي العام"
+
+#~ msgid "Search Global Section Categories"
+#~ msgstr "ابحث عن فئات القسم العالمي"
+
+#~ msgid "Parent Global Section Category"
+#~ msgstr "القسم العالمي الرئيسي للوالدين"
+
+#~ msgid "Edit Global Section Category"
+#~ msgstr "تحرير فئة القسم العالمي"
+
+#~ msgid "Update Global Section Category"
+#~ msgstr "تحديث فئة القسم العالمي"
+
+#~ msgid "Add New Global Section Category"
+#~ msgstr "إضافة فئة قسم عالمي جديدة"
+
+#~ msgid "Enabled by default in the editor."
+#~ msgstr "مُمَكَّنٌ بشكل افتراضي في المحرّر."
+
+#~ msgid "Nectarblocks Warning: The Gutenberg plugin is enabled."
+#~ msgstr "تحذير Nectarblocks: تم تفعيل إضافة Gutenberg."
+
+#~ msgid "Successfully reset updater timers."
+#~ msgstr "تم إعادة تعيين مؤقتات التحديث بنجاح."
+
+#~ msgid "Failed to reset updater timers."
+#~ msgstr "فشل في إعادة تعيين مؤقتات التحديث."
+
+#~ msgid "Error trying to reset updater timers."
+#~ msgstr "خطأ في محاولة إعادة ضبط مؤقتات التحديث."
+
+#~ msgid ""
+#~ "Warning: Core Global Typography Settings have been disabled via Nectar "
+#~ "Plugin Options"
+#~ msgstr ""
+#~ "تحذير: تم تعطيل إعدادات الطباعة الأساسية العالمية عبر خيارات Nectar Plugin"
+
+#~ msgctxt "block description"
+#~ msgid "Image Grid block."
+#~ msgstr "وصف الكتلة"
+
+#~ msgctxt "block description"
+#~ msgid "Taxonomy Grid."
+#~ msgstr "وصف الكتلة"
+
+#~ msgid "Weight"
+#~ msgstr "الوزن"
+
+#~ msgid "Flex Align"
+#~ msgstr "محاذاة مرنة"
+
+#~ msgid "Box Shadows"
+#~ msgstr "ظلال الصندوق"
+
+#~ msgid "Grid Layout"
+#~ msgstr "تخطيط الشبكة"
+
+#~ msgid "Content Layout"
+#~ msgstr "تخطيط المحتوى"
+
+#~ msgid ""
+#~ "A container for columns. The fundamental building block for designing your "
+#~ "layouts."
+#~ msgstr "حاوية للأعمدة."
+
+#~ msgctxt "block title"
+#~ msgid "Nectar Row"
+#~ msgstr "صف الرحيق"
+
+#~ msgctxt "block description"
+#~ msgid "Row container block."
+#~ msgstr "كتلة حاوية الصف."
+
+#~ msgid "to enable the full feature set."
+#~ msgstr "لتمكين مجموعة الميزات الكاملة."
+
+#~ msgid ""
+#~ "Allow Nectarblocks to look for updates from the WordPress admin dashboard. "
+#~ "Requires an active license."
+#~ msgstr ""
+#~ "اسمح لـ Nectarblocks بالبحث عن التحديثات من لوحة تحكم الووردبريس الإدارية. "
+#~ "يتطلب ترخيص نشط."
+
+#~ msgid "No templates found for \"%1$s\"."
+#~ msgstr "لم يتم العثور على قوالب لـ \"%1$s\"."
+
+#~ msgid "Nectar Blocks"
+#~ msgstr "كتل الرحيق"
+
+#~ msgid ""
+#~ "Nectar Blocks Plugin is a collection of blocks for use in the Gutenberg "
+#~ "editor."
+#~ msgstr ""
+#~ "Nectar Blocks Plugin عبارة عن مجموعة من الكتل للاستخدام في محرر Gutenberg."
+
+#~ msgid "J$ + P$"
+#~ msgstr "ج $ ف $"
+
+#~ msgid "Welcome"
+#~ msgstr "مرحبا"
+
+#~ msgid "Color Palette"
+#~ msgstr "لوحة الألوان"
+
+#~ msgid "From Up"
+#~ msgstr "من الأعلى"
+
+#~ msgid "From Down"
+#~ msgstr "من الأسفل"
+
+#~ msgid "Block Enter"
+#~ msgstr "منع الدخول"
+
+#~ msgid "Pin While Animating"
+#~ msgstr "دبوس أثناء الرسوم المتحركة"
+
+#~ msgid "Block Exit"
+#~ msgstr "منع الخروج"
+
+#~ msgid "Out of View"
+#~ msgstr "خارج العرض"
+
+#~ msgid "Animations"
+#~ msgstr "الرسوم المتحركة"
+
+#~ msgid "Inline Block"
+#~ msgstr "كتلة مضمنة"
+
+#~ msgid "Flex Direction"
+#~ msgstr "الاتجاه المرن"
+
+#~ msgid "Justify Content"
+#~ msgstr "تبرير المحتوى"
+
+#~ msgid "Rotate Degrees"
+#~ msgstr "تدوير الدرجات"
+
+#~ msgid "X Degrees"
+#~ msgstr "X درجات"
+
+#~ msgid "Y Degrees"
+#~ msgstr "درجات ص"
+
+#~ msgid "Slides Per View"
+#~ msgstr "الشرائح لكل عرض"
+
+#~ msgid "Slides Per Group"
+#~ msgstr "شرائح لكل مجموعة"
+
+#~ msgid "Centered Slides"
+#~ msgstr "الشرائح المركزية"
+
+#~ msgid "Animation"
+#~ msgstr "الرسوم المتحركة"
+
+#~ msgid "Hover Effect"
+#~ msgstr "تأثير التحويم"
+
+#~ msgid "Image Resolution"
+#~ msgstr "دقة الصورة"
+
+#~ msgid "Posts Per Page"
+#~ msgstr "المشاركات لكل صفحة"
+
+#~ msgid "Column Number"
+#~ msgstr "رقم العمود"
+
+#~ msgid "Grid Spacing"
+#~ msgstr "تباعد الشبكة"
+
+#~ msgid "Author Image"
+#~ msgstr "صورة المؤلف"
+
+#~ msgid "Image Position"
+#~ msgstr "موضع الصورة"
+
+#~ msgid "Write quote here…"
+#~ msgstr "اكتب الاقتباس هنا.."
+
+#~ msgid "The testimonial author…"
+#~ msgstr "كاتب الشهادة.."
+
+#~ msgid "The author's title…"
+#~ msgstr "عنوان المؤلف."
+
+#~ msgid "testimonial"
+#~ msgstr "شهادة"
+
+#~ msgid "Text Animations"
+#~ msgstr "الرسوم المتحركة النصية"
+
+#~ msgid "The core Nectar Block for adding text & headings."
+#~ msgstr "كتلة الرحيق الأساسية لإضافة النص"
+
+#~ msgid "Nectar Templates"
+#~ msgstr "قوالب الرحيق"
+
+#~ msgid ""
+#~ "“To start creating a page, add blocks by clicking the plus icon located on "
+#~ "the left of the top toolbar."
+#~ msgstr ""
+#~ "“To start creating a page, add blocks by clicking the plus icon located on "
+#~ "the left of the top toolbar."
+
+#~ msgid ""
+#~ "Nectar blocks are highlighted in blue. All blue blocks are new and unique "
+#~ "customizations that seamlessly integrate with global settings."
+#~ msgstr "يتم تمييز كتل الرحيق باللون الأزرق. "
+
+#~ msgid ""
+#~ "Access global settings by clicking the Nectar crown logo on the top right."
+#~ msgstr ""
+#~ "قم بالوصول إلى الإعدادات العامة من خلال النقر على شعار Nectar Crown في أعلى "
+#~ "اليمين."
+
+#~ msgid ""
+#~ "Create customizations like reusable color schemes and typography rules - "
+#~ "these can be applied to Nectar blocks throughout your design."
+#~ msgstr ""
+#~ "قم بإنشاء تخصيصات مثل أنظمة الألوان القابلة لإعادة الاستخدام وقواعد الطباعة "
+#~ "- والتي يمكن تطبيقها على كتل Nectar في جميع أنحاء التصميم الخاص بك."
+
+#~ msgid ""
+#~ "If you're struggling to select a specific block, use the Document Overview "
+#~ "function to easily see the full structure of your page."
+#~ msgstr ""
+#~ "إذا كنت تواجه صعوبة في تحديد كتلة معينة، استخدم وظيفة نظرة عامة على المستند "
+#~ "لرؤية البنية الكاملة لصفحتك بسهولة."
+
+#~ msgid ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectar Global Settings panel."
+#~ msgstr ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectar Global Settings panel."
+
+#~ msgid "Nectar Global Settings"
+#~ msgstr "إعدادات الرحيق العالمية"
+
+#~ msgid "Nectar Blocks Post Options"
+#~ msgstr "نكتار يحجب خيارات النشر"
+
+#~ msgid "Nectar Blocks Guide"
+#~ msgstr "دليل كتل الرحيق"

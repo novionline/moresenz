@@ -1,0 +1,137 @@
+# Translation of Plugins - WPS Hide Login - Stable (latest release) in German
+# This file is distributed under the same license as the Plugins - WPS Hide Login - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-06-15 11:19:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.3\n"
+"Language: de\n"
+"Project-Id-Version: Plugins - WPS Hide Login - Stable (latest release)\n"
+
+#: classes/plugin.php:900
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: classes/plugin.php:393
+msgid "WPBoutik"
+msgstr "WPBoutik"
+
+#: classes/plugin.php:867
+msgid "WPS Hide Login : Please note that the comment_registration option “Users must be registered and logged in to comment” is activated on your site, the connection link will not be hidden on the comments block."
+msgstr "WPS Hide Login: Bitte beachte, dass wenn die comment_registration-Option „Benutzer müssen registriert und angemeldet sein, um zu kommentieren“ auf deiner Website aktiviert ist, der Verbindungslink im Kommentarblock nicht versteckt sein wird."
+
+#: classes/plugin.php:840
+msgid "WPS Hide Login : Please note, if you check the comment_registration option \"Users must be registered and logged in to comment\", the login link will not be hidden on the comment block."
+msgstr "WPS Hide Login: Bitte beachte, dass der Anmelde-Link im Kommentarblock nicht ausgeblendet wird, wenn du die comment_registration-Option „Benutzer müssen registriert und angemeldet sein, um zu kommentieren“ aktivierst."
+
+#. Author of the plugin
+#: wps-hide-login.php
+msgid "WPServeur, NicolasKulka, wpformation"
+msgstr "WPServeur, NicolasKulka, wpformation"
+
+#: classes/plugin.php:437
+msgid "Redirect URL when someone tries to access the wp-login.php page and the wp-admin directory while not logged in."
+msgstr "Weiterleitungs-URL, wenn jemand nicht angemeldet ist und versucht, auf die wp-login.php-Seite oder das wp-admin-Verzeichnis zuzugreifen."
+
+#: classes/plugin.php:422
+msgid "Protect your website by changing the login URL and preventing access to the wp-login.php page and the wp-admin directory to non-connected people."
+msgstr "Schütze deine Website, indem du die Login-URL änderst und verhindere den Zugriff auf die wp-login.php-Seite und das wp-admin-Verzeichnis für nicht angemeldete Personen."
+
+#: classes/plugin.php:392
+msgid "WPS Limit Login"
+msgstr "WPS Limit Login"
+
+#: classes/plugin.php:392
+msgid "and"
+msgstr "und"
+
+#: classes/plugin.php:391
+msgid "WPS Cleaner"
+msgstr "WPS Cleaner"
+
+#: classes/plugin.php:390
+msgid "WPS Bidouille"
+msgstr "WPS Bidouille"
+
+#: classes/plugin.php:390 classes/plugin.php:391
+msgid "the plugin"
+msgstr "das Plugin"
+
+#: classes/plugin.php:389
+msgid "Discover our other plugins:"
+msgstr "Entdecke auch unsere anderen Plugins:"
+
+#: classes/plugin.php:388
+msgid "WordPress specialized hosting"
+msgstr "Auf WordPress spezialisiertes Hosting"
+
+#: classes/plugin.php:304
+msgid "Redirection url"
+msgstr "Umleitungs-URL"
+
+#: classes/plugin.php:253
+msgid "Redirection url default"
+msgstr "Standard-URL für Weiterleitung"
+
+#. Author URI of the plugin
+#: wps-hide-login.php
+msgid "https://wpserveur.net"
+msgstr "https://wpserveur.net"
+
+#: classes/plugin.php:533
+msgid "This has been disabled"
+msgstr "Das wurde gesperrt"
+
+#. Description of the plugin
+#: wps-hide-login.php
+msgid "Protect your website by changing the login URL and preventing access to wp-login.php page and wp-admin directory while not logged-in"
+msgstr "Schütze deine Website, indem du die Anmelde-URL änderst und den Zugang zur Seite wp-login.php und dem Verzeichnis wp-admin verhinderst, wenn man nicht angemeldet ist"
+
+#: classes/plugin.php:915
+msgid "This feature is not enabled."
+msgstr "Diese Funktion ist nicht aktiviert."
+
+#: classes/plugin.php:462 classes/plugin.php:466
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: classes/plugin.php:451
+msgid "Your login page is now here: <strong><a href=\"%1$s\">%2$s</a></strong>. Bookmark this page!"
+msgstr "Deine Anmelde-Seite befindet sich nun hier: <strong><a href=\"%1$s\">%2$s</a></strong>. Lege ein Lesezeichen für diese Seite an!"
+
+#: classes/plugin.php:402
+msgid "To set a networkwide default, go to <a href=\"%s\">Network Settings</a>."
+msgstr "Um einen netzwerkweiten Standard zu setzen, gehe zu den <a href=\"%s\">Netzwerkeinstellungen</a>."
+
+#: classes/plugin.php:296
+msgid "Login url"
+msgstr "Anmelde-URL"
+
+#: classes/plugin.php:251
+msgid "Networkwide default"
+msgstr "Netzwerkweite Vorgabe"
+
+#: classes/plugin.php:248 classes/plugin.php:388
+msgid "Need help? Try the <a href=\"%1$s\" target=\"_blank\">support forum</a>. This plugin is kindly brought to you by <a href=\"%2$s\" target=\"_blank\">WPServeur</a>"
+msgstr "Wenn du Hilfe benötigst, sieh im <a href=\"%1$s\" target=\"_blank\">Supportforum</a> nach. Dieses Plugin wurde dir freundlicherweise von <a href=\"%2$s\" target=\"_blank\">WPServeur</a> zur Verfügung gestellt"
+
+#: classes/plugin.php:247
+msgid "This option allows you to set a networkwide default, which can be overridden by individual sites. Simply go to to the site’s permalink settings to change the url."
+msgstr "Diese Option ermöglicht dir, eine netzwerkweite Vorgabe zu machen, die von einzelnen Websites ausgehebelt werden kann. Gehe einfach auf die Permalink-Einstellungen der Website, um die URL zu ändern."
+
+#: classes/plugin.php:229
+msgid "WPS Hide Login could not be activated because you already have Rename wp-login.php active. Please uninstall rename wp-login.php to use WPS Hide Login"
+msgstr "WPS Hide Login konnte nicht aktiviert werden, weil du bereits Rename wp-login.php aktiviert hast. Bitte deinstalliere Rename wp-login.php, um WPS Hide Login verwenden zu können"
+
+#. Plugin Name of the plugin
+#: wps-hide-login.php classes/plugin.php:223 classes/plugin.php:246
+#: classes/plugin.php:727 classes/plugin.php:736
+msgid "WPS Hide Login"
+msgstr "WPS Hide Login"
+
+#: classes/plugin.php:223
+msgid "Please upgrade to the latest version of WordPress to activate"
+msgstr "Bitte führe ein Upgrade auf die aktuelle Version von WordPress durch, um das Plugin aktivieren zu können"

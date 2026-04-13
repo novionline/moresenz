@@ -1,0 +1,67 @@
+.novi-loader {
+  $self: &;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5em;
+
+  &--theme-dark {
+    #{$self}__spinner {
+      stroke: var(--novi-color-primary, blue);
+    }
+
+    #{$self}__text {
+      stroke: var(--novi-font-color-primary, black);
+    }
+  }
+
+  &--theme-light {
+    #{$self}__spinner {
+      stroke: var(--novi-font-color-white, white);
+    }
+
+    #{$self}__text {
+      color: var(--novi-font-color-white, white);
+    }
+  }
+
+  &__spinner {
+    position: relative;
+    animation: loader-rotator 1.4s linear infinite;
+  }
+
+  &__spinner-circle {
+    stroke-dasharray: 187;
+    stroke-dashoffset: 0;
+    transform-origin: center;
+    animation: loader-dash 1.4s ease-in-out infinite;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: .75rem;
+  }
+}
+
+@keyframes loader-rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dashoffset: 187;
+  }
+  50% {
+    stroke-dashoffset: 46.75;
+    transform: rotate(135deg);
+  }
+  100% {
+    stroke-dashoffset: 187;
+    transform: rotate(450deg);
+  }
+}

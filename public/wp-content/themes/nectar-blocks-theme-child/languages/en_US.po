@@ -1,0 +1,277 @@
+# Loco Gettext template
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Novi Online\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-19 15:11+0100\n"
+"PO-Revision-Date: 2026-03-19 15:19+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.9\n"
+
+#: blocks/datalyzer-animated-grid/DatalyzerAnimatedGridBlock.php:30
+msgid "Display an animated grid SVG."
+msgstr "Display an animated grid SVG."
+
+#: blocks/datalyzer-animated-grid/DatalyzerAnimatedGridBlock.php:60
+msgid "Datalyzer square grid"
+msgstr "Datalyzer square grid"
+
+#: blocks/datalyzer-dots-grid/DatalyzerDotsGridBlock.php:30
+msgid "Display an animated dots grid SVG."
+msgstr "Display an animated dots grid SVG."
+
+#: blocks/datalyzer-dots-grid/DatalyzerDotsGridBlock.php:60
+msgid "Datalyzer dots grid"
+msgstr "Datalyzer dots grid"
+
+#: blocks/novi-menu/NoviMenuBlock.php:32
+msgid "Display a centralized WordPress menu."
+msgstr "Display a centralized WordPress menu."
+
+#: blocks/novi-menu/NoviMenuBlock.php:107
+msgid "Novi menu"
+msgstr "Novi menu"
+
+#: blocks/novi-menu/partials/novi-menu.php:54
+msgid "Please select a menu."
+msgstr "Please select a menu."
+
+#: blocks/novi-menu/partials/novi-menu.php:91
+#, php-format
+msgid "Toggle %s"
+msgstr "Toggle %s"
+
+#: classes/components/GravityFormsComponent.php:50
+msgid "Submit"
+msgstr "Submit"
+
+#: classes/components/GravityFormsComponent.php:197
+msgid ""
+"There was a problem with your submission. Please check the fields below."
+msgstr ""
+"There was a problem with your submission. Please check the fields below."
+
+#: classes/components/GravityFormsComponent.php:214
+msgid "Your message has been sent. Thank you for contacting us."
+msgstr "Your message has been sent. Thank you for contacting us."
+
+#: classes/components/GravityFormsValidationComponent.php:62
+msgid "None"
+msgstr "None"
+
+#: classes/components/GravityFormsValidationComponent.php:64
+msgid "Only a-z characters"
+msgstr "Only a-z characters"
+
+#: classes/components/GravityFormsValidationComponent.php:66
+msgid "Only +, spaces, round brackets and numeric values"
+msgstr "Only +, spaces, round brackets and numeric values"
+
+#: classes/components/GravityFormsValidationComponent.php:98
+#: classes/components/GravityFormsValidationComponent.php:116
+msgid "Regex Validation"
+msgstr "Regex Validation"
+
+#: classes/components/GravityFormsValidationComponent.php:117
+msgid ""
+"Select a validation pattern to restrict input for this field. The validation "
+"will be checked when the form is submitted."
+msgstr ""
+"Select a validation pattern to restrict input for this field. The validation "
+"will be checked when the form is submitted."
+
+#: classes/components/GravityFormsValidationComponent.php:152
+msgid "This field can only contain letters (a-z)"
+msgstr "This field can only contain letters (a-z)"
+
+#: classes/components/GravityFormsValidationComponent.php:155
+msgid ""
+"This field can only contain numbers, spaces, the + character, and round "
+"brackets."
+msgstr ""
+"This field can only contain numbers, spaces, the + character, and round "
+"brackets."
+
+#: classes/components/GravityFormsValidationComponent.php:157
+msgid "Invalid input format."
+msgstr "Invalid input format."
+
+#: classes/components/NectarBlocksComponent.php:47
+#: classes/components/NectarBlocksComponent.php:48
+#: classes/components/NectarBlocksComponent.php:73
+#: classes/components/NectarBlocksComponent.php:74
+msgid "Patterns"
+msgstr "Patterns"
+
+#: classes/components/OwnerRoleComponent.php:104
+msgid "Owner"
+msgstr "Owner"
+
+#: classes/components/SearchComponent.php:187 search.php:86
+msgid "Blog Post"
+msgstr "Blog Post"
+
+#: classes/components/SearchComponent.php:189 search.php:88
+msgid "Page"
+msgstr "Page"
+
+#: classes/components/SearchComponent.php:191
+msgid "Portfolio Item"
+msgstr "Portfolio Item"
+
+#: classes/components/SearchComponent.php:193
+#: classes/post-types/ProductPostType.php:45 search.php:90
+msgid "Product"
+msgstr "Product"
+
+#: classes/post-types/CasePostType.php:53
+msgid "Case"
+msgstr "Case"
+
+#: classes/post-types/CasePostType.php:54
+msgid "Cases"
+msgstr "Cases"
+
+#: classes/post-types/CasePostType.php:77
+msgid "Case category"
+msgstr "Case category"
+
+#: classes/post-types/CasePostType.php:78
+msgid "Case categories"
+msgstr "Case categories"
+
+#: classes/post-types/EventPostType.php:46
+msgid "Event"
+msgstr "Event"
+
+#: classes/post-types/EventPostType.php:47
+msgid "Events"
+msgstr "Events"
+
+#: classes/post-types/ProductPostType.php:46
+msgid "Products"
+msgstr "Products"
+
+#: classes/post-types/ResourcePostType.php:53
+msgid "Resource"
+msgstr "Resource"
+
+#: classes/post-types/ResourcePostType.php:54
+msgid "Resources"
+msgstr "Resources"
+
+#: classes/post-types/ResourcePostType.php:77
+msgid "Resource category"
+msgstr "Resource category"
+
+#: classes/post-types/ResourcePostType.php:78
+msgid "Resource categories"
+msgstr "Resource categories"
+
+#: classes/post-types/SolutionPostType.php:45
+msgid "Solution"
+msgstr "Solution"
+
+#: classes/post-types/SolutionPostType.php:46
+msgid "Solutions"
+msgstr "Solutions"
+
+#: classes/post-types/VacancyPostType.php:45
+msgid "Vacancy"
+msgstr "Vacancy"
+
+#: classes/post-types/VacancyPostType.php:46
+msgid "Vacancies"
+msgstr "Vacancies"
+
+#: classes/scripts/FrontendScripts.php:32
+msgid "Add to module list"
+msgstr "Add to module list"
+
+#: classes/scripts/FrontendScripts.php:33
+msgid "Added to module list"
+msgstr "Added to module list"
+
+#: classes/settings/CaseSettings.php:29 classes/settings/CaseSettings.php:30
+msgid "Case settings"
+msgstr "Case settings"
+
+#: classes/settings/EventSettings.php:29 classes/settings/EventSettings.php:30
+msgid "Event settings"
+msgstr "Event settings"
+
+#: classes/settings/ProductSettings.php:29
+#: classes/settings/ProductSettings.php:30
+msgid "Product settings"
+msgstr "Product settings"
+
+#: classes/settings/ResourceSettings.php:29
+#: classes/settings/ResourceSettings.php:30
+msgid "Resource settings"
+msgstr "Resource settings"
+
+#: classes/settings/SolutionSettings.php:29
+#: classes/settings/SolutionSettings.php:30
+msgid "Solution settings"
+msgstr "Solution settings"
+
+#: classes/settings/VacancySettings.php:29
+#: classes/settings/VacancySettings.php:30
+msgid "Vacancy settings"
+msgstr "Vacancy settings"
+
+#: js/chunk/carousel-mouse-follower-editor.js:55
+msgid "Mouse follower"
+msgstr "Mouse follower"
+
+#: js/chunk/carousel-mouse-follower-editor.js:59
+msgid "Show drag indicator (circle + arrows)"
+msgstr "Show drag indicator (circle + arrows)"
+
+#: js/chunk/carousel-mouse-follower-editor.js:60
+msgid ""
+"Display a cursor-following indicator on non-touch devices to suggest "
+"horizontal dragging."
+msgstr ""
+"Display a cursor-following indicator on non-touch devices to suggest "
+"horizontal dragging."
+
+#: search.php:44
+msgid "Results For"
+msgstr "Results For"
+
+#: search.php:47
+msgid "results found"
+msgstr "results found"
+
+#: search.php:146
+msgid "Sorry, no results were found."
+msgstr "Sorry, no results were found."
+
+#: search.php:147
+msgid "Please try again with different keywords."
+msgstr "Please try again with different keywords."
+
+#. Theme Name of the plugin/theme
+msgid "Nectarblocks Child Theme"
+msgstr "Nectarblocks Child Theme"
+
+#. Theme URI of the plugin/theme
+#. Author URI of the plugin/theme
+msgid "https://nectarblocks.com"
+msgstr "https://nectarblocks.com"
+
+#. Description of the plugin/theme
+msgid "Child theme for Nectarblocks."
+msgstr "Child theme for Nectarblocks."
+
+#. Author of the plugin/theme
+msgid "NectarBlocks"
+msgstr "NectarBlocks"

@@ -1,0 +1,130 @@
+<wpml-config>
+ <gutenberg-blocks>
+    <gutenberg-block type="nectar-blocks/image-gallery" translate="1">
+      <key encoding="json" name="data-settings" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/carousel" translate="1">
+      <key encoding="json" name="data-settings" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/text" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <key encoding="json" name="data-text-animation" />
+      <xpath>//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::div[contains(@class, 'nectar-blocks-text')]]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/milestone" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <key encoding="json" name="data-nectar-milestone-animation" />
+      <xpath>//*[self::span or self::div[contains(@class, 'nectar-blocks-milestone')]]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/tabs" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <key encoding="json" name="data-auto-rotate" />
+      <xpath>//div[contains(@class, 'nectar-blocks-tabs')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/accordion" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-accordion')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/accordion-section" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div[contains(@class, 'nectar-blocks-accordion-section')]]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/image-grid" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <key encoding="json" name="data-nectar-bg-scroll-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/video-lightbox" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-video-lightbox')]//*[self::span or self::p or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/video-player" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/post-grid" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/post-content" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/button" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <key name="text" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
+      <xpath label="Button text">//span[@class="nectar-blocks-button__text"]</xpath>
+      <xpath type="link" label="Button href">//a/@href</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/image" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/icon" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/icon-list" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-icon-list')]//*[self::span or self::div or self::p]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/icon-list-item" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-icon-list-item')]//*[self::span or self::div or self::p]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/tab-section" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-tab-section')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/carousel-item" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-carousel-item')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/row" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-row')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/column" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-column')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/flex-box" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-flex-box')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/divider" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/testimonial" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-testimonial')]//*[self::p or self::span or self::div]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/star-rating" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/scrolling-marquee" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-scrolling-marquee')]//*[self::span or self::div or self::p or self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/taxonomy-terms" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-taxonomy-terms')]//*[self::span or self::div or self::a]</xpath>
+    </gutenberg-block>
+    <gutenberg-block type="nectar-blocks/taxonomy-grid" translate="1">
+      <key encoding="json" name="data-nectar-block-animation" />
+      <xpath>//div[contains(@class, 'nectar-blocks-taxonomy-grid')]//*[self::span or self::div or self::a or self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6]</xpath>
+    </gutenberg-block>
+  </gutenberg-blocks>
+  <custom-fields>
+    <custom-field action="copy">_nectar_blocks_css</custom-field>
+    <custom-field action="copy">_nectar_blocks_page_css</custom-field>
+    <custom-field action="copy">_nectar_blocks_page_js</custom-field>
+    <custom-field action="copy">_nectar_blocks_hide_post_title</custom-field>
+    <custom-field action="copy">_nectar_blocks_transparent_header_effect</custom-field>
+    <custom-field action="copy">_nectar_blocks_transparent_header_effect_color</custom-field>
+    <custom-field action="copy">_nectar_blocks_header_animation</custom-field>
+    <custom-field action="copy">_nectar_blocks_header_animation_effect</custom-field>
+    <custom-field action="copy">nectar_g_section_conditions</custom-field>
+    <custom-field action="copy">nectar_g_section_locations</custom-field>
+    <custom-field action="copy">_nectar_g_section_options</custom-field>
+  </custom-fields>
+</wpml-config>

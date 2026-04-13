@@ -1,0 +1,14 @@
+{
+	"apiVersion": 3,
+	"name": "nectar-blocks/text",
+	"title": "Nectar Text",
+	"category": "nectar",
+	"description": "Text block.",
+	"supports": {
+		"html": false,
+		"splitting": true
+	},
+	"textdomain": "nectar-blocks",
+	"viewScript": "nectar-blocks-text",
+	"usesContext": [ "postId" ]
+}

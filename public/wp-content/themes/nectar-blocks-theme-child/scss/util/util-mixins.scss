@@ -1,0 +1,112 @@
+@use "sass:map";
+@use "util-variables" as vars;
+
+// General media query mixin for 'up' (min-width)
+@mixin mq-up($breakpoint) {
+    @if map.has-key(vars.$breakpoints, $breakpoint) {
+        $breakpoint-value: map.get(vars.$breakpoints, $breakpoint);
+        @media (min-width: calc($breakpoint-value + 1px)) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+// General media query mixin for 'between'
+@mixin mq-between($lower, $upper) {
+    @if map.has-key(vars.$breakpoints, $lower) and map.has-key(vars.$breakpoints, $upper) {
+        $lower-breakpoint: map.get(vars.$breakpoints, $lower);
+        $upper-breakpoint: map.get(vars.$breakpoints, $upper);
+        @media (min-width: calc($lower-breakpoint + 1px)) and (max-width: ($upper-breakpoint)) {
+            @content;
+        }
+    } @else {
+        @if not map.has-key(vars.$breakpoints, $lower) {
+            @warn 'Invalid lower breakpoint: #{$lower}.';
+        }
+        @if not map.has-key(vars.$breakpoints, $upper) {
+            @warn 'Invalid upper breakpoint: #{$upper}.';
+        }
+    }
+}
+
+// General media query mixin for 'down' (max-width)
+@mixin mq-down($breakpoint) {
+    @if map.has-key(vars.$breakpoints, $breakpoint) {
+        $breakpoint-value: map.get(vars.$breakpoints, $breakpoint);
+        @media (max-width: ($breakpoint-value)) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+// Backwards compatibility for old mixins
+// TODO: Get rid of these at some point and use min-width media queries primarily
+@mixin xs {
+    @include mq-up(xs) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @include mq-up(sm) {
+        @content;
+    }
+}
+
+@mixin md {
+    @include mq-up(md) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @include mq-up(lg) {
+        @content;
+    }
+}
+
+@mixin xl {
+    @include mq-up(xl) {
+        @content;
+    }
+}
+
+@mixin xxl {
+    @include mq-up(xxl) {
+        @content;
+    }
+}
+
+@mixin sm-down {
+    @include mq-down(sm) {
+        @content;
+    }
+}
+
+@mixin md-down {
+    @include mq-down(md) {
+        @content;
+    }
+}
+
+@mixin lg-down {
+    @include mq-down(lg) {
+        @content;
+    }
+}
+
+@mixin xl-down {
+    @include mq-down(xl) {
+        @content;
+    }
+}
+
+@mixin xxl-down {
+    @include mq-down(xxl) {
+        @content;
+    }
+}

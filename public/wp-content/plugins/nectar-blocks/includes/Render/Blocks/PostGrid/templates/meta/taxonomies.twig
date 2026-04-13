@@ -1,0 +1,9 @@
+{% set classNames = blockClassName ~ "__item__taxonomies" %}
+
+{% if post.has_featured_image or post.portfolio_video is not empty %}
+  {% set classNames = classNames ~ " position--" ~ metaData.settings.position %}
+{% endif %}
+
+<div class="{{ classNames }}">
+  {{ metaData.output|raw }}
+</div>

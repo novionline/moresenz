@@ -1,0 +1,139 @@
+/*
+Theme Name:  Nectar Blocks
+Description: Header Layout set to "Centered Menu Alt" in theme options
+*/
+
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav >.buttons {
+  margin-left:15px
+}
+
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav{
+  display:inline-block
+}
+#nectar-nav[data-format="centered-menu-under-logo"] .span_9{
+  text-align:center;
+  line-height:1px
+}
+body.original #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+body.original #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_3,
+body.ascend #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+body.ascend #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_3,
+body.material #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+body.material #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_3 {
+  display:block;
+  float:none;
+  width:100%!important
+}
+body #nectar-nav[data-format="centered-menu-under-logo"] .span_3{
+  text-align:center;
+	line-height: 1;
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav >.sf-menu >li ul {
+  text-align:left
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9{
+  position:relative
+}
+#nectar-nav[data-format="centered-menu-under-logo"] .cart-menu{
+  -ms-transform:translateY(-50%);
+  -webkit-transform:translateY(-50%);
+  transform:translateY(-50%);
+  top:50%
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 nav >ul >li:not(#social-in-menu):not(#search-btn):not(.slide-out-widget-area-toggle) >a {
+  padding-top:0;
+  margin-bottom:20px
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 ul #search-btn,
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 ul #nectar-user-account,
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav >ul .slide-out-widget-area-toggle {
+  padding-top:0;
+  padding-bottom:0
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 ul #social-in-menu a {
+  margin-top:0;
+  margin-bottom:20px
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top #logo {
+	display: inline-block;
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top #logo img{
+  margin:0 auto 0 auto
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top #logo .starting-logo{
+  position:absolute;
+  margin-bottom:0;
+  left:50%;
+  -webkit-transform:translateX(-50%) translateZ(0);
+	transform:translateX(-50%) translateZ(0);
+}
+@media only screen and (min-width: 1025px) {
+  #nectar-nav[data-format="centered-menu-under-logo"] #top #logo .starting-logo{
+    top:0;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  #nectar-nav[data-format="centered-menu-under-logo"] #top #logo .starting-logo {
+    left: 0;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav >ul >li[class*="button_"] >a:before {
+  -webkit-transform:translateY(-9px);
+	transform:translateY(-9px);
+}
+
+#nectar-nav[data-format="centered-menu-under-logo"] #top li[class*="button_"].menu-item-has-icon >a:before {
+	top: 0;
+}
+#nectar-nav[data-format="centered-menu-under-logo"] #top nav >ul >li[class*="button_"] >a {
+	line-height: 1.25em;
+}
+
+
+@media only screen and (min-width: 1025px) {
+  #nectar-nav[data-format="centered-menu-under-logo"] .span_9,
+  #nectar-nav[data-format="centered-menu-under-logo"] .span_9 nav,
+  #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9 {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    width: 100%;
+  }
+  #nectar-nav[data-format="centered-menu-under-logo"] .cart-menu {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+#nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 nav >.buttons {
+  padding-bottom: 20px;
+}
+
+#nectar-nav[data-transparent-header="true"][data-format="centered-menu-under-logo"] #logo .dark-version {
+  position:relative
+}
+
+
+@media only screen and (min-width : 1px) and (max-width: 1024px) {
+
+  body.ascend #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+  body.original #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+  body.material #nectar-nav[data-format="centered-menu-under-logo"] #top .row .span_9,
+  #nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 {
+    min-height: 0;
+    width: auto!important;
+    position: absolute!important;
+    right: 0;
+    top: 0;
+    z-index: 2000;
+    height: 100%;
+  }
+
+  .material #nectar-nav[data-format="centered-menu-under-logo"] #top .span_9 {
+    line-height: inherit;
+  }
+}

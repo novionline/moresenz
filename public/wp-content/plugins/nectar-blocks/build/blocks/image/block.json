@@ -1,0 +1,21 @@
+{
+	"apiVersion": 3,
+	"name": "nectar-blocks/image",
+	"title": "Nectar Image",
+	"category": "nectar",
+	"icon": "smiley",
+	"description": "Image block.",
+	"supports": {
+		"html": false,
+		"filter": {
+			"duotone": true
+		}
+	},
+	"selectors": {
+		"filter": {
+			"duotone": ".wp-block-nectar-blocks-image img, .wp-block-nectar-blocks-image .components-placeholder"
+		}
+	},
+	"usesContext": [ "postId" ],
+	"textdomain": "nectar-blocks"
+}

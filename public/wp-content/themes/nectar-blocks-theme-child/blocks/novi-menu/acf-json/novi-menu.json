@@ -1,0 +1,317 @@
+{
+  "key": "group_66193c0c915ac",
+  "title": "Novi - Menu",
+  "fields": [
+    {
+      "key": "field_627a1c10765ba",
+      "label": "Menu",
+      "name": "",
+      "aria-label": "",
+      "type": "accordion",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "open": 0,
+      "multi_expand": 0,
+      "endpoint": 0
+    },
+    {
+      "key": "field_627a54f212421",
+      "label": "Heading type",
+      "name": "heading_type",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "Choose one of the available heading types.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "menu-heading": "Menu heading",
+        "custom-heading": "Custom heading",
+        "no-heading": "No heading"
+      },
+      "default_value": "automatic-heading",
+      "allow_null": 0,
+      "multiple": 0,
+      "ui": 0,
+      "return_format": "value",
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_627a1c10765fd",
+      "label": "Heading",
+      "name": "heading",
+      "aria-label": "",
+      "type": "text",
+      "instructions": "Add a custom heading above your menu (optional).",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_627a54f212421",
+            "operator": "==",
+            "value": "custom-heading"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    },
+    {
+      "key": "field_635286cdd6cfa",
+      "label": "Heading tag",
+      "name": "heading_tag",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_627a54f212421",
+            "operator": "!=",
+            "value": "no-heading"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "h3": "Heading 3",
+        "h4": "Heading 4",
+        "h5": "Heading 5",
+        "h6": "Heading 6",
+        "span": "No heading (span)"
+      },
+      "default_value": "span",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_6398526ca26ed",
+      "label": "Heading size",
+      "name": "heading_size",
+      "aria-label": "",
+      "type": "select",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_627a54f212421",
+            "operator": "!=",
+            "value": "no-heading"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "choices": {
+        "h1": "Heading size 1",
+        "h2": "Heading size 2",
+        "h3": "Heading size 3",
+        "h4": "Heading size 4",
+        "h5": "Heading size 5",
+        "h6": "Heading size 6"
+      },
+      "default_value": "h5",
+      "return_format": "value",
+      "multiple": 0,
+      "allow_null": 0,
+      "ui": 0,
+      "ajax": 0,
+      "placeholder": ""
+    },
+    {
+      "key": "field_627a1c10765dc",
+      "label": "Menu",
+      "name": "menu",
+      "aria-label": "",
+      "type": "taxonomy",
+      "instructions": "Choose one of the available WordPress menus.",
+      "required": 1,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "taxonomy": "nav_menu",
+      "field_type": "select",
+      "allow_null": 1,
+      "add_term": 0,
+      "save_terms": 0,
+      "load_terms": 0,
+      "return_format": "id",
+      "multiple": 0,
+      "bidirectional_target": []
+    },
+    {
+      "key": "field_627a55fd2692a",
+      "label": "Collapsible",
+      "name": "collapsible",
+      "aria-label": "",
+      "type": "true_false",
+      "instructions": "Enable this option to make this menu collapsible on smaller devices. Note: this feature only works when you have entered a heading text and selected a menu.",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_627a54f212421",
+            "operator": "==",
+            "value": "menu-heading"
+          }
+        ],
+        [
+          {
+            "field": "field_627a54f212421",
+            "operator": "==",
+            "value": "custom-heading"
+          },
+          {
+            "field": "field_627a1c10765fd",
+            "operator": "!=empty"
+          }
+        ]
+      ],
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "message": "",
+      "default_value": 0,
+      "ui": 1,
+      "ui_on_text": "",
+      "ui_off_text": ""
+    },
+    {
+      "key": "field_62e29b6d1a941",
+      "label": "Menu columns",
+      "name": "",
+      "aria-label": "",
+      "type": "accordion",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "open": 0,
+      "multi_expand": 0,
+      "endpoint": 0
+    },
+    {
+      "key": "field_62e29bc2f2645",
+      "label": "Desktop",
+      "name": "menu_columns_desktop",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": 1,
+      "max": 3,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_62e29c2eec89a",
+      "label": "Tablet",
+      "name": "menu_columns_tablet",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": 1,
+      "max": 3,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    },
+    {
+      "key": "field_62e29c2055a39",
+      "label": "Mobile",
+      "name": "menu_columns_mobile",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "This option specifies the number of columns a menu should be divided into.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "min": 1,
+      "max": 2,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf\/block-novi-menu"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1712929807
+}

@@ -1,0 +1,55 @@
+{% set blockDataAttrs = '' %}
+{% if bgAnimation %}
+  {% set blockDataAttrs = ' data-nectar-bg-scroll-animation="' ~ bgAnimation|raw ~ '"'%}
+{% endif %}
+
+{% set videoType = 'video/mp4' %}
+{% if post.portfolio_video|lower ends with '.webm' %}
+  {% set videoType = 'video/webm' %}
+{% elseif post.portfolio_video|lower ends with '.ogg' %}
+  {% set videoType = 'video/ogg' %}
+{% endif %}
+
+{% macro renderVideo(post, videoType, isEditor, videoPlayback) %}
+  {% if post.portfolio_video is not empty %}
+    <video class="nectar-blocks-lazy-video nectar-blocks-post-grid__item__featured-media__item" {% if videoPlayback == 'autoplay' %}autoplay{% endif %} playsInline muted loop>
+      {% if isEditor %}
+        <source src="{{ post.portfolio_video|e }}" type="{{ videoType }}">
+      {% else %}
+        <source data-nectar-lazy-src="{{ post.portfolio_video|e }}" type="{{ videoType }}">
+      {% endif %}
+    </video>
+  {% endif %}
+{% endmacro %}
+
+{% set hasDynamicMediaVideo = settings.dynamicMedia is defined and settings.dynamicMedia.video is defined %}
+{% set dynamicVideoEnabled = hasDynamicMediaVideo and settings.dynamicMedia.enabled and settings.dynamicMedia.video.enabled %}
+{% set videoPlaybackSetting = hasDynamicMediaVideo ? settings.dynamicMedia.video.playback|default('autoplay') : 'autoplay' %}
+{% set videoVisibilitySetting = hasDynamicMediaVideo ? settings.dynamicMedia.video.visibility|default('always') : 'always' %}
+{% set featuredMediaAttrs = blockDataAttrs %}
+{% if dynamicVideoEnabled and post.portfolio_video is not empty %}
+  {% set featuredMediaAttrs = featuredMediaAttrs ~ ' data-video-playback="' ~ videoPlaybackSetting|e ~ '" data-video-visibility="' ~ videoVisibilitySetting|e ~ '"' %}
+{% endif %}
+
+<div class="{{ blockClassName }}__item__featured-media"{{ featuredMediaAttrs|raw }}>
+  {% set wrapperTag = '' %}
+  {% set wrapperAttrs = '' %}
+
+  {% if settings.linkType is not defined or settings.linkType is not same as('wrap-all') %}
+    {% set wrapperTag = 'a' %}
+    {% set wrapperAttrs = 'href="' ~ post.permalink|e ~ '" aria-label="' ~ post.title|e ~ '" class="' ~ blockClassName ~ '__item__featured-media__inner" ' ~ bgAnimationActiveViewports|raw %}
+  {% elseif bgAnimation %}
+    {% set wrapperTag = 'div' %}
+    {% set wrapperAttrs = 'class="' ~ blockClassName ~ '__item__featured-media__inner"' %}
+  {% endif %}
+
+  {% if wrapperTag %}
+    <{{ wrapperTag }} {{ wrapperAttrs|raw }}>
+      {{ post.featured_image|raw }}
+      {{ _self.renderVideo(post, videoType, isEditor, dynamicVideoEnabled ? videoPlaybackSetting : 'autoplay') }}
+    </{{ wrapperTag }}>
+  {% else %}
+    {{ post.featured_image|raw }}
+    {{ _self.renderVideo(post, videoType, isEditor, dynamicVideoEnabled ? videoPlaybackSetting : 'autoplay') }}
+  {% endif %}
+</div>

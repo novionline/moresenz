@@ -1,0 +1,162 @@
+/* CSS RESET */
+.edit-post-visual-editor *, 
+.edit-post-visual-editor *::before, 
+.edit-post-visual-editor *::after {
+  box-sizing: border-box;
+}
+.edit-post-visual-editor {
+  .edit-post-visual-editor__post-title-wrapper {
+    margin-bottom: var(--wp--style--block-gap);
+  }
+}
+/* END CSS RESET */
+
+// Match the theme colors
+body {
+  background-color: var(--nectar-overall-bg-color, #ffffff);
+}
+.editor-styles-wrapper {
+  // color: var(--nectar-overall-font-color, #000000);
+  background-color: var(--nectar-overall-bg-color, #ffffff);
+  // .edit-post-visual-editor__post-title-wrapper h1 {
+  //   color: var(--nectar-overall-font-color, #000000);
+  // }
+
+  // Links to match theme underline.
+  .nectar-blocks-text, .wp-block-paragraph {
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+}
+
+:root {
+  --mobile-container-width: 88%;
+}
+
+// Post title wrapper should match global content size
+//// When v2 is active (non iframe mode)
+body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: var(--wp--style--global--content-size);
+  padding-right: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-right);
+}
+//// When v3 is active
+.block-editor-iframe__body.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+  max-width: var(--wp--style--global--content-size);
+  padding-right: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-right);
+}
+
+/* the commented out rule will eventually be used when we leave the WP system for row width */
+/* .editor-styles-wrapper .is-root-container, */
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+
+  /* using max-width + width instead of max-width + padding to avoid editor outlines showing left/right padding space*/
+  /* max-width: var(--wp--style--global--content-size)!important;
+  padding-right: var(--wp--style--root--padding-right);
+  padding-left: var(--wp--style--root--padding-left); */
+  width: calc(100% - (var(--wp--style--root--padding-right)*2));
+
+  margin-left: auto;
+  margin-right: auto;
+}
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull):not(.has-max-width)) {
+  max-width: calc(var(--wp--style--global--content-size) - (var(--wp--style--root--padding-right)*2))!important;
+}
+
+@media only screen and (max-width: 1024px) {
+  /* the commented out rule will eventually be used when we leave the WP system for row width */
+  /* .editor-styles-wrapper .is-root-container, */
+  body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+  .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)),
+  .nectar-blocks-row__inner.is-contained-content {
+    max-width: var(--mobile-container-width)!important;
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  // Lottie previews for blocks will be picked up from above rule
+  .editor-styles-wrapper .block-editor-block-list__layout.is-root-container>.nectar-blocks__block-preview:not(.alignleft):not(.alignright):not(.alignfull) {
+    max-width: 100%!important;
+    width: 100%!important;
+  }
+
+  //// When v3 is active
+  .block-editor-iframe__body.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+    max-width: var(--mobile-container-width)!important;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+/* the commented out rule will eventually be used when we leave the WP system for row width */
+/* .editor-styles-wrapper .is-root-container > .alignfull {
+  margin-right: calc(var(--wp--style--root--padding-right) * -1);
+  margin-left: calc(var(--wp--style--root--padding-left) * -1); } */
+
+
+
+// Post title wrapper should match global padding
+// body .edit-post-visual-editor__post-title-wrapper {
+//   padding-right: var(--wp--style--root--padding-right);
+//   padding-left: var(--wp--style--root--padding-right);
+// }
+
+body .edit-post-visual-editor .edit-post-visual-editor__post-title-wrapper {
+  margin-bottom: 4rem;
+}
+
+
+// Prevent global padding from being applied to the top/bottom
+body.editor-styles-wrapper {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+
+// Remove the padding for block previews.
+.block-editor-block-preview__content-iframe .editor-styles-wrapper .is-root-container {
+  padding: 0;
+}
+
+
+.editor-styles-wrapper {
+  // Somehow, the "has-global-padding" class is applied late in the render cycle,
+// even though it should be instant if hasRootPaddingAwareAlignments is set.
+// so we need to override the padding here to avoid a jump in the editor.
+// https://github.com/WordPress/gutenberg/blob/ca1d7d6c20e79abda538ddfff1e8fcc0b7fedcfd/packages/edit-post/src/components/visual-editor/index.js#L402
+  // .is-root-container {
+  //   padding-right: var(--wp--style--root--padding-right);
+  //   padding-left: var(--wp--style--root--padding-left);
+  // }
+
+
+  // remove default margin between rows
+  :where(body .is-layout-constrained) > .nectar-blocks-row {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+  .nectar-blocks-text:not(.nectar-block-edit-wrapper) * {
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+}
+
+/* "useRootPaddingAwareAlignments": true is seemingly unreliable and poorly designed, 
+so we must role our own spacing system rule set */
+// body .editor-styles-wrapper {
+// 	padding: 0;
+// }
+
+// .is-root-container > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+// 	padding-left: var(--wp--custom--spacing--outer);
+// 	padding-right: var(--wp--custom--spacing--outer);
+// }
+
+// .editor-styles-wrapper .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+//   padding-left: var(--wp--custom--spacing--outer);
+//   padding-right: var(--wp--custom--spacing--outer);
+// }

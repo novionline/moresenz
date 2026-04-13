@@ -1,0 +1,13 @@
+{
+  "apiVersion": 3,
+  "name": "nectar-blocks/milestone",
+  "title": "Nectar Milestone",
+  "category": "nectar",
+  "description": "Milestone block.",
+  "supports": {
+    "html": false
+  },
+  "textdomain": "nectar-blocks",
+  "viewScript": "nectar-blocks-milestone",
+  "usesContext": [ "postId" ]
+}

@@ -1,0 +1,13 @@
+{
+	"apiVersion": 3,
+	"name": "nectar-blocks/image-gallery",
+	"title": "Nectar Image Gallery",
+	"category": "nectar",
+	"description": "Image Gallery block.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "nectar-blocks",
+	"viewScript": "nectar-blocks-image-gallery",
+	"usesContext": [ "postId" ]
+}

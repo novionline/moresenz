@@ -1,0 +1,24 @@
+{% if settings.pagination.enabled == true %}
+  <div class="{{ blockClassName }}__pagination nectar-font-h6 align-{{settings.pagination.alignment}}">
+    {% if (settings.pagination.type == 'load-more') and (currentPage < paginationData.totalPages) %}
+      <button class="{{ blockClassName }}__pagination__load-more">{{ i18n.load_more }}</button>
+    {% elseif settings.pagination.type == 'numbered' %}
+      {{ pagination|raw }}
+    {% elseif settings.pagination.type == 'arrows' %}
+      
+      {% set prevButtonClass = (currentPage == 1) ? 'page-numbers prev disabled' : 'page-numbers prev' %}
+      {% set nextButtonClass = (currentPage == paginationData.totalPages) ? 'page-numbers next disabled' : 'page-numbers next' %}
+
+      <button class="{{ prevButtonClass }}">
+        <span class="screen-reader-text">{{ i18n.previous }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>
+      </button>
+
+      <button class="{{ nextButtonClass }}">
+        <span class="screen-reader-text">{{ i18n.next }}</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"></path></svg>
+      </button>
+
+    {% endif %}
+  </div>
+{% endif %}

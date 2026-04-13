@@ -1,0 +1,16 @@
+{
+	"apiVersion": 3,
+	"name": "nectar-blocks/column",
+	"title": "Nectar Column",
+	"category": "nectar",
+	"icon": "smiley",
+	"description": "Column container block.",
+	"supports": {
+		"html": false
+	},
+	"parent": [
+		"nectar-blocks/row"
+	],
+	"textdomain": "nectar-blocks",
+	"usesContext": [ "postId" ]
+}

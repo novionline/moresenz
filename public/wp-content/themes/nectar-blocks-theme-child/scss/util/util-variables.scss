@@ -1,0 +1,45 @@
+//fonts
+$font-path: '/wp-content/themes/nectar-blocks-theme-child/fonts';
+$icon-path: '/wp-content/themes/nectar-blocks-theme-child/icons/';
+
+// Base width defines the site width
+// gutter-width will be added to the total to provide spacing on the outside.
+// e.g. base-width: 1280px + gutter-width: 20px will result in a container width of 1300px
+$base-width: var(--hh-base-width, 1410px);
+
+// Gutter width defines the spacing around a colum.
+// e.g. 20px will result in a margin of 10px all round.
+
+$gutter-width: var(--hh-gutter-width, 2rem);
+
+// Column count defines the maximum columns allowed in 1 row.
+// After which the next column will be forced to a new row.
+$column-count: 12;
+
+// Breakpoints defines the screen widths from which styling changes can be made
+$screen-xs: 320px;
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 1024px;
+$screen-xl: 1280px;
+$screen-xxl: 1440px;
+
+$breakpoints: (
+        xs: $screen-xs,
+        sm: $screen-sm,
+        md: $screen-md,
+        lg: $screen-lg,
+        xl: $screen-xl,
+        xxl: $screen-xxl,
+);
+
+$ezpz-gutter: $gutter-width;
+$ezpz-grid-align: true;
+$ezpz-grid-wrap: true;
+$ezpz-cell-order: false;
+$ezpz-cell-offset: false;
+$ezpz-cell-align: true;
+$ezpz-gutter-collapse: false;
+
+$adminBarSizeDesktop: 46px;
+$adminBarSizeMobile: 32px;

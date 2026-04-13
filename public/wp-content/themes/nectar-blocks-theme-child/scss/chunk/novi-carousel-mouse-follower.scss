@@ -1,0 +1,105 @@
+// Novi carousel mouse follower (Flickity-style circle + arrows) – non-touch only
+// 1rem = 16px
+
+@use 'sass:math';
+
+$novi-indicator-size: 6rem;
+$novi-indicator-half: math.div($novi-indicator-size, 2);
+$novi-arrow-size: 1.5rem;
+// further apart in visible (non-dragging) mode
+$novi-arrow-offset: .75rem;
+$novi-arrow-offset-right: .75rem;
+$novi-pointer-down-offset: .5rem;
+
+.novi-drag-indicator[data-type="solid"],
+.novi-carousel-mouse-follower[data-type="solid"] {
+  position: fixed;
+  z-index: 400;
+  left: -$novi-indicator-half;
+  top: -$novi-indicator-half;
+  width: $novi-indicator-size;
+  height: $novi-indicator-size;
+  pointer-events: none;
+  mix-blend-mode: normal;
+  will-change: transform;
+}
+
+.novi-drag-indicator-circle {
+  position: absolute;
+  left: -0.125rem; // 2px
+  top: -0.125rem;
+  width: 100%;
+  height: 100%;
+  background-color: #00000036;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50%;
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 0.45s ease, opacity 0.3s ease;
+}
+
+.novi-drag-indicator-arrows {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.novi-drag-indicator-arrow {
+  position: absolute;
+  top: 50%;
+  width: $novi-arrow-size;
+  height: $novi-arrow-size;
+  margin-top: -(math.div($novi-arrow-size, 2));
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.2);
+  transition: transform 0.45s ease, opacity 0.3s ease, color 0.3s ease;
+
+  &-left {
+    left: $novi-arrow-offset;
+    transform: scale(0.2) rotate(180deg);
+  }
+
+  &-right {
+    right: $novi-arrow-offset-right;
+    left: auto;
+  }
+}
+
+// visible state: show circle and arrows
+.novi-drag-indicator-visible,
+.novi-carousel-mouse-follower.novi-drag-indicator-visible {
+  .novi-drag-indicator-circle {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .novi-drag-indicator-arrow {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .novi-drag-indicator-arrow-left {
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+// pointer-down state: pressed look
+.novi-drag-indicator-pointer-down,
+.novi-carousel-mouse-follower.novi-drag-indicator-pointer-down {
+  .novi-drag-indicator-circle {
+    transform: scale(0.15);
+  }
+
+  .novi-drag-indicator-arrow-left {
+    transform: translateX(-$novi-pointer-down-offset) rotate(180deg);
+  }
+
+  .novi-drag-indicator-arrow-right {
+    transform: translateX($novi-pointer-down-offset);
+  }
+}

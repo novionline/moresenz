@@ -1,0 +1,69 @@
+//header transparency fix for mega menus
+
+//variables for consistent targeting
+$nectar-nav: '#nectar-nav[data-transparent-header="true"]';
+$transparent-state: '.transparent:not(.side-widget-open)';
+
+//mixin for transparent header styles
+@mixin transparent-header-base {
+    background-color: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+}
+
+//main body states
+body {
+    
+    //when at top of page (not scrolled down)
+    &:not(.scrolled-down) {
+        #{$nectar-nav}#{$transparent-state} {
+            @include transparent-header-base;
+
+            //logo transparency handling
+            #top #logo {
+                //hide the regular (dark) logo when transparent
+                img:not(.dark-version):not(.starting-logo) {
+                    opacity: 0 !important;
+                }
+
+                //show the light/starting logo (for transparent header)
+                .starting-logo {
+                    opacity: 1 !important;
+                    
+                    //ensure light version is visible on transparent header
+                    &:not(.dark-version) {
+                        opacity: 1 !important;
+                    }
+                }
+
+                //hide dark version of starting logo when header is transparent (unless dark-slide)
+                .starting-logo.dark-version {
+                    opacity: 0 !important;
+                }
+
+                //force show light logo on transparent header
+                img.starting-logo:not(.dark-version) {
+                    opacity: 1 !important;
+                    filter: none !important;
+                }
+            }
+
+            //dark slide variant (when transparent header should show dark elements)
+            &.dark-slide {
+                #top #logo {
+                    //show dark version of starting logo
+                    .starting-logo {
+                        &.dark-version {
+                            opacity: 1 !important;
+                        }
+
+                        &:not(.dark-version) {
+                            opacity: 0 !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

@@ -1,0 +1,43 @@
+{% set blockClassName = 'nectar-blocks-taxonomy-grid' %}
+
+{% set blockClassNames = blockClassName %}
+{% if settings.className %}
+  {% set blockClassNames = blockClassNames ~ " " ~ settings.className|e %}
+{% endif %}
+{% set blockClassNames = blockClassNames ~ " l--" ~ settings.layout|e %}
+{% set blockClassNames = blockClassNames ~ " il--" ~ settings.itemLayout|e %}
+{% set blockClassNames = blockClassNames ~ " aspect--" ~ settings.imageRatio|replace({':': '-'})|e %}
+
+{% if settings.align %}
+  {% set blockClassNames = blockClassNames ~ " align" ~ settings.align|e %}
+{% endif %}
+
+<div id="{{ blockId|e }}" class="{{ blockClassNames }}"
+>
+  <div class="{{ blockClassName }}__inner">
+
+    <div class="nectar__bg-layers parent-block-{{blockId|e}}">
+        <div class="nectar__bg-layer nectar__bg-color"></div>
+    </div>
+
+    <div class="{{ blockClassName }}__content">
+
+      {% for post in queryData %}
+
+        <div class="{{ blockClassName }}__item">
+          <div class="{{ blockClassName }}__item__inner">
+            {% include './templates/featured_image.twig' %}
+            <div class="{{ blockClassName }}__item__content">
+              <div class="{{ blockClassName }}__item__content__inner">
+                {% for metaData in post.meta %}
+                    {% include './templates/meta/' ~ metaData.type ~ '.twig' %}
+                {% endfor %}
+              </div>
+            </div>
+           </div>
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>

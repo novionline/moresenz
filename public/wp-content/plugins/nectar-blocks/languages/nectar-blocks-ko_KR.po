@@ -1,0 +1,5616 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: admin@nectarblocks.com\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: NectarBlocks <admin@nectarblocks.com>\n"
+"Language-Team: \n"
+"Language: ko_KR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: nectar-blocks\n"
+"X-Generator: Poedit 3.4.4\n"
+
+#. Plugin Name of the plugin
+#: nectar-blocks.php includes/Editor/Blocks.php:681 build/editor.js:28132
+msgid "Nectarblocks"
+msgstr "Nectarblocks"
+
+#. Description of the plugin
+#: nectar-blocks.php
+msgid ""
+"Step into the future of WordPress with Nectarblocks, where innovation meets "
+"seamless design. Unleash the full potential of your website by transforming "
+"the core WordPress editor into a dynamic and robust full-site editor."
+msgstr "넥타블록과 함께 워드프레스의 미래로 나아가보세요. 혁신과 원활한 디자인이 만나는 곳입니다. 코어 워드프레스"
+
+#. Author of the plugin
+#: nectar-blocks.php
+msgid "NectarBlocks"
+msgstr "NectarBlocks"
+
+#. Author URI of the plugin
+#: nectar-blocks.php
+msgid "https://nectarblocks.com/"
+msgstr "https://nectarblocks.com/"
+
+#: includes/Admin_Panel/Panel.php:19
+msgid "Nectarblocks Options"
+msgstr "넥터블록 옵션"
+
+#: includes/API/Media/Image_Upload_API.php:71
+msgid "Error accessing unsplash image"
+msgstr "Unsplash 이미지에 액세스하는 중 오류가 발생했습니다."
+
+#: includes/API/Media/Image_Upload_API.php:84
+msgid "Image upload failure, please try again. Errors: "
+msgstr "이미지 업로드 실패, 다시 시도해주세요. 오류:"
+
+#: includes/API/Media/Image_Upload_API.php:89
+msgid "Image type could not be determined"
+msgstr "이미지 유형을 결정할 수 없습니다."
+
+#: includes/API/Media/Image_Upload_API.php:106
+msgid "Unable to insert attachment."
+msgstr "첨부 파일을 삽입할 수 없습니다."
+
+#: includes/API/Media/Image_Upload_API.php:115
+msgid "Image uploaded successfully. "
+msgstr "이미지가 성공적으로 업로드되었습니다."
+
+#: includes/Editor/Blocks.php:663 build/editor.js:17985 build/editor.js:20365
+#: build/editor.js:87912 build/editor.js:88600
+msgid "Desktop"
+msgstr "데스크탑"
+
+#: includes/Editor/Blocks.php:664 build/editor.js:17985 build/editor.js:20379
+#: build/editor.js:87912 build/editor.js:88604
+msgid "Tablet"
+msgstr "태블릿"
+
+#: includes/Editor/Blocks.php:665
+msgid "Phone"
+msgstr "전화"
+
+#: includes/Global_Sections/Global_Sections.php:148
+msgid "Inside Header Navigation Top"
+msgstr "헤더 내비게이션 상단에"
+
+#: includes/Global_Sections/Global_Sections.php:152
+msgid "After Header Navigation"
+msgstr "헤더 네비게이션 뒤"
+
+#: includes/Global_Sections/Global_Sections.php:161
+msgid "Before Page/Post Content"
+msgstr "페이지/게시물 내용 앞에"
+
+#: includes/Global_Sections/Global_Sections.php:165
+msgid "After Page/Post Content"
+msgstr "페이지/게시물 내용 뒤"
+
+#: includes/Global_Sections/Global_Sections.php:169
+msgid "Sidebar Top"
+msgstr "사이드바 상단"
+
+#: includes/Global_Sections/Global_Sections.php:173
+msgid "Sidebar Bottom"
+msgstr "사이드바 하단"
+
+#: includes/Global_Sections/Global_Sections.php:177
+msgid "Before Blog Loop"
+msgstr "블로그 루프 이전"
+
+#: includes/Global_Sections/Global_Sections.php:181
+msgid "After Blog Loop"
+msgstr "블로그 루프 이후"
+
+#: includes/Global_Sections/Global_Sections.php:190
+msgid "Before Off Canvas Menu Items"
+msgstr "오프 캔버스 메뉴 항목들 앞에"
+
+#: includes/Global_Sections/Global_Sections.php:194
+msgid "After Off Canvas Menu Items"
+msgstr "오프 캔버스 메뉴 항목 이후"
+
+#: includes/Global_Sections/Global_Sections.php:198
+msgid "Off Canvas Menu Meta Area"
+msgstr "오프 캔버스 메뉴 메타 영역"
+
+#: includes/Global_Sections/Global_Sections.php:186
+#: includes/Global_Sections/Global_Sections.php:207 build/editor.js:95867
+msgid "Footer"
+msgstr "푸터"
+
+#: includes/Global_Sections/Global_Sections.php:211
+msgid "Footer Parallax"
+msgstr "푸터 패럴랙스"
+
+#: includes/Global_Sections/Global_Sections.php:216
+msgid "After Footer"
+msgstr "푸터 뒤에"
+
+#: includes/Global_Sections/Global_Sections.php:225
+msgid "Before Shop Loop"
+msgstr "쇼핑 루프 전"
+
+#: includes/Global_Sections/Global_Sections.php:229
+msgid "After Shop Loop"
+msgstr "쇼핑 루프 이후"
+
+#: includes/Global_Sections/Global_Sections.php:233
+msgid "Single Product Before Summary"
+msgstr "요약 전 단일 제품"
+
+#: includes/Global_Sections/Global_Sections.php:237
+msgid "Single Product Before Add to Cart"
+msgstr "장바구니에 추가하기 전 단일 제품"
+
+#: includes/Global_Sections/Global_Sections.php:241
+msgid "Single Product After Add to Cart"
+msgstr "장바구니에 추가한 후 단일 제품"
+
+#: includes/Global_Sections/Global_Sections.php:245
+msgid "Single Product After Summary"
+msgstr "단일 제품 요약 후"
+
+#: includes/Global_Sections/Global_Sections.php:249
+msgid "Checkout Before Billing Form"
+msgstr "청구 전 결제 양식"
+
+#: includes/Global_Sections/Global_Sections.php:253
+msgid "Checkout After Billing Form"
+msgstr "결제 후 청구서 양식"
+
+#: includes/Global_Sections/Global_Sections.php:257
+msgid "Checkout Before Shipping Form"
+msgstr "배송 전 체크아웃 양식"
+
+#: includes/Global_Sections/Global_Sections.php:261
+msgid "Checkout Before Order Notes"
+msgstr "주문하기 전에 확인란을 작성해주세요."
+
+#: includes/Global_Sections/Global_Sections.php:265
+msgid "Checkout After Order Notes"
+msgstr "주문 후 참고 사항 확인"
+
+#: includes/Global_Sections/Global_Sections.php:269
+msgid "Checkout Before Order Review"
+msgstr "주문하기 전에 확인해주세요"
+
+#: includes/Global_Sections/Global_Sections.php:273
+msgid "Checkout Before Review Order Payment"
+msgstr "주문 결제 전에 확인해주세요."
+
+#: includes/Global_Sections/Global_Sections.php:277
+msgid "Checkout After Review Order Payment"
+msgstr "주문 결제 후 검토하고 결제하기"
+
+#: includes/Global_Sections/Global_Sections.php:282
+msgid "Cart Coupon"
+msgstr "카트 쿠폰"
+
+#: includes/Global_Sections/Global_Sections.php:286
+msgid "Cart Before Totals"
+msgstr "총계 전에 카트"
+
+#: includes/Global_Sections/Global_Sections.php:290
+msgid "Cart Before Shipping"
+msgstr "배송 전에 카트에 담기"
+
+#: includes/Global_Sections/Global_Sections.php:294
+msgid "Cart Before Shipping Calculator"
+msgstr "배송 계산기 전에 카트"
+
+#: includes/Global_Sections/Global_Sections.php:298
+msgid "Cart After Shipping Calculator"
+msgstr "배송비 계산 후 카트"
+
+#: includes/Global_Sections/Global_Sections.php:302
+msgid "Cart Proceed to Checkout"
+msgstr "장바구니 결제하기"
+
+#: includes/Global_Sections/Global_Sections.php:86
+msgid "Everywhere"
+msgstr "어디서든"
+
+#: includes/Global_Sections/Global_Sections.php:91
+msgid "Archive"
+msgstr "보관하다"
+
+#: includes/Global_Sections/Global_Sections.php:95
+msgid "Front Page"
+msgstr "프론트 페이지"
+
+#: includes/Global_Sections/Global_Sections.php:99
+msgid "Search Results"
+msgstr "검색 결과"
+
+#: includes/Global_Sections/Global_Sections.php:104
+msgid "Single"
+msgstr "싱글"
+
+#: includes/Global_Sections/Global_Sections.php:118
+#: includes/Nectar_Templates/Nectar_Templates.php:116
+msgid "User Logged In"
+msgstr "사용자가 로그인했습니다."
+
+#: includes/Global_Sections/Global_Sections.php:124
+#: includes/Nectar_Templates/Nectar_Templates.php:122
+msgid "User Not Logged In"
+msgstr "사용자가 로그인하지 않았습니다."
+
+#: includes/Global_Sections/Global_Sections.php:144
+#: includes/Menu_Options/Setting_Field.php:385 build/editor.js:17255
+#: build/editor.js:20535 build/editor.js:23677 build/editor.js:23969
+#: build/editor.js:33527 build/editor.js:42270 build/editor.js:48506
+#: build/editor.js:70173 build/editor.js:70183 build/editor.js:70190
+#: build/editor.js:70210
+msgid "Top"
+msgstr "최고"
+
+#: includes/Global_Sections/Global_Sections.php:157
+msgid "Main Content"
+msgstr "주요 콘텐츠"
+
+#: includes/Global_Sections/Global_Sections.php:221 build/adminPanel.js:2602
+msgid "WooCommerce"
+msgstr "우커머스"
+
+#: includes/Menu_Options/Setting_Field.php:264
+#: includes/Menu_Options/Setting_Field.php:304
+#: includes/Menu_Options/Setting_Field.php:337 build/editor.js:19164
+#: build/editor.js:20003 build/editor.js:23279 build/editor.js:24691
+#: build/editor.js:27874 build/editor.js:29717 build/editor.js:30284
+#: build/editor.js:35635 build/editor.js:55672 build/editor.js:61332
+#: build/editor.js:75005 build/editor.js:85898 build/editor.js:86404
+#: build/editor.js:89854 build/editor.js:94108
+msgid "Remove"
+msgstr "제거하기"
+
+#: includes/Global_Sections/Global_Sections_Register.php:97
+#: includes/Global_Sections/Global_Sections_Register.php:100
+msgid "Global Sections"
+msgstr "글로벌 섹션"
+
+#: includes/Global_Sections/Global_Sections_Register.php:98
+msgid "Global Section"
+msgstr "글로벌 섹션"
+
+#: includes/Global_Sections/Global_Sections_Register.php:99
+msgid "Search Global Sections"
+msgstr "전역 섹션 검색"
+
+#: includes/Global_Sections/Global_Sections_Register.php:101
+msgid "Parent Global Section"
+msgstr "부모 글로벌 섹션"
+
+#: includes/Global_Sections/Global_Sections_Register.php:102
+msgid "Edit Global Section"
+msgstr "글로벌 섹션 편집"
+
+#: includes/Global_Sections/Global_Sections_Register.php:103
+msgid "Update Global Section"
+msgstr "글로벌 섹션 업데이트"
+
+#: includes/Global_Sections/Global_Sections_Register.php:104
+#: includes/Global_Sections/Global_Sections_Register.php:105
+#: includes/Global_Sections/Visual_Hook_Locations.php:95
+msgid "Add New Global Section"
+msgstr "새로운 글로벌 섹션 추가"
+
+#: includes/Global_Sections/Global_Sections_Register.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:79
+msgid "Section"
+msgstr "섹션"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:51
+msgid "Display Nectar Hooks"
+msgstr "넥타 후크 표시"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:56
+msgid "Hide Nectar Hooks"
+msgstr "넥타 후크 숨기기"
+
+#: includes/Global_Sections/Visual_Hook_Locations.php:98
+msgid "Hook:"
+msgstr "후크:"
+
+#: includes/Global_Settings/Global_Colors.php:93
+msgid "Core Gradient #1"
+msgstr "코어 그라데이션 #1"
+
+#: includes/Global_Settings/Global_Colors.php:98
+msgid "Core Gradient #2"
+msgstr "코어 그라디언트 #2"
+
+#: includes/Global_Settings/Global_Colors.php:103
+msgid "Core Gradient #3"
+msgstr "코어 그라데이션 #3"
+
+#: includes/Global_Settings/Global_Colors.php:108
+msgid "Core Gradient #4"
+msgstr "코어 그라데이션 #4"
+
+#: includes/Global_Settings/Global_Colors.php:129
+msgid "Light"
+msgstr "빛"
+
+#: includes/Global_Settings/Global_Colors.php:134
+msgid "Accent Light"
+msgstr "액센트 조명"
+
+#: includes/Global_Settings/Global_Colors.php:139
+msgid "Accent Primary"
+msgstr "액센트 프라이머리"
+
+#: includes/Global_Settings/Global_Colors.php:144
+msgid "Accent Dark"
+msgstr "악센트 다크"
+
+#: includes/Global_Settings/Global_Colors.php:149
+msgid "Dark"
+msgstr "어둠"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+msgid "By"
+msgstr "By: 에 의해"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:358
+#: includes/Render/Blocks/PostGrid/PostGrid.php:362 build/editor.js:61438
+msgid "Read More"
+msgstr "더 읽기"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:715
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219
+#: build/editor.js:62689
+msgid "Load More"
+msgstr "더 보기"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:716
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220
+#: build/editor.js:42034 build/editor.js:52698
+msgid "Previous"
+msgstr "이전"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:717
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221
+#: build/editor.js:42042 build/editor.js:52710
+msgid "Next"
+msgstr "다음"
+
+#: build/adminPanel.js:1435
+msgid "Save Options"
+msgstr "옵션 저장"
+
+#: includes/Menu_Options/Modal.php:58 build/adminPanel.js:1438
+msgid "Error Saving"
+msgstr "저장 중 오류 발생"
+
+#: build/adminPanel.js:1441
+msgid "Options Saved"
+msgstr "옵션 저장됨"
+
+#: build/adminPanel.js:1577
+msgid "Register"
+msgstr "등록하기"
+
+#: build/adminPanel.js:1599
+msgid "Successfully activated."
+msgstr "활성화되었습니다."
+
+#: build/adminPanel.js:1603
+msgid "Unsuccessfully activated."
+msgstr "활성화되지 못했습니다."
+
+#: build/adminPanel.js:1607
+msgid "Deregister"
+msgstr "등록 해제"
+
+#: build/adminPanel.js:1619
+msgid "Successfully deactivated."
+msgstr "성공적으로 비활성화되었습니다."
+
+#: build/adminPanel.js:1623
+msgid "Unsuccessfully deactivated."
+msgstr "비활성화에 실패했습니다."
+
+#: build/adminPanel.js:1639
+msgid "Active License"
+msgstr "활성 라이선스"
+
+#: build/adminPanel.js:1642
+msgid "Invalid License"
+msgstr "잘못된 라이선스"
+
+#: build/adminPanel.js:1714
+msgid "Theme License Code"
+msgstr "테마 라이선스 코드"
+
+#: build/adminPanel.js:1720
+msgid "license key"
+msgstr "라이센스 키"
+
+#: build/adminPanel.js:1736
+msgid "Enable Updates"
+msgstr "업데이트 활성화"
+
+#: build/adminPanel.js:1840
+msgid "CSS"
+msgstr "CSS를 번역해주세요."
+
+#: build/adminPanel.js:1842
+msgid "Custom JS/HTML"
+msgstr "사용자 정의 JS/HTML"
+
+#: build/adminPanel.js:1848
+msgid "Custom CSS"
+msgstr "사용자 정의 CSS"
+
+#: build/adminPanel.js:1867
+msgid "Custom Code (JS/HTML) in Head"
+msgstr "헤드에 사용자 정의 코드 (JS/HTML)"
+
+#: build/adminPanel.js:1870 build/adminPanel.js:1888
+msgid "If using JS, ensure to include script tags."
+msgstr "JS를 사용하는 경우에는 스크립트 태그를 포함해야 합니다."
+
+#: build/adminPanel.js:1885
+msgid "Custom Code (JS/HTML) After Body Open"
+msgstr "바디 열린 후 커스텀 코드 (JS/HTML)"
+
+#: build/adminPanel.js:2349
+msgid "Welcome to the future of WordPress"
+msgstr "워드프레스의 미래에 오신 것을 환영합니다."
+
+#: build/adminPanel.js:2351
+msgid ""
+"Nectarblocks elevates the WordPress Gutenberg editor to an exceptionally "
+"powerful editor. Explore the key features below to begin your journey."
+msgstr "Nectarblocks는 워드프레스 구텐베르그 편집기를 매우 강력한 편집기로 발전시킵니다. 여러분의 여정을 시작하려면 아래"
+
+#: build/adminPanel.js:2359
+msgid "Block Collection"
+msgstr "블록 컬렉션"
+
+#: build/adminPanel.js:2360
+msgid ""
+"A robust collection of powerful blocks designed to simplify the process of "
+"building your website."
+msgstr "강력한 블록들의 풍부한 컬렉션으로 웹사이트 구축 프로세스를 간편화하는 것을 목표로 합니다."
+
+#: build/adminPanel.js:2365
+msgid "The Template Library"
+msgstr "템플릿 라이브러리"
+
+#: build/adminPanel.js:2366
+msgid ""
+"Jump start your Website creation with our professionally designed collection"
+" of pre-made templates"
+msgstr "저희가 전문적으로 디자인한 프리메이드 템플릿 컬렉션으로 웹사이트 제작을 신속하게 시작해보세요."
+
+#: build/adminPanel.js:2371
+msgid "Streamlined Global Settings"
+msgstr "글로벌 설정 간소화"
+
+#: build/adminPanel.js:2377
+msgid "Extensively Customizable Block Settings"
+msgstr "블록 설정을 매우 다양하게 사용자 정의할 수 있습니다."
+
+#: build/adminPanel.js:2383
+msgid "Next-Gen Responsive Editing"
+msgstr "차세대 반응형 편집"
+
+#: build/adminPanel.js:2384
+msgid ""
+"Effortlessly customize block settings for different devices using a single, "
+"intuitive control interface. Whether adjusting settings for each device "
+"individually or hovering over elements, you can instantly see the changes in"
+" an active preview."
+msgstr ""
+"단일 직관적 제어 인터페이스를 사용하여 다양한 기기에 대한 블록 설정을 손쉽게 사용자 정의하세요. 각 기기별로 설정을 조정하거나 요소 "
+"위에 마"
+
+#: build/adminPanel.js:2389
+msgid "Integrated Unsplash Images"
+msgstr "통합된 Unsplash 이미지"
+
+#: build/adminPanel.js:2390
+msgid ""
+"Nectarblocks seamlessly integrates with Unsplash to provide you with a vast "
+"library of high quality images to choose from."
+msgstr "넥터블록은 원활하게 Unsplash와 통합되어 다양한 고품질 이미지 라이브러리를 제공합니다."
+
+#: build/adminPanel.js:2533
+msgid "Demo Content"
+msgstr "데모 콘텐츠"
+
+#: build/adminPanel.js:2545 build/adminPanel.js:3386
+msgid "Theme Options"
+msgstr "테마 옵션"
+
+#: build/adminPanel.js:2558 build/adminPanel.js:2743 build/adminPanel.js:3091
+#: build/editor.js:96944
+msgid "Global Settings"
+msgstr "글로벌 설정"
+
+#: build/adminPanel.js:2586
+msgid ""
+"The duration of prebuilt website imports can vary. Ensure that your server"
+msgstr "사전 제작된 웹사이트 가져오기에 소요되는 시간은 다를 수 있습니다. 귀하의 서버"
+
+#: build/adminPanel.js:2590
+msgid "fulfills all necessary requirements"
+msgstr "모든 필수 요구 사항을 충족합니다."
+
+#: build/adminPanel.js:2591
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"성공적인 가져오기를 위해. 가져오기 프로세스가 시작되면,\n"
+"완료될 때까지 페이지를 새로 고침하지 말아 주세요."
+
+#: build/adminPanel.js:2628
+msgid "Successfully imported demo."
+msgstr "데모가 성공적으로 가져와졌습니다."
+
+#: build/adminPanel.js:2631
+msgid "Failed to import demo."
+msgstr "데모를 가져오지 못했습니다."
+
+#: build/adminPanel.js:2635
+msgid "Import Demo"
+msgstr "데모 가져오기"
+
+#: build/adminPanel.js:2645
+msgid "You are not using the included"
+msgstr "포함된 것을 사용하고 있지 않습니다."
+
+#: build/adminPanel.js:2649
+msgid "Nectarblocks theme"
+msgstr "Nectarblocks 테마"
+
+#: build/adminPanel.js:2650
+msgid ", which is recommended for demo imports."
+msgstr "데모 가져오기에 권장되는 것입니다."
+
+#: build/adminPanel.js:2737 build/adminPanel.js:2772 build/adminPanel.js:2864
+#: build/adminPanel.js:2902
+msgid "Export"
+msgstr "수출"
+
+#: build/adminPanel.js:2739 build/adminPanel.js:2866
+msgid "Export all"
+msgstr "모두 내보내기"
+
+#: build/adminPanel.js:2744 build/adminPanel.js:2871
+msgid "from Nectarblocks."
+msgstr "Nectarblocks에서부터."
+
+#: build/adminPanel.js:2746
+msgid ""
+"Global Settings are primarily located in the right-hand side of \n"
+"            of the editor when clicking on the Nectarblocks logo, and a few are \n"
+"            contained in this options panel."
+msgstr ""
+"글로벌 설정은 Nectarblocks 로고를 클릭했을 때 편집기 오른쪽에 주로 위치하며 일부는 이 옵션 패널에 포함되어 있습니다."
+
+#: build/adminPanel.js:2750 build/adminPanel.js:2877
+msgid "Your export will include the following data:"
+msgstr "귀하의 수출에는 다음 데이터가 포함됩니다:"
+
+#: build/adminPanel.js:2753 build/editor.js:100761
+msgid "Global Colors"
+msgstr "글로벌 색상"
+
+#: build/adminPanel.js:2755 build/adminPanel.js:3286 build/editor.js:100804
+msgid "Global Typography"
+msgstr "글로벌 타이포그래피"
+
+#: build/adminPanel.js:2757
+msgid "Global Custom Code"
+msgstr "글로벌 사용자 정의 코드"
+
+#: build/adminPanel.js:2766
+msgid "Failed to export plugin settings."
+msgstr "플러그인 설정을 내보내는 데 실패했습니다."
+
+#: build/adminPanel.js:2770
+msgid "Successfully exported plugin settings."
+msgstr "플러그인 설정을 성공적으로 내보냈습니다."
+
+#: build/adminPanel.js:2261 build/adminPanel.js:2776 build/adminPanel.js:2810
+#: build/adminPanel.js:2906 build/adminPanel.js:2939
+msgid "Import"
+msgstr "수입"
+
+#: build/adminPanel.js:2778
+msgid ""
+"Import a nectarblocks_plugin.json here to restore a \n"
+"            previously exported set of Global Settings."
+msgstr "이전에 내보낸 전역 설정 집합을 복원하려면 여기에 nectarblocks_plugin.json을 가져오세요."
+
+#: build/adminPanel.js:2240 build/adminPanel.js:2794 build/adminPanel.js:2923
+msgid "Please select a file to import."
+msgstr "파일을 가져올 파일을 선택해주세요."
+
+#: build/adminPanel.js:2801
+msgid "Successfully imported plugin settings."
+msgstr "플러그인 설정을 성공적으로 가져왔습니다."
+
+#: build/adminPanel.js:2807
+msgid "Failed to import plugin settings."
+msgstr "플러그인 설정을 가져오지 못했습니다."
+
+#: build/adminPanel.js:2815 build/editor.js:100893
+msgid "Nectarblocks Settings"
+msgstr "Nectarblocks 설정"
+
+#: build/adminPanel.js:2870
+msgid "Theme Customizer Settings"
+msgstr "테마 사용자 정의 설정"
+
+#: build/adminPanel.js:2873
+msgid ""
+"Theme Customizer settings are available in the \n"
+"            WordPress Customizer (Appearance → Customize) and handle all\n"
+"            the general styling for the Nectarblocks theme."
+msgstr ""
+"테마 사용자 정의 설정은 워드프레스 사용자 정의기 (외관 → 사용자 정의)에 있으며, Nectarblocks 테마의 모든 일반적인 "
+"스타일링을 처리"
+
+#: build/adminPanel.js:2880 build/editor.js:37730 build/editor.js:39381
+#: build/editor.js:40568 build/editor.js:41592 build/editor.js:43080
+#: build/editor.js:45071 build/editor.js:46333 build/editor.js:47310
+#: build/editor.js:48208 build/editor.js:49297 build/editor.js:49975
+#: build/editor.js:52605 build/editor.js:56958 build/editor.js:57965
+#: build/editor.js:58777 build/editor.js:65012 build/editor.js:66529
+#: build/editor.js:68083 build/editor.js:68704 build/editor.js:69301
+#: build/editor.js:70894 build/editor.js:76791 build/editor.js:77778
+#: build/editor.js:78726 build/editor.js:82439 build/editor.js:84061
+#: build/editor.js:85431
+msgid "General Settings"
+msgstr "일반 설정"
+
+#: build/adminPanel.js:2882
+msgid "Typography Settings"
+msgstr "타이포그래피 설정"
+
+#: build/adminPanel.js:2884
+msgid "Layout Settings"
+msgstr "레이아웃 설정"
+
+#: build/adminPanel.js:2886
+msgid "Post Types Settings"
+msgstr "게시물 유형 설정"
+
+#: build/adminPanel.js:2888
+msgid "General WordPress Page Settings"
+msgstr "워드프레스 페이지 일반 설정"
+
+#: build/adminPanel.js:2896
+msgid "Failed to export customizer settings."
+msgstr "커스터마이저 설정을 내보내지 못했습니다."
+
+#: build/adminPanel.js:2900
+msgid "Successfully exported customizer settings."
+msgstr "커스터마이저 설정을 성공적으로 내보냈습니다."
+
+#: build/adminPanel.js:2908
+msgid ""
+"Import a nectarblocks_theme.json here to restore a \n"
+"            previously exported set of Theme Customizer Settings."
+msgstr "이전에 내보낸 테마 사용자 정의 설정 집합을 복원하려면 여기에 nectarblocks_theme.json을 가져오세요."
+
+#: build/adminPanel.js:2930
+msgid "Successfully imported customizer settings."
+msgstr "커스터마이저 설정을 성공적으로 가져왔습니다."
+
+#: build/adminPanel.js:2936
+msgid "Failed to import customizer settings."
+msgstr "커스터마이저 설정을 가져오지 못했습니다."
+
+#: build/adminPanel.js:2944
+msgid "Nectarblocks Theme Customizer Settings"
+msgstr "넥터블록 테마 사용자 정의 설정"
+
+#: build/adminPanel.js:3089
+msgid "Demos"
+msgstr "데모"
+
+#: build/adminPanel.js:3093
+msgid "Theme Customizer"
+msgstr "테마 사용자 정의"
+
+#: build/adminPanel.js:3342
+msgid "Getting Started"
+msgstr "시작하기"
+
+#: build/adminPanel.js:3348
+msgid "Authorization"
+msgstr "인가"
+
+#: build/adminPanel.js:3360
+msgid "Custom Code"
+msgstr "사용자 정의 코드"
+
+#: build/adminPanel.js:3378
+msgid "Import/Export"
+msgstr "수입/수출"
+
+#: build/adminPanel.js:3394
+msgid "Documentation"
+msgstr "문서화"
+
+#: includes/Global_Sections/Global_Sections.php:203
+#: includes/Menu_Options/Setting_Field.php:386 build/editor.js:17317
+#: build/editor.js:20538 build/editor.js:33531 build/editor.js:42282
+#: build/editor.js:48518 build/editor.js:70169 build/editor.js:70176
+#: build/editor.js:70196 build/editor.js:70213
+msgid "Bottom"
+msgstr "하단"
+
+#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:17369
+#: build/editor.js:18253 build/editor.js:20702 build/editor.js:28459
+#: build/editor.js:28809 build/editor.js:29243 build/editor.js:34349
+#: build/editor.js:34865 build/editor.js:39370 build/editor.js:53950
+#: build/editor.js:60338 build/editor.js:61746 build/editor.js:74174
+#: build/editor.js:86146 build/editor.js:86504 build/editor.js:86515
+#: build/editor.js:86595 build/editor.js:90060 build/editor.js:94283
+msgid "None"
+msgstr "아무것도 없습니다."
+
+#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
+#: build/blocks/post-grid/frontend-script.js:256 build/editor.js:19348
+#: build/editor.js:46085 build/editor.js:46624 build/editor.js:53515
+#: build/editor.js:61743 build/editor.js:62276 build/editor.js:62328
+#: build/editor.js:63835
+msgid "Default"
+msgstr "기본 설정"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:153
+#: build/editor.js:18256 build/editor.js:20978 build/editor.js:28806
+#: build/editor.js:62286 build/editor.js:95855
+msgid "All"
+msgstr "모두"
+
+#: build/adminPanel.js:3366 build/editor.js:21810 build/editor.js:36748
+msgid "Custom Fonts"
+msgstr "사용자 정의 글꼴"
+
+#: includes/Editor/Post_Meta.php:76 build/editor.js:26667
+#: build/editor.js:37282 build/editor.js:84389 build/editor.js:84750
+#: build/editor.js:101005
+msgid "Video"
+msgstr "비디오"
+
+#: includes/Menu_Options/Modal.php:314 build/editor.js:38005
+#: build/editor.js:39518 build/editor.js:40596 build/editor.js:48020
+#: build/editor.js:48210 build/editor.js:49040 build/editor.js:49441
+#: build/editor.js:49443 build/editor.js:49984 build/editor.js:50096
+#: build/editor.js:70925 build/editor.js:79565 build/editor.js:84630
+msgid "Icon"
+msgstr "아이콘"
+
+#: includes/Editor/Post_Meta.php:93 build/editor.js:48239
+#: build/editor.js:49169 build/editor.js:50752 build/editor.js:54623
+#: build/editor.js:70931 build/editor.js:101033
+msgid "Description"
+msgstr "설명"
+
+#: includes/Editor/Post_Meta.php:43 build/editor.js:61435
+#: build/editor.js:63077 build/editor.js:75673 build/editor.js:100992
+msgid "Date"
+msgstr "날짜"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:61
+#: includes/Dynamic_Data/Dynamic_Helpers.php:65
+#: includes/Dynamic_Data/Dynamic_Helpers.php:69
+#: includes/Dynamic_Data/Dynamic_Helpers.php:74
+#: includes/Dynamic_Data/Dynamic_Helpers.php:79
+#: includes/Dynamic_Data/Dynamic_Helpers.php:83
+#: includes/Dynamic_Data/Dynamic_Helpers.php:87 build/editor.js:61437
+#: build/editor.js:63076 build/editor.js:75672
+msgid "Author"
+msgstr "저자"
+
+#: includes/Menu_Options/Settings.php:107 build/editor.js:62601
+msgid "Button Color"
+msgstr "버튼 색"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:50 build/editor.js:19004
+#: build/editor.js:63302 build/editor.js:75847
+msgid "Post Type"
+msgstr "게시물 유형"
+
+#: build/adminPanel.js:2091 build/adminPanel.js:2119 build/editor.js:88825
+#: build/editor.js:93959
+msgid "Delete"
+msgstr "삭제"
+
+#: includes/Menu_Options/Modal.php:323 build/editor.js:95480
+msgid "Close"
+msgstr "가까이"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:95870
+msgid "Media"
+msgstr "미디어"
+
+#: includes/Portfolio/Portfolio_Register.php:71
+#: includes/Portfolio/Portfolio_Register.php:81 build/editor.js:95876
+msgid "Portfolio"
+msgstr "포트폴리오"
+
+#: build/blocks/accordion-section/block.json
+msgctxt "block title"
+msgid "Accordion Section"
+msgstr "블록 제목"
+
+#: build/blocks/accordion-section/block.json
+msgctxt "block description"
+msgid "A section for content inside each accordion."
+msgstr "블록 설명"
+
+#: build/blocks/accordion/block.json
+msgctxt "block title"
+msgid "Accordion"
+msgstr "블록 제목"
+
+#: build/blocks/accordion/block.json
+msgctxt "block description"
+msgid ""
+"A collapsible and expandable component that organizes content into sections."
+msgstr "블록 설명"
+
+#: build/blocks/button/block.json
+msgctxt "block title"
+msgid "Nectar Button"
+msgstr "블록 제목"
+
+#: build/blocks/button/block.json
+msgctxt "block description"
+msgid "Button block."
+msgstr "블록 설명"
+
+#: build/blocks/carousel-item/block.json
+msgctxt "block title"
+msgid "Carousel Item"
+msgstr "블록 제목"
+
+#: build/blocks/carousel-item/block.json
+msgctxt "block description"
+msgid "A section for content inside each carousel."
+msgstr "블록 설명"
+
+#: build/blocks/carousel/block.json
+msgctxt "block title"
+msgid "Carousel"
+msgstr "블록 제목"
+
+#: build/blocks/carousel/block.json
+msgctxt "block description"
+msgid ""
+"Rotate through a series of content items, displayed in a horizontally "
+"scrolling format."
+msgstr "블록 설명"
+
+#: build/blocks/column/block.json
+msgctxt "block title"
+msgid "Nectar Column"
+msgstr "블록 제목"
+
+#: build/blocks/column/block.json
+msgctxt "block description"
+msgid "Column container block."
+msgstr "블록 설명"
+
+#: build/blocks/divider/block.json
+msgctxt "block title"
+msgid "Nectar Divider"
+msgstr "블록 제목"
+
+#: build/blocks/divider/block.json
+msgctxt "block description"
+msgid "Divider block."
+msgstr "블록 설명"
+
+#: build/blocks/flex-box/block.json
+msgctxt "block title"
+msgid "Nectar Flex Box"
+msgstr "블록 제목"
+
+#: build/blocks/flex-box/block.json
+msgctxt "block description"
+msgid "Flex box block."
+msgstr "블록 설명"
+
+#: build/blocks/icon-list-item/block.json
+msgctxt "block title"
+msgid "Icon List Item"
+msgstr "블록 제목"
+
+#: build/blocks/icon-list-item/block.json
+msgctxt "block description"
+msgid "A single list item used inside of the Icon List block."
+msgstr "블록 설명"
+
+#: build/blocks/icon-list/block.json
+msgctxt "block title"
+msgid "Icon List"
+msgstr "블록 제목"
+
+#: build/blocks/icon-list/block.json
+msgctxt "block description"
+msgid "A list that allows icons alongside each item."
+msgstr "블록 설명"
+
+#: build/blocks/icon/block.json
+msgctxt "block title"
+msgid "Nectar Icon"
+msgstr "블록 제목"
+
+#: build/blocks/icon/block.json
+msgctxt "block description"
+msgid "Icon block."
+msgstr "블록 설명"
+
+#: build/blocks/image-gallery/block.json
+msgctxt "block title"
+msgid "Nectar Image Gallery"
+msgstr "블록 제목"
+
+#: build/blocks/image-gallery/block.json
+msgctxt "block description"
+msgid "Image Gallery block."
+msgstr "블록 설명"
+
+#: build/blocks/image/block.json
+msgctxt "block title"
+msgid "Nectar Image"
+msgstr "블록 제목"
+
+#: build/blocks/image/block.json
+msgctxt "block description"
+msgid "Image block."
+msgstr "블록 설명"
+
+#: build/blocks/milestone/block.json
+msgctxt "block title"
+msgid "Nectar Milestone"
+msgstr "블록 제목"
+
+#: build/blocks/milestone/block.json
+msgctxt "block description"
+msgid "Milestone block."
+msgstr "블록 설명"
+
+#: build/blocks/post-grid/block.json
+msgctxt "block title"
+msgid "Post Grid"
+msgstr "블록 제목"
+
+#: build/blocks/post-grid/block.json
+msgctxt "block description"
+msgid "Post Grid."
+msgstr "블록 설명"
+
+#: build/blocks/scrolling-marquee/block.json
+msgctxt "block title"
+msgid "Nectar Scrolling Marquee"
+msgstr "블록 제목"
+
+#: build/blocks/scrolling-marquee/block.json
+msgctxt "block description"
+msgid "Scrolling content block."
+msgstr "블록 설명"
+
+#: build/blocks/star-rating/block.json
+msgctxt "block title"
+msgid "Nectar Star Rating"
+msgstr "블록 제목"
+
+#: build/blocks/star-rating/block.json
+msgctxt "block description"
+msgid "Star Rating block."
+msgstr "블록 설명"
+
+#: build/blocks/tab-section/block.json
+msgctxt "block title"
+msgid "Tab Section"
+msgstr "블록 제목"
+
+#: build/blocks/tab-section/block.json
+msgctxt "block description"
+msgid "A section for content inside each tab."
+msgstr "블록 설명"
+
+#: build/blocks/tabs/block.json
+msgctxt "block title"
+msgid "Tabs"
+msgstr "블록 제목"
+
+#: build/blocks/tabs/block.json
+msgctxt "block description"
+msgid ""
+"Organize your content into distinct tabs, reducing clutter and improving "
+"navigation."
+msgstr "블록 설명"
+
+#: build/blocks/testimonial/block.json
+msgctxt "block title"
+msgid "Testimonial"
+msgstr "블록 제목"
+
+#: build/blocks/testimonial/block.json
+msgctxt "block description"
+msgid "Testimonial block."
+msgstr "블록 설명"
+
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Nectar Text"
+msgstr "블록 제목"
+
+#: build/blocks/text/block.json
+msgctxt "block description"
+msgid "Text block."
+msgstr "블록 설명"
+
+#: build/blocks/video-lightbox/block.json
+msgctxt "block title"
+msgid "Nectar Video Lightbox"
+msgstr "블록 제목"
+
+#: build/blocks/video-lightbox/block.json
+msgctxt "block description"
+msgid "Video Lightbox block."
+msgstr "블록 설명"
+
+#: build/blocks/video-player/block.json
+msgctxt "block title"
+msgid "Nectar Video Player"
+msgstr "블록 제목"
+
+#: build/blocks/video-player/block.json
+msgctxt "block description"
+msgid "Video Player block."
+msgstr "블록 설명"
+
+#: build/adminPanel.js:4669 build/editor.js:101298
+msgid "Unknown Color"
+msgstr "알 수 없는 색"
+
+#: includes/API/Global_Settings/Custom_Fonts_API.php:105
+msgid "Font upload failure, please try again. Errors: "
+msgstr "폰트 업로드 실패, 다시 시도해 주세요. 오류:"
+
+#: includes/Global_Settings/Global_Colors.php:113
+msgid "Core Gradient #5"
+msgstr "코어 그라디언트 #5"
+
+#: includes/Menu_Options/Modal.php:55
+msgid "Menu Item Options"
+msgstr "메뉴 항목 옵션"
+
+#: includes/Menu_Options/Modal.php:57
+msgid "Saving..."
+msgstr "저장 중..."
+
+#: includes/Menu_Options/Modal.php:59
+msgid "Saved Successfully"
+msgstr "성공적으로 저장되었습니다."
+
+#: includes/Menu_Options/Modal.php:311
+msgid "Options"
+msgstr "옵션"
+
+#: includes/Menu_Options/Modal.php:313
+msgid "Menu Item"
+msgstr "메뉴 항목"
+
+#: includes/Menu_Options/Modal.php:326 build/editor.js:101160
+msgid "Save Changes"
+msgstr "변경 사항 저장"
+
+#: includes/Menu_Options/Settings.php:13
+msgid "Select a Global Section"
+msgstr "글로벌 섹션 선택"
+
+#: includes/Menu_Options/Settings.php:36
+msgid "Enable Mega Menu"
+msgstr "메가 메뉴 활성화"
+
+#: includes/Menu_Options/Settings.php:37
+msgid "Turns this menu item into a megamenu."
+msgstr "이 메뉴 항목을 메가메뉴로 변경하세요."
+
+#: includes/Menu_Options/Settings.php:48
+msgid "Mega Menu Global Section"
+msgstr "메가 메뉴 글로벌 섹션"
+
+#: includes/Menu_Options/Settings.php:49
+msgid "Assign a Global Section to display as your mega menu."
+msgstr "글로벌 섹션을 할당하여 메가 메뉴로 표시하세요."
+
+#: includes/Menu_Options/Settings.php:58
+msgid "Mega Menu Global Section Mobile"
+msgstr "메가 메뉴 글로벌 섹션 모바일"
+
+#: includes/Menu_Options/Settings.php:59
+msgid ""
+"Assign a Global Section to display as your mega menu in the Off Canvas Menu."
+" Not compatible with fullscreen menus."
+msgstr "오프 캔버스 메뉴에서 메가 메뉴로 표시할 글로벌 섹션을 할당하세요. 전체 화면 메뉴와는 호환되지 않습니다."
+
+#: includes/Menu_Options/Settings.php:68
+msgid "Persist In Mobile Navigation Header"
+msgstr "모바일 내비게이션 헤더에 지속하기"
+
+#: includes/Menu_Options/Settings.php:69
+msgid ""
+"This will cause the link to remain visible in your mobile header navigation "
+"instead of the default location within the off canvas menu."
+msgstr "이렇게 하면 링크가 오프 캔버스 메뉴 내의 기본 위치 대신 모바일 헤더 내비게이션에 계속 표시됩니다."
+
+#: includes/Menu_Options/Settings.php:77
+msgid "Menu Item Link Button Style"
+msgstr "메뉴 항목 링크 버튼 스타일"
+
+#: includes/Menu_Options/Settings.php:78
+msgid "Choose a style for your menu item."
+msgstr "메뉴 항목의 스타일을 선택하세요."
+
+#: includes/Menu_Options/Settings.php:82
+msgid "Solid Background"
+msgstr "견고한 배경"
+
+#: includes/Menu_Options/Settings.php:83
+msgid "Bordered"
+msgstr "경계가 있는"
+
+#: includes/Menu_Options/Settings.php:93
+msgid "Menu Item Link Text Hover"
+msgstr "메뉴 항목 링크 텍스트 호버"
+
+#: includes/Menu_Options/Settings.php:94
+msgid "Optionally set a link hover animation."
+msgstr "선택적으로 링크 호버 애니메이션을 설정하세요."
+
+#: includes/Menu_Options/Settings.php:99
+msgid "Wave"
+msgstr "파도"
+
+#: includes/Menu_Options/Settings.php:119
+#: includes/Menu_Options/Settings.php:169
+msgid "Button Text Color"
+msgstr "버튼 텍스트 색상"
+
+#: includes/Menu_Options/Settings.php:131
+msgid "Button Hover/Active Color"
+msgstr "버튼 호버/활성 색상"
+
+#: includes/Menu_Options/Settings.php:143
+msgid "Button Text Hover/Active Color"
+msgstr "버튼 텍스트 호버/활성 색상"
+
+#: includes/Menu_Options/Settings.php:157
+msgid "Button Border Color"
+msgstr "버튼 테두리 색상"
+
+#: includes/Menu_Options/Settings.php:181
+msgid "Button Border Color Hover"
+msgstr "버튼 테두리 색상 호버"
+
+#: includes/Menu_Options/Settings.php:312
+msgid "Icon Selection"
+msgstr "아이콘 선택"
+
+#: includes/Menu_Options/Settings.php:313
+msgid "Upload an icon to display next to the menu item title."
+msgstr "메뉴 항목 제목 옆에 표시할 아이콘을 업로드하세요."
+
+#: includes/Menu_Options/Settings.php:323
+msgid "Menu Icon Size"
+msgstr "메뉴 아이콘 크기"
+
+#: includes/Menu_Options/Settings.php:324
+msgid ""
+"Define a custom size for your icon. Leave this blank for the default value."
+msgstr "아이콘의 사용자 지정 크기를 정의하세요. 기본값을 사용하려면 이 부분을 비워 두세요."
+
+#: includes/Menu_Options/Settings.php:335
+msgid "Menu Icon Position"
+msgstr "메뉴 아이콘 위치"
+
+#: includes/Menu_Options/Settings.php:336
+msgid ""
+"Determines where the menu icon will be aligned relative to the text. (Only "
+"applies to submenu items)"
+msgstr "메뉴 아이콘이 텍스트에 대해 어디에 정렬될지를 결정합니다. (서브메뉴 항목에만 적용됩니다)"
+
+#: includes/Menu_Options/Settings.php:340
+msgid "Next To Text"
+msgstr "텍스트 옆에"
+
+#: includes/Menu_Options/Settings.php:341
+msgid "Above Text"
+msgstr "위의 텍스트"
+
+#: includes/Menu_Options/Settings.php:347
+msgid "Menu Icon Spacing"
+msgstr "메뉴 아이콘 간격"
+
+#: includes/Menu_Options/Settings.php:348
+msgid ""
+"Define a custom amount of spacing between your icon and menu item text. "
+"Leave this blank for the default value. (Only applies to submenu items)"
+msgstr ""
+"아이콘과 메뉴 항목 텍스트 사이의 간격을 사용자 정의하십시오. 기본값을 사용하려면 이 부분을 비워 두세요. (서브메뉴 항목에만 "
+"적용됩니다)"
+
+#: includes/Notifications/Notifications_Register.php:23
+msgid ""
+"Please note that the Gutenberg plugin is intended for testing new Block "
+"Editor features, and Nectarblocks may not be fully compatible with it."
+msgstr ""
+"Gutenberg 플러그인은 새로운 블록 편집기 기능을 테스트하기 위한 것이며, Nectarblocks와 완전히 호환되지 않을 수 있음을"
+" 유의하세요."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:733
+msgid "No posts found."
+msgstr "게시물이 없습니다."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:734
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
+msgid "Try adjusting your query parameters."
+msgstr "쿼리 매개변수를 조정해 보세요."
+
+#: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:230
+msgid "No taxonomies selected."
+msgstr "분류 체계가 선택되지 않았습니다."
+
+#: build/adminPanel.js:1415
+msgid "Failed to save settings."
+msgstr "설정 저장에 실패했습니다."
+
+#: build/adminPanel.js:1424
+msgid "Successfully saved settings for:"
+msgstr "다음에 대한 설정이 성공적으로 저장되었습니다:"
+
+#: build/adminPanel.js:1428
+msgid "Failed to save settings for:"
+msgstr "설정을 저장하지 못했습니다:"
+
+#: build/adminPanel.js:1721
+msgid "to enable the full feature set and updates."
+msgstr "전체 기능 세트와 업데이트를 활성화하려면."
+
+#: build/adminPanel.js:1739
+msgid ""
+"Allows WordPress to check for Nectarblocks updates automatically. Updates "
+"are checked every 4 hours."
+msgstr ""
+"WordPress가 Nectarblocks 업데이트를 자동으로 확인할 수 있도록 허용합니다. 업데이트는 4시간마다 확인됩니다."
+
+#: build/adminPanel.js:1753 build/adminPanel.js:1760
+msgid "Check for Updates"
+msgstr "업데이트 확인"
+
+#: build/adminPanel.js:1756
+msgid "Force an immediate check of updates for Nectarblocks."
+msgstr "Nectarblocks의 업데이트를 즉시 확인하십시오."
+
+#: build/adminPanel.js:1945
+msgid "Add a New Font"
+msgstr "새 글꼴 추가"
+
+#: build/adminPanel.js:1952
+msgid "Enter the name of your font.."
+msgstr "폰트의 이름을 입력하세요."
+
+#: build/adminPanel.js:1966
+msgid "Please enter a font name."
+msgstr "글꼴 이름을 입력하세요."
+
+#: build/adminPanel.js:1972
+msgid "Failed to update custom font."
+msgstr "사용자 정의 글꼴 업데이트에 실패했습니다."
+
+#: build/adminPanel.js:1974
+msgid "Successfully updated custom font."
+msgstr "사용자 정의 글꼴이 성공적으로 업데이트되었습니다."
+
+#: build/adminPanel.js:1979
+msgid "Add Font"
+msgstr "폰트 추가"
+
+#: build/adminPanel.js:2064
+msgid "No changes were made."
+msgstr "변경 사항이 없습니다."
+
+#: build/adminPanel.js:2069
+msgid "Failed to update custom font variation."
+msgstr "사용자 지정 글꼴 변형 업데이트에 실패했습니다."
+
+#: build/adminPanel.js:2071
+msgid "Successfully updated custom font variation."
+msgstr "사용자 정의 글꼴 변형이 성공적으로 업데이트되었습니다."
+
+#: build/adminPanel.js:2076
+msgid "Update Font Data"
+msgstr "폰트 데이터 업데이트"
+
+#: build/adminPanel.js:2085
+msgid "Failed to delete custom font variation"
+msgstr "사용자 정의 글꼴 변형 삭제 실패"
+
+#: build/adminPanel.js:2087
+msgid "Successfully deleted custom font variation."
+msgstr "사용자 정의 글꼴 변형이 성공적으로 삭제되었습니다."
+
+#: build/adminPanel.js:2113
+msgid "Failed to delete custom font."
+msgstr "사용자 정의 글꼴 삭제 실패."
+
+#: build/adminPanel.js:2115
+msgid "Successfully deleted custom font."
+msgstr "사용자 정의 글꼴이 성공적으로 삭제되었습니다."
+
+#: build/adminPanel.js:2205
+msgid "Add a Font Variation"
+msgstr "폰트 변형 추가"
+
+#: build/adminPanel.js:2226
+msgid "Choose a .ttf, .woff, or .woff2 file"
+msgstr ".ttf, .woff, 또는 .woff2 파일을 선택하세요."
+
+#: build/adminPanel.js:2248
+msgid "Successfully custom font."
+msgstr "성공적으로 사용자 지정 글꼴."
+
+#: build/adminPanel.js:2258
+msgid "Failed to import custom font."
+msgstr "사용자 정의 글꼴을 가져오지 못했습니다."
+
+#: build/adminPanel.js:2372
+msgid ""
+"Establish reusable color schemes and typography rules that can be "
+"effortlessly applied to Nectar blocks across all your pages."
+msgstr ""
+"재사용 가능한 색상 구성표와 타이포그래피 규칙을 설정하여 모든 페이지의 Nectar blocks에 쉽게 적용할 수 있도록 하세요."
+
+#: build/adminPanel.js:2378
+msgid ""
+"Experience unparalleled control with our extensively customizable block "
+"settings. Tailor each element to your unique design requirements."
+msgstr ""
+"광범위하게 사용자 정의 가능한 블록 설정으로 비할 데 없는 제어를 경험하세요. 각 요소를 고유한 디자인 요구 사항에 맞게 조정하세요."
+
+#: build/adminPanel.js:2570
+msgid "Widgets"
+msgstr "위젯"
+
+#: build/adminPanel.js:2598
+msgid "Warning: This demo requires"
+msgstr "경고: 이 데모는 필요합니다"
+
+#: build/adminPanel.js:2603
+msgid "but the plugin is not currently active in your setup."
+msgstr "하지만 플러그인이 현재 설정에서 활성화되어 있지 않습니다."
+
+#: build/adminPanel.js:3266
+msgid "Hide Page Titles"
+msgstr "페이지 제목 숨기기"
+
+#: build/adminPanel.js:3267
+msgid "Hide titles by default on all pages."
+msgstr "모든 페이지에서 기본적으로 제목 숨기기."
+
+#: build/adminPanel.js:3280
+msgid "Disable Core Typography Rules"
+msgstr "코어 타이포그래피 규칙 비활성화"
+
+#: build/adminPanel.js:3282
+msgid "Disable the core "
+msgstr "코어를 비활성화하십시오."
+
+#: build/adminPanel.js:3287
+msgid ""
+" rules to allow your theme to control typography, rather than Nectarblocks."
+msgstr "테마가 타이포그래피를 제어하도록 허용하는 규칙, Nectarblocks가 아닌."
+
+#: build/adminPanel.js:3354
+msgid "Plugin Options"
+msgstr "플러그인 옵션"
+
+#: includes/Global_Sections/Global_Sections.php:82 build/editor.js:55279
+msgid "General"
+msgstr "일반적인"
+
+#: build/blocks/image-grid/block.json
+msgctxt "block title"
+msgid "Nectar Image Grid"
+msgstr "블록 제목"
+
+#: build/blocks/row/block.json
+msgctxt "block title"
+msgid "Row"
+msgstr "블록 제목"
+
+#: build/blocks/row/block.json
+msgctxt "block description"
+msgid ""
+"A container for columns. The fundamental building block for designing your "
+"layouts."
+msgstr "블록 설명"
+
+#: build/blocks/taxonomy-grid/block.json
+msgctxt "block title"
+msgid "Taxonomy Grid"
+msgstr "블록 제목"
+
+#: includes/API/Post_Data_API.php:438
+msgid "ACF Fields"
+msgstr "ACF 필드"
+
+#: includes/API/Post_Data_API.php:445
+msgid "Custom Fields"
+msgstr "사용자 정의 필드"
+
+#. translators: the Meta Field name
+#: includes/API/Post_Data_API.php:482
+#, php-format
+msgid "Meta Fields: %s"
+msgstr "메타 필드: %s"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:18983
+msgid "Post Title"
+msgstr "게시물 제목"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgid "Post"
+msgstr "게시하다"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:18986
+msgid "Post URL"
+msgstr "URL 게시"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:30 build/editor.js:18989
+msgid "Post ID"
+msgstr "게시물 ID"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:34 build/editor.js:18992
+msgid "Post Slug"
+msgstr "포스트 슬러그"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:38 build/editor.js:18995
+msgid "Post Excerpt"
+msgstr "게시물 발췌문"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:42 build/editor.js:18998
+msgid "Post Date"
+msgstr "게시 날짜"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:46
+msgid "Post Modified"
+msgstr "게시물 수정됨"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:54 build/editor.js:19007
+msgid "Post Status"
+msgstr "상태 게시"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:60 build/editor.js:19013
+msgid "Author Name"
+msgstr "저자 이름"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:64 build/editor.js:19016
+msgid "Author ID"
+msgstr "저자 ID"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:68 build/editor.js:19019
+msgid "Author URL"
+msgstr "작가 URL"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:73 build/editor.js:19022
+msgid "Author Profile Picture URL"
+msgstr "작가 프로필 사진 URL"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:78 build/editor.js:19025
+msgid "Author First Name"
+msgstr "저자 이름"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:82 build/editor.js:19028
+msgid "Author Last Name"
+msgstr "저자 성"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:86 build/editor.js:19031
+msgid "Author Bio"
+msgstr "작가 소개"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:91 build/editor.js:19037
+msgid "Comment Number"
+msgstr "댓글 번호"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:92
+msgid "Comment"
+msgstr "댓글"
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:100 build/editor.js:19048
+msgid "Featured Image URL"
+msgstr "대표 이미지 URL"
+
+#: includes/Dynamic_Data/Sources/ACF.php:197
+msgid "The field type provided is not valid."
+msgstr "제공된 필드 유형이 유효하지 않습니다."
+
+#: includes/Dynamic_Data/Sources/ACF.php:225
+msgid "This is a placeholder for the content of this field:"
+msgstr "이것은 이 필드의 내용에 대한 자리 표시자입니다:"
+
+#: includes/Dynamic_Data/Sources/ACF.php:227
+msgid "The full content will be rendered on the frontend."
+msgstr "전체 콘텐츠는 프론트엔드에 렌더링됩니다."
+
+#: includes/Dynamic_Data/Sources/Other_Posts.php:283
+msgid "Open"
+msgstr "열기"
+
+#: includes/Dynamic_Data/Sources/Other_Posts.php:283
+msgid "Closed"
+msgstr "닫힘"
+
+#: includes/Editor/Post_Meta.php:35
+msgid "Client Name"
+msgstr "고객 이름"
+
+#: includes/Editor/Post_Meta.php:51 build/editor.js:101019
+msgid "Project Link"
+msgstr "프로젝트 링크"
+
+#: includes/Editor/Post_Meta.php:101
+msgid "Project URL"
+msgstr "프로젝트 URL"
+
+#: includes/Global_Sections/Global_Sections.php:109
+msgid "Post Types"
+msgstr "게시물 유형"
+
+#: includes/Global_Sections/Global_Sections.php:113
+#: includes/Nectar_Templates/Nectar_Templates.php:111
+msgid "User Roles/Permissions"
+msgstr "사용자 역할/권한"
+
+#: includes/Global_Sections/Global_Sections_Register.php:137
+msgid "Locations"
+msgstr "위치"
+
+#: includes/Global_Sections/Global_Sections_Register.php:138
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: build/editor.js:100659
+msgid "Conditions"
+msgstr "조건"
+
+#: includes/Menu_Options/Settings.php:98 build/editor.js:60342
+msgid "Reveal"
+msgstr "드러내다"
+
+#: includes/Menu_Options/Settings.php:285
+msgid "Icon Type"
+msgstr "아이콘 유형"
+
+#: includes/Menu_Options/Settings.php:297
+msgid "Image Icon"
+msgstr "이미지 아이콘"
+
+#: includes/Menu_Options/Settings.php:298
+msgid "Text (Emoji)"
+msgstr "텍스트 (이모지)"
+
+#: includes/Menu_Options/Settings.php:304
+msgid "Menu Icon Text (Emoji)"
+msgstr "메뉴 아이콘 텍스트 (이모지)"
+
+#: includes/Menu_Options/Settings.php:305
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu title."
+msgstr "메뉴 제목 옆에 아이콘으로 표시할 기호나 이모지를 추가하세요."
+
+#: includes/Menu_Options/Settings.php:305
+msgid "To add an Emoji:"
+msgstr "이모티콘을 추가하려면:"
+
+#: includes/Menu_Options/Settings.php:305
+msgid ""
+"Windows: On your keyboard, press and hold the Windows button and either the "
+"period (.) or semicolon (;)"
+msgstr "윈도우: 키보드에서 윈도우 버튼을 누른 상태에서 마침표(.) 또는 세미콜론(;)을 누르세요."
+
+#: includes/Menu_Options/Settings.php:305
+msgid "Mac: On your keyboard, press Command + Control + Space"
+msgstr "맥: 키보드에서 Command + Control + Space를 누르세요."
+
+#: includes/Menu_Options/Setting_Field.php:201
+msgid "Default Opacity"
+msgstr "기본 불투명도"
+
+#: includes/Menu_Options/Setting_Field.php:208
+msgid "Hover Opacity"
+msgstr "호버 불투명도"
+
+#: includes/Menu_Options/Setting_Field.php:265
+msgid "Search for an icon..."
+msgstr "아이콘 검색..."
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Select Video"
+msgstr "비디오 선택"
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Choose Your Video"
+msgstr "비디오를 선택하세요."
+
+#: includes/Menu_Options/Setting_Field.php:305
+msgid "Add Video"
+msgstr "비디오 추가"
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Select Image"
+msgstr "이미지 선택"
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Choose Your Image"
+msgstr "이미지를 선택하세요."
+
+#: includes/Menu_Options/Setting_Field.php:339
+msgid "Add Image"
+msgstr "이미지 추가"
+
+#: includes/Menu_Options/Setting_Field.php:378
+#: includes/Menu_Options/Setting_Field.php:385
+#: includes/Menu_Options/Setting_Field.php:386
+msgid "Automatic"
+msgstr "자동의"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:44
+msgid "Select a Template"
+msgstr "템플릿 선택"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:56
+msgid "Single:"
+msgstr "싱글:"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:67
+msgid "Archive:"
+msgstr "아카이브:"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:74
+msgid "404 Template"
+msgstr "404 템플릿"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:65
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+msgid "Templates"
+msgstr "템플릿"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:104
+#: build/editor.js:100129
+msgid "Template"
+msgstr "템플릿"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
+msgid "Search Templates"
+msgstr "템플릿 검색"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+msgid "Parent Template"
+msgstr "부모 템플릿"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+msgid "Edit Template"
+msgstr "템플릿 편집"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+msgid "Update Template"
+msgstr "템플릿 업데이트"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
+msgid "Add New Template"
+msgstr "새 템플릿 추가"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:207
+msgid "None Assigned"
+msgstr "할당되지 않음"
+
+#: includes/Notifications/Notifications_Register.php:22
+msgid ""
+"Nectarblocks Alert: We detected that the Gutenberg plugin is currently "
+"active."
+msgstr "Nectarblocks 경고: Gutenberg 플러그인이 현재 활성화되어 있음을 감지했습니다."
+
+#: includes/Notifications/Notifications_Register.php:34
+msgid ""
+"Nectarblocks Alert: We detected that the CoBlocks plugin is currently "
+"active."
+msgstr "Nectarblocks 경고: CoBlocks 플러그인이 현재 활성화되어 있음을 감지했습니다."
+
+#: includes/Notifications/Notifications_Register.php:35
+msgid ""
+"This may cause conflicts when used alongside other block plugins, including "
+"Nectarblocks. To ensure the best performance and compatibility, we recommend"
+" deactivating the CoBlocks plugin while using Nectarblocks."
+msgstr ""
+"이것은 Nectarblocks를 포함한 다른 블록 플러그인과 함께 사용할 때 충돌을 일으킬 수 있습니다. 최상의 성능과 호환성을 보장하기"
+" 위해 Nectarblocks를 사용하는 동안 CoBlocks 플러그인을 비활성화할 것을 권장합니다."
+
+#: includes/Portfolio/Portfolio_Register.php:72
+msgid "Project"
+msgstr "프로젝트"
+
+#: includes/Portfolio/Portfolio_Register.php:73
+msgid "Add New"
+msgstr "새로 추가"
+
+#: includes/Portfolio/Portfolio_Register.php:74
+msgid "Add New Project"
+msgstr "새 프로젝트 추가"
+
+#: includes/Portfolio/Portfolio_Register.php:75
+msgid "Edit Project"
+msgstr "프로젝트 편집"
+
+#: includes/Portfolio/Portfolio_Register.php:76
+msgid "New Project"
+msgstr "새 프로젝트"
+
+#: includes/Portfolio/Portfolio_Register.php:77
+msgid "View Project"
+msgstr "프로젝트 보기"
+
+#: includes/Portfolio/Portfolio_Register.php:78
+msgid "Search Portfolio"
+msgstr "포트폴리오 검색"
+
+#: includes/Portfolio/Portfolio_Register.php:79
+msgid "No Project found"
+msgstr "프로젝트를 찾을 수 없습니다."
+
+#: includes/Portfolio/Portfolio_Register.php:80
+msgid "No Project found in Trash"
+msgstr "휴지통에서 프로젝트를 찾을 수 없습니다."
+
+#: includes/Portfolio/Portfolio_Register.php:100
+msgid "Categories"
+msgstr "카테고리"
+
+#: includes/Portfolio/Portfolio_Register.php:114
+msgid "Tags"
+msgstr "태그"
+
+#: includes/Portfolio/Portfolio_Register.php:188
+msgid "Portfolio Permalinks"
+msgstr "포트폴리오 영구 링크"
+
+#: includes/Portfolio/Portfolio_Register.php:190
+msgid "Customize the portfolio permalink structure."
+msgstr "포트폴리오 고유 링크 구조를 사용자 정의하세요."
+
+#: includes/Portfolio/Portfolio_Register.php:197
+msgid "Portfolio Slug"
+msgstr "포트폴리오 슬러그"
+
+#: includes/Portfolio/Portfolio_Register.php:198
+msgid "Portfolio Category Base"
+msgstr "포트폴리오 카테고리 기본"
+
+#: includes/Portfolio/Portfolio_Register.php:199
+msgid "Portfolio Tag Base"
+msgstr "포트폴리오 태그 베이스"
+
+#: includes/Portfolio/Portfolio_Register.php:247
+msgid ""
+"Portfolio permalink structure updated. Please refresh permalinks by visiting"
+" Settings > Permalinks and clicking \"Save Changes\"."
+msgstr ""
+"포트폴리오 고유 링크 구조가 업데이트되었습니다. 설정 > 고유 링크로 이동하여 \"변경 사항 저장\"을 클릭하여 고유 링크를 새로 "
+"고치세요."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:22
+msgid ""
+"This is the Content block, it will display all the blocks in any single post"
+" or page."
+msgstr "이것은 콘텐츠 블록으로, 단일 게시물이나 페이지의 모든 블록을 표시합니다."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:23
+msgid ""
+"That might be a simple arrangement like consecutive paragraphs in a blog "
+"post, or a more elaborate composition that includes image galleries, videos,"
+" tables, columns, and any other block types."
+msgstr ""
+"그것은 블로그 게시물의 연속된 단락과 같은 간단한 배열일 수도 있고, 이미지 갤러리, 비디오, 표, 열 및 기타 블록 유형을 포함하는 더"
+" 정교한 구성일 수도 있습니다."
+
+#: includes/Render/Blocks/PostContent/PostContent.php:24
+msgid ""
+"If there are any Custom Post Types registered at your site, the Content "
+"block can display the contents of those entries as well."
+msgstr "사이트에 등록된 사용자 정의 게시물 유형이 있는 경우, 콘텐츠 블록은 해당 항목의 내용을 표시할 수 있습니다."
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+msgid "min read"
+msgstr "분 읽기"
+
+#: includes/Render/Blocks/PostGrid/PostGrid.php:466
+msgid "Pagination Navigation"
+msgstr "페이지 매김 탐색"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:49
+#: build/editor.js:77431
+msgid "Select a Taxonomy"
+msgstr "분류 체계를 선택하세요."
+
+#. translators: the taxonomy name
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:55
+#, php-format
+msgid "\"%s\" terms will render here."
+msgstr "\"%s\" 약관이 여기에 표시됩니다."
+
+#. translators: the taxonomy name
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:61
+#, php-format
+msgid "No terms in \"%s\""
+msgstr "\"%s\"에 용어가 없습니다."
+
+#: build/adminPanel.js:3372
+msgid "Modules"
+msgstr "모듈"
+
+#: build/adminPanel.js:1765
+msgid "Successfully checked for updates."
+msgstr "업데이트를 성공적으로 확인했습니다."
+
+#: build/adminPanel.js:1767
+msgid "Failed to check for updates."
+msgstr "업데이트 확인에 실패했습니다."
+
+#: build/adminPanel.js:1770
+msgid "Error attempting to check for updates."
+msgstr "업데이트 확인 시 오류가 발생했습니다."
+
+#: build/adminPanel.js:2466
+msgid ""
+"The title font used in the live demo is \"Kyrlon\" by Tom Karlsson and can "
+"be "
+msgstr "라이브 데모에서 사용된 제목 글꼴은 Tom Karlsson의 \"Kyrlon\"이며,"
+
+#: build/adminPanel.js:2470
+msgid "downloaded here."
+msgstr "여기에서 다운로드했습니다."
+
+#: build/adminPanel.js:3075
+msgid ""
+"Please authorize Nectarblocks with your license key to access the Demo "
+"Importer. That can be done in Authorization tab in the Admin Panel."
+msgstr ""
+"데모 가져오기에 액세스하려면 라이선스 키로 Nectarblocks를 승인하세요. 이는 관리자 패널의 승인 탭에서 수행할 수 있습니다."
+
+#: build/adminPanel.js:3080
+msgid ""
+"You must install the Nectarblocks Importer/Exporter plugin to access the "
+"Demo Importer."
+msgstr "데모 가져오기에 접근하려면 Nectarblocks Importer/Exporter 플러그인을 설치해야 합니다."
+
+#: build/adminPanel.js:3193
+msgid "Portfolio Post Type"
+msgstr "포트폴리오 게시물 유형"
+
+#: build/adminPanel.js:3194
+msgid "Registers a post type for Portfolio projects."
+msgstr "포트폴리오 프로젝트에 대한 게시물 유형을 등록합니다."
+
+#: build/blocks/post-grid/frontend-script.js:259 build/editor.js:63838
+msgid "Wrap All"
+msgstr "모두 감싸기"
+
+#: build/blocks/post-grid/frontend-script.js:263 build/editor.js:63842
+msgid "Grid Item"
+msgstr "그리드 항목"
+
+#: build/blocks/post-grid/frontend-script.js:266 build/editor.js:63845
+msgid "Featured Media"
+msgstr "추천 미디어"
+
+#: build/blocks/image-grid/block.json
+msgctxt "block description"
+msgid ""
+"A highly customizable image grid display that allows you to organize images "
+"using different layouts."
+msgstr "블록 설명"
+
+#: build/blocks/post-content/block.json
+msgctxt "block title"
+msgid "Post Content"
+msgstr "블록 제목"
+
+#: build/blocks/post-content/block.json
+msgctxt "block description"
+msgid "Displays the content of a post."
+msgstr "블록 설명"
+
+#: build/blocks/taxonomy-grid/block.json
+msgctxt "block description"
+msgid ""
+"A highly customizable taxonomy grid display that can query data from any "
+"taxonomy type."
+msgstr "블록 설명"
+
+#: build/blocks/taxonomy-terms/block.json
+msgctxt "block title"
+msgid "Taxonomy Terms"
+msgstr "블록 제목"
+
+#: build/blocks/taxonomy-terms/block.json
+msgctxt "block description"
+msgid "Display the selected taxonomy terms for your post."
+msgstr "블록 설명"
+
+#: build/editor.js:19836
+msgid "Or"
+msgstr "또는"
+
+#: build/editor.js:99816
+msgid "Display Locations"
+msgstr "장소 표시"
+
+#: build/editor.js:99821
+msgid ""
+"Set the priority and location of where to render this section on your site. "
+"The priority will determine the order of sections when multiple are assigned"
+" to the same location."
+msgstr "이 섹션을 사이트의 어디에 렌더링할지의 우선순위와 위치를 설정하십시오. 우선순위는 동일한 위치에 할당된 여러 섹션"
+
+#: build/editor.js:16793 build/editor.js:17441 build/editor.js:19256
+#: build/editor.js:20579 build/editor.js:29513 build/editor.js:30082
+#: build/editor.js:30725 build/editor.js:39247 build/editor.js:49999
+#: build/editor.js:59735 build/editor.js:79489 build/editor.js:79627
+#: build/editor.js:79939 build/editor.js:80964 build/editor.js:84929
+#: build/editor.js:93891 build/editor.js:100378
+msgid "Color"
+msgstr "색깔"
+
+#: build/editor.js:17041
+msgid "Block Presets"
+msgstr "블록 프리셋"
+
+#: build/editor.js:17103
+msgid "Select Preset"
+msgstr "프리셋 선택"
+
+#: build/editor.js:17268 build/editor.js:33518 build/editor.js:39995
+#: build/editor.js:42219 build/editor.js:42245 build/editor.js:48499
+#: build/editor.js:59480 build/editor.js:70180
+msgid "Left"
+msgstr "왼쪽"
+
+#: build/editor.js:17281 build/editor.js:86839
+msgid "Unlink Sides"
+msgstr "언링크 측면"
+
+#: build/editor.js:17281 build/editor.js:21041 build/editor.js:86839
+msgid "Link Sides"
+msgstr "링크 사이드"
+
+#: build/editor.js:17304 build/editor.js:33522 build/editor.js:39998
+#: build/editor.js:42231 build/editor.js:42257 build/editor.js:48502
+#: build/editor.js:59483 build/editor.js:70186
+msgid "Right"
+msgstr "예"
+
+#: build/editor.js:17373 build/editor.js:87603
+msgid "Solid"
+msgstr "고체"
+
+#: build/editor.js:17379
+msgid "Dashed"
+msgstr "대시된"
+
+#: build/editor.js:17385
+msgid "Dotted"
+msgstr "점이 찍힌"
+
+#: build/editor.js:17402 build/editor.js:43408 build/editor.js:45091
+#: build/editor.js:86262
+msgid "Width"
+msgstr "폭"
+
+#: build/editor.js:17419 build/editor.js:23369 build/editor.js:24394
+#: build/editor.js:40580 build/editor.js:43667 build/editor.js:51400
+#: build/editor.js:61758 build/editor.js:62365 build/editor.js:79576
+#: build/editor.js:84966 build/editor.js:90455
+msgid "Style"
+msgstr "스타일"
+
+#: build/editor.js:17445
+msgid "Border Color"
+msgstr "테두리 색"
+
+#: build/editor.js:17604 build/editor.js:68476 build/editor.js:79801
+msgid "Outline"
+msgstr "개요"
+
+#: build/editor.js:17764
+msgid "Unlinked"
+msgstr "연결되지 않은"
+
+#: build/editor.js:17764
+msgid "Linked"
+msgstr "연결된"
+
+#: build/editor.js:17902
+msgid "Corner Radius"
+msgstr "모서리 반지름"
+
+#: build/editor.js:19292 build/editor.js:93923
+msgid "Font Color"
+msgstr "글꼴 색"
+
+#: build/editor.js:19339 build/editor.js:35088 build/editor.js:39530
+#: build/editor.js:43689 build/editor.js:59827 build/editor.js:66532
+#: build/editor.js:68939 build/editor.js:72969 build/editor.js:79590
+#: build/editor.js:79712 build/editor.js:79860 build/editor.js:84592
+#: build/editor.js:86198
+msgid "Size"
+msgstr "크기"
+
+#: build/editor.js:19340 build/editor.js:21765 build/editor.js:36693
+#: build/editor.js:87492 build/editor.js:89697 build/editor.js:93912
+msgid "Inherit"
+msgstr "상속하다"
+
+#: build/editor.js:19347 build/editor.js:19515 build/editor.js:20640
+#: build/editor.js:29055 build/editor.js:43472
+msgid "Align"
+msgstr "정렬"
+
+#: build/editor.js:19419 build/editor.js:36736
+msgid "Font Settings"
+msgstr "글꼴 설정"
+
+#: build/editor.js:19434 build/editor.js:19595 build/editor.js:93739
+msgid "Font Size"
+msgstr "글꼴 크기"
+
+#: build/editor.js:19459
+msgid "Font Clamp"
+msgstr "폰트 클램프"
+
+#: build/editor.js:19491 build/editor.js:93812
+msgid "Line Height"
+msgstr "줄 높이"
+
+#: build/editor.js:19663
+msgid "Insert From URL"
+msgstr "URL에서 삽입하기"
+
+#: build/editor.js:19669
+msgid "Enter URL"
+msgstr "URL을 입력하세요."
+
+#: build/editor.js:19191 build/editor.js:19679 build/editor.js:88831
+#: build/editor.js:93966
+msgid "Save"
+msgstr "보관"
+
+#: build/editor.js:19687 build/editor.js:90218 build/editor.js:101145
+msgid "Cancel"
+msgstr "취소"
+
+#: build/editor.js:19786 build/editor.js:21924
+msgid "Media Library"
+msgstr "미디어 라이브러리"
+
+#: build/editor.js:19829 build/editor.js:21981 build/editor.js:57373
+msgid "Upload"
+msgstr "업로드"
+
+#: build/editor.js:19988 build/editor.js:89478 build/editor.js:90210
+msgid "Edit"
+msgstr "편집"
+
+#: build/editor.js:20325 build/editor.js:22785 build/editor.js:24064
+#: build/editor.js:25942 build/editor.js:54223 build/editor.js:59159
+#: build/editor.js:60612 build/editor.js:74446 build/editor.js:84498
+msgid "Preview Animation"
+msgstr "애니메이션 미리보기"
+
+#: build/editor.js:20393 build/editor.js:88608
+msgid "Mobile"
+msgstr "모바일"
+
+#: build/editor.js:20541
+msgid "Top & Bottom"
+msgstr "상하"
+
+#: build/editor.js:20549
+msgid "Background Shape"
+msgstr "배경 모양"
+
+#: build/editor.js:20605 build/editor.js:22841 build/editor.js:34381
+#: build/editor.js:34460 build/editor.js:43817 build/editor.js:62410
+#: build/editor.js:72684 build/editor.js:72847 build/editor.js:72925
+msgid "Position"
+msgstr "위치"
+
+#: build/editor.js:20622 build/editor.js:86280
+msgid "Height"
+msgstr "키"
+
+#: build/editor.js:18250 build/editor.js:20628 build/editor.js:28453
+#: build/editor.js:28803 build/editor.js:29237 build/editor.js:33755
+#: build/editor.js:34334 build/editor.js:34352 build/editor.js:34790
+#: build/editor.js:34793 build/editor.js:34853 build/editor.js:86057
+#: build/editor.js:86650
+msgid "Auto"
+msgstr "자동"
+
+#: build/editor.js:20646
+msgid "Inside"
+msgstr "안에"
+
+#: build/editor.js:20649
+msgid "Outside"
+msgstr "바깥쪽"
+
+#: build/editor.js:20668
+msgid "Shape Color"
+msgstr "모양 색깔"
+
+#: build/editor.js:20914
+msgid "Margin"
+msgstr "여백"
+
+#: build/editor.js:20930 build/editor.js:53882 build/editor.js:60267
+#: build/editor.js:74106
+msgid "Padding"
+msgstr "패딩"
+
+#: build/editor.js:20972
+msgid "Left / Right"
+msgstr "왼쪽 / 오른쪽"
+
+#: build/editor.js:20975
+msgid "Top / Bottom"
+msgstr "상단 / 하단"
+
+#: build/editor.js:21804 build/editor.js:36743
+msgid "Core Fonts"
+msgstr "핵심 글꼴"
+
+#: build/editor.js:21986
+msgid "Uploading..."
+msgstr "업로드 중..."
+
+#: build/editor.js:18765 build/editor.js:18873 build/editor.js:22076
+#: build/editor.js:62334 build/editor.js:63290 build/editor.js:63450
+#: build/editor.js:75833 build/editor.js:75940 build/editor.js:77437
+msgid "Sorry there was an error."
+msgstr "죄송합니다, 오류가 발생했습니다."
+
+#: build/editor.js:18759 build/editor.js:18867 build/editor.js:22081
+#: build/editor.js:99918 build/editor.js:100114 build/editor.js:100562
+msgid "Loading..."
+msgstr "로딩 중..."
+
+#: build/editor.js:22125 build/editor.js:92277
+msgid "Align Left"
+msgstr "왼쪽 정렬"
+
+#: build/editor.js:22129 build/editor.js:92281
+msgid "Align Center"
+msgstr "가운데 정렬"
+
+#: build/editor.js:22133 build/editor.js:92285
+msgid "Align Right"
+msgstr "오른쪽 정렬"
+
+#: build/editor.js:22241 build/editor.js:43839 build/editor.js:62637
+#: build/editor.js:86610
+msgid "Alignment"
+msgstr "정렬"
+
+#: build/editor.js:22333
+msgid "From Bottom"
+msgstr "밑에서"
+
+#: build/editor.js:22336
+msgid "From Top"
+msgstr "상단으로"
+
+#: build/editor.js:22339
+msgid "From Left"
+msgstr "왼쪽으로"
+
+#: build/editor.js:22342
+msgid "From Right"
+msgstr "오른쪽으로"
+
+#: build/editor.js:22349 build/editor.js:29039 build/editor.js:33548
+#: build/editor.js:45094 build/editor.js:68130 build/editor.js:73089
+#: build/editor.js:77092
+msgid "Direction"
+msgstr "방향"
+
+#: build/editor.js:22357
+msgid "In"
+msgstr "안녕하세요"
+
+#: build/editor.js:22360
+msgid "Out"
+msgstr "밖으로"
+
+#: build/editor.js:22463 build/editor.js:24499
+msgid "Click"
+msgstr "클릭하세요."
+
+#: build/editor.js:22468
+msgid "Animation Type"
+msgstr "애니메이션 유형"
+
+#: build/editor.js:22511 build/editor.js:22755 build/editor.js:24046
+#: build/editor.js:25927 build/editor.js:54204 build/editor.js:59128
+#: build/editor.js:60593 build/editor.js:74427 build/editor.js:81784
+msgid "Trigger On"
+msgstr "트리거 켜기"
+
+#: build/editor.js:22646 build/editor.js:24501
+msgid "Scroll Into View"
+msgstr "화면으로 스크롤하기"
+
+#: build/editor.js:22651 build/editor.js:43934 build/editor.js:44027
+#: build/editor.js:51528 build/editor.js:51620 build/editor.js:62706
+#: build/editor.js:84479
+msgid "Type"
+msgstr "유형"
+
+#: build/editor.js:22738 build/editor.js:81712
+msgid "Easing"
+msgstr "완화"
+
+#: build/editor.js:22824
+msgid "Circle Amount"
+msgstr "원의 양"
+
+#: build/editor.js:22889
+msgid "Mask Inset Amount"
+msgstr "마스크 삽입 양"
+
+#: build/editor.js:22903 build/editor.js:84611
+msgid "Roundness"
+msgstr "둥근 형태"
+
+#: build/editor.js:22952 build/editor.js:30586 build/editor.js:32653
+#: build/editor.js:32733 build/editor.js:34434
+msgid "Value"
+msgstr "가치"
+
+#: build/editor.js:23255 build/editor.js:27835 build/editor.js:29693
+#: build/editor.js:30260 build/editor.js:35611 build/editor.js:55648
+#: build/editor.js:61308 build/editor.js:74981
+msgid "Move Up"
+msgstr "위로 이동"
+
+#: build/editor.js:23267 build/editor.js:27847 build/editor.js:29705
+#: build/editor.js:30272 build/editor.js:35623 build/editor.js:55660
+#: build/editor.js:61320 build/editor.js:74993
+msgid "Move Down"
+msgstr "아래로 이동"
+
+#: build/editor.js:23297
+msgid "Edit Animation Property"
+msgstr "애니메이션 속성 편집"
+
+#: build/editor.js:23364
+msgid "Animation Property"
+msgstr "애니메이션 속성"
+
+#: build/editor.js:23368 build/editor.js:24376
+msgid "Transforms"
+msgstr "변환"
+
+#: build/editor.js:23370 build/editor.js:24403 build/editor.js:31445
+msgid "Filters"
+msgstr "필터"
+
+#: build/editor.js:23371 build/editor.js:24424
+msgid "Masks"
+msgstr "마스크"
+
+#: build/editor.js:23671
+msgid "Enter"
+msgstr "입력하세요."
+
+#: build/editor.js:18093 build/editor.js:18175 build/editor.js:23674
+#: build/editor.js:23966 build/editor.js:28526 build/editor.js:28756
+#: build/editor.js:42225 build/editor.js:42251 build/editor.js:42276
+#: build/editor.js:48512 build/editor.js:70193 build/editor.js:70203
+msgid "Center"
+msgstr "중앙"
+
+#: build/editor.js:23681
+msgid "View Center"
+msgstr "중앙 보기"
+
+#: build/editor.js:23684
+msgid "Fully Visible"
+msgstr "완전히 보이는"
+
+#: build/editor.js:23711 build/editor.js:25876 build/editor.js:54141
+#: build/editor.js:60530 build/editor.js:74364
+msgid "Scroll Animation"
+msgstr "스크롤 애니메이션"
+
+#: build/editor.js:18089 build/editor.js:18171 build/editor.js:23734
+#: build/editor.js:28522 build/editor.js:28752 build/editor.js:70200
+msgid "Start"
+msgstr "시작"
+
+#: build/editor.js:18097 build/editor.js:18179 build/editor.js:23737
+#: build/editor.js:28530 build/editor.js:28760 build/editor.js:70206
+msgid "End"
+msgstr "끝"
+
+#: build/editor.js:23760 build/editor.js:23773
+msgid "Add Animation Property"
+msgstr "애니메이션 속성 추가"
+
+#: build/editor.js:23799
+msgid "Animation Boundaries"
+msgstr "애니메이션 경계"
+
+#: build/editor.js:23804
+msgid "Pin"
+msgstr "핀"
+
+#: build/editor.js:23807
+msgid ""
+"\"Pin\" the block in place within the viewport while the animation plays "
+"through."
+msgstr "애니메이션이 재생되는 동안 블록을 뷰포트 내에 \"고정\"하세요."
+
+#: build/editor.js:23935
+msgid "End After Scrolling"
+msgstr "스크롤 후 종료"
+
+#: build/editor.js:23935
+msgid "End On"
+msgstr "끝내다"
+
+#: build/editor.js:23972
+msgid "Exit"
+msgstr "출구"
+
+#: build/editor.js:23991
+msgid "Custom End Offset"
+msgstr "사용자 정의 종료 오프셋"
+
+#: build/editor.js:24019
+msgid ""
+"The boundaries of this scroll animation are locked to the parent block which"
+" is set to use"
+msgstr "이 스크롤 애니메이션의 경계는 사용되도록 설정된 부모 블록에 잠겨 있습니다."
+
+#: build/editor.js:24020
+msgid "\"Pin While Animating\""
+msgstr "\"애니메이션 중 고정\""
+
+#: build/editor.js:24024
+msgid "Smooth"
+msgstr "부드러운"
+
+#: build/editor.js:24027
+msgid "Adds smoothing to the animation while scrolling."
+msgstr "스크롤할 때 애니메이션에 부드러움을 추가합니다."
+
+#: build/editor.js:24357 build/editor.js:24385 build/editor.js:35925
+msgid "Rotate"
+msgstr "회전"
+
+#: build/editor.js:24358 build/editor.js:24382 build/editor.js:35924
+msgid "Scale"
+msgstr "규모"
+
+#: build/editor.js:24359 build/editor.js:24388 build/editor.js:35926
+msgid "Skew"
+msgstr "비틀다"
+
+#: build/editor.js:24360 build/editor.js:24379 build/editor.js:35923
+msgid "Translate"
+msgstr ""
+"Please provide the sentence you would like me to translate into Korean."
+
+#: build/editor.js:24361 build/editor.js:24391 build/editor.js:35927
+#: build/editor.js:35998
+msgid "Perspective"
+msgstr "관점"
+
+#: build/editor.js:24362 build/editor.js:24400 build/editor.js:29735
+#: build/editor.js:29886
+msgid "Box Shadow"
+msgstr "박스 그림자"
+
+#: build/editor.js:24363 build/editor.js:24397 build/editor.js:30932
+#: build/editor.js:72803 build/editor.js:86032 build/editor.js:86625
+msgid "Opacity"
+msgstr "불투명도"
+
+#: build/editor.js:24364 build/editor.js:24406 build/editor.js:30045
+#: build/editor.js:30512 build/editor.js:30801 build/editor.js:53952
+msgid "Blur"
+msgstr "흐릿함"
+
+#: build/editor.js:24365 build/editor.js:24409 build/editor.js:30804
+msgid "Brightness"
+msgstr "밝기"
+
+#: build/editor.js:24366 build/editor.js:24412 build/editor.js:30802
+msgid "Contrast"
+msgstr "대조"
+
+#: build/editor.js:24367 build/editor.js:30808
+msgid "Drop Shadow"
+msgstr "그림자 효과"
+
+#: build/editor.js:24368 build/editor.js:24415 build/editor.js:30803
+#: build/editor.js:96099
+msgid "Grayscale"
+msgstr "그레이스케일"
+
+#: build/editor.js:24369 build/editor.js:24418 build/editor.js:30805
+msgid "Hue Rotate"
+msgstr "색조 회전"
+
+#: build/editor.js:24370 build/editor.js:29512 build/editor.js:30806
+msgid "Saturation"
+msgstr "포화"
+
+#: build/editor.js:24371 build/editor.js:24421 build/editor.js:30807
+msgid "Sepia"
+msgstr "세피아"
+
+#: build/editor.js:24372 build/editor.js:24427
+msgid "Inset"
+msgstr "삽입"
+
+#: build/editor.js:24373 build/editor.js:24430
+msgid "Circle"
+msgstr "원"
+
+#: build/editor.js:24500
+msgid "Scroll Position"
+msgstr "스크롤 위치"
+
+#: build/editor.js:24658
+msgid "Block Animation"
+msgstr "블록 애니메이션"
+
+#: build/editor.js:24717
+msgid "Animation Trigger Type"
+msgstr "애니메이션 트리거 유형"
+
+#: build/editor.js:24748
+msgid "Add Animation Trigger"
+msgstr "애니메이션 트리거 추가"
+
+#: build/editor.js:19924 build/editor.js:25660 build/editor.js:28070
+#: build/editor.js:58112 build/editor.js:58127 build/editor.js:58189
+#: build/editor.js:79686 build/editor.js:79697 build/editor.js:84736
+msgid "Image"
+msgstr "이미지"
+
+#: build/editor.js:25888 build/editor.js:54157 build/editor.js:54182
+#: build/editor.js:60546 build/editor.js:74380 build/editor.js:74405
+#: build/editor.js:81655 build/editor.js:100412
+msgid "Effect"
+msgstr "효과"
+
+#: build/editor.js:25909
+msgid "Strength"
+msgstr "힘"
+
+#: build/editor.js:26214
+msgid "Shape"
+msgstr "모양"
+
+#: build/editor.js:27535 build/editor.js:55837 build/editor.js:61596
+#: build/editor.js:75188 build/editor.js:88857 build/editor.js:89665
+msgid "Editing"
+msgstr "편집"
+
+#: build/editor.js:27610 build/editor.js:55902 build/editor.js:61037
+#: build/editor.js:61661 build/editor.js:62963 build/editor.js:74847
+#: build/editor.js:75253 build/editor.js:75611
+msgid "Content"
+msgstr "내용"
+
+#: build/editor.js:27699 build/editor.js:51285 build/editor.js:54480
+#: build/editor.js:58029
+msgid "Image Ratio"
+msgstr "이미지 비율"
+
+#: build/editor.js:27719 build/editor.js:38632 build/editor.js:50694
+#: build/editor.js:54565 build/editor.js:55727 build/editor.js:57977
+#: build/editor.js:61436 build/editor.js:63084 build/editor.js:75070
+#: build/editor.js:75680 build/editor.js:89978
+msgid "Title"
+msgstr "제목"
+
+#: build/editor.js:27737 build/editor.js:50714 build/editor.js:54585
+#: build/editor.js:57993 build/editor.js:89992
+msgid "Alt Text"
+msgstr "대체 텍스트"
+
+#: build/editor.js:27757 build/editor.js:55467 build/editor.js:58010
+#: build/editor.js:60926 build/editor.js:74742 build/editor.js:89960
+msgid "Resolution"
+msgstr "해상도"
+
+#: build/editor.js:27781 build/editor.js:28025
+msgid "Spin Effect"
+msgstr "회전 효과"
+
+#: build/editor.js:27859
+msgid "Duplicate"
+msgstr "중복"
+
+#: build/editor.js:27981 build/editor.js:28067 build/editor.js:54280
+#: build/editor.js:60669 build/editor.js:74503 build/editor.js:82687
+#: build/editor.js:84894
+msgid "Text"
+msgstr "텍스트"
+
+#: build/editor.js:28012
+msgid "Outline Effect"
+msgstr "윤곽 효과"
+
+#: build/editor.js:28082
+msgid "Content Type"
+msgstr "콘텐츠 유형"
+
+#: build/editor.js:28270
+msgid "Custom ID"
+msgstr "사용자 정의 ID"
+
+#: build/editor.js:28285
+msgid "Invalid element ID / anchor"
+msgstr "유효하지 않은 요소 ID / 앵커"
+
+#: build/editor.js:28456
+msgid "Flex"
+msgstr "플렉스"
+
+#: build/editor.js:18101 build/editor.js:18192 build/editor.js:28534
+#: build/editor.js:59653 build/editor.js:77259 build/editor.js:80720
+msgid "Stretch"
+msgstr "스트레칭"
+
+#: build/editor.js:28594 build/editor.js:68017
+msgid "Vertical"
+msgstr "수직으로"
+
+#: build/editor.js:28598 build/editor.js:45096 build/editor.js:68014
+msgid "Horizontal"
+msgstr "수평적"
+
+#: build/editor.js:28628
+msgid "Reverse"
+msgstr "반대로"
+
+#: build/editor.js:28690
+msgid "No Wrap"
+msgstr "랩 없음"
+
+#: build/editor.js:28693
+msgid "Wrap"
+msgstr "싸다"
+
+#: build/editor.js:18185 build/editor.js:28764 build/editor.js:42263
+msgid "Space Between"
+msgstr "공간 사이"
+
+#: build/editor.js:29024 build/editor.js:29027 build/editor.js:29410
+#: build/editor.js:29412 build/editor.js:61963 build/editor.js:62381
+msgid "Display"
+msgstr "표시"
+
+#: build/editor.js:29067 build/editor.js:43500 build/editor.js:92290
+msgid "Justify"
+msgstr "타당화하다"
+
+#: build/editor.js:29079
+msgid "Flex Wrap"
+msgstr "플렉스 랩"
+
+#: build/editor.js:29240 build/editor.js:61847
+msgid "Block"
+msgstr "차단"
+
+#: build/editor.js:29686
+msgid "box-shadow"
+msgstr "박스 그림자"
+
+#: build/editor.js:29906
+msgid "Shadow Presets"
+msgstr "그림자 프리셋"
+
+#: build/editor.js:29919
+msgid "Presets"
+msgstr "프리셋"
+
+#: build/editor.js:30009
+msgid "X-Axis"
+msgstr "X-축"
+
+#: build/editor.js:30027
+msgid "Y-Axis"
+msgstr "Y-축"
+
+#: build/editor.js:30063
+msgid "Spread"
+msgstr "확산"
+
+#: build/editor.js:30113
+msgid "Box Shadow Color"
+msgstr "박스 그림자 색"
+
+#: build/editor.js:30302
+msgid "Edit Filter"
+msgstr "필터 편집"
+
+#: build/editor.js:30670
+msgid "Offset X"
+msgstr "오프셋 X"
+
+#: build/editor.js:30688
+msgid "Offset Y"
+msgstr "오프셋 Y"
+
+#: build/editor.js:30706
+msgid "Blur Radius"
+msgstr "흐림 반경"
+
+#: build/editor.js:30754
+msgid "Drop Shadow Color"
+msgstr "그림자 색"
+
+#: build/editor.js:30824
+msgid "Effect Type"
+msgstr "효과 유형"
+
+#: build/editor.js:31098 build/editor.js:41225 build/editor.js:78907
+msgid "Small"
+msgstr "작은"
+
+#: build/editor.js:31186
+msgid "Medium"
+msgstr "중간"
+
+#: build/editor.js:31232
+msgid "Large"
+msgstr "큰"
+
+#: build/editor.js:31448
+msgid "Backdrop Filters"
+msgstr "배경 필터"
+
+#: build/editor.js:31918
+msgid "Size/Align"
+msgstr "크기/정렬"
+
+#: build/editor.js:32264
+msgid "Select Icon"
+msgstr "아이콘 선택"
+
+#: build/editor.js:18934 build/editor.js:32363 build/editor.js:86540
+#: build/editor.js:94211
+msgid "Source"
+msgstr "출처"
+
+#: build/editor.js:32393 build/editor.js:95468 build/editor.js:96063
+msgid "Search"
+msgstr "검색"
+
+#: build/editor.js:32395
+msgid "Enter a keyword..."
+msgstr "키워드를 입력하세요..."
+
+#: build/editor.js:32602
+msgid "Empty"
+msgstr "빈(empty)"
+
+#: build/editor.js:32612
+msgid "Editing Attribute"
+msgstr "속성 편집"
+
+#: build/editor.js:32632 build/editor.js:32704
+msgid "Attribute"
+msgstr "속성"
+
+#: build/editor.js:32644
+msgid "This attribute is reserved and cannot be used."
+msgstr "이 속성은 예약되어 있어 사용할 수 없습니다."
+
+#: build/editor.js:32711
+msgid "Example: rel"
+msgstr "예시: rel"
+
+#: build/editor.js:32729
+msgid "This attribute already exists."
+msgstr "이 속성은 이미 존재합니다."
+
+#: build/editor.js:32737
+msgid "Example: nofollow"
+msgstr "nofollow"
+
+#: build/editor.js:32777
+msgid "Add Link Attribute"
+msgstr "링크 속성 추가"
+
+#: build/editor.js:32814
+msgid "Regular Link"
+msgstr "정규 링크"
+
+#: build/editor.js:32817
+msgid "Open Lightbox"
+msgstr "라이트박스 열기"
+
+#: build/editor.js:32830
+msgid "On Click"
+msgstr "클릭하면"
+
+#: build/editor.js:32891 build/editor.js:59384
+msgid "Target"
+msgstr "목표"
+
+#: build/editor.js:32893
+msgid "Open in new tab"
+msgstr "새 탭에서 열기"
+
+#: build/editor.js:32968
+msgid "URL"
+msgstr "URL"
+
+#: build/editor.js:33033
+msgid "Remove URL"
+msgstr "URL을 제거하세요."
+
+#: build/editor.js:33167 build/editor.js:54672 build/editor.js:61774
+#: build/editor.js:62397 build/editor.js:73739 build/editor.js:84364
+msgid "Link"
+msgstr "링크"
+
+#: build/editor.js:33171
+msgid "Custom Attributes"
+msgstr "사용자 정의 속성"
+
+#: build/editor.js:33536 build/editor.js:82456
+msgid "Mask"
+msgstr "마스크"
+
+#: build/editor.js:33588 build/editor.js:33623 build/editor.js:39226
+msgid "Sides"
+msgstr "옆면"
+
+#: build/editor.js:33658
+msgid "Amount"
+msgstr "양"
+
+#: build/editor.js:33751
+msgid "Visible"
+msgstr "보이는"
+
+#: build/editor.js:33752
+msgid "Hidden"
+msgstr "숨겨진"
+
+#: build/editor.js:33753
+msgid "Scroll-X"
+msgstr "스크롤-X"
+
+#: build/editor.js:33754
+msgid "Scroll-Y"
+msgstr "스크롤-Y"
+
+#: build/editor.js:33876 build/editor.js:33878
+msgid "Overflow"
+msgstr "넘침"
+
+#: build/editor.js:34337
+msgid "Relative"
+msgstr "친척"
+
+#: build/editor.js:34340
+msgid "Absolute"
+msgstr "절대적"
+
+#: build/editor.js:34343
+msgid "Static"
+msgstr "정적"
+
+#: build/editor.js:34346 build/editor.js:59685
+msgid "Sticky"
+msgstr "끈적끈적한"
+
+#: build/editor.js:34355 build/editor.js:61441 build/editor.js:75072
+#: build/editor.js:86212
+msgid "Custom"
+msgstr "커스텀"
+
+#: build/editor.js:34383 build/editor.js:86051 build/editor.js:86644
+msgid "Z-Index"
+msgstr "Z-인덱스"
+
+#: build/editor.js:27995 build/editor.js:34712 build/editor.js:38020
+msgid "Tag"
+msgstr "태그"
+
+#: build/editor.js:34796 build/editor.js:34799 build/editor.js:60194
+msgid "∞"
+msgstr ""
+"Please provide a sentence in English that you would like me to translate "
+"into Korean."
+
+#: build/editor.js:34802 build/editor.js:58767
+msgid "0"
+msgstr "영어로 된 문장을 한국어로 번역해주세요."
+
+#: build/editor.js:34856
+msgid "Fill"
+msgstr "채우다"
+
+#: build/editor.js:34859 build/editor.js:86209 build/editor.js:86592
+msgid "Contain"
+msgstr "포함"
+
+#: build/editor.js:34862 build/editor.js:86206 build/editor.js:86589
+msgid "Cover"
+msgstr "커버"
+
+#: build/editor.js:35427 build/editor.js:39455 build/editor.js:43111
+#: build/editor.js:43856 build/editor.js:73422 build/editor.js:73540
+#: build/editor.js:73647 build/editor.js:77826
+msgid "Spacing"
+msgstr "간격"
+
+#: build/editor.js:35777 build/editor.js:93865
+msgid "Transform"
+msgstr "변형"
+
+#: build/editor.js:35949
+msgid "Transform Type"
+msgstr "유형 변환"
+
+#: build/editor.js:36152
+msgid "Scale X"
+msgstr "스케일 X"
+
+#: build/editor.js:36171
+msgid "Scale Y"
+msgstr "Y축을 조절하세요."
+
+#: build/editor.js:36223
+msgid "Skew X"
+msgstr "비스듬한 X"
+
+#: build/editor.js:36243
+msgid "Skew Y"
+msgstr "비스듬히 위치한 Y"
+
+#: build/editor.js:36298
+msgid "Translate X"
+msgstr "번역하세요"
+
+#: build/editor.js:36336
+msgid "Translate Y"
+msgstr "네."
+
+#: build/editor.js:36762
+msgid "Select a font rule"
+msgstr "폰트 규칙을 선택하세요."
+
+#: build/editor.js:36831 build/editor.js:49171 build/editor.js:93710
+msgid "Font Style"
+msgstr "글꼴 스타일"
+
+#: build/editor.js:37507
+msgid "Are you certain you want to proceed with deleting this accordion?"
+msgstr "이 아코디언을 삭제하시겠습니까?"
+
+#: build/editor.js:37516
+msgid "Duplicate Accordion"
+msgstr "아코디언 복제"
+
+#: build/editor.js:37522
+msgid "Delete Accordion"
+msgstr "아코디언 삭제"
+
+#: build/editor.js:37787
+msgid "Accordion Title.."
+msgstr "아코디언 제목.."
+
+#: build/editor.js:37840
+msgid "Accordion Section"
+msgstr "아코디언 섹션"
+
+#: build/editor.js:37841
+msgid "A section for content inside each accordion."
+msgstr "아코디언 내부의 콘텐츠 섹션입니다."
+
+#: build/editor.js:37848
+msgid "accordions"
+msgstr "아코디언"
+
+#: build/editor.js:37848 build/editor.js:38749 build/editor.js:40763
+#: build/editor.js:41702 build/editor.js:43217 build/editor.js:45429
+#: build/editor.js:46440 build/editor.js:47521 build/editor.js:48020
+#: build/editor.js:49040 build/editor.js:50104 build/editor.js:52773
+#: build/editor.js:57084 build/editor.js:58197 build/editor.js:58938
+#: build/editor.js:59311 build/editor.js:65178 build/editor.js:66810
+#: build/editor.js:68305 build/editor.js:68802 build/editor.js:69377
+#: build/editor.js:71050 build/editor.js:76939 build/editor.js:77932
+#: build/editor.js:78860 build/editor.js:82695 build/editor.js:84208
+#: build/editor.js:85563
+msgid "nectar"
+msgstr "넥타르"
+
+#: build/editor.js:38035
+msgid "Indicator"
+msgstr "지표"
+
+#: build/editor.js:38066
+msgid "Indicator Size"
+msgstr "지표 크기"
+
+#: build/editor.js:38102 build/editor.js:69489
+msgid "Content Gap"
+msgstr "콘텐츠 갭"
+
+#: build/editor.js:38135 build/editor.js:41837 build/editor.js:48265
+msgid "Go to Parent Settings"
+msgstr "부모 설정으로 이동하세요."
+
+#: build/editor.js:38188
+msgid "Add New Accordion"
+msgstr "새 아코디언 추가"
+
+#: build/editor.js:38627
+msgid "Panel Titles"
+msgstr "패널 제목들"
+
+#: build/editor.js:38634
+msgid "Title Active"
+msgstr "활성화된 제목"
+
+#: build/editor.js:38659 build/editor.js:40640 build/editor.js:41606
+#: build/editor.js:43132 build/editor.js:45283 build/editor.js:46348
+#: build/editor.js:47399 build/editor.js:47926 build/editor.js:48962
+#: build/editor.js:50015 build/editor.js:58061 build/editor.js:58803
+#: build/editor.js:65039 build/editor.js:66671 build/editor.js:68214
+#: build/editor.js:68715 build/editor.js:70953 build/editor.js:76811
+#: build/editor.js:77842 build/editor.js:78755 build/editor.js:82504
+#: build/editor.js:84090 build/editor.js:85461
+msgid "Effects / Transforms"
+msgstr "효과 / 변형"
+
+#: build/editor.js:38741
+msgid "Accordion"
+msgstr "아코디언"
+
+#: build/editor.js:38742
+msgid ""
+"A collapsible and expandable component that organizes content into sections."
+msgstr "섹션으로 콘텐츠를 구성하는 접히고 펼칠 수 있는 컴포넌트입니다."
+
+#: build/editor.js:38749
+msgid "accordion"
+msgstr "아코디언"
+
+#: build/editor.js:39224 build/editor.js:40633 build/editor.js:41599
+#: build/editor.js:45276 build/editor.js:47392 build/editor.js:47919
+#: build/editor.js:48955 build/editor.js:50008 build/editor.js:58054
+#: build/editor.js:58796 build/editor.js:65026 build/editor.js:66663
+#: build/editor.js:68207 build/editor.js:69311 build/editor.js:73437
+#: build/editor.js:73555 build/editor.js:73662 build/editor.js:76801
+#: build/editor.js:78748 build/editor.js:82486 build/editor.js:84083
+#: build/editor.js:85454
+msgid "Border"
+msgstr "경계"
+
+#: build/editor.js:39272 build/editor.js:80945
+msgid "Thickness"
+msgstr "두께"
+
+#: build/editor.js:39383 build/editor.js:40571 build/editor.js:46336
+#: build/editor.js:49978 build/editor.js:70896 build/editor.js:79381
+msgid "Preset"
+msgstr "프리셋"
+
+#: build/editor.js:39410
+msgid "Start Open"
+msgstr "시작 열다"
+
+#: build/editor.js:39435 build/editor.js:39560 build/editor.js:43531
+#: build/editor.js:45225 build/editor.js:47329 build/editor.js:49217
+#: build/editor.js:49339 build/editor.js:51866 build/editor.js:56163
+#: build/editor.js:63675 build/editor.js:66584 build/editor.js:68151
+#: build/editor.js:68969 build/editor.js:72999 build/editor.js:73275
+#: build/editor.js:76110 build/editor.js:77148 build/editor.js:79450
+#: build/editor.js:79896
+msgid "Gap"
+msgstr "갭"
+
+#: build/editor.js:39617 build/editor.js:39692 build/editor.js:40626
+#: build/editor.js:50001 build/editor.js:53708 build/editor.js:59902
+#: build/editor.js:72705 build/editor.js:73399 build/editor.js:73517
+#: build/editor.js:73635 build/editor.js:73932 build/editor.js:77808
+#: build/editor.js:78011 build/editor.js:82448
+msgid "BG Color"
+msgstr "배경 색"
+
+#: build/editor.js:39726
+msgid "Shadow"
+msgstr "그림자"
+
+#: build/editor.js:40548
+msgid "Add Your Text..."
+msgstr "텍스트를 추가하세요."
+
+#: build/editor.js:40608 build/editor.js:49494
+msgid "Icon Align"
+msgstr "아이콘 정렬"
+
+#: build/editor.js:40624 build/editor.js:82446
+msgid "Color / Background"
+msgstr "색상 / 배경"
+
+#: build/editor.js:40755 build/editor.js:40923 build/editor.js:41031
+#: build/editor.js:41183 build/editor.js:41371 build/editor.js:62279
+msgid "Button"
+msgstr "버튼"
+
+#: build/editor.js:40756
+msgid "A button block for links and call to actions."
+msgstr "링크 및 호출 작업을 위한 버튼 블록."
+
+#: build/editor.js:40763
+msgid "button"
+msgstr "버튼"
+
+#: build/editor.js:40836
+msgid "Download"
+msgstr "다운로드"
+
+#: build/editor.js:40870
+msgid "Get Started"
+msgstr "시작하기"
+
+#: build/editor.js:41596 build/editor.js:43108 build/editor.js:43754
+#: build/editor.js:45269 build/editor.js:47385 build/editor.js:47916
+#: build/editor.js:48952 build/editor.js:52639 build/editor.js:56965
+#: build/editor.js:58791 build/editor.js:65029 build/editor.js:66656
+#: build/editor.js:69308 build/editor.js:76804 build/editor.js:78745
+msgid "Background"
+msgstr "배경"
+
+#: build/editor.js:41694
+msgid "Carousel Item"
+msgstr "캐러셀 항목"
+
+#: build/editor.js:41695
+msgid "A section for content inside each carousel."
+msgstr "각 캐러셀 내의 콘텐츠를 위한 섹션."
+
+#: build/editor.js:41702 build/editor.js:43217
+msgid "carousel"
+msgstr "캐러셀"
+
+#: build/editor.js:41702
+msgid "carousel item"
+msgstr "캐러셀 항목"
+
+#: build/editor.js:42020 build/editor.js:42025
+msgid "Add Slide"
+msgstr "슬라이드 추가"
+
+#: build/editor.js:42029 build/editor.js:52689
+msgid "Slide Prev"
+msgstr "이전 슬라이드"
+
+#: build/editor.js:42036 build/editor.js:52700
+msgid "Slide Next"
+msgstr "다음 슬라이드"
+
+#: build/editor.js:43087 build/editor.js:52618
+msgid "Slider Effects"
+msgstr "슬라이더 효과"
+
+#: build/editor.js:43093 build/editor.js:52624
+msgid "Slider Controls"
+msgstr "슬라이더 컨트롤"
+
+#: build/editor.js:43099 build/editor.js:52630
+msgid "Slider Modes"
+msgstr "슬라이더 모드"
+
+#: build/editor.js:43118
+msgid "Exclude Controls?"
+msgstr "컨트롤 제외하기?"
+
+#: build/editor.js:43209
+msgid "Carousel"
+msgstr "회전목마"
+
+#: build/editor.js:43210
+msgid ""
+"Rotate through content items, displayed in a horizontally scrolling format."
+msgstr "수평 스크롤 형식으로 표시된 콘텐츠 항목을 회전합니다."
+
+#: build/editor.js:43376 build/editor.js:51794 build/editor.js:56119
+#: build/editor.js:63588 build/editor.js:66560 build/editor.js:67228
+#: build/editor.js:76066
+msgid "Columns"
+msgstr "열"
+
+#: build/editor.js:43439 build/editor.js:51829
+msgid "Group"
+msgstr "그룹"
+
+#: build/editor.js:43559 build/editor.js:51893
+msgid "Center Slides"
+msgstr "슬라이드 중앙 정렬"
+
+#: build/editor.js:43638 build/editor.js:51371 build/editor.js:68204
+msgid "Coloring"
+msgstr "색칠하기"
+
+#: build/editor.js:43642 build/editor.js:51375
+msgid "Controls Color"
+msgstr "색상 제어"
+
+#: build/editor.js:43655 build/editor.js:51388 build/editor.js:62691
+msgid "Arrows"
+msgstr "화살표"
+
+#: build/editor.js:43720
+msgid "H. Align"
+msgstr "H. 정렬"
+
+#: build/editor.js:43737
+msgid "V. Align"
+msgstr "V. 정렬"
+
+#: build/editor.js:43770 build/editor.js:43774 build/editor.js:51438
+#: build/editor.js:51442
+msgid "Arrow Color"
+msgstr "화살표 색"
+
+#: build/editor.js:43788 build/editor.js:51456
+msgid "Pagination"
+msgstr "페이지네이션"
+
+#: build/editor.js:43878 build/editor.js:51472
+msgid "Scrollbar"
+msgstr "스크롤바"
+
+#: build/editor.js:51547
+msgid "Transition Speed (s)"
+msgstr "전환 속도 (초)"
+
+#: build/editor.js:44015 build/editor.js:51608 build/editor.js:85692
+msgid "Autoplay"
+msgstr "자동 재생"
+
+#: build/editor.js:44051 build/editor.js:72664
+msgid "Time Between"
+msgstr "사이 시간"
+
+#: build/editor.js:44071 build/editor.js:51662
+msgid "Pause on Hover"
+msgstr "호버 시 일시 정지"
+
+#: build/editor.js:44088 build/editor.js:51679 build/editor.js:85743
+#: build/editor.js:86559
+msgid "Loop"
+msgstr "루프"
+
+#: build/editor.js:44100 build/editor.js:51691
+msgid "Free Mode"
+msgstr "자유 모드"
+
+#: build/editor.js:45421
+msgid "Column"
+msgstr "열"
+
+#: build/editor.js:45422
+msgid "Container for content."
+msgstr "콘텐츠용 컨테이너."
+
+#: build/editor.js:45429
+msgid "column"
+msgstr "열"
+
+#: build/editor.js:46086 build/editor.js:46627
+msgid "Small Gradient"
+msgstr "작은 그라데이션"
+
+#: build/editor.js:46087 build/editor.js:46630 build/editor.js:66537
+#: build/editor.js:73248
+msgid "Full Width"
+msgstr "전체 너비"
+
+#: build/editor.js:46088 build/editor.js:46633
+msgid "Invisible"
+msgstr "보이지 않는"
+
+#: build/editor.js:46432 build/editor.js:59717
+msgid "Divider"
+msgstr "분할자"
+
+#: build/editor.js:46433
+msgid "A divider block to separate sections."
+msgstr "섹션을 분리하는 구분 블록."
+
+#: build/editor.js:46440
+msgid "divider"
+msgstr "분할자"
+
+#: build/editor.js:46440
+msgid "spacer"
+msgstr "공백"
+
+#: build/editor.js:47366 build/editor.js:84767 build/editor.js:85674
+msgid "Aspect Ratio"
+msgstr "화면 비율"
+
+#: build/editor.js:47513
+msgid "Flex Box"
+msgstr "플렉스 박스"
+
+#: build/editor.js:47514
+msgid ""
+"A box for displaying content horizontally or vertically using CSS flexbox."
+msgstr "CSS flexbox를 사용하여 콘텐츠를 가로 또는 세로로 표시하는 상자입니다."
+
+#: build/editor.js:47521
+msgid "flex"
+msgstr "유연하게 되다"
+
+#: build/editor.js:47521
+msgid "box"
+msgstr "상자"
+
+#: build/editor.js:47890
+msgid "Title.."
+msgstr "제목.."
+
+#: build/editor.js:47906 build/editor.js:69776
+msgid "Description.."
+msgstr "설명.."
+
+#: build/editor.js:48012
+msgid "List Item"
+msgstr "목록 항목"
+
+#: build/editor.js:48013
+msgid "A single item within the Icon List block."
+msgstr "아이콘 목록 블록 내의 단일 항목."
+
+#: build/editor.js:48020 build/editor.js:49040
+msgid "list"
+msgstr "목록"
+
+#: build/editor.js:48232 build/editor.js:49533
+msgid "Icon Color"
+msgstr "아이콘 색"
+
+#: build/editor.js:49032
+msgid "Icon List"
+msgstr "아이콘 목록"
+
+#: build/editor.js:49033
+msgid ""
+"A list that allows icons alongside each item for better visual "
+"communication."
+msgstr "각 항목 옆에 아이콘을 표시하여 시각적 커뮤니케이션을 더 잘 할 수 있는 목록입니다."
+
+#: build/editor.js:49309
+msgid "V. Space"
+msgstr "V. 우주"
+
+#: build/editor.js:49474
+msgid "Icon Size"
+msgstr "아이콘 크기"
+
+#: build/editor.js:49513
+msgid "Icon V. Align"
+msgstr "아이콘 수직 정렬"
+
+#: build/editor.js:50097
+msgid "A block for adding icons."
+msgstr "아이콘을 추가하는 블록."
+
+#: build/editor.js:50104
+msgid "icon"
+msgstr "아이콘"
+
+#: build/editor.js:50683 build/editor.js:54554
+msgid ""
+"The image could not be located. It has likely been deleted from the server."
+msgstr "이미지를 찾을 수 없습니다. 서버에서 이미지가 삭제되었을 가능성이 높습니다."
+
+#: build/editor.js:50733 build/editor.js:54604 build/editor.js:55283
+#: build/editor.js:55726
+msgid "Caption"
+msgstr "표제"
+
+#: build/editor.js:50771 build/editor.js:54642
+msgid "Full URL"
+msgstr "전체 URL"
+
+#: build/editor.js:50878 build/editor.js:54786
+msgid "Swap Image"
+msgstr "이미지 교체"
+
+#: build/editor.js:50905 build/editor.js:54813
+msgid "Add Media"
+msgstr "미디어 추가"
+
+#: build/editor.js:50916 build/editor.js:54824
+msgid "Remove Image"
+msgstr "이미지 제거"
+
+#: build/editor.js:51087 build/editor.js:55001 build/editor.js:55352
+msgid "No images added yet"
+msgstr "아직 이미지가 추가되지 않았습니다."
+
+#: build/editor.js:51089 build/editor.js:55003 build/editor.js:55354
+msgid "Start adding images by clicking on \"Add Media\""
+msgstr "\"Add Media\"를 클릭하여 이미지를 추가하기 시작하세요."
+
+#: build/editor.js:51350
+msgid "Color Type"
+msgstr "색상 유형"
+
+#: build/editor.js:51422
+msgid "Button BG"
+msgstr "버튼 배경"
+
+#: build/editor.js:51643
+msgid "Time Between (s)"
+msgstr "시간 간격 (초)"
+
+#: build/editor.js:51755
+msgid "Equal Height"
+msgstr "동일한 높이"
+
+#: build/editor.js:51766
+msgid "Slide Height"
+msgstr "슬라이드 높이"
+
+#: build/editor.js:52612
+msgid "Slider Parameters"
+msgstr "슬라이더 매개변수"
+
+#: build/editor.js:52664
+msgid "Edit Photos in Image Gallery"
+msgstr "이미지 갤러리에서 사진 편집하기"
+
+#: build/editor.js:52683 build/editor.js:52685 build/editor.js:57012
+#: build/editor.js:57014
+msgid "Edit Photos"
+msgstr "사진 편집"
+
+#: build/editor.js:52765
+msgid "Image Gallery"
+msgstr "이미지 갤러리"
+
+#: build/editor.js:52766 build/editor.js:57077
+msgid "Seamlessly display visually captivating collections of images."
+msgstr "시각적으로 매력적인 이미지 컬렉션을 매끄럽게 표시합니다."
+
+#: build/editor.js:52773
+msgid "image-gallery"
+msgstr "이미지 갤러리"
+
+#: build/editor.js:57381
+msgid "Current media URL:"
+msgstr "현재 미디어 URL:"
+
+#: build/editor.js:57410
+msgid "Replace Image"
+msgstr "이미지 교체하기"
+
+#: build/editor.js:57455
+msgid "Spin"
+msgstr "회전"
+
+#: build/editor.js:57467 build/editor.js:60571 build/editor.js:68086
+msgid "Speed"
+msgstr "속도"
+
+#: build/editor.js:58132
+msgid ""
+"Upload an image file, pick one from your media library, or add one with a "
+"URL."
+msgstr "이미지 파일을 업로드하거나 미디어 라이브러리에서 선택하거나 URL을 통해 추가하세요."
+
+#: build/editor.js:58190
+msgid "Insert an image to make a visual statement."
+msgstr "시각적인 명제를 전달하기 위해 이미지를 삽입하세요."
+
+#: build/editor.js:58197
+msgid "image"
+msgstr "이미지"
+
+#: build/editor.js:58930
+msgid "Milestone"
+msgstr "마일스톤"
+
+#: build/editor.js:58931
+msgid "Highlight an important event or attribute."
+msgstr "중요한 이벤트나 속성을 강조해주세요."
+
+#: build/editor.js:58938
+msgid "milestone"
+msgstr "마일스톤"
+
+#: build/editor.js:59099
+msgid "Count Animation"
+msgstr "애니메이션 세기"
+
+#: build/editor.js:22694 build/editor.js:59110 build/editor.js:81746
+msgid "Duration"
+msgstr "기간"
+
+#: build/editor.js:53284 build/editor.js:53318 build/editor.js:59491
+#: build/editor.js:59524 build/editor.js:59558 build/editor.js:73815
+#: build/editor.js:73846
+msgid "Content Alignment"
+msgstr "콘텐츠 정렬"
+
+#: build/editor.js:59588
+msgid "Media Position"
+msgstr "미디어 포지션"
+
+#: build/editor.js:59620
+msgid "Media Size"
+msgstr "미디어 크기"
+
+#: build/editor.js:29502 build/editor.js:53795 build/editor.js:59989
+#: build/editor.js:74019 build/editor.js:84788 build/editor.js:84807
+msgid "Overlay"
+msgstr "오버레이"
+
+#: build/editor.js:53951 build/editor.js:60339 build/editor.js:74175
+msgid "Underline"
+msgstr "밑줄 치기"
+
+#: build/editor.js:53953 build/editor.js:60340 build/editor.js:74176
+msgid "Zoom"
+msgstr "줌"
+
+#: build/editor.js:53954 build/editor.js:60341 build/editor.js:74177
+msgid "Zoom Underline"
+msgstr "줌 밑줄"
+
+#: build/editor.js:53970 build/editor.js:60359 build/editor.js:74193
+msgid "Hover"
+msgstr "호버"
+
+#: build/editor.js:54040 build/editor.js:60429 build/editor.js:74263
+#: build/editor.js:84824
+msgid "Overlay Opacity"
+msgstr "오버레이 불투명도"
+
+#: build/editor.js:60872 build/editor.js:74688
+msgid "Item Ratio"
+msgstr "항목 비율"
+
+#: build/editor.js:60989 build/editor.js:74803
+msgid "Standard Grid"
+msgstr "표준 그리드"
+
+#: build/editor.js:60993 build/editor.js:74807
+msgid "Masonry Grid"
+msgstr "벽돌 격자"
+
+#: build/editor.js:53397 build/editor.js:60998 build/editor.js:74812
+msgid "Overlaid"
+msgstr "겹쳐진"
+
+#: build/editor.js:53401 build/editor.js:61002 build/editor.js:74816
+msgid "Underneath"
+msgstr "밑에"
+
+#: build/editor.js:61006 build/editor.js:70166
+msgid "Side"
+msgstr "측면"
+
+#: build/editor.js:61433 build/editor.js:63470 build/editor.js:75960
+msgid "Taxonomies"
+msgstr "분류법"
+
+#: build/editor.js:61434
+msgid "Excerpt"
+msgstr "단락"
+
+#: build/editor.js:55914 build/editor.js:61673 build/editor.js:75265
+msgid "Meta Display"
+msgstr "메타 디스플레이"
+
+#: build/editor.js:61733
+msgid "Simple"
+msgstr "간단합니다."
+
+#: build/editor.js:61736
+msgid "With Gravatar"
+msgstr "그라바타와 함께"
+
+#: build/editor.js:61739
+msgid "With \"By\" Text"
+msgstr "\"By\" 텍스트와 함께"
+
+#: build/editor.js:55979 build/editor.js:56055 build/editor.js:61791
+#: build/editor.js:61980 build/editor.js:62028 build/editor.js:62076
+#: build/editor.js:62143 build/editor.js:62191 build/editor.js:62427
+#: build/editor.js:62502 build/editor.js:75372 build/editor.js:75464
+#: build/editor.js:75540
+msgid "Typography"
+msgstr "타이포그래피"
+
+#: build/editor.js:75332
+msgid "Custom Post Meta Key"
+msgstr "사용자 지정 게시물 메타 키"
+
+#: build/editor.js:75333
+msgid "The name of a custom meta field to query from. e.g. \"_sku\""
+msgstr "쿼리할 사용자 정의 메타 필드의 이름. 예: \"_sku\""
+
+#: build/editor.js:61939 build/editor.js:75346
+msgid "Before Text"
+msgstr "텍스트 앞에"
+
+#: build/editor.js:61951 build/editor.js:75359
+msgid "After Text"
+msgstr "텍스트 후"
+
+#: build/editor.js:18628 build/editor.js:62126
+msgid "Length"
+msgstr "길이"
+
+#: build/editor.js:62289
+msgid "Parent Only"
+msgstr "부모 전용"
+
+#: build/editor.js:62293
+msgid "Inline with Meta"
+msgstr "메타와 일치하는 방식으로"
+
+#: build/editor.js:62296
+msgid "Top Corner"
+msgstr "맨 위 모퉁이"
+
+#: build/editor.js:56038 build/editor.js:62485 build/editor.js:75433
+#: build/editor.js:75523
+msgid "HTML Tag"
+msgstr "HTML 태그"
+
+#: build/editor.js:62613
+msgid "Button BG Color"
+msgstr "버튼 배경 색"
+
+#: build/editor.js:62625
+msgid "Text Color"
+msgstr "텍스트 색"
+
+#: build/editor.js:62690
+msgid "Numbered"
+msgstr "번호가 매겨진"
+
+#: build/editor.js:62849
+msgid "Use Pagination"
+msgstr "페이지네이션 사용하기"
+
+#: build/editor.js:62959 build/editor.js:75607 build/editor.js:95882
+msgid "Query"
+msgstr "질문"
+
+#: build/editor.js:55544 build/editor.js:62961 build/editor.js:75609
+#: build/editor.js:90450
+msgid "Layout"
+msgstr "레이아웃"
+
+#: build/editor.js:55281 build/editor.js:62965 build/editor.js:75613
+msgid "Design"
+msgstr "디자인"
+
+#: build/editor.js:63078 build/editor.js:75674
+msgid "ID"
+msgstr "아이디"
+
+#: build/editor.js:63079 build/editor.js:75675
+msgid "Modified"
+msgstr "수정된"
+
+#: build/editor.js:63080 build/editor.js:75676
+msgid "Rand"
+msgstr "랜드"
+
+#: build/editor.js:63081 build/editor.js:75677
+msgid "Parent"
+msgstr "부모"
+
+#: build/editor.js:63082 build/editor.js:75678
+msgid "Relevance"
+msgstr "관련성"
+
+#: build/editor.js:63083 build/editor.js:75679 build/editor.js:79424
+msgid "Name"
+msgstr "이름"
+
+#: build/editor.js:63085 build/editor.js:75681
+msgid "Menu Order"
+msgstr "메뉴 주문"
+
+#: build/editor.js:63100 build/editor.js:75696
+msgid "Order By"
+msgstr "주문하기"
+
+#: build/editor.js:63156
+msgid "Post Offset"
+msgstr "포스트 오프셋"
+
+#: build/editor.js:63202 build/editor.js:75745
+msgid "Descending"
+msgstr "하강중"
+
+#: build/editor.js:63205 build/editor.js:75748
+msgid "Ascending"
+msgstr "상승 중"
+
+#: build/editor.js:63216 build/editor.js:75759
+msgid "Post Order"
+msgstr "게시 주문"
+
+#: build/editor.js:63309 build/editor.js:75854
+msgid "Select Post Type"
+msgstr "게시물 유형 선택"
+
+#: build/editor.js:63373
+msgid "Per Page"
+msgstr "페이지 당"
+
+#: build/editor.js:63476 build/editor.js:75966
+msgid "Select Taxonomies"
+msgstr "분류 선택"
+
+#: build/editor.js:56097 build/editor.js:63569 build/editor.js:76047
+msgid "1"
+msgstr "일"
+
+#: build/editor.js:56100 build/editor.js:63572 build/editor.js:76050
+msgid "2"
+msgstr "2"
+
+#: build/editor.js:56103 build/editor.js:63575 build/editor.js:76053
+msgid "3"
+msgstr "3"
+
+#: build/editor.js:56106 build/editor.js:63578 build/editor.js:76056
+msgid "4"
+msgstr "4"
+
+#: build/editor.js:65167
+msgid "Post Grid"
+msgstr "포스트 그리드"
+
+#: build/editor.js:65168
+msgid ""
+"A highly customizable grid display that can query data from any post type."
+msgstr "모든 게시물 유형에서 데이터를 쿼리할 수 있는 매우 사용자 정의 가능한 그리드 디스플레이."
+
+#: build/editor.js:65178
+msgid "post grid"
+msgstr "포스트 그리드"
+
+#: build/editor.js:66537
+msgid "Contained"
+msgstr "포함된"
+
+#: build/editor.js:66549
+msgid "Contained Content"
+msgstr "포함된 콘텐츠"
+
+#: build/editor.js:66633
+msgid "Constraint"
+msgstr "제약"
+
+#: build/editor.js:66810
+msgid "row"
+msgstr "행"
+
+#: build/editor.js:67232
+msgid "Select a variation to start with."
+msgstr "시작할 변형을 선택하세요."
+
+#: build/editor.js:68026
+msgid "Up"
+msgstr "위로"
+
+#: build/editor.js:68029
+msgid "Down"
+msgstr "아래로"
+
+#: build/editor.js:68075
+msgid "Image Height"
+msgstr "이미지 높이"
+
+#: build/editor.js:68078
+msgid "Image Width"
+msgstr "이미지 너비"
+
+#: build/editor.js:68109
+msgid "Mode"
+msgstr "모드"
+
+#: build/editor.js:68170
+msgid "Mask Edges"
+msgstr "가장자리 마스킹"
+
+#: build/editor.js:68297
+msgid "Scrolling Marquee"
+msgstr "스크롤링 마퀴"
+
+#: build/editor.js:68298
+msgid "A block for scrolling content."
+msgstr "콘텐츠를 스크롤하는 블록."
+
+#: build/editor.js:68305
+msgid "marquee"
+msgstr "마키니"
+
+#: build/editor.js:68305
+msgid "scrolling"
+msgstr "스크롤링"
+
+#: build/editor.js:68305 build/editor.js:82695
+msgid "text"
+msgstr "텍스트"
+
+#: build/editor.js:68470 build/editor.js:79795
+msgid "Filled"
+msgstr "채워진"
+
+#: build/editor.js:68794 build/editor.js:79820
+msgid "Star Rating"
+msgstr "별점"
+
+#: build/editor.js:68795
+msgid "A star rating block to visually represent a numerical rating."
+msgstr "숫자 등급을 시각적으로 나타내는 별 등급 블록"
+
+#: build/editor.js:68802 build/editor.js:78860
+msgid "star"
+msgstr "별"
+
+#: build/editor.js:68802 build/editor.js:78860
+msgid "rating"
+msgstr "평가"
+
+#: build/editor.js:68916 build/editor.js:79831
+msgid "Star Style"
+msgstr "스타 스타일"
+
+#: build/editor.js:68927 build/editor.js:79845
+msgid "Rating"
+msgstr "평가"
+
+#: build/editor.js:69369
+msgid "Tab Section"
+msgstr "탭 섹션"
+
+#: build/editor.js:69370
+msgid "A section for content inside each tab."
+msgstr "각 탭 안의 콘텐츠를 위한 섹션."
+
+#: build/editor.js:69377 build/editor.js:71050
+msgid "tabs"
+msgstr "탭"
+
+#: build/editor.js:69766
+msgid "Tab Title.."
+msgstr "탭 제목.."
+
+#: build/editor.js:69891
+msgid "Tab Title"
+msgstr "탭 제목"
+
+#: build/editor.js:69925
+msgid "Are you certain you want to proceed with deleting this tab?"
+msgstr "이 탭을 삭제하시겠습니까?"
+
+#: build/editor.js:69949
+msgid "Move Tab Up"
+msgstr "탭을 위로 이동하기"
+
+#: build/editor.js:69949
+msgid "Move Tab Left"
+msgstr "탭을 왼쪽으로 이동합니다."
+
+#: build/editor.js:69960
+msgid "Move Tab Down"
+msgstr "탭을 아래로 이동하기"
+
+#: build/editor.js:69960
+msgid "Move Tab Right"
+msgstr "탭을 오른쪽으로 이동하세요."
+
+#: build/editor.js:48457 build/editor.js:69975
+msgid "Add New Tab"
+msgstr "새 탭 추가"
+
+#: build/editor.js:69981
+msgid "Duplicate Tab"
+msgstr "탭 복제"
+
+#: build/editor.js:69987
+msgid "Delete Tab"
+msgstr "탭 삭제"
+
+#: build/editor.js:70101
+msgid "Tab 1"
+msgstr "탭 1"
+
+#: build/editor.js:70106
+msgid "Tab 2"
+msgstr "탭 2"
+
+#: build/editor.js:70111
+msgid "Tab 3"
+msgstr "탭 3"
+
+#: build/editor.js:70937
+msgid "Auto Rotate"
+msgstr "자동 회전"
+
+#: build/editor.js:70946
+msgid "Styling"
+msgstr "스타일링"
+
+#: build/editor.js:71042
+msgid "Tabs"
+msgstr "탭"
+
+#: build/editor.js:71043
+msgid ""
+"Organize content into distinct tabs, reducing clutter and improve "
+"navigation."
+msgstr "내용을 구별되는 탭으로 정리하여 혼잡을 줄이고 내비게이션을 개선하세요."
+
+#: build/editor.js:72652 build/editor.js:72791
+msgid "Enabled"
+msgstr "활성화됨"
+
+#: build/editor.js:72717
+msgid "Stop on Interaction"
+msgstr "상호 작용 중지"
+
+#: build/editor.js:72734
+msgid "Preview Auto Rotate"
+msgstr "미리보기 자동 회전"
+
+#: build/editor.js:53533 build/editor.js:72824
+msgid "Visibility"
+msgstr "가시성"
+
+#: build/editor.js:72943
+msgid "Horizontal Alignment"
+msgstr "수평 정렬"
+
+#: build/editor.js:72943
+msgid "Vertical Alignment"
+msgstr "수직 정렬"
+
+#: build/editor.js:73124
+msgid "Nav Width"
+msgstr "네비게이션 너비"
+
+#: build/editor.js:73163
+msgid "Tab Location"
+msgstr "탭 위치"
+
+#: build/editor.js:73195
+msgid "Item Overflow"
+msgstr "아이템 오버플로우"
+
+#: build/editor.js:73220
+msgid "Starting Tab"
+msgstr "탭 시작"
+
+#: build/editor.js:73378
+msgid "Min Width"
+msgstr "최소 너비"
+
+#: build/editor.js:73688
+msgid "Stretch Panel"
+msgstr "스트레치 패널"
+
+#: build/editor.js:73741
+msgid "Link Active"
+msgstr "활성화된 링크"
+
+#: build/editor.js:73743
+msgid "Nav Panel"
+msgstr "내비게이션 패널"
+
+#: build/editor.js:78186
+msgid "John Doe.."
+msgstr "존 도.."
+
+#: build/editor.js:78197
+msgid "@nectarblocks.."
+msgstr "@nectarblocks.."
+
+#: build/editor.js:78795
+msgid "“Enter the testimonial text here..”"
+msgstr "\"여기에 추천사 텍스트를 입력하세요.\""
+
+#: build/editor.js:78852
+msgid "Testimonial"
+msgstr "검증된 후기"
+
+#: build/editor.js:78853
+msgid "Build trust and credibility by showcasing customer feedback."
+msgstr "고객 피드백을 전시하여 신뢰와 신뢰성을 구축하세요."
+
+#: build/editor.js:79026
+msgid ""
+"This is a testimonial block. Incorporating genuine testimonials not only "
+"enhances your reputation but also fosters a sense of transparency and "
+"assurance, helping prospective customers make informed decisions with "
+"confidence."
+msgstr "이것은 추천 사례 블록입니다. 진정한 추천 사례를 통합하는 것은 귀하의 평판을 향상시킬 뿐만 아니라 투명성과"
+
+#: build/editor.js:79212
+msgid ""
+"This is a testimonial block. Incorporating <mark style=\"background-"
+"color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
+"only enhances your reputation but also fosters a sense of transparency and "
+"assurance, helping prospective customers make <mark style=\"background-"
+"color:#f1ffa8\" class=\"has-inline-color\">informed decisions with "
+"confidence.</mark>"
+msgstr ""
+"이것은 추천 사항 블록입니다. <mark style=\"background-color:#f1ffa8\" class=\"has-"
+"inline-color\">진정한 추천 사항</mark>을 통합하는 것은 귀하의 평판을"
+
+#: build/editor.js:79400
+msgid "Quote"
+msgstr "인용문"
+
+#: build/editor.js:79413
+msgid "Quote Size"
+msgstr "인용문 크기"
+
+#: build/editor.js:79437
+msgid "Subtitle"
+msgstr "자막"
+
+#: build/editor.js:79541
+msgid "Style 1"
+msgstr "양식 1"
+
+#: build/editor.js:79547
+msgid "Style 2"
+msgstr "스타일 2"
+
+#: build/editor.js:79699 build/editor.js:89919
+msgid "Image Settings"
+msgstr "이미지 설정"
+
+#: build/editor.js:80913
+msgid "Highlight Type"
+msgstr "강조 유형"
+
+#: build/editor.js:80990
+msgid "Remove Effect"
+msgstr "효과 제거"
+
+#: build/editor.js:81016
+msgid "Highlight Color"
+msgstr "강조 색"
+
+#: build/editor.js:81038 build/editor.js:81053 build/editor.js:81074
+msgid "Text Highlight"
+msgstr "텍스트 강조"
+
+#: build/editor.js:81675
+msgid "Trigger"
+msgstr "트리거"
+
+#: build/editor.js:81676
+msgid ""
+"Note: Using the Scroll Position option will remove any text highlights."
+msgstr "참고: 스크롤 위치 옵션을 사용하면 텍스트 하이라이트가 제거됩니다."
+
+#: build/editor.js:81696
+msgid "Highlight Draw"
+msgstr "강조 그리기"
+
+#: build/editor.js:81727
+msgid "Stagger"
+msgstr "비틀거리다"
+
+#: build/editor.js:22716 build/editor.js:81765 build/editor.js:100433
+msgid "Delay"
+msgstr "지연"
+
+#: build/editor.js:81832
+msgid "Preview Animations"
+msgstr "애니메이션 미리보기"
+
+#: build/editor.js:82459
+msgid ""
+"Clip the background color/image to the text. Enabling this will disable text"
+" animations and text highlights."
+msgstr ""
+"텍스트의 배경 색상/이미지를 텍스트에 맞게 자릅니다. 이 기능을 활성화하면 텍스트 애니메이션과 텍스트 강조 기능이 비활성화됩니다."
+
+#: build/editor.js:82492
+msgid "Text Animation"
+msgstr "텍스트 애니메이션"
+
+#: build/editor.js:82614
+msgid "Text block"
+msgstr "텍스트 블록"
+
+#: build/editor.js:82614
+msgid "Empty block; start writing or type forward slash to choose a block"
+msgstr "빈 블록; 쓰기를 시작하거나 블록을 선택하려면 슬래시를 입력하세요."
+
+#: build/editor.js:82616
+msgid "Type / to choose a block or start typing..."
+msgstr "블록을 선택하려면 /를 입력하거나 직접 입력하세요."
+
+#: build/editor.js:82688
+msgid "The core block for adding text & headings."
+msgstr "텍스트 및 제목을 추가하는 핵심 블록입니다."
+
+#: build/editor.js:82695
+msgid "paragraph"
+msgstr "문단"
+
+#: build/editor.js:82695
+msgid "heading"
+msgstr "헤딩"
+
+#: build/editor.js:82717
+msgid ""
+"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+"my website. I live in Los Angeles, have a great dog named Jack, and I like "
+"piña coladas. (And gettin' caught in the rain.)"
+msgstr "안녕하세요! 낮에는 자전거 메신저이고, 밤에는 배우를 꿈꾸는 사람입니다. 이것은 제 웹사이트입니다. 저는 로스앤젤레스에"
+
+#: build/editor.js:83454 build/editor.js:83703
+msgid "Watch Video"
+msgstr "비디오를 시청하세요."
+
+#: build/editor.js:84200
+msgid "Video Lightbox"
+msgstr "비디오 라이트박스"
+
+#: build/editor.js:84201
+msgid "Open a video in a lightbox."
+msgstr "라이트박스에서 비디오를 열기."
+
+#: build/editor.js:84208 build/editor.js:85563
+msgid "video"
+msgstr "비디오"
+
+#: build/editor.js:84208
+msgid "lightbox"
+msgstr "라이트박스"
+
+#: build/editor.js:84370
+msgid "Local"
+msgstr "현지"
+
+#: build/editor.js:84373
+msgid "External"
+msgstr "외부"
+
+#: build/editor.js:84406
+msgid "Video URL"
+msgstr "비디오 URL"
+
+#: build/editor.js:84468
+msgid "Mouse Attract"
+msgstr "마우스를 유혹하다"
+
+#: build/editor.js:84581
+msgid "Play Button"
+msgstr "재생 버튼"
+
+#: build/editor.js:84639
+msgid "Play Icon Color"
+msgstr "재생 아이콘 색깔"
+
+#: build/editor.js:84648
+msgid "Icon BG"
+msgstr "아이콘 배경"
+
+#: build/editor.js:84657
+msgid "Play Icon BG Color"
+msgstr "재생 아이콘 배경색"
+
+#: build/editor.js:84725
+msgid "Preview"
+msgstr "미리보기"
+
+#: build/editor.js:84738 build/editor.js:85438
+msgid "Preview Image Settings"
+msgstr "미리보기 이미지 설정"
+
+#: build/editor.js:84905
+msgid "Flow"
+msgstr "흐름"
+
+#: build/editor.js:84910
+msgid "New Line"
+msgstr "새로운 줄"
+
+#: build/editor.js:61850 build/editor.js:84913
+msgid "Inline"
+msgstr "인라인"
+
+#: build/editor.js:84949
+msgid "Play Text Color"
+msgstr "텍스트 색상 변경"
+
+#: build/editor.js:85436
+msgid "Preview Image"
+msgstr "미리보기 이미지"
+
+#: build/editor.js:85494 build/editor.js:85555
+msgid "Video Player"
+msgstr "비디오 플레이어"
+
+#: build/editor.js:85499
+msgid "Upload a video file, pick one from your media library."
+msgstr "비디오 파일을 업로드하고 미디어 라이브러리에서 하나를 선택하세요."
+
+#: build/editor.js:85556
+msgid "Play a self-hosted video."
+msgstr "자체 호스팅된 비디오를 재생하세요."
+
+#: build/editor.js:85698 build/editor.js:85749 build/editor.js:85772
+#: build/editor.js:85794 build/editor.js:86565
+msgid "Enable"
+msgstr "활성화하기"
+
+#: build/editor.js:85701 build/editor.js:85752 build/editor.js:85775
+#: build/editor.js:85797 build/editor.js:86568
+msgid "Disable"
+msgstr "비활성화"
+
+#: build/editor.js:85714
+msgid "Autoplay Trigger"
+msgstr "자동 재생 트리거"
+
+#: build/editor.js:85734
+msgid "Learn more about using this trigger in the"
+msgstr "이 트리거를 사용하는 방법에 대해 더 알아보세요."
+
+#: build/editor.js:85738
+msgid "documentation"
+msgstr "문서화"
+
+#: build/editor.js:85765
+msgid "Muted"
+msgstr "음소거된"
+
+#: build/editor.js:85788
+msgid "Controls"
+msgstr "제어"
+
+#: build/editor.js:85810 build/editor.js:86067 build/editor.js:86660
+msgid "Lazy Load"
+msgstr "게으른 로드"
+
+#: build/editor.js:85884 build/editor.js:89839
+msgid "Change Image"
+msgstr "이미지 변경하기"
+
+#: build/editor.js:86092
+msgid "Background Image"
+msgstr "배경 이미지"
+
+#: build/editor.js:86052 build/editor.js:86645
+msgid "Set a custom stacking order."
+msgstr "사용자 정의 쌓임 순서를 설정하세요."
+
+#: build/editor.js:86226
+msgid "Repeat"
+msgstr "반복하세요."
+
+#: build/editor.js:86233
+msgid "No Repeat"
+msgstr "반복 없음"
+
+#: build/editor.js:86237
+msgid "Repeat All Directions"
+msgstr "모든 지시사항을 반복해 주세요."
+
+#: build/editor.js:86241
+msgid "Repeat Horizontal"
+msgstr "수평으로 반복하기"
+
+#: build/editor.js:86245
+msgid "Repeat Vertical"
+msgstr "수직 반복"
+
+#: build/editor.js:86299
+msgid "Attachment"
+msgstr "첨부 파일"
+
+#: build/editor.js:86304
+msgid "Scroll"
+msgstr "스크롤"
+
+#: build/editor.js:86307
+msgid "Fixed"
+msgstr "고정된"
+
+#: build/editor.js:86387 build/editor.js:94092
+msgid "Change Video"
+msgstr "비디오 변경하기"
+
+#: build/editor.js:86523
+msgid "Background Video"
+msgstr "배경 비디오"
+
+#: build/editor.js:57535 build/editor.js:86583
+msgid "Fit"
+msgstr "적합합니다."
+
+#: build/editor.js:87241 build/editor.js:89242
+msgid "Nectar"
+msgstr "넥타르"
+
+#: build/editor.js:87250 build/editor.js:87313
+msgid "Nectar Global Colors"
+msgstr "넥타 글로벌 색상"
+
+#: build/editor.js:87255
+msgid "WP Custom Color Scheme"
+msgstr "WP 사용자 정의 색상 구성"
+
+#: build/editor.js:87261
+msgid "WP Theme Color Scheme"
+msgstr "WP 테마 색 구성"
+
+#: build/editor.js:87274
+msgid "WP Theme"
+msgstr "WP 테마"
+
+#: build/editor.js:87284
+msgid "WP Custom"
+msgstr "WP 커스텀"
+
+#: build/editor.js:87429
+msgid "Background Color"
+msgstr "배경 색"
+
+#: build/editor.js:87481 build/editor.js:87494 build/editor.js:90684
+msgid "Transparent"
+msgstr "투명한"
+
+#: build/editor.js:87484
+msgid "Radial Gradient"
+msgstr "원형 그라데이션"
+
+#: build/editor.js:87486
+msgid "Linear Gradient"
+msgstr "선형 그라데이션"
+
+#: build/editor.js:87606
+msgid "Gradient"
+msgstr "그라데이션"
+
+#: build/editor.js:87663 build/editor.js:90626
+msgid "Remove Color"
+msgstr "색상 제거"
+
+#: build/editor.js:88115 build/editor.js:88148 build/editor.js:88181
+msgid "Swift"
+msgstr "스위프트"
+
+#: build/editor.js:88119 build/editor.js:88152 build/editor.js:88185
+msgid "Sine"
+msgstr "사인"
+
+#: build/editor.js:88123 build/editor.js:88156 build/editor.js:88189
+msgid "Cubic"
+msgstr "정육면체"
+
+#: build/editor.js:88127 build/editor.js:88160 build/editor.js:88193
+msgid "Quint"
+msgstr "퀸트"
+
+#: build/editor.js:88131 build/editor.js:88164 build/editor.js:88197
+msgid "Circular"
+msgstr "원형"
+
+#: build/editor.js:88135 build/editor.js:88168 build/editor.js:88201
+msgid "Quad"
+msgstr "사각형"
+
+#: build/editor.js:88139 build/editor.js:88172 build/editor.js:88205
+msgid "Quart"
+msgstr "쿼트"
+
+#: build/editor.js:88143 build/editor.js:88176 build/editor.js:88209
+msgid "Expo"
+msgstr "엑스포"
+
+#: build/editor.js:88294
+msgid "Easing Preview"
+msgstr "미리보기 완화"
+
+#: build/editor.js:88349
+msgid "Ease In Out"
+msgstr "완화 들어가기/나오기"
+
+#: build/editor.js:88392
+msgid "Ease Out"
+msgstr "완화하다"
+
+#: build/editor.js:88417
+msgid "Ease In"
+msgstr "완화되다"
+
+#: build/editor.js:88712
+msgid "Pick a color"
+msgstr "색을 고르세요."
+
+#: build/editor.js:75449 build/editor.js:88819
+msgid "Label"
+msgstr "라벨"
+
+#: build/editor.js:88902
+msgid "Add Global Color"
+msgstr "글로벌 색상 추가"
+
+#: build/editor.js:88904
+msgid "Add Global Gradient"
+msgstr "글로벌 그라디언트 추가"
+
+#: build/editor.js:89069 build/editor.js:89077
+msgid "Palette Presets"
+msgstr "팔레트 프리셋"
+
+#: build/editor.js:89151
+msgid "Delete Global Color Confirmation"
+msgstr "전역 색상 확인 삭제"
+
+#: build/editor.js:89158 build/editor.js:92568
+msgid "Are you sure you want to delete"
+msgstr "삭제하시겠습니까?"
+
+#: build/editor.js:89160 build/editor.js:92570
+msgid "This is a destructive action that can not be undone."
+msgstr "이것은 되돌릴 수 없는 파괴적인 행동입니다."
+
+#: build/editor.js:89164
+msgid ""
+"If you're already using this color in blocks, you can optionally reassign it"
+" to another."
+msgstr "이미 이 색상을 블록에서 사용 중이라면, 다른 색상으로 선택적으로 재할당할 수 있습니다."
+
+#: build/editor.js:89166 build/editor.js:92576
+msgid "to nothing"
+msgstr "아무것도 없이"
+
+#: build/editor.js:89191 build/editor.js:92587
+msgid "Confirm Delete"
+msgstr "삭제 확인"
+
+#: build/editor.js:89232
+msgid "Tranquility"
+msgstr "평온함"
+
+#: build/editor.js:89252
+msgid "Majestic Forest"
+msgstr "위대한 숲"
+
+#: build/editor.js:89262
+msgid "Rustic Sunset"
+msgstr "전원적인 일몰"
+
+#: build/editor.js:89272
+msgid "Savannah"
+msgstr "사바나"
+
+#: build/editor.js:89282
+msgid "Bright Royal"
+msgstr "밝은 왕실"
+
+#: build/editor.js:89292
+msgid "Organic Zen"
+msgstr "유기농 젠"
+
+#: build/editor.js:89302
+msgid "Camp Fire"
+msgstr "캠프 파이어"
+
+#: build/editor.js:89312
+msgid "Electric Harmony"
+msgstr "전기적인 조화"
+
+#: build/editor.js:89349
+msgid "Core Colors"
+msgstr "핵심 색상"
+
+#: build/editor.js:89350
+msgid "Custom Colors"
+msgstr "사용자 정의 색상"
+
+#: build/editor.js:89351
+msgid "Core Gradients"
+msgstr "핵심 그라데이션"
+
+#: build/editor.js:89352
+msgid "Custom Gradients"
+msgstr "사용자 정의 그라데이션"
+
+#: build/editor.js:89379
+msgid "Solids"
+msgstr "고체체"
+
+#: build/editor.js:89399
+msgid "Gradients"
+msgstr "그라데이션"
+
+#: build/editor.js:89534
+msgid "Rename Font"
+msgstr "폰트 이름 바꾸기"
+
+#: build/editor.js:89559
+msgid "New Name"
+msgstr "새로운 이름"
+
+#: build/editor.js:89587
+msgid "Save Font Name"
+msgstr "폰트 이름 저장"
+
+#: build/editor.js:89654
+msgid "Rename"
+msgstr "이름 바꾸기"
+
+#: build/editor.js:89717
+msgid "Add New Font Rule"
+msgstr "새로운 글꼴 규칙 추가"
+
+#: build/editor.js:89731
+msgid "Core Font Rules"
+msgstr "핵심 글꼴 규칙"
+
+#: build/editor.js:89748
+msgid "Custom Font Rules"
+msgstr "사용자 정의 글꼴 규칙"
+
+#: build/editor.js:90387
+msgid "Top Left"
+msgstr "왼쪽 상단"
+
+#: build/editor.js:90388
+msgid "Top Center"
+msgstr "상단 중앙"
+
+#: build/editor.js:90389
+msgid "Top Right"
+msgstr "오른쪽 상단"
+
+#: build/editor.js:90390
+msgid "Center Left"
+msgstr "중앙 왼쪽"
+
+#: build/editor.js:90391
+msgid "Center Center"
+msgstr "센터 센터"
+
+#: build/editor.js:90392
+msgid "Center Right"
+msgstr "중앙 우파"
+
+#: build/editor.js:90393
+msgid "Bottom Left"
+msgstr "왼쪽 하단"
+
+#: build/editor.js:90394
+msgid "Bottom Center"
+msgstr "하단 중앙"
+
+#: build/editor.js:90395
+msgid "Bottom Right"
+msgstr "오른쪽 하단"
+
+#: build/editor.js:90460
+msgid "Motion / FX"
+msgstr "모션 / 효과"
+
+#: build/editor.js:92419
+msgid "Change Text Element"
+msgstr "텍스트 요소 변경"
+
+#: build/editor.js:92561
+msgid "Delete Global Font Confirmation"
+msgstr "글로벌 글꼴 확인 삭제"
+
+#: build/editor.js:92574
+msgid ""
+"If you're already using this font in blocks, you can optionally reassign it "
+"to another."
+msgstr "만약 당신이 이미 이 글꼴을 블록에서 사용 중이라면, 다른 것으로 선택적으로 재할당할 수 있습니다."
+
+#: build/editor.js:92777
+msgid "Min"
+msgstr "죄송합니다, \"Min\"은 문맥이 없어서 번역할 수 없습니다. 더 많은 정보를 제공해주시면 도와드릴 수 있을 것 같아요."
+
+#: build/editor.js:92796
+msgid "Max"
+msgstr "맥스"
+
+#: build/editor.js:92929
+msgid "Select a font"
+msgstr "폰트를 선택하세요."
+
+#: build/editor.js:93107
+msgid "Font Preview"
+msgstr "글꼴 미리보기"
+
+#: build/editor.js:93114
+msgid ""
+"The quick brown fox jumps over the lazy dog and feels as if he were in the "
+"seventh heaven of typography."
+msgstr "빠른 갈색 여우가 게으른 개를 뛰어넘어 일곱 번째 천국에 있는 듯한 기분을 느낍니다."
+
+#: build/editor.js:93668
+msgid "Font Source"
+msgstr "글꼴 소스"
+
+#: build/editor.js:93681
+msgid "Font Family"
+msgstr "글꼴 패밀리"
+
+#: build/editor.js:93697
+msgid "Font Weight"
+msgstr "글꼴 두께"
+
+#: build/editor.js:93722
+msgid "Responsive Sizing"
+msgstr "반응형 크기 조절"
+
+#: build/editor.js:93852
+msgid "Font Subset"
+msgstr "글꼴 하위 집합"
+
+#: build/editor.js:93875
+msgid "Letter Spacing"
+msgstr "글자 간격"
+
+#: build/editor.js:94194
+msgid "Video Settings"
+msgstr "비디오 설정"
+
+#: build/editor.js:94612
+msgid "Desktop (Main)"
+msgstr "데스크탑 (주요)"
+
+#: build/editor.js:94614
+msgid "Changes waterfall down through all screen sizes,"
+msgstr "변화는 모든 화면 크기를 통해 폭포처럼 흘러내립니다."
+
+#: build/editor.js:94614
+msgid "unless values are overridden in smaller responsive modes."
+msgstr "더 작은 반응형 모드에서 값이 재정의되지 않는 한."
+
+#: build/editor.js:94621
+msgid "Tablet (1024px and smaller)"
+msgstr "태블릿 (1024px 이하)"
+
+#: build/editor.js:94623
+msgid "Changes waterfall down through all screen sizes smaller than 1024px."
+msgstr "변경 사항은 1024px보다 작은 모든 화면 크기로 흘러내립니다."
+
+#: build/editor.js:94623
+msgid "unless values are overridden in the \"Phone\" responsive mode."
+msgstr "\"Phone\" 반응형 모드에서 값이 재정의되지 않는 한."
+
+#: build/editor.js:94630
+msgid "Phone (768px and smaller)"
+msgstr "휴대전화 (768px 이하)"
+
+#: build/editor.js:94632
+msgid "Changes waterfall down through all screen sizes smaller than 768px."
+msgstr "768px보다 작은 모든 화면 크기로 변경 사항이 흘러내립니다."
+
+#: build/editor.js:94699
+msgid "Hover State"
+msgstr "호버 상태"
+
+#: build/editor.js:94701
+msgid "Freezes the hover state of all elements for easy style adjustments."
+msgstr "모든 요소의 호버 상태를 동결하여 쉬운 스타일 조정이 가능합니다."
+
+#: build/editor.js:94701
+msgid "Setting hover values will override all responsive values."
+msgstr "호버 값 설정은 모든 반응형 값들을 덮어씁니다."
+
+#: build/editor.js:94788
+msgid "Template Library"
+msgstr "템플릿 라이브러리"
+
+#: build/editor.js:95412
+msgid "Nectarblocks Template Library"
+msgstr "넥터블록 템플릿 라이브러리"
+
+#: build/editor.js:95425
+msgid "Search templates.."
+msgstr "템플릿 검색.."
+
+#: build/editor.js:95709
+msgid "Nectarblocks license not active."
+msgstr "넥터블록 라이센스가 활성화되지 않았습니다."
+
+#: build/editor.js:95711
+msgid "Please add your license key to the"
+msgstr "라이센스 키를 추가해주세요."
+
+#: build/editor.js:95715
+msgid "Nectarblocks Authorization tab."
+msgstr "넥타블록 인증 탭."
+
+#: build/editor.js:95787
+msgid "Try a different search query or category."
+msgstr "다른 검색어나 카테고리를 시도해보세요."
+
+#: build/editor.js:95858
+msgid "About"
+msgstr "대하여"
+
+#: build/editor.js:95861
+msgid "Call To Action"
+msgstr "호출 대 action"
+
+#: build/editor.js:95873
+msgid "Intro"
+msgstr "소개"
+
+#: build/editor.js:95879
+msgid "Pricing"
+msgstr "가격 설정"
+
+#: build/editor.js:95885
+msgid "Quotes"
+msgstr "인용문"
+
+#: build/editor.js:95888
+msgid "Scroll Section"
+msgstr "스크롤 섹션"
+
+#: build/editor.js:95891
+msgid "Text Layouts"
+msgstr "텍스트 레이아웃"
+
+#: build/editor.js:96025
+msgid "Search for images by keywords..."
+msgstr "키워드로 이미지를 검색하세요..."
+
+#: build/editor.js:96099
+msgid "All Colors"
+msgstr "모든 색깔"
+
+#: build/editor.js:96099
+msgid "Black"
+msgstr "검정색"
+
+#: build/editor.js:96099
+msgid "White"
+msgstr "하얀색"
+
+#: build/editor.js:96099
+msgid "Yellow"
+msgstr "노란색"
+
+#: build/editor.js:96099
+msgid "Orange"
+msgstr "오렌지"
+
+#: build/editor.js:96099
+msgid "Red"
+msgstr "빨간색"
+
+#: build/editor.js:96099
+msgid "Magenta"
+msgstr "마젠타"
+
+#: build/editor.js:96099
+msgid "Purple"
+msgstr "보라색"
+
+#: build/editor.js:96099
+msgid "Blue"
+msgstr "파란색"
+
+#: build/editor.js:96099
+msgid "Teal"
+msgstr "청록색"
+
+#: build/editor.js:96099
+msgid "Green"
+msgstr "초록색"
+
+#: build/editor.js:96163
+msgid "All Orientations"
+msgstr "모든 방향"
+
+#: build/editor.js:96163
+msgid "Landscape"
+msgstr "풍경"
+
+#: build/editor.js:96163
+msgid "Portrait"
+msgstr "초상화"
+
+#: build/editor.js:96163
+msgid "Squarish"
+msgstr "사각형 모양의"
+
+#: build/editor.js:96261
+msgid "Photo by"
+msgstr "사진 by"
+
+#: build/editor.js:96338
+msgid "There was an error importing"
+msgstr "가져오는 중에 오류가 발생했습니다."
+
+#: build/editor.js:96371 build/editor.js:96375
+msgid "Import Image"
+msgstr "이미지 가져오기"
+
+#: build/editor.js:96615
+msgid "No results found"
+msgstr "결과가 없습니다."
+
+#: build/editor.js:96617
+msgid "Try searching again."
+msgstr "다시 검색해보세요."
+
+#: build/editor.js:96678 build/editor.js:96719
+msgid "Nectar Images"
+msgstr "넥타 이미지"
+
+#: build/editor.js:96899
+msgid "Welcome Guide"
+msgstr "환영 가이드"
+
+#: build/editor.js:96910
+msgid "Getting Started with Nectarblocks"
+msgstr "Nectarblocks로 시작하기"
+
+#: build/editor.js:96914
+msgid ""
+"To start creating a page, you can add blocks by clicking the plus icon "
+"located on the left of the top toolbar."
+msgstr "페이지를 만들기 시작하려면, 상단 도구 모음 왼쪽에 있는 플러스 아이콘을 클릭하여 블록을 추가할 수 있습니다."
+
+#: build/editor.js:96918
+msgid ""
+"The Nectarblocks category will appear at the top of the block list, with "
+"each block highlighted in blue for easy identification."
+msgstr "넥터블록 카테고리는 블록 목록 상단에 나타나며, 각 블록은 쉽게 식별할 수 있도록 파란색으로 강조됩니다."
+
+#: build/editor.js:96927
+msgid "Meet the Template Library"
+msgstr "템플릿 라이브러리를 만나보세요."
+
+#: build/editor.js:96931
+msgid ""
+"Jump-start your website creation with our professionally designed collection"
+" of pre-made templates."
+msgstr "저희가 프로페셔널하게 디자인한 미리 만들어진 템플릿 컬렉션으로 웹사이트 제작을 빠르게 시작해보세요."
+
+#: build/editor.js:96935
+msgid ""
+"You can easily access the library by clicking on the \"Template Library\" "
+"button on the top toolbar. All templates from Nectarblocks are dynamic and "
+"will adapt to fit your current global color and typography settings."
+msgstr ""
+"상단 도구 모음에서 \"템플릿 라이브러리\" 버튼을 클릭하여 라이브러리에 쉽게 액세스할 수 있습니다. Nectarblocks의 모든 템"
+
+#: build/editor.js:96957
+msgid ""
+"Access global settings by clicking the Nectarblocks logo at the top right. "
+"Create reusable color schemes and typography rules that can then be applied "
+"to blocks throughout your pages."
+msgstr ""
+"맨 오른쪽 상단의 Nectarblocks 로고를 클릭하여 전역 설정에 액세스하세요. 페이지 전체의 블록에 적용할 수 있는 재사용 가능한 "
+"색상 구성표와 타"
+
+#: build/editor.js:96967
+msgid "Block Settings"
+msgstr "블록 설정"
+
+#: build/editor.js:96971
+msgid ""
+"To access settings for a block, simply click on the Settings icon while the "
+"desired block is selected."
+msgstr "원하는 블록을 선택한 후 설정에 액세스하려면 설정 아이콘을 클릭하십시오."
+
+#: build/editor.js:96975
+msgid ""
+"Each block offers an extensive range of customization options and settings, "
+"empowering you to harness your global settings effectively. You can easily "
+"maintain consistency and coherence across your entire design."
+msgstr ""
+"각 블록은 다양한 사용자 정의 옵션과 설정을 제공하여 전역 설정을 효과적으로 활용할 수 있도록 돕습니다. 전체 디자인에 일관성과 일치성을"
+
+#: build/editor.js:96985
+msgid "Pro tip: "
+msgstr "전문가 팁:"
+
+#: build/editor.js:96988
+msgid ""
+"If you're struggling to select a specific block, check the Document Overview"
+" to easily see the full structure of your page."
+msgstr "특정 블록을 선택하는 데 어려움을 겪고 있다면, 문서 개요를 확인하여 페이지의 전체 구조를 쉽게 볼 수 있습니다."
+
+#: build/editor.js:96998
+msgid "Responsive and Hover Modes"
+msgstr "반응형 및 호버 모드"
+
+#: build/editor.js:97002
+msgid ""
+"To switch between editing modes, click on one of the icons located at the "
+"top-middle of the interface. Any changes you make to the settings will "
+"affect the selected mode only. This allows for easy customization to "
+"responsive and hover settings."
+msgstr "편집 모드를 전환하려면 인터페이스 상단 중간에 위치한 아이콘 중 하나를 클릭하십시오. 설정을 변경하면 선택한 모드에만 영향을"
+
+#: build/editor.js:97004
+msgid "Keep an eye out for settings highlighted in"
+msgstr "강조된 설정을 주의 깊게 살펴보세요."
+
+#: build/editor.js:97006
+msgid "green"
+msgstr "초록색"
+
+#: build/editor.js:97007
+msgid "— these are unique to the selected mode and can be edited separately."
+msgstr "— 이것들은 선택한 모드에 고유하며 별도로 편집할 수 있습니다."
+
+#: build/editor.js:97016
+msgid "It's time to start building"
+msgstr "건설을 시작할 시간이다."
+
+#: build/editor.js:97020
+msgid ""
+"To see this guide again, click the “Display Tutorial” button at the bottom "
+"of the Nectarblocks Global Settings panel."
+msgstr "이 안내서를 다시 보려면 Nectarblocks Global Settings 패널 하단의 \"튜토리얼 표시\" 버튼을 클릭하십시오."
+
+#: build/editor.js:99712
+msgid "Custom Font"
+msgstr "사용자 지정 글꼴"
+
+#: build/editor.js:100346
+msgid "Nectarblocks Post Options"
+msgstr "넥타블록 게시물 옵션"
+
+#: build/editor.js:100350
+msgid "Hide Title"
+msgstr "제목 숨기기"
+
+#: build/editor.js:100366
+msgid "Transparent Header"
+msgstr "투명한 헤더"
+
+#: build/editor.js:100400
+msgid "Header Animation"
+msgstr "헤더 애니메이션"
+
+#: build/editor.js:100837
+msgid "Nectarblocks Guide"
+msgstr "넥터블록 가이드"
+
+#: build/editor.js:100845
+msgid "Display Tutorial"
+msgstr "튜토리얼 보이기"
+
+#: build/editor.js:102651
+msgid "Heading 1"
+msgstr "제목 1"
+
+#: build/editor.js:102654
+msgid "Heading 2"
+msgstr "제목 2"
+
+#: build/editor.js:102657
+msgid "Heading 3"
+msgstr "헤딩 3"
+
+#: build/editor.js:102660
+msgid "Heading 4"
+msgstr "헤딩 4"
+
+#: build/editor.js:102663
+msgid "Heading 5"
+msgstr "제목 5"
+
+#: build/editor.js:102666
+msgid "Heading 6"
+msgstr "헤딩 6"
+
+#: build/editor.js:102669
+msgid "Paragraph"
+msgstr "단락"
+
+#. translators: %s: search query
+#: build/editor.js:95785
+#, js-format
+msgid "No templates found for \"%s\"."
+msgstr "\"%s\"에 대한 템플릿을 찾을 수 없습니다."
+
+#: build/editor.js:23688
+msgid "In View"
+msgstr "보기 중"
+
+#: build/editor.js:23691
+msgid "On Pin"
+msgstr "핀에"
+
+#: build/editor.js:23830
+msgid "Overlap"
+msgstr "겹침"
+
+#: build/editor.js:23833
+msgid ""
+"Advanced Option: This should typically remain disabled. By default, padding "
+"is added to the bottom to push other elements down when your block is "
+"pinned. Enable this option to allow content to scroll over the pinned block."
+msgstr ""
+"고급 옵션: 이 옵션은 일반적으로 비활성화된 상태로 유지되어야 합니다. 기본적으로 블록이 고정될 때 다른 요소를 아래로 밀어내기 위해 "
+"하단에 여백이 추가됩니다. 이 옵션을 활성화하면 콘텐츠가 고정된 블록 위로 스크롤되도록 할 수 있습니다."
+
+#: build/editor.js:23855
+msgid "Begin Animations"
+msgstr "애니메이션 시작"
+
+#: build/editor.js:23880
+msgid "Stagger Children"
+msgstr "아이들을 비틀거리게 하다"
+
+#: build/editor.js:23910
+msgid "Pin On"
+msgstr "핀 온"
+
+#: build/editor.js:29499
+msgid "Normal"
+msgstr "정상적인"
+
+#: build/editor.js:29500
+msgid "Multiply"
+msgstr "곱하다"
+
+#: build/editor.js:29501
+msgid "Screen"
+msgstr "화면"
+
+#: build/editor.js:29503
+msgid "Darken"
+msgstr "어둡게 하다"
+
+#: build/editor.js:29504
+msgid "Lighten"
+msgstr "밝게 하다"
+
+#: build/editor.js:29505
+msgid "Color Dodge"
+msgstr "컬러 닷지"
+
+#: build/editor.js:29506
+msgid "Color Burn"
+msgstr "컬러 번"
+
+#: build/editor.js:29507
+msgid "Hard Light"
+msgstr "하드 라이트"
+
+#: build/editor.js:29508
+msgid "Soft Light"
+msgstr "부드러운 빛"
+
+#: build/editor.js:29509
+msgid "Difference"
+msgstr "차이"
+
+#: build/editor.js:29510
+msgid "Exclusion"
+msgstr "제외"
+
+#: build/editor.js:29511
+msgid "Hue"
+msgstr "색조"
+
+#: build/editor.js:29514
+msgid "Luminosity"
+msgstr "광도"
+
+#: build/editor.js:29548
+msgid "Blending"
+msgstr "블렌딩"
+
+#: build/editor.js:53414
+msgid "Caption Layout"
+msgstr "캡션 레이아웃"
+
+#: build/editor.js:53516
+msgid "Fade In"
+msgstr "페이드 인"
+
+#: build/editor.js:53517
+msgid "Fade Up"
+msgstr "페이드 업"
+
+#: build/editor.js:53592
+msgid "Show Captions"
+msgstr "자막 표시"
+
+#: build/editor.js:54654
+msgid "Image Click"
+msgstr "이미지 클릭"
+
+#: build/editor.js:55410
+msgid "Click Event"
+msgstr "클릭 이벤트"
+
+#: build/editor.js:55523
+msgid "Standard"
+msgstr "표준"
+
+#: build/editor.js:55527
+msgid "Mosaic"
+msgstr "모자이크"
+
+#: build/editor.js:55531
+msgid "Masonry"
+msgstr "벽돌 쌓기"
+
+#: build/editor.js:56109
+msgid "5"
+msgstr "다섯"
+
+#: build/editor.js:56990
+msgid "Edit Photos in Image Grid"
+msgstr "이미지 그리드에서 사진 편집"
+
+#: build/editor.js:57076
+msgid "Image Grid"
+msgstr "이미지 그리드"
+
+#: build/editor.js:57084
+msgid "image-grid"
+msgstr "이미지 그리드"
+
+#: build/editor.js:61019 build/editor.js:74829
+msgid "Grid"
+msgstr "그리드"
+
+#: build/editor.js:75071
+msgid "Post Count"
+msgstr "게시물 수"
+
+#: build/editor.js:75450
+msgid ""
+"Whether to include the single post type label after the post count. e.g. \"2"
+" Posts\"."
+msgstr "게시물 수 뒤에 단일 게시물 유형 레이블을 포함할지 여부. 예: \"2 게시물\"."
+
+#: build/editor.js:76928
+msgid "Taxonomy Grid"
+msgstr "분류 그리드"
+
+#: build/editor.js:76929
+msgid ""
+"A highly customizable grid display that can query data from any taxonomy "
+"type."
+msgstr "어떤 분류 유형에서든 데이터를 쿼리할 수 있는 고도로 사용자 정의 가능한 그리드 디스플레이."
+
+#: build/editor.js:76939
+msgid "taxonomy grid"
+msgstr "분류 격자"
+
+#: build/editor.js:90210
+msgid "Done"
+msgstr "완료"
+
+#: build/editor.js:95864
+msgid "Features"
+msgstr "기능"
+
+#: build/editor.js:100453
+msgid "CSS Code"
+msgstr "CSS 코드"
+
+#: build/editor.js:100464
+msgid "JS Code"
+msgstr "JS 코드"
+
+#: build/editor.js:101099
+msgid "Open Editor"
+msgstr "편집기 열기"
+
+#: build/editor.js:101121
+#, js-format
+msgid "Edit %s on This Page"
+msgstr "이 페이지에서 %s 편집"
+
+#: build/editor.js:101156
+msgid "Updated. Remember to Save The Post!"
+msgstr "업데이트되었습니다. 게시물을 저장하는 것을 잊지 마세요!"
+
+#: build/editor.js:23910
+msgid "Start On"
+msgstr "시작하다"
+
+#: build/editor.js:45093
+msgid "Row"
+msgstr "행"
+
+#: build/editor.js:18310 build/editor.js:80668 build/editor.js:95894
+msgid "Dynamic Data"
+msgstr "동적 데이터"
+
+#: build/editor.js:18362
+msgid "Field"
+msgstr "들판"
+
+#: build/editor.js:18370
+msgid "Select Field"
+msgstr "필드 선택"
+
+#: build/editor.js:18532
+msgid "Text When False"
+msgstr "거짓일 때 텍스트"
+
+#: build/editor.js:18543
+msgid "Text When True"
+msgstr "텍스트가 참일 때"
+
+#: build/editor.js:18616
+msgid "Strip HTML"
+msgstr "HTML 제거"
+
+#: build/editor.js:18700
+msgid "Image Size"
+msgstr "이미지 크기"
+
+#: build/editor.js:18877
+msgid "Posts/Pages"
+msgstr "게시물/페이지"
+
+#: build/editor.js:18883
+msgid "Select Post/Page"
+msgstr "게시물/페이지 선택"
+
+#: build/editor.js:18940
+msgid "Select Source"
+msgstr "소스 선택"
+
+#: build/editor.js:19001
+msgid "Post Date Modified"
+msgstr "게시 날짜 수정됨"
+
+#: build/editor.js:19052
+msgid "Current Post"
+msgstr "현재 게시물"
+
+#: build/editor.js:19053
+msgid "Other Posts"
+msgstr "다른 게시물"
+
+#: build/editor.js:23783
+msgid "Preview Starting State"
+msgstr "시작 상태 미리보기"
+
+#: build/editor.js:29091
+msgid "Pointer"
+msgstr "포인터"
+
+#: build/editor.js:29092
+msgid "Pointer events: Control how the block can be interacted with."
+msgstr "포인터 이벤트: 블록과의 상호작용 방식을 제어합니다."
+
+#: build/editor.js:32364
+msgid "Be sure to follow the trademark guidelines for your selected icon."
+msgstr "선택한 아이콘에 대한 상표 지침을 반드시 따르세요."
+
+#: build/editor.js:43361
+msgid "Width Type"
+msgstr "너비 유형"
+
+#: build/editor.js:43953
+msgid "Transition Speed"
+msgstr "전환 속도"
+
+#: build/editor.js:44029
+msgid "Note: The autoplay functionality is disabled in the editor."
+msgstr "참고: 자동 재생 기능은 편집기에서 비활성화되어 있습니다."
+
+#: build/editor.js:45093
+msgid "Set the parent"
+msgstr "부모를 설정하세요."
+
+#: build/editor.js:45093
+msgid "block"
+msgstr "블록"
+
+#: build/editor.js:45095
+msgid "to"
+msgstr "에게"
+
+#: build/editor.js:45097
+msgid "to adjust column width."
+msgstr "열 너비를 조정하려면."
+
+#: build/editor.js:59303
+msgid "Post Content"
+msgstr "게시물 내용"
+
+#: build/editor.js:59304
+msgid "Displays the content of a post."
+msgstr "게시물의 내용을 표시합니다."
+
+#: build/editor.js:59311
+msgid "post content"
+msgstr "게시물 내용"
+
+#: build/editor.js:59382
+msgid "Animation Configuration"
+msgstr "애니메이션 구성"
+
+#: build/editor.js:59654
+msgid "Ensure the media and content are the same height."
+msgstr "미디어와 콘텐츠의 높이가 동일하도록 하세요."
+
+#: build/editor.js:59686
+msgid "Keeps your content in the same position when scrolling."
+msgstr "스크롤할 때 콘텐츠를 같은 위치에 유지합니다."
+
+#: build/editor.js:59813
+msgid "Arrow"
+msgstr "화살표"
+
+#: build/editor.js:60081
+msgid "Meta Gap"
+msgstr "메타 갭"
+
+#: build/editor.js:60175
+msgid "Max W."
+msgstr "맥스 W."
+
+#: build/editor.js:60176
+msgid "Max width of the content area in each post."
+msgstr "각 게시물의 콘텐츠 영역 최대 너비."
+
+#: build/editor.js:60343
+msgid "Zoom Reveal"
+msgstr "줌 리빌"
+
+#: build/editor.js:61149
+msgid "Link Type"
+msgstr "링크 유형"
+
+#: build/editor.js:61212
+msgid "Variant"
+msgstr "변형"
+
+#: build/editor.js:61213
+msgid "Each variant offers a different arrangement of items."
+msgstr "각 변형은 다른 항목 배열을 제공합니다."
+
+#: build/editor.js:61439
+msgid "Estimated Read Time"
+msgstr "예상 읽기 시간"
+
+#: build/editor.js:61440
+msgid "Spacer"
+msgstr "스페이서"
+
+#: build/editor.js:61924
+msgid "Meta Key"
+msgstr "메타 키"
+
+#: build/editor.js:61927
+msgid ""
+"The name of a custom meta field key to query from. e.g. \"_sku\". You can "
+"insert one above or manually enter your own."
+msgstr "쿼리할 사용자 정의 메타 필드 키의 이름입니다. 예: \"_sku\". 위에 하나를 삽입하거나 직접 입력할 수 있습니다."
+
+#: build/editor.js:62230
+msgid ""
+"This will add a gap between your meta items when using the \"Side\" aligned "
+"content layout."
+msgstr "이렇게 하면 \"측면\" 정렬 콘텐츠 레이아웃을 사용할 때 메타 항목 사이에 간격이 추가됩니다."
+
+#: build/editor.js:62282
+msgid "Button Border"
+msgstr "버튼 테두리"
+
+#: build/editor.js:62349 build/editor.js:77452
+msgid "Taxonomy"
+msgstr "분류학"
+
+#: build/editor.js:62972
+msgid ""
+"Query settings are automatically determined from the Global Section archive."
+msgstr "쿼리 설정은 글로벌 섹션 아카이브에서 자동으로 결정됩니다."
+
+#: build/editor.js:63032
+msgid "Exclude Current Post"
+msgstr "현재 게시물 제외"
+
+#: build/editor.js:63632
+msgid "Full Height"
+msgstr "전체 높이"
+
+#: build/editor.js:77123
+msgid "Show"
+msgstr "보여주다"
+
+#: build/editor.js:77168
+msgid "Delimiter"
+msgstr "구분자"
+
+#: build/editor.js:77179
+msgid "Term Link"
+msgstr "용어 링크"
+
+#: build/editor.js:77188
+msgid "\"All\" Link"
+msgstr "\"모두\" 링크"
+
+#: build/editor.js:77199
+msgid "Hover FX"
+msgstr "호버 FX"
+
+#: build/editor.js:77794
+msgid "Style Settings"
+msgstr "스타일 설정"
+
+#: build/editor.js:77802
+msgid "Default State"
+msgstr "기본 상태"
+
+#: build/editor.js:77804
+msgid "Active State"
+msgstr "활성 상태"
+
+#: build/editor.js:77924
+msgid "Taxonomy Terms"
+msgstr "분류 용어"
+
+#: build/editor.js:77925
+msgid "Display the selected taxonomy terms for your post."
+msgstr "게시물에 선택된 분류 용어를 표시하세요."
+
+#: build/editor.js:77932
+msgid "taxonomy"
+msgstr "분류학"
+
+#: build/editor.js:77932
+msgid "terms"
+msgstr "조건"
+
+#: build/editor.js:80645
+msgid "Insert Dynamic Data"
+msgstr "동적 데이터 삽입"
+
+#: build/editor.js:80677
+msgid "Dynamic Content"
+msgstr "동적 콘텐츠"
+
+#: build/editor.js:81893
+msgid "Indent"
+msgstr "들여쓰기"
+
+#: build/editor.js:89734
+msgid ""
+"Warning: Core Global Typography Settings have been disabled via the "
+"Nectarblocks Plugin Options."
+msgstr "경고: Nectarblocks 플러그인 옵션을 통해 핵심 글로벌 타이포그래피 설정이 비활성화되었습니다."
+
+#: build/editor.js:99864
+msgid "Add New Location"
+msgstr "새 위치 추가"
+
+#: build/editor.js:99923 build/editor.js:100119 build/editor.js:100567
+msgid "Error loading template parts."
+msgstr "템플릿 부분을 로드하는 중 오류가 발생했습니다."
+
+#: build/editor.js:100055
+msgid "Global Section Options"
+msgstr "글로벌 섹션 옵션"
+
+#: build/editor.js:100230
+msgid "Template Options"
+msgstr "템플릿 옵션"
+
+#: build/editor.js:100702
+msgid "Add New Condition"
+msgstr "새 조건 추가"
+
+#: build/editor.js:100975
+msgid "Project Options"
+msgstr "프로젝트 옵션"
+
+#: build/editor.js:100979
+msgid "Client"
+msgstr "클라이언트"
+
+#: build/editor.js:101006
+msgid "Select a video preview for this project to replace the featured image."
+msgstr "이 프로젝트의 대표 이미지를 대체할 비디오 미리보기를 선택하세요."
+
+#~ msgid "404 Content"
+#~ msgstr "404 내용"
+
+#~ msgid "Menu"
+#~ msgstr "메뉴"
+
+#~ msgid "True"
+#~ msgstr "진실"
+
+#~ msgid "False"
+#~ msgstr "거짓"
+
+#~ msgid "And"
+#~ msgstr "그리고"
+
+#~ msgid "Add new condition"
+#~ msgstr "새로운 조건 추가"
+
+#~ msgid "Add new location"
+#~ msgstr "새로운 위치 추가"
+
+#~ msgid "Display Conditions"
+#~ msgstr "조건 표시"
+
+#~ msgid ""
+#~ "Optionally limit the display of your section based on certain conditions "
+#~ "such as user privilege, post type etc."
+#~ msgstr "특정 조건에 따라 사용자 권한, 게시물 유형 등을 기준으로 섹션 표시를 선택적으로 제한할 수 있습니다."
+
+#~ msgid "Global Section Display"
+#~ msgstr "글로벌 섹션 표시"
+
+#~ msgid "Global Section Categories"
+#~ msgstr "글로벌 섹션 카테고리"
+
+#~ msgid "Global Section Category"
+#~ msgstr "글로벌 섹션 카테고리"
+
+#~ msgid "Search Global Section Categories"
+#~ msgstr "글로벌 섹션 카테고리 검색"
+
+#~ msgid "Parent Global Section Category"
+#~ msgstr "부모 글로벌 섹션 카테고리"
+
+#~ msgid "Edit Global Section Category"
+#~ msgstr "글로벌 섹션 카테고리 편집"
+
+#~ msgid "Update Global Section Category"
+#~ msgstr "글로벌 섹션 카테고리 업데이트"
+
+#~ msgid "Add New Global Section Category"
+#~ msgstr "새로운 글로벌 섹션 카테고리 추가"
+
+#~ msgid "Duration (s)"
+#~ msgstr "기간 (초)"
+
+#~ msgid "Delay (s)"
+#~ msgstr "지연 (초)"
+
+#~ msgid "Custom Icon"
+#~ msgstr "사용자 정의 아이콘"
+
+#~ msgid "Enabled by default in the editor."
+#~ msgstr "에디터에서 기본으로 활성화됩니다."
+
+#~ msgid "Media Stretch"
+#~ msgstr "미디어 스트레칭"
+
+#~ msgid "Nectarblocks Warning: The Gutenberg plugin is enabled."
+#~ msgstr "Nectarblocks 경고: Gutenberg 플러그인이 활성화되었습니다."
+
+#~ msgid "Successfully reset updater timers."
+#~ msgstr "업데이트 타이머를 성공적으로 재설정했습니다."
+
+#~ msgid "Failed to reset updater timers."
+#~ msgstr "업데이트 타이머를 재설정하지 못했습니다."
+
+#~ msgid "Error trying to reset updater timers."
+#~ msgstr "업데이트 타이머를 재설정하는 중 오류가 발생했습니다."
+
+#~ msgid ""
+#~ "Warning: Core Global Typography Settings have been disabled via Nectar "
+#~ "Plugin Options"
+#~ msgstr "경고: Nectar 플러그인 옵션을 통해 핵심 글로벌 타이포그래피 설정이 비활성화되었습니다."
+
+#~ msgctxt "block description"
+#~ msgid "Image Grid block."
+#~ msgstr "블록 설명"
+
+#~ msgctxt "block description"
+#~ msgid "Taxonomy Grid."
+#~ msgstr "블록 설명"
+
+#~ msgid "to enable the full feature set."
+#~ msgstr "모든 기능 세트를 활성화하려면."
+
+#~ msgid ""
+#~ "Allow Nectarblocks to look for updates from the WordPress admin dashboard. "
+#~ "Requires an active license."
+#~ msgstr "넥터블록이 워드프레스 관리자 대시보드에서 업데이트를 확인하도록 허용합니다. 활성 라이선스가 필요합니다."
+
+#~ msgid "Flex Align"
+#~ msgstr "플렉스 정렬"
+
+#~ msgid "Box Shadows"
+#~ msgstr "박스 그림자"
+
+#~ msgid "Grid Layout"
+#~ msgstr "그리드 레이아웃"
+
+#~ msgid "Content Layout"
+#~ msgstr "콘텐츠 레이아웃"
+
+#~ msgid ""
+#~ "A container for columns. The fundamental building block for designing your "
+#~ "layouts."
+#~ msgstr "컬럼을 위한 컨테이너. 레이아웃을 디자인하는 데 필수적인 구성 요소입니다."
+
+#~ msgid "Weight"
+#~ msgstr "무게"
+
+#~ msgctxt "block title"
+#~ msgid "Nectar Row"
+#~ msgstr "블록 제목"
+
+#~ msgctxt "block description"
+#~ msgid "Row container block."
+#~ msgstr "블록 설명"
+
+#~ msgid "No templates found for \"%1$s\"."
+#~ msgstr "\"%1$s\"에 대한 템플릿을 찾을 수 없습니다."
