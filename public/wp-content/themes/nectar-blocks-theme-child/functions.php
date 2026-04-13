@@ -76,6 +76,7 @@ class Theme extends Singleton {
      */
     public static function initPostTypes(): void {
         PostPostType::getInstance();
+        ProjectPostType::getInstance();
     }
 
     /**
