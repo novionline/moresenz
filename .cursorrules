@@ -1,0 +1,106 @@
+# NoviOnline Code Conventions
+
+## PHP Code Style
+
+### Variable Naming
+- Use camelCase for all PHP variables
+- Example: `$nectarOptions`, `$globalTransparentHeader`, `$pageHeaderBg`
+- Never use snake_case like `$nectar_options` or `$global_transparent_header`
+
+### Comments
+- Use single-line comments with lowercase text
+- Format: `//this is a comment`
+- Never use multi-line comment blocks for simple explanations
+- Example: `//check if transparent header is enabled globally`
+
+### General PHP Conventions
+- Follow existing namespace and class structure
+- Use proper type hints for method parameters and return types
+- Maintain consistent indentation (4 spaces)
+- Use meaningful variable names that describe their purpose
+
+### WordPress Integration
+- Follow WordPress coding standards for hooks and filters
+- Use proper escaping and sanitization
+- Leverage existing theme functions when available
+
+## SCSS Code Style
+
+### Structure
+- Use SCSS features like nesting, variables, and mixins
+- Organize code with logical nesting that mirrors DOM structure
+- Use variables for repeated values and selectors
+
+### Comments
+- Use SCSS comment syntax `//` for single-line comments
+- Use `/* */` for block comments that should appear in compiled CSS
+
+### Naming
+- Use kebab-case for CSS classes and IDs
+- Use descriptive variable names with `$` prefix
+
+## JavaScript Code Style
+
+### Modern JavaScript
+- Use vanilla JavaScript, avoid jQuery dependencies
+- Use const/let instead of var
+- Use arrow functions where appropriate
+- Use modern DOM methods like `classList`, `querySelector`
+- No semicolons in JavaScript files that go through webpack
+
+### Comments
+- Use single-line comments `//this is a comment`
+- Keep comments concise and descriptive
+
+## Asset Management
+
+### Webpack Integration
+- Use `Enqueue::getWebpackAssetUrlByKey()` for asset loading
+- Reference manifest.json for compiled asset paths
+- Follow existing patterns in AdminScripts.php
+
+### Performance
+- Only enqueue assets when needed (conditional loading)
+- Use proper dependency management
+- Implement smart detection logic for feature requirements
+
+## Code Organization
+
+### File Structure
+- Follow existing directory structure
+- Use appropriate namespaces
+- Separate concerns into logical components
+- Create reusable mixins and functions
+
+### Documentation
+- Use PHPDoc blocks for methods and classes
+- Include @param and @return annotations
+- Explain complex logic with inline comments
+
+## Examples
+
+### Correct PHP Variable Naming:
+```php
+$nectarOptions = get_nectar_theme_options();
+$globalTransparentHeader = !empty($nectarOptions['transparent-header']);
+$pageHeaderBg = get_post_meta($postId, '_nectar_header_bg', true);
+```
+
+### Correct Comment Style:
+```php
+//check if transparent header is enabled globally
+//enqueue assets only when needed for performance
+```
+
+### Correct SCSS Nesting:
+```scss
+body {
+    &:not(.scrolled-down) {
+        #{$nectar-nav}#{$transparent-state} {
+            @include transparent-header-base;
+        }
+    }
+}
+```
+
+Always maintain these conventions across all code contributions to ensure consistency with the existing codebase.
