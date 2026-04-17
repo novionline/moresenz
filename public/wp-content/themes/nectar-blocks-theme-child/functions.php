@@ -96,6 +96,7 @@ class Theme extends Singleton {
         GlobalSectionComponent::getInstance();
         GlobalSectionConditionsComponent::getInstance();
         HeaderComponent::getInstance();
+        OffCanvasNavMenuItemStyleComponent::getInstance();
         SearchComponent::getInstance();
         OwnerRoleComponent::getInstance();
 
