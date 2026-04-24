@@ -109,6 +109,7 @@ class Theme extends Singleton {
         if (class_exists('\GFAPI')) {
             GravityFormsComponent::getInstance();
             GravityFormsValidationComponent::getInstance();
+            GravityFormsTrackingComponent::getInstance();
         }        
     }
 
