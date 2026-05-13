@@ -11,9 +11,14 @@ $novi-arrow-offset: .75rem;
 $novi-arrow-offset-right: .75rem;
 $novi-pointer-down-offset: .5rem;
 
+//positioning context so pointer coords match absolute inset (fixed breaks inside transformed ancestors, e.g. gsap stacks)
+.nectar-blocks-carousel[data-novi-mouse-follower='true'] {
+  position: relative;
+}
+
 .novi-drag-indicator[data-type="solid"],
 .novi-carousel-mouse-follower[data-type="solid"] {
-  position: fixed;
+  position: absolute;
   z-index: 400;
   left: -$novi-indicator-half;
   top: -$novi-indicator-half;

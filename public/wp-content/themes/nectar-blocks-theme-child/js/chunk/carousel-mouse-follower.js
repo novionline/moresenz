@@ -19,10 +19,22 @@
 
       var indicatorSize = 94
       var halfSize = indicatorSize / 2
+      var carouselBorderLeft = 0
+      var carouselBorderTop = 0
+
+      function refreshCarouselBorderOffsets() {
+        if (typeof window.getComputedStyle !== 'function') return
+        var carouselStyle = window.getComputedStyle(carousel)
+        carouselBorderLeft = parseFloat(carouselStyle.borderLeftWidth) || 0
+        carouselBorderTop = parseFloat(carouselStyle.borderTopWidth) || 0
+      }
+
+      refreshCarouselBorderOffsets()
 
       function setPosition(clientX, clientY) {
-        indicator.style.left = (clientX - halfSize) + 'px'
-        indicator.style.top = (clientY - halfSize) + 'px'
+        var rect = carousel.getBoundingClientRect()
+        indicator.style.left = (clientX - rect.left - carouselBorderLeft - halfSize) + 'px'
+        indicator.style.top = (clientY - rect.top - carouselBorderTop - halfSize) + 'px'
       }
 
       function isNavigationElement(target) {
