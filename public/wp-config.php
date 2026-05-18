@@ -94,7 +94,7 @@ define('WP_DEBUG_LOG', $isDev ? true : false);
 define('WP_DEBUG_DISPLAY', false);
 
 /** Define WP environment **/
-define('WP_ENVIRONMENT_TYPE', $isDev ? 'development' : 'production');
+define('WP_ENVIRONMENT_TYPE', 'production');
 
 /** Prevent editing by Admin -> Appearance -> Editor **/
 define('DISALLOW_FILE_EDIT', true);
