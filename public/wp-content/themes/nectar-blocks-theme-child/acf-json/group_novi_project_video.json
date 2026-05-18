@@ -1,16 +1,51 @@
 {
     "key": "group_novi_project_video",
-    "title": "Project Video",
+    "title": "Project card hover",
     "fields": [
+        {
+            "key": "field_project_card_hover_type",
+            "label": "Card hover",
+            "name": "project_card_hover_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Choose what appears when visitors hover a project card in the marquee slider.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None",
+                "video": "Video",
+                "image": "Image"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
         {
             "key": "field_novi_project_video_file",
             "label": "Video",
             "name": "project_video_file",
             "aria-label": "",
             "type": "file",
-            "instructions": "Select an MP4 video from the media library. Used in the project marquee slider on hover.",
-            "required": 0,
-            "conditional_logic": 0,
+            "instructions": "Select an MP4 or WEBM video from the media library.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_card_hover_type",
+                        "operator": "==",
+                        "value": "video"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -20,7 +55,40 @@
             "library": "all",
             "min_size": "",
             "max_size": "",
-            "mime_types": "mp4",
+            "mime_types": "mp4,webm",
+            "preview_size": "medium"
+        },
+        {
+            "key": "field_project_hover_image",
+            "label": "Hover image",
+            "name": "project_hover_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Shown on marquee card hover. Separate from the featured image.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_card_hover_type",
+                        "operator": "==",
+                        "value": "image"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
             "preview_size": "medium"
         }
     ],
@@ -40,7 +108,7 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "Video settings for project marquee display. Synced to Nectar portfolio video meta for Post Grid compatibility.",
+    "description": "Card hover settings for the project marquee slider. Video is synced to Nectar portfolio video meta for Post Grid compatibility.",
     "show_in_rest": 0,
     "modified": 1747584000
 }

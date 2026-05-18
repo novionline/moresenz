@@ -36,7 +36,7 @@ class ProjectMarqueeSliderBlock extends Singleton {
         acf_register_block_type([
             'name' => self::BLOCK_ID,
             'title' => self::getBlockLabel(),
-            'description' => __('Display a continuously scrolling marquee of projects with hover video.', Theme::TEXT_DOMAIN),
+            'description' => __('Display a continuously scrolling marquee of projects with optional hover video or image.', Theme::TEXT_DOMAIN),
             'render_callback' => [$this, 'render'],
             'category' => 'nectar',
             'supports' => [
@@ -66,6 +66,10 @@ class ProjectMarqueeSliderBlock extends Singleton {
         });
 
         add_action('enqueue_block_assets', function () {
+            $this->initFrontendAssets();
+        });
+
+        add_action('enqueue_block_editor_assets', function () {
             $this->initFrontendAssets();
         });
 
@@ -159,7 +163,11 @@ class ProjectMarqueeSliderBlock extends Singleton {
 
         $blockJs = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'project-marquee-slider-script.js');
         if ($blockJs && !wp_script_is(self::BLOCK_ID . '_script', 'enqueued')) {
-            wp_enqueue_script(self::BLOCK_ID . '_script', $blockJs, [], null, true);
+            $scriptDeps = [];
+            if (wp_script_is('acf-input', 'registered')) {
+                $scriptDeps[] = 'acf-input';
+            }
+            wp_enqueue_script(self::BLOCK_ID . '_script', $blockJs, $scriptDeps, null, true);
         }
     }
 
@@ -180,28 +188,5 @@ class ProjectMarqueeSliderBlock extends Singleton {
             return '2s';
         }
         return max(0, 70 * (1 - $speed)) . 's';
-    }
-
-    /**
-     * Resolve fallback logo attachment ID for cards without featured images
-     * @param int|null $blockLogoId
-     * @return int
-     */
-    public static function resolveFallbackLogoId(?int $blockLogoId = null): int {
-        if (!empty($blockLogoId)) {
-            return (int)$blockLogoId;
-        }
-
-        $customLogoId = (int)get_theme_mod('custom_logo');
-        if ($customLogoId > 0) {
-            return $customLogoId;
-        }
-
-        $siteIconId = (int)get_option('site_icon');
-        if ($siteIconId > 0) {
-            return $siteIconId;
-        }
-
-        return 0;
     }
 }

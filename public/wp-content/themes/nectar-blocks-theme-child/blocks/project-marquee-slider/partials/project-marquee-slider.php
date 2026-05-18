@@ -46,10 +46,11 @@ $marqueeSpeed = get_field('project_marquee_speed');
 $marqueeSpeed = $marqueeSpeed !== null && $marqueeSpeed !== '' ? (float)$marqueeSpeed : 0.5;
 $speedDuration = ProjectMarqueeSliderBlock::speedToCssDuration($marqueeSpeed);
 
-$blockFallbackLogo = get_field('project_marquee_fallback_logo');
-$fallbackLogoId = ProjectMarqueeSliderBlock::resolveFallbackLogoId(
-    is_numeric($blockFallbackLogo) ? (int)$blockFallbackLogo : null
-);
+$pauseOnHoverField = get_field('project_marquee_pause_on_hover');
+$pauseOnHover = $pauseOnHoverField === null || $pauseOnHoverField === '' ? true : (bool)$pauseOnHoverField;
+
+$enableDragField = get_field('project_marquee_enable_drag');
+$enableDrag = $enableDragField === null || $enableDragField === '' ? true : (bool)$enableDragField;
 
 //duplicate posts for seamless marquee loop when list is short
 $minItems = 16;
@@ -63,9 +64,12 @@ if (count($posts) > 0 && count($posts) < $minItems) {
 $sectionLabel = __('Projects carousel', Theme::TEXT_DOMAIN);
 ?>
 
-<section class="project-marquee-slider"
+<section class="project-marquee-slider<?php echo $is_preview ? ' is-editor-preview' : ''; ?>"
          aria-label="<?php echo esc_attr($sectionLabel); ?>"
-         data-marquee-speed="<?php echo esc_attr((string)$marqueeSpeed); ?>">
+         data-marquee-speed="<?php echo esc_attr((string)$marqueeSpeed); ?>"
+         data-pause-on-hover="<?php echo $pauseOnHover ? '1' : '0'; ?>"
+         data-drag-enabled="<?php echo $enableDrag ? '1' : '0'; ?>"
+         <?php echo $is_preview ? ' data-editor-preview="true"' : ''; ?>>
 
     <?php if ($is_preview && count($posts) === 0): ?>
         <p class="project-marquee-slider__empty">
@@ -80,7 +84,6 @@ $sectionLabel = __('Projects carousel', Theme::TEXT_DOMAIN);
                     <?php Partial::render('project-marquee-item', [
                         'postItem' => $postItem,
                         'is_preview' => $is_preview,
-                        'fallbackLogoId' => $fallbackLogoId,
                     ], true, get_stylesheet_directory() . '/blocks/project-marquee-slider/partials/'); ?>
                 <?php endforeach; ?>
             </motion.div>
@@ -90,7 +93,6 @@ $sectionLabel = __('Projects carousel', Theme::TEXT_DOMAIN);
                     <?php Partial::render('project-marquee-item', [
                         'postItem' => $postItem,
                         'is_preview' => $is_preview,
-                        'fallbackLogoId' => $fallbackLogoId,
                     ], true, get_stylesheet_directory() . '/blocks/project-marquee-slider/partials/'); ?>
                 <?php endforeach; ?>
             </motion.div>

@@ -212,12 +212,12 @@
             "append": ""
         },
         {
-            "key": "field_project_marquee_fallback_logo",
-            "label": "Fallback logo",
-            "name": "project_marquee_fallback_logo",
+            "key": "field_project_marquee_pause_on_hover",
+            "label": "Pause on hover",
+            "name": "project_marquee_pause_on_hover",
             "aria-label": "",
-            "type": "image",
-            "instructions": "Shown on project cards without a featured image. Defaults to the site logo when empty.",
+            "type": "true_false",
+            "instructions": "Pause the marquee animation while the cursor is over the slider.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -225,16 +225,31 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "id",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
+            "key": "field_project_marquee_enable_drag",
+            "label": "Enable dragging",
+            "name": "project_marquee_enable_drag",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Allow visitors to drag the marquee horizontally to scrub through projects.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 1,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
         }
     ],
     "location": [

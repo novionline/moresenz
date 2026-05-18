@@ -27,6 +27,15 @@ class ProjectPostType extends Singleton {
     const TAXONOMY_SLUG = 'novi-project-category';
 
     /**
+     * Card hover type values for marquee slider
+     */
+    const HOVER_TYPE_NONE = 'none';
+
+    const HOVER_TYPE_VIDEO = 'video';
+
+    const HOVER_TYPE_IMAGE = 'image';
+
+    /**
      * ProjectPostType constructor.
      */
     protected function __construct() {
@@ -191,12 +200,75 @@ class ProjectPostType extends Singleton {
     }
 
     /**
+     * Get card hover type for a project by post ID
+     * @param int $postId
+     * @return string
+     */
+    public static function getCardHoverTypeByPostId(int $postId): string {
+        if ($postId <= 0) {
+            return self::HOVER_TYPE_NONE;
+        }
+
+        $hoverType = '';
+        if (function_exists('get_field')) {
+            $hoverType = (string)(get_field('project_card_hover_type', $postId) ?: '');
+        }
+
+        if ($hoverType === self::HOVER_TYPE_VIDEO || $hoverType === self::HOVER_TYPE_IMAGE) {
+            return $hoverType;
+        }
+
+        //backward compatibility: legacy projects with video but no hover type saved
+        if ($hoverType === '' && function_exists('get_field')) {
+            $videoFileId = get_field('project_video_file', $postId);
+            if (!empty($videoFileId)) {
+                return self::HOVER_TYPE_VIDEO;
+            }
+        }
+
+        return self::HOVER_TYPE_NONE;
+    }
+
+    /**
+     * Get hover image attachment ID for a project by post ID
+     * @param int $postId
+     * @return int
+     */
+    public static function getHoverImageIdByPostId(int $postId): int {
+        if ($postId <= 0 || self::getCardHoverTypeByPostId($postId) !== self::HOVER_TYPE_IMAGE) {
+            return 0;
+        }
+
+        if (!function_exists('get_field')) {
+            return 0;
+        }
+
+        $imageId = get_field('project_hover_image', $postId);
+        return is_numeric($imageId) ? (int)$imageId : 0;
+    }
+
+    /**
+     * Get hover image URL for a project by post ID
+     * @param int $postId
+     * @return string
+     */
+    public static function getHoverImageUrlByPostId(int $postId): string {
+        $imageId = self::getHoverImageIdByPostId($postId);
+        if ($imageId <= 0) {
+            return '';
+        }
+
+        $imageUrl = wp_get_attachment_image_url($imageId, 'full');
+        return is_string($imageUrl) ? $imageUrl : '';
+    }
+
+    /**
      * Get video URL for a project by post ID
      * @param int $postId
      * @return string
      */
     public static function getVideoUrlByPostId(int $postId): string {
-        if ($postId <= 0) {
+        if ($postId <= 0 || self::getCardHoverTypeByPostId($postId) !== self::HOVER_TYPE_VIDEO) {
             return '';
         }
 
@@ -226,5 +298,45 @@ class ProjectPostType extends Singleton {
         }
 
         return '';
+    }
+
+    /**
+     * Get video MIME type for a project by post ID
+     * @param int $postId
+     * @return string
+     */
+    public static function getVideoMimeTypeByPostId(int $postId): string {
+        if ($postId <= 0 || self::getCardHoverTypeByPostId($postId) !== self::HOVER_TYPE_VIDEO) {
+            return 'video/mp4';
+        }
+
+        $portfolioVideo = get_post_meta($postId, '_nectar_portfolio_video', true);
+
+        if (is_array($portfolioVideo) && isset($portfolioVideo['source']) && !empty($portfolioVideo['source']['id'])) {
+            $mimeType = get_post_mime_type((int)$portfolioVideo['source']['id']);
+            if (is_string($mimeType) && $mimeType !== '') {
+                return $mimeType;
+            }
+        }
+
+        if (function_exists('get_field')) {
+            $videoFileId = get_field('project_video_file', $postId);
+            if (!empty($videoFileId)) {
+                $mimeType = get_post_mime_type((int)$videoFileId);
+                if (is_string($mimeType) && $mimeType !== '') {
+                    return $mimeType;
+                }
+            }
+        }
+
+        $videoUrl = self::getVideoUrlByPostId($postId);
+        if ($videoUrl !== '') {
+            $filetype = wp_check_filetype($videoUrl);
+            if (!empty($filetype['type'])) {
+                return $filetype['type'];
+            }
+        }
+
+        return 'video/mp4';
     }
 }

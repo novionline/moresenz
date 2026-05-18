@@ -1,6 +1,10 @@
 @use "../../../scss/util/util-variables" as vars;
 @use "../../../scss/util/util-mixins" as mixins;
 
+[data-type="acf/block-project-marquee-slider"] {
+    width: 100%;
+}
+
 .project-marquee-slider {
     $self: &;
 
@@ -10,11 +14,15 @@
 
     @include mixins.mq-between(md, lg) {
         --items-visible: 2.5;
-        --gap: 2rem;
     }
 
     @include mixins.mq-up(lg) {
         --items-visible: 3.5;
+        --gap: 2rem;
+    }
+
+    @include mixins.mq-up(xxl) {
+        --items-visible: 4;
         --gap: 2rem;
     }
 
@@ -23,13 +31,27 @@
         padding: 1rem 0;
     }
 
+    &.is-paused:not(.is-dragging) .nectar-blocks-marquee__inner {
+        animation-play-state: paused !important;
+    }
+
     //size slides relative to the visible marquee viewport, not the scrolling track width
+    &.is-editor-preview &__track.nectar-blocks-marquee {
+        cursor: default;
+        touch-action: auto;
+    }
+
+    &[data-drag-enabled='0'] &__track.nectar-blocks-marquee {
+        cursor: default;
+    }
+
     &__track.nectar-blocks-marquee {
         --gap: 1rem;
         --slide-width: calc((100cqw - (var(--items-visible) - 1) * var(--gap)) / var(--items-visible));
         container-type: inline-size;
         container-name: project-marquee;
-        touch-action: pan-x;
+        //allow vertical page scroll; horizontal scrub is handled in JS
+        touch-action: pan-y;
         cursor: grab;
 
         @include mixins.mq-between(md, lg) {
@@ -40,12 +62,27 @@
             --gap: 2rem;
         }
 
+        &.is-pointer-down,
         &.is-dragging {
-            cursor: grabbing;
+            touch-action: none;
         }
 
-        &.is-paused .nectar-blocks-marquee__inner {
+        &.is-dragging {
+            cursor: grabbing;
+            user-select: none;
+
+            #{$self}__link {
+                pointer-events: none;
+            }
+        }
+
+        &.is-paused:not(.is-dragging) .nectar-blocks-marquee__inner {
             animation-play-state: paused;
+        }
+
+        &.is-dragging .nectar-blocks-marquee__inner {
+            animation: none !important;
+            will-change: transform;
         }
     }
 
@@ -83,6 +120,9 @@
         color: inherit;
         text-decoration: none;
         outline-offset: 4px;
+        -webkit-user-drag: none;
+        user-select: none;
+        touch-action: pan-y;
 
         &--preview {
             cursor: default;
@@ -93,47 +133,47 @@
         position: relative;
         margin: 0;
         overflow: hidden;
-        aspect-ratio: 4 / 5;
-        background-color: var(--nectar-extra-color-1, #f0f0f0);
+        aspect-ratio: 480 / 584;
+        background-color: var(--nectar-gc-JKMSdnKjtG, black);
     }
 
     &__image {
         display: block;
         width: 100% !important;
         max-width: 100%;
-        height: 100%;
+        height: 100% !important;
         object-fit: cover;
-        transition: transform 0.4s ease;
+        transition: transform 0.4s ease-in-out;
     }
 
-    &__fallback {
+    &__watermark {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 100%;
         height: 100%;
         min-height: 100%;
+
+        svg {
+            width: 30%;
+            height: auto;
+            opacity: 0.2;
+            transition: transform 0.2s ease-in-out;
+        }
     }
 
-    &__fallback-logo {
-        max-width: 40%;
-        max-height: 40%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        opacity: 0.35;
-    }
-
-    &__video {
+    &__video,
+    &__hover-image {
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: 2;
-        width: 100%;
-        height: 0;
+        width: 100% !important;
+        height: 100% !important;
         object-fit: cover;
         object-position: center bottom;
-        transition: height 0.45s ease;
+        transform: translateY(100%);
+        transition: transform .4s ease-in-out;
         pointer-events: none;
     }
 
@@ -145,23 +185,53 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 2.75rem;
-        height: 2.75rem;
+        width: 3rem;
+        height: 3rem;
         border-radius: 50%;
-        background-color: var(--nectar-accent-color, #000);
-        color: var(--nectar-accent-color-text, #fff);
-        pointer-events: none;
+        background-color: color-mix(in srgb, var(--light, #fff) 12%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        color: var(--accentLight, #fff);
+        pointer-events: auto;
+        transition: background-color .2s ease-in-out;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        @include mixins.mq-up(md) {
+            right: 2rem;
+            bottom: 2rem;
+            width: 5rem;
+            height: 5rem;
+        }
     }
 
     @media (hover: hover) {
-        &__link:not(#{$self}__link--has-video):hover #{$self}__image,
-        &__link:not(#{$self}__link--has-video):focus-visible #{$self}__image {
-            transform: scale(1.05);
+        &__arrow:hover {
+            background-color: var(--accentPrimary, #9a8a73);
+        }
+
+        &__link:not(#{$self}__link--has-video):not(#{$self}__link--has-hover-image):hover #{$self}__image,
+        &__link:not(#{$self}__link--has-video):not(#{$self}__link--has-hover-image):focus-visible #{$self}__image {
+            transform: scale(1.1);
+        }
+
+        &__link--watermark-only:hover #{$self}__watermark svg,
+        &__link--watermark-only:focus-visible #{$self}__watermark svg {
+            transform: scale(1.1);
         }
 
         &__link--has-video:hover #{$self}__video,
+        &__link--has-video.is-video-active #{$self}__video,
         &__link--has-video:focus-visible #{$self}__video {
-            height: 100%;
+            transform: translateY(0);
+        }
+
+        &__link--has-hover-image:hover #{$self}__hover-image,
+        &__link--has-hover-image:focus-visible #{$self}__hover-image {
+            transform: translateY(0);
         }
     }
 
@@ -191,7 +261,12 @@
             transition: none;
         }
 
-        #{$self}__video {
+        #{$self}__video,
+        #{$self}__hover-image {
+            transition: none;
+        }
+
+        #{$self}__watermark svg {
             transition: none;
         }
     }
