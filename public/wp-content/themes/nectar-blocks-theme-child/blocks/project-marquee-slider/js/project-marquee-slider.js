@@ -110,14 +110,22 @@
     return video.getAttribute('data-src') || ''
   }
 
-  function loadVideoOnDemand(video) {
-    if (video.dataset.loaded === 'true') {
-      return Promise.resolve()
+  function shouldPreloadVideos() {
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection
+    if (connection && connection.saveData) {
+      return false
+    }
+    return true
+  }
+
+  function attachVideoSource(video) {
+    if (video.dataset.sourceAttached === 'true') {
+      return true
     }
 
     const videoUrl = getVideoSourceUrl(video)
     if (!videoUrl) {
-      return Promise.resolve()
+      return false
     }
 
     const source = video.querySelector('source')
@@ -125,40 +133,152 @@
       source.src = videoUrl
     }
     video.src = videoUrl
+    video.preload = 'auto'
     video.load()
-    video.dataset.loaded = 'true'
+    video.dataset.sourceAttached = 'true'
+    return true
+  }
 
-    return new Promise(function (resolve) {
-      if (video.readyState >= 2) {
+  function preloadVideo(video) {
+    if (video.dataset.preloadReady === 'true') {
+      return Promise.resolve()
+    }
+
+    if (video._preloadPromise) {
+      return video._preloadPromise
+    }
+
+    if (!attachVideoSource(video)) {
+      return Promise.resolve()
+    }
+
+    video.dataset.preloadReady = 'loading'
+    video._preloadPromise = new Promise(function (resolve) {
+      const finish = function () {
+        video.dataset.preloadReady = 'true'
+        video.dataset.loaded = 'true'
         resolve()
+      }
+
+      if (video.readyState >= HTMLMediaElement.HAVE_FUTURE_DATA) {
+        finish()
         return
       }
 
-      video.addEventListener('loadeddata', resolve, { once: true })
-      video.addEventListener('error', resolve, { once: true })
+      video.addEventListener('canplay', finish, { once: true })
+      video.addEventListener('error', finish, { once: true })
+    })
+
+    return video._preloadPromise
+  }
+
+  function initVideoPreload(slider) {
+    if (!shouldPreloadVideos()) {
+      return
+    }
+
+    const links = slider.querySelectorAll('.project-marquee-slider__link--has-video')
+    if (!links.length) {
+      return
+    }
+
+    const preloadLinkVideo = function (link) {
+      const video = link.querySelector('.project-marquee-slider__video')
+      if (video) {
+        preloadVideo(video)
+      }
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener('pointerenter', function () {
+        preloadLinkVideo(link)
+      }, { passive: true })
+    })
+
+    if (!('IntersectionObserver' in window)) {
+      links.forEach(preloadLinkVideo)
+      return
+    }
+
+    const observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return
+          }
+          preloadLinkVideo(entry.target)
+        })
+      },
+      {
+        root: null,
+        rootMargin: '400px 0px',
+        threshold: 0
+      }
+    )
+
+    links.forEach(function (link) {
+      observer.observe(link)
     })
   }
 
   function initVideos(slider) {
     const links = slider.querySelectorAll('.project-marquee-slider__link--has-video')
 
+    initVideoPreload(slider)
+
     links.forEach(function (link) {
       const video = link.querySelector('.project-marquee-slider__video')
       if (!video) return
 
-      const playVideo = function () {
-        link.classList.add('is-video-active')
+      const hideVideoLoader = function () {
+        link.classList.remove('is-video-loading')
+      }
 
-        loadVideoOnDemand(video).then(function () {
+      const showVideoLoader = function () {
+        link.classList.add('is-video-loading')
+      }
+
+      const isLinkActive = function () {
+        return link.matches(':hover') || link.contains(document.activeElement)
+      }
+
+      const playVideo = function () {
+        if (link.classList.contains('is-video-active')) {
+          return
+        }
+
+        showVideoLoader()
+
+        preloadVideo(video).then(function () {
+          if (!isLinkActive()) {
+            hideVideoLoader()
+            return
+          }
+
+          link.classList.add('is-video-active')
+
+          const onPlaying = function () {
+            hideVideoLoader()
+          }
+
+          video.addEventListener('playing', onPlaying, { once: true })
+
           const playPromise = video.play()
-          if (playPromise && typeof playPromise.catch === 'function') {
-            playPromise.catch(function () {})
+          if (playPromise && typeof playPromise.then === 'function') {
+            playPromise.catch(function () {
+              hideVideoLoader()
+            })
+            return
+          }
+
+          if (!video.paused) {
+            hideVideoLoader()
           }
         })
       }
 
       const pauseVideo = function () {
-        link.classList.remove('is-video-active')
+        link.classList.remove('is-video-active', 'is-video-loading')
         video.pause()
       }
 

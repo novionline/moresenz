@@ -53,6 +53,7 @@ $ariaLabel = sprintf(
                 <?php endif; ?>
 
                 <?php if ($hasVideoHover && $videoUrl !== ''): ?>
+                    <span class="project-marquee-slider__video-loader" aria-hidden="true"></span>
                     <video class="project-marquee-slider__video"
                            data-src="<?php echo esc_url($videoUrl); ?>"
                            muted
