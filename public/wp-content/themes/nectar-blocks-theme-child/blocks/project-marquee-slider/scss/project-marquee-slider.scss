@@ -231,6 +231,12 @@
         }
     }
 
+    //touch-hold active state (mobile); mirrors :hover overlay reveal on desktop
+    &__link--has-video.is-card-active #{$self}__video,
+    &__link--has-hover-image.is-card-active #{$self}__hover-image {
+        transform: translateY(0);
+    }
+
     @media (hover: hover) {
         &__arrow:hover {
             background-color: var(--accentPrimary, #9a8a73);
@@ -248,11 +254,13 @@
 
         &__link--has-video:hover #{$self}__video,
         &__link--has-video.is-video-active #{$self}__video,
+        &__link--has-video.is-card-active #{$self}__video,
         &__link--has-video:focus-visible #{$self}__video {
             transform: translateY(0);
         }
 
         &__link--has-hover-image:hover #{$self}__hover-image,
+        &__link--has-hover-image.is-card-active #{$self}__hover-image,
         &__link--has-hover-image:focus-visible #{$self}__hover-image {
             transform: translateY(0);
         }

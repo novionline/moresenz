@@ -76,28 +76,28 @@ $sectionLabel = __('Projects carousel', Theme::TEXT_DOMAIN);
             <?php esc_html_e('No projects found. Add projects or adjust the block selection settings.', Theme::TEXT_DOMAIN); ?>
         </p>
     <?php elseif (count($posts) > 0): ?>
-        <motion.div class="nectar-blocks-marquee project-marquee-slider__track"
-                    style="--speed: <?php echo esc_attr($speedDuration); ?>; --direction: normal;">
+        <div class="nectar-blocks-marquee project-marquee-slider__track"
+             style="--speed: <?php echo esc_attr($speedDuration); ?>; --direction: normal;">
 
-            <motion.div class="nectar-blocks-marquee__inner" aria-hidden="false">
+            <div class="nectar-blocks-marquee__inner" aria-hidden="false">
                 <?php foreach ($posts as $postItem): ?>
                     <?php Partial::render('project-marquee-item', [
                         'postItem' => $postItem,
                         'is_preview' => $is_preview,
                     ], true, get_stylesheet_directory() . '/blocks/project-marquee-slider/partials/'); ?>
                 <?php endforeach; ?>
-            </motion.div>
+            </div>
 
-            <motion.div class="nectar-blocks-marquee__inner" aria-hidden="true" tabindex="-1">
+            <div class="nectar-blocks-marquee__inner" aria-hidden="true" tabindex="-1">
                 <?php foreach ($posts as $postItem): ?>
                     <?php Partial::render('project-marquee-item', [
                         'postItem' => $postItem,
                         'is_preview' => $is_preview,
                     ], true, get_stylesheet_directory() . '/blocks/project-marquee-slider/partials/'); ?>
                 <?php endforeach; ?>
-            </motion.div>
+            </div>
 
-        </motion.div>
+        </div>
     <?php endif; ?>
 
 </section>

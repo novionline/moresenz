@@ -1,9 +1,123 @@
 (function () {
   const RESUME_DELAY_MS = 300
   const DRAG_THRESHOLD_PX = 8
+  const CARD_HOLD_MS = 400
+  const CARD_HOLD_MOVE_CANCEL_PX = 10
 
   function prefersReducedMotion() {
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  }
+
+  function prefersTouchHold() {
+    return window.matchMedia('(hover: none), (pointer: coarse)').matches
+  }
+
+  function deactivateAllCardHovers(slider) {
+    slider.querySelectorAll('.project-marquee-slider__link.is-card-active').forEach(function (link) {
+      link.classList.remove('is-card-active', 'is-video-active', 'is-video-loading')
+      const video = link.querySelector('.project-marquee-slider__video')
+      if (video) {
+        video.pause()
+      }
+    })
+  }
+
+  function bindCardTouchHold(link, onActivate, onDeactivate) {
+    let holdTimer = null
+    let isActive = false
+    let suppressClick = false
+    let startX = 0
+    let startY = 0
+    let activePointerId = null
+
+    const cancelHold = function () {
+      if (holdTimer) {
+        clearTimeout(holdTimer)
+        holdTimer = null
+      }
+    }
+
+    const cleanupDocumentListeners = function () {
+      document.removeEventListener('pointermove', onDocumentPointerMove)
+      document.removeEventListener('pointerup', onDocumentPointerUp)
+      document.removeEventListener('pointercancel', onDocumentPointerUp)
+    }
+
+    const deactivate = function () {
+      cancelHold()
+      cleanupDocumentListeners()
+      if (!isActive) {
+        return
+      }
+      isActive = false
+      onDeactivate()
+    }
+
+    const activate = function () {
+      if (isActive) {
+        return
+      }
+      isActive = true
+      suppressClick = true
+      onActivate()
+    }
+
+    const onDocumentPointerMove = function (e) {
+      if (activePointerId === null || e.pointerId !== activePointerId) {
+        return
+      }
+
+      const deltaX = Math.abs(e.clientX - startX)
+      const deltaY = Math.abs(e.clientY - startY)
+      if (deltaX < CARD_HOLD_MOVE_CANCEL_PX && deltaY < CARD_HOLD_MOVE_CANCEL_PX) {
+        return
+      }
+
+      if (!isActive) {
+        cancelHold()
+      }
+    }
+
+    const onDocumentPointerUp = function (e) {
+      if (activePointerId === null || e.pointerId !== activePointerId) {
+        return
+      }
+
+      cancelHold()
+      if (isActive) {
+        deactivate()
+      } else {
+        cleanupDocumentListeners()
+      }
+
+      activePointerId = null
+    }
+
+    link.addEventListener('pointerdown', function (e) {
+      if (e.button !== 0) {
+        return
+      }
+
+      activePointerId = e.pointerId
+      startX = e.clientX
+      startY = e.clientY
+      cancelHold()
+
+      cleanupDocumentListeners()
+      document.addEventListener('pointermove', onDocumentPointerMove, { passive: true })
+      document.addEventListener('pointerup', onDocumentPointerUp)
+      document.addEventListener('pointercancel', onDocumentPointerUp)
+
+      holdTimer = setTimeout(activate, CARD_HOLD_MS)
+    })
+
+    link.addEventListener('click', function (e) {
+      if (!suppressClick) {
+        return
+      }
+      e.preventDefault()
+      suppressClick = false
+    }, true)
   }
 
   function getInners(track) {
@@ -35,19 +149,97 @@
     return 0
   }
 
-  function getTranslateXFromLayout(inner, track) {
-    const trackRect = track.getBoundingClientRect()
-    const innerRect = inner.getBoundingClientRect()
-    return innerRect.left - trackRect.left
-  }
-
-  function getCurrentTranslateX(inner, track) {
-    if (inner.style.animation === 'none' && inner.style.transform) {
-      const matrixX = getTranslateXFromMatrix(inner)
-      if (matrixX !== 0) return matrixX
+  function getTranslateXFromWAAPI(inner, track) {
+    const loopDistance = getLoopDistance(inner, track)
+    if (!loopDistance) {
+      return null
     }
 
-    return getTranslateXFromLayout(inner, track)
+    const animations = inner.getAnimations()
+    for (let i = 0; i < animations.length; i++) {
+      const anim = animations[i]
+      const name = anim.animationName || ''
+      if (name.indexOf('marquee') === -1) {
+        continue
+      }
+
+      const effect = anim.effect
+      if (!effect) {
+        continue
+      }
+
+      const timing = effect.getComputedTiming()
+      const duration = timing.duration
+      if (typeof duration !== 'number' || !isFinite(duration) || duration <= 0) {
+        continue
+      }
+
+      let currentTime = anim.currentTime
+      if (currentTime === null || currentTime === undefined) {
+        currentTime = 0
+      }
+
+      const progress = (currentTime % duration) / duration
+      return -progress * loopDistance
+    }
+
+    return null
+  }
+
+  function getTranslateXFromAnimationDelay(inner, track) {
+    const durationSeconds = parseDurationSeconds(window.getComputedStyle(inner).animationDuration)
+    if (!durationSeconds) {
+      return null
+    }
+
+    const delayRaw = window.getComputedStyle(inner).animationDelay || ''
+    const firstDelay = delayRaw.split(',')[0].trim()
+    if (!firstDelay || firstDelay === '0s') {
+      return null
+    }
+
+    const delaySeconds = parseFloat(firstDelay)
+    if (!Number.isFinite(delaySeconds) || delaySeconds === 0) {
+      return null
+    }
+
+    const loopDistance = getLoopDistance(inner, track)
+    if (!loopDistance) {
+      return null
+    }
+
+    const progress = ((-delaySeconds / durationSeconds) % 1 + 1) % 1
+    return -progress * loopDistance
+  }
+
+  function getFrozenTranslateX(inner, track) {
+    const matrixX = getTranslateXFromMatrix(inner)
+    const fromDelay = getTranslateXFromAnimationDelay(inner, track)
+    const fromWaaPI = getTranslateXFromWAAPI(inner, track)
+
+    //computed matrix is authoritative when it shows movement
+    if (Math.abs(matrixX) >= 1) {
+      return matrixX
+    }
+
+    //when matrix reads 0 mid-loop, derive phase from delay or WAAPI (loop offset)
+    if (fromDelay !== null && Math.abs(fromDelay) >= 1) {
+      return fromDelay
+    }
+
+    if (fromWaaPI !== null && Math.abs(fromWaaPI) >= 1) {
+      return fromWaaPI
+    }
+
+    if (fromDelay !== null) {
+      return fromDelay
+    }
+
+    if (fromWaaPI !== null) {
+      return fromWaaPI
+    }
+
+    return matrixX
   }
 
   function getGapPx(track) {
@@ -62,27 +254,26 @@
   }
 
   function progressFromTranslateX(translateX, loopDistance) {
-    if (!loopDistance) return 0
-    let progress = (-translateX / loopDistance) % 1
-    if (progress < 0) progress += 1
-    return progress
+    if (!loopDistance) {
+      return 0
+    }
+    return ((-translateX / loopDistance) % 1 + 1) % 1
   }
 
-  function setAnimationProgress(inners, progress, durationSeconds) {
-    const delay = -(progress * durationSeconds)
+  function freezeAnimationAtCurrentPosition(inners, track, translateX) {
+    const resolvedTranslateX =
+      typeof translateX === 'number'
+        ? translateX
+        : getFrozenTranslateX(inners[0], track)
+
     inners.forEach(function (inner) {
-      inner.style.animationDelay = delay + 's'
-    })
-  }
-
-  function freezeAnimationAtCurrentPosition(inners, track) {
-    const positions = []
-    inners.forEach(function (inner, index) {
-      positions[index] = getCurrentTranslateX(inner, track)
+      inner.style.animationPlayState = ''
       inner.style.animation = 'none'
-      inner.style.transform = 'translate3d(' + positions[index] + 'px, 0, 0)'
+      inner.style.animationDelay = ''
+      inner.style.transform = 'translate3d(' + resolvedTranslateX + 'px, 0, 0)'
     })
-    return positions
+
+    return [resolvedTranslateX]
   }
 
   function isTouchPointer(e) {
@@ -221,14 +412,18 @@
     })
   }
 
-  function initVideos(slider) {
-    const links = slider.querySelectorAll('.project-marquee-slider__link--has-video')
-
+  function initCardHover(slider) {
     initVideoPreload(slider)
 
-    links.forEach(function (link) {
+    const videoLinks = slider.querySelectorAll('.project-marquee-slider__link--has-video')
+    const imageLinks = slider.querySelectorAll('.project-marquee-slider__link--has-hover-image')
+    const useTouchHold = prefersTouchHold()
+
+    videoLinks.forEach(function (link) {
       const video = link.querySelector('.project-marquee-slider__video')
-      if (!video) return
+      if (!video) {
+        return
+      }
 
       const hideVideoLoader = function () {
         link.classList.remove('is-video-loading')
@@ -239,7 +434,21 @@
       }
 
       const isLinkActive = function () {
-        return link.matches(':hover') || link.contains(document.activeElement)
+        return (
+          link.matches(':hover') ||
+          link.classList.contains('is-card-active') ||
+          link.contains(document.activeElement)
+        )
+      }
+
+      const activateCard = function () {
+        link.classList.add('is-card-active')
+        playVideo()
+      }
+
+      const deactivateCard = function () {
+        link.classList.remove('is-card-active')
+        pauseVideo()
       }
 
       const playVideo = function () {
@@ -282,14 +491,34 @@
         video.pause()
       }
 
-      link.addEventListener('mouseenter', playVideo)
-      link.addEventListener('mouseleave', pauseVideo)
-      link.addEventListener('focusin', playVideo)
+      link.addEventListener('mouseenter', activateCard)
+      link.addEventListener('mouseleave', deactivateCard)
+      link.addEventListener('focusin', activateCard)
       link.addEventListener('focusout', function (e) {
         if (!link.contains(e.relatedTarget)) {
-          pauseVideo()
+          deactivateCard()
         }
       })
+
+      if (useTouchHold) {
+        bindCardTouchHold(link, activateCard, deactivateCard)
+      }
+    })
+
+    if (!useTouchHold) {
+      return
+    }
+
+    imageLinks.forEach(function (link) {
+      bindCardTouchHold(
+        link,
+        function () {
+          link.classList.add('is-card-active')
+        },
+        function () {
+          link.classList.remove('is-card-active')
+        }
+      )
     })
   }
 
@@ -357,6 +586,7 @@
     let dragStartY = 0
     let dragOffsetPx = 0
     let dragBaseTranslateX = 0
+    let dragSnapshotTranslateX = null
     let activePointerId = null
     let hasPointerCapture = false
 
@@ -365,12 +595,25 @@
         window.getComputedStyle(inners[0]).animationDuration
     )
 
-    const clearInlineMotionStyles = function () {
+    const resumeAnimationAtProgress = function (progress) {
+      const delay = -(progress * durationSeconds) + 's'
       inners.forEach(function (inner) {
         inner.style.animation = ''
         inner.style.transform = ''
         inner.style.animationPlayState = ''
+        inner.style.animationDelay = delay
       })
+    }
+
+    const releasePointerHold = function () {
+      dragSnapshotTranslateX = null
+      const shouldStayPaused =
+        pauseOnHover && (slider.matches(':hover') || slider.contains(document.activeElement))
+      if (!shouldStayPaused) {
+        inners.forEach(function (inner) {
+          inner.style.animationPlayState = ''
+        })
+      }
     }
 
     const pause = function () {
@@ -413,6 +656,8 @@
     const beginDrag = function (e) {
       if (isDragging) return
 
+      deactivateAllCardHovers(slider)
+
       isDragging = true
       suppressClick = false
       slider.classList.add('is-dragging')
@@ -421,7 +666,11 @@
       slider.classList.add('is-paused')
       track.classList.add('is-paused')
 
-      dragBaseTranslateX = freezeAnimationAtCurrentPosition(inners, track)[0]
+      const translateX =
+        dragSnapshotTranslateX !== null
+          ? dragSnapshotTranslateX
+          : getFrozenTranslateX(inners[0], track)
+      dragBaseTranslateX = freezeAnimationAtCurrentPosition(inners, track, translateX)[0]
       applyDragPosition()
 
       activePointerId = e.pointerId
@@ -459,9 +708,8 @@
 
       releasePointerCapture()
       activePointerId = null
-
-      clearInlineMotionStyles()
-      setAnimationProgress(inners, newProgress, durationSeconds)
+      dragSnapshotTranslateX = null
+      resumeAnimationAtProgress(newProgress)
 
       if (Math.abs(dragOffsetPx) >= DRAG_THRESHOLD_PX) {
         suppressClick = true
@@ -500,6 +748,7 @@
         } else {
           isPointerDown = false
           track.classList.remove('is-pointer-down')
+          releasePointerHold()
           releasePointerCapture()
           document.removeEventListener('pointermove', onDocumentPointerMove)
           document.removeEventListener('pointerup', onDocumentPointerUp)
@@ -530,6 +779,7 @@
         return
       }
 
+      releasePointerHold()
       dragOffsetPx = 0
       activePointerId = null
     }
@@ -564,6 +814,13 @@
       dragBaseTranslateX = 0
       activePointerId = e.pointerId
       track.classList.add('is-pointer-down')
+
+      dragSnapshotTranslateX = getFrozenTranslateX(inners[0], track)
+      if (!isPaused) {
+        inners.forEach(function (inner) {
+          inner.style.animationPlayState = 'paused'
+        })
+      }
 
       if (isTouchPointer(e) && track.setPointerCapture) {
         track.setPointerCapture(e.pointerId)
@@ -616,7 +873,7 @@
     if (slider.dataset.projectMarqueeInit === '1') return
     slider.dataset.projectMarqueeInit = '1'
     initMarquee(slider)
-    initVideos(slider)
+    initCardHover(slider)
   }
 
   function initSliders(root) {
