@@ -1,0 +1,46 @@
+{
+    "key": "group_novi_project_video",
+    "title": "Project Video",
+    "fields": [
+        {
+            "key": "field_novi_project_video_file",
+            "label": "Video",
+            "name": "project_video_file",
+            "aria-label": "",
+            "type": "file",
+            "instructions": "Select an MP4 video from the media library. Used in the project marquee slider on hover.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": "mp4",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "novi-project"
+            }
+        ]
+    ],
+    "menu_order": 1,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Video settings for project marquee display. Synced to Nectar portfolio video meta for Post Grid compatibility.",
+    "show_in_rest": 0,
+    "modified": 1747584000
+}

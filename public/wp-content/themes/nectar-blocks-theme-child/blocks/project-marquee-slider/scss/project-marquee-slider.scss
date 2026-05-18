@@ -1,0 +1,198 @@
+@use "../../../scss/util/util-variables" as vars;
+@use "../../../scss/util/util-mixins" as mixins;
+
+.project-marquee-slider {
+    $self: &;
+
+    --items-visible: 1.5;
+    --gap: 1rem;
+    width: 100%;
+
+    @include mixins.mq-between(md, lg) {
+        --items-visible: 2.5;
+        --gap: 2rem;
+    }
+
+    @include mixins.mq-up(lg) {
+        --items-visible: 3.5;
+        --gap: 2rem;
+    }
+
+    &__empty {
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    //size slides relative to the visible marquee viewport, not the scrolling track width
+    &__track.nectar-blocks-marquee {
+        --gap: 1rem;
+        --slide-width: calc((100cqw - (var(--items-visible) - 1) * var(--gap)) / var(--items-visible));
+        container-type: inline-size;
+        container-name: project-marquee;
+        touch-action: pan-x;
+        cursor: grab;
+
+        @include mixins.mq-between(md, lg) {
+            --gap: 2rem;
+        }
+
+        @include mixins.mq-up(lg) {
+            --gap: 2rem;
+        }
+
+        &.is-dragging {
+            cursor: grabbing;
+        }
+
+        &.is-paused .nectar-blocks-marquee__inner {
+            animation-play-state: paused;
+        }
+    }
+
+    &__track .nectar-blocks-marquee__inner {
+        justify-content: flex-start;
+        width: max-content;
+        min-width: 100%;
+    }
+
+    &__track .nectar-blocks-marquee__inner > .project-marquee-slider__slide {
+        flex: 0 0 var(--slide-width);
+        width: var(--slide-width);
+        max-width: var(--slide-width);
+        min-width: 0;
+        box-sizing: border-box;
+        align-items: stretch;
+    }
+
+    &__slide {
+        display: flex;
+    }
+
+    &__item {
+        display: flex;
+        width: 100%;
+        min-width: 0;
+        margin: 0;
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-width: 0;
+        color: inherit;
+        text-decoration: none;
+        outline-offset: 4px;
+
+        &--preview {
+            cursor: default;
+        }
+    }
+
+    &__media {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        aspect-ratio: 4 / 5;
+        background-color: var(--nectar-extra-color-1, #f0f0f0);
+    }
+
+    &__image {
+        display: block;
+        width: 100% !important;
+        max-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+
+    &__fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+    }
+
+    &__fallback-logo {
+        max-width: 40%;
+        max-height: 40%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        opacity: 0.35;
+    }
+
+    &__video {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 0;
+        object-fit: cover;
+        object-position: center bottom;
+        transition: height 0.45s ease;
+        pointer-events: none;
+    }
+
+    &__arrow {
+        position: absolute;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        background-color: var(--nectar-accent-color, #000);
+        color: var(--nectar-accent-color-text, #fff);
+        pointer-events: none;
+    }
+
+    @media (hover: hover) {
+        &__link:not(#{$self}__link--has-video):hover #{$self}__image,
+        &__link:not(#{$self}__link--has-video):focus-visible #{$self}__image {
+            transform: scale(1.05);
+        }
+
+        &__link--has-video:hover #{$self}__video,
+        &__link--has-video:focus-visible #{$self}__video {
+            height: 100%;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        #{$self}__track {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        #{$self}__track .nectar-blocks-marquee__inner {
+            animation: none !important;
+            transform: none !important;
+            flex-wrap: nowrap;
+        }
+
+        #{$self}__track .nectar-blocks-marquee__inner[aria-hidden='true'] {
+            display: none;
+        }
+
+        #{$self}__slide {
+            scroll-snap-align: start;
+        }
+
+        #{$self}__image {
+            transition: none;
+        }
+
+        #{$self}__video {
+            transition: none;
+        }
+    }
+}

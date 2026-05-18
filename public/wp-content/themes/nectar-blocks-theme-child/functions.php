@@ -125,6 +125,7 @@ class Theme extends Singleton {
      */
     public static function initBlocks(): void {
         NoviMenuBlock::getInstance();
+        ProjectMarqueeSliderBlock::getInstance();
     }
 
     /**

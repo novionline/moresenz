@@ -36,6 +36,26 @@ class ProjectPostType extends Singleton {
 
         //register project category taxonomy
         add_action('init', [$this, 'registerTaxonomy'], 5);
+
+        //register portfolio video meta used by nectar blocks post grid video output
+        add_action('init', [$this, 'registerProjectPortfolioVideoMeta'], 20);
+
+        //sync ACF video fields to nectar portfolio video meta format after ACF saves
+        add_action('acf/save_post', [$this, 'syncAcfVideoToNectarMeta'], 20);
+
+        $this->handleAcfJson();
+    }
+
+    /**
+     * Load ACF JSON for project video field group
+     * @return void
+     */
+    protected function handleAcfJson(): void {
+        $acfJsonPath = get_stylesheet_directory() . '/acf-json';
+
+        add_filter('acf/settings/load_json', function (array $paths = []) use ($acfJsonPath) {
+            return array_merge($paths, [$acfJsonPath]);
+        });
     }
 
     /**
@@ -85,5 +105,126 @@ class ProjectPostType extends Singleton {
             'show_in_rest' => true,
         ]);
     }
-}
 
+    /**
+     * Register portfolio video meta for project post type
+     * @return void
+     */
+    public function registerProjectPortfolioVideoMeta(): void {
+        register_post_meta(self::TYPE, '_nectar_portfolio_video', [
+            'show_in_rest' => [
+                'schema' => [
+                    'type' => 'object',
+                    'properties' => [
+                        'source' => [
+                            'type' => 'object',
+                            'properties' => [
+                                'id' => [
+                                    'type' => ['integer', 'null'],
+                                ],
+                                'type' => [
+                                    'type' => 'string',
+                                ],
+                                'url' => [
+                                    'type' => 'string',
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'label' => __('Video', Theme::TEXT_DOMAIN),
+            'single' => true,
+            'default' => [
+                'source' => [
+                    'id' => null,
+                    'url' => '',
+                    'type' => 'empty'
+                ],
+            ],
+            'type' => 'object',
+            'auth_callback' => function () {
+                return current_user_can('edit_posts');
+            }
+        ]);
+    }
+
+    /**
+     * Sync ACF video field to nectar portfolio video meta format
+     * @param mixed $postId
+     * @return void
+     */
+    public function syncAcfVideoToNectarMeta($postId): void {
+        if (!is_numeric($postId)) {
+            return;
+        }
+        $postId = (int)$postId;
+        if ($postId <= 0) {
+            return;
+        }
+
+        if (get_post_type($postId) !== self::TYPE) {
+            return;
+        }
+
+        $videoFileId = function_exists('get_field') ? get_field('project_video_file', $postId) : null;
+
+        $sourceType = 'empty';
+        $finalVideoId = null;
+        $finalVideoUrl = '';
+
+        if (!empty($videoFileId)) {
+            $finalVideoId = (int)$videoFileId;
+            $finalVideoUrl = wp_get_attachment_url($finalVideoId) ?: '';
+            $sourceType = 'media';
+        }
+
+        $metaValue = [
+            'source' => [
+                'id' => $finalVideoId,
+                'url' => $finalVideoUrl,
+                'type' => $sourceType
+            ],
+        ];
+
+        update_post_meta($postId, '_nectar_portfolio_video', $metaValue);
+    }
+
+    /**
+     * Get video URL for a project by post ID
+     * @param int $postId
+     * @return string
+     */
+    public static function getVideoUrlByPostId(int $postId): string {
+        if ($postId <= 0) {
+            return '';
+        }
+
+        $portfolioVideo = get_post_meta($postId, '_nectar_portfolio_video', true);
+
+        if (is_array($portfolioVideo) && isset($portfolioVideo['source'])) {
+            $source = $portfolioVideo['source'];
+            if (!empty($source['id'])) {
+                $videoUrl = wp_get_attachment_url((int)$source['id']);
+                if ($videoUrl) {
+                    return $videoUrl;
+                }
+            }
+            if (!empty($source['url'])) {
+                return (string)$source['url'];
+            }
+        }
+
+        if (function_exists('get_field')) {
+            $videoFileId = get_field('project_video_file', $postId);
+            if (!empty($videoFileId)) {
+                $videoUrl = wp_get_attachment_url((int)$videoFileId);
+                if ($videoUrl) {
+                    return $videoUrl;
+                }
+            }
+        }
+
+        return '';
+    }
+}

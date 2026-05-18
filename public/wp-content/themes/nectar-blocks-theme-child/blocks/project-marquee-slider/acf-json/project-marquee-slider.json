@@ -1,0 +1,259 @@
+{
+    "key": "group_project_marquee_slider",
+    "title": "Block - Project marquee slider",
+    "fields": [
+        {
+            "key": "field_project_marquee_selection_method",
+            "label": "Selection method",
+            "name": "project_marquee_selection_method",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Automatic",
+            "ui_off_text": "Manual"
+        },
+        {
+            "key": "field_project_marquee_block_categories",
+            "label": "Selected categories",
+            "name": "project_marquee_block_categories",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Optionally filter your automatic selection of projects by one or multiple categories.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_marquee_selection_method",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "novi-project-category",
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "multiple": 1,
+            "allow_null": 1,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_sort_project_marquee_posts_by",
+            "label": "Sort posts by",
+            "name": "sort_project_marquee_posts_by",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_marquee_selection_method",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "menu_order": "Menu order",
+                "date": "Date",
+                "rand": "Random",
+                "title": "Title"
+            },
+            "default_value": "menu_order",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_project_marquee_sort_order",
+            "label": "Sort order",
+            "name": "project_marquee_sort_order",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_marquee_selection_method",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "ASC": "Ascending",
+                "DESC": "Descending"
+            },
+            "default_value": "ASC",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_amount_of_posts_to_show_project_marquee",
+            "label": "Amount of posts to show",
+            "name": "amount_of_project_posts_to_show_project_marquee",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_marquee_selection_method",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": -1,
+            "min": -1,
+            "max": 20,
+            "step": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_selected_project_marquee_items",
+            "label": "Selected projects",
+            "name": "selected_project_marquee_items",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_project_marquee_selection_method",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "novi-project"
+            ],
+            "filters": [
+                "search"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object",
+            "taxonomy": [],
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_project_marquee_speed",
+            "label": "Scroll speed",
+            "name": "project_marquee_speed",
+            "aria-label": "",
+            "type": "range",
+            "instructions": "Slow (left) to fast (right).",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0.5,
+            "min": 0,
+            "max": 1,
+            "step": "0.05",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_project_marquee_fallback_logo",
+            "label": "Fallback logo",
+            "name": "project_marquee_fallback_logo",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Shown on project cards without a featured image. Defaults to the site logo when empty.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "id",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": "",
+            "preview_size": "medium"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/block-project-marquee-slider"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1747584000
+}
