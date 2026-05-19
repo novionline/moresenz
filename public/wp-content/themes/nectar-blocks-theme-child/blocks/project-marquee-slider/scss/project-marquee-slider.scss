@@ -146,6 +146,17 @@
         transition: transform 0.4s ease-in-out;
     }
 
+    &__link--has-hover-parallax #{$self}__image {
+        position: relative;
+        z-index: 1;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    &__link--has-hover-parallax #{$self}__video,
+    &__link--has-hover-parallax #{$self}__hover-image {
+        transition: transform 0.4s ease-in-out 0.1s, box-shadow 0.4s ease-in-out 0.1s;
+    }
+
     &__watermark {
         display: flex;
         align-items: center;
@@ -173,7 +184,8 @@
         object-fit: cover;
         object-position: center bottom;
         transform: translateY(100%);
-        transition: transform .4s ease-in-out;
+        box-shadow: 0 -14px 40px rgba(0, 0, 0, 0);
+        transition: transform 0.4s ease-in-out 0.1s, box-shadow 0.4s ease-in-out 0.1s;
         pointer-events: none;
     }
 
@@ -244,6 +256,11 @@
     &__link--has-video.is-card-active #{$self}__video,
     &__link--has-hover-image.is-card-active #{$self}__hover-image {
         transform: translateY(0);
+        box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.45);
+    }
+
+    &__link--has-hover-parallax.is-card-active #{$self}__image {
+        transform: translateY(-15%);
     }
 
     &__link.is-card-active #{$self}__arrow::before {
@@ -273,12 +290,21 @@
         &__link--has-video.is-card-active #{$self}__video,
         &__link--has-video:focus-visible #{$self}__video {
             transform: translateY(0);
+            box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.45);
         }
 
         &__link--has-hover-image:hover #{$self}__hover-image,
         &__link--has-hover-image.is-card-active #{$self}__hover-image,
         &__link--has-hover-image:focus-visible #{$self}__hover-image {
             transform: translateY(0);
+            box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.45);
+        }
+
+        &__link--has-hover-parallax:hover #{$self}__image,
+        &__link--has-hover-parallax.is-video-active #{$self}__image,
+        &__link--has-hover-parallax.is-card-active #{$self}__image,
+        &__link--has-hover-parallax:focus-visible #{$self}__image {
+            transform: translateY(-15%);
         }
     }
 
@@ -317,6 +343,7 @@
         #{$self}__video,
         #{$self}__hover-image {
             transition: none;
+            box-shadow: none;
         }
 
         #{$self}__watermark svg {

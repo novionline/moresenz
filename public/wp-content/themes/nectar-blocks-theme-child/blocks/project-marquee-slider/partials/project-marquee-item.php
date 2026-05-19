@@ -20,6 +20,7 @@ $videoMimeType = $hasVideoHover ? ProjectPostType::getVideoMimeTypeByPostId($pos
 $hoverImageId = $hasImageHover ? ProjectPostType::getHoverImageIdByPostId($postId) : 0;
 $hasThumbnail = has_post_thumbnail($postId);
 $isWatermarkOnly = !$hasThumbnail && $hoverType === ProjectPostType::HOVER_TYPE_NONE;
+$hasHoverParallax = $hasThumbnail && ($hasVideoHover || $hasImageHover);
 $ariaLabel = sprintf(
     /* translators: %s: project title */
     __('View project: %s', Theme::TEXT_DOMAIN),
@@ -30,7 +31,7 @@ $ariaLabel = sprintf(
 <div class="project-marquee-slider__slide">
     <article class="project-marquee-slider__item">
         <a href="<?php echo esc_url($permalink); ?>"
-           class="project-marquee-slider__link<?php echo $hasVideoHover ? ' project-marquee-slider__link--has-video' : ''; ?><?php echo $hasImageHover ? ' project-marquee-slider__link--has-hover-image' : ''; ?><?php echo $isWatermarkOnly ? ' project-marquee-slider__link--watermark-only' : ''; ?><?php echo $is_preview ? ' project-marquee-slider__link--preview' : ''; ?>"
+           class="project-marquee-slider__link<?php echo $hasVideoHover ? ' project-marquee-slider__link--has-video' : ''; ?><?php echo $hasImageHover ? ' project-marquee-slider__link--has-hover-image' : ''; ?><?php echo $hasHoverParallax ? ' project-marquee-slider__link--has-hover-parallax' : ''; ?><?php echo $isWatermarkOnly ? ' project-marquee-slider__link--watermark-only' : ''; ?><?php echo $is_preview ? ' project-marquee-slider__link--preview' : ''; ?>"
            draggable="false"
            <?php echo $is_preview ? 'onclick="return false"' : ''; ?>
            aria-label="<?php echo esc_attr($ariaLabel); ?>">
