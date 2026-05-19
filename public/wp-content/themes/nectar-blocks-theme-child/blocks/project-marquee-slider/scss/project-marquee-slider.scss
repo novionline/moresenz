@@ -211,14 +211,23 @@
         width: 3rem;
         height: 3rem;
         border-radius: 50%;
-        background-color: color-mix(in srgb, var(--light, #fff) 12%, transparent);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
         color: var(--accentLight, #fff);
         pointer-events: auto;
-        transition: background-color .2s ease-in-out;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background-color: color-mix(in srgb, var(--light, #fff) 12%, transparent);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: background-color .2s ease-in-out, transform .2s ease-in-out;
+        }
 
         svg {
+            position: relative;
+            z-index: 1;
             width: 1.5rem;
             height: 1.5rem;
         }
@@ -237,9 +246,16 @@
         transform: translateY(0);
     }
 
+    &__link.is-card-active #{$self}__arrow::before {
+        background-color: var(--accentPrimary, #9a8a73);
+        transform: scale(1.15);
+    }
+
     @media (hover: hover) {
-        &__arrow:hover {
+        &__link:hover #{$self}__arrow::before,
+        &__link:focus-visible #{$self}__arrow::before {
             background-color: var(--accentPrimary, #9a8a73);
+            transform: scale(1.15);
         }
 
         &__link:not(#{$self}__link--has-video):not(#{$self}__link--has-hover-image):hover #{$self}__image,
@@ -309,6 +325,10 @@
 
         #{$self}__video-loader {
             animation: none;
+        }
+
+        #{$self}__arrow::before {
+            transition: none;
         }
     }
 }
