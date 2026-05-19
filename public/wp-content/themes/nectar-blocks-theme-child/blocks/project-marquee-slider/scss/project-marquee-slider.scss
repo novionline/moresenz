@@ -149,7 +149,7 @@
     &__link--has-hover-parallax #{$self}__image {
         position: relative;
         z-index: 1;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.6s ease-in-out;
     }
 
     &__link--has-hover-parallax #{$self}__video,
@@ -273,16 +273,6 @@
         &__link:focus-visible #{$self}__arrow::before {
             background-color: var(--accentPrimary, #9a8a73);
             transform: scale(1.15);
-        }
-
-        &__link:not(#{$self}__link--has-video):not(#{$self}__link--has-hover-image):hover #{$self}__image,
-        &__link:not(#{$self}__link--has-video):not(#{$self}__link--has-hover-image):focus-visible #{$self}__image {
-            transform: scale(1.1);
-        }
-
-        &__link--watermark-only:hover #{$self}__watermark svg,
-        &__link--watermark-only:focus-visible #{$self}__watermark svg {
-            transform: scale(1.1);
         }
 
         &__link--has-video:hover #{$self}__video,
