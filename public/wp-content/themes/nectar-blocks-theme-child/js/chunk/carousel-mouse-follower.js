@@ -37,10 +37,11 @@
         indicator.style.top = (clientY - rect.top - carouselBorderTop - halfSize) + 'px'
       }
 
-      function isNavigationElement(target) {
+      function shouldHideIndicator(target) {
         if (!target || typeof target.closest !== 'function') return false
 
         return Boolean(target.closest(
+          'a, button, input, select, textarea, label, summary, details, ' +
           '.swiper-pagination-wrap, .swiper-pagination, .swiper-button-prev, .swiper-button-next, .swiper-arrow'
         ))
       }
@@ -62,7 +63,7 @@
       }
 
       carousel.addEventListener('mousemove', function (e) {
-        if (isNavigationElement(e.target)) {
+        if (shouldHideIndicator(e.target)) {
           hide()
           return
         }
@@ -74,7 +75,7 @@
       carousel.addEventListener('mouseleave', hide)
 
       carousel.addEventListener('pointerdown', function (e) {
-        if (isNavigationElement(e.target)) {
+        if (shouldHideIndicator(e.target)) {
           hide()
           return
         }
