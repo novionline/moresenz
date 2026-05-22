@@ -25,14 +25,15 @@ class Gutenberg {
      *
      * @param string $blockName
      * @param bool $checkOtherBlocks If false, only the global $post is checked.
+     * @param bool $includeNonSingularGlobalPost If true, the global $post is also checked on non-singular views.
      * @return array
      */
-    public static function getUsedBlocksByName(string $blockName, bool $checkOtherBlocks = true): array {
+    public static function getUsedBlocksByName(string $blockName, bool $checkOtherBlocks = true, bool $includeNonSingularGlobalPost = false): array {
         $postsToCheck = [];
 
         //handle current post
-        if (is_single() || is_page()) {
-            global $post;
+        global $post;
+        if (is_single() || is_page() || $includeNonSingularGlobalPost) {
             if (is_a($post, '\WP_Post')) $postsToCheck[] = $post;
         }
 
@@ -72,7 +73,8 @@ class Gutenberg {
 
         //parse blocks
         $blocks = parse_blocks($post->post_content);
-        $foundBlocks = self::getBlocksByName($blocks, $blockName);
+        $visitedReusableBlocks = [];
+        $foundBlocks = self::getBlocksByName($blocks, $blockName, $visitedReusableBlocks);
 
         //store in cache
         self::$usedBlocksCacheByPost[$cacheKey] = $foundBlocks;
@@ -85,14 +87,32 @@ class Gutenberg {
      *
      * @param array $blocks Parsed blocks array.
      * @param string $blockName The block name to search for.
+     * @param array<int, bool> $visitedReusableBlocks Prevent infinite recursion for reusable blocks (core/block ref).
      * @return array
      */
-    protected static function getBlocksByName(array $blocks, string $blockName): array {
+    protected static function getBlocksByName(array $blocks, string $blockName, array &$visitedReusableBlocks = []): array {
         $found = [];
 
         foreach ($blocks as $block) {
             if (isset($block['blockName']) && $block['blockName'] === $blockName) $found[] = $block;
-            if (isset($block['innerBlocks']) && is_array($block['innerBlocks'])) $found = array_merge($found, self::getBlocksByName($block['innerBlocks'], $blockName));
+
+            //reusable blocks (synced patterns) are stored as core/block with a ref to a wp_block post
+            if (($block['blockName'] ?? '') === 'core/block') {
+                $ref = $block['attrs']['ref'] ?? null;
+                $refId = is_numeric($ref) ? (int)$ref : 0;
+                if ($refId > 0 && empty($visitedReusableBlocks[$refId])) {
+                    $visitedReusableBlocks[$refId] = true;
+                    $reusablePost = get_post($refId);
+                    if (is_a($reusablePost, '\WP_Post') && $reusablePost->post_content) {
+                        $reusableBlocks = parse_blocks($reusablePost->post_content);
+                        $found = array_merge($found, self::getBlocksByName($reusableBlocks, $blockName, $visitedReusableBlocks));
+                    }
+                }
+            }
+
+            if (isset($block['innerBlocks']) && is_array($block['innerBlocks'])) {
+                $found = array_merge($found, self::getBlocksByName($block['innerBlocks'], $blockName, $visitedReusableBlocks));
+            }
         }
 
         return $found;

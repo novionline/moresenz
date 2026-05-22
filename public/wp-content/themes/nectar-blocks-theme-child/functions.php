@@ -93,6 +93,8 @@ class Theme extends Singleton {
     public static function initComponents(): void {
         BlockCustomizationComponent::getInstance();
         NectarBlocksComponent::getInstance();
+        PaginationComponent::getInstance();
+        StructuredDataFaqAccordionComponent::getInstance();
         GlobalSectionComponent::getInstance();
         GlobalSectionConditionsComponent::getInstance();
         HeaderComponent::getInstance();

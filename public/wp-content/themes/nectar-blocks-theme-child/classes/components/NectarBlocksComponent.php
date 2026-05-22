@@ -2,6 +2,7 @@
 
 namespace NoviOnline;
 
+use NoviOnline\Core\Link;
 use NoviOnline\Core\Singleton;
 
 /**
@@ -15,6 +16,8 @@ class NectarBlocksComponent extends Singleton {
      */
     protected function __construct() {
 
+        add_filter('nectar_logo_url', [$this, 'filterHomeLogoUrl']);
+
         //enqueue dynamic nectarBlocks CSS for the block editor preview
         add_action('enqueue_block_assets', [$this, 'nectarEnqueueDynamicCssBlockEditor'], 1);
 
@@ -26,6 +29,16 @@ class NectarBlocksComponent extends Singleton {
 
         //add a “Block patterns” sub-item under “Nectar Blocks”
         add_action('admin_menu', [$this, 'registerBlockPatternsSubmenu'], 20);
+    }
+
+    /**
+     * Filter home logo URL through parseLink (adds trailing slash when not on default language)
+     *
+     * @param string $url
+     * @return string
+     */
+    public function filterHomeLogoUrl(string $url): string {
+        return esc_url(Link::parseLink($url));
     }
 
     /**

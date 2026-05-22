@@ -98,7 +98,7 @@ class ProjectPostType extends Singleton {
      */
     public static function registerTaxonomy(): void {
         register_taxonomy(self::TAXONOMY_SLUG, [self::TYPE], [
-            'public' => true,
+            'public' => false,
             'labels' => PostType::getLabels(
                 __('Project category', Theme::TEXT_DOMAIN),
                 __('Project categories', Theme::TEXT_DOMAIN)

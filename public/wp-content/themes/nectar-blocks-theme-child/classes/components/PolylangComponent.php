@@ -34,6 +34,9 @@ class PolylangComponent extends Singleton {
             add_filter('acf/settings/current_language', function () {
                 return !defined('REST_API') ? pll_current_language('locale') : get_locale();
             });
+
+            //add x-default hreflang tag pointing to the default language URL
+            add_filter('pll_rel_hreflang_attributes', [$this, 'filterRelHreflangAttributes'], 10, 1);
         }
 
         //handle CMS
@@ -222,6 +225,46 @@ class PolylangComponent extends Singleton {
         }
 
         return $page;
+    }
+
+    /**
+     * Prepend an x-default hreflang entry pointing to the default Polylang language URL.
+     * Placed at the top of the array so it renders before all other hreflang tags.
+     *
+     * @param array $hreflangs Hreflang URLs keyed by language code (e.g. 'en', 'nl', ...)
+     * @return array
+     */
+    public function filterRelHreflangAttributes(array $hreflangs): array {
+
+        //bail when Polylang is not active
+        if (!function_exists('pll_default_language')) {
+            return $hreflangs;
+        }
+
+        //find the URL of the default language in the already-prepared array
+        $defaultLang = pll_default_language('slug');
+        $defaultUrl = null;
+
+        if ($defaultLang && isset($hreflangs[$defaultLang])) {
+            $defaultUrl = $hreflangs[$defaultLang];
+        } elseif ($defaultLang) {
+            //fallback for the rare case where the key is a locale (e.g. en-US) instead of slug
+            foreach ($hreflangs as $key => $url) {
+                if (is_string($key) && strpos($key, $defaultLang . '-') === 0) {
+                    $defaultUrl = $url;
+                    break;
+                }
+            }
+        }
+
+        //nothing to do when we cannot resolve a URL for the default language
+        if (!$defaultUrl) {
+            return $hreflangs;
+        }
+
+        //prepend x-default; left-hand keys win in array union so any pre-existing x-default is overridden,
+        //and iteration order (which determines print order) starts with x-default
+        return ['x-default' => $defaultUrl] + $hreflangs;
     }
 
     /**

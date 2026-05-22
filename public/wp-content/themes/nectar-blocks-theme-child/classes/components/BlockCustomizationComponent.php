@@ -3,6 +3,8 @@
 namespace NoviOnline;
 
 use NoviOnline\Core\Formatting;
+use NoviOnline\Core\Image;
+use NoviOnline\Core\Log;
 use NoviOnline\Core\Singleton;
 
 /**
@@ -21,6 +23,9 @@ class BlockCustomizationComponent extends Singleton {
 
         //carousel: add novi mouse follower indicator when block option is enabled
         add_filter('render_block', [$this, 'carouselMouseFollowerMarkup'], 10, 2);
+
+        //image block: fallback alt tag from attachment when none is configured
+        add_filter('render_block', [$this, 'imageBlockFallbackAlt'], 10, 2);
 
         //choose which hash is used per taxonomy (taxonomy slug + "-filters")
         add_filter('nectar_blocks_taxonomy_terms_link_hash', [$this, 'taxonomyTermsLinkHashByTaxonomy'], 10, 2);
@@ -129,6 +134,97 @@ class BlockCustomizationComponent extends Singleton {
         }
 
         return $blockContent;
+    }
+
+    /**
+     * When the Nectar image block has no alt in attributes, set the rendered img alt from Image::altFromId().
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function imageBlockFallbackAlt($blockContent, array $block) {
+
+        if (($block['blockName'] ?? '') !== 'nectar-blocks/image') {
+            return $blockContent;
+        }
+
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        $imageAttrs = $block['attrs']['image'] ?? [];
+        if (!is_array($imageAttrs)) {
+            return $blockContent;
+        }
+
+        $debugEnabled = defined('WP_DEBUG') && WP_DEBUG && isset($_GET['novi_debug_alt']) && $_GET['novi_debug_alt'] === '1';
+
+        $configuredAlt = isset($imageAttrs['alt']) ? trim((string) $imageAttrs['alt']) : '';
+        if ($configuredAlt !== '') {
+            if ($debugEnabled) {
+                Log::log('[novi][nectar-image-alt] configured alt present; skipping. blockId=' . ($block['attrs']['blockId'] ?? '') . ' alt=' . $configuredAlt);
+            }
+            return $blockContent;
+        }
+
+        $attachmentId = $imageAttrs['id'] ?? 0;
+        if (!$attachmentId) {
+            if ($debugEnabled) {
+                Log::log('[novi][nectar-image-alt] missing attachment id; skipping. blockId=' . ($block['attrs']['blockId'] ?? ''));
+            }
+            return $blockContent;
+        }
+
+        $fallbackAlt = Image::altFromId($attachmentId);
+        if ($fallbackAlt === '') {
+            //Image::altFromId falls back to attachment title; some attachments might have an empty title.
+            //as a final fallback, use the block-configured title if available
+            $fallbackAlt = isset($imageAttrs['title']) ? trim((string) $imageAttrs['title']) : '';
+            if ($fallbackAlt !== '') {
+                $fallbackAlt = esc_attr(ucfirst(str_replace(['-', '_'], ' ', $fallbackAlt)));
+            }
+        }
+
+        if ($fallbackAlt === '') {
+            if ($debugEnabled) {
+                Log::log('[novi][nectar-image-alt] empty fallback alt; skipping. blockId=' . ($block['attrs']['blockId'] ?? '') . ' attachmentId=' . $attachmentId);
+            }
+            return $blockContent;
+        }
+
+        $updated = preg_replace_callback(
+            '/<img\b[^>]*>/iu',
+            static function (array $m) use ($fallbackAlt): string {
+                $tag = $m[0];
+                if (preg_match('/\balt\s*=\s*"/iu', $tag)) {
+                    return (string) preg_replace('/\balt\s*=\s*"[^"]*"/iu', 'alt="' . $fallbackAlt . '"', $tag, 1);
+                }
+                if (preg_match('/\balt\s*=\s*\'/iu', $tag)) {
+                    return (string) preg_replace('/\balt\s*=\s*\'[^\']*\'/iu', 'alt="' . $fallbackAlt . '"', $tag, 1);
+                }
+                if (preg_match('/\/\s*>\s*$/', $tag)) {
+                    return (string) preg_replace('/\/\s*>\s*$/', ' alt="' . $fallbackAlt . '" />', $tag, 1);
+                }
+
+                return (string) preg_replace('/>$/', ' alt="' . $fallbackAlt . '">', $tag, 1);
+            },
+            $blockContent,
+            1
+        );
+
+        if ($debugEnabled) {
+            $changed = is_string($updated) && $updated !== $blockContent;
+            Log::log('[novi][nectar-image-alt] processed. blockId=' . ($block['attrs']['blockId'] ?? '') . ' attachmentId=' . $attachmentId . ' fallbackAlt=' . $fallbackAlt . ' changed=' . ($changed ? '1' : '0'));
+            if (!$changed && preg_match('/<img\b[^>]*>/iu', $blockContent, $m)) {
+                Log::log('[novi][nectar-image-alt] img-before: ' . $m[0]);
+            }
+            if ($changed && preg_match('/<img\b[^>]*>/iu', (string) $updated, $m)) {
+                Log::log('[novi][nectar-image-alt] img-after: ' . $m[0]);
+            }
+        }
+
+        return $updated !== null ? $updated : $blockContent;
     }
 
     /**

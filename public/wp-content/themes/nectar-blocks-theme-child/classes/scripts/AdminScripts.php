@@ -42,5 +42,19 @@ class AdminScripts extends Singleton {
                 true
             );
         }
+
+        $accordionFaqStructuredDataEditorJs = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'accordion-faq-structured-data-editor.js');
+        if (!$accordionFaqStructuredDataEditorJs) {
+            $accordionFaqStructuredDataEditorJs = get_stylesheet_directory_uri() . '/js/chunk/accordion-faq-structured-data-editor.js';
+        }
+        if ($accordionFaqStructuredDataEditorJs) {
+            wp_enqueue_script(
+                Theme::TEXT_DOMAIN . '_accordion_faq_structured_data_editor',
+                $accordionFaqStructuredDataEditorJs,
+                ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-hooks', 'wp-compose', 'wp-i18n'],
+                false,
+                true
+            );
+        }
     }
 }
