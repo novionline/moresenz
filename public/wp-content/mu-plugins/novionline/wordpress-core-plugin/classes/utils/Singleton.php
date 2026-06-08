@@ -45,10 +45,9 @@ class Singleton
      * Gets the instance
      * @return static
      */
-    public static function getInstance()
+    public static function getInstance(...$args)
     {
-        $class = get_called_class();
-        $args = func_get_args();
+        $class = static::class;
 
         if (!isset(self::$instances[$class])) {
             self::$instances[$class] = new static(...$args);

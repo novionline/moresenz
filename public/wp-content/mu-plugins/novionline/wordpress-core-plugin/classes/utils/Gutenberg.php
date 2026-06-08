@@ -83,6 +83,35 @@ class Gutenberg {
     }
 
     /**
+     * Extract synced pattern ref IDs (core/block attrs.ref) from a post's block content.
+     *
+     * @param \WP_Post $post
+     * @return int[]
+     */
+    public static function getPatternRefsForPost(\WP_Post $post): array
+    {
+        //collect only the direct core/block refs used in this post's own content,
+        //without following refs into referenced wp_block posts (the caller builds the tree level by level)
+        $blocks = parse_blocks($post->post_content);
+
+        $collectRefs = function (array $blocks) use (&$collectRefs): array {
+            $refIds = [];
+            foreach ($blocks as $block) {
+                if (($block['blockName'] ?? '') === 'core/block') {
+                    $refId = isset($block['attrs']['ref']) ? (int) $block['attrs']['ref'] : 0;
+                    if ($refId && !in_array($refId, $refIds, true)) $refIds[] = $refId;
+                }
+                if (isset($block['innerBlocks']) && is_array($block['innerBlocks'])) {
+                    $refIds = array_merge($refIds, $collectRefs($block['innerBlocks']));
+                }
+            }
+            return $refIds;
+        };
+
+        return array_values(array_unique($collectRefs($blocks)));
+    }
+
+    /**
      * Recursively search through an array of blocks and return those matching the given block name.
      *
      * @param array $blocks Parsed blocks array.

@@ -1,0 +1,327 @@
+@use "util/util-mixins" as mixins;
+
+$self: '.admin-bar-light';
+
+//scope under `body` to win over Salient/Nectar theme selectors like `label span`
+//and `body [class^="icon-"]...` that bleed color into our SVGs via currentColor
+body #{$self} {
+    display: none;
+    border: none;
+    position: fixed;
+    bottom: -1px;
+    left: 0;
+    margin: 0 1rem;
+    background: var(--novi-admin-bar-light-color-back, var(--novi-btn-primary-back, #160237));
+    color: var(--novi-admin-bar-light-color-front, var(--novi-btn-primary-front, #ffffff));
+    border-top-left-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+    border-top-right-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+    //upward shadow so the bar lifts off section backgrounds it would otherwise blend into
+    box-shadow: var(--novi-shadow-sm, 0 -4px 16px rgba(0, 0, 0, .12), 0 -1px 4px rgba(0, 0, 0, .08));
+    //stay above the theme's sticky/top header
+    z-index: 100000;
+
+    //only show the admin bar on larger screens
+    @include mixins.mq-up(md) {
+        display: block;
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li,
+    #{$self}__item {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        &::marker,
+        &::before {
+            display: none;
+            content: none;
+        }
+    }
+
+    #{$self}__item {
+        &:not(:last-child) {
+            #{$self}__link, #{$self}__heading {
+
+                &--style-primary {
+                    border-right: 1px solid rgba(255, 255, 255, .1);
+                }
+
+                &--style-secondary {
+                    border-bottom: 1px solid var(--novi-admin-bar-light-secondary-divider, rgba(0, 0, 0, .06));
+                }
+            }
+        }
+    }
+
+    #{$self}__heading {
+        display: flex;
+        padding: .75em 1em;
+        font-size: .875rem;
+        user-select: none;
+        line-height: 1.5em;
+        width: 100%;
+        color: var(--novi-admin-bar-light-heading-front, var(--novi-font-color-primary, #160237));
+        background: var(--novi-admin-bar-light-heading-back, var(--novi-btn-primary-front, #ffffff));
+    }
+
+    #{$self}__link {
+        display: flex;
+        text-decoration: none;
+        gap: .5em;
+        padding: .75em 1em;
+        font-size: .875rem;
+        user-select: none;
+        line-height: 1.5em;
+        transition: .2s ease-in-out background;
+        height: 100%;
+        cursor: pointer;
+
+        &--toggle-more {
+            font-size: 1rem;
+            justify-content: center;
+        }
+
+        &--style-primary {
+            color: var(--novi-admin-bar-light-color-front, var(--novi-btn-primary-front, #ffffff));
+            background: var(--novi-admin-bar-light-color-back, var(--novi-btn-primary-back, #160237));
+
+            &:hover,
+            &:focus {
+                color: var(--novi-admin-bar-light-color-front-hover, var(--novi-admin-bar-light-color-front, var(--novi-btn-primary-front, #ffffff)));
+                background: var(--novi-admin-bar-light-color-back-hover, var(--novi-btn-primary-back-hover, #9c6af1));
+            }
+
+            &:first-child {
+                border-top-left-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+            }
+
+            &:last-child {
+                border-top-right-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+            }
+        }
+
+        &--style-secondary {
+            color: var(--novi-admin-bar-light-secondary-front, var(--novi-font-color-primary, #160237));
+            background: var(--novi-admin-bar-light-secondary-back, var(--novi-btn-primary-front, #ffffff));
+
+            &:hover,
+            &:focus {
+                color: var(--novi-admin-bar-light-secondary-front-hover, var(--novi-admin-bar-light-color-front, var(--novi-btn-primary-front, #ffffff)));
+                background: var(--novi-admin-bar-light-secondary-back-hover, var(--novi-color-light, #fbfaf9));
+            }
+
+            &:first-child {
+                border-top-left-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+                border-top-right-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+            }
+
+            &:last-child {
+                border-bottom-left-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+                border-bottom-right-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+            }
+        }
+    }
+
+    #{$self}__link-icon-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1em;
+        height: 1em;
+        flex-shrink: 0;
+        //inherit color from the link, prevents theme rules from leaking via currentColor
+        color: inherit;
+    }
+
+    #{$self}__link-icon {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        margin-top: .5em;
+        //force SVG currentColor to follow the link color, not theme overrides
+        color: inherit;
+        fill: currentColor;
+
+        &--dashicon {
+            font-family: dashicons;
+            font-size: 1em;
+            line-height: 1em;
+            text-decoration: none;
+            font-weight: normal;
+            font-style: normal;
+            vertical-align: top;
+            text-align: center;
+            width: 1em;
+            height: 1em;
+        }
+
+        &--svg,
+        &--image {
+            width: 1em;
+            height: 1em;
+            object-fit: contain;
+        }
+    }
+
+    //reset the text span color too, Salient's `label span` would otherwise force its accent color
+    #{$self}__link-text {
+        color: inherit;
+        flex: 1;
+        min-width: 0;
+    }
+
+    #{$self}__checkbox-more {
+        display: none;
+
+        &:not(:checked) {
+            & ~ #{$self}__list-more {
+                opacity: 0;
+                transform: translateY(.5rem);
+                pointer-events: none;
+            }
+
+            & ~ #{$self}__link--toggle-more {
+                #{$self}__link-icon {
+                    &--close {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        &:checked {
+            & ~ #{$self}__list-more {
+                opacity: 1;
+                pointer-events: auto;
+                transform: none;
+            }
+
+            & ~ #{$self}__link--toggle-more {
+                #{$self}__link-icon {
+                    &--open {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    #{$self}__list-more {
+        position: absolute;
+        right: 0;
+        bottom: calc(100% + .5em);
+        width: max-content;
+        max-width: 20rem;
+        min-width: 10rem;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        transition: opacity .1s ease-out, transform .1s ease-out;
+        background: var(--novi-admin-bar-light-secondary-back, var(--novi-btn-primary-front, #ffffff));
+        color: var(--novi-admin-bar-light-secondary-front, var(--novi-font-color-primary, #160237));
+        border-radius: var(--novi-admin-bar-light-border-radius, var(--novi-border-radius-sm, 0));
+        //subtle elevation so a white dropdown is visible on a white site background
+        box-shadow: var(--novi-shadow-sm, 0 8px 24px rgba(0, 0, 0, .12), 0 2px 6px rgba(0, 0, 0, .08));
+        border: 1px solid rgba(0, 0, 0, .06);
+
+        #{$self}__list:not(:has(> #{$self}__item:nth-child(3))) & {
+            left: 0;
+            right: initial;
+        }
+
+        &.is-align-left {
+            left: 0;
+            right: auto;
+        }
+
+        &.is-align-right {
+            right: 0;
+            left: auto;
+        }
+    }
+
+    //nested synced pattern rows with accordion
+    #{$self}__pattern-row {
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        border-bottom: 1px solid var(--novi-admin-bar-light-secondary-divider, rgba(0, 0, 0, .06));
+    }
+
+    #{$self}__pattern-link {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #{$self}__pattern-toggle {
+        display: none;
+    }
+
+    //the row already provides the divider, so the link inside it should not add its own
+    #{$self}__pattern-row #{$self}__pattern-link {
+        border-bottom: none;
+    }
+
+    #{$self}__pattern-toggle-label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 2.5em;
+        padding: .75em .5em;
+        cursor: pointer;
+        color: var(--novi-admin-bar-light-secondary-front, var(--novi-font-color-primary, #160237));
+        background: var(--novi-admin-bar-light-secondary-back, var(--novi-btn-primary-front, #ffffff));
+        border-left: 1px solid var(--novi-admin-bar-light-secondary-divider, rgba(0, 0, 0, .06));
+
+        &:hover,
+        &:focus {
+            color: var(--novi-admin-bar-light-secondary-front-hover, var(--novi-admin-bar-light-color-front, var(--novi-btn-primary-front, #ffffff)));
+            background: var(--novi-admin-bar-light-secondary-back-hover, var(--novi-color-light, #fbfaf9));
+        }
+    }
+
+    #{$self}__pattern-toggle-icon {
+        width: 1em;
+        height: 1em;
+        transition: transform .15s ease-out;
+        color: inherit;
+        fill: currentColor;
+    }
+
+    #{$self}__pattern-toggle:not(:checked) ~ #{$self}__pattern-children {
+        display: none;
+    }
+
+    #{$self}__pattern-toggle:checked ~ #{$self}__pattern-children {
+        display: block;
+    }
+
+    //chevron points down when collapsed, up when expanded
+    #{$self}__pattern-toggle:not(:checked) ~ #{$self}__pattern-row #{$self}__pattern-toggle-label #{$self}__pattern-toggle-icon {
+        transform: rotate(90deg);
+    }
+
+    #{$self}__pattern-toggle:checked ~ #{$self}__pattern-row #{$self}__pattern-toggle-label #{$self}__pattern-toggle-icon {
+        transform: rotate(-90deg);
+    }
+
+    #{$self}__pattern-children {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        #{$self}__link {
+            padding-left: 2em;
+        }
+    }
+}

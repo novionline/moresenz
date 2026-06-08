@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "util-variables" as vars;
+
+//general media query mixin for min-width
+@mixin mq-up($breakpoint) {
+    @if map.has-key(vars.$breakpoints, $breakpoint) {
+        $breakpoint-value: map.get(vars.$breakpoints, $breakpoint);
+        @media (min-width: calc($breakpoint-value + 1px)) {
+            @content;
+        }
+    } @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}

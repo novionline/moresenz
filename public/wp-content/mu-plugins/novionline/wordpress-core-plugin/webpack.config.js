@@ -8,6 +8,7 @@ const TerserPlugin = require("terser-webpack-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 const {WebpackManifestPlugin} = require("webpack-manifest-plugin")
 const {CleanWebpackPlugin} = require("clean-webpack-plugin")
+const IgnoreEmitPlugin = require("ignore-emit-webpack-plugin")
 
 //project setup
 const PLUGIN_NAME = 'wordpress-core-plugin'
@@ -25,12 +26,26 @@ if (scssPaths && scssPaths.length > 0) {
     })
 }
 
+const icons = glob.sync(path.join(__dirname, `icons/*.svg`))
+
+const jsPaths = glob.sync(path.join(__dirname, `js/*.js`))
+const jsEntries = {}
+
+if (jsPaths && jsPaths.length > 0) {
+    jsPaths.forEach((jsPath) => {
+        const entryName = jsPath.substring(jsPath.lastIndexOf('/') + 1).replace('.js', '')
+        if (entryName) jsEntries[entryName] = [jsPath]
+    })
+}
+
 module.exports = {
 
     target: production ? ['web', 'es5'] : 'web',
 
     entry: {
-        ...scssEntries
+        ...scssEntries,
+        ...jsEntries,
+        ...icons.length > 0 ? {icons} : {},
     },
 
     ...production ? {} : {devtool: 'inline-source-map'},
@@ -128,6 +143,9 @@ module.exports = {
 
         //add JSON manifest for loading files in PHP with a dynamic hash in the name
         new WebpackManifestPlugin({}),
+
+        //prevent output of javascript file for icons
+        new IgnoreEmitPlugin([/(.+)-icons-(.+).js/]),
 
         //clear dist folder before building
         new CleanWebpackPlugin()
