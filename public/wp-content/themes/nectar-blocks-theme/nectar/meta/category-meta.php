@@ -70,6 +70,10 @@
          return;
      }
 
+     if ( ! current_user_can( 'manage_categories' ) ) {
+         return;
+     }
+
      if ( isset( $_POST['term_meta'] ) ) {
          $t_id = $term_id;
          $term_meta = get_option( "taxonomy_$t_id" );
@@ -173,6 +177,14 @@
      function nectar_save_taxonomy_product_custom_meta( $term_id ) {
 
          if ( ! isset( $_POST['nectar_product_cat_details_nonce'] ) || ! wp_verify_nonce( $_POST['nectar_product_cat_details_nonce'], basename( __FILE__ ) ) ) {
+             return;
+         }
+
+         // Capability check. `manage_product_terms` is the WooCommerce-registered
+         // capability for editing product taxonomies; fall back to
+         // `manage_categories` (a core cap) for safety on installs that have
+         // remapped or removed the WC capability.
+         if ( ! current_user_can( 'manage_product_terms' ) && ! current_user_can( 'manage_categories' ) ) {
              return;
          }
 

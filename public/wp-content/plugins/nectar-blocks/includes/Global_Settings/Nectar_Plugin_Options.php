@@ -39,6 +39,8 @@ class Nectar_Plugin_Options extends Settings_Base {
       'shouldHideTitleDefault' => false,
       'shouldDisableNectarGlobalTypography' => false,
       'defaultTextBlock' => 'nectar',
+      'localGoogleFonts' => false,
+      'lazyLoadImages' => false,
     ];
   }
 }

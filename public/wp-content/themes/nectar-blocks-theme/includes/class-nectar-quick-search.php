@@ -142,6 +142,7 @@ if ( ! class_exists( 'NectarQuickSearch' ) ) {
             }
 
             endwhile;
+            wp_reset_postdata();
             endif;
 
             // Finalize Markup.

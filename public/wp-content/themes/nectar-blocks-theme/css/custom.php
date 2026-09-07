@@ -3,8 +3,8 @@
 /**
  * Creates various style/sizing calculations dynamically from theme options.
  *
- * The styles generated from here will either be contained in nectar-blocks/css/nectar-blocks-dynamic-styles.css
- * or output directly in the head, depending on if the server writing permission is set for the css directory.
+ * The styles generated from here will either be contained in wp-content/uploads/nectar-blocks/dynamic-styles/theme-styles.css
+ * or output directly in the head, depending on if the server writing permission is set for the uploads directory.
  *
  * @version 1.0
  */
@@ -100,8 +100,20 @@
 NectarThemeManager::setup();
 
 $nectar_options = get_nectar_theme_options();
-$headerFormat = (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default';
+
+// Skip most header navigation CSS when the Header Builder manages the header on
+// *every* page. This is globally cached output, so it must use the condition-aware
+// detector — a conditional header template leaves the legacy CSS in place (it's
+// inert under builder markup but still needed on the pages the template skips),
+// while the per-request signal would bake one page's state into the shared file.
+$has_header_builder = function_exists( 'nectar_has_unconditional_header_nav_template' ) && nectar_has_unconditional_header_nav_template();
+$headerFormat = $has_header_builder ? 'default' : (
+    (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default'
+);
 $theme_skin = NectarThemeManager::$skin;
+
+// Off Canvas Menu style - needed outside header builder gate for section 16.
+$side_widget_class = (! empty($nectar_options['header-slide-out-widget-area-style'] ) ) ? $nectar_options['header-slide-out-widget-area-style'] : 'slide-out-from-right';
 
 /*-------------------------------------------------------------------------*/
 /* 05. Temp Options from Kirki
@@ -134,124 +146,137 @@ foreach ($gradients as $gradient) {
 /* 1. Header Navigation
 /*-------------------------------------------------------------------------*/
 
-  $header_starting_color = (empty($nectar_options['header-starting-color'])) ? '#ffffff' : $nectar_options['header-starting-color'];
+// Variables used by multiple header sections - always define these.
+$header_starting_color = (empty($nectar_options['header-starting-color'])) ? '#ffffff' : $nectar_options['header-starting-color'];
+$header_starting_dark_color = (isset($nectar_options['header-transparent-dark-color'])) ? $nectar_options['header-transparent-dark-color'] : '#000000';
 
-  $header_starting_dark_color = (isset($nectar_options['header-transparent-dark-color'])) ? $nectar_options['header-transparent-dark-color'] : '#000000';
+if ( ! defined('NECTAR_BLOCKS_ROOT_DIR_PATH') ) {
+  $global_font_color = (isset($nectar_options['overall-font-color']) && ! empty($nectar_options['overall-font-color']) ) ? $nectar_options['overall-font-color'] : '#000000';
+} else {
+  $global_font_color = 'var(--body-color, var(--dark))';
+}
+$global_bg_color = (isset($nectar_options['overall-bg-color']) && ! empty($nectar_options['overall-bg-color']) ) ? $nectar_options['overall-bg-color'] : '#ffffff';
+$boxed_layout = (isset($nectar_options['boxed_layout'])) ? $nectar_options['boxed_layout'] : false;
+$logo_height = 0;
 
-  if ( ! defined('NECTAR_BLOCKS_ROOT_DIR_PATH') ) {
-    $global_font_color = (isset($nectar_options['overall-font-color']) && ! empty($nectar_options['overall-font-color']) ) ? $nectar_options['overall-font-color'] : '#000000';
-  } else {
-    // use Nectarblocks global color.
-    $global_font_color = 'var(--body-color, var(--dark))';
-  }
-  $global_bg_color = (isset($nectar_options['overall-bg-color']) && ! empty($nectar_options['overall-bg-color']) ) ? $nectar_options['overall-bg-color'] : '#ffffff';
-  $boxed_layout = (isset($nectar_options['boxed_layout'])) ? $nectar_options['boxed_layout'] : false;
-  $logo_height = 0;
+if( ! empty( $nectar_options['use-logo'] ) ) {
+  $logo_height = ( ! empty($nectar_options['logo-height']) ) ? intval($nectar_options['logo-height']) : 30;
+}
 
-    // Using image based logo.
-    if( ! empty( $nectar_options['use-logo'] ) ) {
-            $logo_height = ( ! empty($nectar_options['logo-height']) ) ? intval($nectar_options['logo-height']) : 30;
-    }
-  // Text logo handled in nectar-nav-spacer.php
+$mobile_logo_height = (! empty($nectar_options['use-logo']) && ! empty($nectar_options['mobile-logo-height'])) ? intval($nectar_options['mobile-logo-height']) : 24;
+$mobile_header_layout = (isset($nectar_options['mobile-menu-layout']) && ! empty($nectar_options['mobile-menu-layout'])) ? $nectar_options['mobile-menu-layout'] : 'default';
+$header_padding = (! empty($nectar_options['header-padding'])) ? intval($nectar_options['header-padding']) : 28;
+$nav_font_size = (! empty($nectar_options['navigation_font_family']['font-size']) && $nectar_options['navigation_font_family']['font-size'] != '-') ? intval(substr($nectar_options['navigation_font_family']['font-size'], 0, -2) * 1.4 ) : 20;
+$nav_font_line_height = (! empty($nectar_options['navigation_font_family']['line-height']) && $nectar_options['navigation_font_family']['line-height'] != '-') ? intval( substr($nectar_options['navigation_font_family']['line-height'], 0, -2) ) : $nav_font_size;
+$dd_indicator_height = (! empty($nectar_options['use-custom-fonts']) && $nectar_options['use-custom-fonts'] == 1 && ! empty($nectar_options['navigation_font_size']) && $nectar_options['navigation_font_size'] != '-') ? intval(substr($nectar_options['navigation_font_size'], 0, -2)) - 1 : 20;
+$headerFormat = $has_header_builder ? 'default' : (
+    (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default'
+);
+$shrinkNum = (! empty($nectar_options['header-resize-on-scroll-shrink-num'])) ? intval($nectar_options['header-resize-on-scroll-shrink-num']) : 6;
+$perm_trans = (! empty($nectar_options['header-permanent-transparent'])) ? $nectar_options['header-permanent-transparent'] : 'false';
+$headerResize = (! empty($nectar_options['header-resize-on-scroll']) && $headerFormat != 'centered-menu-bottom-bar') ? $nectar_options['header-resize-on-scroll'] : '0';
+$hideHeaderUntilNeeded = (! empty($nectar_options['header-hide-until-needed']) && $headerFormat != 'centered-menu-bottom-bar') ? $nectar_options['header-hide-until-needed'] : '0';
+$body_border = (! empty($nectar_options['body-border'])) ? $nectar_options['body-border'] : 'off';
+$headerRemoveStickiness = (! empty($nectar_options['header-remove-fixed'])) ? $nectar_options['header-remove-fixed'] : '0';
+$using_secondary = (! empty($nectar_options['header_layout'])) ? $nectar_options['header_layout'] : ' ';
+$menu_item_spacing = (! empty($nectar_options['header-menu-item-spacing'])) ? esc_attr($nectar_options['header-menu-item-spacing']) : '10';
+$side_widget_area = (! empty($nectar_options['header-slide-out-widget-area'] ) && $headerFormat != 'left-header') ? $nectar_options['header-slide-out-widget-area'] : 'off';
+$centered_menu_bb_sep = (isset($nectar_options['centered-menu-bottom-bar-separator']) && ! empty($nectar_options['centered-menu-bottom-bar-separator'])) ? $nectar_options['centered-menu-bottom-bar-separator'] : '0';
+$centered_menu_align = (isset($nectar_options['centered-menu-bottom-bar-alignment']) && ! empty($nectar_options['centered-menu-bottom-bar-alignment'])) ? $nectar_options['centered-menu-bottom-bar-alignment'] : 'center';
+$header_fullwidth = (! empty($nectar_options['header-fullwidth'])) ? $nectar_options['header-fullwidth'] : '0';
+$header_fullwidth_pad = (! empty($nectar_options['header-fullwidth-padding'])) ? $nectar_options['header-fullwidth-padding'] : 28;
+// When header builder is active, force default to skip section 2.2 (Header Hover Effects).
+$header_hover_effect = $has_header_builder ? 'default' : (
+    (isset($nectar_options['header-hover-effect']) && ! empty($nectar_options['header-hover-effect'])) ? $nectar_options['header-hover-effect'] : 'default'
+);
 
-    $mobile_logo_height = (! empty($nectar_options['use-logo']) && ! empty($nectar_options['mobile-logo-height'])) ? intval($nectar_options['mobile-logo-height']) : 24;
-  $mobile_header_layout = (isset($nectar_options['mobile-menu-layout']) && ! empty($nectar_options['mobile-menu-layout'])) ? $nectar_options['mobile-menu-layout'] : 'default';
-    $header_padding = (! empty($nectar_options['header-padding'])) ? intval($nectar_options['header-padding']) : 28;
-    $nav_font_size = (! empty($nectar_options['navigation_font_family']['font-size']) && $nectar_options['navigation_font_family']['font-size'] != '-') ? intval(substr($nectar_options['navigation_font_family']['font-size'], 0, -2) * 1.4 ) : 20;
-  $nav_font_line_height = (! empty($nectar_options['navigation_font_family']['line-height']) && $nectar_options['navigation_font_family']['line-height'] != '-') ? intval( substr($nectar_options['navigation_font_family']['line-height'], 0, -2) ) : $nav_font_size;
-    $dd_indicator_height = (! empty($nectar_options['use-custom-fonts']) && $nectar_options['use-custom-fonts'] == 1 && ! empty($nectar_options['navigation_font_size']) && $nectar_options['navigation_font_size'] != '-') ? intval(substr($nectar_options['navigation_font_size'], 0, -2)) - 1 : 20;
-    $headerFormat = (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default';
-    $shrinkNum = (! empty($nectar_options['header-resize-on-scroll-shrink-num'])) ? intval($nectar_options['header-resize-on-scroll-shrink-num']) : 6;
-    $perm_trans = (! empty($nectar_options['header-permanent-transparent'])) ? $nectar_options['header-permanent-transparent'] : 'false';
-  $headerResize = (! empty($nectar_options['header-resize-on-scroll']) && $headerFormat != 'centered-menu-bottom-bar') ? $nectar_options['header-resize-on-scroll'] : '0';
-    $hideHeaderUntilNeeded = (! empty($nectar_options['header-hide-until-needed']) && $headerFormat != 'centered-menu-bottom-bar') ? $nectar_options['header-hide-until-needed'] : '0';
-    $body_border = (! empty($nectar_options['body-border'])) ? $nectar_options['body-border'] : 'off';
-    $headerRemoveStickiness = (! empty($nectar_options['header-remove-fixed'])) ? $nectar_options['header-remove-fixed'] : '0';
-    $using_secondary = (! empty($nectar_options['header_layout'])) ? $nectar_options['header_layout'] : ' ';
-    $menu_item_spacing = (! empty($nectar_options['header-menu-item-spacing'])) ? esc_attr($nectar_options['header-menu-item-spacing']) : '10';
-  $side_widget_class = (! empty($nectar_options['header-slide-out-widget-area-style'] ) ) ? $nectar_options['header-slide-out-widget-area-style'] : 'slide-out-from-right';
-  $side_widget_area = (! empty($nectar_options['header-slide-out-widget-area'] ) && $headerFormat != 'left-header') ? $nectar_options['header-slide-out-widget-area'] : 'off';
-  $centered_menu_bb_sep = (isset($nectar_options['centered-menu-bottom-bar-separator']) && ! empty($nectar_options['centered-menu-bottom-bar-separator'])) ? $nectar_options['centered-menu-bottom-bar-separator'] : '0';
-  $centered_menu_align = (isset($nectar_options['centered-menu-bottom-bar-alignment']) && ! empty($nectar_options['centered-menu-bottom-bar-alignment'])) ? $nectar_options['centered-menu-bottom-bar-alignment'] : 'center';
-  $header_fullwidth = (! empty($nectar_options['header-fullwidth'])) ? $nectar_options['header-fullwidth'] : '0';
-    $header_fullwidth_pad = (! empty($nectar_options['header-fullwidth-padding'])) ? $nectar_options['header-fullwidth-padding'] : 28;
-  $header_hover_effect = (isset($nectar_options['header-hover-effect']) && ! empty($nectar_options['header-hover-effect'])) ? $nectar_options['header-hover-effect'] : 'default';
+// When header builder is active, disable to skip section 4 (Transparent Coloring).
+$transparent_header = $has_header_builder ? '0' : (
+    (! empty($nectar_options['transparent-header']) && $nectar_options['transparent-header'] === '1') ? '1' : '0'
+);
 
-  $button_width = 1; // in em
-  $button_sizing = isset($nectar_options['header-hover-effect-button-bg-size']) ? $nectar_options['header-hover-effect-button-bg-size'] : 'medium';
-  if( 'small' === $button_sizing ) {
-    $button_width = 0.8;
-  } else if( 'large' === $button_sizing ) {
-    $button_width = 1.4;
-  }
-  // Button bg modifies the link line height calculation.
-  $nav_item_extra_height = 0;
-  if( 'button_bg' === $header_hover_effect && 'left-header' !== $headerFormat ) {
-    $nav_item_extra_height = ( ($button_width / 1.5) * $nav_font_size );
-  }
+$button_width = 1;
+$button_sizing = isset($nectar_options['header-hover-effect-button-bg-size']) ? $nectar_options['header-hover-effect-button-bg-size'] : 'medium';
+if( 'small' === $button_sizing ) {
+  $button_width = 0.8;
+} else if( 'large' === $button_sizing ) {
+  $button_width = 1.4;
+}
+$nav_item_extra_height = 0;
+if( 'button_bg' === $header_hover_effect && 'left-header' !== $headerFormat ) {
+  $nav_item_extra_height = ( ($button_width / 1.5) * $nav_font_size );
+}
 
-  if( class_exists('NectarElDynamicStyles') ) {
-    $header_fullwidth_pad = NectarElDynamicStyles::percent_unit_type($header_fullwidth_pad, false);
-  } else {
-    $header_fullwidth_pad = intval($header_fullwidth_pad) . 'px';
-  }
+if( class_exists('NectarElDynamicStyles') ) {
+  $header_fullwidth_pad = NectarElDynamicStyles::percent_unit_type($header_fullwidth_pad, false);
+} else {
+  $header_fullwidth_pad = intval($header_fullwidth_pad) . 'px';
+}
 
-  $user_set_side_widget_area = $side_widget_area;
+$user_set_side_widget_area = $side_widget_area;
 
-  if( isset($nectar_options['header-resize-on-scroll-shrink-num']) && '0' === $nectar_options['header-resize-on-scroll-shrink-num'] ) {
-        $shrinkNum = 0;
-    }
+if( isset($nectar_options['header-resize-on-scroll-shrink-num']) && '0' === $nectar_options['header-resize-on-scroll-shrink-num'] ) {
+  $shrinkNum = 0;
+}
 
-    // Options that disable the header resize effect.
-    if( $hideHeaderUntilNeeded === '1' || $body_border === '1' || $headerFormat === 'left-header' || $headerRemoveStickiness === '1') {
-        $headerResize = '0';
-    }
+if( $hideHeaderUntilNeeded === '1' || $body_border === '1' || $headerFormat === 'left-header' || $headerRemoveStickiness === '1') {
+  $headerResize = '0';
+}
 
-    // Larger secondary header with material theme skin.
-    if( $theme_skin === 'material' ) {
-        $extra_secondary_height = ($using_secondary === 'header_with_secondary') ? 42 : 0;
-    } else {
-        $extra_secondary_height = ($using_secondary === 'header_with_secondary') ? 34 : 0;
-    }
+if( $theme_skin === 'material' ) {
+  $extra_secondary_height = ($using_secondary === 'header_with_secondary') ? 42 : 0;
+} else {
+  $extra_secondary_height = ($using_secondary === 'header_with_secondary') ? 34 : 0;
+}
 
-    if( $headerFormat === 'centered-menu-bottom-bar') {
-    $sep_height = ($headerFormat === 'centered-menu-bottom-bar' && '1' === $centered_menu_bb_sep ) ? $header_padding : 0;
-        $header_space = $logo_height + ($header_padding * 3) + $nav_font_line_height + $extra_secondary_height + $sep_height + $nav_item_extra_height;
-    }
-    else if( $headerFormat === 'centered-menu-under-logo') {
-        $header_space = $logo_height + ($header_padding * 2) + 20 + $nav_font_line_height + $extra_secondary_height + $nav_item_extra_height;
-    }
-    else {
-        $header_space = $logo_height + ($header_padding * 2) + $extra_secondary_height;
-    }
+if( $headerFormat === 'centered-menu-bottom-bar') {
+  $sep_height = ($headerFormat === 'centered-menu-bottom-bar' && '1' === $centered_menu_bb_sep ) ? $header_padding : 0;
+  $header_space = $logo_height + ($header_padding * 3) + $nav_font_line_height + $extra_secondary_height + $sep_height + $nav_item_extra_height;
+}
+else if( $headerFormat === 'centered-menu-under-logo') {
+  $header_space = $logo_height + ($header_padding * 2) + 20 + $nav_font_line_height + $extra_secondary_height + $nav_item_extra_height;
+}
+else {
+  $header_space = $logo_height + ($header_padding * 2) + $extra_secondary_height;
+}
 
-    $page_transition_bg = (! empty($nectar_options['transition-bg-color'])) ? $nectar_options['transition-bg-color'] : '#ffffff';
-    $page_transition_bg_2 = (! empty($nectar_options['transition-bg-color-2'])) ? $nectar_options['transition-bg-color-2'] : $page_transition_bg;
+$page_transition_bg = (! empty($nectar_options['transition-bg-color'])) ? $nectar_options['transition-bg-color'] : '#ffffff';
+$page_transition_bg_2 = (! empty($nectar_options['transition-bg-color-2'])) ? $nectar_options['transition-bg-color-2'] : $page_transition_bg;
 
-    $headerFormat = (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default';
-    $small_matieral_header_space = (($header_padding / 1.8) * 2) + $logo_height - $shrinkNum;
+$headerFormat = $has_header_builder ? 'default' : (
+    (! empty($nectar_options['header_format'])) ? $nectar_options['header_format'] : 'default'
+);
+$small_matieral_header_space = (($header_padding / 1.8) * 2) + $logo_height - $shrinkNum;
 
-  $menu_label = false;
-  if( ! empty( $nectar_options['header-menu-label'] ) && $nectar_options['header-menu-label'] === '1' ) {
-    $menu_label = true;
-  }
+$menu_label = false;
+if( ! empty( $nectar_options['header-menu-label'] ) && $nectar_options['header-menu-label'] === '1' ) {
+  $menu_label = true;
+}
 
-  // Ext search.
-  $ajax_search = ( ! empty( $nectar_options['header-disable-ajax-search'] ) && $nectar_options['header-disable-ajax-search'] === '1' ) ? 'no' : 'yes';
-  $header_search = ( ! empty( $nectar_options['header-disable-search'] ) && $nectar_options['header-disable-search'] === '1' ) ? 'false' : 'true';
-  $ext_search_active = false;
+$ajax_search = ( ! empty( $nectar_options['header-disable-ajax-search'] ) && $nectar_options['header-disable-ajax-search'] === '1' ) ? 'no' : 'yes';
+$header_search = ( ! empty( $nectar_options['header-disable-search'] ) && $nectar_options['header-disable-search'] === '1' ) ? 'false' : 'true';
+$ext_search_active = false;
 
-  if( 'material' === $theme_skin && 'yes' === $ajax_search && 'true' === $header_search ) {
-    $ext_search_active = true;
-  }
+if( 'material' === $theme_skin && 'yes' === $ajax_search && 'true' === $header_search ) {
+  $ext_search_active = true;
+}
 
-  echo ':root {
-    --nectar-nav-item-gap: ' . esc_attr($menu_item_spacing) . 'px;
-  }';
+// Nav item gap is still useful for OCM and other elements.
+echo ':root {
+  --nectar-nav-item-gap: ' . esc_attr($menu_item_spacing) . 'px;
+}';
 
-  /*-------------------------------------------------------------------------*/
-  /* 1.1. Header Navigation Sizing
-  /*-------------------------------------------------------------------------*/
+// Variables needed both inside and outside header builder gate
+$mobile_header_padding = isset($nectar_options['header-mobile-padding']) && ! empty($nectar_options['header-mobile-padding']) ? intval($nectar_options['header-mobile-padding']) * 2 : 24;
+$mobile_header_space = $mobile_header_padding;
+if ( ! empty( $nectar_options['use-logo'] ) ) {
+  $mobile_header_space = intval($mobile_logo_height) + $mobile_header_padding;
+}
+
+/*-------------------------------------------------------------------------*/
+/* 1.1. Header Navigation Sizing - SKIP when header builder is active
+/*-------------------------------------------------------------------------*/
+if ( ! $has_header_builder ) :
 
     $material_header_space = $logo_height + ($header_padding * 2);
 
@@ -784,29 +809,11 @@ foreach ($gradients as $gradient) {
     }
 
     global $post;
-    if( ! empty($nectar_options['transparent-header']) && $nectar_options['transparent-header'] === '1' && isset($post->ID) ) {
+    if( '1' === $transparent_header && isset($post->ID) ) {
         $activate_transparency = nectar_using_page_header($post->ID);
     } else {
         $activate_transparency = false;
     }
-
-  $mobile_header_padding = isset($nectar_options['header-mobile-padding']) && ! empty($nectar_options['header-mobile-padding']) ? intval($nectar_options['header-mobile-padding']) * 2 : 24;
-  $mobile_header_space = $mobile_header_padding;
-  if ( ! empty( $nectar_options['use-logo'] ) ) {
-    $mobile_header_space = intval($mobile_logo_height) + $mobile_header_padding;
-  }
-     echo '
-    :root {
-      --header-nav-height: ' . $header_space . 'px;
-    }
-    #nectar-nav-spacer {
-		 padding-top: ' . $header_space . 'px;
-	 }
-	 @media only screen and (max-width: 1024px) {
-		 #nectar-nav-spacer {
-			 padding-top: ' . $mobile_header_space . 'px;
-		 }
-	 }';
 
      $header_extra_space_to_remove = $extra_secondary_height;
 
@@ -826,8 +833,8 @@ foreach ($gradients as $gradient) {
 
      // Permanent transparent theme option.
      $perm_trans = (! empty($nectar_options['header-permanent-transparent'])) ? $nectar_options['header-permanent-transparent'] : 'false';
-    if ( $perm_trans === '1' && ! nectar_is_contained_header() ) {
-      echo '#nectar-nav.transparent:not(.material-search-open) {
+    if ( $perm_trans === '1' && ! nectar_is_contained_header( $has_header_builder ) ) {
+      echo '#nectar-nav:not([data-header-builder]).transparent:not(.material-search-open) {
         mix-blend-mode: exclusion;
       }
       #nectar-nav.transparent #search-outer:not(.material-open),
@@ -839,7 +846,7 @@ foreach ($gradients as $gradient) {
       // Disable blur on all Webkit browsers, as it causes a color inversion when combined with the mix-blend-mode: exclusion;
       if( isset($nectar_options['header-blur-bg']) && $nectar_options['header-blur-bg'] === '1' ) {
         echo '@supports (-webkit-hyphens: none) and (not (-ms-ime-align: auto)) {
-            #nectar-nav {
+            #nectar-nav:not([data-header-builder]) {
               -webkit-backdrop-filter: none !important;
               backdrop-filter: none !important;
             }
@@ -851,7 +858,7 @@ foreach ($gradients as $gradient) {
     }
 
    /*-------------------------------------------------------------------------*/
-   /* 1.3. Mobile Logo Height
+   /* 1.3. Mobile Logo Height - Always output (still needed)
    /*-------------------------------------------------------------------------*/
      echo '
 	 #nectar-nav #logo .mobile-only-logo,
@@ -867,8 +874,26 @@ foreach ($gradients as $gradient) {
 
 	 }';
 
+  endif; // End 1.1-1.2 header builder check
+
+  /*-------------------------------------------------------------------------*/
+  /* 1.3. Header Nav Height CSS Variable - ALWAYS output
+  /*-------------------------------------------------------------------------*/
+  echo '
+  :root {
+    --header-nav-height: ' . $header_space . 'px;
+  }
+  #nectar-nav-spacer {
+    padding-top: var(--header-nav-height);
+  }
+  @media only screen and (max-width: 1024px) {
+    :root {
+      --header-nav-height: ' . $mobile_header_space . 'px;
+    }
+  }';
+
    /*-------------------------------------------------------------------------*/
-   /* 1.4. Custom Mobile Breakpoint
+   /* 1.4. Custom Mobile Breakpoint - SKIP when header builder is active
    /*-------------------------------------------------------------------------*/
      $mobile_breakpoint = (! empty($nectar_options['header-menu-mobile-breakpoint'])) ? $nectar_options['header-menu-mobile-breakpoint'] : 1025;
      $has_main_menu = (has_nav_menu('top_nav')) ? 'true' : 'false';
@@ -877,9 +902,10 @@ foreach ($gradients as $gradient) {
      $has_main_menu = 'true';
    }
 
-     if( ! empty($mobile_breakpoint) && $mobile_breakpoint != 1025 &&
-      $has_main_menu === 'true' &&
-      'centered-menu' !== $mobile_header_layout ) {
+    if( ! $has_header_builder &&
+     ! empty($mobile_breakpoint) && $mobile_breakpoint != 1025 &&
+     $has_main_menu === 'true' &&
+     'centered-menu' !== $mobile_header_layout ) {
 
         $mobileMenuTopPadding = ceil(($logo_height / 2)) - 10;
         $mobileMenuTopPaddingSmall = ceil( ($logo_height - $shrinkNum) / 2  ) - 10;
@@ -1403,7 +1429,7 @@ foreach ($gradients as $gradient) {
 				transition: none!important;
 			}';
 
-      if ( ! nectar_is_contained_header() ) {
+      if ( ! nectar_is_contained_header( $has_header_builder ) ) {
         echo 'body:not(.mobile) #nectar-nav.transparent > #top .span_9 > .slide-out-widget-area-toggle .lines-button:after,
         body:not(.mobile) #nectar-nav.transparent > #top .span_9 > .slide-out-widget-area-toggle .lines:before,
         body:not(.mobile) #nectar-nav.transparent > #top .span_9 > .slide-out-widget-area-toggle .lines:after {
@@ -1458,25 +1484,33 @@ foreach ($gradients as $gradient) {
           $header_bg_color = isset($nectar_options['header-background-color']) && ! empty($nectar_options['header-background-color']) ? esc_attr($nectar_options['header-background-color']) : '#ffffff';
         }
 
-        $header_bg_color = substr($header_bg_color, 1);
+        if ( strpos( $header_bg_color, 'var(' ) === 0 ) {
+          echo 'html body #nectar-nav:not([data-header-builder]),
+          html body[data-header-color="dark"] #nectar-nav:not([data-header-builder]) {
+            background-color: color-mix(in srgb, ' . esc_attr($header_bg_color) . ' ' . esc_attr($alpha) . '%, transparent);
+          }';
+        } else {
+          $header_bg_color = substr($header_bg_color, 1);
 
-        $leading_zero = $alpha < 10 ? '0.0' : '0.';
+          $leading_zero = $alpha < 10 ? '0.0' : '0.';
 
-        $colorR = hexdec( substr( $header_bg_color, 0, 2 ) );
-        $colorG = hexdec( substr( $header_bg_color, 2, 2 ) );
-        $colorB = hexdec( substr( $header_bg_color, 4, 2 ) );
-        $colorA = $leading_zero . esc_attr($alpha);
+          $colorR = hexdec( substr( $header_bg_color, 0, 2 ) );
+          $colorG = hexdec( substr( $header_bg_color, 2, 2 ) );
+          $colorB = hexdec( substr( $header_bg_color, 4, 2 ) );
+          $colorA = $leading_zero . esc_attr($alpha);
 
-        echo 'html body #nectar-nav,
-        html body[data-header-color="dark"] #nectar-nav {
-          background-color: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ');
-        }';
+          echo 'html body #nectar-nav:not([data-header-builder]),
+          html body[data-header-color="dark"] #nectar-nav:not([data-header-builder]) {
+            background-color: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ');
+          }';
+        }
 
     }
 
     }
 
-    if(! empty($nectar_options['header-dropdown-opacity']) &&
+    if( ! $has_header_builder &&
+    ! empty($nectar_options['header-dropdown-opacity']) &&
     $nectar_options['header-dropdown-opacity'] !== '100' &&
     ! empty($nectar_options['header-color'])) {
 
@@ -1493,35 +1527,55 @@ foreach ($gradients as $gradient) {
         $dropdownBGColor = $custom_dropdown_color;
       }
 
-      $dropdownBGColor = substr($dropdownBGColor, 1);
-             $colorR = hexdec( substr( $dropdownBGColor, 0, 2 ) );
-             $colorG = hexdec( substr( $dropdownBGColor, 2, 2 ) );
-             $colorB = hexdec( substr( $dropdownBGColor, 4, 2 ) );
-             $colorA = ($nectar_options['header-dropdown-opacity'] != '100') ? '0.' . esc_attr($nectar_options['header-dropdown-opacity']) : esc_attr($nectar_options['header-dropdown-opacity']);
+      if ( strpos( $dropdownBGColor, 'var(' ) === 0 ) {
+        $dropdownAlpha = esc_attr($nectar_options['header-dropdown-opacity']);
+        $dropdownColorMix = 'color-mix(in srgb, ' . esc_attr($dropdownBGColor) . ' ' . $dropdownAlpha . '%, transparent)';
 
-             echo '
-			 #search-outer .ui-widget-content,
-			 body:not([data-header-format="left-header"]) #top .sf-menu li ul,
-			 #nectar-nav .widget_shopping_cart .cart_list a,
-			 #header-secondary-outer ul ul li a,
-			 #nectar-nav .widget_shopping_cart .cart_list li,
-			 .woocommerce .cart-notification,
-			 #nectar-nav .widget_shopping_cart_content {
-					background-color: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ')!important;
-				}
+        echo '
+        #search-outer .ui-widget-content,
+        body:not([data-header-format="left-header"]) #top .sf-menu li ul,
+        #nectar-nav .widget_shopping_cart .cart_list a,
+        #header-secondary-outer ul ul li a,
+        #nectar-nav .widget_shopping_cart .cart_list li,
+        .woocommerce .cart-notification,
+        #nectar-nav .widget_shopping_cart_content {
+          background-color: ' . $dropdownColorMix . '!important;
+        }
         :root {
-          --nectar-nav-dropdown-bg: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ');
+          --nectar-nav-dropdown-bg: ' . $dropdownColorMix . ';
         }';
+      } else {
+        $dropdownBGColor = substr($dropdownBGColor, 1);
+               $colorR = hexdec( substr( $dropdownBGColor, 0, 2 ) );
+               $colorG = hexdec( substr( $dropdownBGColor, 2, 2 ) );
+               $colorB = hexdec( substr( $dropdownBGColor, 4, 2 ) );
+               $colorA = ($nectar_options['header-dropdown-opacity'] != '100') ? '0.' . esc_attr($nectar_options['header-dropdown-opacity']) : esc_attr($nectar_options['header-dropdown-opacity']);
+
+               echo '
+         #search-outer .ui-widget-content,
+         body:not([data-header-format="left-header"]) #top .sf-menu li ul,
+         #nectar-nav .widget_shopping_cart .cart_list a,
+         #header-secondary-outer ul ul li a,
+         #nectar-nav .widget_shopping_cart .cart_list li,
+         .woocommerce .cart-notification,
+         #nectar-nav .widget_shopping_cart_content {
+            background-color: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ')!important;
+          }
+          :root {
+            --nectar-nav-dropdown-bg: rgba(' . $colorR . ',' . $colorG . ',' . $colorB . ',' . $colorA . ');
+          }';
+      }
 
     }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.5. Megamenu Removes Transparent
+  /* 1.5. Megamenu Removes Transparent - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
-  if(isset($nectar_options['header-megamenu-remove-transparent']) &&
+  if ( ! $has_header_builder &&
+    isset($nectar_options['header-megamenu-remove-transparent']) &&
     ! empty($nectar_options['header-megamenu-remove-transparent']) &&
     '1' === $nectar_options['header-megamenu-remove-transparent'] &&
-    isset($nectar_options['transparent-header']) && '1' === $nectar_options['transparent-header'] ) {
+    '1' === $transparent_header ) {
 
     echo '
     #nectar-nav.no-transition,
@@ -1569,16 +1623,17 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.6. Dark Color Scheme
+  /* 1.6. Dark Color Scheme - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
-  if( isset($nectar_options['header-color']) &&
+  if( ! $has_header_builder &&
+      isset($nectar_options['header-color']) &&
       ! empty($nectar_options['header-color']) &&
       'dark' === $nectar_options['header-color'] ) {
     echo '
-     #nectar-nav-spacer {
+     #nectar-nav-spacer:not([data-header-builder]) {
       background-color: #000;
     }
-     #nectar-nav,
+     #nectar-nav:not([data-header-builder]),
      #search-outer{
       background-color:#000;
       -webkit-box-shadow:none;
@@ -1637,12 +1692,14 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.8. AJAX Search
+  /* 1.8. AJAX Search - SKIP when header builder is active (we have our own search block)
   /*-------------------------------------------------------------------------*/
-  if( isset($nectar_options['header-disable-search']) &&
+  if( ! $has_header_builder && (
+      isset($nectar_options['header-disable-search']) &&
       '1' !== $nectar_options['header-disable-search'] ||
       isset($nectar_options['header-disable-search']) &&
-      empty($nectar_options['header-disable-search']) ) {
+      empty($nectar_options['header-disable-search'])
+  ) ) {
 
       if( isset($nectar_options['header-disable-ajax-search']) &&
          '1' !== $nectar_options['header-disable-ajax-search'] ||
@@ -1873,10 +1930,10 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.11. Mobile Layout
+  /* 1.11. Mobile Layout - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
 
-  if( 'centered-menu' === $mobile_header_layout ) {
+  if( ! $has_header_builder && 'centered-menu' === $mobile_header_layout ) {
 
     $header_breakpoint = ( 'left-header' !== $headerFormat && $mobile_breakpoint != 1025 ) ? $mobile_breakpoint : '1024';
     if( $has_main_menu !== 'true' ) {
@@ -1999,7 +2056,7 @@ foreach ($gradients as $gradient) {
       }
 
       // Coloring.
-      if ( ! nectar_is_contained_header() ) {
+      if ( ! nectar_is_contained_header( $has_header_builder ) ) {
         echo '
         #nectar-nav > #top .span_9 > a > span,
         #nectar-nav > #top .span_9 > a > i {
@@ -2220,9 +2277,9 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.12. Search Core
+  /* 1.12. Search Core - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
-  if( 'true' == $header_search ) {
+  if( ! $has_header_builder && 'true' == $header_search ) {
 
     echo '
 
@@ -2274,7 +2331,7 @@ foreach ($gradients as $gradient) {
       height: 100%;
       top: 0;
       left: 0;
-      background-color: var(--nectar-overlay-color, rgba(0,0,0,0.45));
+      background-color: var(--nectar-overlay-color, rgba(0,0,0,0.55));
       z-index: 10000;
       opacity: 0;
       transition: opacity 0.8s cubic-bezier(0.2,1,0.3,1);
@@ -2637,17 +2694,17 @@ foreach ($gradients as $gradient) {
       }';
     }
 
-    } else {
+    } else if ( ! $has_header_builder ) {
       echo '#search-outer, #nectar-nav .bg-color-stripe {
         display: none;
       }';
     }
 
   /*-------------------------------------------------------------------------*/
-  /* 1.13. Ext Search
+  /* 1.13. Ext Search - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
 
-  if( true === $ext_search_active || nectar_is_contained_header() && 'material' === $theme_skin && 'true' === $header_search ) {
+  if( ! $has_header_builder && ( true === $ext_search_active || nectar_is_contained_header( $has_header_builder ) && 'material' === $theme_skin && 'true' === $header_search ) ) {
 
     if( $headerFormat !== 'left-header' ) {
 
@@ -3034,11 +3091,11 @@ foreach ($gradients as $gradient) {
   } // ext search enabled
 
   /*-------------------------------------------------------------------------*/
-  /*  1.14. Search Typography
+  /*  1.14. Search Typography - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
   $header_search_font_size = ( isset($nectar_options['header-search-type-size']) ) ? $nectar_options['header-search-type-size'] : false;
 
-  if( false !== $header_search_font_size ) {
+  if( ! $has_header_builder && false !== $header_search_font_size ) {
     echo '
     @media only screen and (min-width: 1025px) {
         #search-outer #search #search-box input[type="text"] {
@@ -3058,8 +3115,10 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /*  1.15. Shadows / overlays
+  /*  1.15. Shadows / overlays - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
+  if ( ! $has_header_builder ) :
+
   $header_box_shadow = ( isset($nectar_options['header-box-shadow']) ) ? $nectar_options['header-box-shadow'] : false;
 
   if( 'small' === $header_box_shadow ) {
@@ -3085,11 +3144,14 @@ foreach ($gradients as $gradient) {
     }';
   }
 
+  endif; // End 1.15 header builder check
+
   $header_dropdown_overlay = ( isset($nectar_options['header-dropdown-overlay']) ) ? $nectar_options['header-dropdown-overlay'] : '0';
+  $header_dropdown_overlay_blur = ( isset($nectar_options['header-dropdown-overlay-blur']) ) ? $nectar_options['header-dropdown-overlay-blur'] : '0';
 
   if ( '1' === $header_dropdown_overlay ) {
     echo 'body:before {
-      background-color: var(--nectar-overlay-color, rgba(0,0,0,0.45));
+      background-color: var(--nectar-overlay-color, rgba(0,0,0,0.55));
       position: fixed;
       left: 0;
       top: 0;
@@ -3097,19 +3159,35 @@ foreach ($gradients as $gradient) {
       height: 100%;
       z-index: 1000;
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
       pointer-events: none;
       content: "";
     }
     body:has(#nectar-nav .menu-item-has-children.sfHover):before,
-    body:has(#nectar-nav .sfHover .nectar-global-section-megamenu):before {
+    body:has(#nectar-nav .sfHover .nectar-global-section-megamenu):before,
+    body:has(.nectar-dropdown-pill--visible):before,
+    body:has(.wp-block-navigation .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container):before,
+    body:has(.wp-block-navigation .wp-block-navigation-item.has-megamenu:hover > .nectar-megamenu):before {
       opacity: 1;
     }';
+
+    // Background blur effect for overlay.
+    if ( '1' === $header_dropdown_overlay_blur ) {
+      echo '
+      body:has(#nectar-nav .menu-item-has-children.sfHover):before,
+      body:has(#nectar-nav .sfHover .nectar-global-section-megamenu):before,
+      body:has(.nectar-dropdown-pill--visible):before,
+      body:has(.wp-block-navigation .wp-block-navigation-item.has-child:hover > .wp-block-navigation__submenu-container):before,
+      body:has(.wp-block-navigation .wp-block-navigation-item.has-megamenu:hover > .nectar-megamenu):before {
+        backdrop-filter: blur(3px);
+      }';
+    }
   }
 
   /*-------------------------------------------------------------------------*/
-  /*  1.16. Animations
+  /*  1.16. Animations - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
+  if ( ! $has_header_builder ) :
 
   /* Header Transparent logo is same as regular logo */
   if( isset($nectar_options['header-starting-logo']) && isset($nectar_options['header-starting-logo']['url']) &&
@@ -3178,8 +3256,10 @@ foreach ($gradients as $gradient) {
     }';
   }
 
+  endif; // End 1.16 Animations header builder check
+
   /*-------------------------------------------------------------------------*/
-  /*  1.17. OCM Alignment
+  /*  1.17. OCM Alignment - Always output (OCM still used)
   /*-------------------------------------------------------------------------*/
   $side_widget_area_pos = ( isset( $nectar_options['ocm_btn_position'] ) ) ? esc_html($nectar_options['ocm_btn_position']) : 'default';
 
@@ -3515,30 +3595,20 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /*  1.18. Off Canvas Menu Icon Width
+  /*  1.18. Background Blur
   /*-------------------------------------------------------------------------*/
-  if( isset($nectar_options['header-slide-out-widget-area-icon-width']) ) {
-    echo '
-    :root {
-      --ocm-icon-width: ' . esc_attr($nectar_options['header-slide-out-widget-area-icon-width']) . 'px;
-    }';
-  }
-
-  /*-------------------------------------------------------------------------*/
-  /*  1.19. Background Blur
-  /*-------------------------------------------------------------------------*/
-  if( isset($nectar_options['header-blur-bg']) && $nectar_options['header-blur-bg'] === '1' ) {
+  if( ! $has_header_builder && 'left-header' !== $headerFormat && isset($nectar_options['header-blur-bg']) && $nectar_options['header-blur-bg'] === '1' ) {
 
     $header_blur_func = (isset($nectar_options['header-blur-bg-func'])) ? $nectar_options['header-blur-bg-func'] : 'active_non_transparent';
 
     if( $header_blur_func === 'active_non_transparent' ) {
-      echo '#nectar-nav:not(.transparent) {
+      echo '#nectar-nav:not([data-header-builder]):not(.transparent) {
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
      }';
     }
     else {
-      echo '#nectar-nav {
+      echo '#nectar-nav:not([data-header-builder]) {
         -webkit-backdrop-filter: blur(12px);
         backdrop-filter: blur(12px);
      }';
@@ -3547,15 +3617,15 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /*  1.20. Header Size
+  /*  1.20. Header Size - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
 
-  if ( nectar_is_contained_header() ) {
+  if ( ! $has_header_builder && nectar_is_contained_header( $has_header_builder ) ) {
     echo '
     body #nectar-nav-spacer {
       background-color: transparent!important;
     }
-    body #nectar-nav {
+    body #nectar-nav:not([data-header-builder]) {
       transition: box-shadow 0.35s ease;
     }
 
@@ -3563,7 +3633,7 @@ foreach ($gradients as $gradient) {
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
 
-    body #nectar-nav, body #nectar-nav-spacer {
+    body #nectar-nav:not([data-header-builder]), body #nectar-nav-spacer:not([data-header-builder]) {
       width: calc(100% - var(--container-padding)*2);
       max-width: calc(var(--container-width) - var(--container-padding)*2);
       left: 0;
@@ -3573,7 +3643,7 @@ foreach ($gradients as $gradient) {
       margin-top: max(calc(var(--container-padding)/3), 25px);
     }
 
-    body #nectar-nav .container {
+    body #nectar-nav:not([data-header-builder]) .container {
       padding-left: max(calc(var(--container-padding)/3), 25px);
       padding-right: max(calc(var(--container-padding)/3), 25px);
     }
@@ -3586,11 +3656,11 @@ foreach ($gradients as $gradient) {
     }
 
     @media only screen and (max-width: 1024px) {
-      body #nectar-nav, body #nectar-nav-spacer {
+      body #nectar-nav:not([data-header-builder]), body #nectar-nav-spacer:not([data-header-builder]) {
           max-width: var(--mobile-container-width);
           width: 100%;
       }
-      body #nectar-nav .container {
+      body #nectar-nav:not([data-header-builder]) .container {
         max-width: 100%;
       }
 
@@ -3603,7 +3673,7 @@ foreach ($gradients as $gradient) {
 
     @media only screen and (max-width: 767px) {
 
-      body #nectar-nav .container {
+      body #nectar-nav:not([data-header-builder]) .container {
         padding-left: min(max(calc(var(--container-padding)/3),25px), 22px);
         padding-right: min(max(calc(var(--container-padding)/3),25px), 22px);
       }
@@ -3621,19 +3691,19 @@ foreach ($gradients as $gradient) {
     ';
 
     // megamenu.
-    echo 'body #nectar-nav nav .nectar-global-section-megamenu {
+    echo 'body #nectar-nav:not([data-header-builder]) nav .nectar-global-section-megamenu {
       left: 0;
       margin-left: calc(max(calc(var(--container-padding)/3),25px) * -1)!important;
       max-width: calc(100% + max(calc(var(--container-padding)/3),25px) * 2);
       width: calc(100% + max(calc(var(--container-padding)/3),25px) * 2);
     }
-    body #nectar-nav nav .nectar-global-section-megamenu > .inner > [class*="wp-block"].alignfull {
+    body #nectar-nav:not([data-header-builder]) nav .nectar-global-section-megamenu > .inner > [class*="wp-block"].alignfull {
       left: 0;
       margin-left: calc(var(--wp--style--root--padding-left,50px) * -1)!important;
       max-width: calc(100% + var(--wp--style--root--padding-left,50px) * 2);
       width: calc(100% + var(--wp--style--root--padding-left,50px) * 2);
     }
-    #nectar-nav:has(.nectar-megamenu-menu-item.sfHover) {
+    #nectar-nav:not([data-header-builder]):has(.nectar-megamenu-menu-item.sfHover) {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }';
@@ -3742,15 +3812,15 @@ foreach ($gradients as $gradient) {
   }
 
   /*-------------------------------------------------------------------------*/
-  /*  1.21. Header Border
+  /*  1.21. Header Border - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
-  if ( isset( $nectar_options['header-enable-border'] ) && '1' === $nectar_options['header-enable-border'] ) {
+  if ( ! $has_header_builder && isset( $nectar_options['header-enable-border'] ) && '1' === $nectar_options['header-enable-border'] ) {
 
     $header_bottom_border_color = ( isset( $nectar_options['header-border-color'] ) ) ? $nectar_options['header-border-color'] : '#000000';
     $remove_border = ( isset( $nectar_options['header-remove-border'] ) && $nectar_options['header-remove-border'] === '1' || $theme_skin === 'material' ) ? true : false;
 
     // contained header.
-    if ( nectar_is_contained_header() ) {
+    if ( nectar_is_contained_header( $has_header_builder ) ) {
       echo '
       @media only screen and (min-width: 1025px) {
         #nectar-nav #top {
@@ -3848,12 +3918,22 @@ foreach ($gradients as $gradient) {
 
   }
 
+/*-------------------------------------------------------------------------*/
+/*  Off Canvas Menu Icon Width (always output, used by Enhanced Navigation)
+/*-------------------------------------------------------------------------*/
+if( isset($nectar_options['header-slide-out-widget-area-icon-width']) ) {
+  echo '
+  :root {
+    --ocm-icon-width: ' . esc_attr($nectar_options['header-slide-out-widget-area-icon-width']) . 'px;
+  }';
+}
+
   /*-------------------------------------------------------------------------*/
   /* 2. Link Hover Effects
   /*-------------------------------------------------------------------------*/
 
   /*-------------------------------------------------------------------------*/
-  /* 2.1. Header Navigation Hover Effects
+  /* 2.1. Skip to Content Focus
   /*-------------------------------------------------------------------------*/
     echo '
     .nectar-skip-to-content:focus {
@@ -3877,6 +3957,7 @@ foreach ($gradients as $gradient) {
   /*-------------------------------------------------------------------------*/
   /* 2.2. Header Navigation Hover Effects
   /*-------------------------------------------------------------------------*/
+  // Skipped when header builder is active via $nectar_options['header-hover-effect'] = 'default' at top.
 
  if( 'animated_underline' === $header_hover_effect && 'left-header' !== $headerFormat ) {
    echo '
@@ -4435,12 +4516,10 @@ foreach ($gradients as $gradient) {
     // ';
 
   /*-------------------------------------------------------------------------*/
-  /* 4. Header Navigation Transparent Coloring
+  /* 4. Header Navigation Transparent Coloring - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
-    if( (! empty($nectar_options['transparent-header']) &&
-      $nectar_options['transparent-header'] === '1' &&
-      ! nectar_is_contained_header() ) ||
-      'fullscreen-inline-images' === $side_widget_class && ! nectar_is_contained_header() ) {
+    if( ( '1' === $transparent_header && ! nectar_is_contained_header( $has_header_builder ) ) ||
+      'fullscreen-inline-images' === $side_widget_class && ! nectar_is_contained_header( $has_header_builder ) ) {
 
     // Dynamic coloring.
     $starting_color = $header_starting_color;
@@ -4899,7 +4978,19 @@ foreach ($gradients as $gradient) {
 		}
 		';
 
-       $dark_header_color = str_replace("#", "", $dark_header_color);
+       if ( strpos( $dark_header_color, 'var(' ) === 0 ) {
+         echo '
+		 #fp-nav:not(.light-controls) ul li a span:after {
+			 background-color: ' . esc_attr($dark_header_color) . ';
+		 }
+		 #fp-nav:not(.light-controls) ul li a span {
+			 box-shadow: inset 0 0 0 8px color-mix(in srgb, ' . esc_attr($dark_header_color) . ' 30%, transparent);
+		 }
+		 body #fp-nav ul li a.active span  {
+			 box-shadow: inset 0 0 0 2px color-mix(in srgb, ' . esc_attr($dark_header_color) . ' 80%, transparent);
+		 }';
+       } else {
+         $dark_header_color = str_replace("#", "", $dark_header_color);
          $darkcolorR = hexdec( substr( $dark_header_color, 0, 2 ) );
          $darkcolorG = hexdec( substr( $dark_header_color, 2, 2 ) );
          $darkcolorB = hexdec( substr( $dark_header_color, 4, 2 ) );
@@ -4915,6 +5006,7 @@ foreach ($gradients as $gradient) {
 			 box-shadow: inset 0 0 0 2px rgba(' . $darkcolorR . ',' . $darkcolorG . ',' . $darkcolorB . ',0.8);
 			 -webkit-box-shadow: inset 0 0 0 2px rgba(' . $darkcolorR . ',' . $darkcolorG . ',' . $darkcolorB . ',0.8);
 		 }';
+       }
 
      } // Using transparent theme option
 
@@ -5061,11 +5153,28 @@ foreach ($gradients as $gradient) {
     global $woocommerce;
 
   $ext_padding = '90';
+  $ext_padding_tablet = null;
+  $ext_padding_mobile = null;
 
     if( isset( $nectar_options['ext_responsive_padding'] ) &&
-    ! empty( $nectar_options['ext_responsive_padding'] ) &&
-    '90' !== $nectar_options['ext_responsive_padding'] ) {
-        $ext_padding = $nectar_options['ext_responsive_padding'];
+    ! empty( $nectar_options['ext_responsive_padding'] ) ) {
+        $ext_setting = $nectar_options['ext_responsive_padding'];
+
+        // Responsive object shape: { desktop?, tablet?, mobile? }.
+        if ( is_array( $ext_setting ) ) {
+            if ( isset( $ext_setting['desktop'] ) && '' !== $ext_setting['desktop'] && '90' !== (string) $ext_setting['desktop'] ) {
+                $ext_padding = $ext_setting['desktop'];
+            }
+            if ( isset( $ext_setting['tablet'] ) && '' !== $ext_setting['tablet'] ) {
+                $ext_padding_tablet = $ext_setting['tablet'];
+            }
+            if ( isset( $ext_setting['mobile'] ) && '' !== $ext_setting['mobile'] ) {
+                $ext_padding_mobile = $ext_setting['mobile'];
+            }
+        // Legacy number / numeric-string shape.
+        } elseif ( '90' !== (string) $ext_setting ) {
+            $ext_padding = $ext_setting;
+        }
     }
 
     echo ':root {
@@ -5080,6 +5189,26 @@ foreach ($gradients as $gradient) {
       --nectar-resp-container-padding: calc( (100% - var(--mobile-container-width))/2 );
     }
    }';
+
+    // Per-viewport overrides for the mobile-container width when explicitly set.
+    // Tablet's rule covers the entire <=1024px range so it waterfalls down to
+    // mobile when mobile isn't explicitly set; the mobile rule below then
+    // overrides the <=767px range when set. Leaving both unset preserves the
+    // existing 88% mobile-container default from responsive.css.
+    if ( null !== $ext_padding_tablet ) {
+        echo '@media only screen and (max-width: 1024px) {
+        :root {
+          --mobile-container-width: calc(100% - (' . esc_attr($ext_padding_tablet) . 'px * 2));
+        }
+       }';
+    }
+    if ( null !== $ext_padding_mobile ) {
+        echo '@media only screen and (max-width: 767px) {
+        :root {
+          --mobile-container-width: calc(100% - (' . esc_attr($ext_padding_mobile) . 'px * 2));
+        }
+       }';
+    }
 
         echo '@media only screen and (min-width: 1025px) {
 			    .container,
@@ -5099,24 +5228,18 @@ foreach ($gradients as $gradient) {
   			    }';
           }
 
-                echo 'body .container .page-submenu.stuck .container:not(.tab-container):not(.normal-container),
-			    #nectar_fullscreen_rows[data-footer="default"] #footer-widgets .container,
-					#nectar_fullscreen_rows[data-footer="default"] #copyright .container {
+                echo 'body .container .page-submenu.stuck .container:not(.tab-container):not(.normal-container) {
 			    	  padding: 0px ' . esc_attr($ext_padding) . 'px!important;
 			    }
 
-  				.swiper-slide .content {
-  				  padding: 0px ' . esc_attr($ext_padding) . 'px;
-  				}';
+  				';
 
           if( 'left-header' === $headerFormat ) {
                     echo 'body[data-header-format="left-header"] .container .page-submenu.stuck .container:not(.tab-container) {
     			    	  padding: 0px 60px!important;
     			    }
 
-    				body[data-header-format="left-header"] .swiper-slide .content {
-    				  padding: 0px 60px;
-    				}';
+    				';
           }
 
                 echo 'body .container .container:not(.tab-container):not(.recent-post-container):not(.normal-container) {
@@ -5124,31 +5247,8 @@ foreach ($gradients as $gradient) {
 					padding: 0!important;
 				}
 
-				body .carousel-heading .container .carousel-next {
-					right: 10px;
-				}
-				body .carousel-heading .container .carousel-prev {
-					right: 35px;
-				}
-				.carousel-wrap[data-full-width="true"] .carousel-heading .portfolio-page-link {
-					left: ' . esc_attr($ext_padding) . 'px;
-				}
-				.carousel-wrap[data-full-width="true"] .carousel-heading {
-					margin-left: -20px;
-					margin-right: -20px;
-				}
-				#nectar-content-wrap .carousel-wrap[data-full-width="true"] .carousel-next {
-					right: ' . esc_attr($ext_padding) . 'px;
-				}
-		   	#nectar-content-wrap .carousel-wrap[data-full-width="true"] .carousel-prev {
-					right: ' . (intval($ext_padding) + 25) . 'px;
-				}
-				.carousel-wrap[data-full-width="true"] {
-					padding: 0;
-				}
-				.carousel-wrap[data-full-width="true"] .caroufredsel_wrapper {
-					padding: 20px;
-				}
+
+
 
 				#search-outer #search #close a {
 					right: ' . esc_attr($ext_padding) . 'px;
@@ -5214,12 +5314,12 @@ foreach ($gradients as $gradient) {
       body[data-form-select-js="1"] .select2-container .select2-choice,
       body[data-form-select-js="1"] .select2-container--default .select2-selection--single {
         height: auto;
-        background-color:transparent;
+        background-color:rgba(0,0,0,0.04);
         border-color:#e0e0e0;
         padding-top:5px;
         padding-bottom:5px;
-        -webkit-transition:background-color 0.15s cubic-bezier(.39,.71,.56,.98),color 0.15s cubic-bezier(.39,.71,.56,.98);
-        transition:background-color 0.15s cubic-bezier(.39,.71,.56,.98),color 0.15s cubic-bezier(.39,.71,.56,.98)
+        -webkit-transition:background-color 0.15s cubic-bezier(.39,.71,.56,.98),color 0.15s cubic-bezier(.39,.71,.56,.98),border-color 0.15s cubic-bezier(.39,.71,.56,.98);
+        transition:background-color 0.15s cubic-bezier(.39,.71,.56,.98),color 0.15s cubic-bezier(.39,.71,.56,.98),border-color 0.15s cubic-bezier(.39,.71,.56,.98)
       }
       body[data-form-select-js="1"].woocommerce-checkout .select2-container--default .select2-selection--single {
         color: #555;
@@ -5232,10 +5332,7 @@ foreach ($gradients as $gradient) {
       body[data-form-select-js="1"] .select2-dropdown{
         border:none;
         background-color:#fff;
-        box-shadow:0 0 6px rgba(0,0,0,0.2)
-      }
-      body[data-form-select-js="1"] .woocommerce-ordering .select2-dropdown {
-        box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+        box-shadow: 0 1px 2px -1px #0000000a, 0 2px 6px -2px #0000000d, 0 6px 12px -3px #0000000d, 0 15px 30px -3px #00000008;
       }
       body[data-form-select-js="1"] .select2-container,
       body[data-form-select-js="1"] .select2-drop,
@@ -5246,17 +5343,20 @@ foreach ($gradients as $gradient) {
       body[data-form-select-js="1"] .select2-container:not(.select2-dropdown-open) .select2-choice:hover .select2-arrow b:after,
       body[data-form-select-js="1"] .select2-container--default:hover .select2-selection--single .select2-selection__arrow b,
       body[data-form-select-js="1"] .select2-container--open .select2-selection__arrow b {
-        border-top-color:#fff
+        border-top-color: inherit;
       }
       body[data-form-select-js="1"] .select2-dropdown-open .select2-choice .select2-arrow b:after,
       body[data-form-select-js="1"] .select2-container--default:hover .select2-selection--single .select2-selection__arrow b,
       body[data-form-select-js="1"] .select2-container--open .select2-selection--single .select2-selection__arrow b {
-        border-bottom-color:#fff
+        border-bottom-color: inherit;
       }
       body[data-form-select-js="1"] .select2-container--default .select2-selection--single .select2-selection__arrow {
         height: 100%;
         width: 30px;
         top: 0;
+      }
+      body[data-form-select-js="1"] .select2-container--default .select2-selection--single .select2-selection__arrow b {
+        border-top-color: currentColor;
       }
       body[data-form-select-js="1"] .select2-container .select2-selection--single .select2-selection__rendered {
         padding-left: 10px;
@@ -5329,13 +5429,85 @@ foreach ($gradients as $gradient) {
       body[data-form-select-js="1"] .woocommerce-ordering .select2-container--open .select2-selection--single .select2-selection__arrow b {
         border-bottom-color: inherit;
       }
-      body[data-form-select-js="1"] .select2-container--default:hover .select2-selection--single .select2-selection__rendered,
-      body[data-form-select-js="1"] .select2-container--default.select2-container--open .select2-selection--single .select2-selection__rendered {
-        color: #fff!important;
+';
+    }
+
+    /*-------------------------------------------------------------------------*/
+    /* 6.1b Fancy Checkbox Styling
+    /*-------------------------------------------------------------------------*/
+    if( isset( $nectar_options['form-fancy-checkbox'] ) && ! empty($nectar_options['form-fancy-checkbox']) && '1' === $nectar_options['form-fancy-checkbox'] ) {
+
+      echo '
+      body[data-responsive] label:has(input[type="checkbox"]) {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        cursor: pointer;
       }
-      body[data-form-select-js="1"] .select2-container--default .select2-selection--single:hover .select2-selection__placeholder {
-        color: #fff;
-      }';
+      label:has(input[type="checkbox"]) input[type="checkbox"] {
+        appearance: none;
+        margin: 0;
+        font: inherit;
+        color: currentColor;
+        width: 1.15em;
+        height: 1.15em;
+        border: 1px solid currentColor;
+        border-radius: 0;
+        transform: none;
+        place-content: center;
+        position: relative;
+        flex-shrink: 0;
+        vertical-align: middle;
+        line-height: 1;
+      }
+      label:has(input[type="checkbox"]) input[type="checkbox"]:checked::before {
+        transform: translate(-50%, -60%) scale(1) rotate(40deg);
+      }
+      label:has(input[type="checkbox"]) input[type="checkbox"]::before {
+        width: 0.3em;
+        height: 0.55em;
+        border: 0.14em solid currentColor;
+        border-top: 0;
+        border-left: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%) scale(0) rotate(40deg);
+        content: "";
+        display: block;
+        position: absolute;
+        transition: transform 0.3s ease, opacity 0.2s;
+      }
+
+      label:has(input[type="checkbox"]) input[type="checkbox"]:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      body .fluentform .ff-el-form-check-label .ff-el-form-check-input {
+        top: 0;
+      }
+      body .fluentform .ff-el-form-check-label {
+        font-weight: normal;
+      }
+      ';
+
+      // Apply body typography to fancy checkbox labels so they match input text.
+      if ( class_exists('Nectar\Global_Settings\Global_Typography') ) {
+        $global_typography_options = \Nectar\Global_Settings\Global_Typography::get_options();
+        if ( is_array($global_typography_options) &&
+             isset($global_typography_options['coreTypography']['body']) &&
+             is_array($global_typography_options['coreTypography']['body']) ) {
+          $body_typography = $global_typography_options['coreTypography']['body'];
+          $checkbox_label_selector = 'label:has(input[type="checkbox"])';
+
+          echo $checkbox_label_selector . ' {';
+            echo \Nectar\Global_Settings\Global_Typography::get_core_font_properties($body_typography);
+          echo '}';
+
+          echo \Nectar\Global_Settings\Global_Typography::get_font_size_rules($body_typography, $checkbox_label_selector);
+          echo \Nectar\Global_Settings\Global_Typography::get_line_height_rules($body_typography, $checkbox_label_selector);
+        }
+      }
+
     }
 
     /*-------------------------------------------------------------------------*/
@@ -5398,6 +5570,9 @@ foreach ($gradients as $gradient) {
       echo '.widget_search .search-form input[type=text]::placeholder {
         color: ' . esc_attr($form_input_text_color) . ';
         opacity: 0.7;
+      }
+      label:has(input[type="checkbox"]) {
+        color: ' . esc_attr($form_input_text_color) . ';
       }';
     }
 
@@ -5456,7 +5631,7 @@ foreach ($gradients as $gradient) {
           }
         echo '}';
 
-        echo '.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 1.6em; }';
+        echo '.select2-container--default .select2-selection--single .select2-selection__rendered { line-height: 1.2em; }';
 
       }
 
@@ -5551,8 +5726,10 @@ foreach ($gradients as $gradient) {
       body[data-form-style="minimal"] input[type=search],
       body[data-form-style="minimal"] input[type=date],
       body[data-form-style="minimal"] input[type=number],
-      body[data-form-style="minimal"] select {
-        background-color: rgba(0,0,0,0.035);
+      body[data-form-style="minimal"] select,
+      body[data-form-style="minimal"] .select2-container--default .select2-selection--single,
+      body[data-form-style="minimal"][data-form-select-js="1"] .select2-container--default .select2-selection--single {
+        background-color: rgba(0,0,0,0.04);
         box-shadow:none;
         -webkit-box-shadow:none;
         border:none;
@@ -5563,6 +5740,8 @@ foreach ($gradients as $gradient) {
         -webkit-transition: border-color 0.2s ease;
         transition: border-color 0.2s ease;
         border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
       }
       body[data-form-style="minimal"] .container-wrap .span_12.light input[type="text"],
       body[data-form-style="minimal"] .container-wrap .span_12.light textarea,
@@ -5605,11 +5784,32 @@ foreach ($gradients as $gradient) {
 
       body[data-form-style="minimal"] textarea,
       body[data-form-style="minimal"].woocommerce #review_form #respond textarea{
-        padding: 20px;
+        padding: 20px 0;
       }
       body[data-form-style="minimal"] .widget_search .search-form .search-submit{
         top:30px
-      }';
+      }
+      body[data-form-style="minimal"] .select2-container--default .select2-selection--single,
+      body[data-form-style="minimal"][data-form-select-js="1"] .select2-container--default .select2-selection--single {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+      }
+      body[data-form-style="minimal"][data-form-select-js="1"] .select2-container .select2-selection--single .select2-selection__rendered {
+        padding-left: 0;
+      }
+      body[data-form-style="minimal"] .container-wrap .span_12.light .select2-container--default .select2-selection--single,
+      body[data-form-style="minimal"][data-form-select-js="1"] .container-wrap .span_12.light .select2-container--default .select2-selection--single {
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        border-bottom-color: transparent;
+      }
+
+      ';
     } // End minimal styling.
 
     /*-------------------------------------------------------------------------*/
@@ -5623,7 +5823,8 @@ foreach ($gradients as $gradient) {
       body[data-form-select-js="1"] .select2-drop,
       body[data-form-select-js="1"] .select2-search,
       .select2-search input,
-      body[data-form-style="minimal"] .container-wrap .span_12.light input[type="email"] {
+      body[data-form-style="minimal"] .container-wrap .span_12.light input[type="email"],
+      label:has(input[type="checkbox"]) {
         font-size: ' . esc_attr($nectar_options['form-input-font-size']) . 'px;
       }';
 
@@ -5668,14 +5869,16 @@ foreach ($gradients as $gradient) {
       .container-wrap input[type=number],
       .container-wrap textarea,
       .container-wrap select,
+      .woocommerce input#coupon_code,
+      .material.woocommerce-page[data-form-style="default"] input#coupon_code,
       body > #review_form_wrapper.modal input[type=text],
       body > #review_form_wrapper.modal textarea,
       body > #review_form_wrapper.modal select,
       body > #review_form_wrapper.modal input[type=email],
-      .select2-container--default .select2-selection--single,
+      body .select2-container--default .select2-selection--single,
       body[data-form-select-js="1"] .select2-container--default .select2-selection--single,
-      .woocommerce input#coupon_code,
-      .material.woocommerce-page[data-form-style="default"] input#coupon_code,
+      html body[data-form-style="minimal"] .select2-container--default .select2-selection--single,
+      html body[data-form-style="minimal"][data-form-select-js="1"] .select2-container--default .select2-selection--single,
       body[data-form-style="minimal"] input[type="text"],
       body[data-form-style="minimal"] textarea,
       body[data-form-style="minimal"] input[type="email"],
@@ -5706,6 +5909,8 @@ foreach ($gradients as $gradient) {
       body > #review_form_wrapper.modal select:hover,
       body > #review_form_wrapper.modal input[type=email]:hover,
       .select2-container--default .select2-selection--single:hover,
+      .select2-container--default:hover .select2-selection--single,
+      body[data-form-select-js="1"] .select2-container--default:hover .select2-selection--single,
       .woocommerce input#coupon_code:hover,
       .material.woocommerce-page[data-form-style="default"] input#coupon_code:hover,
       body[data-form-style="minimal"] input[type="text"]:hover,
@@ -5738,6 +5943,8 @@ foreach ($gradients as $gradient) {
       body > #review_form_wrapper.modal select:focus,
       body > #review_form_wrapper.modal input[type=email]:focus,
       .select2-container--default .select2-selection--single:focus,
+      .select2-container--default.select2-container--open .select2-selection--single,
+      body[data-form-select-js="1"] .select2-container--default.select2-container--open .select2-selection--single,
       .woocommerce input#coupon_code:focus,
       .material.woocommerce-page[data-form-style="default"] input#coupon_code:focus
        { ' . $form_input_props_focus . ' }';
@@ -5771,7 +5978,8 @@ foreach ($gradients as $gradient) {
         body.single-post #nectar-content-wrap .heading-title[data-header-style="default_minimal"] .entry-title,
         .single-post .featured-media-under-header__content,
         [data-style="parallax_next_only"].blog_next_prev_buttons .inner,
-        .nectar_template_single__post > .container {
+        .nectar_template_single__post > .container,
+        .nectar_template_single__post.container {
           max-width: ' . esc_attr($blog_width) . ';
           margin-left: auto;
           margin-right: auto;
@@ -5780,12 +5988,12 @@ foreach ($gradients as $gradient) {
         $blog_header_type = ( ! empty( $nectar_options['blog_header_type'] ) ) ? $nectar_options['blog_header_type'] : 'default';
 
         if ( $blog_header_type === 'image_under' ) {
-          echo '.blog_next_prev_buttons:not(.full-width-content) {
+          echo '.blog_next_prev_buttons:not(.alignfull) {
             max-width: ' . esc_attr($blog_width) . ';
             margin-left: auto;
             margin-right: auto;
           }
-          .blog_next_prev_buttons:not(.full-width-content) .col {
+          .blog_next_prev_buttons:not(.alignfull) .col {
             padding: 10%;
           }';
 
@@ -6004,6 +6212,9 @@ foreach ($gradients as $gradient) {
               0% {
                 opacity: 0;
               }
+              35% {
+                opacity: 0;
+              }
               100% {
                 opacity: 1;
               }
@@ -6012,19 +6223,22 @@ foreach ($gradients as $gradient) {
               0% {
                 opacity: 1;
               }
+              35% {
+                opacity: 0;
+              }
               100% {
                 opacity: 0;
               }
           }
           ::view-transition-old(root) {
-            animation: nectarblocks-view-transition-end 0.35s cubic-bezier(0.5, 0, 0.35, 1.0);
+            animation: nectarblocks-view-transition-end 1.2s cubic-bezier(0.5, 0, 0.35, 1.0);
             animation-delay: 0s;
             animation-fill-mode: both;
         }
 
         ::view-transition-new(root) {
-            animation: nectarblocks-view-transition-start 0.65s cubic-bezier(0.5, 0, 0.35, 1.0);
-            animation-delay: 0.35s;
+            animation: nectarblocks-view-transition-start 1.2s cubic-bezier(0.5, 0, 0.35, 1.0);
+            animation-delay: 0s;
             animation-fill-mode: both;
             z-index: 1000;
             position: relative;
@@ -6380,7 +6594,7 @@ foreach ($gradients as $gradient) {
       body[data-button-style^="rounded"] input[type=submit],
       body[data-button-style^="rounded"] button[type=submit],
       body[data-button-style^="rounded"] input[type="button"],
-      body[data-button-style^="rounded"] button,
+      body[data-button-style^="rounded"] button:not(.nectar-enhanced-navigation button),
       body[data-button-style^="rounded"] #top nav > ul > li[class*="button_solid_color"] > a:before,
       body[data-button-style^="rounded"] #top nav > ul > li[class*="button_bordered"] > a:before,
       body[data-button-style^="rounded"] .woocommerce.add_to_cart_inline a.button.add_to_cart_button,
@@ -6429,7 +6643,7 @@ foreach ($gradients as $gradient) {
       input[type=submit],
       button[type=submit],
       input[type="button"],
-      button,
+      button:not(.wp-block-navigation__responsive-container button),
       #top nav > ul > li[class*="button_solid_color"] > a:before,
       #top nav > ul > li[class*="button_bordered"] > a:before,
       .woocommerce.add_to_cart_inline a.button.add_to_cart_button,
@@ -7864,7 +8078,7 @@ foreach ($gradients as $gradient) {
     }
 
 
-    body[data-slide-out-widget-area-style="fullscreen-inline-images"] #nectar-nav{
+    body[data-slide-out-widget-area-style="fullscreen-inline-images"] #nectar-nav:not([data-header-builder]){
         border-bottom-color:transparent
     }
 
@@ -8082,6 +8296,14 @@ echo '
   --offset: ' . $slide_out_widget_offset . 'px;
 }
 ';
+
+if ( isset( $nectar_options['header-slide-out-widget-area-blur-bg'] ) && $nectar_options['header-slide-out-widget-area-blur-bg'] === '1' ) {
+  echo '#slide-out-widget-area {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+}
+';
+}
 
   /*-------------------------------------------------------------------------*/
   /* 17. Animations
@@ -8321,8 +8543,9 @@ echo '
   }
 
   /*-------------------------------------------------------------------------*/
-  /* 18. WooCommerce AJAX Cart
+  /* 18. WooCommerce AJAX Cart - SKIP when header builder is active
   /*-------------------------------------------------------------------------*/
+  if ( ! $has_header_builder ) :
 
   $product_archive_layout = ( isset($nectar_options['product_archive_layout']) ) ? $nectar_options['product_archive_layout'] : 'default';
 
@@ -8757,6 +8980,8 @@ echo '
     }
 
   }
+
+  endif; // End 18. WooCommerce AJAX Cart header builder check
 
   /*-------------------------------------------------------------------------*/
   /* 18.3. WooCommerce Quantity Style
@@ -10996,7 +11221,7 @@ echo '
       }
 
       body .variations_form .select2-dropdown {
-        box-shadow: 0 6px 28px rgba(0,0,0,0.08);
+        box-shadow: 0 1px 2px -1px #0000000a, 0 2px 6px -2px #0000000d, 0 6px 12px -3px #0000000d, 0 15px 30px -3px #00000008;
       }
       ';
 

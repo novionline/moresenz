@@ -29,6 +29,8 @@ class Nectar_Dynamic_Colors {
 
     public static $woocommerce_active;
 
+    public static $has_header_builder;
+
     public static $options;
 
     public function __construct() {
@@ -68,6 +70,9 @@ class Nectar_Dynamic_Colors {
         self::$form_style = ( isset($nectar_options['form-style']) ) ? $nectar_options['form-style'] : 'default';
 
         self::$woocommerce_active = ( class_exists( 'woocommerce' )) ? true : false;
+        // Cached output: gate on whether the Header Builder applies on every page,
+        // not the per-request signal (which would bake one page's state into the file).
+        self::$has_header_builder = function_exists( 'nectar_has_unconditional_header_nav_template' ) && nectar_has_unconditional_header_nav_template();
     }
 
     /**
@@ -354,7 +359,6 @@ class Nectar_Dynamic_Colors {
         $rules[] = [
             'selectors' =>
                 '.nectar-color-accent-color,
-				label span,
 				body [class^="icon-"].icon-default-style,
 				.comment-author a:hover,
 				.comment-author a:focus,
@@ -490,31 +494,37 @@ class Nectar_Dynamic_Colors {
         ];
 
         // BG color main
+        $accent_bg_selectors = [
+            '.nectar-bg-accent-color',
+            '.nectar-bg-hover-accent-color:hover',
+            '#nectar-content-wrap .nectar-bg-pseudo-accent-color:before',
+            '.nectar-cta[data-color="accent-color"]:not([data-style="material"]) .link_wrap',
+            '.main-content .widget_calendar caption',
+            '#footer-outer .widget_calendar caption',
+            '.post .more-link span:hover',
+            '.post.format-quote .post-content .quote-inner',
+            '.post.format-link .post-content .link-inner',
+            '.format-status .post-content .status-inner',
+            'input[type=submit]:hover',
+            'input[type="button"]:hover',
+            'body[data-form-b-style="regular"] input[type=submit]',
+            'body[data-form-b-style="regular"] button[type=submit]',
+            '.widget .material .widget .tagcloud a:before',
+            '#nectar-nav[data-lhe="animated_underline"] .nectar-header-text-content a:after',
+            '.nectar-slide-in-cart.style_slide_in_click .widget_shopping_cart .nectar-notice',
+            '.woocommerce #review_form #respond .form-submit #submit',
+            '#nectar-nav .nectar-menu-label:before',
+        ];
+
+        if ( ! self::$has_header_builder ) {
+            $accent_bg_selectors[] = '#slide-out-widget-area';
+            $accent_bg_selectors[] = '#slide-out-widget-area-bg.fullscreen';
+            $accent_bg_selectors[] = '#slide-out-widget-area-bg.fullscreen-split';
+            $accent_bg_selectors[] = '#slide-out-widget-area-bg.fullscreen-alt .bg-inner';
+        }
+
         $rules[] = [
-            'selectors' =>
-                '.nectar-bg-accent-color,
-				.nectar-bg-hover-accent-color:hover,
-				#nectar-content-wrap .nectar-bg-pseudo-accent-color:before,
-				.nectar-cta[data-color="accent-color"]:not([data-style="material"]) .link_wrap,
-				.main-content .widget_calendar caption,
-				#footer-outer .widget_calendar caption,
-				.post .more-link span:hover,
-				.post.format-quote .post-content .quote-inner,
-				.post.format-link .post-content .link-inner,
-				.format-status .post-content .status-inner,
-				input[type=submit]:hover,
-				input[type="button"]:hover,
-				body[data-form-b-style="regular"] input[type=submit],
-				body[data-form-b-style="regular"] button[type=submit],
-				#slide-out-widget-area,
-				#slide-out-widget-area-bg.fullscreen,
-				#slide-out-widget-area-bg.fullscreen-split,
-				#slide-out-widget-area-bg.fullscreen-alt .bg-inner,
-				.widget .material .widget .tagcloud a:before,
-				#nectar-nav[data-lhe="animated_underline"] .nectar-header-text-content a:after,
-				.nectar-slide-in-cart.style_slide_in_click .widget_shopping_cart .nectar-notice,
-				.woocommerce #review_form #respond .form-submit #submit,
-				#nectar-nav .nectar-menu-label:before',
+            'selectors' => implode(', ', $accent_bg_selectors),
 
             'declarations' => $accent_color,
             'property' => 'background-color',
@@ -556,8 +566,6 @@ class Nectar_Dynamic_Colors {
 				#buddypress a.button:focus,
 				.select2-container .select2-choice:hover,
 				.select2-dropdown-open .select2-choice,
-				body[data-form-select-js="1"] .select2-container--default .select2-selection--single:hover,
-				body[data-form-select-js="1"] .select2-container--default.select2-container--open .select2-selection--single,
 				#top nav > ul > .button_solid_color > a:before,
 				#nectar-nav.transparent #top nav > ul > .button_solid_color > a:before,
 				.masonry.material .masonry-blog-item .meta-category a:before,
@@ -579,8 +587,6 @@ class Nectar_Dynamic_Colors {
 				.post-area.featured_img_left .post .quote-inner:before,
 				.post-area.featured_img_left .link-inner:before,
 				.fancybox-navigation button:hover:before,
-				button[type=submit]:hover,
-				button[type=submit]:focus,
 				body[data-form-b-style="see-through"] input[type=submit]:hover,
 				body[data-form-b-style="see-through"].woocommerce #respond input#submit:hover,
 				html body[data-form-b-style="see-through"] button[type=submit]:hover,
@@ -593,6 +599,18 @@ class Nectar_Dynamic_Colors {
             'declarations' => $accent_color,
             'property' => 'background-color',
             'suffix' => '!important',
+            'conditionals' => $accent_color
+        ];
+
+        // Submit button hover/focus - no !important for third-party form plugin compatibility.
+        $rules[] = [
+            'selectors' =>
+                'body button[type=submit]:hover,
+				body button[type=submit]:focus',
+
+            'declarations' => $accent_color,
+            'property' => 'background-color',
+            'suffix' => '',
             'conditionals' => $accent_color
         ];
 
@@ -616,7 +634,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $accent_color,
             'property' => 'background-color',
             'suffix' => '!important',
-            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color,
+            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -626,7 +644,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $accent_color,
             'property' => 'color',
             'suffix' => '',
-            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color,
+            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -637,7 +655,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $accent_color,
             'property' => 'color',
             'suffix' => '!important',
-            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color,
+            'conditionals' => false === self::$using_underline_dropdown_effect && $accent_color && ! self::$has_header_builder,
         ];
 
         // minimal form styling.
@@ -708,9 +726,7 @@ class Nectar_Dynamic_Colors {
 				body[data-form-b-style="see-through"] button[type=submit]:not(.search-widget-btn),
 				.woocommerce-account[data-form-b-style="see-through"] .woocommerce-form-login button.button,
 				.woocommerce-account[data-form-b-style="see-through"] .woocommerce-form-register button.button,
-				body[data-form-b-style="see-through"] .woocommerce #order_review #payment #place_order,
-				body[data-form-select-js="1"] .select2-container--default .select2-selection--single:hover,
-				body[data-form-select-js="1"] .select2-container--default.select2-container--open .select2-selection--single',
+				body[data-form-b-style="see-through"] .woocommerce #order_review #payment #place_order',
 
             'declarations' => $accent_color,
             'property' => 'border-color',
@@ -1419,9 +1435,9 @@ class Nectar_Dynamic_Colors {
         /* Header background color **************************/
         $rules[] = [
             'selectors' =>
-                'body #nectar-nav,
+                'body #nectar-nav:not([data-header-builder]),
 				body #search-outer,
-				#nectar-nav-spacer,
+				#nectar-nav-spacer:not([data-header-builder]),
 				#nectar-nav #search-outer:before,
 				#search-outer .nectar-ajax-search-results,
 				body[data-header-format="left-header"] #search-outer,
@@ -1528,7 +1544,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_font_color,
             'color' => 'header-font-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_font_color && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -1556,7 +1572,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_font_color,
             'color' => 'header-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_font_color && ! self::$has_header_builder,
         ];
 
         // background color
@@ -1576,7 +1592,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_font_color,
             'color' => 'header-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_font_color && ! self::$has_header_builder,
         ];
 
         // border color
@@ -1589,11 +1605,11 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_font_color,
             'color' => 'header-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_font_color && ! self::$has_header_builder,
         ];
 
         // contained header
-        #TODO: test this rule.
+
         $rules[] = [
             'selectors' =>
                 '#nectar-nav.transparent #top .slide-out-widget-area-toggle .close-line',
@@ -1602,7 +1618,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_font_color,
             'color' => 'header-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_font_color // && nectar_is_contained_header(), TODO: this isn't available at the time of running and i'm not sure the logic is even right
+            'conditionals' => $using_custom_color_scheme && $header_font_color && ! self::$has_header_builder // && nectar_is_contained_header(), TODO: this isn't available at the time of running and i'm not sure the logic is even right
         ];
 
         /* Font hover color **************************/
@@ -1629,7 +1645,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $font_hover_color,
             'color' => 'header-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && 'default' === self::$header_hover_animation,
+            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && 'default' === self::$header_hover_animation && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -1641,7 +1657,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $font_hover_color,
             'color' => 'header-font-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && 'default' === self::$header_hover_animation,
+            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && 'default' === self::$header_hover_animation && ! self::$has_header_builder,
         ];
 
         //// Animated underline header hover animation
@@ -1674,7 +1690,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $font_hover_color,
             'color' => 'header-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && ! self::$has_header_builder,
         ];
 
         //// Font color
@@ -1689,7 +1705,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $font_hover_color,
             'color' => 'header-font-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && ! self::$has_header_builder,
         ];
 
         //// background image
@@ -1701,7 +1717,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'linear-gradient(to right, $ 0%, $ 100%)',
             'color' => 'header-font-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($font_hover_color) && ! self::$has_header_builder,
         ];
 
         //// Simple OCM
@@ -1765,7 +1781,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_btn_bg,
             'color' => 'header-font-button-bg',
             'suffix' => '',
-            'conditionals' => $using_button_bg && $header_btn_bg
+            'conditionals' => $using_button_bg && $header_btn_bg && ! self::$has_header_builder
         ];
 
         $rules[] = [
@@ -1775,7 +1791,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_btn_bg_active,
             'color' => 'header-font-button-bg-active',
             'suffix' => '',
-            'conditionals' => $using_button_bg && $header_btn_bg_active
+            'conditionals' => $using_button_bg && $header_btn_bg_active && ! self::$has_header_builder
         ];
 
         $rules[] = [
@@ -1786,7 +1802,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_btn_text_active,
             'color' => 'header-font-button-text-active',
             'suffix' => '!important',
-            'conditionals' => $using_button_bg && $header_btn_text_active
+            'conditionals' => $using_button_bg && $header_btn_text_active && ! self::$has_header_builder
         ];
 
         $rules[] = [
@@ -1797,7 +1813,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $font_hover_color,
             'color' => 'header-font-hover-color',
             'suffix' => '',
-            'conditionals' => $using_button_bg && $font_hover_color
+            'conditionals' => $using_button_bg && $font_hover_color && ! self::$has_header_builder
         ];
 
         /* Header icon color **************************/
@@ -1810,7 +1826,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_icon_color,
             'color' => 'header-icon-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($header_icon_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($header_icon_color) && ! self::$has_header_builder,
         ];
 
         /* Header dropdown bg color  **************************/
@@ -1832,7 +1848,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_bg,
             'color' => 'header-dropdown-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -1842,7 +1858,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_bg,
             'color' => 'header-dropdown-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg && ! self::$has_header_builder
         ];
 
         $rules[] = [
@@ -1853,7 +1869,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'transparent transparent $ transparent',
             'color' => 'header-dropdown-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg && ! self::$has_header_builder,
         ];
 
         /* Header dropdown hover bg color  **************************/
@@ -1891,7 +1907,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_bg_hover,
             'color' => 'header-dropdown-background-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg_hover && true !== self::$using_underline_dropdown_effect,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg_hover && true !== self::$using_underline_dropdown_effect && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -1906,7 +1922,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_bg_hover,
             'color' => 'header-dropdown-background-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg_hover && true === self::$using_underline_dropdown_effect,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_bg_hover && true === self::$using_underline_dropdown_effect && ! self::$has_header_builder,
         ];
 
         /* Header dropdown hover font color  **************************/
@@ -1934,7 +1950,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_font_color,
             'color' => 'header-dropdown-font-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_color && ! self::$has_header_builder,
         ];
         $rules[] = [
             'selectors' =>
@@ -1945,7 +1961,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_font_color,
             'color' => 'header-dropdown-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_color,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_color && ! self::$has_header_builder,
         ];
 
         /* Header dropdown icon color  **************************/
@@ -1958,7 +1974,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_icon,
             'color' => 'header-dropdown-icon-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_icon,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_icon && ! self::$has_header_builder,
         ];
 
         /* Header dropdown font hover color  **************************/
@@ -1977,7 +1993,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_font_hover,
             'color' => 'header-dropdown-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true === self::$using_underline_dropdown_effect,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true === self::$using_underline_dropdown_effect && ! self::$has_header_builder,
         ];
 
         //// default header effect
@@ -2041,7 +2057,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_font_hover,
             'color' => 'header-dropdown-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true !== self::$using_underline_dropdown_effect,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true !== self::$using_underline_dropdown_effect && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2054,7 +2070,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_font_hover,
             'color' => 'header-dropdown-font-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true !== self::$using_underline_dropdown_effect,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_font_hover && true !== self::$using_underline_dropdown_effect && ! self::$has_header_builder,
         ];
 
         /* Header dropdown desc color  **************************/
@@ -2067,7 +2083,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_desc_font,
             'color' => 'header-dropdown-desc-font-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_desc_font,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_desc_font && ! self::$has_header_builder,
         ];
 
         /* Header dropdown desc hover color  **************************/
@@ -2085,7 +2101,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_desc_font_h,
             'color' => 'header-dropdown-desc-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_desc_font_h,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_desc_font_h && ! self::$has_header_builder,
         ];
 
         /* Header dropdown heading color  **************************/
@@ -2103,7 +2119,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_heading_font,
             'color' => 'header-dropdown-heading-font-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_heading_font,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_heading_font && ! self::$has_header_builder,
         ];
 
         /* Header dropdown heading hover color  **************************/
@@ -2124,7 +2140,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_dropdown_header_font_h,
             'color' => 'header-dropdown-heading-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $header_dropdown_header_font_h,
+            'conditionals' => $using_custom_color_scheme && $header_dropdown_header_font_h && ! self::$has_header_builder,
         ];
 
         /* Header separator color  **************************/
@@ -2140,7 +2156,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $header_separator_color,
             'color' => 'header-separator-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_separator_color,
+            'conditionals' => $using_custom_color_scheme && $header_separator_color && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2152,7 +2168,7 @@ class Nectar_Dynamic_Colors {
             'fallback_declarations' => 'border-top-style: solid;',
             'color' => 'header-separator-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $header_separator_color,
+            'conditionals' => $using_custom_color_scheme && $header_separator_color && ! self::$has_header_builder,
         ];
 
         /* Header with secondary **************************/
@@ -2171,7 +2187,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $secondary_header_bg,
             'color' => 'secondary-header-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_header_bg,
+            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_header_bg && ! self::$has_header_builder,
         ];
 
         //// font color
@@ -2190,7 +2206,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $secondary_header_font,
             'color' => 'secondary-header-font-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_header_font,
+            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_header_font && ! self::$has_header_builder,
         ];
 
         //// font hover color
@@ -2212,7 +2228,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $secondary_font_color_h,
             'color' => 'secondary-header-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_font_color_h,
+            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_font_color_h && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2223,10 +2239,11 @@ class Nectar_Dynamic_Colors {
             'declarations' => $secondary_font_color_h,
             'color' => 'secondary-header-font-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_font_color_h,
+            'conditionals' => $using_custom_color_scheme && $using_secondary && $secondary_font_color_h && ! self::$has_header_builder,
         ];
 
         /* OCM BG Color  **************************/
+        // Skip OCM color rules when header builder is active - colors are controlled via Enhanced Navigation block.
         $ocm_bg = isset($nectar_options['header-slide-out-widget-area-background-color']) && ! empty($nectar_options['header-slide-out-widget-area-background-color']) ? esc_attr($nectar_options['header-slide-out-widget-area-background-color']) : false;
         $rules[] = [
             'selectors' =>
@@ -2240,7 +2257,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_bg,
             'color' => 'header-slide-out-widget-area-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_bg,
+            'conditionals' => $using_custom_color_scheme && $ocm_bg && ! self::$has_header_builder,
         ];
 
         //// OCM BG Gradient
@@ -2263,7 +2280,7 @@ class Nectar_Dynamic_Colors {
             'color' => 'header-slide-out-widget-area-background-color-2',
             'color_2' => 'header-slide-out-widget-area-background-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_bg && $ocm_bg_2,
+            'conditionals' => $using_custom_color_scheme && $ocm_bg && $ocm_bg_2 && ! self::$has_header_builder,
         ];
 
         /* OCM Font Color  **************************/
@@ -2290,7 +2307,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_font_color ,
             'color' => 'header-slide-out-widget-area-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_font_color,
+            'conditionals' => $using_custom_color_scheme && $ocm_font_color && ! self::$has_header_builder,
         ];
         $rules[] = [
             'selectors' =>
@@ -2300,7 +2317,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_font_color,
             'color' => 'header-slide-out-widget-area-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_font_color ,
+            'conditionals' => $using_custom_color_scheme && $ocm_font_color && ! self::$has_header_builder,
         ];
 
         //// OCM border color.
@@ -2314,7 +2331,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_font_color,
             'color' => 'header-slide-out-widget-area-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_font_color,
+            'conditionals' => $using_custom_color_scheme && $ocm_font_color && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2330,7 +2347,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_font_color ,
             'color' => 'header-slide-out-widget-area-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_font_color && 'slide-out-from-right-hover' === self::$off_canvas_style,
+            'conditionals' => $using_custom_color_scheme && $ocm_font_color && 'slide-out-from-right-hover' === self::$off_canvas_style && ! self::$has_header_builder,
         ];
 
         /* OCM Button   **************************/
@@ -2343,7 +2360,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_button_bg_color,
             'color' => 'header-slide-out-widget-area-close-button-bg',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_button_bg_color,
+            'conditionals' => $using_custom_color_scheme && $ocm_button_bg_color && ! self::$has_header_builder,
         ];
 
         $ocm_button_color = isset($nectar_options['header-slide-out-widget-area-close-button']) && ! empty($nectar_options['header-slide-out-widget-area-close-button']) ? esc_attr($nectar_options['header-slide-out-widget-area-close-button']) : false;
@@ -2355,7 +2372,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_button_color,
             'color' => 'header-slide-out-widget-area-close-button',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_button_color,
+            'conditionals' => $using_custom_color_scheme && $ocm_button_color && ! self::$has_header_builder,
         ];
 
         /* OCM Header Color  **************************/
@@ -2373,7 +2390,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_header_color,
             'color' => 'header-slide-out-widget-area-header-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && $ocm_header_color,
+            'conditionals' => $using_custom_color_scheme && $ocm_header_color && ! self::$has_header_builder,
         ];
 
         /* OCM Header hover Color  **************************/
@@ -2387,7 +2404,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_hover_font_color,
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2398,7 +2415,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_hover_font_color,
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! self::$has_header_builder,
         ];
 
         //// font color !important
@@ -2423,7 +2440,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_hover_font_color,
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '!important',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2436,7 +2453,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => $ocm_hover_font_color,
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2448,7 +2465,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'linear-gradient(to right, $ 0%, $ 100%)',
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color),
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! self::$has_header_builder,
         ];
 
         $remove_menu_images_ocm = true;
@@ -2467,7 +2484,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'linear-gradient(to right, $ 0%, $ 100%)',
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && $remove_menu_images_ocm,
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && $remove_menu_images_ocm && ! self::$has_header_builder,
         ];
 
         $rules[] = [
@@ -2478,7 +2495,7 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'none',
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && $remove_menu_images_ocm,
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && $remove_menu_images_ocm && ! self::$has_header_builder,
         ];
 
         //// Display OCM menu images.
@@ -2492,8 +2509,12 @@ class Nectar_Dynamic_Colors {
             'declarations' => 'linear-gradient(to right, $ 0%, $ 100%)',
             'color' => 'header-slide-out-widget-area-hover-color',
             'suffix' => '',
-            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! $remove_menu_images_ocm && $dropdown_hover_effect === 'animated_underline',
+            'conditionals' => $using_custom_color_scheme && ! empty($ocm_hover_font_color) && ! $remove_menu_images_ocm && $dropdown_hover_effect === 'animated_underline' && ! self::$has_header_builder,
         ];
+
+        // OCM CSS variable overrides (header builder active) are handled via
+        // nectar_ocm_customizer_var_overrides() inlined on the nectar-ocm-header-builder-vars
+        // handle so they load after the hardcoded defaults and win the cascade.
 
         //* Footer custom colors  **************************/
         $using_custom_footer_color_scheme = false;

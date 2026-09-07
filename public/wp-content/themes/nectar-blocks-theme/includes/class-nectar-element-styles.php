@@ -73,8 +73,6 @@ class NectarElDynamicStyles {
     'phone' => 'and (max-width: 690px)'
   ];
 
-  public static $using_fullscreen_rows = false;
-
   public static $using_front_end_editor = false;
 
   public static $theme_colors = [];
@@ -175,11 +173,6 @@ class NectarElDynamicStyles {
   public static function generate_styles($post_content) {
 
     global $post;
-
-    $page_full_screen_rows = ( isset( $post->ID ) ) ? get_post_meta( $post->ID, '_nectar_full_screen_rows', true ) : '';
-    if( 'on' === $page_full_screen_rows ) {
-      self::$using_fullscreen_rows = true;
-    }
 
     // Generate All.
     self::generate_el_styles($post_content);
@@ -433,8 +426,6 @@ class NectarElDynamicStyles {
 
       $row_selector = ( false !== strpos($shortcode[0], '[vc_row ') ) ? '.vc_row' : '.vc_row.inner_row';
       $row_span12_selector = ( false !== strpos($shortcode[0], '[vc_row ') ) ? '.row_col_wrap_12' : '.row_col_wrap_12_inner';
-      $fullscreen_rows_bypass = ( false !== strpos($shortcode[0], '[vc_row ') && true === self::$using_fullscreen_rows ) ? true : false;
-
       $row_column_margin = ( isset($atts['column_margin']) ) ? esc_attr($atts['column_margin']) : 'default';
 
       // Column margin.
@@ -446,9 +437,7 @@ class NectarElDynamicStyles {
           margin-bottom: 0;
         }
         
-        body .container-wrap .vc_row-fluid[data-column-margin="none"] > .span_12,
-        body .container-wrap .vc_row-fluid[data-column-margin="none"] .full-page-inner > .container > .span_12,
-        body .container-wrap .vc_row-fluid[data-column-margin="none"] .full-page-inner > .span_12 {
+        body .container-wrap .vc_row-fluid[data-column-margin="none"] > .span_12 {
           margin-left: 0;
           margin-right: 0;
         }
@@ -474,9 +463,7 @@ class NectarElDynamicStyles {
         }
 
         self::$element_css[] = '
-        body .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"] > .span_12,
-        body .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"] .full-page-inner > .container > .span_12,
-        body .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"] .full-page-inner > .span_12 {
+        body .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"] > .span_12 {
           margin-left: -' . ($column_margin_amt / 2) . 'px;
           margin-right: -' . ($column_margin_amt / 2) . 'px;
         }
@@ -486,8 +473,7 @@ class NectarElDynamicStyles {
           padding-left: ' . ($column_margin_amt / 2) . 'px;
           padding-right: ' . ($column_margin_amt / 2) . 'px;
         }
-        .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"].full-width-content > .span_12,
-        .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"].full-width-content .full-page-inner > .span_12 {
+        .container-wrap .vc_row-fluid[data-column-margin="' . $column_margin_amt . 'px"].full-width-content > .span_12 {
           margin-left: 0;
           margin-right: 0;
           padding-left: ' . ($column_margin_amt / 2) . 'px;
@@ -512,9 +498,7 @@ class NectarElDynamicStyles {
         $custom_column_gap = self::percent_unit_type($atts['column_margin_custom']);
 
         self::$element_css[] = '@media only screen and (min-width: 1025px) { 
-            #nectar-content-wrap .column-margin-' . nectar_el_decimal_unit_type_class($atts['column_margin_custom']) . '.wpb_row > .span_12,
-            #nectar-content-wrap .column-margin-' . nectar_el_decimal_unit_type_class($atts['column_margin_custom']) . '.wpb_row .full-page-inner > .container > .span_12,
-            #nectar-content-wrap .column-margin-' . nectar_el_decimal_unit_type_class($atts['column_margin_custom']) . '.wpb_row .full-page-inner > .span_12 {
+            #nectar-content-wrap .column-margin-' . nectar_el_decimal_unit_type_class($atts['column_margin_custom']) . '.wpb_row > .span_12 {
               margin-left: calc(' . $custom_column_gap . '/-2);
               margin-right: calc(' . $custom_column_gap . '/-2);
             }
@@ -971,29 +955,25 @@ class NectarElDynamicStyles {
         }
 
         //// Margin
-        if( true !== $fullscreen_rows_bypass ) {
-
-          if( isset($atts['left_margin']) && strlen($atts['left_margin']) > 0 ) {
-            self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.left_margin_' . esc_attr( self::percent_unit_type_class($atts['left_margin']) ) . ' {
-              margin-left: ' . esc_attr( self::percent_unit_type($atts['left_margin']) ) . ';
-            } ';
-          }
-          if( isset($atts['top_margin']) && strlen($atts['top_margin']) > 0 ) {
-            self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.top_margin_' . esc_attr( self::percent_unit_type_class($atts['top_margin']) ) . ' {
-              margin-top: ' . esc_attr( self::percent_unit_type($atts['top_margin']) ) . ';
-            } ';
-          }
-          if( isset($atts['right_margin']) && strlen($atts['right_margin']) > 0 ) {
-            self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.right_margin_' . esc_attr( self::percent_unit_type_class($atts['right_margin']) ) . ' {
-              margin-right: ' . esc_attr( self::percent_unit_type($atts['right_margin']) ) . ';
-            } ';
-          }
-          if( isset($atts['bottom_margin']) && strlen($atts['bottom_margin']) > 0 ) {
-            self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.bottom_margin_' . esc_attr( self::percent_unit_type_class($atts['bottom_margin']) ) . ' {
-              margin-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_margin']) ) . ';
-            } ';
-          }
-
+        if( isset($atts['left_margin']) && strlen($atts['left_margin']) > 0 ) {
+          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.left_margin_' . esc_attr( self::percent_unit_type_class($atts['left_margin']) ) . ' {
+            margin-left: ' . esc_attr( self::percent_unit_type($atts['left_margin']) ) . ';
+          } ';
+        }
+        if( isset($atts['top_margin']) && strlen($atts['top_margin']) > 0 ) {
+          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.top_margin_' . esc_attr( self::percent_unit_type_class($atts['top_margin']) ) . ' {
+            margin-top: ' . esc_attr( self::percent_unit_type($atts['top_margin']) ) . ';
+          } ';
+        }
+        if( isset($atts['right_margin']) && strlen($atts['right_margin']) > 0 ) {
+          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.right_margin_' . esc_attr( self::percent_unit_type_class($atts['right_margin']) ) . ' {
+            margin-right: ' . esc_attr( self::percent_unit_type($atts['right_margin']) ) . ';
+          } ';
+        }
+        if( isset($atts['bottom_margin']) && strlen($atts['bottom_margin']) > 0 ) {
+          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.bottom_margin_' . esc_attr( self::percent_unit_type_class($atts['bottom_margin']) ) . ' {
+            margin-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_margin']) ) . ';
+          } ';
         }
 
          // Disable entrance animation.
@@ -1165,88 +1145,80 @@ class NectarElDynamicStyles {
 
       // DESKTOP SPECIFIC
       //// Left Padding.
-      if( true !== $fullscreen_rows_bypass ) {
-
-        if( isset($atts['left_padding_desktop']) && strlen($atts['left_padding_desktop']) > 0 ) {
-          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.left_padding_' . esc_attr( self::percent_unit_type_class($atts['left_padding_desktop']) ) . ' ' . $row_span12_selector . ',
-            .nectar-global-section ' . $row_selector . '.left_padding_' . esc_attr( self::percent_unit_type_class($atts['left_padding_desktop']) ) . ' ' . $row_span12_selector . ' {
-            padding-left: ' . esc_attr( self::percent_unit_type($atts['left_padding_desktop']) ) . ';
-          } ';
-        }
-        //// Right Padding.
-        if( isset($atts['right_padding_desktop']) && strlen($atts['right_padding_desktop']) > 0 ) {
-          self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.right_padding_' . esc_attr( self::percent_unit_type_class($atts['right_padding_desktop']) ) . ' ' . $row_span12_selector . ',
-            .nectar-global-section ' . $row_selector . '.right_padding_' . esc_attr( self::percent_unit_type_class($atts['right_padding_desktop']) ) . ' ' . $row_span12_selector . ' {
-            padding-right: ' . esc_attr( self::percent_unit_type($atts['right_padding_desktop']) ) . ';
-          } ';
-        }
-
+      if( isset($atts['left_padding_desktop']) && strlen($atts['left_padding_desktop']) > 0 ) {
+        self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.left_padding_' . esc_attr( self::percent_unit_type_class($atts['left_padding_desktop']) ) . ' ' . $row_span12_selector . ',
+          .nectar-global-section ' . $row_selector . '.left_padding_' . esc_attr( self::percent_unit_type_class($atts['left_padding_desktop']) ) . ' ' . $row_span12_selector . ' {
+          padding-left: ' . esc_attr( self::percent_unit_type($atts['left_padding_desktop']) ) . ';
+        } ';
+      }
+      //// Right Padding.
+      if( isset($atts['right_padding_desktop']) && strlen($atts['right_padding_desktop']) > 0 ) {
+        self::$element_css[] = '#nectar-content-wrap ' . $row_selector . '.right_padding_' . esc_attr( self::percent_unit_type_class($atts['right_padding_desktop']) ) . ' ' . $row_span12_selector . ',
+          .nectar-global-section ' . $row_selector . '.right_padding_' . esc_attr( self::percent_unit_type_class($atts['right_padding_desktop']) ) . ' ' . $row_span12_selector . ' {
+          padding-right: ' . esc_attr( self::percent_unit_type($atts['right_padding_desktop']) ) . ';
+        } ';
       }
 
       // Device Loop.
       foreach( $devices as $device => $media_query ) {
 
         // Padding.
-        if( true !== $fullscreen_rows_bypass ) {
+        //// Top.
+        if( isset($atts['top_padding_' . $device]) && strlen($atts['top_padding_' . $device]) > 0 ) {
 
-          //// Top.
-          if( isset($atts['top_padding_' . $device]) && strlen($atts['top_padding_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { ' . $row_selector . '.top_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['top_padding_' . $device]) ) . ' {
+            padding-top: ' . esc_attr( self::percent_unit_type($atts['top_padding_' . $device]) ) . esc_attr( $override ) . ';
+          } }';
 
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { ' . $row_selector . '.top_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['top_padding_' . $device]) ) . ' {
-              padding-top: ' . esc_attr( self::percent_unit_type($atts['top_padding_' . $device]) ) . esc_attr( $override ) . ';
-            } }';
+        }
 
-          }
+        //// Bottom.
+        if( isset($atts['bottom_padding_' . $device]) && strlen($atts['bottom_padding_' . $device]) > 0 ) {
 
-          //// Bottom.
-          if( isset($atts['bottom_padding_' . $device]) && strlen($atts['bottom_padding_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { ' . $row_selector . '.bottom_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['bottom_padding_' . $device]) ) . ' {
+            padding-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_padding_' . $device]) ) . esc_attr( $override ) . ';
+          } }';
 
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { ' . $row_selector . '.bottom_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['bottom_padding_' . $device]) ) . ' {
-              padding-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_padding_' . $device]) ) . esc_attr( $override ) . ';
-            } }';
+        }
 
-          }
+        //// Left.
+        if( isset($atts['left_padding_' . $device]) && strlen($atts['left_padding_' . $device]) > 0 ) {
 
-          //// Left.
-          if( isset($atts['left_padding_' . $device]) && strlen($atts['left_padding_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { #nectar-content-wrap ' . $row_selector . '.left_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['left_padding_' . $device]) ) . ' ' . $row_span12_selector . ' {
+            padding-left: ' . esc_attr( self::percent_unit_type($atts['left_padding_' . $device]) ) . esc_attr( $override ) . ';
+          } }';
 
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { #nectar-content-wrap ' . $row_selector . '.left_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['left_padding_' . $device]) ) . ' ' . $row_span12_selector . ' {
-              padding-left: ' . esc_attr( self::percent_unit_type($atts['left_padding_' . $device]) ) . esc_attr( $override ) . ';
-            } }';
+        }
+        //// Right.
+        if( isset($atts['right_padding_' . $device]) && strlen($atts['right_padding_' . $device]) > 0 ) {
 
-          }
-          //// Right.
-          if( isset($atts['right_padding_' . $device]) && strlen($atts['right_padding_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { #nectar-content-wrap ' . $row_selector . '.right_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['right_padding_' . $device]) ) . ' ' . $row_span12_selector . ' {
+            padding-right: ' . esc_attr( self::percent_unit_type($atts['right_padding_' . $device]) ) . esc_attr( $override ) . ';
+          } }';
 
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { #nectar-content-wrap ' . $row_selector . '.right_padding_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['right_padding_' . $device]) ) . ' ' . $row_span12_selector . ' {
-              padding-right: ' . esc_attr( self::percent_unit_type($atts['right_padding_' . $device]) ) . esc_attr( $override ) . ';
-            } }';
+        }
 
-          }
-
-          //// Margin.
-          if( isset($atts['left_margin_' . $device]) && strlen($atts['left_margin_' . $device]) > 0 ) {
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.left_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['left_margin_' . $device]) ) . ' {
-              margin-left: ' . esc_attr( self::percent_unit_type($atts['left_margin_' . $device]) ) . ';
-            } }';
-          }
-          if( isset($atts['top_margin_' . $device]) && strlen($atts['top_margin_' . $device]) > 0 ) {
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.top_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['top_margin_' . $device]) ) . ' {
-              margin-top: ' . esc_attr( self::percent_unit_type($atts['top_margin_' . $device]) ) . ';
-            } }';
-          }
-          if( isset($atts['right_margin_' . $device]) && strlen($atts['right_margin_' . $device]) > 0 ) {
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.right_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['right_margin_' . $device]) ) . ' {
-              margin-right: ' . esc_attr( self::percent_unit_type($atts['right_margin_' . $device]) ) . ';
-            } }';
-          }
-          if( isset($atts['bottom_margin_' . $device]) && strlen($atts['bottom_margin_' . $device]) > 0 ) {
-            self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.bottom_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['bottom_margin_' . $device]) ) . ' {
-              margin-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_margin_' . $device]) ) . ';
-            } }';
-          }
-
-        } // end no fullscreen rows conditional
+        //// Margin.
+        if( isset($atts['left_margin_' . $device]) && strlen($atts['left_margin_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.left_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['left_margin_' . $device]) ) . ' {
+            margin-left: ' . esc_attr( self::percent_unit_type($atts['left_margin_' . $device]) ) . ';
+          } }';
+        }
+        if( isset($atts['top_margin_' . $device]) && strlen($atts['top_margin_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.top_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['top_margin_' . $device]) ) . ' {
+            margin-top: ' . esc_attr( self::percent_unit_type($atts['top_margin_' . $device]) ) . ';
+          } }';
+        }
+        if( isset($atts['right_margin_' . $device]) && strlen($atts['right_margin_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.right_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['right_margin_' . $device]) ) . ' {
+            margin-right: ' . esc_attr( self::percent_unit_type($atts['right_margin_' . $device]) ) . ';
+          } }';
+        }
+        if( isset($atts['bottom_margin_' . $device]) && strlen($atts['bottom_margin_' . $device]) > 0 ) {
+          self::$element_css[] = '@media only screen and (max-width: ' . $media_query . ') { body #nectar-content-wrap ' . $row_selector . '.bottom_margin_' . $device . '_' . esc_attr( self::percent_unit_type_class($atts['bottom_margin_' . $device]) ) . ' {
+            margin-bottom: ' . esc_attr( self::percent_unit_type($atts['bottom_margin_' . $device]) ) . ';
+          } }';
+        }
 
         // Transform.
         $transform_styles = self::transform_styles($row_selector, $atts, true);
@@ -8191,9 +8163,6 @@ class NectarElDynamicStyles {
               transform: translateY(0);
               opacity: 0.2;
               transition: none!important;
-            }
-            #nectar_fullscreen_rows .nectar-split-heading[data-animation-type="line-reveal-by-space"][data-text-effect="scroll-opacity-reveal"] span .inner {
-              transition: opacity 0.65s ease!important;
             }
             @media only screen and (max-width: 1024px) {
               .nectar-split-heading[data-text-effect="scroll-opacity-reveal"][data-m-rm-animation="true"] .inner {

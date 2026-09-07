@@ -127,7 +127,7 @@ class Portfolio_Register {
   public function add_portfolio_item_data_to_rss($post) {
     global $post;
 
-    if ($post->post_type !== 'nectar_portfolio') {
+    if (! $post || $post->post_type !== 'nectar_portfolio') {
         return;
     }
 

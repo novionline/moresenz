@@ -16,6 +16,9 @@ class Render {
 
   public $post_id;
 
+  /** @var string[]|null Memoized allowlist of assignable hook names. */
+  private $allowed_locations = null;
+
   private function __construct() {
     add_action( 'wp', [$this, 'frontend_display'] );
   }
@@ -224,11 +227,10 @@ class Render {
         continue;
       }
 
-      foreach($locations as $location) {
+      foreach($this->resolve_location_hooks($locations) as $resolved_location) {
 
-        $location_options = (array) $location;
-        $location_hook = sanitize_text_field($location_options['location']);
-        $location_priority = sanitize_text_field($location_options['priority']);
+        $location_hook = $resolved_location['hook'];
+        $location_priority = $resolved_location['priority'];
 
         // Verify display conditions.
         $allow_output = $this->verify_conditional_display($global_section_id);
@@ -251,6 +253,45 @@ class Render {
     endwhile; endif;
 
     wp_reset_query();
+  }
+
+  /**
+   * Validated hook/priority pairs from a section's stored `locations` meta.
+   *
+   * The stored hook name becomes an add_action() target and is printed into the wrapper's
+   * class attribute, and the capability required to write this meta is filterable
+   * (nectar_global_sections_assign_capability) — so entries are acted on only when the hook
+   * is one the editor actually offers. Anything else is ignored.
+   *
+   * @since 3.2.0
+   * @param array $locations
+   * @return array<int,array{hook:string,priority:int}>
+   */
+  private function resolve_location_hooks($locations): array {
+    if ( null === $this->allowed_locations ) {
+      $this->allowed_locations = Global_Sections::allowed_location_hooks();
+    }
+
+    $resolved = [];
+
+    foreach ( (array) $locations as $location ) {
+      $location_options = (array) $location;
+      $location_hook = isset($location_options['location']) && is_string($location_options['location'])
+        ? $location_options['location']
+        : '';
+
+      if ( ! in_array($location_hook, $this->allowed_locations, true) ) {
+        continue;
+      }
+
+      $resolved[] = [
+        'hook' => $location_hook,
+        // Priority is the UI's numeric field; 10 mirrors the default a new row is created with.
+        'priority' => isset($location_options['priority']) ? (int) $location_options['priority'] : 10,
+      ];
+    }
+
+    return $resolved;
   }
 
   /**
@@ -336,18 +377,19 @@ class Render {
       'class' => 'container normal-container row'
     ], $location);
 
+    // Escape on output: values reach here from stored meta and from third-party filters.
     $attributes = join(' ', array_map(function($key) use ($attrs) {
       if(is_bool($attrs[$key])) {
-        return $attrs[$key] ? $key : '';
+        return $attrs[$key] ? esc_attr($key) : '';
       }
-      return $key . '="' . $attrs[$key] . '"';
+      return esc_attr($key) . '="' . esc_attr($attrs[$key]) . '"';
     }, array_keys($attrs)));
 
     $inner_attributes = join(' ', array_map(function($key) use ($inner_attrs) {
       if(is_bool($inner_attrs[$key])) {
-        return $inner_attrs[$key] ? $key : '';
+        return $inner_attrs[$key] ? esc_attr($key) : '';
       }
-      return $key . '="' . $inner_attrs[$key] . '"';
+      return esc_attr($key) . '="' . esc_attr($inner_attrs[$key]) . '"';
     }, array_keys($inner_attrs)));
 
     $global_section_shortcode = ' [nectar_global_section id="' . intval($global_section_id) . '"] ';

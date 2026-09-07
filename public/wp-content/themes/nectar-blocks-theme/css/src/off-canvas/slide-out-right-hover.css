@@ -17,7 +17,7 @@ body[data-slide-out-widget-area-style="slide-out-from-right-hover"] #nectar-nav{
 		width: var(--ocm-width);
 		height: calc(100% - (var(--offset, 0px) * 2));
 		z-index:9999;
-		padding:54px;
+		padding: 40px;
 		padding-top:80px;
 		overflow:hidden;
 		-webkit-transition: transform .7s cubic-bezier(0.25,1,.2,1);
@@ -237,7 +237,7 @@ body .slide-out-hover-icon-effect.slide-out-widget-area-toggle.small .lines-butt
 
 
 /*non minimal style*/
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1025px){
 		body .slide-out-hover-icon-effect.slide-out-widget-area-toggle:not(.small) .lines-button:after,
 		body .slide-out-hover-icon-effect.slide-out-widget-area-toggle:not(.small) .lines:before,
 		body .slide-out-hover-icon-effect.slide-out-widget-area-toggle:not(.small) .lines:after{
@@ -311,7 +311,7 @@ body .slide-out-hover-icon-effect.slide-out-widget-area-toggle.small .lines-butt
 	 top:32px
 }
 
-@media only screen and (max-width:999px){
+@media only screen and (max-width:1024px){
 		.slide-out-hover-icon-effect a{
 			 width:auto
 	 }

@@ -245,8 +245,8 @@ Description: Off canvas menu set to "Fullscreen Split" in theme options
 }
 
 #slide-out-widget-area[data-dropdown-func].fullscreen-split .inner .off-canvas-menu-container li li a {
-  font-size: 18px;
-  line-height: 26px;
+  font-size: min(1em, 20px);
+  line-height: 1.2;
 }
 #slide-out-widget-area[data-dropdown-func].fullscreen-split .inner .off-canvas-menu-container li li {
   margin: 5px 0;
@@ -355,7 +355,7 @@ Description: Off canvas menu set to "Fullscreen Split" in theme options
 
 
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
   #slide-out-widget-area.fullscreen-split .left-side,
   #slide-out-widget-area.fullscreen-split .right-side {

@@ -1,6 +1,6 @@
 <?php
 /**
-* The template for global sections.
+* The template for template parts.
 *
 * @package Nectar Blocks Theme
 * @version 1.0
@@ -17,8 +17,11 @@ if ( isset( $nectar_template_meta['templatePart'] ) && ! empty( $nectar_template
     // Valid values follow the pattern nectar_template_single__{post_type},
     // nectar_template_archive__{post_type}, nectar_template__404, or
     // nectar_template__ocm (see Nectar_Templates::get_template_parts()).
-    // TODO: tighten templatePart allowlist by validating against the registered
-    // list returned by Nectar_Templates::get_template_parts().
+    // Not validated against that list directly: it is built by the *plugin*
+    // (Nectar\Nectar_Templates), and this template has to keep working with the
+    // plugin inactive. Each branch below re-validates instead — post_type_exists()
+    // and get_post_type_archive_link() reject anything unregistered, and every
+    // redirect goes through wp_safe_redirect(), so the target stays on this site.
     $location = sanitize_key( $nectar_template_meta['templatePart'] );
 
     $location_parts = explode( '__', $location );
@@ -55,9 +58,26 @@ if ( isset( $nectar_template_meta['templatePart'] ) && ! empty( $nectar_template
 
 get_header();
 
+// OCM template preview: apply OCM background/text color to the page.
+$nectar_ocm_preview_style = '';
+if ( isset( $location ) && 'nectar_template__ocm' === $location && function_exists( 'get_nectar_theme_options' ) ) {
+    $opts = get_nectar_theme_options();
+    $ocm_bg = $opts['header-slide-out-widget-area-background-color'] ?? '';
+    $ocm_text = $opts['header-slide-out-widget-area-color'] ?? '';
+    $color_parts = [];
+    if ( ! empty( $ocm_bg ) ) {
+        $color_parts[] = 'background-color:' . esc_attr( $ocm_bg );
+    }
+    if ( ! empty( $ocm_text ) ) {
+        $color_parts[] = 'color:' . esc_attr( $ocm_text );
+    }
+    $nectar_ocm_color_style = ! empty( $color_parts ) ? ' style="' . implode( ';', $color_parts ) . '"' : '';
+    $nectar_ocm_height_style = ' style="height:100vh"';
+}
+
 ?>
-<div id="nectar-content-wrap" class="container-wrap">
-    <div class="container main-content">
+<div id="nectar-content-wrap" class="container-wrap"<?php echo $nectar_ocm_color_style ?? ''; ?>>
+    <div class="container main-content"<?php echo $nectar_ocm_height_style ?? ''; ?>>
         <?php
 
             nectar_hook_before_content();

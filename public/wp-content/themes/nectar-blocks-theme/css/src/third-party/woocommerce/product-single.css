@@ -483,7 +483,7 @@ body:not(.woocommerce-cart) .main-content .woocommerce-tabs[data-tab-style="full
 .iosSlider .next_slide { right: -42px; }
 .iosSlider .next_slide.inactive { right: -42px; }
 
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:1025px) {
   .iosSlider:hover .prev_slide {
     left: 0;
   }
@@ -586,7 +586,7 @@ body:not(.woocommerce-cart) .main-content .woocommerce-tabs[data-tab-style="full
     width: 100%;
   }
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   .single-product .product-thumbs .flickity-slider .thumb,
   .single-product [data-gallery-style="left_thumb_sticky"] .product-thumbs .slider .thumb {
     width: 25%;
@@ -812,7 +812,7 @@ div.product .woocommerce-tabs .full-width-content[data-tab-style*="fullwidth"] u
 .mobile div.product .woocommerce-tabs .full-width-content[data-tab-style*="fullwidth"] ul.tabs  {
   margin: 50px 0 40px 0;
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   .mobile div.product .woocommerce-tabs .full-width-content[data-tab-style*="fullwidth"] ul.tabs  {
     margin: 50px 0 20px 0;
   }
@@ -962,7 +962,7 @@ div.pp_woocommerce #respond {
 }
 .woocommerce #review_form #respond p { width: 100%; }
 
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
   .woocommerce #review_form #respond p.comment-form-author,
   .woocommerce #review_form #respond p.comment-form-email {
     width: 50%;

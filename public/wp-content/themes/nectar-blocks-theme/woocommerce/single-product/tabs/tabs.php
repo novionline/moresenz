@@ -37,7 +37,7 @@ if ( ! empty( $product_tabs ) ) : ?>
 
 	<div class="woocommerce-tabs wc-tabs-wrapper <?php if($fullwidth_tabs === true) echo 'full-width-tabs'; ?>" data-tab-style="<?php echo esc_attr( $tab_style ); ?>">
 
-		<?php if($fullwidth_tabs === true) echo '<div class="full-width-content" data-tab-style="' . $tab_style . '"> <div class="tab-container container">'; ?>
+		<?php if($fullwidth_tabs === true) echo '<div class="full-width-content" data-tab-style="' . esc_attr( $tab_style ) . '"> <div class="tab-container container">'; ?>
 
 		<ul class="tabs wc-tabs" role="tablist">
 			<?php foreach ( $product_tabs as $key => $product_tab ) : ?>

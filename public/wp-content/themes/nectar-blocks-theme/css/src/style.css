@@ -124,6 +124,11 @@ menu, nav, section{
   --header-mobile-vertical-padding: 12px;
   --header-mobile-fullwidth-horizontal-padding: 20px;
   --nectar-nav-animated-icon-thickness: 2px;
+  --nectar-page-title-font-size: 2.5rem;
+  --nectar-page-title-line-height: 1.4em;
+  --nectar-page-title-font-weight: 600;
+  --nectar-page-title-margin-bottom: 0px;
+  --nectar-page-title-padding-block: 20px;
 }
 
 /* Main container */
@@ -169,7 +174,7 @@ div.clear {
   width: 100%;
 }
 
-@media (min-width: 691px) {
+@media (min-width: 768px) {
   .col {
     margin-right: 2%;
    }
@@ -183,8 +188,8 @@ div.clear {
 }
 
 
-/* Column width on displays +690px */
-@media (min-width: 691px) {
+/* Column width on displays +768px */
+@media (min-width: 768px) {
 
 	.span_1 {
 		width: 6.5%;
@@ -247,8 +252,7 @@ body:not(.nectar-no-flex-height) {
     min-height: calc(100vh - 32px);
   }
 }
-body:not(.nectar-no-flex-height) #nectar-content-wrap,
-body:not(.nectar-no-flex-height) #nectar-content-wrap .blurred-wrap {
+body:not(.nectar-no-flex-height) #nectar-content-wrap {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -295,7 +299,7 @@ p{
   margin: 0 8px;
   overflow: visible!important;
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   #nectar-nav .nectar-mobile-only.mobile-header li[class*="menu-item-btn-style-button"]:not(.menu-item-hidden-text) .nectar-menu-icon {
     display: none;
   }
@@ -634,10 +638,16 @@ pre{
   margin-bottom: 0;
 }
 
+/* core sizes gallery items against this var but only serializes a matching gap when theme.json enables spacing.blockGap, which we don't; a smaller stored gap wraps every item onto its own row */
+.wp-block-gallery.has-nested-images.is-layout-flex {
+  column-gap: var(--wp--style--unstable-gallery-gap, 0.5em);
+}
+
 /* gutenberg full width */
 .main-content > [class*="wp-block"].alignfull,
 .main-content > .nectar-blocks-row__sticky-wrapper > [class*="wp-block"].alignfull,
 .nectar-global-section > .normal-container > [class*="wp-block"].alignfull:not(:where(.span_9 *)),
+.nectar-global-section.normal-container > [class*="wp-block"].alignfull:not(:where(.span_9 *)),
 .single .post-area.span_12 .post-content > [class*="wp-block"].alignfull {
   position: relative;
   margin-left: calc((var(--nectar-root-width, 100vw) / -2) + var(--scroll-bar-w) / 2) !important;
@@ -732,7 +742,8 @@ blockquote.wp-block-quote cite {
 /*---------------------*/
 
 
-.container .nectar-global-section > .container {
+.container .nectar-global-section > .container,
+.container .nectar-global-section.container {
 	padding: 0;
 }
 
@@ -749,7 +760,8 @@ blockquote.wp-block-quote cite {
 .nectar-global-section.after-nav > .row {
 	padding-bottom: 0;
 }
-.nectar-global-section > .container {
+.nectar-global-section > .container,
+.nectar-global-section.container {
   padding-bottom: 0
 }
 
@@ -762,6 +774,7 @@ blockquote.wp-block-quote cite {
 }
 
 #nectar-content-wrap .force-contained-rows .nectar-global-section > .container,
+#nectar-content-wrap .force-contained-rows .nectar-global-section.container,
 .nectar_hook_after_content > .container,
 .nectar_hook_before_content_global_section > .container,
 .nectar_hook_global_section_after_content > .container {
@@ -809,6 +822,10 @@ blockquote.wp-block-quote cite {
   overflow:visible
 }
 
+#nectar-nav:has(.nectar-global-section.nectar_template__header_navigation),
+#nectar-nav-spacer:has(~ #nectar-nav .nectar-global-section.nectar_template__header_navigation) {
+  background-color: transparent;
+}
 
 body.page-template-template-no-header #nectar-nav,
 body.page-template-template-no-header-footer #nectar-nav {
@@ -1062,7 +1079,7 @@ body[data-header-search="false"][data-user-set-ocm="off"] #nectar-nav[data-lhe="
 	position: relative;
 }
 #nectar-nav #top nav .slide-out-widget-area-toggle[data-custom-color="true"]:not(.mobile-icon) a:not(.using-label) {
-	width: 22px;
+	width: var(--ocm-icon-width,22px);
 }
 
 
@@ -1216,7 +1233,7 @@ body #header-secondary-outer nav >ul >li .edge >ul{
   right:0
 }
 
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
   #header-secondary-outer.hide-up + #search-outer {
     padding-top: 42px;
   }
@@ -2074,7 +2091,7 @@ body[data-hhun="1"] #nectar-nav[data-rm-fixed="1"] {
 }
 
 
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1025px){
 
   body[data-hhun="1"]:not(.no-scroll) #nectar-nav[data-rm-fixed="1"]:not(.detached),
   body[data-hhun="1"]:not(.no-scroll) #nectar-nav[data-rm-fixed="1"][data-permanent-transparent="false"][data-using-secondary="1"] {
@@ -2199,7 +2216,7 @@ body.using-mobile-browser #page-header-bg .nectar-video-wrap {
 	display: none;
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 691px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
   .row-bg.viewport-tablet,
 	.column-image-bg-wrap.viewport-tablet {
 		display: block;
@@ -2209,7 +2226,7 @@ body.using-mobile-browser #page-header-bg .nectar-video-wrap {
 		display: none;
 	}
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	.row-bg.viewport-phone,
 	.column-image-bg-wrap.viewport-phone {
 		display: block;
@@ -3097,9 +3114,14 @@ i.icon-normal[class*=" steadysets-icon-"] {
 
 .row .col.section-title h1,
 .row .col.section-title h2{
-  margin-bottom:0;
-  font-weight: 600;
+  margin-bottom: var(--nectar-page-title-margin-bottom);
+  font-weight: var(--nectar-page-title-font-weight);
   position:relative
+}
+
+.row .col.section-title h1{
+  font-size: var(--nectar-page-title-font-size);
+  line-height: var(--nectar-page-title-line-height);
 }
 
 .row .col.section-title h2{
@@ -4155,7 +4177,8 @@ body[data-button-style*="slightly_rounded"] .post .more-link span {
 }
 
 
-.post .post-content{
+.post .post-content,
+.post-area .post-content {
   position:relative;
 }
 
@@ -4731,6 +4754,10 @@ body .container-wrap.no-shadow {
   width: 100%;
 }
 
+#nectar-nav:has(.nectar_template__header_navigation) #mobile-menu {
+  top: 100%;
+}
+
 #slide-out-widget-area {
 	display: none;
 }
@@ -5184,7 +5211,8 @@ body.search-no-results .search-form {
   left: 0!important;
   margin: 0!important;
 }
-#sidebar .nectar-global-section > .container {
+#sidebar .nectar-global-section > .container,
+#sidebar .nectar-global-section.container {
   padding: 0;
 }
 

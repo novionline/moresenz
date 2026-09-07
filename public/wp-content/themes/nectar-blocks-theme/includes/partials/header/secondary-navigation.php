@@ -36,13 +36,11 @@ $secondary_header_text = ( ! empty( $nectar_options['secondary-header-text'] ) )
 
 nectar_hook_before_secondary_header();
 
-if ( $using_secondary === 'header_with_secondary' ) { ?>
-    
-    <div id="header-secondary-outer" class="<?php echo esc_attr( $header_format ); ?>" data-mobile="<?php echo esc_attr($header_mobile_func); ?>" data-rm-fixed="<?php echo esc_attr( $header_remove_stickiness ); ?>" data-lhe="<?php echo esc_attr( $header_link_hover_effect ); ?>" data-secondary-text="<?php echo esc_attr( $secondary_header_text ); ?>" data-full-width="<?php echo ( ! empty( $nectar_options['header-fullwidth'] ) && $nectar_options['header-fullwidth'] === '1' ) ? 'true' : 'false'; ?>" data-mobile-fixed="<?php echo esc_attr( $mobile_fixed ); ?>" data-permanent-transparent="<?php echo esc_attr( $perm_trans ); ?>" >
+if ( $using_secondary === 'header_with_secondary' ) {
+    ?><div id="header-secondary-outer" class="<?php echo esc_attr( $header_format ); ?>" data-mobile="<?php echo esc_attr($header_mobile_func); ?>" data-rm-fixed="<?php echo esc_attr( $header_remove_stickiness ); ?>" data-lhe="<?php echo esc_attr( $header_link_hover_effect ); ?>" data-secondary-text="<?php echo esc_attr( $secondary_header_text ); ?>" data-full-width="<?php echo ( ! empty( $nectar_options['header-fullwidth'] ) && $nectar_options['header-fullwidth'] === '1' ) ? 'true' : 'false'; ?>" data-mobile-fixed="<?php echo esc_attr( $mobile_fixed ); ?>" data-permanent-transparent="<?php echo esc_attr( $perm_trans ); ?>" >
         <div class="container">
             <nav>
                 <?php
-
                 nectar_hook_secondary_header_after_nav_open();
 
                 if ( ! empty( $nectar_options['enable_social_in_header'] ) &&
@@ -64,30 +62,25 @@ if ( $using_secondary === 'header_with_secondary' ) { ?>
                     echo '</div>';
                 }
 
-                if ( has_nav_menu( 'secondary_nav' ) ) { ?>
-                    <ul class="sf-menu">
+                if ( has_nav_menu( 'secondary_nav' ) ) {
+                    ?><ul class="sf-menu">
                         <?php
                         wp_nav_menu(
-                    [
+                            [
                                 'walker' => new Nectar_Arrow_Walker_Nav_Menu(),
                                 'theme_location' => 'secondary_nav',
                                 'container' => '',
                                 'items_wrap' => '%3$s',
                             ]
-                );
+                        );
                         nectar_hook_secondary_header_menu_items();
-
                         ?>
-                    </ul>
-                    <?php
+                    </ul><?php
                 }
 
                 nectar_hook_secondary_header_before_nav_close();
-
                 ?>
-                
             </nav>
         </div>
-    </div>
-    
-<?php }
+    </div><?php
+}

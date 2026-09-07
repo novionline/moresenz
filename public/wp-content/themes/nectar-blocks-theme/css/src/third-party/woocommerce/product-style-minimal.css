@@ -292,7 +292,7 @@ li.product.minimal:hover .product-wrap img {
     width: calc(25% - var(--nectar-product-gap, 15px));
   }
 }
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
 
   body .woocommerce.columns-2 ul[data-product-style="minimal"].products li.product {
     width: calc(50% - var(--nectar-product-gap, 15px));
@@ -320,7 +320,7 @@ body .woocommerce.columns-1 ul[data-product-style="minimal"].products li.product
 }
 
 
-@media only screen and (max-width: 1300px) and (min-width: 691px) {
+@media only screen and (max-width: 1300px) and (min-width: 768px) {
   .woocommerce .span_9 ul.products[data-product-style="minimal"] li.product.minimal,
   .woocommerce-page .span_9 ul.products[data-product-style="minimal"] li.product.minimal {
     width: calc(50% - var(--nectar-product-gap, 15px));
@@ -339,7 +339,7 @@ body .woocommerce.columns-1 ul[data-product-style="minimal"].products li.product
 }
 
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   .woocommerce .span_9 ul.products[data-product-style="minimal"] li.product.minimal,
   .woocommerce-page .span_9 ul.products[data-product-style="minimal"] li.product.minimal,
   .woocommerce  ul.products[data-product-style="minimal"] li.product.minimal,

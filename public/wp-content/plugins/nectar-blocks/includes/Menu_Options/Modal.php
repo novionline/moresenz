@@ -128,7 +128,7 @@ class Modal {
     }
 
     // Verify Nonce.
-    $nonce = $_POST['nonce'];
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
 
     if ( ! wp_verify_nonce( $nonce, 'nectar_menu_settings_ajax_nonce' ) ) {
        die ( 'Invalid Nonce!');
@@ -199,7 +199,7 @@ class Modal {
     }
 
     // Verify Nonce.
-    $nonce = $_POST['nonce'];
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
 
     if ( ! wp_verify_nonce( $nonce, 'nectar_menu_settings_ajax_nonce' ) ) {
 

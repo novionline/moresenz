@@ -14,6 +14,85 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 14.0.2
  */
 class NectarBlocks_Customizer_Post_Types_WooCommerce {
+  /**
+   * Check if a Theme Builder template is assigned and published for a given hook.
+   */
+  private static function is_block_template_active( string $hook_name ): bool {
+    $query = new WP_Query( [
+      'post_type' => 'nectar_templates',
+      'post_status' => 'publish',
+      'posts_per_page' => 1,
+      'fields' => 'ids',
+      'no_found_rows' => true,
+      'meta_query' => [
+        [
+          'key' => '_nectar_template_part_options',
+          'value' => $hook_name,
+          'compare' => 'LIKE'
+        ]
+      ]
+    ] );
+    return $query->have_posts();
+  }
+
+  /**
+   * Get the Theme Builder URL.
+   */
+  private static function get_block_templates_url(): string {
+    return admin_url( 'edit.php?post_type=nectar_templates' );
+  }
+
+  /**
+   * Notice HTML when a Theme Builder template has replaced a customizer section.
+   */
+  private static function block_template_notice_html( string $template_label ): string {
+    $theme_builder_link = '<a href="' . esc_url( self::get_block_templates_url() ) . '">' . esc_html__( 'Theme Builder', 'nectar-blocks-theme' ) . '</a>';
+
+    return '<strong>' . sprintf(
+        /* translators: %s: Template label (e.g. "Single Product") */
+        esc_html__( '%s Template Active', 'nectar-blocks-theme' ),
+        $template_label
+    ) . '</strong><br><br>' .
+      sprintf(
+        /* translators: 1: Template label, 2: Theme Builder link */
+        esc_html__( 'The %1$s layout is being managed by a Theme Builder template. These customizer options no longer apply. You can customize or disable the template in the %2$s.', 'nectar-blocks-theme' ),
+          $template_label,
+          $theme_builder_link
+      );
+  }
+
+  /**
+   * Awareness notice for the General tab when Theme Builder templates are in use.
+   */
+  private static function block_template_general_notice_html(): string {
+    $theme_builder_link = '<a href="' . esc_url( self::get_block_templates_url() ) . '">' . esc_html__( 'Theme Builder', 'nectar-blocks-theme' ) . '</a>';
+
+    return '<strong>' . esc_html__( 'WooCommerce Templates Active', 'nectar-blocks-theme' ) . '</strong><br><br>' .
+      esc_html__( 'One or more WooCommerce Theme Builder templates are active. Some options below may not apply to pages using these templates.', 'nectar-blocks-theme' ) .
+      ' ' . sprintf(
+        /* translators: %s: Theme Builder link */
+        esc_html__( 'Manage templates in the %s.', 'nectar-blocks-theme' ),
+          $theme_builder_link
+      );
+  }
+
+  /**
+   * Replace section controls with a notice when a Theme Builder template is active.
+   */
+  private static function filter_block_template_controls( array &$controls, string $section_id, string $hook_name, string $template_label ): void {
+    if ( ! self::is_block_template_active( $hook_name ) ) {
+      return;
+    }
+
+    $controls = [
+      [
+        'id' => 'block-template-notice-' . $section_id,
+        'type' => 'info',
+        'desc' => self::block_template_notice_html( $template_label ),
+      ]
+    ];
+  }
+
   public static function get_kirki_partials() {
 
     // global $woocommerce;
@@ -454,6 +533,15 @@ class NectarBlocks_Customizer_Post_Types_WooCommerce {
       // ),
     ];
 
+    // Add awareness notice when any product block template is active.
+    if ( self::is_block_template_active( 'nectar_template_wc__single_product' ) || self::is_block_template_active( 'nectar_template_wc__archive_product' ) ) {
+      array_unshift( $controls, [
+        'id' => 'block-template-notice-woocommerce-general-section',
+        'type' => 'info',
+        'desc' => self::block_template_general_notice_html(),
+      ] );
+    }
+
     return [
       'section_id' => 'woocommerce-general-section',
       'settings' => [
@@ -687,6 +775,8 @@ class NectarBlocks_Customizer_Post_Types_WooCommerce {
       ],
     ];
 
+    self::filter_block_template_controls( $controls, 'woocommerce-single-product-section', 'nectar_template_wc__single_product', 'Single Product' );
+
     return [
       'section_id' => 'woocommerce-single-product-section',
       'settings' => [
@@ -761,6 +851,8 @@ class NectarBlocks_Customizer_Post_Types_WooCommerce {
         'display_value' => 'label'
       ],
     ];
+
+    self::filter_block_template_controls( $controls, 'woocommerce-archive-header-section', 'nectar_template_wc__archive_product', 'Product Archive' );
 
     return [
       'section_id' => 'woocommerce-archive-header-section',

@@ -522,16 +522,7 @@ body.material .slide_out_area_close:hover:not(:focus):before,
 .nectar-close-btn:hover:not(:focus):before {
   transform: scale(1.2) translateZ(0);
 }
-blockquote::before {
-  display: block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 4px;
-  content: '';
-  border-left: 4px solid rgba(0,0,0,0.1);
-}
+
 blockquote.tiktok-embed {
   padding-left: 0;
 }
@@ -543,13 +534,6 @@ blockquote.wp-block-quote.has-text-align-center.is-style-large {
   padding: 1em 1em;
 }
 
-.testimonial_slider blockquote:before {
-  border: none;
-}
-blockquote {
-  position: relative;
-  padding-left: 1.8em;
-}
 
 body #search-results .result .bottom-line{
   display:none
@@ -1375,16 +1359,16 @@ body[data-slide-out-widget-area-style="slide-out-from-right"] .slide-out-widget-
 
 body[data-slide-out-widget-area-style="slide-out-from-right"] .slide_out_area_close{
   position:absolute;
-  right:42px;
-  top: calc(42px + var(--wp-admin--admin-bar--height, 0px));
+  right:36px;
+  top: calc(36px + var(--wp-admin--admin-bar--height, 0px));
   z-index: 8;
   display: block;
 }
 
 @media only screen and (max-width:1024px) {
   html body[data-slide-out-widget-area-style="slide-out-from-right"] #slide-out-widget-area .slide_out_area_close {
-    right: 42px;
-    top: calc(42px + var(--wp-admin--admin-bar--height, 0px));
+    right: 36px;
+    top: calc(36px + var(--wp-admin--admin-bar--height, 0px));
   }
 }
 

@@ -12,6 +12,8 @@ class Nectar_Dynamic_Fonts {
 
     public static $options;
 
+    public static $has_header_builder = false;
+
     public static $devices = [
         'desktop' => '@media all',
         'tablet' => '@media (max-width: 1024px)',
@@ -30,6 +32,7 @@ class Nectar_Dynamic_Fonts {
         'blog_single_post_content_font_family',
         'nectar_woo_shop_product_title_font_family',
         'nectar_woo_shop_product_secondary_font_family',
+        'submit_button_font_family',
         'navigation_custom_text'
     ];
 
@@ -38,6 +41,9 @@ class Nectar_Dynamic_Fonts {
     public function __construct() {
 
         self::$options = get_nectar_theme_options();
+        // Cached output: gate on whether the Header Builder applies on every page,
+        // not the per-request signal (which would bake one page's state into the file).
+        self::$has_header_builder = function_exists( 'nectar_has_unconditional_header_nav_template' ) && nectar_has_unconditional_header_nav_template();
         $this->setup_vars();
         $this->gather_rules();
 
@@ -90,28 +96,20 @@ class Nectar_Dynamic_Fonts {
 
             $settings = self::$options[$css_arr['key']];
             if($settings) {
-                // Opening selector.
-                echo $css_arr['selectors'] . '{';
+                if( ! empty($css_arr['only_if_customized']) && ! self::has_customized_typography($settings) ) {
+                    continue;
+                }
 
-                     // Font family.
-                    echo self::get_font_family_properties($settings);
+                $declarations = self::get_font_family_properties($settings)
+                    . self::get_font_weight_properties($settings)
+                    . self::get_font_style_properties($settings)
+                    . self::get_font_letter_spacing_properties($settings)
+                    . self::get_font_transform_properties($settings)
+                    . self::get_font_color_properties($settings);
 
-                    // Font weight.
-                    echo self::get_font_weight_properties($settings);
-
-                    // Font style.
-                    echo self::get_font_style_properties($settings);
-
-                    // Letter Spacing.
-                    echo self::get_font_letter_spacing_properties($settings);
-
-                    // Font transform.
-                    echo self::get_font_transform_properties($settings);
-
-                    // Font color.
-                    echo self::get_font_color_properties($settings);
-
-                echo '}';
+                if( ! empty($declarations) ) {
+                    echo $css_arr['selectors'] . '{' . $declarations . '}';
+                }
 
                 // Responsive settings.
 
@@ -182,6 +180,62 @@ class Nectar_Dynamic_Fonts {
 
         return $arrays;
     }
+
+  /**
+   * Whether the user has customized any typography property away from the
+   * empty defaults. Used to opt-out of emitting CSS for rules that should
+   * only render once a user explicitly sets something.
+   */
+  public static function has_customized_typography(array $settings) {
+
+    if( ! empty($settings['fontFamily']) ) {
+      return true;
+    }
+
+    if( isset($settings['fontSize']['desktop']) &&
+        empty($settings['fontSize']['desktop']['disabled']) &&
+        ! empty($settings['fontSize']['desktop']['value']) ) {
+      return true;
+    }
+
+    if( isset($settings['lineHeight']['desktop']) &&
+        empty($settings['lineHeight']['desktop']['disabled']) &&
+        ! empty($settings['lineHeight']['desktop']['value']) ) {
+      return true;
+    }
+
+    if( ! empty($settings['fontColor']['value']) ||
+        ! empty($settings['fontColor']['globalColorData']) ) {
+      return true;
+    }
+
+    if( isset($settings['fontWeight']) &&
+        $settings['fontWeight'] !== '' &&
+        $settings['fontWeight'] !== 'regular' ) {
+      return true;
+    }
+
+    if( isset($settings['fontStyle']) &&
+        $settings['fontStyle'] !== '' &&
+        $settings['fontStyle'] !== 'normal' ) {
+      return true;
+    }
+
+    if( isset($settings['transform']) &&
+        $settings['transform'] !== '' &&
+        $settings['transform'] !== 'none' ) {
+      return true;
+    }
+
+    if( isset($settings['letterSpacing']['value']) &&
+        $settings['letterSpacing']['value'] !== '' &&
+        $settings['letterSpacing']['value'] !== 0 &&
+        $settings['letterSpacing']['value'] !== '0' ) {
+      return true;
+    }
+
+    return false;
+  }
 
   /**
    * @param array $settings
@@ -416,12 +470,14 @@ class Nectar_Dynamic_Fonts {
 
             'key' => 'logo_font_family',
             'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         $rules[] = [
             'selectors' => '#nectar-nav #logo.no-image',
             'key' => '',
-            'suffix' => ''
+            'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         /******* Navigation Font *******************************************/
@@ -439,6 +495,7 @@ class Nectar_Dynamic_Fonts {
 
             'key' => 'navigation_font_family',
             'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         //TODO do this in style.css limit dropdown arrow
@@ -459,7 +516,7 @@ class Nectar_Dynamic_Fonts {
             'addon_rules' => 'line-height: 10px;',
 
             'key' => '',
-            'conditionals' => $nav_line_height && $nav_line_height < 10
+            'conditionals' => $nav_line_height && $nav_line_height < 10 && ! self::$has_header_builder,
         ];
 
         /******* Navigation Dropdown Font *******************************************/
@@ -474,6 +531,7 @@ class Nectar_Dynamic_Fonts {
 
             'key' => 'navigation_dropdown_font_family',
             'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         /******* Navigation Custom Text *******************************************/
@@ -482,6 +540,7 @@ class Nectar_Dynamic_Fonts {
 
           'key' => 'navigation_custom_text',
           'suffix' => '',
+          'conditionals' => ! self::$has_header_builder,
       ];
 
           /******* Off canvas menu *******************************************/
@@ -495,6 +554,7 @@ class Nectar_Dynamic_Fonts {
 
             'key' => 'off_canvas_nav_font_family',
             'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         /******* Off canvas menu description text *******************************************/
@@ -511,14 +571,16 @@ class Nectar_Dynamic_Fonts {
 
             'key' => 'off_canvas_nav_subtext_font_family',
             'suffix' => '',
+            'conditionals' => ! self::$has_header_builder,
         ];
 
         /******* Page Heading Font *******************************************/
         $rules[] = [
             'selectors' => 'body #page-header-bg h1,
                 html body .row .col.section-title h1,
+                .single .main-content > .entry-title,
                 div[data-style="parallax_next_only"].blog_next_prev_buttons h3,
-                .full-width-content.blog_next_prev_buttons[data-style="fullwidth_next_only"] h3,
+                .alignfull.blog_next_prev_buttons[data-style="fullwidth_next_only"] h3,
                 .featured-media-under-header h1,
                 .nectar-shop-header h1',
 
@@ -585,6 +647,14 @@ class Nectar_Dynamic_Fonts {
 			.products li.product.minimal .product-meta .amount',
             'key' => 'nectar_woo_shop_product_secondary_font_family',
             'suffix' => '',
+        ];
+
+        /******* Submit Buttons Font *******************************************/
+        $rules[] = [
+            'selectors' => 'button[type="submit"], input[type="button"], input[type="submit"]',
+            'key' => 'submit_button_font_family',
+            'suffix' => '',
+            'only_if_customized' => true,
         ];
 
         /******* Set rules to class  *******************************************/

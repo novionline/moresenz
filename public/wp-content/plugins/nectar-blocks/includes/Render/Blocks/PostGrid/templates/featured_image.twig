@@ -37,7 +37,8 @@
 
   {% if settings.linkType is not defined or settings.linkType is not same as('wrap-all') %}
     {% set wrapperTag = 'a' %}
-    {% set wrapperAttrs = 'href="' ~ post.permalink|e ~ '" aria-label="' ~ post.title|e ~ '" class="' ~ blockClassName ~ '__item__featured-media__inner" ' ~ bgAnimationActiveViewports|raw %}
+    {# permalink_esc is already esc_url()'d in PHP; output with |raw — do not add |e (double-encodes query strings). #}
+    {% set wrapperAttrs = 'href="' ~ post.permalink_esc|raw ~ '" aria-label="' ~ post.title|e ~ '" class="' ~ blockClassName ~ '__item__featured-media__inner" ' ~ bgAnimationActiveViewports|raw %}
   {% elseif bgAnimation %}
     {% set wrapperTag = 'div' %}
     {% set wrapperAttrs = 'class="' ~ blockClassName ~ '__item__featured-media__inner"' %}

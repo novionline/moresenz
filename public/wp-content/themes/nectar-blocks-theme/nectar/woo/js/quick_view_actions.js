@@ -30,7 +30,8 @@ jQuery(document).ready(function($) {
       url: nectarLove.ajaxurl,
       data: {
         'action': 'nectar_woo_get_product',
-        'product_id': $product_id
+        'product_id': $product_id,
+        'nonce': (typeof nectarQuickViewParams !== 'undefined' && nectarQuickViewParams.nonce) ? nectarQuickViewParams.nonce : ''
       },
       success: function(response) {
         NectarQuickViewState.ajaxLoaded = true;
@@ -82,7 +83,7 @@ jQuery(document).ready(function($) {
         }
         let themeOptionProductGap = getComputedStyle(document.body).getPropertyValue('--nectar-product-layout-gap');
         themeOptionProductGap = ( themeOptionProductGap ) ? parseInt(themeOptionProductGap) : 10;
-  
+
         $carousel = new Swiper(".nectar-quick-view-box .nectar-product-slider", {
           slidesPerView: 'auto',
           spaceBetween: themeOptionProductGap,
@@ -113,7 +114,7 @@ jQuery(document).ready(function($) {
 
         // Trigger for custom events.
         $(window).trigger('nectar_quickview_init');
-  
+
       } // success
 
 

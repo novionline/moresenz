@@ -282,13 +282,83 @@ class Frontend_Render {
       return '';
     }
 
-    // Image replacements come from wp_get_attachment_image() which already
-    // returns sanitized output. Running through wp_kses_post() can strip
-    // responsive image attributes (srcset, sizes) depending on configuration.
     if ( $replacement_type === 'image' ) {
-      return $dynamic_data;
+      return self::sanitize_image_replacement( $dynamic_data );
     }
 
     return wp_kses_post( $dynamic_data );
+  }
+
+  /**
+   * Filters an image replacement without dropping responsive image attributes.
+   *
+   * Image replacements are NOT all core-generated markup: the value can come from an ACF
+   * field or from arbitrary post meta (Other_Posts::render_custom_meta_field(),
+   * ACF::maybe_render_image_markup_from_value(), which passes any value containing `<img`
+   * straight through), both writable by users who cannot post unfiltered HTML. So the value
+   * has to be filtered — but with wp_kses_post() it would lose `srcset`, `sizes`, `decoding`
+   * and `fetchpriority`, none of which are in `$allowedposttags['img']`, and which
+   * wp_get_attachment_image() emits on every legitimate replacement.
+   *
+   * @since 3.2.1
+   * @param mixed $markup The replacement produced by a data source.
+   * @return string
+   */
+  public static function sanitize_image_replacement( $markup ) {
+    if ( ! is_string( $markup ) || $markup === '' ) {
+      return '';
+    }
+
+    return wp_kses( $markup, self::image_allowed_html() );
+  }
+
+  /**
+   * The post allowlist plus the `<img>` attributes responsive images need.
+   *
+   * Built from wp_kses_allowed_html( 'post' ) so it inherits the global attributes and this
+   * plugin's own `wp_kses_allowed_html` additions (Editor\Blocks::nectar_wp_kses_allowed_html),
+   * keeping it consistent with the wp_kses_post() path used for every other replacement type.
+   * `<picture>`/`<source>` are allowed because image-optimisation plugins filter
+   * wp_get_attachment_image() output into them.
+   *
+   * @since 3.2.1
+   * @return array<string, mixed>
+   */
+  public static function image_allowed_html() {
+    $tags = wp_kses_allowed_html( 'post' );
+
+    if ( ! is_array( $tags ) ) {
+      $tags = [];
+    }
+
+    $responsive_attributes = [
+      'src' => true,
+      'srcset' => true,
+      'sizes' => true,
+      'alt' => true,
+      'width' => true,
+      'height' => true,
+      'loading' => true,
+      'decoding' => true,
+      'fetchpriority' => true
+    ];
+
+    $tags['img'] = array_merge(
+        ( isset( $tags['img'] ) && is_array( $tags['img'] ) ) ? $tags['img'] : [],
+        $responsive_attributes
+    );
+
+    $tags['source'] = array_merge(
+        ( isset( $tags['source'] ) && is_array( $tags['source'] ) ) ? $tags['source'] : [],
+        $responsive_attributes,
+        [ 'type' => true, 'media' => true ]
+    );
+
+    $tags['picture'] = array_merge(
+        ( isset( $tags['picture'] ) && is_array( $tags['picture'] ) ) ? $tags['picture'] : [],
+        [ 'class' => true, 'id' => true, 'style' => true, 'title' => true, 'data-*' => true ]
+    );
+
+    return $tags;
   }
 }

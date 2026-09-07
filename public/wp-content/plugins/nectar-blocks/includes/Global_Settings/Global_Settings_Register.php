@@ -8,6 +8,7 @@ use Nectar\Global_Settings\{
   Nectar_Plugin_Options,
   Nectar_Modules,
   Nectar_Custom_Fonts,
+  Nectar_Adobe_Fonts,
   Code_Options
 };
 
@@ -27,5 +28,6 @@ class Global_Settings_Register {
     new Global_Colors();
     new Global_Typography();
     new Nectar_Custom_Fonts();
+    new Nectar_Adobe_Fonts();
   }
 }

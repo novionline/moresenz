@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array('count-up'), 'version' => '65f9f532934fb3729b84');
+<?php return array('dependencies' => array('count-up'), 'version' => 'e94f56e43f8f9e674a0d');

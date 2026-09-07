@@ -242,6 +242,13 @@ if ( ! function_exists( 'nectar_woo_shop_markup' ) ) {
             remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
         }
 
+        // Theme Builder WooCommerce template: skip legacy layout when a template is hooked.
+        $wc_hook = function_exists( 'nectar_resolve_wc_template_hook' ) ? nectar_resolve_wc_template_hook() : null;
+        if ( $wc_hook && has_action( $wc_hook ) ) {
+            remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+            return;
+        }
+
         // Account page markup wrap
         if( function_exists('is_account_page') && is_account_page() ) {
             add_action('nectar_hook_before_content', 'woocommerce_output_content_wrapper');

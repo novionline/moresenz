@@ -1,9 +1,9 @@
 function sanitize_custom_option($input) {
-  return ( $input === "No" ) ? "No" : "Yes";
+  return ( 'Yes' === $input ) ? 'Yes' : 'No';
 };
 
 function sanitize_custom_text($input) {
-  return filter_var($input, FILTER_SANITIZE_STRING);
+  return sanitize_text_field( $input );
 };
 
 function sanitize_custom_url($input) {
@@ -14,7 +14,7 @@ function sanitize_custom_email($input) {
   return filter_var($input, FILTER_SANITIZE_EMAIL);
 };
 
-function sanitize_hex_color( $color ) {
+function nectar_sanitize_hex_color( $color ) {
   if ( '' === $color ) {
     return '';
   }
@@ -23,4 +23,6 @@ function sanitize_hex_color( $color ) {
   if ( preg_match( '|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
     return $color;
   }
+
+  return '';
 };

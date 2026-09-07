@@ -104,7 +104,7 @@ body .woocommerce .nectar-woo-carousel[data-item-shadow="1"] li.product.text_on_
 
 
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
   .nectar-woo-carousel > ul.products[data-product-style] > li.product {
       width: calc(100% - 30px)!important;
@@ -117,7 +117,7 @@ body .woocommerce .nectar-woo-carousel[data-item-shadow="1"] li.product.text_on_
 
 }
 
-@media only screen and (min-width: 691px) and (max-width: 999px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .nectar-woo-carousel > ul.products[data-product-style].columns-dynamic > li.product {
       width: calc(33% - 30px)!important;
   }
@@ -127,7 +127,7 @@ body .woocommerce .nectar-woo-carousel[data-item-shadow="1"] li.product.text_on_
       pointer-events: none;
   }
 }
-@media only screen and (min-width: 1000px) and (max-width: 1600px)  {
+@media only screen and (min-width: 1025px) and (max-width: 1600px)  {
   .nectar-woo-carousel > ul.products[data-product-style].columns-dynamic > li.product {
       width: calc(25% - 30px)!important;
   }
@@ -149,7 +149,7 @@ body .woocommerce .nectar-woo-carousel[data-item-shadow="1"] li.product.text_on_
   }
 }
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1025px) {
   .nectar-woo-carousel > ul.products[data-product-style].columns-4  > li.product {
       width: calc(25% - 30px)!important;
   }
@@ -316,7 +316,7 @@ body .products-carousel .carousel-prev:hover i {
 
 
 
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1025px) {
 
   .nectar-woo-carousel[data-drag-scale="true"] .product {
     transition: transform 0.45s ease;
@@ -329,7 +329,7 @@ body .products-carousel .carousel-prev:hover i {
 
 
 
-@media only screen and (max-width : 690px) {
+@media only screen and (max-width : 767px) {
 
 
   .wpb_row.full-width-content .woocommerce .nectar-woo-carousel,

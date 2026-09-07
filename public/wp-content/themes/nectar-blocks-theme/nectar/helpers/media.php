@@ -107,6 +107,10 @@ if ( ! empty( $nectar_options['default-lightbox'] ) && $nectar_options['default-
 if ( ! function_exists( 'fjarrett_get_attachment_id_from_url' ) ) {
     function fjarrett_get_attachment_id_from_url( $url ) {
 
+        if ( empty( $url ) ) {
+            return;
+        }
+
         // Split the $url into two parts with the wp-content directory as the separator.
         $parse_url = explode( parse_url( WP_CONTENT_URL, PHP_URL_PATH ), $url );
 

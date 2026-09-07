@@ -15,6 +15,8 @@ class PostContent {
   }
 
   function render() {
+    static $rendering = false;
+
     $rest_context = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
     // If the block is being rendered in the editor, or if we're previewing a template, return the placeholder.
@@ -22,12 +24,22 @@ class PostContent {
       return '<p>' . __('This is the Content block, it will display all the blocks in any single post or page.', 'nectar-blocks') . '</p>' .
        '<p>' . __('That might be a simple arrangement like consecutive paragraphs in a blog post, or a more elaborate composition that includes image galleries, videos, tables, columns, and any other block types.', 'nectar-blocks') . '</p>' .
        '<p>' . __('If there are any Custom Post Types registered at your site, the Content block can display the contents of those entries as well.', 'nectar-blocks') . '</p>';
-    } else if ( ! is_single() ) {
+    } else if ( ! is_singular() ) {
       return '';
     }
 
-    ob_start();
-    the_content();
-    return ob_get_clean();
+    // Bail out if the_content() is already running — a post-content block nested inside its own post body would otherwise stack-overflow.
+    if ( $rendering ) {
+      return '';
+    }
+
+    $rendering = true;
+    try {
+      ob_start();
+      the_content();
+      return ob_get_clean();
+    } finally {
+      $rendering = false;
+    }
   }
 }

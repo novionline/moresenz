@@ -1,0 +1,33 @@
+{
+  "apiVersion": 3,
+  "name": "nectar-blocks/header-action-account",
+  "title": "Header Account",
+  "category": "nectar",
+  "description": "Links to the user account page.",
+  "parent": [ "nectar-blocks/header-actions" ],
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "isPreview": {
+      "type": "boolean",
+      "default": false
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "default"
+    },
+    "link": {
+      "type": "object",
+      "default": {
+        "href": null,
+        "openInNewTab": false,
+        "clickEvent": "regular",
+        "customAttributes": []
+      }
+    }
+  },
+  "textdomain": "nectar-blocks"
+}
+
+

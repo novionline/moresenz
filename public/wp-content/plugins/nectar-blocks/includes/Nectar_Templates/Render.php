@@ -18,6 +18,20 @@ class Render {
 
   public static $post_id;
 
+  /**
+   * IDs of header-navigation templates whose conditions matched for the
+   * current request. Populated during `render_template()` and consumed by
+   * the frontend CSS pipeline to emit the `#nectar-nav` state-transition
+   * baseline scoped to this page's active header.
+   *
+   * @var int[]
+   */
+  private static $active_header_template_ids = [];
+
+  public static function get_active_header_template_ids(): array {
+    return self::$active_header_template_ids;
+  }
+
   private function __construct() {
     add_action( 'wp', [$this, 'frontend_display'] );
   }
@@ -74,6 +88,32 @@ class Render {
     }
     else if( 'is_user_not_logged_in' === $conditional ) {
       $display = ! is_user_logged_in();
+    }
+    else if( 'specific_post' === $conditional ) {
+      $display = false;
+      $selected_post_id = 0;
+
+      if ( is_array($meta_data) && isset($meta_data['id']) ) {
+        $selected_post_id = intval($meta_data['id']);
+      } else if ( is_object($meta_data) && isset($meta_data->id) ) {
+        $selected_post_id = intval($meta_data->id);
+      }
+
+      $is_selected_singular = (
+          $selected_post_id > 0
+        && is_singular()
+        && intval(self::$post_id) === $selected_post_id
+      );
+
+      $posts_page_id = intval( get_option('page_for_posts') );
+      // When the selected page is set as the Posts page, is_home() is true and is_singular() is false.
+      $is_selected_posts_page = (
+          $selected_post_id > 0
+        && is_home()
+        && $posts_page_id === $selected_post_id
+      );
+
+      $display = $is_selected_singular || $is_selected_posts_page;
     }
     else if( 'is_taxonomy_term' === $conditional || 'has_taxonomy_term' === $conditional ) {
       $display = false;
@@ -173,9 +213,12 @@ class Render {
    * Render Nectar Template
    */
   public function render_template() {
-    // Disabled on cpt single edit.
+    // When previewing a nectar_templates post directly, skip only the
+    // template being previewed to avoid recursion. Other templates
+    // (e.g., header navigation during an OCM preview) should still render.
+    $previewing_template_id = null;
     if ( Nectar_Templates::POST_TYPE === get_post_type() ) {
-      return;
+      $previewing_template_id = get_the_ID();
     }
 
     $global_sections_query_args = [
@@ -190,6 +233,12 @@ class Render {
     if( $global_sections_query->have_posts() ) : while( $global_sections_query->have_posts() ) : $global_sections_query->the_post();
 
       $global_section_id = get_the_ID();
+
+      // Skip the template being previewed to avoid rendering itself.
+      if ( $previewing_template_id && $global_section_id === $previewing_template_id ) {
+        continue;
+      }
+
       $post_meta = get_post_meta($global_section_id, Nectar_Templates::META_KEY, true);
 
       $location = $post_meta['templatePart'];
@@ -209,11 +258,47 @@ class Render {
             $location_priority
         );
 
+        $this->maybe_suppress_theme_comments($location_hook, $global_section_id);
+
+        if ( $location_hook === 'nectar_template__header_navigation' ) {
+          self::$active_header_template_ids[] = $global_section_id;
+        }
       }
 
     endwhile; endif;
 
     wp_reset_query();
+  }
+
+  /**
+   * The theme appends its default comments area after single templates
+   * (post-after-content.php). When the template already renders a comments
+   * block, suppress the theme's copy so comments don't appear twice.
+   *
+   * Scoped to the single hook the theme fires for the current request's post
+   * type — templates registered for other post types must not leak the
+   * suppression onto posts they never render on.
+   *
+   * @return bool Whether the theme comments were suppressed.
+   */
+  public function maybe_suppress_theme_comments($location_hook, $template_id): bool {
+    if ( $location_hook !== 'nectar_template_single__' . self::$post_type ) {
+      return false;
+    }
+
+    $content = get_post_field('post_content', $template_id);
+    if ( ! $content ) {
+      return false;
+    }
+
+    foreach ( [ 'core/comments', 'core/post-comments', 'core/post-comments-form' ] as $block ) {
+      if ( has_block($block, $content) ) {
+        add_filter( 'nectar_single_show_comments', '__return_false' );
+        return true;
+      }
+    }
+
+    return false;
   }
 
   /**
@@ -234,7 +319,20 @@ class Render {
         continue;
       }
       $include_value = isset($condition['include']) ? $condition['include'] : true;
-      $meta_data = isset($condition['taxonomyTermData']) ? $condition['taxonomyTermData'] : null;
+
+      $meta_data = null;
+      if ( 'specific_post' === $conditional_value ) {
+        // JS serialises this under `postData`; `post_data` is the snake_case
+        // fallback used elsewhere (Global Sections render + both sanitisers).
+        if ( isset($condition['postData']) ) {
+          $meta_data = $condition['postData'];
+        } else if ( isset($condition['post_data']) ) {
+          $meta_data = $condition['post_data'];
+        }
+      } else if ( in_array($conditional_value, ['is_taxonomy_term', 'has_taxonomy_term'], true) ) {
+        $meta_data = isset($condition['taxonomyTermData']) ? $condition['taxonomyTermData'] : null;
+      }
+
       $conditionals[] = $this->parse_conditional($conditional_value, $include_value, $meta_data);
     }
 
@@ -260,6 +358,84 @@ class Render {
   }
 
   /**
+   * Location-specific outer and inner attribute overrides.
+   *
+   * Locations not listed here use the default single-div markup.
+   * Locations listed here get a two-div structure (outer + inner)
+   * to match the Global Sections rendering for that hook.
+   *
+   * @since 3.0.0
+   * @return array|null Null for default markup, or ['outer' => [...], 'inner' => [...]]
+   */
+  private function get_location_attrs( string $location ): ?array {
+    $map = [
+      'nectar_hook_global_section_parallax_footer' => [
+        'outer' => [
+          'class' => 'nectar-global-section ' . $location,
+        ],
+        'inner' => [
+          'class' => 'container normal-container row nectar-el-parallax-scroll',
+          'data-scroll-animation' => 'true',
+          'data-scroll-animation-intensity' => '-5',
+        ],
+      ],
+    ];
+
+    return $map[$location] ?? null;
+  }
+
+  /**
+   * Get the semantic HTML element for a given template location.
+   *
+   * @since 3.0.1
+   */
+  private function get_semantic_tag( string $location ): string {
+    if ( $location === 'nectar_template__header_navigation' ) {
+      return 'header';
+    }
+
+    if ( in_array($location, ['nectar_hook_global_section_footer', 'nectar_hook_global_section_parallax_footer'], true) ) {
+      return 'footer';
+    }
+
+    return 'div';
+  }
+
+  /**
+   * Whether the current page uses the left-header layout without a header builder template.
+   *
+   * @since 3.0.1
+   */
+  private function is_left_header_without_builder(): bool {
+    if ( function_exists('nectar_has_header_nav_template') && nectar_has_header_nav_template() ) {
+      return false;
+    }
+
+    if ( ! function_exists('get_nectar_theme_options') ) {
+      return false;
+    }
+
+    $nectar_options = get_nectar_theme_options();
+    $header_format = ! empty( $nectar_options['header_format'] ) ? $nectar_options['header_format'] : 'default';
+
+    return 'left-header' === $header_format;
+  }
+
+  /**
+   * Build an HTML attribute string from an associative array.
+   *
+   * @since 3.0.0
+   */
+  private function build_attr_string( array $attrs ): string {
+    return join(' ', array_map(function($key) use ($attrs) {
+      if(is_bool($attrs[$key])) {
+        return $attrs[$key] ? $key : '';
+      }
+      return esc_attr( $key ) . '="' . esc_attr( $attrs[$key] ) . '"';
+    }, array_keys($attrs)));
+  }
+
+  /**
    * Frontend output.
    */
   public function output_global_section($global_section_id, $location) {
@@ -268,31 +444,45 @@ class Render {
       return;
     }
 
-    $attrs = apply_filters('nectar_global_section_attrs', [
-      'class' => 'nectar-global-section ' . $location
-    ], $location);
-
-    $inner_attrs = apply_filters('nectar_global_section_inner_attrs', [
-      'class' => 'container normal-container row'
-    ], $location);
-
-    $attributes = join(' ', array_map(function($key) use ($attrs) {
-      if(is_bool($attrs[$key])) {
-        return $attrs[$key] ? $key : '';
-      }
-      return $key . '="' . $attrs[$key] . '"';
-    }, array_keys($attrs)));
-
-    $inner_attributes = join(' ', array_map(function($key) use ($inner_attrs) {
-      if(is_bool($inner_attrs[$key])) {
-        return $inner_attrs[$key] ? $key : '';
-      }
-      return $key . '="' . $inner_attrs[$key] . '"';
-    }, array_keys($inner_attrs)));
-
     $global_section_shortcode = ' [nectar_template id="' . intval($global_section_id) . '"] ';
+    $location_attrs = $this->get_location_attrs($location);
+    $tag = $this->get_semantic_tag($location);
 
-    echo do_shortcode('<div ' . $attributes . '><div ' . $inner_attributes . '>' . $global_section_shortcode . '</div></div>');
+    if ( $location_attrs ) {
+      $outer = apply_filters('nectar_global_section_attrs', $location_attrs['outer'], $location);
+      $inner = $location_attrs['inner'];
+
+      echo do_shortcode(
+          '<' . $tag . ' ' . $this->build_attr_string($outer) . '>' .
+          '<div ' . $this->build_attr_string($inner) . '>' .
+            $global_section_shortcode .
+          '</div>' .
+        '</' . $tag . '>'
+      );
+      return;
+    }
+
+    // Left-header without header builder needs nested container markup.
+    if ( $this->is_left_header_without_builder() ) {
+      $outer = apply_filters('nectar_global_section_attrs', [
+        'class' => $location . ' nectar-global-section',
+      ], $location);
+
+      echo do_shortcode(
+          '<' . $tag . ' ' . $this->build_attr_string($outer) . '>' .
+        '<div class="container normal-container row">' .
+          $global_section_shortcode .
+        '</div>' .
+        '</' . $tag . '>'
+      );
+      return;
+    }
+
+    $attrs = apply_filters('nectar_global_section_attrs', [
+      'class' => $location . ' nectar-global-section container normal-container row'
+    ], $location);
+
+    echo do_shortcode('<' . $tag . ' ' . $this->build_attr_string($attrs) . '>' . $global_section_shortcode . '</' . $tag . '>');
   }
 
   public function omit_global_section_render( $hook ) {

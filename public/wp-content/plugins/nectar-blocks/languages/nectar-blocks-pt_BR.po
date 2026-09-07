@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: nectar-blocks.php includes/Editor/Blocks.php:737 build/editor.js:1
+#: nectar-blocks.php includes/Editor/Blocks.php:1212 build/editor.js:1
 msgid "Nectarblocks"
 msgstr "Nectarblocks"
 
@@ -62,12 +62,12 @@ msgstr "Não foi possível inserir o anexo."
 msgid "Image uploaded successfully. "
 msgstr "Imagem carregada com sucesso."
 
-#: includes/API/Post_Data_API.php:493
+#: includes/API/Post_Data_API.php:508
 msgid "Custom Fields"
 msgstr "Campos Personalizados"
 
-#. translators: the Meta Field name
-#: includes/API/Post_Data_API.php:530
+#. translators: %s is the post type singular name (e.g. "Post", "Page")
+#: includes/API/Post_Data_API.php:545
 #, php-format
 msgid "Meta Fields: %s"
 msgstr "Campos Meta: %s"
@@ -75,18 +75,6 @@ msgstr "Campos Meta: %s"
 #: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:1
 msgid "Post Title"
 msgstr "Título do post"
-
-#: includes/Dynamic_Data/Dynamic_Helpers.php:22
-#: includes/Dynamic_Data/Dynamic_Helpers.php:26
-#: includes/Dynamic_Data/Dynamic_Helpers.php:31
-#: includes/Dynamic_Data/Dynamic_Helpers.php:35
-#: includes/Dynamic_Data/Dynamic_Helpers.php:39
-#: includes/Dynamic_Data/Dynamic_Helpers.php:43
-#: includes/Dynamic_Data/Dynamic_Helpers.php:47
-#: includes/Dynamic_Data/Dynamic_Helpers.php:51
-#: includes/Dynamic_Data/Dynamic_Helpers.php:55
-msgid "Post"
-msgstr "Post"
 
 #: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:1
 msgid "Post URL"
@@ -171,7 +159,7 @@ msgstr "Comentário"
 msgid "Featured Image URL"
 msgstr "URL da Imagem Destacada"
 
-#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:1
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101
 msgid "Media"
 msgstr "Mídia"
 
@@ -201,44 +189,46 @@ msgstr "Aberto"
 msgid "Closed"
 msgstr "Fechado"
 
-#: includes/Editor/Blocks.php:719 build/editor.js:1
+#: includes/Editor/Blocks.php:1091 build/editor.js:1
 msgid "Desktop"
 msgstr "Computador"
 
-#: includes/Editor/Blocks.php:720 build/editor.js:1
+#: includes/Editor/Blocks.php:1092 build/editor.js:1
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/Editor/Blocks.php:721
+#: includes/Editor/Blocks.php:1093
 msgid "Phone"
 msgstr "Telefone"
 
-#: includes/Editor/Post_Meta.php:35
+#: includes/Editor/Post_Meta.php:44
 msgid "Client Name"
 msgstr "Nome do Cliente"
 
-#: includes/Editor/Post_Meta.php:43
+#: includes/Editor/Post_Meta.php:52
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Date"
 msgstr "Data"
 
-#: includes/Editor/Post_Meta.php:51 build/editor.js:1
+#: includes/Editor/Post_Meta.php:60 build/editor.js:1
 msgid "Project Link"
 msgstr "Link do Projeto"
 
-#: includes/Editor/Post_Meta.php:76 build/editor.js:1
+#: includes/Editor/Post_Meta.php:85 build/editor.js:1
 msgid "Video"
 msgstr "Vídeo"
 
-#: includes/Editor/Post_Meta.php:94 build/editor.js:1
+#: includes/Editor/Post_Meta.php:103 build/editor.js:1
 msgid "Description"
 msgstr "Descrição"
 
-#: includes/Editor/Post_Meta.php:102
+#: includes/Editor/Post_Meta.php:111
 msgid "Project URL"
 msgstr "URL do projeto"
 
-#: includes/Global_Sections/Global_Sections.php:90 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:90
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:481
+#: build/editor.js:1
 msgid "General"
 msgstr "Geral"
 
@@ -247,6 +237,8 @@ msgid "Everywhere"
 msgstr "Em todos os lugares"
 
 #: includes/Global_Sections/Global_Sections.php:99
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:487
+#: build/editor.js:1
 msgid "Archive"
 msgstr "Arquivo"
 
@@ -259,6 +251,8 @@ msgid "Search Results"
 msgstr "Resultados da pesquisa"
 
 #: includes/Global_Sections/Global_Sections.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:485
+#: build/editor.js:1
 msgid "Single"
 msgstr "Individual"
 
@@ -267,12 +261,12 @@ msgid "Specific Post"
 msgstr "Post Específico"
 
 #: includes/Global_Sections/Global_Sections.php:120
-#: includes/Nectar_Templates/Nectar_Templates.php:170
+#: includes/Nectar_Templates/Nectar_Templates.php:314
 msgid "Is Taxonomy Term"
 msgstr "É Termo de Taxonomia"
 
 #: includes/Global_Sections/Global_Sections.php:124
-#: includes/Nectar_Templates/Nectar_Templates.php:174
+#: includes/Nectar_Templates/Nectar_Templates.php:318
 msgid "Has Taxonomy Term"
 msgstr "Tem Termo de Taxonomia"
 
@@ -281,17 +275,17 @@ msgid "Post Types"
 msgstr "Tipos de Post"
 
 #: includes/Global_Sections/Global_Sections.php:133
-#: includes/Nectar_Templates/Nectar_Templates.php:179
+#: includes/Nectar_Templates/Nectar_Templates.php:323
 msgid "User Roles/Permissions"
 msgstr "Funções/Permissões de Usuário"
 
 #: includes/Global_Sections/Global_Sections.php:138
-#: includes/Nectar_Templates/Nectar_Templates.php:184
+#: includes/Nectar_Templates/Nectar_Templates.php:328
 msgid "User Logged In"
 msgstr "Usuário Conectado"
 
 #: includes/Global_Sections/Global_Sections.php:144
-#: includes/Nectar_Templates/Nectar_Templates.php:190
+#: includes/Nectar_Templates/Nectar_Templates.php:334
 msgid "User Not Logged In"
 msgstr "Usuário não conectado"
 
@@ -337,7 +331,10 @@ msgid "After Blog Loop"
 msgstr "Após o Blog Loop"
 
 #: includes/Global_Sections/Global_Sections.php:206
-#: includes/Global_Sections/Global_Sections.php:227 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:227
+#: includes/Nectar_Templates/Nectar_Templates.php:96
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:491
+#: build/editor.js:1
 msgid "Footer"
 msgstr "Rodapé"
 
@@ -359,6 +356,7 @@ msgid "Bottom"
 msgstr "Base"
 
 #: includes/Global_Sections/Global_Sections.php:231
+#: includes/Nectar_Templates/Nectar_Templates.php:102
 msgid "Footer Parallax"
 msgstr "Parallax do rodapé"
 
@@ -366,7 +364,9 @@ msgstr "Parallax do rodapé"
 msgid "After Footer"
 msgstr "Após o rodapé"
 
-#: includes/Global_Sections/Global_Sections.php:241 build/adminPanel.js:171
+#: includes/Global_Sections/Global_Sections.php:241
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:483
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -452,10 +452,11 @@ msgstr "Carrinho Prosseguir para Finalizar Compra"
 
 #: includes/Global_Sections/Global_Sections_Register.php:99
 #: includes/Global_Sections/Global_Sections_Register.php:102
+#: build/adminPanel.js:171
 msgid "Global Sections"
 msgstr "Seções Globais"
 
-#: includes/Global_Sections/Global_Sections_Register.php:100
+#: includes/Global_Sections/Global_Sections_Register.php:100 build/editor.js:1
 msgid "Global Section"
 msgstr "Seção Global"
 
@@ -482,7 +483,7 @@ msgid "Add New Global Section"
 msgstr "Adicionar Nova Seção Global"
 
 #: includes/Global_Sections/Global_Sections_Register.php:114
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:80
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:822
 msgid "Section"
 msgstr "Seção"
 
@@ -491,7 +492,7 @@ msgid "Locations"
 msgstr "Localizações"
 
 #: includes/Global_Sections/Global_Sections_Register.php:140
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:106
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1148
 #: build/editor.js:1
 msgid "Conditions"
 msgstr "Condições"
@@ -508,43 +509,11 @@ msgstr "Ocultar Nectar Hooks"
 msgid "Hook:"
 msgstr "Hook:"
 
-#: includes/Global_Settings/Global_Colors.php:93
-msgid "Core Gradient #1"
-msgstr "Gradiente Principal #1"
-
-#: includes/Global_Settings/Global_Colors.php:98
-msgid "Core Gradient #2"
-msgstr "Gradiente Principal #2"
-
-#: includes/Global_Settings/Global_Colors.php:103
-msgid "Core Gradient #3"
-msgstr "Gradiente Principal #3"
-
-#: includes/Global_Settings/Global_Colors.php:108
-msgid "Core Gradient #4"
-msgstr "Gradiente Principal #4"
-
-#: includes/Global_Settings/Global_Colors.php:113
-msgid "Core Gradient #5"
-msgstr "Gradiente Principal #5"
-
-#: includes/Global_Settings/Global_Colors.php:129
+#: includes/Global_Settings/Global_Colors.php:139 build/editor.js:1
 msgid "Light"
 msgstr "Claro"
 
-#: includes/Global_Settings/Global_Colors.php:134
-msgid "Accent Light"
-msgstr "Luz de Destaque"
-
-#: includes/Global_Settings/Global_Colors.php:139
-msgid "Accent Primary"
-msgstr "Cor de Destaque Primária"
-
-#: includes/Global_Settings/Global_Colors.php:144
-msgid "Accent Dark"
-msgstr "Escuro Acentuado"
-
-#: includes/Global_Settings/Global_Colors.php:149
+#: includes/Global_Settings/Global_Colors.php:159 build/editor.js:1
 msgid "Dark"
 msgstr "Escuro"
 
@@ -564,7 +533,7 @@ msgstr "Salvo com Sucesso"
 msgid "Options"
 msgstr "Opções"
 
-#: includes/Menu_Options/Modal.php:313
+#: includes/Menu_Options/Modal.php:313 build/editor.js:1
 msgid "Menu Item"
 msgstr "Item do menu"
 
@@ -572,7 +541,7 @@ msgstr "Item do menu"
 msgid "Icon"
 msgstr "Ícone"
 
-#: includes/Menu_Options/Modal.php:323 build/editor.js:1
+#: build/editor.js:1
 msgid "Close"
 msgstr "Fechar"
 
@@ -632,7 +601,6 @@ msgstr "Estilo do Botão de Link do Item do Menu"
 msgid "Choose a style for your menu item."
 msgstr "Escolha um estilo para seu item de menu."
 
-#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Default"
 msgstr "Padrão"
@@ -702,54 +670,31 @@ msgstr "Emoji"
 msgid "Menu Icon Text (Emoji)"
 msgstr "Ícone do Menu (Emoji)"
 
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Add in a symbol or emoji to display as the icon next to your menu title."
-msgstr ""
-"Adicione um símbolo ou emoji para exibir como ícone ao lado do título do seu"
-" menu."
-
-#: includes/Menu_Options/Settings.php:305
-msgid "To add an Emoji:"
-msgstr "Para adicionar um Emoji:"
-
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Windows: On your keyboard, press and hold the Windows button and either the "
-"period (.) or semicolon (;)"
-msgstr ""
-"Windows: No seu teclado, pressione e segure o botão Windows e o ponto (.) ou"
-" ponto e vírgula (;)"
-
-#: includes/Menu_Options/Settings.php:305
-msgid "Mac: On your keyboard, press Command + Control + Space"
-msgstr "Mac: No seu teclado, pressione Command + Control + Space"
-
-#: includes/Menu_Options/Settings.php:312
+#: includes/Menu_Options/Settings.php:318
 msgid "Icon Selection"
 msgstr "Seleção de Ícone"
 
-#: includes/Menu_Options/Settings.php:313
+#: includes/Menu_Options/Settings.php:319
 msgid "Upload an icon to display next to the menu item title."
 msgstr ""
 "Faça upload de um ícone para exibir ao lado do título do item do menu."
 
-#: includes/Menu_Options/Settings.php:323
+#: includes/Menu_Options/Settings.php:329
 msgid "Menu Icon Size"
 msgstr "Tamanho do Ícone do Menu"
 
-#: includes/Menu_Options/Settings.php:324
+#: includes/Menu_Options/Settings.php:330
 msgid ""
 "Define a custom size for your icon. Leave this blank for the default value."
 msgstr ""
 "Defina um tamanho personalizado para seu ícone. Deixe em branco para usar o "
 "valor padrão."
 
-#: includes/Menu_Options/Settings.php:335
+#: includes/Menu_Options/Settings.php:341
 msgid "Menu Icon Position"
 msgstr "Posição do Ícone do Menu"
 
-#: includes/Menu_Options/Settings.php:336
+#: includes/Menu_Options/Settings.php:342
 msgid ""
 "Determines where the menu icon will be aligned relative to the text. (Only "
 "applies to submenu items)"
@@ -757,19 +702,19 @@ msgstr ""
 "Determina onde o ícone do menu será alinhado em relação ao texto. (Aplica-se"
 " apenas aos itens do submenu)"
 
-#: includes/Menu_Options/Settings.php:340
+#: includes/Menu_Options/Settings.php:346
 msgid "Next To Text"
 msgstr "Próximo ao Texto"
 
-#: includes/Menu_Options/Settings.php:341
+#: includes/Menu_Options/Settings.php:347
 msgid "Above Text"
 msgstr "Acima do texto"
 
-#: includes/Menu_Options/Settings.php:347
+#: includes/Menu_Options/Settings.php:353
 msgid "Menu Icon Spacing"
 msgstr "Espaçamento do Ícone do Menu"
 
-#: includes/Menu_Options/Settings.php:348
+#: includes/Menu_Options/Settings.php:354
 msgid ""
 "Define a custom amount of spacing between your icon and menu item text. "
 "Leave this blank for the default value. (Only applies to submenu items)"
@@ -786,7 +731,7 @@ msgstr "Opacidade Padrão"
 msgid "Hover Opacity"
 msgstr "Opacidade ao Passar o Mouse"
 
-#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:1
+#: build/editor.js:1
 msgid "None"
 msgstr "Nenhum"
 
@@ -846,50 +791,50 @@ msgstr "Arquivo:"
 msgid "404 Template"
 msgstr "Template 404"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:84
+#: includes/Nectar_Templates/Nectar_Templates.php:90
 msgid "Off Canvas Menu"
 msgstr "Menu Off Canvas"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:166 build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates.php:310 build/editor.js:1
 msgid "Taxonomy Terms"
 msgstr "Termos de taxonomia"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:808
 msgid "Theme Builder"
 msgstr "Construtor de Temas"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:809
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1147
 #: build/editor.js:1
 msgid "Template"
 msgstr "Modelo"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:810
 msgid "Search Templates"
 msgstr "Pesquisar modelos"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:811
 msgid "Templates"
 msgstr "Modelos"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:812
 msgid "Parent Template"
 msgstr "Template Pai"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:813
 msgid "Edit Template"
 msgstr "Editar modelo"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:814
 msgid "Update Template"
 msgstr "Atualizar Template"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:74
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:815
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:816
 msgid "Add New Template"
 msgstr "Adicionar Novo Template"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:254
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1296
 msgid "None Assigned"
 msgstr "Não Atribuído"
 
@@ -1006,7 +951,7 @@ msgstr ""
 "permalinks visitando Configurações > Links Permanentes e clicando em "
 "\"Salvar Alterações\"."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:22
+#: includes/Render/Blocks/PostContent/PostContent.php:24
 msgid ""
 "This is the Content block, it will display all the blocks in any single post"
 " or page."
@@ -1014,7 +959,7 @@ msgstr ""
 "Este é o bloco de conteúdo, ele exibirá todos os blocos em qualquer post ou "
 "página."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:23
+#: includes/Render/Blocks/PostContent/PostContent.php:25
 msgid ""
 "That might be a simple arrangement like consecutive paragraphs in a blog "
 "post, or a more elaborate composition that includes image galleries, videos,"
@@ -1024,7 +969,7 @@ msgstr ""
 " blog ou uma composição mais elaborada que inclua galerias de imagens, "
 "vídeos, tabelas, colunas e qualquer outro tipo de bloco."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:24
+#: includes/Render/Blocks/PostContent/PostContent.php:26
 msgid ""
 "If there are any Custom Post Types registered at your site, the Content "
 "block can display the contents of those entries as well."
@@ -1032,44 +977,47 @@ msgstr ""
 "Se houver algum tipo de post personalizado cadastrado em seu site, o bloco "
 "de conteúdo também poderá exibir o conteúdo desses posts."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+#: includes/Render/Blocks/PostGrid/PostGrid.php:130
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1229
 msgid "By"
 msgstr "Por"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+#: includes/Render/Blocks/PostGrid/PostGrid.php:324
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1256
 msgid "min read"
 msgstr "min de leitura"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:358
-#: includes/Render/Blocks/PostGrid/PostGrid.php:362
+#: includes/Render/Blocks/PostGrid/PostGrid.php:366
+#: includes/Render/Blocks/PostGrid/PostGrid.php:370
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1264
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Read More"
 msgstr "Leia mais"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:640
+#: includes/Render/Blocks/PostGrid/PostGrid.php:709
 msgid "Pagination Navigation"
 msgstr "Navegação de Paginação"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:961
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1296
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219 build/editor.js:1
 msgid "Load More"
 msgstr "Carregar Mais"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:962
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1297
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220 build/editor.js:1
 msgid "Previous"
 msgstr "Anterior"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:963
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1298
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221 build/editor.js:1
 msgid "Next"
 msgstr "Seguinte"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:979
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1314
 msgid "No posts found."
 msgstr "Nenhum post encontrado."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:980
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1315
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
 msgid "Try adjusting your query parameters."
 msgstr "Tente ajustar seus parâmetros de consulta."
@@ -1094,7 +1042,6 @@ msgstr "Os termos \"%s\" serão exibidos aqui."
 msgid "No terms in \"%s\""
 msgstr "Nenhum termo em \"%s\""
 
-#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
 #: build/editor.js:1
 msgid "All"
 msgstr "Todos"
@@ -1150,10 +1097,6 @@ msgstr "Licença Ativa"
 #: build/adminPanel.js:171
 msgid "Invalid License"
 msgstr "Licença Inválida"
-
-#: build/adminPanel.js:171
-msgid "Theme License Code"
-msgstr "Código de Licença do Tema"
 
 #: build/adminPanel.js:171
 msgid "license key"
@@ -1220,10 +1163,6 @@ msgid "Custom Code (JS/HTML) After Body Open"
 msgstr "Código Personalizado (JS/HTML) Após Abertura do Body"
 
 #: build/adminPanel.js:171
-msgid "Add a New Font"
-msgstr "Adicionar Nova Fonte"
-
-#: build/adminPanel.js:171
 msgid "Please enter a font name."
 msgstr "Por favor, insira um nome de fonte."
 
@@ -1238,10 +1177,6 @@ msgstr "Fonte personalizada atualizada com sucesso."
 #: build/adminPanel.js:171
 msgid "Add Font"
 msgstr "Adicionar Fonte"
-
-#: build/adminPanel.js:171
-msgid "No changes were made."
-msgstr "Nenhuma alteração foi feita."
 
 #: build/adminPanel.js:171
 msgid "Failed to update custom font variation."
@@ -1410,7 +1345,7 @@ msgstr "Conteúdo de Demonstração"
 msgid "Theme Options"
 msgstr "Opções do Tema"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Settings"
 msgstr "Configurações Globais"
 
@@ -1477,11 +1412,11 @@ msgstr "de Nectarblocks."
 msgid "Your export will include the following data:"
 msgstr "Sua exportação incluirá os seguintes dados:"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Colors"
 msgstr "Cores Globais"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Typography"
 msgstr "Tipografia Global"
 
@@ -1642,7 +1577,7 @@ msgstr "Opções do Plugin"
 msgid "Custom Code"
 msgstr "Código Personalizado"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/editor.js:1
 msgid "Custom Fonts"
 msgstr "Fontes Personalizadas"
 
@@ -2024,14 +1959,6 @@ msgstr "Digite seu Nectarblocks"
 #: build/adminPanel.js:171
 msgid "Enter the name of your font"
 msgstr "Digite o nome da sua fonte"
-
-#: build/adminPanel.js:171
-msgid ""
-"for a successful import. Once the import process begins, please refrain from"
-" refreshing the page until it has completed."
-msgstr ""
-"para uma importação bem-sucedida. Assim que o processo de importação "
-"começar, evite atualizar a página até que seja concluído."
 
 #: build/adminPanel.js:171
 msgid ""
@@ -2466,20 +2393,8 @@ msgid "Animation Property"
 msgstr "Propriedade de animação"
 
 #: build/editor.js:1
-msgid "Move Up"
-msgstr "Mover para cima"
-
-#: build/editor.js:1
-msgid "Move Down"
-msgstr "Mover para baixo"
-
-#: build/editor.js:1
 msgid "Edit Animation Property"
 msgstr "Editar propriedade de animação"
-
-#: build/editor.js:1
-msgid "Enter"
-msgstr "Entrar"
 
 #: build/editor.js:1
 msgid "Center"
@@ -2530,13 +2445,6 @@ msgid "Pin"
 msgstr "Fixar"
 
 #: build/editor.js:1
-msgid ""
-"\"Pin\" the block in place within the viewport while the animation plays "
-"through."
-msgstr ""
-"Fixar o bloco no lugar dentro da viewport enquanto a animação é reproduzida."
-
-#: build/editor.js:1
 msgid "Overlap"
 msgstr "Sobreposição"
 
@@ -2564,24 +2472,8 @@ msgid "Pin On"
 msgstr "Fixar em"
 
 #: build/editor.js:1
-msgid "Start On"
-msgstr "Iniciar em"
-
-#: build/editor.js:1
 msgid "End After Scrolling"
 msgstr "Terminar após rolar"
-
-#: build/editor.js:1
-msgid "End On"
-msgstr "Terminar em"
-
-#: build/editor.js:1
-msgid "Exit"
-msgstr "Sair"
-
-#: build/editor.js:1
-msgid "Custom End Offset"
-msgstr "Deslocamento final personalizado"
 
 #: build/editor.js:1
 msgid ""
@@ -2600,16 +2492,8 @@ msgid "Smooth"
 msgstr "Suave"
 
 #: build/editor.js:1
-msgid "Adds smoothing to the animation while scrolling."
-msgstr "Adiciona suavização à animação durante a rolagem."
-
-#: build/editor.js:1
 msgid "Block Animation"
 msgstr "Animação de bloco"
-
-#: build/editor.js:1
-msgid "Animation Trigger Type"
-msgstr "Tipo de gatilho de animação"
 
 #: build/editor.js:1
 msgid "Add Animation Trigger"
@@ -2636,9 +2520,8 @@ msgid "No Repeat"
 msgstr "Sem repetição"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Repeat All Directions"
-msgstr ""
+msgstr "Repetir todas as direções"
 
 #: build/editor.js:1
 msgid "Repeat Horizontal"
@@ -2737,10 +2620,6 @@ msgid "Fit"
 msgstr "Ajustar"
 
 #: build/editor.js:1
-msgid "Custom ID"
-msgstr "ID personalizado"
-
-#: build/editor.js:1
 msgid "Invalid element ID / anchor"
 msgstr "ID de elemento / âncora inválido"
 
@@ -2783,10 +2662,6 @@ msgstr "Exibir"
 #: build/editor.js:1
 msgid "Justify"
 msgstr "Justificar"
-
-#: build/editor.js:1
-msgid "Flex Wrap"
-msgstr "Quebra flexível"
 
 #: build/editor.js:1
 msgid "Pointer"
@@ -2921,10 +2796,6 @@ msgid "Effect Type"
 msgstr "Tipo de efeito"
 
 #: build/editor.js:1
-msgid "Edit Filter"
-msgstr "Editar filtro"
-
-#: build/editor.js:1
 msgid "Backdrop Filters"
 msgstr "Filtros de fundo"
 
@@ -3015,10 +2886,6 @@ msgid "Link"
 msgstr "Link"
 
 #: build/editor.js:1
-msgid "Custom Attributes"
-msgstr "Atributos personalizados"
-
-#: build/editor.js:1
 msgid "Mask"
 msgstr "Máscara"
 
@@ -3103,14 +2970,6 @@ msgid "Skew Y"
 msgstr "Inclinar Y"
 
 #: build/editor.js:1
-msgid "Translate X"
-msgstr "Deslocamento X"
-
-#: build/editor.js:1
-msgid "Translate Y"
-msgstr "Deslocamento Y"
-
-#: build/editor.js:1
 msgid "Transform Type"
 msgstr "Tipo de transformação"
 
@@ -3169,10 +3028,6 @@ msgstr "acordeões"
 #: build/editor.js:1
 msgid "nectar"
 msgstr "nectar"
-
-#: build/editor.js:1
-msgid "Accordion Title"
-msgstr "Título do acordeão"
 
 #: build/editor.js:1
 msgid "Add New Accordion"
@@ -3304,7 +3159,7 @@ msgstr "Tipo de largura"
 msgid "Columns"
 msgstr "Colunas"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Group"
 msgstr "Grupo"
 
@@ -3534,7 +3389,8 @@ msgstr "ícone"
 #: build/editor.js:1
 msgid ""
 "The image could not be located. It has likely been deleted from the server."
-msgstr "A imagem não pôde ser localizada. Provavelmente foi excluída do servidor"
+msgstr ""
+"A imagem não pôde ser localizada. Provavelmente foi excluída do servidor"
 
 #: build/editor.js:1
 msgid "Alt Text"
@@ -3583,14 +3439,6 @@ msgstr "Tipo de cor"
 #: build/editor.js:1
 msgid "Button BG"
 msgstr "Fundo do botão"
-
-#: build/editor.js:1
-msgid "Transition Speed (s)"
-msgstr "Velocidade de transição (s)"
-
-#: build/editor.js:1
-msgid "Time Between (s)"
-msgstr "Tempo entre (s)"
 
 #: build/editor.js:1
 msgid "Equal Height"
@@ -3768,7 +3616,8 @@ msgstr "Inserir da URL"
 msgid "Enter URL"
 msgstr "Digite a URL"
 
-#: build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:638
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -3827,10 +3676,6 @@ msgstr "Animação de contagem"
 #: build/editor.js:1
 msgid "Milestone"
 msgstr "Marco"
-
-#: build/editor.js:1
-msgid "Highlight an important event or attribute."
-msgstr "Destaque um evento ou atributo importante."
 
 #: build/editor.js:1
 msgid "milestone"
@@ -4143,9 +3988,8 @@ msgid "Two columns; equal split"
 msgstr "Duas colunas; divisão igual"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "33 / 66"
-msgstr ""
+msgstr "33 / 66"
 
 #: build/editor.js:1
 msgid "Two columns; one-third, two-thirds split"
@@ -4198,10 +4042,6 @@ msgstr "linha"
 #: build/editor.js:1
 msgid "Contained"
 msgstr "Contido"
-
-#: build/editor.js:1
-msgid "Contained Content"
-msgstr "Conteúdo contido"
 
 #: build/editor.js:1
 msgid "Constraint"
@@ -4523,14 +4363,6 @@ msgstr ""
 "confiança."
 
 #: build/editor.js:1
-msgid "John Doe"
-msgstr "John Doe"
-
-#: build/editor.js:1
-msgid "@nectarblocks"
-msgstr "@nectarblocks"
-
-#: build/editor.js:1
 msgid ""
 "This is a testimonial block. Incorporating <mark style=\"background-"
 "color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
@@ -4577,10 +4409,6 @@ msgstr "Depoimento"
 #: build/editor.js:1
 msgid "Build trust and credibility by showcasing customer feedback."
 msgstr "Construa confiança e credibilidade exibindo o feedback dos clientes."
-
-#: build/editor.js:1
-msgid "Enter the testimonial text here"
-msgstr "Digite o texto do depoimento aqui"
 
 #: build/editor.js:1
 msgid "Edit as HTML"
@@ -4677,16 +4505,6 @@ msgid "Type / to choose a block or start typing..."
 msgstr "Digite / para escolher um bloco ou comece a digitar..."
 
 #: build/editor.js:1
-msgid ""
-"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
-"my website. I live in Los Angeles, have a great dog named Jack, and I like "
-"piña coladas. (And gettin' caught in the rain.)"
-msgstr ""
-"Olá! Sou mensageiro de bicicleta durante o dia, ator aspirante à noite, e "
-"este é meu site. Moro em Los Angeles, tenho um ótimo cachorro chamado Jack, "
-"e gosto de piña coladas. (E de ser pego na chuva.)"
-
-#: build/editor.js:1
 msgid "Watch Video"
 msgstr "Assistir vídeo"
 
@@ -4770,15 +4588,13 @@ msgstr "Insira a URL direta do arquivo MP4/WebM/OGV"
 msgid ""
 "Video upload failed: missing media URL. Please try again or select from the "
 "Media Library."
-msgstr "Falha no upload do vídeo: URL de mídia ausente. Tente novamente ou selecione da biblioteca de mídia."
+msgstr ""
+"Falha no upload do vídeo: URL de mídia ausente. Tente novamente ou selecione"
+" da biblioteca de mídia."
 
 #: build/editor.js:1
 msgid "Uploading"
 msgstr "Enviando"
-
-#: build/editor.js:1
-msgid "Autoplay Trigger"
-msgstr "Gatilho de reprodução automática"
 
 #: build/editor.js:1
 msgid "Learn more about using this trigger in the"
@@ -4819,10 +4635,6 @@ msgstr "Nectar"
 #: build/editor.js:1
 msgid "Nectar Global Colors"
 msgstr "Cores globais do Nectar"
-
-#: build/editor.js:1
-msgid "WP Custom Color Scheme"
-msgstr "Esquema de cores personalizado do WP"
 
 #: build/editor.js:1
 msgid "WP Theme Color Scheme"
@@ -5075,7 +4887,7 @@ msgstr "Atualizado. Lembre-se de salvar o post!"
 msgid "Delete Global Color Confirmation"
 msgstr "Confirmação de exclusão de cor global"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Are you sure you want to delete"
 msgstr "Tem certeza de que deseja excluir"
 
@@ -5116,14 +4928,6 @@ msgid "An error occurred saving color!"
 msgstr "Ocorreu um erro ao salvar a cor!"
 
 #: build/editor.js:1
-msgid "Add Global Color"
-msgstr "Adicionar cor global"
-
-#: build/editor.js:1
-msgid "Add Global Gradient"
-msgstr "Adicionar gradiente global"
-
-#: build/editor.js:1
 msgid "Tranquility"
 msgstr "Tranquilidade"
 
@@ -5154,30 +4958,6 @@ msgstr "Fogo de acampamento"
 #: build/editor.js:1
 msgid "Electric Harmony"
 msgstr "Harmonia Elétrica"
-
-#: build/editor.js:1
-msgid "Palette Presets"
-msgstr "Predefinições de paleta"
-
-#: build/editor.js:1
-msgid "Core Colors"
-msgstr "Cores principais"
-
-#: build/editor.js:1
-msgid "Custom Colors"
-msgstr "Cores personalizadas"
-
-#: build/editor.js:1
-msgid "Core Gradients"
-msgstr "Gradientes principais"
-
-#: build/editor.js:1
-msgid "Custom Gradients"
-msgstr "Gradientes personalizados"
-
-#: build/editor.js:1
-msgid "Solids"
-msgstr "Sólidos"
 
 #: build/editor.js:1
 msgid "Gradients"
@@ -5244,32 +5024,12 @@ msgid "An error occurred saving font!"
 msgstr "Ocorreu um erro ao salvar a fonte!"
 
 #: build/editor.js:1
-msgid "Rename Font"
-msgstr "Renomear fonte"
-
-#: build/editor.js:1
-msgid "New Name"
-msgstr "Novo nome"
-
-#: build/editor.js:1
-msgid "Save Font Name"
-msgstr "Salvar nome da fonte"
-
-#: build/editor.js:1
 msgid "Rename"
 msgstr "Renomear"
 
 #: build/editor.js:1
 msgid "Custom Font"
 msgstr "Fonte personalizada"
-
-#: build/editor.js:1
-msgid "Add New Font Rule"
-msgstr "Adicionar nova regra de fonte"
-
-#: build/editor.js:1
-msgid "Core Font Rules"
-msgstr "Regras de fontes do core"
 
 #: build/editor.js:1
 msgid ""
@@ -5280,16 +5040,8 @@ msgstr ""
 "através das opções do plugin Nectarblocks."
 
 #: build/editor.js:1
-msgid "Custom Font Rules"
-msgstr "Regras de fonte personalizadas"
-
-#: build/editor.js:1
 msgid "Nectarblocks Guide"
 msgstr "Guia do Nectarblocks"
-
-#: build/editor.js:1
-msgid "Display Tutorial"
-msgstr "Exibir tutorial"
 
 #: build/editor.js:1
 msgid "Template Options"
@@ -5356,7 +5108,9 @@ msgstr "Tablet (1024px e menor)"
 
 #: build/editor.js:1
 msgid "Changes waterfall down through all screen sizes 1024px and smaller."
-msgstr "As alterações se propagam para todos os tamanhos de tela de 1024px ou menores."
+msgstr ""
+"As alterações se propagam para todos os tamanhos de tela de 1024px ou "
+"menores."
 
 #: build/editor.js:1
 msgid "unless values are overridden in the \"Phone\" responsive mode."
@@ -5467,7 +5221,7 @@ msgstr "Importar imagem"
 msgid "Photo by"
 msgstr "Foto por"
 
-#: build/editor.js:1
+#: includes/Render/RenderJS.php:85 build/editor.js:1
 msgid "No results found"
 msgstr "Nenhum resultado encontrado"
 
@@ -5480,138 +5234,12 @@ msgid "Nectar Images"
 msgstr "Imagens Nectar"
 
 #: build/editor.js:1
-msgid "Welcome Guide"
-msgstr "Guia de boas-vindas"
-
-#: build/editor.js:1
-msgid "Getting Started with Nectarblocks"
-msgstr "Primeiros passos com Nectarblocks"
-
-#: build/editor.js:1
-msgid ""
-"To start creating a page, you can add blocks by clicking the plus icon "
-"located on the left of the top toolbar."
-msgstr ""
-"Para começar a criar uma página, você pode adicionar blocos clicando no "
-"ícone de mais localizado à esquerda da barra de ferramentas superior."
-
-#: build/editor.js:1
-msgid ""
-"The Nectarblocks category will appear at the top of the block list, with "
-"each block highlighted in blue for easy identification."
-msgstr ""
-"A categoria Nectarblocks aparecerá no topo da lista de blocos, com cada "
-"bloco destacado em azul para fácil identificação."
-
-#: build/editor.js:1
-msgid "Meet the Template Library"
-msgstr "Conheça a biblioteca de modelos"
-
-#: build/editor.js:1
-msgid ""
-"Jump-start your website creation with our professionally designed collection"
-" of pre-made templates."
-msgstr ""
-"Impulsione a criação do seu site com nossa coleção de templates pré-prontos "
-"desenvolvidos profissionalmente."
-
-#: build/editor.js:1
-msgid ""
-"You can easily access the library by clicking on the \"Template Library\" "
-"button on the top toolbar. All templates from Nectarblocks are dynamic and "
-"will adapt to fit your current global color and typography settings."
-msgstr ""
-"Você pode acessar facilmente a biblioteca clicando no botão \"Biblioteca de "
-"modelos\" na barra de ferramentas superior. Todos os modelos do Nectarblocks"
-" são dinâmicos e se adaptarão às suas configurações globais atuais de cor e "
-"tipografia."
-
-#: build/editor.js:1
-msgid ""
-"Access global settings by clicking the Nectarblocks logo at the top right. "
-"Create reusable color schemes and typography rules that can then be applied "
-"to blocks throughout your pages."
-msgstr ""
-"Acesse as configurações globais clicando no logotipo do Nectarblocks no "
-"canto superior direito. Crie esquemas de cores e regras de tipografia "
-"reutilizáveis que podem ser aplicados aos blocos em todas as suas páginas."
-
-#: build/editor.js:1
 msgid "Block Settings"
 msgstr "Configurações do bloco"
 
 #: build/editor.js:1
-msgid ""
-"To access settings for a block, simply click on the Settings icon while the "
-"desired block is selected."
-msgstr ""
-"Para acessar as configurações de um bloco, basta clicar no ícone "
-"Configurações enquanto o bloco desejado estiver selecionado."
-
-#: build/editor.js:1
-msgid ""
-"Each block offers an extensive range of customization options and settings, "
-"empowering you to harness your global settings effectively. You can easily "
-"maintain consistency and coherence across your entire design."
-msgstr ""
-"Cada bloco oferece uma ampla gama de opções de personalização e "
-"configurações, permitindo que você aproveite suas configurações globais de "
-"forma eficaz. Você pode facilmente manter consistência e coerência em todo o"
-" seu design."
-
-#: build/editor.js:1
-msgid "Pro tip: "
-msgstr "Dica profissional:"
-
-#: build/editor.js:1
-msgid ""
-"If you're struggling to select a specific block, check the Document Overview"
-" to easily see the full structure of your page."
-msgstr ""
-"Se você está tendo dificuldade para selecionar um bloco específico, "
-"verifique a Visão geral do documento para ver facilmente a estrutura "
-"completa da sua página."
-
-#: build/editor.js:1
-msgid "Responsive and Hover Modes"
-msgstr "Modos responsivo e hover"
-
-#: build/editor.js:1
-msgid ""
-"To switch between editing modes, click on one of the icons located at the "
-"top-middle of the interface. Any changes you make to the settings will "
-"affect the selected mode only. This allows for easy customization to "
-"responsive and hover settings."
-msgstr ""
-"Para alternar entre os modos de edição, clique em um dos ícones localizados "
-"no topo central da interface. Quaisquer alterações que você fizer nas "
-"configurações afetarão apenas o modo selecionado. Isso permite uma fácil "
-"personalização das configurações responsivas e de hover."
-
-#: build/editor.js:1
-msgid "Keep an eye out for settings highlighted in"
-msgstr "Fique atento às configurações destacadas em"
-
-#: build/editor.js:1
 msgid "green"
 msgstr "verde"
-
-#: build/editor.js:1
-msgid "— these are unique to the selected mode and can be edited separately."
-msgstr ""
-"— são exclusivos do modo selecionado e podem ser editados separadamente."
-
-#: build/editor.js:1
-msgid "It's time to start building"
-msgstr "É hora de começar a construir"
-
-#: build/editor.js:1
-msgid ""
-"To see this guide again, click the “Display Tutorial” button at the bottom "
-"of the Nectarblocks Global Settings panel."
-msgstr ""
-"Para ver este guia novamente, clique no botão \"Exibir tutorial\" na parte "
-"inferior do painel de Configurações globais do Nectarblocks."
 
 #: build/editor.js:1
 msgid "About"
@@ -5626,16 +5254,8 @@ msgid "Features"
 msgstr "Recursos"
 
 #: build/editor.js:1
-msgid "Intro"
-msgstr "Introdução"
-
-#: build/editor.js:1
 msgid "Pricing"
 msgstr "Preços"
-
-#: build/editor.js:1
-msgid "Quotes"
-msgstr "Aspas"
 
 #: build/editor.js:1
 msgid "Scroll Section"
@@ -5702,18 +5322,2711 @@ msgstr "Título 6"
 msgid "Paragraph"
 msgstr "Parágrafo"
 
+#: build/adminPanel.js:171
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"para uma importação bem-sucedida. Depois que o processo de importação começar,\n"
+"por favor, não atualize a página até que seja concluído."
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgctxt "dynamic data group label"
+msgid "Post"
+msgstr "Post"
+
+#: includes/Global_Settings/Global_Colors.php:103 build/editor.js:1
+msgid "Tertiary to Primary"
+msgstr "Terciário para primário"
+
+#: includes/Global_Settings/Global_Colors.php:108 build/editor.js:1
+msgid "Tertiary to Secondary"
+msgstr "Terciário para secundário"
+
+#: includes/Global_Settings/Global_Colors.php:113 build/editor.js:1
+msgid "Tertiary to Dark"
+msgstr "Terciário para escuro"
+
+#: includes/Global_Settings/Global_Colors.php:118 build/editor.js:1
+msgid "Light to Primary"
+msgstr "Light para primária"
+
+#: includes/Global_Settings/Global_Colors.php:123 build/editor.js:1
+msgid "Light Fade"
+msgstr "Fade claro"
+
+#: includes/Global_Settings/Global_Colors.php:144 build/editor.js:1
+msgid "Tertiary"
+msgstr "Terciário"
+
+#: includes/Global_Settings/Global_Colors.php:149 build/editor.js:1
+msgid "Primary"
+msgstr "Primário"
+
+#: includes/Global_Settings/Global_Colors.php:154 build/editor.js:1
+msgid "Secondary"
+msgstr "Secundário"
+
+#: includes/Menu_Options/Modal.php:323
+msgctxt "button: close modal dialog"
+msgid "Close"
+msgstr "Fechar"
+
+#: includes/Menu_Options/Settings.php:81
+msgctxt "menu item link button style option"
+msgid "Default"
+msgstr "Padrão"
+
+#: includes/Menu_Options/Settings.php:97
+msgctxt "menu item link text hover option"
+msgid "Default"
+msgstr "Padrão"
+
+#. translators: %1$s is "<br><br>", %2$s is "<strong>", %3$s is "</strong>" —
+#. HTML formatting for the description
+#: includes/Menu_Options/Settings.php:307
+#, php-format
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu "
+"title.%1$s%2$sTo add an Emoji:%3$s%1$sWindows: On your keyboard, press and "
+"hold the Windows button and either the period (.) or semicolon (;)%1$sMac: "
+"On your keyboard, press Command + Control + Space"
+msgstr ""
+"Adicione um símbolo ou emoji para exibir como o ícone ao lado do título do "
+"seu menu.%1$s%2$sPara adicionar um Emoji:%3$s%1$sWindows: No seu teclado, "
+"pressione e segure o botão Windows e o ponto (.) ou ponto e vírgula "
+"(;)%1$sMac: No seu teclado, pressione Command + Control + Espaço"
+
+#: includes/Menu_Options/Setting_Field.php:224
+msgctxt "widget location option: no selection"
+msgid "None"
+msgstr "Nenhum"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:84
+msgid "Header Navigation"
+msgstr "Navegação do cabeçalho"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:109
+msgid "WooCommerce: Single Product"
+msgstr "WooCommerce: Produto único"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:113
+msgid "WooCommerce: Product Archive"
+msgstr "WooCommerce: Arquivo de produtos"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:117
+msgid "WooCommerce: Cart"
+msgstr "WooCommerce: Carrinho"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:121
+msgid "WooCommerce: Checkout"
+msgstr "WooCommerce: Checkout"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:125
+msgid "WooCommerce: My Account"
+msgstr "WooCommerce: Minha conta"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:129
+msgid "WooCommerce: Order Confirmation"
+msgstr "WooCommerce: Confirmação do pedido"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:405
+msgid "Unauthorized"
+msgstr "Não autorizado"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:417
+msgid "New Template"
+msgstr "Novo modelo"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:489
+#: build/editor.js:1
+msgid "Navigation"
+msgstr "Navegação"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:625
+msgid "Choose a Template Type"
+msgstr "Escolha um tipo de template"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:631
+msgid "Filter templates..."
+msgstr "Filtrar modelos..."
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:641
+msgid "Create Template"
+msgstr "Criar template"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:652
+msgid "Blank Template"
+msgstr "Modelo em branco"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:653
+msgid "No templates found"
+msgstr "Nenhum template encontrado"
+
+#: includes/Render/Blocks/HeaderActionAccount/HeaderActionAccount.php:159
+#: build/editor.js:1
+msgid "Account"
+msgstr "Conta"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
+msgctxt "link: show all taxonomy terms"
+msgid "All"
+msgstr "Todos"
+
+#: includes/Render/Enhanced_Navigation.php:1749 build/editor.js:1
+msgid "Back"
+msgstr "Voltar"
+
+#: includes/Render/RenderJS.php:68 build/editor.js:1
+msgid "Play"
+msgstr "Reproduzir"
+
+#: includes/Render/RenderJS.php:69 build/editor.js:1
+msgid "Pause"
+msgstr "Pausar"
+
+#: includes/Render/RenderJS.php:70
+msgid "Mute"
+msgstr "Silenciar"
+
+#: includes/Render/RenderJS.php:71
+msgid "Unmute"
+msgstr "Ativar som"
+
+#: includes/Render/RenderJS.php:72 build/editor.js:1
+msgid "Fullscreen"
+msgstr "Tela cheia"
+
+#: includes/Render/RenderJS.php:73
+msgid "Exit fullscreen"
+msgstr "Sair da tela cheia"
+
+#: includes/Render/RenderJS.php:74
+msgid "%current% of %duration%"
+msgstr "%current% de %duration%"
+
+#: includes/Render/RenderJS.php:86
+msgid "Search unavailable. Please try again."
+msgstr "Busca indisponível. Por favor, tente novamente."
+
+#: build/adminPanel.js:171
+msgid "Release notes"
+msgstr "Notas de versão"
+
+#: build/adminPanel.js:171
+msgid "Fonts"
+msgstr "Fontes"
+
+#: build/adminPanel.js:171
+msgid "License Key"
+msgstr "Chave de licença"
+
+#: build/adminPanel.js:171
+msgid "Connected"
+msgstr "Conectado"
+
+#: build/adminPanel.js:171
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts refreshed successfully."
+msgstr "Fontes Adobe atualizadas com sucesso."
+
+#: build/adminPanel.js:171
+msgid "Failed to refresh Adobe Fonts."
+msgstr "Falha ao atualizar Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Disconnect"
+msgstr "Desconectar"
+
+#: build/adminPanel.js:171
+msgid "No fonts found in your Adobe Fonts web projects. Add fonts at"
+msgstr ""
+"Nenhuma fonte encontrada em seus projetos web do Adobe Fonts. Adicione "
+"fontes em"
+
+#: build/adminPanel.js:171
+msgid "Disconnect Adobe Fonts"
+msgstr "Desconectar Adobe Fonts"
+
+#: build/adminPanel.js:171
+msgid ""
+"Are you sure you want to disconnect? Any typography settings using Adobe "
+"Fonts will need to be updated."
+msgstr ""
+"Tem certeza de que deseja desconectar? Quaisquer configurações de tipografia"
+" usando Adobe Fonts precisarão ser atualizadas."
+
+#: build/adminPanel.js:171
+msgid "Disconnected from Adobe Fonts."
+msgstr "Desconectado do Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to disconnect from Adobe Fonts."
+msgstr "Falha ao desconectar do Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Connect your Adobe Fonts account to use your web fonts."
+msgstr "Conecte sua conta do Adobe Fonts para usar suas fontes da web."
+
+#: build/adminPanel.js:171
+msgid "Get your API token"
+msgstr "Obtenha seu token de API"
+
+#: build/adminPanel.js:171
+msgid "Enter your Adobe Fonts API token..."
+msgstr "Digite seu token da API do Adobe Fonts..."
+
+#: build/adminPanel.js:171
+msgid "Connect"
+msgstr "Conectar"
+
+#: build/adminPanel.js:171
+msgid "Please enter your Adobe Fonts API token."
+msgstr "Por favor, insira seu token da API do Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Successfully connected to Adobe Fonts."
+msgstr "Conectado com sucesso ao Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to connect to Adobe Fonts."
+msgstr "Falha ao conectar com o Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Remove Variation"
+msgstr "Remover variação"
+
+#: build/adminPanel.js:171
+msgid "Delete Font"
+msgstr "Excluir fonte"
+
+#: build/adminPanel.js:171
+msgid "Delete Font Variation"
+msgstr "Excluir variação de fonte"
+
+#: build/adminPanel.js:171
+msgid "This will remove the font and all its variations."
+msgstr "Isso removerá a fonte e todas as suas variações."
+
+#: build/adminPanel.js:171
+msgid "Uploaded Fonts"
+msgstr "Fontes enviadas"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts"
+msgstr "Adobe Fonts"
+
+#: build/adminPanel.js:171 build/editor.js:1
+msgid "Help"
+msgstr "Ajuda"
+
+#: build/adminPanel.js:171
+msgid "Blog Posts"
+msgstr "Posts do blog"
+
+#: build/adminPanel.js:171
+msgid "Portfolio Projects"
+msgstr "Projetos de portfólio"
+
+#: build/adminPanel.js:171
+msgid "Products"
+msgstr "Produtos"
+
+#: build/adminPanel.js:171
+msgid "Theme Builder Templates"
+msgstr "Modelos do Theme Builder"
+
+#: build/adminPanel.js:171
+msgid ""
+"Theme-level templates such as headers, footers, navigation, archive layouts,"
+" and single-post layouts that the demo pages depend on."
+msgstr ""
+"Modelos de nível de tema, como cabeçalhos, rodapés, navegação, layouts de "
+"arquivo e layouts de post único dos quais as páginas de demonstração "
+"dependem."
+
+#: build/adminPanel.js:171
+msgid ""
+"Reusable section layouts inserted into pages, such as megamenu displays and "
+"shared content blocks."
+msgstr ""
+"Layouts de seção reutilizáveis inseridos em páginas, como exibições de mega "
+"menu e blocos de conteúdo compartilhados."
+
+#: build/adminPanel.js:171
+msgid "Forms"
+msgstr "Formulários"
+
+#: build/adminPanel.js:171
+msgid ""
+"Fluent Forms used by demo pages (e.g. the contact form). Requires the Fluent"
+" Forms plugin."
+msgstr ""
+"Fluent Forms usado pelas páginas de demonstração (por exemplo, o formulário "
+"de contato). Requer o plugin Fluent Forms."
+
+#: build/adminPanel.js:171
+msgid "Include"
+msgstr "Incluir"
+
+#: build/adminPanel.js:171
+msgid "Select all"
+msgstr "Selecionar tudo"
+
+#: build/adminPanel.js:171
+msgid "isn’t installed."
+msgstr "não está instalado."
+
+#: build/adminPanel.js:171
+msgid "Install"
+msgstr "Instalar"
+
+#: build/adminPanel.js:171
+msgid "Local Google Fonts"
+msgstr "Fontes do Google locais"
+
+#: build/adminPanel.js:171
+msgid ""
+"Automatically download and serve Google Fonts locally for improved "
+"performance and GDPR compliance."
+msgstr ""
+"Baixe e sirva automaticamente as Google Fonts localmente para melhor "
+"desempenho e conformidade com GDPR."
+
+#: build/adminPanel.js:171
+msgid "Lazy Load Images"
+msgstr "Carregamento lento de imagens"
+
+#: build/adminPanel.js:171
+msgid ""
+"Defer off-screen images until they are near the viewport, reducing initial "
+"page weight. Above-the-fold images are detected automatically and load "
+"eagerly."
+msgstr ""
+"Adie imagens fora da tela até que estejam próximas da viewport, reduzindo o "
+"peso inicial da página. Imagens acima da dobra são detectadas "
+"automaticamente e carregam imediatamente."
+
+#: build/adminPanel.js:171
+msgid "Nectarblocks 3.0 release artwork"
+msgstr "Arte de lançamento do Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "What's New"
+msgstr "O que há de novo"
+
+#: build/adminPanel.js:171
+msgid "Welcome to Nectarblocks 3.0"
+msgstr "Bem-vindo ao Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid ""
+"This release introduces a complete header builder, a faster editing "
+"experience, hover interactions with a reworked animation builder, a smarter "
+"design system, and a leaner front end, plus dozens of improvements to the "
+"blocks you use every day. Read on for the highlights, or jump straight in "
+"and start building."
+msgstr ""
+"Esta versão apresenta um construtor de cabeçalho completo, uma experiência "
+"de edição mais rápida, interações de hover com um construtor de animação "
+"reformulado, um sistema de design mais inteligente e um front end mais leve,"
+" além de dezenas de melhorias nos blocos que você usa todos os dias. "
+"Continue lendo para ver os destaques ou comece direto a construir."
+
+#: build/adminPanel.js:171
+msgid "The header builder you’ve always wanted"
+msgstr "O construtor de cabeçalho que você sempre quis"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build custom site headers right in WordPress with flexible layouts, "
+"responsive controls, and unlimited states. Add search, navigation, overlay "
+"menus, and full megamenus."
+msgstr ""
+"Crie cabeçalhos de site personalizados diretamente no WordPress com layouts "
+"flexíveis, controles responsivos e estados ilimitados. Adicione busca, "
+"navegação, menus overlay e megamenus completos."
+
+#: build/adminPanel.js:171
+msgid "Header builder preview"
+msgstr "Pré-visualização do construtor de cabeçalho"
+
+#: build/adminPanel.js:171
+msgid "A faster editing experience"
+msgstr "Uma experiência de edição mais rápida"
+
+#: build/adminPanel.js:171
+msgid ""
+"Reimagined spacing controls, drag-to-reorder layers, active-state "
+"indicators, and drag-to-reposition absolute elements. Settings are better "
+"organized, onboarding is clearer."
+msgstr ""
+"Controles de espaçamento reimaginados, arrastar para reordenar camadas, "
+"indicadores de estado ativo e arrastar para reposicionar elementos "
+"absolutos. As configurações estão melhor organizadas, a integração está mais"
+" clara."
+
+#: build/adminPanel.js:171
+msgid "Editor experience preview"
+msgstr "Pré-visualização da experiência do editor"
+
+#: build/adminPanel.js:171
+msgid "Hover interactions, reworked animation UI"
+msgstr "Interações de hover, interface de animação reformulada"
+
+#: build/adminPanel.js:171
+msgid ""
+"A new interaction animation system brings limitless hover effects, with "
+"spring physics for natural motion, child-element staggering, and per-"
+"property timelines. The animation builder has been reworked throughout, with"
+" a live preview for every effect."
+msgstr ""
+"Um novo sistema de animação de interação traz efeitos de hover ilimitados, "
+"com física de mola para movimento natural, escalonamento de elementos filhos"
+" e linhas do tempo por propriedade. O construtor de animação foi reformulado"
+" por completo, com uma visualização ao vivo para cada efeito."
+
+#: build/adminPanel.js:171
+msgid "Animation editor preview"
+msgstr "Pré-visualização do editor de animação"
+
+#: build/adminPanel.js:171
+msgid "A smarter design system"
+msgstr "Um sistema de design mais inteligente"
+
+#: build/adminPanel.js:171
+msgid ""
+"Manage typography and color in one place with Adobe Fonts integration, saved"
+" custom palettes, and a new color scale system that generates tonal "
+"variations for every palette color."
+msgstr ""
+"Gerencie tipografia e cor em um só lugar com integração do Adobe Fonts, "
+"paletas personalizadas salvas e um novo sistema de escala de cores que gera "
+"variações tonais para cada cor da paleta."
+
+#: build/adminPanel.js:171
+msgid "Design system preview"
+msgstr ""
+"```\n"
+"Pré-visualização do sistema de design\n"
+"```"
+
+#: build/adminPanel.js:171
+msgid "Faster, leaner front end"
+msgstr "Front-end mais rápido e leve"
+
+#: build/adminPanel.js:171
+msgid ""
+"Pages ship cleaner markup with per-page CSS generation, locally served "
+"Google Fonts, image lazy loading, and selective script loading. The result "
+"is fewer network requests and faster load times for your visitors."
+msgstr ""
+"As páginas são entregues com marcação mais limpa através da geração de CSS "
+"por página, fontes do Google servidas localmente, carregamento lazy de "
+"imagens e carregamento seletivo de scripts. O resultado são menos "
+"requisições de rede e tempos de carregamento mais rápidos para seus "
+"visitantes."
+
+#: build/adminPanel.js:171
+msgid "Performance preview"
+msgstr "Visualização de desempenho"
+
+#: build/adminPanel.js:171
+msgid "Powerful new blocks to build with"
+msgstr "Novos blocos poderosos para construir"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build more without leaving the editor with a ticker for auto-scrolling "
+"loops, world time for timezones, an auto-generated table of contents, plus "
+"navigation, search, and header actions blocks."
+msgstr ""
+"Construa mais sem sair do editor com um ticker para loops de rolagem "
+"automática, horário mundial para fusos horários, um índice gerado "
+"automaticamente, além de blocos de navegação, busca e ações de cabeçalho."
+
+#: build/adminPanel.js:171
+msgid "New blocks preview"
+msgstr "Pré-visualização de novos blocos"
+
+#: build/adminPanel.js:171
+msgid "New templates and a ready-made demo"
+msgstr "Novos modelos e uma demonstração pronta"
+
+#: build/adminPanel.js:171
+msgid ""
+"Start faster with over 35 new pre-made templates, plus Radnor, a complete "
+"business website demo you can install in a click and make your own."
+msgstr ""
+"Comece mais rápido com mais de 35 novos modelos prontos, além do Radnor, uma"
+" demonstração completa de site empresarial que você pode instalar com um "
+"clique e personalizar."
+
+#: build/adminPanel.js:171
+msgid "Templates and demo preview"
+msgstr "Templates e pré-visualização de demonstração"
+
+#: build/adminPanel.js:171
+msgid "Changelog"
+msgstr "Registro de alterações"
+
+#: build/adminPanel.js:171
+msgid "More in this release"
+msgstr "Mais neste lançamento"
+
+#: build/adminPanel.js:171
+msgid ""
+"Over 90 new features, improvements, and fixes for building better WordPress "
+"websites. Explore the full 3.0 release for every detail."
+msgstr ""
+"Mais de 90 novos recursos, melhorias e correções para criar sites WordPress "
+"melhores. Explore a versão completa 3.0 para todos os detalhes."
+
+#: build/adminPanel.js:171
+msgid "Explore Nectarblocks 3.0"
+msgstr "Explore o Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "Version"
+msgstr "Versão"
+
+#: build/editor.js:1
+msgid "Reset to Default state"
+msgstr "Redefinir para o estado padrão"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Image"
+msgstr "Inserir imagem dinâmica"
+
+#: build/editor.js:1
+msgid "Dynamic Image"
+msgstr "Imagem dinâmica"
+
+#: build/editor.js:1
+msgid "Selected"
+msgstr "Selecionado"
+
+#: build/editor.js:1
+msgid "Interaction"
+msgstr "Interação"
+
+#: build/editor.js:1
+msgid "Already added"
+msgstr "Já adicionado"
+
+#: build/editor.js:1
+msgid "Invert"
+msgstr "Inverter"
+
+#: build/editor.js:1
+msgid "Offset"
+msgstr "Deslocamento"
+
+#: build/editor.js:1
+msgid "Self"
+msgstr "Próprio"
+
+#: build/editor.js:1
+msgid "Interaction (On Hover/Focus)"
+msgstr "Interação (ao passar o mouse/focar)"
+
+#: build/editor.js:1
+msgid "From"
+msgstr "De"
+
+#: build/editor.js:1
+msgid "To"
+msgstr "Para"
+
+#: build/editor.js:1
+msgid "Timeline"
+msgstr "Linha do tempo"
+
+#: build/editor.js:1
+msgid ""
+"Per-property timing is unavailable with spring easing — all properties "
+"animate together."
+msgstr ""
+"O tempo por propriedade não está disponível com a suavização spring — todas "
+"as propriedades são animadas juntas."
+
+#: build/editor.js:1
+msgid "Unable to determine the root block tree for this section."
+msgstr "Não foi possível determinar a árvore de blocos raiz para esta seção."
+
+#: build/editor.js:1
+msgid "Pick Trigger Block"
+msgstr "Escolher bloco de gatilho"
+
+#: build/editor.js:1
+msgid "Use Self"
+msgstr "Usar Self"
+
+#: build/editor.js:1
+msgid "Children"
+msgstr "Filhos"
+
+#: build/editor.js:1
+msgid "Directional"
+msgstr "Direcional"
+
+#: build/editor.js:1
+msgid "Distance"
+msgstr "Distância"
+
+#: build/editor.js:1
+msgid "Scroll Distance"
+msgstr "Distância de rolagem"
+
+#: build/editor.js:1
+msgid "Element"
+msgstr "Elemento"
+
+#: build/editor.js:1
+msgid "Viewport"
+msgstr "Viewport"
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation begins."
+msgstr ""
+"Quando a posição do elemento atende à posição da viewport, a animação "
+"começa."
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation is "
+"complete."
+msgstr ""
+"Quando a posição do elemento atende à posição da viewport, a animação está "
+"completa."
+
+#: build/editor.js:1
+msgid "Entrance"
+msgstr "Entrada"
+
+#: build/editor.js:1
+msgid "Pin Offset"
+msgstr "Deslocamento do pino"
+
+#: build/editor.js:1
+msgid "Properties"
+msgstr "Propriedades"
+
+#: build/editor.js:1
+msgid ""
+"Locks this row to the viewport as the user keeps scrolling. The page appears"
+" to stop while the row's animation plays through, then scrolling resumes "
+"once the animation completes. Use the \"End After Scrolling\" value to "
+"control how much scroll distance the locked-in animation takes up."
+msgstr ""
+"Trava esta linha na janela de visualização enquanto o usuário continua "
+"rolando. A página parece parar enquanto a animação da linha é reproduzida, e"
+" então a rolagem continua assim que a animação é concluída. Use o valor "
+"\"Terminar após rolar\" para controlar quanto da distância de rolagem a "
+"animação travada ocupa."
+
+#: build/editor.js:1
+msgid "Row Animation End"
+msgstr "Fim da animação da linha"
+
+#: build/editor.js:1
+msgid "Go to Parent"
+msgstr "Ir para o pai"
+
+#: build/editor.js:1
+msgid "Edit URL"
+msgstr "Editar URL"
+
+#: build/editor.js:1
+msgid "Edit Background Image URL"
+msgstr "Editar URL da imagem de fundo"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Image"
+msgstr "Inserir imagem de fundo dinâmica"
+
+#: build/editor.js:1
+msgid "Dynamic BG Image"
+msgstr "Imagem de fundo dinâmica"
+
+#: build/editor.js:1
+msgid "Resting State"
+msgstr "Estado de repouso"
+
+#: build/editor.js:1
+msgid "How the video appears when not hovered."
+msgstr "Como o vídeo aparece quando não está em hover."
+
+#: build/editor.js:1
+msgid "First Frame"
+msgstr "Primeiro quadro"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Video"
+msgstr "Inserir vídeo de fundo dinâmico"
+
+#: build/editor.js:1
+msgid "Dynamic BG Video"
+msgstr "Vídeo de fundo dinâmico"
+
+#: build/editor.js:1
+msgid "Element ID"
+msgstr "ID do elemento"
+
+#: build/editor.js:1
+msgid "First"
+msgstr "Primeiro"
+
+#: build/editor.js:1
+msgid "Last"
+msgstr "Último"
+
+#: build/editor.js:1
+msgid "Order"
+msgstr "Pedido"
+
+#: build/editor.js:1
+msgid "Outset"
+msgstr "Início"
+
+#: build/editor.js:1
+msgid "Backdrop Filter"
+msgstr "Filtro de fundo"
+
+#: build/editor.js:1
+msgid "Filter"
+msgstr "Filtrar"
+
+#: build/editor.js:1
+msgid "Inherit Block Color"
+msgstr "Herdar cor do bloco"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Link"
+msgstr "Inserir link dinâmico"
+
+#: build/editor.js:1
+msgid "Dynamic Link"
+msgstr "Link dinâmico"
+
+#: build/editor.js:1
+msgid "Attributes"
+msgstr "Atributos"
+
+#: build/editor.js:1
+msgid "Screen reader text"
+msgstr "Texto para leitores de tela"
+
+#: build/editor.js:1
+msgid "Describe the link for screen readers"
+msgstr "Descreva o link para leitores de tela"
+
+#: build/editor.js:1
+msgid "Drag to reposition"
+msgstr "Arraste para reposicionar"
+
+#: build/editor.js:1
+msgid "Unlink axes"
+msgstr "Desvincular eixos"
+
+#: build/editor.js:1
+msgid "Link axes"
+msgstr "Vincular eixos"
+
+#: build/editor.js:1
+msgid "Transform Origin"
+msgstr "Origem da transformação"
+
+#: build/editor.js:1
+msgid "X"
+msgstr "X"
+
+#: build/editor.js:1
+msgid "Y"
+msgstr "Y"
+
+#: build/editor.js:1
+msgid "Theme Fonts"
+msgstr "Fontes do tema"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Video"
+msgstr "Inserir vídeo dinâmico"
+
+#: build/editor.js:1
+msgid "Dynamic Video"
+msgstr "Vídeo dinâmico"
+
+#: build/editor.js:1
+msgid "Render link as overlay"
+msgstr "Renderizar link como sobreposição"
+
+#: build/editor.js:1
+msgid "Accordion Title.."
+msgstr "Título do acordeão.."
+
+#: build/editor.js:1
+msgid "No Link"
+msgstr "Sem link"
+
+#: build/editor.js:1
+msgid ""
+"On (default): the link sits as an overlay so inner blocks can have their own"
+" links and hover effects. Off: the link wraps the column for better SEO."
+msgstr ""
+"Ativado (padrão): o link fica como uma sobreposição para que os blocos "
+"internos possam ter seus próprios links e efeitos de hover. Desativado: o "
+"link envolve a coluna para melhor SEO."
+
+#: build/editor.js:1
+msgid ""
+"Use when inner blocks have their own links or hover effects. Add screen "
+"reader text below for accessibility."
+msgstr ""
+"Use quando os blocos internos tiverem seus próprios links ou efeitos de "
+"hover. Adicione texto para leitores de tela abaixo para acessibilidade."
+
+#: build/editor.js:1
+msgid "Defaults to the WooCommerce My Account page."
+msgstr "Padrão para a página Minha conta do WooCommerce."
+
+#: build/editor.js:1
+msgid "Header Account"
+msgstr "Conta do cabeçalho"
+
+#: build/editor.js:1
+msgid "Links to the user account page."
+msgstr "Links para a página da conta do usuário."
+
+#: build/editor.js:1
+msgid "Icon color"
+msgstr "Cor do ícone"
+
+#: build/editor.js:1
+msgid "Header Actions"
+msgstr "Ações do cabeçalho"
+
+#: build/editor.js:1
+msgid "Icon size"
+msgstr "Tamanho do ícone"
+
+#: build/editor.js:1
+msgid "Header action container (search/cart/account)."
+msgstr "Contêiner de ações do cabeçalho (busca/carrinho/conta)."
+
+#: build/editor.js:1
+msgid "URL copied to clipboard"
+msgstr "URL copiada para a área de transferência"
+
+#: build/editor.js:1
+msgid ""
+"Cover fills the block's size — set a height (e.g. 100vh) in the Size "
+"control."
+msgstr ""
+"A capa preenche o tamanho do bloco — defina uma altura (por exemplo, 100vh) "
+"no controle de Tamanho."
+
+#: build/editor.js:1
+msgid "Allow Dragging"
+msgstr "Permitir arrastar"
+
+#: build/editor.js:1
+msgid ""
+"Takes effect on the frontend — slides are never draggable while editing."
+msgstr ""
+"Tem efeito no frontend — os slides nunca são arrastáveis durante a edição."
+
+#: build/editor.js:1
+msgid "Edit Image URL"
+msgstr "Editar URL da imagem"
+
+#: build/editor.js:1
+msgid "Image Sizes"
+msgstr "Tamanhos de imagem"
+
+#: build/editor.js:1
+msgid "Custom Sizes"
+msgstr "Tamanhos personalizados"
+
+#: build/editor.js:1
+msgid "Sizes Value"
+msgstr "Valor de tamanhos"
+
+#: build/editor.js:1
+msgid "Megamenu"
+msgstr "Megamenu"
+
+#: build/editor.js:1
+msgid "Display a global section or template part as a megamenu dropdown."
+msgstr ""
+"Exiba uma seção global ou parte de template como um dropdown de mega menu."
+
+#: build/editor.js:1
+msgid "Pattern"
+msgstr "Padrão"
+
+#: build/editor.js:1
+msgid "Megamenu:"
+msgstr "Megamenu:"
+
+#: build/editor.js:1
+msgid "Select a megamenu source"
+msgstr "Selecione uma fonte de mega menu"
+
+#: build/editor.js:1
+msgid "Megamenu Settings"
+msgstr "Configurações do Mega Menu"
+
+#: build/editor.js:1
+msgid "Selected:"
+msgstr "Selecionado:"
+
+#: build/editor.js:1
+msgid "Edit in new tab"
+msgstr "Editar em nova aba"
+
+#: build/editor.js:1
+msgid "Change"
+msgstr "Alterar"
+
+#: build/editor.js:1
+msgid "Search global sections..."
+msgstr "Pesquisar seções globais..."
+
+#: build/editor.js:1
+msgid "Search patterns..."
+msgstr "Pesquisar padrões..."
+
+#: build/editor.js:1
+msgid "No results found."
+msgstr "Nenhum resultado encontrado."
+
+#: build/editor.js:1
+msgid "No global sections found."
+msgstr "Nenhuma seção global encontrada."
+
+#: build/editor.js:1
+msgid "No patterns found. Create a synced pattern first."
+msgstr "Nenhum padrão encontrado. Crie um padrão sincronizado primeiro."
+
+#: build/editor.js:1
+msgid "Animate a number counting up to a target value."
+msgstr "Animar um número contando até um valor alvo."
+
+#: build/editor.js:1
+msgid "Nectar Navigation"
+msgstr "Navegação Nectar"
+
+#: build/editor.js:1
+msgid "WordPress Navigation with Nectar enhancements."
+msgstr "Navegação do WordPress com melhorias do Nectar."
+
+#: build/editor.js:1
+msgid ""
+"Only fields that resolve to a URL are used; others fall back to the post "
+"link."
+msgstr ""
+"Apenas campos que resolvem para uma URL são usados; outros retornam ao link "
+"do post."
+
+#: build/editor.js:1
+msgid "Apply animation state"
+msgstr "Aplicar estado de animação"
+
+#: build/editor.js:1
+msgid "Bypass animation — show raw blocks"
+msgstr "Ignorar animação — mostrar blocos brutos"
+
+#: build/editor.js:1
+msgid "Pin animation progress"
+msgstr "Fixar progresso da animação"
+
+#: build/editor.js:1
+msgid ""
+"Stays pinned to the viewport while scrolling. Edit in Animation settings."
+msgstr ""
+"Permanece fixo na janela de visualização durante a rolagem. Edite nas "
+"configurações de Animação."
+
+#: build/editor.js:1
+msgid "Pinned Timeline"
+msgstr "Timeline fixada"
+
+#: build/editor.js:1
+msgid "Contain Content"
+msgstr "Conter conteúdo"
+
+#: build/editor.js:1
+msgid "Header Appearance"
+msgstr "Aparência do cabeçalho"
+
+#: build/editor.js:1
+msgid ""
+"Tags this section so the header switches to a chosen variant while the "
+"section is on screen. \"Default\" leaves the header in its normal lifecycle "
+"state."
+msgstr ""
+"Marca esta seção para que o cabeçalho mude para uma variante escolhida "
+"enquanto a seção estiver na tela. \"Padrão\" deixa o cabeçalho em seu estado"
+" normal de ciclo de vida."
+
+#: build/editor.js:1
+msgid "Input BG"
+msgstr "BG de entrada"
+
+#: build/editor.js:1
+msgid "Popup BG"
+msgstr "BG do popup"
+
+#: build/editor.js:1
+msgid "Input Text"
+msgstr "Texto de entrada"
+
+#: build/editor.js:1
+msgid "Result Text"
+msgstr "Texto do resultado"
+
+#: build/editor.js:1
+msgid "Result Hover BG"
+msgstr "Fundo ao passar o mouse no resultado"
+
+#: build/editor.js:1
+msgid "All Post Types"
+msgstr "Todos os tipos de post"
+
+#: build/editor.js:1
+msgid "Dropdown"
+msgstr "Dropdown"
+
+#: build/editor.js:1
+msgid "Search Settings"
+msgstr "Configurações de pesquisa"
+
+#: build/editor.js:1
+msgid "Placeholder"
+msgstr "Espaço reservado"
+
+#: build/editor.js:1
+msgid "AJAX Search"
+msgstr "Busca AJAX"
+
+#: build/editor.js:1
+msgid "Limit to post type"
+msgstr "Limitar ao tipo de post"
+
+#: build/editor.js:1
+msgid "Featured image"
+msgstr "Imagem destacada"
+
+#: build/editor.js:1
+msgid "Post type"
+msgstr "Tipo de post"
+
+#: build/editor.js:1
+msgid "Input Styling"
+msgstr "Estilo do campo de entrada"
+
+#: build/editor.js:1
+msgid "Focus"
+msgstr "Foco"
+
+#: build/editor.js:1
+msgid "Effects"
+msgstr "Efeitos"
+
+#: build/editor.js:1
+msgid "Clear search"
+msgstr "Limpar pesquisa"
+
+#: build/editor.js:1
+msgid "AJAX results will appear here"
+msgstr "Os resultados AJAX aparecerão aqui"
+
+#: build/editor.js:1
+msgid "A search block with optional AJAX-powered results."
+msgstr "Um bloco de pesquisa com resultados opcionais alimentados por AJAX."
+
+#: build/editor.js:1
+#, js-format
+msgid "%s out of 5 stars"
+msgstr "%s de 5 estrelas"
+
+#: build/editor.js:1
+msgid "Table of Contents"
+msgstr "Índice"
+
+#: build/editor.js:1
+msgid "Link copied"
+msgstr "Link copiado"
+
+#: build/editor.js:1
+msgid "Collapsible"
+msgstr "Recolhível"
+
+#: build/editor.js:1
+msgid "Always Visible"
+msgstr "Sempre visível"
+
+#: build/editor.js:1
+msgid "Bullet"
+msgstr "Marcador"
+
+#: build/editor.js:1
+msgid "Headings"
+msgstr "Títulos"
+
+#: build/editor.js:1
+msgid "List Style"
+msgstr "Estilo da lista"
+
+#: build/editor.js:1
+msgid "Item Gap"
+msgstr "Espaçamento entre itens"
+
+#: build/editor.js:1
+msgid "Hierarchical"
+msgstr "Hierárquico"
+
+#: build/editor.js:1
+msgid "Parent Active Only"
+msgstr "Apenas pai ativo"
+
+#: build/editor.js:1
+msgid ""
+"Highlight only the parent item as scroll moves through its children. Useful "
+"when child headings flow inline."
+msgstr ""
+"Destacar apenas o item pai conforme a rolagem passa por seus filhos. Útil "
+"quando os cabeçalhos filhos fluem inline."
+
+#: build/editor.js:1
+msgid "Smooth Scroll"
+msgstr "Rolagem suave"
+
+#: build/editor.js:1
+msgid ""
+"Extra space between the header navigation and the heading you scroll to"
+msgstr ""
+"Espaço extra entre a navegação do cabeçalho e o título para o qual você rola"
+
+#: build/editor.js:1
+msgid "Anchor Links"
+msgstr "Links de âncora"
+
+#: build/editor.js:1
+msgid "Adds link icons to headings on the page"
+msgstr "Adiciona ícones de link aos títulos na página"
+
+#: build/editor.js:1
+msgid "Heading (default)"
+msgstr "Título (padrão)"
+
+#: build/editor.js:1
+msgid "Scroll target"
+msgstr "Alvo de rolagem"
+
+#: build/editor.js:1
+msgid "Current target:"
+msgstr "Alvo atual:"
+
+#: build/editor.js:1
+msgid "No blocks available."
+msgstr "Nenhum bloco disponível."
+
+#: build/editor.js:1
+msgid "Scroll target options"
+msgstr "Opções de destino de rolagem"
+
+#: build/editor.js:1
+msgid "Scroll to:"
+msgstr "Rolar para:"
+
+#: build/editor.js:1
+msgid "Items"
+msgstr "Itens"
+
+#: build/editor.js:1
+msgid "Active Text"
+msgstr "Texto ativo"
+
+#: build/editor.js:1
+msgid "Active Opacity"
+msgstr "Opacidade ativa"
+
+#: build/editor.js:1
+msgid "No headings found. Add heading blocks to your content."
+msgstr "Nenhum título encontrado. Adicione blocos de título ao seu conteúdo."
+
+#: build/editor.js:1
+msgid "Auto-generated navigation for page headings."
+msgstr "Navegação gerada automaticamente para títulos de página."
+
+#: build/editor.js:1
+msgid "toc"
+msgstr "toc"
+
+#: build/editor.js:1
+msgid "table of contents"
+msgstr "índice"
+
+#: build/editor.js:1
+msgid "navigation"
+msgstr "navegação"
+
+#: build/editor.js:1
+msgid "headings"
+msgstr "cabeçalhos"
+
+#: build/editor.js:1
+msgid "John Doe.."
+msgstr "John Doe.."
+
+#: build/editor.js:1
+msgid "@nectarblocks.."
+msgstr "@nectarblocks.."
+
+#: build/editor.js:1
+msgid "”Enter the testimonial text here..”"
+msgstr "\"Digite o texto do depoimento aqui..\""
+
+#: build/editor.js:1
+msgid "Insert Dynamic Text"
+msgstr "Inserir texto dinâmico"
+
+#: build/editor.js:1
+msgid "Dynamic Text"
+msgstr "Texto dinâmico"
+
+#: build/editor.js:1
+msgid "Animate by word or by individual character."
+msgstr "Animar por palavra ou por caractere individual."
+
+#: build/editor.js:1
+msgid "Sync to Pin"
+msgstr "Sincronizar com o Pin"
+
+#: build/editor.js:1
+msgid "This text animation is synced to a parent block using"
+msgstr "Esta animação de texto está sincronizada com um bloco pai usando"
+
+#: build/editor.js:1
+msgid "Align text left"
+msgstr "Alinhar texto à esquerda"
+
+#: build/editor.js:1
+msgid "Align text center"
+msgstr "Alinhar texto ao centro"
+
+#: build/editor.js:1
+msgid "Align text right"
+msgstr "Alinhar texto à direita"
+
+#: build/editor.js:1
+msgid "Align text"
+msgstr "Alinhar texto"
+
+#: build/editor.js:1
+msgid "Ticker Item"
+msgstr "Item do ticker"
+
+#: build/editor.js:1
+msgid "A section for content inside the ticker."
+msgstr "Uma seção para conteúdo dentro do ticker."
+
+#: build/editor.js:1
+msgid "ticker"
+msgstr "ticker"
+
+#: build/editor.js:1
+msgid "ticker item"
+msgstr "item do ticker"
+
+#: build/editor.js:1
+msgid "Empty item"
+msgstr "Item vazio"
+
+#: build/editor.js:1
+msgid "Ticker Items"
+msgstr "Itens do ticker"
+
+#: build/editor.js:1
+msgid "Add items to the ticker to reorder them here."
+msgstr "Adicione itens ao ticker para reordená-los aqui."
+
+#: build/editor.js:1
+msgid "Add Item"
+msgstr "Adicionar item"
+
+#: build/editor.js:1
+msgid "Delete item"
+msgstr "Excluir item"
+
+#: build/editor.js:1
+msgid "Delete Ticker Item"
+msgstr "Excluir item do ticker"
+
+#: build/editor.js:1
+msgid "Previous Item"
+msgstr "Item anterior"
+
+#: build/editor.js:1
+msgid "Next Item"
+msgstr "Próximo item"
+
+#: build/editor.js:1
+msgid "Uniform Width"
+msgstr "Largura uniforme"
+
+#: build/editor.js:1
+msgid "Uniform Height"
+msgstr "Altura uniforme"
+
+#: build/editor.js:1
+msgid "Drag to Move"
+msgstr "Arraste para mover"
+
+#: build/editor.js:1
+msgid "Frontend only"
+msgstr "Apenas frontend"
+
+#: build/editor.js:1
+msgid "Scroll Velocity"
+msgstr "Velocidade de rolagem"
+
+#: build/editor.js:1
+msgid "Speed increases when scrolling. Frontend only."
+msgstr "A velocidade aumenta ao rolar. Apenas frontend."
+
+#: build/editor.js:1
+msgid "Dynamic Direction"
+msgstr "Direção dinâmica"
+
+#: build/editor.js:1
+msgid ""
+"Ticker direction follows scroll direction instead of using a fixed "
+"direction."
+msgstr ""
+"A direção do ticker segue a direção da rolagem em vez de usar uma direção "
+"fixa."
+
+#: build/editor.js:1
+msgid "Loop copy"
+msgstr "Cópia do loop"
+
+#: build/editor.js:1
+msgid "Ticker"
+msgstr "Ticker"
+
+#: build/editor.js:1
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "Exibir conteúdo em um loop contínuo infinito estilo marquee."
+
+#: build/editor.js:1
+msgid "scroll"
+msgstr "rolar"
+
+#: build/editor.js:1
+msgid "loop"
+msgstr "loop"
+
+#: build/editor.js:1
+msgid "Custom Skin"
+msgstr "Skin personalizado"
+
+#: build/editor.js:1
+msgid "Tint"
+msgstr "Tonalidade"
+
+#: build/editor.js:1
+msgid "Toolbar Roundness"
+msgstr "Arredondamento da barra de ferramentas"
+
+#: build/editor.js:1
+msgid "Buttons Roundness"
+msgstr "Arredondamento dos botões"
+
+#: build/editor.js:1
+msgid "Bar"
+msgstr "Barra"
+
+#: build/editor.js:1
+msgid "Minimal"
+msgstr "Mínimo"
+
+#: build/editor.js:1
+msgid "Preview Video"
+msgstr "Visualizar vídeo"
+
+#: build/editor.js:1
+msgid "Short"
+msgstr "Curto"
+
+#: build/editor.js:1
+msgid "Long"
+msgstr "Longo"
+
+#: build/editor.js:1
+msgid "Numeric"
+msgstr "Numérico"
+
+#: build/editor.js:1
+msgid "Weekday Short"
+msgstr "Dia da semana abreviado"
+
+#: build/editor.js:1
+msgid "Weekday Full"
+msgstr "Dia da semana completo"
+
+#: build/editor.js:1
+msgid "12h"
+msgstr "12h"
+
+#: build/editor.js:1
+msgid "24h"
+msgstr "24h"
+
+#: build/editor.js:1
+msgid "Before"
+msgstr "Antes"
+
+#: build/editor.js:1
+msgid "After"
+msgstr "Depois"
+
+#: build/editor.js:1
+msgid "Same"
+msgstr "Mesmo"
+
+#: build/editor.js:1
+msgid "Smaller"
+msgstr "Menor"
+
+#: build/editor.js:1
+msgid "Time Settings"
+msgstr "Configurações de tempo"
+
+#: build/editor.js:1
+msgid "City"
+msgstr "Cidade"
+
+#: build/editor.js:1
+msgid "Search for a city..."
+msgstr "Pesquisar por uma cidade..."
+
+#: build/editor.js:1
+msgid "Time Format"
+msgstr "Formato de hora"
+
+#: build/editor.js:1
+msgid "Format"
+msgstr "Formato"
+
+#: build/editor.js:1
+msgid "Show Timezone"
+msgstr "Mostrar fuso horário"
+
+#: build/editor.js:1
+msgid "Show Seconds"
+msgstr "Mostrar segundos"
+
+#: build/editor.js:1
+msgid "World Time"
+msgstr "Horário mundial"
+
+#: build/editor.js:1
+msgid "Display the current time for any major city worldwide."
+msgstr "Exiba a hora atual de qualquer grande cidade do mundo."
+
+#: build/editor.js:1
+msgid "time"
+msgstr "tempo"
+
+#: build/editor.js:1
+msgid "clock"
+msgstr "relógio"
+
+#: build/editor.js:1
+msgid "world"
+msgstr "mundo"
+
+#: build/editor.js:1
+msgid "timezone"
+msgstr "fuso horário"
+
+#: build/editor.js:1
+msgid "Nectarblocks Palette"
+msgstr "Paleta Nectarblocks"
+
+#: build/editor.js:1
+msgid "WordPress Color Scheme"
+msgstr "Esquema de cores do WordPress"
+
+#: build/editor.js:1
+msgid "Linear"
+msgstr "Linear"
+
+#: build/editor.js:1
+msgid "Tension"
+msgstr "Tensão"
+
+#: build/editor.js:1
+msgid "Friction"
+msgstr "Atrito"
+
+#: build/editor.js:1
+msgid "Settle"
+msgstr "Liquidar"
+
+#: build/editor.js:1
+msgid "Spring"
+msgstr "Primavera"
+
+#: build/editor.js:1
+msgid "Bulk Edit"
+msgstr "Edição em massa"
+
+#: build/editor.js:1
+msgid "Deselect image"
+msgstr "Desmarcar imagem"
+
+#: build/editor.js:1
+msgid "Images"
+msgstr "Imagens"
+
+#: build/editor.js:1
+msgid "Select images to delete in bulk"
+msgstr "Selecione imagens para excluir em massa"
+
+#: build/editor.js:1
+msgid "Select an image to edit its details"
+msgstr "Selecione uma imagem para editar seus detalhes"
+
+#: build/editor.js:1
+msgid "Reset"
+msgstr "Redefinir"
+
+#: build/editor.js:1
+msgid "Add"
+msgstr "Adicionar"
+
+#: build/editor.js:1
+msgid "Untitled Color"
+msgstr "Cor sem título"
+
+#: build/editor.js:1
+msgid "Untitled Gradient"
+msgstr "Gradiente sem título"
+
+#: build/editor.js:1
+#, js-format
+msgid "Copied %s to clipboard"
+msgstr "Copiado %s para a área de transferência"
+
+#: build/editor.js:1
+msgid "Delete Selected"
+msgstr "Excluir selecionados"
+
+#: build/editor.js:1
+msgid "Copy Hex"
+msgstr "Copiar Hex"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete these"
+msgstr "Tem certeza de que deseja excluir estes"
+
+#: build/editor.js:1
+msgid "colors"
+msgstr "cores"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these colors in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Se você já está usando essas cores em blocos, pode opcionalmente reatribuí-"
+"las a outra."
+
+#: build/editor.js:1
+msgid "Reassign"
+msgstr "Reatribuir"
+
+#: build/editor.js:1
+msgid "Reassign selected colors"
+msgstr "Reatribuir cores selecionadas"
+
+#: build/editor.js:1
+msgid "Colors deleted successfully!"
+msgstr "Cores excluídas com sucesso!"
+
+#: build/editor.js:1
+msgid "Daydream"
+msgstr "Daydream"
+
+#: build/editor.js:1
+msgid "Palette saved"
+msgstr "Paleta salva"
+
+#: build/editor.js:1
+msgid "Palette updated"
+msgstr "Paleta atualizada"
+
+#: build/editor.js:1
+msgid "Palette deleted"
+msgstr "Paleta excluída"
+
+#: build/editor.js:1
+msgid "Delete Palette"
+msgstr "Excluir paleta"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete this palette?"
+msgstr "Tem certeza de que deseja excluir esta paleta?"
+
+#: build/editor.js:1
+msgid "No custom palettes yet."
+msgstr "Nenhuma paleta personalizada ainda."
+
+#: build/editor.js:1
+msgid "Update Colors"
+msgstr "Atualizar cores"
+
+#: build/editor.js:1
+msgid "Palette Name"
+msgstr "Nome da paleta"
+
+#: build/editor.js:1
+msgid "+ Save Current Colors"
+msgstr "+ Salvar cores atuais"
+
+#: build/editor.js:1
+msgid "Saved"
+msgstr "Salvo"
+
+#: build/editor.js:1
+msgid "Apply"
+msgstr "Aplicar"
+
+#: build/editor.js:1
+msgid "Palettes"
+msgstr "Paletas"
+
+#: build/editor.js:1
+msgid "Color Scale"
+msgstr "Escala de cores"
+
+#: build/editor.js:1
+msgid "Palette"
+msgstr "Paleta"
+
+#: build/editor.js:1
+msgid "Add Color"
+msgstr "Adicionar cor"
+
+#: build/editor.js:1
+msgid "Add Gradient"
+msgstr "Adicionar gradiente"
+
+#: build/editor.js:1
+msgid "Colors"
+msgstr "Cores"
+
+#: build/editor.js:1
+msgid "Base"
+msgstr "Base"
+
+#: build/editor.js:1
+msgid "font rules"
+msgstr "regras de fonte"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these fonts in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Se você já está usando essas fontes em blocos, pode opcionalmente reatribuí-"
+"las a outra."
+
+#: build/editor.js:1
+msgid "Reassign selected fonts"
+msgstr "Reatribuir fontes selecionadas"
+
+#: build/editor.js:1
+msgid "Text Styles"
+msgstr "Estilos de texto"
+
+#: build/editor.js:1
+msgid "Add Rule"
+msgstr "Adicionar regra"
+
+#: build/editor.js:1
+msgid "Restart Guide"
+msgstr "Guia de reinicialização"
+
+#: build/editor.js:1
+msgid "Transition"
+msgstr "Transição"
+
+#: build/editor.js:1
+msgid "Reset to Default Content"
+msgstr "Redefinir para o conteúdo padrão"
+
+#: build/editor.js:1
+msgid ""
+"This will replace all current content with the default template. This action"
+" cannot be undone."
+msgstr ""
+"Isso substituirá todo o conteúdo atual pelo template padrão. Esta ação não "
+"pode ser desfeita."
+
+#: build/editor.js:1
+msgid "Resetting..."
+msgstr "Redefinindo..."
+
+#: build/editor.js:1
+msgid "Reset Content"
+msgstr "Redefinir conteúdo"
+
+#: build/editor.js:1
+msgid "Page titles are hidden globally via Plugin Options → Hide Page Titles."
+msgstr ""
+"Os títulos de página estão ocultos globalmente via Opções do Plugin → "
+"Ocultar Títulos de Página."
+
+#: build/editor.js:1
+msgid "Editor canvas"
+msgstr "Tela do editor"
+
+#: build/editor.js:1
+msgid ""
+"Sets the editor-only background behind the header while editing this state. "
+"Helps you design against the real-world context (e.g. a dark hero) without "
+"affecting the published site."
+msgstr ""
+"Define o fundo somente no editor atrás do cabeçalho ao editar este estado. "
+"Ajuda você a projetar contra o contexto do mundo real (por exemplo, um hero "
+"escuro) sem afetar o site publicado."
+
+#: build/editor.js:1
+msgid "Clear"
+msgstr "Limpar"
+
+#: build/editor.js:1
+msgid "More options"
+msgstr "Mais opções"
+
+#: build/editor.js:1
+msgid "Delete Variant Confirmation"
+msgstr "Confirmação de exclusão de variante"
+
+#: build/editor.js:1
+msgid ""
+"Saved style values for this variant on this page will be removed. You can "
+"undo (Cmd/Ctrl+Z) to restore them. Other pages are unaffected until next "
+"edited."
+msgstr ""
+"Os valores de estilo salvos para esta variante nesta página serão removidos."
+" Você pode desfazer (Cmd/Ctrl+Z) para restaurá-los. Outras páginas não serão"
+" afetadas até a próxima edição."
+
+#: build/editor.js:1
+msgid "Name is too long (max 40 characters)."
+msgstr "O nome é muito longo (máximo de 40 caracteres)."
+
+#: build/editor.js:1
+msgid "A state or variant already uses that name."
+msgstr "Um estado ou variante já usa esse nome."
+
+#: build/editor.js:1
+msgid "Name must include letters or numbers."
+msgstr "O nome deve incluir letras ou números."
+
+#: build/editor.js:1
+msgid "Name is required."
+msgstr "Nome é obrigatório."
+
+#: build/editor.js:1
+msgid "Header State"
+msgstr "Estado do cabeçalho"
+
+#: build/editor.js:1
+msgid "Lifecycle state"
+msgstr "Estado do ciclo de vida"
+
+#: build/editor.js:1
+msgid ""
+"Create custom looks for the header to use over specific sections, like a "
+"\"Cream\" version for light hero areas. Tag a row with a variant from its "
+"Header Appearance setting and the header switches to that look while the row"
+" is on screen."
+msgstr ""
+"Crie aparências personalizadas para o cabeçalho usar sobre seções "
+"específicas, como uma versão \"Cream\" para áreas hero claras. Marque uma "
+"linha com uma variante na configuração Header Appearance e o cabeçalho muda "
+"para essa aparência enquanto a linha estiver na tela."
+
+#: build/editor.js:1
+msgid "Add Variant"
+msgstr "Adicionar variante"
+
+#: build/editor.js:1
+msgid "e.g. Dark, Cream"
+msgstr "ex.: Escuro, Creme"
+
+#: build/editor.js:1
+msgid "Create"
+msgstr "Criar"
+
+#: build/editor.js:1
+msgid "Custom color"
+msgstr "Cor personalizada"
+
+#: build/editor.js:1
+msgid ""
+"This clears settings stored on this specific combination only. The variant "
+"base and the lifecycle state are unaffected."
+msgstr ""
+"Isso limpa as configurações armazenadas apenas nesta combinação específica. "
+"A base da variante e o estado do ciclo de vida não são afetados."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings for this variant (including any lifecycle overrides"
+" inside it). The variant entry itself stays in the list."
+msgstr ""
+"Isso limpa todas as configurações desta variante (incluindo quaisquer "
+"substituições de ciclo de vida dentro dela). A entrada da variante em si "
+"permanece na lista."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings stored on this lifecycle state. Other states and "
+"variants are unaffected."
+msgstr ""
+"Isso limpa todas as configurações armazenadas neste estado de ciclo de vida."
+" Outros estados e variantes não são afetados."
+
+#: build/editor.js:1
+msgid "Reset this state"
+msgstr "Redefinir este estado"
+
+#: build/editor.js:1
+msgid "Reset Header State"
+msgstr "Redefinir estado do cabeçalho"
+
+#: build/editor.js:1
+msgid "Are you sure you want to reset the"
+msgstr "Tem certeza de que deseja redefinir o"
+
+#: build/editor.js:1
+msgid "header state?"
+msgstr "estado do cabeçalho?"
+
+#: build/editor.js:1
+msgid "Confirm Reset"
+msgstr "Confirmar redefinição"
+
+#: build/editor.js:1
+msgid "Template State"
+msgstr "Estado do template"
+
+#: build/editor.js:1
+msgid "Blog"
+msgstr "Blog"
+
+#: build/editor.js:1
+msgid "FAQ"
+msgstr "FAQ"
+
+#: build/editor.js:1
+msgid "Gallery"
+msgstr "Galeria"
+
+#: build/editor.js:1
+msgid "Hero Section"
+msgstr "Seção hero"
+
+#: build/editor.js:1
+msgid "Logos"
+msgstr "Logos"
+
+#: build/editor.js:1
+msgid "Off-Canvas Menu"
+msgstr "Menu off canvas"
+
+#: build/editor.js:1
+msgid "Services"
+msgstr "Serviços"
+
+#: build/editor.js:1
+msgid "Stats"
+msgstr "Estatísticas"
+
+#: build/editor.js:1
+msgid "Team"
+msgstr "Equipe"
+
+#: build/editor.js:1
+msgid "Testimonials"
+msgstr "Depoimentos"
+
+#: build/editor.js:1
+msgid "Hover to preview the pinned scroll animation"
+msgstr "Passe o mouse para visualizar a animação de rolagem fixada"
+
+#: build/editor.js:1
+msgid "Pinned Scroll"
+msgstr "Rolagem fixada"
+
+#: build/editor.js:1
+msgid "This template renders content dynamically from your site's data"
+msgstr ""
+"Este template renderiza conteúdo dinamicamente a partir dos dados do seu "
+"site"
+
+#: build/editor.js:1
+msgid ""
+"Title hidden on the live page — set globally in Plugin Options → Hide Page "
+"Titles"
+msgstr ""
+"Título oculto na página ao vivo — defina globalmente em Opções do Plugin → "
+"Ocultar Títulos de Página"
+
+#: build/editor.js:1
+msgid "Title hidden on the live page"
+msgstr "Título oculto na página ao vivo"
+
+#: build/editor.js:1
+msgid "Title visible on the live page"
+msgstr "Título visível na página ao vivo"
+
+#: build/editor.js:1
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: build/editor.js:1
+msgid "Skip tour"
+msgstr "Pular tour"
+
+#: build/editor.js:1
+msgid "Click the highlighted button to continue"
+msgstr "Clique no botão destacado para continuar"
+
+#: build/editor.js:1
+msgid "Start Tour"
+msgstr "Iniciar tour"
+
+#: build/editor.js:1
+msgid "Finish"
+msgstr "Concluir"
+
+#: build/editor.js:1
+msgid "Welcome to Nectarblocks"
+msgstr "Bem-vindo ao Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"Let's take a quick tour of the editor so you can start building beautiful "
+"pages in no time."
+msgstr ""
+"Vamos fazer um tour rápido pelo editor para que você possa começar a criar "
+"páginas bonitas em pouco tempo."
+
+#: build/editor.js:1
+msgid "This will only take a moment. You can exit anytime."
+msgstr "Isso levará apenas um momento. Você pode sair a qualquer momento."
+
+#: build/editor.js:1
+msgid "Add Blocks"
+msgstr "Adicionar blocos"
+
+#: build/editor.js:1
+msgid ""
+"This is the block inserter. Go ahead, click it to see the available blocks."
+msgstr ""
+"Este é o inseridor de blocos. Vá em frente, clique nele para ver os blocos "
+"disponíveis."
+
+#: build/editor.js:1
+msgid "The Block Library"
+msgstr "A Biblioteca de Blocos"
+
+#: build/editor.js:1
+msgid ""
+"The Nectarblocks category appears at the top of the list, with each block "
+"highlighted in blue for easy identification."
+msgstr ""
+"A categoria Nectarblocks aparece no topo da lista, com cada bloco destacado "
+"em azul para fácil identificação."
+
+#: build/editor.js:1
+msgid ""
+"From rows and columns to images, headings, and advanced layouts. Everything "
+"starts here."
+msgstr ""
+"De linhas e colunas a imagens, títulos e layouts avançados. Tudo começa "
+"aqui."
+
+#: build/editor.js:1
+msgid ""
+"Jump-start your design with professionally crafted templates. Click here to "
+"browse the full collection."
+msgstr ""
+"Comece seu design com modelos criados profissionalmente. Clique aqui para "
+"navegar pela coleção completa."
+
+#: build/editor.js:1
+msgid "Every template automatically adapts to your design system."
+msgstr "Cada template se adapta automaticamente ao seu sistema de design."
+
+#: build/editor.js:1
+msgid "Responsive & Hover Modes"
+msgstr "Modos responsivo e hover"
+
+#: build/editor.js:1
+msgid ""
+"Switch between Desktop, Tablet, Phone, and Hover editing modes here. Changes"
+" apply only to the selected mode, giving you precise control over every "
+"breakpoint."
+msgstr ""
+"Alterne entre os modos de edição Desktop, Tablet, Celular e Hover aqui. As "
+"alterações se aplicam apenas ao modo selecionado, dando a você controle "
+"preciso sobre cada breakpoint."
+
+#: build/editor.js:1
+msgid "Settings highlighted in"
+msgstr "Configurações destacadas em"
+
+#: build/editor.js:1
+msgid "can be customized independently for each mode."
+msgstr "pode ser personalizado independentemente para cada modo."
+
+#: build/editor.js:1
+msgid "Nectarblocks Sidebar"
+msgstr "Barra lateral Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"This is where your design system lives. Colors, gradients, and typography "
+"that can be applied to any block across your site."
+msgstr ""
+"Aqui é onde seu sistema de design fica. Cores, gradientes e tipografia que "
+"podem ser aplicados a qualquer bloco em todo o seu site."
+
+#: build/editor.js:1
+msgid "Click it to take a look inside."
+msgstr "Clique nele para dar uma olhada dentro."
+
+#: build/editor.js:1
+msgid "Your Design System"
+msgstr "Seu sistema de design"
+
+#: build/editor.js:1
+msgid ""
+"Manage your global color palette and typography rules here. Changes cascade "
+"across every block on every page, making it easy to maintain a consistent "
+"design system."
+msgstr ""
+"Gerencie sua paleta de cores global e regras de tipografia aqui. As "
+"alterações se propagam por todos os blocos em todas as páginas, facilitando "
+"a manutenção de um sistema de design consistente."
+
+#: build/editor.js:1
+msgid ""
+"Select any block and click here to open its settings panel. Each block "
+"offers extensive customization including colors, spacing, typography, "
+"animations, and more."
+msgstr ""
+"Selecione qualquer bloco e clique aqui para abrir seu painel de "
+"configurações. Cada bloco oferece ampla personalização incluindo cores, "
+"espaçamento, tipografia, animações e muito mais."
+
+#: build/editor.js:1
+msgid ""
+"Having trouble selecting a block? Try the Document Overview for a full "
+"outline of your page structure."
+msgstr ""
+"Está com dificuldade para selecionar um bloco? Experimente a Visão Geral do "
+"Documento para obter um esboço completo da estrutura da sua página."
+
+#: build/editor.js:1
+msgid "You're all set!"
+msgstr "Tudo pronto!"
+
+#: build/editor.js:1
+msgid ""
+"You now know the essentials. Start building your page and explore each "
+"block's settings to discover everything Nectarblocks can do."
+msgstr ""
+"Agora você conhece o essencial. Comece a construir sua página e explore as "
+"configurações de cada bloco para descobrir tudo o que o Nectarblocks pode "
+"fazer."
+
+#: build/editor.js:1
+msgid ""
+"To replay this guide, open the Nectarblocks Settings sidebar and click "
+"\"Restart Guide\" at the bottom."
+msgstr ""
+"Para reproduzir este guia, abra a barra lateral de Configurações do "
+"Nectarblocks e clique em \"Reiniciar guia\" na parte inferior."
+
+#: build/editor.js:1
+msgid "Visit the Nectarblocks Academy"
+msgstr "Visite a Academia Nectarblocks"
+
+#: build/editor.js:1
+msgid "Inherit (same as desktop)"
+msgstr "Herdar (igual ao desktop)"
+
+#: build/editor.js:1
+msgid "(Untitled)"
+msgstr "(Sem título)"
+
+#: build/editor.js:1
+msgid "Classic"
+msgstr "Clássico"
+
+#: build/editor.js:1
+msgid "Editing Header State"
+msgstr "Editando estado do cabeçalho"
+
+#: build/editor.js:1
+msgid "Scrolled"
+msgstr "Rolado"
+
+#: build/editor.js:1
+msgid "Overlay Menu"
+msgstr "Menu sobreposto"
+
+#: build/editor.js:1
+msgid "on"
+msgstr "ligado"
+
+#: build/editor.js:1
+msgid "Menu Items"
+msgstr "Itens do menu"
+
+#: build/editor.js:1
+msgid "Dropdowns"
+msgstr "Dropdowns"
+
+#: build/editor.js:1
+msgid "States"
+msgstr "Estados"
+
+#: build/editor.js:1
+msgid "FX"
+msgstr "FX"
+
+#: build/editor.js:1
+msgid "Active"
+msgstr "Ativo"
+
+#: build/editor.js:1
+msgid "Animation"
+msgstr "Animação"
+
+#: build/editor.js:1
+msgid "3 Lines"
+msgstr "3 linhas"
+
+#: build/editor.js:1
+msgid "2 Lines"
+msgstr "2 linhas"
+
+#: build/editor.js:1
+msgid "Text Only"
+msgstr "Apenas texto"
+
+#: build/editor.js:1
+msgid ""
+"The Off Canvas Menu template part is rendering the overlay. Edit it to "
+"change the menu content."
+msgstr ""
+"A parte de template do menu off canvas está renderizando a sobreposição. "
+"Edite-a para alterar o conteúdo do menu."
+
+#: build/editor.js:1
+msgid ""
+"Choose a different menu for the mobile overlay. “Inherit” uses the current "
+"navigation."
+msgstr ""
+"Escolha um menu diferente para a sobreposição mobile. \"Herdar\" usa a "
+"navegação atual."
+
+#: build/editor.js:1
+msgid "Menu Source"
+msgstr "Origem do menu"
+
+#: build/editor.js:1
+msgid "(no title)"
+msgstr "(sem título)"
+
+#: build/editor.js:1
+msgid "Edit Off Canvas Menu template"
+msgstr "Editar template do menu off canvas"
+
+#: build/editor.js:1
+msgid "Select a menu"
+msgstr "Selecione um menu"
+
+#: build/editor.js:1
+msgid "Menu Text"
+msgstr "Texto do menu"
+
+#: build/editor.js:1
+msgid "Close BG"
+msgstr "Fechar BG"
+
+#: build/editor.js:1
+msgid "Close Icon"
+msgstr "Ícone de fechar"
+
+#: build/editor.js:1
+msgid "Morph"
+msgstr "Morph"
+
+#: build/editor.js:1
+msgid "Fade"
+msgstr "Fade"
+
+#: build/editor.js:1
+msgid "Dropdown BG"
+msgstr "BG do dropdown"
+
+#: build/editor.js:1
+msgid "Panel"
+msgstr "Painel"
+
+#: build/editor.js:1
+msgid "Item"
+msgstr "Item"
+
+#: build/editor.js:1
+msgid "Menu"
+msgstr "Menu"
+
+#: build/editor.js:1
+msgid "Span"
+msgstr "Span"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block title"
+msgid "Header Account"
+msgstr "Conta do cabeçalho"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block description"
+msgid "Links to the user account page."
+msgstr "Links para a página da conta do usuário."
+
+#: build/blocks/header-actions/block.json
+msgctxt "block title"
+msgid "Header Actions"
+msgstr "Ações do cabeçalho"
+
+#: build/blocks/header-actions/block.json
+msgctxt "block description"
+msgid "Theme header action container (search/cart/account)."
+msgstr "Contêiner de ação do cabeçalho do tema (busca/carrinho/conta)."
+
+#: build/blocks/megamenu/block.json
+msgctxt "block title"
+msgid "Megamenu"
+msgstr "Megamenu"
+
+#: build/blocks/megamenu/block.json
+msgctxt "block description"
+msgid "Display a global section or pattern as a megamenu dropdown."
+msgstr "Exiba uma seção global ou padrão como um dropdown de mega menu."
+
+#: build/blocks/navigation/block.json
+msgctxt "block title"
+msgid "Nectar Navigation"
+msgstr "Navegação Nectar"
+
+#: build/blocks/navigation/block.json
+msgctxt "block description"
+msgid "Nectar wrapper around the WordPress Navigation block."
+msgstr "Wrapper Nectar em torno do bloco Navigation do WordPress."
+
+#: build/blocks/search/block.json
+msgctxt "block title"
+msgid "Search"
+msgstr "Buscar"
+
+#: build/blocks/search/block.json
+msgctxt "block description"
+msgid "A search block with optional AJAX-powered results."
+msgstr "Um bloco de pesquisa com resultados opcionais alimentados por AJAX."
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block title"
+msgid "Table of Contents"
+msgstr "Índice"
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block description"
+msgid "Auto-generated navigation for page headings."
+msgstr "Navegação gerada automaticamente para títulos de página."
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block title"
+msgid "Ticker Item"
+msgstr "Item do ticker"
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block description"
+msgid "A section for content inside the ticker."
+msgstr "Uma seção para conteúdo dentro do ticker."
+
+#: build/blocks/ticker/block.json
+msgctxt "block title"
+msgid "Ticker"
+msgstr "Ticker"
+
+#: build/blocks/ticker/block.json
+msgctxt "block description"
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "Exiba conteúdo em um loop contínuo e infinito estilo marquee."
+
+#: build/blocks/world-time/block.json
+msgctxt "block title"
+msgid "Nectar World Time"
+msgstr "Horário mundial Nectar"
+
+#: build/blocks/world-time/block.json
+msgctxt "block description"
+msgid "Display the current time for any major city worldwide."
+msgstr "Exiba a hora atual de qualquer grande cidade do mundo."
+
+#~ msgid "Post"
+#~ msgstr "Post"
+
+#~ msgid "Core Gradient #1"
+#~ msgstr "Gradiente Principal #1"
+
+#~ msgid "Core Gradient #2"
+#~ msgstr "Gradiente Principal #2"
+
+#~ msgid "Core Gradient #3"
+#~ msgstr "Gradiente Principal #3"
+
+#~ msgid "Core Gradient #4"
+#~ msgstr "Gradiente Principal #4"
+
+#~ msgid "Core Gradient #5"
+#~ msgstr "Gradiente Principal #5"
+
+#~ msgid "Accent Light"
+#~ msgstr "Luz de Destaque"
+
+#~ msgid "Accent Primary"
+#~ msgstr "Cor de Destaque Primária"
+
+#~ msgid "Accent Dark"
+#~ msgstr "Escuro Acentuado"
+
+#~ msgid ""
+#~ "Add in a symbol or emoji to display as the icon next to your menu title."
+#~ msgstr ""
+#~ "Adicione um símbolo ou emoji para exibir como ícone ao lado do título do seu"
+#~ " menu."
+
+#~ msgid "To add an Emoji:"
+#~ msgstr "Para adicionar um Emoji:"
+
+#~ msgid ""
+#~ "Windows: On your keyboard, press and hold the Windows button and either the "
+#~ "period (.) or semicolon (;)"
+#~ msgstr ""
+#~ "Windows: No seu teclado, pressione e segure o botão Windows e o ponto (.) ou"
+#~ " ponto e vírgula (;)"
+
+#~ msgid "Mac: On your keyboard, press Command + Control + Space"
+#~ msgstr "Mac: No seu teclado, pressione Command + Control + Space"
+
+#~ msgid "Theme License Code"
+#~ msgstr "Código de Licença do Tema"
+
+#~ msgid "Add a New Font"
+#~ msgstr "Adicionar Nova Fonte"
+
+#~ msgid "No changes were made."
+#~ msgstr "Nenhuma alteração foi feita."
+
+#~ msgid ""
+#~ "for a successful import. Once the import process begins, please refrain from"
+#~ " refreshing the page until it has completed."
+#~ msgstr ""
+#~ "para uma importação bem-sucedida. Assim que o processo de importação "
+#~ "começar, evite atualizar a página até que seja concluído."
+
+#~ msgid "Move Up"
+#~ msgstr "Mover para cima"
+
+#~ msgid "Move Down"
+#~ msgstr "Mover para baixo"
+
+#~ msgid "Enter"
+#~ msgstr "Entrar"
+
+#~ msgid ""
+#~ "\"Pin\" the block in place within the viewport while the animation plays "
+#~ "through."
+#~ msgstr ""
+#~ "Fixar o bloco no lugar dentro da viewport enquanto a animação é reproduzida."
+
+#~ msgid "Start On"
+#~ msgstr "Iniciar em"
+
+#~ msgid "End On"
+#~ msgstr "Terminar em"
+
+#~ msgid "Exit"
+#~ msgstr "Sair"
+
+#~ msgid "Custom End Offset"
+#~ msgstr "Deslocamento final personalizado"
+
+#~ msgid "Adds smoothing to the animation while scrolling."
+#~ msgstr "Adiciona suavização à animação durante a rolagem."
+
+#~ msgid "Animation Trigger Type"
+#~ msgstr "Tipo de gatilho de animação"
+
+#~ msgid "Custom ID"
+#~ msgstr "ID personalizado"
+
+#~ msgid "Flex Wrap"
+#~ msgstr "Quebra flexível"
+
+#~ msgid "Edit Filter"
+#~ msgstr "Editar filtro"
+
+#~ msgid "Custom Attributes"
+#~ msgstr "Atributos personalizados"
+
+#~ msgid "Translate X"
+#~ msgstr "Deslocamento X"
+
+#~ msgid "Translate Y"
+#~ msgstr "Deslocamento Y"
+
+#~ msgid "Accordion Title"
+#~ msgstr "Título do acordeão"
+
+#~ msgid "Transition Speed (s)"
+#~ msgstr "Velocidade de transição (s)"
+
+#~ msgid "Time Between (s)"
+#~ msgstr "Tempo entre (s)"
+
+#~ msgid "Highlight an important event or attribute."
+#~ msgstr "Destaque um evento ou atributo importante."
+
+#~ msgid "Contained Content"
+#~ msgstr "Conteúdo contido"
+
+#~ msgid "John Doe"
+#~ msgstr "John Doe"
+
+#~ msgid "@nectarblocks"
+#~ msgstr "@nectarblocks"
+
+#~ msgid "Enter the testimonial text here"
+#~ msgstr "Digite o texto do depoimento aqui"
+
+#~ msgid ""
+#~ "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+#~ "my website. I live in Los Angeles, have a great dog named Jack, and I like "
+#~ "piña coladas. (And gettin' caught in the rain.)"
+#~ msgstr ""
+#~ "Olá! Sou mensageiro de bicicleta durante o dia, ator aspirante à noite, e "
+#~ "este é meu site. Moro em Los Angeles, tenho um ótimo cachorro chamado Jack, "
+#~ "e gosto de piña coladas. (E de ser pego na chuva.)"
+
+#~ msgid "Autoplay Trigger"
+#~ msgstr "Gatilho de reprodução automática"
+
+#~ msgid "WP Custom Color Scheme"
+#~ msgstr "Esquema de cores personalizado do WP"
+
+#~ msgid "Add Global Color"
+#~ msgstr "Adicionar cor global"
+
+#~ msgid "Add Global Gradient"
+#~ msgstr "Adicionar gradiente global"
+
+#~ msgid "Palette Presets"
+#~ msgstr "Predefinições de paleta"
+
+#~ msgid "Core Colors"
+#~ msgstr "Cores principais"
+
+#~ msgid "Custom Colors"
+#~ msgstr "Cores personalizadas"
+
+#~ msgid "Core Gradients"
+#~ msgstr "Gradientes principais"
+
+#~ msgid "Custom Gradients"
+#~ msgstr "Gradientes personalizados"
+
+#~ msgid "Solids"
+#~ msgstr "Sólidos"
+
+#~ msgid "Rename Font"
+#~ msgstr "Renomear fonte"
+
+#~ msgid "New Name"
+#~ msgstr "Novo nome"
+
+#~ msgid "Save Font Name"
+#~ msgstr "Salvar nome da fonte"
+
+#~ msgid "Add New Font Rule"
+#~ msgstr "Adicionar nova regra de fonte"
+
+#~ msgid "Core Font Rules"
+#~ msgstr "Regras de fontes do core"
+
+#~ msgid "Custom Font Rules"
+#~ msgstr "Regras de fonte personalizadas"
+
+#~ msgid "Display Tutorial"
+#~ msgstr "Exibir tutorial"
+
+#~ msgid "Welcome Guide"
+#~ msgstr "Guia de boas-vindas"
+
+#~ msgid "Getting Started with Nectarblocks"
+#~ msgstr "Primeiros passos com Nectarblocks"
+
+#~ msgid ""
+#~ "To start creating a page, you can add blocks by clicking the plus icon "
+#~ "located on the left of the top toolbar."
+#~ msgstr ""
+#~ "Para começar a criar uma página, você pode adicionar blocos clicando no "
+#~ "ícone de mais localizado à esquerda da barra de ferramentas superior."
+
+#~ msgid ""
+#~ "The Nectarblocks category will appear at the top of the block list, with "
+#~ "each block highlighted in blue for easy identification."
+#~ msgstr ""
+#~ "A categoria Nectarblocks aparecerá no topo da lista de blocos, com cada "
+#~ "bloco destacado em azul para fácil identificação."
+
+#~ msgid "Meet the Template Library"
+#~ msgstr "Conheça a biblioteca de modelos"
+
+#~ msgid ""
+#~ "Jump-start your website creation with our professionally designed collection"
+#~ " of pre-made templates."
+#~ msgstr ""
+#~ "Impulsione a criação do seu site com nossa coleção de templates pré-prontos "
+#~ "desenvolvidos profissionalmente."
+
+#~ msgid ""
+#~ "You can easily access the library by clicking on the \"Template Library\" "
+#~ "button on the top toolbar. All templates from Nectarblocks are dynamic and "
+#~ "will adapt to fit your current global color and typography settings."
+#~ msgstr ""
+#~ "Você pode acessar facilmente a biblioteca clicando no botão \"Biblioteca de "
+#~ "modelos\" na barra de ferramentas superior. Todos os modelos do Nectarblocks"
+#~ " são dinâmicos e se adaptarão às suas configurações globais atuais de cor e "
+#~ "tipografia."
+
+#~ msgid ""
+#~ "Access global settings by clicking the Nectarblocks logo at the top right. "
+#~ "Create reusable color schemes and typography rules that can then be applied "
+#~ "to blocks throughout your pages."
+#~ msgstr ""
+#~ "Acesse as configurações globais clicando no logotipo do Nectarblocks no "
+#~ "canto superior direito. Crie esquemas de cores e regras de tipografia "
+#~ "reutilizáveis que podem ser aplicados aos blocos em todas as suas páginas."
+
+#~ msgid ""
+#~ "To access settings for a block, simply click on the Settings icon while the "
+#~ "desired block is selected."
+#~ msgstr ""
+#~ "Para acessar as configurações de um bloco, basta clicar no ícone "
+#~ "Configurações enquanto o bloco desejado estiver selecionado."
+
+#~ msgid ""
+#~ "Each block offers an extensive range of customization options and settings, "
+#~ "empowering you to harness your global settings effectively. You can easily "
+#~ "maintain consistency and coherence across your entire design."
+#~ msgstr ""
+#~ "Cada bloco oferece uma ampla gama de opções de personalização e "
+#~ "configurações, permitindo que você aproveite suas configurações globais de "
+#~ "forma eficaz. Você pode facilmente manter consistência e coerência em todo o"
+#~ " seu design."
+
+#~ msgid "Pro tip: "
+#~ msgstr "Dica profissional:"
+
+#~ msgid ""
+#~ "If you're struggling to select a specific block, check the Document Overview"
+#~ " to easily see the full structure of your page."
+#~ msgstr ""
+#~ "Se você está tendo dificuldade para selecionar um bloco específico, "
+#~ "verifique a Visão geral do documento para ver facilmente a estrutura "
+#~ "completa da sua página."
+
+#~ msgid "Responsive and Hover Modes"
+#~ msgstr "Modos responsivo e hover"
+
+#~ msgid ""
+#~ "To switch between editing modes, click on one of the icons located at the "
+#~ "top-middle of the interface. Any changes you make to the settings will "
+#~ "affect the selected mode only. This allows for easy customization to "
+#~ "responsive and hover settings."
+#~ msgstr ""
+#~ "Para alternar entre os modos de edição, clique em um dos ícones localizados "
+#~ "no topo central da interface. Quaisquer alterações que você fizer nas "
+#~ "configurações afetarão apenas o modo selecionado. Isso permite uma fácil "
+#~ "personalização das configurações responsivas e de hover."
+
+#~ msgid "Keep an eye out for settings highlighted in"
+#~ msgstr "Fique atento às configurações destacadas em"
+
+#~ msgid "— these are unique to the selected mode and can be edited separately."
+#~ msgstr ""
+#~ "— são exclusivos do modo selecionado e podem ser editados separadamente."
+
+#~ msgid "It's time to start building"
+#~ msgstr "É hora de começar a construir"
+
+#~ msgid ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectarblocks Global Settings panel."
+#~ msgstr ""
+#~ "Para ver este guia novamente, clique no botão \"Exibir tutorial\" na parte "
+#~ "inferior do painel de Configurações globais do Nectarblocks."
+
+#~ msgid "Intro"
+#~ msgstr "Introdução"
+
+#~ msgid "Quotes"
+#~ msgstr "Aspas"
+
 #~ msgid "Saving..."
 #~ msgstr "Salvando..."
 
 #~ msgid "Enter the name of your font.."
 #~ msgstr "Digite o nome da sua fonte..."
-
-#~ msgid ""
-#~ "for a successful import. Once the import process begins,\n"
-#~ "                please refrain from refreshing the page until it has completed."
-#~ msgstr ""
-#~ "para uma importação bem-sucedida. Depois que o processo de importação começar,\n"
-#~ "por favor, não atualize a página até que seja concluído."
 
 #~ msgid ""
 #~ "Global Settings are primarily located in the right-hand side of \n"

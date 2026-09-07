@@ -25,10 +25,10 @@ if ( ! has_action('nectar_template_archive__' . $post_type) ) {
     }
 } else { ?>
     <div id="nectar-content-wrap" class="container-wrap">
-        <div class="container main-content">
+        <main class="container main-content">
             <?php do_action('nectar_before_blog_loop_row'); ?>
             <?php nectar_template_archive(); ?>
-        </div>
+        </main>
         <?php nectar_hook_before_container_wrap_close(); ?>
     </div>
 <?php }

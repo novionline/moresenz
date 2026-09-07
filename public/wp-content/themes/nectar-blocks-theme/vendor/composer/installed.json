@@ -2,17 +2,13 @@
     "packages": [
         {
             "name": "kirki-framework/kirki",
-            "version": "5.2.0-beta.1",
-            "version_normalized": "5.2.0.0-beta1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/themeum/kirki.git",
-                "reference": "v5.2.0-beta.1"
-            },
+            "version": "5.2.3",
+            "version_normalized": "5.2.3.0",
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/themeum/kirki/releases/download/v5.2.0-beta.1/kirki.5.2.0-beta.1.zip",
-                "reference": "v5.2.0-beta.1"
+                "url": "https://downloads.wordpress.org/plugin/kirki.5.2.3.zip",
+                "reference": "5.2.3",
+                "shasum": "618774ed04a5fb015babc8a11a72317fb60c0057"
             },
             "require": {
                 "php": ">=7.4"
@@ -23,8 +19,8 @@
         },
         {
             "name": "nectar/shared-php",
-            "version": "dev-feature/php-wp-version-requirements",
-            "version_normalized": "dev-feature/php-wp-version-requirements",
+            "version": "dev-main",
+            "version_normalized": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "../packages/nectar-php",

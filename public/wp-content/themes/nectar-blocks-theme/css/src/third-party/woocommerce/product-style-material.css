@@ -17,7 +17,7 @@ Description: Styles for the "Material" product style.
 }
 
 
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:1025px) {
   
 	/* 4 cols */
 	.woocommerce.columns-4 ul.products li.product.material, 
@@ -151,7 +151,7 @@ div[data-project-style="material"] .up-sells {
 	}
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 691px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
 	body .full-width-content .vc_span12 ul.products li.product.material, 
 	.woocommerce-page .full-width-content ul.products li.product.material {
 	    width: calc(33.33% - var(--nectar-product-gap, 10px));
@@ -171,7 +171,7 @@ div[data-project-style="material"] .up-sells {
 	    margin-left: 4%;
 	}
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	body .full-width-content .vc_span12 ul.products[data-product-style="material"] li.product, 
   body.woocommerce-page .full-width-content ul.products[data-product-style="material"] li.product {
 	    width: calc(50% - var(--nectar-product-gap, 10px));

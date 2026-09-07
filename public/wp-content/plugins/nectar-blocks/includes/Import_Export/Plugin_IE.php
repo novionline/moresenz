@@ -2,7 +2,8 @@
 
 namespace Nectar\Import_Export;
 
-use Nectar\Global_Settings\{Global_Colors,Code_Options,Global_Typography};
+use Nectar\Global_Settings\{Global_Colors,Code_Options,Global_Typography,Nectar_Plugin_Options};
+use Nectar\Render\Local_Google_Fonts;
 
 /**
  * Plugin_IE aka Import Export
@@ -12,7 +13,7 @@ use Nectar\Global_Settings\{Global_Colors,Code_Options,Global_Typography};
 class Plugin_IE {
   private static $instance = null;
 
-  public function __construct() {} 
+  public function __construct() {}
 
   /**
    * Creates an instance.
@@ -35,10 +36,12 @@ class Plugin_IE {
     $global_colors = Global_Colors::get_options();
     $global_typography = Global_Typography::get_options();
     $code = Code_Options::get_options();
+    $plugin_options = Nectar_Plugin_Options::get_options();
     $data = [
       'global_colors' => $global_colors,
       'global_typography' => $global_typography,
-      'code' => $code
+      'code' => $code,
+      'plugin_options' => $plugin_options
     ];
 
     return $data;
@@ -52,15 +55,41 @@ class Plugin_IE {
    */
   function import_options($parsed_import_data) {
     if (array_key_exists( 'global_colors', $parsed_import_data )) {
-      Global_Colors::update_options($parsed_import_data['global_colors']);
+      $import_colors = $parsed_import_data['global_colors'];
+
+      // Preserve saved palettes if the import doesn't include them.
+      if (! isset($import_colors['savedPalettes'])) {
+        $existing = Global_Colors::get_options();
+        if (is_array($existing) && isset($existing['savedPalettes'])) {
+          $import_colors['savedPalettes'] = $existing['savedPalettes'];
+        }
+      }
+
+      Global_Colors::update_options($import_colors);
     }
 
     if (array_key_exists( 'global_typography', $parsed_import_data )) {
       Global_Typography::update_options($parsed_import_data['global_typography']);
+
+      // Clear local Google fonts cache to trigger regeneration with new typography
+      if ( class_exists( Local_Google_Fonts::class ) && Local_Google_Fonts::is_enabled() ) {
+        Local_Google_Fonts::clear_cache();
+      }
     }
 
     if (array_key_exists( 'code', $parsed_import_data )) {
       Code_Options::update_options($parsed_import_data['code']);
+    }
+
+    if (array_key_exists( 'plugin_options', $parsed_import_data )) {
+      // Merge over existing values so newly-added keys keep their defaults
+      // when importing from an older export that doesn't include them.
+      $existing = Nectar_Plugin_Options::get_options();
+      $existing = is_array($existing) ? $existing : [];
+      $imported = is_array($parsed_import_data['plugin_options'])
+        ? $parsed_import_data['plugin_options']
+        : [];
+      Nectar_Plugin_Options::update_options(array_merge($existing, $imported));
     }
   }
 }

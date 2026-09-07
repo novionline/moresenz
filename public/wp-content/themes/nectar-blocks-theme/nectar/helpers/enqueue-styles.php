@@ -57,6 +57,7 @@ function nectar_main_styles() {
          wp_register_style( 'nectar-linecon', $nectar_get_template_directory_uri . '/css/linecon.css', '', $nectar_theme_version );
 
          // Header Formats.
+         $nectar_has_custom_header_nav_template = function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template();
          wp_register_style( 'nectar-header-layout-left', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/header/header-layout-left.css', '', $nectar_theme_version );
          wp_register_style( 'nectar-header-layout-left-aligned', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/header/header-layout-menu-left-aligned.css', '', $nectar_theme_version );
          wp_register_style( 'nectar-header-layout-centered-bottom-bar', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/header/header-layout-centered-bottom-bar.css', '', $nectar_theme_version );
@@ -78,6 +79,7 @@ function nectar_main_styles() {
 
          // Off canvas menu styles.
         wp_register_style( 'nectar-ocm-core', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/off-canvas/core.css', '', $nectar_theme_version );
+        wp_register_style( 'nectar-ocm-header-builder-vars', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/off-canvas/header-builder-vars.css', '', $nectar_theme_version );
         wp_register_style( 'nectar-ocm-slide-out-right-hover', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/off-canvas/slide-out-right-hover.css', '', $nectar_theme_version );
         wp_register_style( 'nectar-ocm-fullscreen-legacy', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/off-canvas/fullscreen-legacy.css', '', $nectar_theme_version );
         wp_register_style( 'nectar-ocm-fullscreen-split', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/off-canvas/fullscreen-split.css', '', $nectar_theme_version );
@@ -119,40 +121,44 @@ function nectar_main_styles() {
      // Main NectarBlocks styles.
      wp_enqueue_style( 'main-styles' );
 
-     // Header layouts.
-     $header_format = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default';
+     // Header layouts — skip when header builder manages the header.
+     if ( ! $nectar_has_custom_header_nav_template ) {
 
-     if( $header_format === 'left-header' ) {
-         wp_enqueue_style( 'nectar-header-layout-left' );
-     }
-    else if( $header_format === 'menu-left-aligned' ) {
-        wp_enqueue_style( 'nectar-header-layout-left-aligned' );
-    }
-     else if( $header_format === 'centered-menu-bottom-bar' ) {
-         wp_enqueue_style( 'nectar-header-layout-centered-bottom-bar' );
-     }
-     else if ( $header_format === 'centered-menu-under-logo' ) {
-         wp_enqueue_style( 'nectar-header-layout-centered-menu-under-logo' );
-     }
-     else if ( $header_format === 'centered-menu' ) {
-         wp_enqueue_style( 'nectar-header-layout-centered-menu' );
-     }
-     else if( $header_format === 'centered-logo-between-menu-alt' ) {
-         wp_enqueue_style( 'nectar-header-layout-centered-logo-between-menu-alt' );
-     }
+       $header_format = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default';
 
-    // Secondary navigation bar.
-    $header_secondary_format = ( ! empty( $nectar_options['header_layout'] ) ) ? $nectar_options['header_layout'] : 'standard';
-    if( $header_secondary_format === 'header_with_secondary') {
-        wp_enqueue_style( 'nectar-header-secondary-nav' );
-    }
+       if( $header_format === 'left-header' ) {
+           wp_enqueue_style( 'nectar-header-layout-left' );
+       }
+       else if( $header_format === 'menu-left-aligned' ) {
+           wp_enqueue_style( 'nectar-header-layout-left-aligned' );
+       }
+       else if( $header_format === 'centered-menu-bottom-bar' ) {
+           wp_enqueue_style( 'nectar-header-layout-centered-bottom-bar' );
+       }
+       else if ( $header_format === 'centered-menu-under-logo' ) {
+           wp_enqueue_style( 'nectar-header-layout-centered-menu-under-logo' );
+       }
+       else if ( $header_format === 'centered-menu' ) {
+           wp_enqueue_style( 'nectar-header-layout-centered-menu' );
+       }
+       else if( $header_format === 'centered-logo-between-menu-alt' ) {
+           wp_enqueue_style( 'nectar-header-layout-centered-logo-between-menu-alt' );
+       }
 
-     // Permanent transparent navigation option.
-     $header_trans = ( ! empty( $nectar_options['transparent-header'] ) ) ? $nectar_options['transparent-header'] : '0';
-     $header_perma_trans = ( ! empty( $nectar_options['header-permanent-transparent'] ) ) ? $nectar_options['header-permanent-transparent'] : '0';
+       // Secondary navigation bar.
+       $header_secondary_format = ( ! empty( $nectar_options['header_layout'] ) ) ? $nectar_options['header_layout'] : 'standard';
+       if( $header_secondary_format === 'header_with_secondary') {
+           wp_enqueue_style( 'nectar-header-secondary-nav' );
+       }
 
-     if( $header_trans === '1' && $header_perma_trans === '1' ) {
-         wp_enqueue_style( 'nectar-header-perma-transparent' );
+       // Permanent transparent navigation option.
+       $header_trans = ( ! empty( $nectar_options['transparent-header'] ) ) ? $nectar_options['transparent-header'] : '0';
+       $header_perma_trans = ( ! empty( $nectar_options['header-permanent-transparent'] ) ) ? $nectar_options['header-permanent-transparent'] : '0';
+
+       if( $header_trans === '1' && $header_perma_trans === '1' ) {
+           wp_enqueue_style( 'nectar-header-perma-transparent' );
+       }
+
      }
 
      // Single posts.
@@ -178,6 +184,14 @@ function nectar_main_styles() {
     }
     if( defined('WPFORMS_VERSION') ) {
         wp_enqueue_style( 'nectar-wpforms', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/third-party/wpforms.css', '', $nectar_theme_version );
+    }
+    if( defined('FLUENTFORM') ) {
+        NectarInlineAssets::css( 'main-styles', 'third-party/fluentforms.css' );
+    }
+    $form_style = ( ! empty( $nectar_options['form-style'] ) ) ? $nectar_options['form-style'] : 'default';
+    $floating_labels = ( ! empty( $nectar_options['form-floating-labels'] ) && '1' === $nectar_options['form-floating-labels'] ) ? true : false;
+    if( 'minimal' === $form_style && $floating_labels ) {
+        NectarInlineAssets::css( 'main-styles', 'nectar-floating-labels.css' );
     }
     if( class_exists( 'bbPress' ) ) {
         wp_enqueue_style( 'nectar-basic-bbpress', $nectar_get_template_directory_uri . '/css/' . $src_dir . '/third-party/bbpress.css', '', $nectar_theme_version );
@@ -635,7 +649,18 @@ add_action( 'wp_head', 'nectar_preload_key_requests', 5 );
          // Off canvas menu.
          wp_enqueue_style( 'nectar-ocm-core' );
 
+         if ( function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template() ) {
+            wp_enqueue_style( 'nectar-ocm-header-builder-vars' );
+
+            // Override CSS variable defaults with customizer values.
+            $ocm_var_css = nectar_ocm_customizer_var_overrides();
+            if ( $ocm_var_css ) {
+               wp_add_inline_style( 'nectar-ocm-header-builder-vars', $ocm_var_css );
+            }
+         }
+
          $header_off_canvas_style = ( isset( $nectar_options['header-slide-out-widget-area-style'] ) ) ? $nectar_options['header-slide-out-widget-area-style'] : 'slide-out-from-right';
+         $header_off_canvas_style = nectar_get_ocm_style_with_header_builder_fallback( $header_off_canvas_style );
 
          $legacy_double_menu = nectar_legacy_mobile_double_menu();
 
@@ -650,8 +675,7 @@ add_action( 'wp_head', 'nectar_preload_key_requests', 5 );
              wp_enqueue_style( 'nectar-ocm-fullscreen-split' );
          }
          else if( $header_off_canvas_style === 'slide-out-from-right' ) {
-            wp_enqueue_style('nectar-ocm-slide-out-right-material');
-
+            wp_enqueue_style( 'nectar-ocm-slide-out-right-material' );
          }
 
          if( $header_off_canvas_style === 'simple' || true === $legacy_double_menu ) {
@@ -667,12 +691,13 @@ if( ! function_exists('nectar_deferred_style_list') ) {
         return [
             'main-styles-non-critical',
             'nectar-woocommerce-non-critical',
-            'nectar-ocm-simple',
+            'nectar-ocm-core',
+            'nectar-ocm-header-builder-vars',
+            'nectar-ocm-slide-out-right-hover',
+            'nectar-ocm-fullscreen-legacy',
             'nectar-ocm-fullscreen-split',
             'nectar-ocm-slide-out-right-material',
-            'nectar-ocm-fullscreen-legacy',
-            'nectar-ocm-slide-out-right-hover',
-            'nectar-ocm-core',
+            'nectar-ocm-simple',
             'fancyBox',
             'magnific',
         ];
@@ -688,9 +713,27 @@ if( ! function_exists('nectar_deferred_mod_style_attrs') ) {
 
         if ( in_array($handle, $deferred_styles) ) {
 
-            $modded_stylesheet = str_replace( '<link', '<link data-pagespeed-no-defer data-nowprocket data-wpacu-skip data-no-optimize data-noptimize', $tag );
+            // Only defer if not already modified by another plugin.
+            if ( false === strpos( $tag, 'onload=' ) ) {
 
-            return $modded_stylesheet;
+                // Non-render-blocking: load as print, swap to all on load.
+                // Handle both single and double quoted media attributes.
+                $tag = str_replace(
+                    [ "media='all'", 'media="all"' ],
+                    [ "media='print' onload=\"this.media='all'\"", 'media="print" onload="this.media=\'all\'"' ],
+                    $tag
+                );
+
+                // Noscript fallback for non-JS environments.
+                $noscript_tag = preg_replace( '/\s*onload=["\'][^"\']*["\']/', '', $tag );
+                $noscript_tag = str_replace( [ "media='print'", 'media="print"' ], [ "media='all'", 'media="all"' ], $noscript_tag );
+                $tag .= '<noscript>' . $noscript_tag . '</noscript>' . "\n";
+            }
+
+            // Perf plugin attributes prevent double-deferral.
+            $tag = str_replace( '<link', '<link data-pagespeed-no-defer data-nowprocket data-wpacu-skip data-no-optimize data-noptimize', $tag );
+
+            return $tag;
         }
 
         return $tag;

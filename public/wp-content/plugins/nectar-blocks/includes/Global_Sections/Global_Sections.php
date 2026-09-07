@@ -3,6 +3,7 @@
 namespace Nectar\Global_Sections;
 
 use Nectar\Global_Sections\Global_Sections_Register;
+use Nectar\Utilities\FlatMap;
 
 if ( ! defined('ABSPATH') ) {
   exit;
@@ -30,6 +31,21 @@ class Global_Sections {
       // EX: {key: 'rzksY53n0HOAERBfud0bC', include: true, condition: 'is_search'}
       'conditions' => [],
     ];
+  }
+
+  /**
+   * Capability required to assign display locations/conditions.
+   * @since 3.2.0
+   * @return string
+   */
+  public static function assign_capability(): string {
+    return self::sanitize_assign_capability(
+        apply_filters( 'nectar_global_sections_assign_capability', 'manage_options' )
+    );
+  }
+
+  private static function sanitize_assign_capability( $capability ): string {
+    return is_string( $capability ) && $capability !== '' ? $capability : 'manage_options';
   }
 
   /**
@@ -150,6 +166,33 @@ class Global_Sections {
     ];
 
     return $options;
+  }
+
+  /**
+   * Hook names a global section may be assigned to.
+   *
+   * The stored location is used as an add_action() hook name and printed into the
+   * wrapper's class attribute, so it is only ever trusted after passing through
+   * this allowlist — the assignment capability is filterable, so the meta is not
+   * necessarily admin-authored. Flattened from get_locations() (the same list the
+   * editor offers) so the two cannot drift; sites that hook global sections into
+   * their own template hooks can extend it via the filter.
+   *
+   * @since 3.2.0
+   * @return string[]
+   */
+  public static function allowed_location_hooks(): array {
+    $locations = FlatMap::flatMap(
+        fn($group) => $group['options'],
+        self::get_locations()
+    );
+
+    $hooks = array_column( $locations, 'value' );
+
+    return array_values( array_filter(
+        (array) apply_filters( 'nectar_global_section_allowed_locations', $hooks ),
+        fn($hook) => is_string( $hook ) && '' !== $hook
+    ) );
   }
 
   /**

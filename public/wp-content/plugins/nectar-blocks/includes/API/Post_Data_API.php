@@ -4,7 +4,7 @@ namespace Nectar\API;
 
 use Nectar\API\{Router, API_Route};
 use Nectar\Dynamic_Data\Sources\ACF;
-use Nectar\Nectar_Templates\Nectar_Templates;
+use Nectar\Nectar_Templates\{Nectar_Templates, Template_Default_Content};
 use Nectar\Global_Sections\Global_Sections;
 /**
  * Post Data API
@@ -127,6 +127,21 @@ class Post_Data_API implements API_Route {
           'required' => false,
           'description' => 'Term used to search posts by ID, title, or slug.'
         ],
+      ]
+    ]);
+
+    Router::add_route($this::API_BASE . '/template-default-content', [
+      'callback' => [$this, 'get_template_default_content'],
+      'methods' => 'GET',
+      'permission_callback' => function() {
+        return Access_Utils::can_edit_posts();
+      },
+      'args' => [
+        'templateKey' => [
+          'type' => 'string',
+          'required' => true,
+          'description' => 'Template key (e.g. nectar_template_wc__cart).'
+        ]
       ]
     ]);
 
@@ -719,5 +734,30 @@ class Post_Data_API implements API_Route {
     }
 
     return new \WP_REST_Response($results, 200);
+  }
+
+  /**
+   * Get default content for a Theme Builder template.
+   *
+   * @since 3.0
+   * @param \WP_REST_Request $request
+   * @return \WP_REST_Response
+   */
+  public function get_template_default_content(\WP_REST_Request $request) {
+    $template_key = sanitize_text_field($request->get_param('templateKey'));
+
+    if ( ! Template_Default_Content::has_default_content($template_key) ) {
+      return new \WP_REST_Response([
+        'success' => false,
+        'message' => 'No default content available for this template key.',
+      ], 400);
+    }
+
+    $content = Template_Default_Content::get_default_content($template_key);
+
+    return new \WP_REST_Response([
+      'success' => true,
+      'content' => $content,
+    ], 200);
   }
 }

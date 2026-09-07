@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header();
 
+global $nectar_options;
+
 $page_404_font_color = ( ! empty( $nectar_options['page-404-font-color'] ) ) ? $nectar_options['page-404-font-color'] : '';
 $page_404_bg_image = ( ! empty( $nectar_options['page-404-bg-image'] ) && isset( $nectar_options['page-404-bg-image'] ) ) ? nectar_options_img( $nectar_options['page-404-bg-image'] ) : null;
 $page_404_bg_image_overlay = ( ! empty( $nectar_options['page-404-bg-image-overlay-color'] ) ) ? $nectar_options['page-404-bg-image-overlay-color'] : '';

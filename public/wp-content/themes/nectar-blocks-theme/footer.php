@@ -23,38 +23,24 @@ if ( $using_footer_widget_area === false && $using_footer_copyright === false ) 
 nectar_hook_before_footer_open();
 
 if ( $using_footer_area ) {
-    ?>
-
-    <div id="footer-outer" <?php nectar_footer_attributes(); ?>>
-        
+    ?><div id="footer-outer" <?php nectar_footer_attributes(); ?>>
         <?php
-
         nectar_hook_after_footer_open();
-
         get_template_part( 'includes/partials/footer/main-widgets' );
-
         get_template_part( 'includes/partials/footer/copyright-bar' );
-
         ?>
-        
     </div>
-
     <?php
 }
 nectar_hook_before_outer_wrap_close();
 
 get_template_part( 'includes/partials/footer/off-canvas-navigation' );
+get_template_part( 'includes/partials/footer/back-to-top' );
 
-?>
+nectar_hook_after_wp_footer();
+nectar_hook_before_body_close();
 
-<?php
-
-    get_template_part( 'includes/partials/footer/back-to-top' );
-
-    nectar_hook_after_wp_footer();
-    nectar_hook_before_body_close();
-
-    wp_footer();
+wp_footer();
 ?>
 </body>
 </html>

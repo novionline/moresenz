@@ -8,10 +8,21 @@ use Nectar\Global_Settings\{
   Nectar_Blocks_Options,
   Nectar_Plugin_Options
 };
+use Nectar\Render\Blocks\AccordionSection\AccordionSection;
+use Nectar\Render\Blocks\Button\Button;
+use Nectar\Render\Blocks\Icon\Icon;
+use Nectar\Render\Blocks\IconListItem\IconListItem;
 use Nectar\Render\Blocks\PostContent\PostContent;
+use Nectar\Render\Blocks\Tabs\Tabs;
 use Nectar\Render\Blocks\PostGrid\PostGrid;
 use Nectar\Render\Blocks\TaxonomyGrid\TaxonomyGrid;
 use Nectar\Render\Blocks\TaxonomyTerms\TaxonomyTerms;
+use Nectar\Render\Blocks\HeaderActions\HeaderActions;
+use Nectar\Render\Blocks\HeaderActionAccount\HeaderActionAccount;
+use Nectar\Render\Blocks\WorldTime\WorldTime;
+use Nectar\Nectar_Templates\Nectar_Templates;
+use Nectar\Global_Sections\Global_Sections;
+use Nectar\Licensing\Token_Service;
 
 /**
  * Blocks Editor configuration
@@ -29,7 +40,13 @@ class Blocks {
     self::$block_list = [
       'button' => [
         'deps' => [],
-        'frontend_style' => true
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new Button($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => []
       ],
       'row' => [
         'deps' => [],
@@ -53,7 +70,13 @@ class Blocks {
       ],
       'icon' => [
         'deps' => [],
-        'frontend_style' => true
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new Icon($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => []
       ],
       'divider' => [
         'deps' => [],
@@ -83,9 +106,120 @@ class Blocks {
         'deps' => [],
         'frontend_style' => true
       ],
-      'tabs' => [
+      'ticker' => [
         'deps' => [],
         'frontend_style' => true
+      ],
+      'world-time' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new WorldTime($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => [
+          'isPreview' => [
+            'type' => 'boolean',
+            'default' => false
+          ],
+          'blockId' => [
+            'type' => 'string',
+            'default' => '',
+          ],
+          'city' => [
+            'type' => 'string',
+            'default' => 'America/New_York'
+          ],
+          'timeFormat' => [
+            'type' => 'string',
+            'default' => '12h'
+          ],
+          'dateFormat' => [
+            'type' => 'string',
+            'default' => 'medium'
+          ],
+          'datePosition' => [
+            'type' => 'string',
+            'default' => 'after'
+          ],
+          'dateSize' => [
+            'type' => 'string',
+            'default' => 'same'
+          ],
+          'showSeconds' => [
+            'type' => 'boolean',
+            'default' => false
+          ],
+          'showDate' => [
+            'type' => 'boolean',
+            'default' => true
+          ],
+          'showTimezone' => [
+            'type' => 'boolean',
+            'default' => true
+          ],
+          'typography' => [
+            'type' => 'string',
+            'default' => ''
+          ],
+          'fontColor' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'fontSettings' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'spacing' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'displaySimple' => [
+            'type' => 'object',
+            'default' => [
+              'desktop' => [
+                'displayType' => 'auto'
+              ],
+              'tablet' => [],
+              'mobile' => []
+            ]
+          ],
+          'position' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'effects' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'transform' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'size' => [
+            'type' => 'object',
+            'default' => []
+          ],
+          'animation' => [
+            'type' => 'object',
+            'default' => []
+          ]
+        ]
+      ],
+      'ticker-item' => [
+        'deps' => [],
+        'frontend_style' => false
+      ],
+      'tabs' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new Tabs($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => []
       ],
       'tab-section' => [
         'deps' => [],
@@ -97,7 +231,13 @@ class Blocks {
       ],
       'icon-list-item' => [
         'deps' => [],
-        'frontend_style' => true
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new IconListItem($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => []
       ],
       'testimonial' => [
         'deps' => [],
@@ -115,9 +255,157 @@ class Blocks {
         'deps' => [],
         'frontend_style' => true
       ],
-      'accordion-section' => [
+      'table-of-contents' => [
         'deps' => [],
         'frontend_style' => true
+      ],
+      'accordion-section' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new AccordionSection($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => []
+      ],
+      'navigation' => [
+        'deps' => [],
+        'frontend_style' => false
+      ],
+      'megamenu' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        // Megamenu lives inside core/navigation-submenu, whose render rebuilds inner
+        // HTML and drops siblings of the megamenu div — a prepended inline <style>
+        // would be stripped. Deliver as a <link> in <head> instead.
+        'frontend_style_delivery' => 'link',
+        'render_callback' => function($block_attributes, $content) {
+          $block = new \Nectar\Render\Blocks\Megamenu\Megamenu($block_attributes);
+          return $block->render();
+        },
+        'attributes' => [
+          'blockId' => [
+            'type' => 'string',
+            'default' => '',
+          ],
+          'sourceType' => [
+            'type' => 'string',
+            'default' => 'global-section',
+          ],
+          'sourceId' => [
+            'type' => ['number', 'string'],
+            'default' => 0,
+          ],
+          'sourceTitle' => [
+            'type' => 'string',
+            'default' => '',
+          ],
+          'size' => [
+            'type' => 'string',
+            'default' => 'fullwidth',
+          ],
+          'containedWidth' => [
+            'type' => 'object',
+            'properties' => [
+              'value' => [
+                'type' => 'number',
+              ],
+              'unit' => [
+                'type' => 'string',
+              ],
+            ],
+            'default' => [
+              'value' => 600,
+              'unit' => 'px'
+            ]
+          ]
+        ]
+      ],
+      'header-actions' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new HeaderActions($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => [
+          'blockId' => [
+            'type' => 'string',
+            'default' => '',
+          ],
+          'iconSize' => [
+            'type' => 'object',
+            'default' => [
+              'desktop' => [ 'value' => 22 ],
+              'tablet' => [],
+              'mobile' => [],
+            ],
+          ],
+          'itemGap' => [
+            'type' => 'object',
+            'default' => [
+              'desktop' => [ 'value' => 10 ],
+              'tablet' => [],
+              'mobile' => [],
+            ],
+          ],
+          'iconColor' => [
+            'type' => 'object',
+            'default' => [
+              'desktop' => [
+                'type' => 'solid',
+                'solidValue' => '',
+                'gradientValue' => '',
+                'solidGlobalColorData' => null,
+                'gradientGlobalColorData' => null,
+              ],
+              'tablet' => [],
+              'mobile' => [],
+              'hover' => [],
+            ],
+          ]
+        ]
+      ],
+      'search' => [
+        'deps' => [],
+        'frontend_style' => true,
+        'attributes' => [
+          'blockId' => [
+            'type' => 'string',
+            'default' => ''
+          ]
+        ]
+      ],
+      'header-action-account' => [
+        'deps' => [],
+        'isDynamic' => true,
+        'frontend_style' => true,
+        'render_callback' => function($block_attributes, $content) {
+          $block = new HeaderActionAccount($block_attributes, $content);
+          return $block->render();
+        },
+        'attributes' => [
+          'isPreview' => [
+            'type' => 'boolean',
+            'default' => false
+          ],
+          'iconStyle' => [
+            'type' => 'string',
+            'default' => 'default'
+          ],
+          'link' => [
+            'type' => 'object',
+            'default' => [
+              'href' => null,
+              'openInNewTab' => false,
+              'clickEvent' => 'regular',
+              'customAttributes' => []
+            ]
+          ]
+        ]
       ],
       'flex-box' => [
         'deps' => [],
@@ -135,10 +423,6 @@ class Blocks {
           'blockId' => [
             'type' => 'string',
             'default' => '',
-          ],
-          'shouldRender' => [
-            'type' => 'boolean',
-            'default' => false
           ]
         ]
       ],
@@ -154,6 +438,21 @@ class Blocks {
           'isPreview' => [
             'type' => 'boolean',
             'default' => false
+          ],
+          // Switches the render path to use bundled demo posts instead of
+          // querying the user's site. Set by the template library so cards
+          // look populated even on fresh installs with no posts. MUST stay
+          // registered: ServerSideRender sends every attribute over REST
+          // and WP rejects requests containing unregistered parameters with
+          // "Invalid parameter(s): attributes", which would break every
+          // post-grid render (preview AND inserted).
+          'useDemoPosts' => [
+            'type' => 'boolean',
+            'default' => false
+          ],
+          'demoFixtureMode' => [
+            'type' => 'string',
+            'default' => 'shuffled'
           ],
           'blockId' => [
             'type' => 'string',
@@ -259,6 +558,13 @@ class Blocks {
                 'playback' => 'autoplay',
                 'visibility' => 'always'
               ]
+            ]
+          ],
+          'dynamicLink' => [
+            'type' => 'object',
+            'default' => [
+              'enabled' => false,
+              'source' => ''
             ]
           ],
           'animation' => [
@@ -664,9 +970,8 @@ class Blocks {
         $asset_file['dependencies'] = \array_diff($asset_file['dependencies'], ['wp-edit-post', 'wp-editor']);
       }
 
-      wp_enqueue_script( 'gsap-js', NECTAR_BLOCKS_PLUGIN_PATH . '/assets/gsap/gsap.min.js', [], '3.12.7', true );
-      wp_enqueue_script( 'gsap-scroll-trigger-js', NECTAR_BLOCKS_PLUGIN_PATH . '/assets/gsap/ScrollTrigger.min.js', ['gsap-js'], '3.12.7', true );
-      wp_enqueue_script( 'gsap-custom-ease-js', NECTAR_BLOCKS_PLUGIN_PATH . '/assets/gsap/CustomEase.min.js', ['gsap-js'], '3.12.7', true );
+      // Single GSAP bundle — gsap core + ScrollTrigger + CustomEase in one file.
+      wp_enqueue_script( 'gsap-js', NECTAR_BLOCKS_PLUGIN_PATH . '/assets/gsap/gsap.bundle.min.js', [], '3.12.7', true );
 
       $editor_file_version = $asset_file['version'];
       if (NECTAR_BUILD_MODE === 'production') {
@@ -683,7 +988,20 @@ class Blocks {
       // Pass user capability to JavaScript
       wp_localize_script('nectar-editor-global', 'nectarblocksEnv', [
         'canUnfilteredHtml' => current_user_can('unfiltered_html'),
+        'canAssignGlobalSections' => current_user_can( Global_Sections::assign_capability() ),
       ]);
+
+      // Per-device fluid root font-size clamp formulas — only when the
+      // root value actually contains `vw`. JS applies these as inline
+      // style on the canvas `<html>` and strips them during a resize drag
+      // (see editor/fluid-root-font-size.ts). Empty array when the root
+      // config is non-fluid, in which case the stylesheet emits normally
+      // and JS does nothing.
+      wp_localize_script(
+          'nectar-editor-global',
+          'nectarblocksFluidRoot',
+          Global_Typography::get_editor_fluid_root_data()
+      );
 
       // Localize the script with translations.
       wp_set_script_translations( 'nectar-editor-global', 'nectar-blocks', NECTAR_BLOCKS_ROOT_DIR_PATH . '/languages'  );
@@ -694,7 +1012,7 @@ class Blocks {
     // Google fonts.
     $google_fonts = Global_Typography::create_google_fonts_link('editor');
     if ( $google_fonts ) {
-      wp_enqueue_style( 'nectar-blocks-google-fonts', $google_fonts, [], null );
+      wp_enqueue_style( 'nectar-blocks-google-fonts', esc_url( (string) $google_fonts ), [], null );
     }
     // Main.
     wp_enqueue_style( 'nectar-editor-global', NECTAR_BLOCKS_BUILD_PATH . '/editor.css', [], NECTAR_BLOCKS_VERSION);
@@ -708,10 +1026,67 @@ class Blocks {
       wp_add_inline_style( 'nectar-front-end-render', $global_css );
     }
 
+    // PERF: fluid `:root { font-size }` boot stylesheet for the editor.
+    //
+    // Why this exists: a `:root { font-size: clamp(... + Nvw, ...) }` rule
+    // living in any stylesheet makes the browser re-evaluate it on every
+    // viewport-width tick (window resize, sidebar slide, device preview
+    // switch). Because every `rem` value depends on root font-size, that
+    // recalc cascades through every rem-using element in the canvas —
+    // measured at ~3000ms per drag on heavy docs. The cost holds even if
+    // a higher-specificity static override wins, because the browser keeps
+    // the fluid rule live for invalidation tracking.
+    //
+    // Fix: the main editor stylesheet OMITS the `:root` rule (when fluid).
+    // We emit it HERE, in its own <style> element, for first-paint only.
+    // editor/fluid-root-font-size.ts removes this element at module init
+    // and owns the value as inline style on the canvas <html>. With no
+    // `vw` rule live in any stylesheet, the cascade is gone. During a
+    // drag JS replaces the inline value with the current computed pixel
+    // (still no `vw`), then restores the clamp on settle.
+    //
+    // Defensive guards below: every value is type-checked before being
+    // interpolated into CSS, so a malformed option or a future shape
+    // change can't emit broken CSS or trigger PHP warnings.
+    $fluid_root_boot_data = method_exists('Nectar\\Global_Settings\\Global_Typography', 'get_editor_fluid_root_data')
+      ? Global_Typography::get_editor_fluid_root_data()
+      : [];
+    if ( is_array($fluid_root_boot_data) && ! empty($fluid_root_boot_data) ) {
+      $boot_css_rules = '';
+      foreach ( $fluid_root_boot_data as $device => $clamp ) {
+        if ( ! is_string($device) || ! is_string($clamp) || $clamp === '' ) {
+          continue;
+        }
+        if ( ! isset(Global_Typography::$devices[$device]) ) {
+          continue;
+        }
+        $media = Global_Typography::$devices[$device];
+        if ( ! is_string($media) || $media === '' ) {
+          continue;
+        }
+        $boot_css_rules .= $media . ' { :root { font-size: ' . $clamp . '; } }';
+      }
+      if ( $boot_css_rules !== '' ) {
+        wp_register_style( 'nectar-blocks-fluid-root-boot', false );
+        wp_enqueue_style( 'nectar-blocks-fluid-root-boot' );
+        wp_add_inline_style( 'nectar-blocks-fluid-root-boot', $boot_css_rules );
+      }
+    }
+
     // Uploaded fonts.
     $uploaded_fonts = Global_Typography::create_uploaded_fonts_style('editor');
     if ( $uploaded_fonts ) {
       wp_add_inline_style( 'nectar-front-end-render', $uploaded_fonts);
+    }
+
+    // OCM template editor background.
+    // Uses its own handle so the editor's global-styles-canvas-watcher doesn't
+    // overwrite it when it replaces nectar-front-end-render-inline-css contents.
+    $ocm_editor_css = $this->get_ocm_template_editor_css();
+    if ( $ocm_editor_css ) {
+      wp_register_style( 'nectar-ocm-editor-bg', false );
+      wp_enqueue_style( 'nectar-ocm-editor-bg' );
+      wp_add_inline_style( 'nectar-ocm-editor-bg', $ocm_editor_css );
     }
 
     // Responsive toolbar
@@ -722,11 +1097,121 @@ class Blocks {
     ];
     wp_localize_script('nectar-editor-global', 'nectar_i18n', $nectar_i18n_vars);
 
+    $options = Nectar_Blocks_Options::get_options();
     $nectar_security = [
-      'token' => Nectar_Blocks_Options::get_options()['token'] ?? '',
+      'token' => is_array($options) && isset($options['token']) ? $options['token'] : '',
+      // Reported on the Template Library fetch for the JWT V2 `aud` binding.
+      // Resolved via Token_Service::current_hostname() rather than
+      // window.location in the editor: same source and canonical form as
+      // /license/register records, and wp-admin can legitimately sit on a
+      // different host than the site itself (WP_SITEURL vs WP_HOME).
+      // '' when unresolvable — the client then omits the field entirely.
+      'hostname' => Token_Service::current_hostname()
     ];
     wp_localize_script('nectar-editor-global', 'nectar_security', $nectar_security);
+
+    // OCM (off-canvas menu) colors from the theme customizer. Exposed so the
+    // template library can paint navigation-category preview cards with the
+    // same background — independent of which post is being edited. Empty
+    // strings when the theme isn't active or the customizer hasn't set them;
+    // the JS side treats that as "skip the inline style".
+    wp_localize_script('nectar-editor-global', 'nectarOcmColors', $this->get_ocm_colors());
  }
+
+  /**
+   * Read OCM bg/text colors from the customizer. Theme-active gated.
+   * Returns empty strings (not nulls) so the localized object shape is stable
+   * and the JS consumer can just truthy-check before applying.
+   */
+  private function get_ocm_colors(): array {
+    $empty = [ 'background' => '', 'text' => '' ];
+
+    $theme_active = class_exists( '\NectarThemeManager' )
+      || ( defined( 'NECTAR_BLOCKS_FORCE_THEME_ACTIVE' ) && NECTAR_BLOCKS_FORCE_THEME_ACTIVE );
+    if ( ! $theme_active || ! function_exists( 'get_nectar_theme_options' ) ) {
+      return $empty;
+    }
+
+    $opts = get_nectar_theme_options();
+    $bg = $opts['header-slide-out-widget-area-background-color'] ?? '';
+    $text = $opts['header-slide-out-widget-area-color'] ?? '';
+
+    return [
+      'background' => self::is_safe_css_color( $bg ) ? $bg : '',
+      'text' => self::is_safe_css_color( $text ) ? $text : '',
+    ];
+  }
+
+  /**
+   * Generate editor background CSS when editing an Off Canvas Menu template.
+   *
+   * Reads the OCM background color from the customizer. Only applies when the
+   * Nectar Blocks theme is active (the customizer option lives in the theme).
+   *
+   * @since 3.0.0
+   * @return string CSS rules or empty string.
+   */
+  private function get_ocm_template_editor_css(): string {
+    global $pagenow;
+
+    // Theme must be active for the customizer value to exist.
+    $theme_active = class_exists( '\NectarThemeManager' )
+      || ( defined( 'NECTAR_BLOCKS_FORCE_THEME_ACTIVE' ) && NECTAR_BLOCKS_FORCE_THEME_ACTIVE );
+
+    if ( ! $theme_active || ! function_exists( 'get_nectar_theme_options' ) ) {
+      return '';
+    }
+
+    if ( $pagenow !== 'post.php' || empty( $_GET['post'] ) ) {
+      return '';
+    }
+
+    $post_id = absint( $_GET['post'] );
+    if ( get_post_type( $post_id ) !== Nectar_Templates::POST_TYPE ) {
+      return '';
+    }
+
+    $meta = get_post_meta( $post_id, Nectar_Templates::META_KEY, true );
+    if ( ! is_array( $meta ) || ( $meta['templatePart'] ?? '' ) !== 'nectar_template__ocm' ) {
+      return '';
+    }
+
+    $opts = get_nectar_theme_options();
+    $bg = $opts['header-slide-out-widget-area-background-color'] ?? '';
+    $text = $opts['header-slide-out-widget-area-color'] ?? '';
+
+    if ( empty( $bg ) || ! self::is_safe_css_color( $bg ) ) {
+      return '';
+    }
+
+    // Scope to the actual post-editor canvas iframe only. Block previews
+    // (template library, inserter previews) share the same body classes,
+    // so without :has() the OCM background bleeds into every preview iframe
+    // on the page. The post-title wrapper is unique to the canvas. Template
+    // library navigation-card backgrounds are applied separately, per-card,
+    // by Template.tsx using the localized color (see `nectarOcmColors`).
+    $body = '.editor-styles-wrapper.block-editor-iframe__body:has(.edit-post-visual-editor__post-title-wrapper)';
+    $title = $body . ' .edit-post-visual-editor__post-title-wrapper';
+    $layout = $body . ' .block-editor-block-list__layout';
+    $css = "{$body} { --nectar-overall-bg-color: {$bg}; background-color: var(--nectar-overall-bg-color); } ";
+    $css .= "{$layout} { min-height: calc(100vh - 56px); } ";
+
+    // Text / title color — only override when explicitly set in customizer.
+    if ( ! empty( $text ) && self::is_safe_css_color( $text ) ) {
+      $css .= "{$body} { --nectar-overall-font-color: {$text}; color: var(--nectar-overall-font-color); } ";
+      $css .= "{$body} .block-editor-block-list__layout { color: var(--nectar-overall-font-color); } ";
+      $css .= "{$title}, {$title} h1 { color: var(--nectar-overall-font-color); } ";
+    }
+
+    return $css;
+  }
+
+  /**
+   * Check if a value is a hex color or a CSS variable reference.
+   */
+  private static function is_safe_css_color( string $value ): bool {
+    return sanitize_hex_color( $value ) || preg_match( '/^var\(--[\w-]+\)$/', $value );
+  }
 
   /**
    * Add Nectar block category.
@@ -914,6 +1399,20 @@ class Blocks {
 
   function shared_attributes( &$tags, $tag ) {
     $tags[$tag]['data-nectar-block-animation'] = true;
+    // Empty slot marker emitted by icon-bearing blocks' save() (icon, button,
+    // tabs, accordion-section, icon-list-item); the SVG is injected
+    // server-side at render. Must be allowlisted or wp_kses_post() strips it on
+    // save for users without `unfiltered_html` (e.g. multisite Editors),
+    // which kills icon render and trips block validation.
+    $tags[$tag]['data-nectar-icon-slot'] = true;
+    // Self-describing identity on the slot marker (library + icon name) so the
+    // render_callback can resolve the SVG server-side even when the `icon`
+    // attribute is dropped from the delimiter for equalling its default. Must
+    // survive wp_kses_post() for restricted-role saves alongside the slot attr.
+    $tags[$tag]['data-icon-library'] = true;
+    $tags[$tag]['data-icon-name'] = true;
+    $tags[$tag]['aria-controls'] = true;
+    $tags[$tag]['aria-selected'] = true;
     $tags[$tag]['aria-hidden'] = true;
     $tags[$tag]['aria-expanded'] = true;
     $tags[$tag]['aria-level'] = true;

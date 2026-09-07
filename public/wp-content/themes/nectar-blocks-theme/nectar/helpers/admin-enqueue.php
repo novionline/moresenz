@@ -78,7 +78,7 @@ function nectar_metabox_scripts() {
             'nectar-colorpicker-js',
             NECTAR_FRAMEWORK_DIRECTORY . 'assets/js/colorpicker.js',
             [ 'jquery','wp-color-picker' ],
-            '15.1',
+            '15.2',
             true
         );
 

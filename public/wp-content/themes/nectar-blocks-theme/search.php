@@ -70,7 +70,7 @@ $using_excerpt = ( $search_results_layout === 'list-no-sidebar' || $search_resul
 
                             the_post();
 
-                            $using_post_thumb = has_post_thumbnail( $post->ID );
+                            $using_post_thumb = has_post_thumbnail( $post->ID ) ? 'true' : 'false';
 
                             if ( get_post_type( $post->ID ) === 'post' ) {
                                 ?>

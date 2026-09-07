@@ -11,7 +11,7 @@
  * Define Constants.
 */
 require_once( 'nectar-vars.php' );
-define( 'NB_THEME_VERSION', '2.6.0' );
+define( 'NB_THEME_VERSION', '3.3.0' );
 define( 'NECTAR_THEME_DIRECTORY', get_template_directory() );
 define( 'NECTAR_FRAMEWORK_DIRECTORY', get_template_directory_uri() . '/nectar/' );
 define( 'NECTAR_THEME_NAME', 'nectar-blocks' );
@@ -42,6 +42,7 @@ if ( ! function_exists( 'nectar_lang_setup' ) ) {
  * General WordPress.
  */
 require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/wp-general.php';
+require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/custom-post-types.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-theme-manager.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/nectar-blocks-options.php';
 
@@ -55,8 +56,11 @@ function get_nectar_theme_options() {
 $nectar_options = get_nectar_theme_options();
 $nectar_get_template_directory_uri = get_template_directory_uri();
 
+require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-uploads.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-dynamic-colors.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-dynamic-fonts.php';
+require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-global-color-links.php';
+require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-used-css.php';
 
 /**
  * Load Kirki
@@ -77,6 +81,9 @@ function nectar_blocks_kirki_init() {
  * API
  */
 require_once NECTAR_THEME_DIRECTORY . '/nectar/api/import-export-api.php';
+require_once NECTAR_THEME_DIRECTORY . '/nectar/api/typography-api.php';
+
+( new Theme_Typography_API() )->hooks();
 
 /**
  * Updater
@@ -87,6 +94,7 @@ require_once NECTAR_THEME_DIRECTORY . '/nectar/updater/NectarThemeUpdater.php';
  * Register/Enqueue theme assets.
  */
 require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/icon-collections.php';
+require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-inline-assets.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-element-assets.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-element-styles.php';
 require_once NECTAR_THEME_DIRECTORY . '/includes/class-nectar-lazy.php';
@@ -158,14 +166,18 @@ require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/widget-related.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/header.php';
 
 /**
+ * Leftover Salient metabox settings.
+ */
+require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/salient-meta.php';
+
+/**
  * Blog helpers.
  */
 require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/blog.php';
 
 /**
- * Page helpers.
+ * Footer helpers.
  */
-require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/page.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/helpers/footer.php';
 
 /**

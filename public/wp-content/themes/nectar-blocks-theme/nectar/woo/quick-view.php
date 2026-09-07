@@ -35,6 +35,9 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
 
         wp_register_script('nectar_woo_quick_view_js', get_template_directory_uri() . '/nectar/woo/js/quick_view_actions.js', ['jquery'], '1.1', true);
         wp_enqueue_script('nectar_woo_quick_view_js');
+        wp_localize_script( 'nectar_woo_quick_view_js', 'nectarQuickViewParams', [
+            'nonce' => wp_create_nonce( 'nectar_woo_quick_view' ),
+        ]);
         wp_enqueue_script( 'swiper' );
         wp_enqueue_style('nectar-blocks-swiper');
       }
@@ -76,37 +79,37 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
             echo '<div class="nectar-quick-view-box-backdrop"></div>
 	    <div class="nectar-quick-view-box nectar-modal" data-image-sizing="' . $quick_view_sizing . '">
 	    <div class="inner-wrap">
-	    
+
 	    <div class="close" role="button">
 	      <a href="#" class="no-ajaxy">
-	        <span class="close-wrap"><span class="screen-reader-text">' . __('Close Quick View', 'nectar-blocks-theme') . '</span><span class="close-line close-line1"></span> <span class="close-line close-line2"></span> </span>		     	
+	        <span class="close-wrap"><span class="screen-reader-text">' . __('Close Quick View', 'nectar-blocks-theme') . '</span><span class="close-line close-line1"></span> <span class="close-line close-line2"></span> </span>
 	      </a>
 	    </div>
-	        
+
 	        <div class="product-loading">
 	          <span class="dot"></span>
 	          <span class="dot"></span>
 	          <span class="dot"></span>
 	        </div>
-	        
+
 	        <div class="preview_image"></div>
-	        
+
 			    <div class="inner-content">
-	        
-	          <div class="product">  
-	             <div class="product type-product"> 
-	                  
+
+	          <div class="product">
+	             <div class="product type-product">
+
 	                  <div class="woocommerce-product-gallery">
 	                  </div>
-	                  
+
 	                  <div class="summary entry-summary scrollable">
-	                     <div class="summary-content">   
+	                     <div class="summary-content">
 	                     </div>
 	                  </div>
-	                  
+
 	             </div>
 	          </div>
-	          
+
 	        </div>
 	      </div>
 			</div>';
@@ -126,10 +129,25 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
 
       public function nectar_woo_get_product_info() {
 
+            // CSRF protection.
+            check_ajax_referer( 'nectar_woo_quick_view', 'nonce' );
+
             global $woocommerce;
         global $post;
 
-            $product_id = intval($_POST['product_id']);
+            $product_id = intval( isset($_POST['product_id']) ? $_POST['product_id'] : 0 );
+
+            if ( $product_id <= 0 ) {
+                wp_send_json_error( 'invalid', 400 );
+            }
+
+            // Validate the requested product is published, public and visible
+            // before exposing any information about it. This prevents
+            // unauthenticated enumeration of arbitrary products.
+            $product = function_exists( 'wc_get_product' ) ? wc_get_product( $product_id ) : null;
+            if ( ! $product || 'publish' !== get_post_status( $product_id ) || ! $product->is_visible() ) {
+                wp_send_json_error( 'not found', 404 );
+            }
 
             if( intval($product_id) ) {
 
@@ -138,15 +156,15 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
            ob_start();
 
                 while ( have_posts() ) : the_post(); ?>
-          
+
                 <script>
-              var wc_add_to_cart_variation_params = {};     
+              var wc_add_to_cart_variation_params = {};
                 </script>
-            
-                <div class="product">  
-                
-                        <div itemscope id="product-<?php the_ID(); ?>" <?php post_class('product'); ?> >  
-                      
+
+                <div class="product">
+
+                        <div itemscope id="product-<?php the_ID(); ?>" <?php post_class('product'); ?> >
+
                               <?php
 
                             do_action('nectar_quick_view_sale_content');
@@ -155,16 +173,16 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
                              if ( has_post_thumbnail() ) {
                               $product_attach_ids = $product->get_gallery_image_ids();
                               ?>
-                              <div class="images"> 
+                              <div class="images">
                               <div class="nectar-product-slider swiper nb-swiper" data-multi="<?php echo ($product_attach_ids) ? 'true' : 'false'; ?>">
                               <div class="swiper-wrapper">
-                                 
+
                                <div class="swiper-slide carousel-cell woocommerce-product-gallery__image">
                                     <a href="#">
                                         <?php echo get_the_post_thumbnail( $post->ID, 'large'); ?>
                                     </a>
                                </div>
-                               
+
                                <?php
 
                                 if ( $product_attach_ids ) {
@@ -182,7 +200,7 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
 
                                         } //if attach ids
 
-                                echo '</div>    
+                                echo '</div>
                                 <div class="swiper-pagination"></div>
                           </div> <!--nectar-product-slider--> </div>';
 
@@ -194,16 +212,16 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
                                           <?php printf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) ); ?>
                                           </div>
                                       </div>
-                                      
+
                                     </div>
                                </div>
                              <?php }
 
                              ?>
-                             
-                        
+
+
                                 <div class="summary entry-summary scrollable">
-                                        <div class="summary-content">   
+                                        <div class="summary-content">
                                            <?php
 
                                            echo '<div class="nectar-full-product-link"><a class="nectar-button" href="' . esc_url(get_permalink()) . '"><span>' . esc_html__('More Information', 'nectar-blocks-theme') . '</span></a></div>';
@@ -212,11 +230,13 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
                                           ?>
                                         </div>
                                 </div>
-                              
-                        </div> 
+
+                        </div>
                 </div>
-               
+
                 <?php endwhile;
+
+                wp_reset_postdata();
 
                 echo ob_get_clean();
 

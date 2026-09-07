@@ -4,10 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
+class ComposerStaticInit6bf0ad1fa92875c6d2b4504d26cbe17c
 {
     public static $prefixLengthsPsr4 = array (
-        'K' => 
+        'K' =>
         array (
             'Kirki\\Util\\' => 11,
             'Kirki\\Tabs\\' => 11,
@@ -26,26 +26,26 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
     );
 
     public static $prefixDirsPsr4 = array (
-        'Kirki\\Util\\' => 
+        'Kirki\\Util\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/utils/src',
             1 => __DIR__ . '/../..' . '/customizer/packages/utils/googlefonts/src',
             2 => __DIR__ . '/../..' . '/customizer/packages/utils/l10n/src',
             3 => __DIR__ . '/../..' . '/customizer/packages/utils/url-getter/src',
         ),
-        'Kirki\\Tabs\\' => 
+        'Kirki\\Tabs\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/tabs/src',
         ),
-        'Kirki\\Settings\\' => 
+        'Kirki\\Settings\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/settings/src',
         ),
-        'Kirki\\Responsive\\' => 
+        'Kirki\\Responsive\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/responsive/src',
         ),
-        'Kirki\\Module\\' => 
+        'Kirki\\Module\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/modules/css/src',
             1 => __DIR__ . '/../..' . '/customizer/packages/modules/editor-styles/src',
@@ -57,19 +57,19 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
             7 => __DIR__ . '/../..' . '/customizer/packages/modules/tooltips/src',
             8 => __DIR__ . '/../..' . '/customizer/packages/modules/webfonts/src',
         ),
-        'Kirki\\MarginPadding\\' => 
+        'Kirki\\MarginPadding\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/margin-padding/src',
         ),
-        'Kirki\\InputSlider\\' => 
+        'Kirki\\InputSlider\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/input-slider/src',
         ),
-        'Kirki\\HeadlineDivider\\' => 
+        'Kirki\\HeadlineDivider\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/headline-divider/src',
         ),
-        'Kirki\\Field\\' => 
+        'Kirki\\Field\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/fields/base/src/Field',
             1 => __DIR__ . '/../..' . '/customizer/packages/fields/background/src',
@@ -106,11 +106,11 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
             32 => __DIR__ . '/../..' . '/customizer/packages/controls/responsive/src/Field',
             33 => __DIR__ . '/../..' . '/customizer/packages/controls/tabs/src/Field',
         ),
-        'Kirki\\Data\\' => 
+        'Kirki\\Data\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/utils/data-option/src',
         ),
-        'Kirki\\Control\\' => 
+        'Kirki\\Control\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/base/src/Control',
             1 => __DIR__ . '/../..' . '/customizer/packages/controls/checkbox/src/Control',
@@ -139,11 +139,11 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
             24 => __DIR__ . '/../..' . '/customizer/packages/controls/responsive/src/Control',
             25 => __DIR__ . '/../..' . '/customizer/packages/controls/tabs/src/Control',
         ),
-        'Kirki\\Compatibility\\' => 
+        'Kirki\\Compatibility\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/compatibility/src',
         ),
-        'Kirki\\' => 
+        'Kirki\\' =>
         array (
             0 => __DIR__ . '/../..' . '/customizer/packages/controls/base/src',
             1 => __DIR__ . '/../..' . '/customizer/packages/controls/checkbox/src',
@@ -317,9 +317,7 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
         'Kirki\\Section_Types\\Link' => __DIR__ . '/../..' . '/customizer/packages/modules/sections/src/Section_Types/Link.php',
         'Kirki\\Section_Types\\Nested' => __DIR__ . '/../..' . '/customizer/packages/modules/sections/src/Section_Types/Nested.php',
         'Kirki\\Section_Types\\Outer' => __DIR__ . '/../..' . '/customizer/packages/modules/sections/src/Section_Types/Outer.php',
-        'Kirki\\Settings\\Notice' => __DIR__ . '/../..' . '/customizer/packages/settings/src/Notice.php',
         'Kirki\\Settings\\Repeater' => __DIR__ . '/../..' . '/customizer/packages/controls/repeater/src/Settings/Repeater.php',
-        'Kirki\\Settings\\SetupSettings' => __DIR__ . '/../..' . '/customizer/packages/settings/src/SetupSettings.php',
         'Kirki\\Tabs\\Init' => __DIR__ . '/../..' . '/customizer/packages/controls/tabs/src/Init.php',
         'Kirki\\URL' => __DIR__ . '/../..' . '/customizer/packages/utils/url-getter/src/URL.php',
         'Kirki\\Util\\Dashicons' => __DIR__ . '/../..' . '/customizer/packages/controls/dashicons/src/Util/Dashicons.php',
@@ -333,9 +331,9 @@ class ComposerStaticInit734b74506bf23405b8270b65bdba2dd6
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit734b74506bf23405b8270b65bdba2dd6::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit734b74506bf23405b8270b65bdba2dd6::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit734b74506bf23405b8270b65bdba2dd6::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6bf0ad1fa92875c6d2b4504d26cbe17c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6bf0ad1fa92875c6d2b4504d26cbe17c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6bf0ad1fa92875c6d2b4504d26cbe17c::$classMap;
 
         }, null, ClassLoader::class);
     }

@@ -67,7 +67,7 @@ body .blog-recent[data-style].columns-1 div:nth-child(1n+1){
     clear:both
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 691px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
     .blog-recent.columns-4 {
         margin: 0 -2%;
     }
@@ -486,7 +486,7 @@ body .nectar-recent-posts-single_featured .nectar-button[data-arrow-style="curve
     line-height: 1.6;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
     .nectar-recent-posts-single_featured .excerpt {
         font-size: clamp(14px, 1.1vw, 20px);
     }
@@ -887,7 +887,7 @@ body[data-button-style*="slightly_rounded"] .blog-recent .more-link span {
      width: 100%;
      align-items: center;
 }
- @media only screen and (max-width: 1024px) and (min-width: 691px) {
+ @media only screen and (max-width: 1024px) and (min-width: 768px) {
      .blog-recent[data-style="list_featured_first_row"] > .col.span_3:nth-child(1), 
      .blog-recent[data-style="list_featured_first_row"] > .col.span_3:nth-child(2), 
      .blog-recent[data-style="list_featured_first_row"] > .col.span_3:nth-child(3), 
@@ -1071,7 +1071,7 @@ body[data-button-style*="slightly_rounded"] .blog-recent .more-link span {
  .blog-recent[data-style="classic_enhanced"][data-color-scheme="dark"] .post-meta{
     border-top:1px solid rgba(255,255,255,0.06)
 }
- @media only screen and (min-width:1000px){
+ @media only screen and (min-width:1025px){
      .blog-recent[data-style*="classic_enhanced"].columns-3 .span_4, 
      .blog-recent[data-style="material"].columns-3 .span_4{
         width:31.2%;
@@ -1080,7 +1080,7 @@ body[data-button-style*="slightly_rounded"] .blog-recent .more-link span {
     }
 }
 
- @media only screen and (min-width:1000px){
+ @media only screen and (min-width:1025px){
      .blog-recent[data-style*="classic_enhanced"].columns-2 .span_6{
         width:48.2%;
          margin-right:3%;
@@ -1205,7 +1205,7 @@ body .blog-recent[data-style*="classic_enhanced_alt"] .inner-wrap:not(.has-post-
          width: 80%;
     }
 }
- @media only screen and (max-width : 690px) {
+ @media only screen and (max-width : 767px) {
      .nectar-recent-posts-single_featured.multiple_featured .recent-post-container {
          margin-bottom: 40px;
     }
@@ -1220,7 +1220,7 @@ body .blog-recent[data-style*="classic_enhanced_alt"] .inner-wrap:not(.has-post-
       display: block;
     }
 }
- @media only screen and (min-width : 691px) and (max-width: 1024px) {
+ @media only screen and (min-width : 768px) and (max-width: 1024px) {
      .row .blog-recent[data-style="list_featured_first_row"].columns-3 .col:first-child .post-featured-img {
          padding-bottom: 50%;
     }

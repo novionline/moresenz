@@ -492,7 +492,7 @@ body .blog-recent[data-style="classic_enhanced_alt"][data-color-scheme="light"] 
   padding: 10.5%!important;
 }
 
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:1025px) {
   .blog-recent[data-style*="classic_enhanced"] .inner-wrap:not(.has-post-thumbnail) .article-content-wrap {
     padding: 17%;
     display: block;
@@ -587,7 +587,7 @@ body .blog-recent[data-style="classic_enhanced_alt"][data-color-scheme="light"] 
   width: 100%;
 }
 
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:1025px) {
   .masonry.classic_enhanced .masonry-blog-item.large_featured h3.title {
     font-size: 30px;
     line-height: 36px;
@@ -663,7 +663,7 @@ body .blog-recent[data-style="classic_enhanced_alt"][data-color-scheme="light"] 
   color: #000;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
   .post-area.masonry.classic_enhanced .post.large_featured:not(.format-link):not(.format-quote) .content-inner {
     width: 100%;
@@ -735,7 +735,7 @@ body .blog-recent[data-style="classic_enhanced_alt"][data-color-scheme="light"] 
   }
 }
 
-@media only screen and (min-width : 691px) and (max-width: 1024px) {
+@media only screen and (min-width : 768px) and (max-width: 1024px) {
   body .post-area.masonry.classic_enhanced.span_9 .masonry-blog-item.large_featured {
     width: 99%;
   }

@@ -32,9 +32,7 @@ if ( $woocommerce && $nav_cart_style === 'slide_in' ) {
 
     echo '</div>';
 
-}
-
-else if ( $woocommerce && $nav_cart_style === 'slide_in_click' ) {
+} elseif ( $woocommerce && $nav_cart_style === 'slide_in_click' ) {
 
     $theme_skin = NectarThemeManager::$skin;
 
@@ -45,18 +43,14 @@ else if ( $woocommerce && $nav_cart_style === 'slide_in_click' ) {
     }
 
     echo '<div class="nectar-slide-in-cart nectar-modal style_' . esc_attr($nav_cart_style) . '">';
-
     echo '<div class="inner"><div class="header"><span data-inherit-heading-family="h4">' . esc_html__('Cart', 'nectar-blocks-theme') . '</span><a href="#" role="button" class="close-cart"><span class="screen-reader-text">' . esc_html__('Close Cart', 'nectar-blocks-theme') . '</span>' . $close_markup . '</a></div>';
 
     if ( version_compare( WOOCOMMERCE_VERSION, '2.0.0' ) >= 0 ) {
-
         $instance_params = ( defined('ICL_SITEPRESS_VERSION') ) ? ['wpml_language' => 'all', 'title' => ''] : ['title' => ''];
         the_widget( 'WC_Widget_Cart', $instance_params );
-
     } else {
         the_widget( 'WooCommerce_Widget_Cart', 'title= ' );
     }
 
     echo '</div></div><div class="nectar-slide-in-cart-bg"></div>';
-
 }

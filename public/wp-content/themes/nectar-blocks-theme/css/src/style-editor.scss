@@ -1,6 +1,6 @@
 /* CSS RESET */
-.edit-post-visual-editor *, 
-.edit-post-visual-editor *::before, 
+.edit-post-visual-editor *,
+.edit-post-visual-editor *::before,
 .edit-post-visual-editor *::after {
   box-sizing: border-box;
 }
@@ -78,7 +78,7 @@ body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > :wher
     padding-left: 0;
   }
 
-  // Lottie previews for blocks will be picked up from above rule
+  // Block previews will be picked up from above rule
   .editor-styles-wrapper .block-editor-block-list__layout.is-root-container>.nectar-blocks__block-preview:not(.alignleft):not(.alignright):not(.alignfull) {
     max-width: 100%!important;
     width: 100%!important;
@@ -145,7 +145,7 @@ body.editor-styles-wrapper {
   }
 }
 
-/* "useRootPaddingAwareAlignments": true is seemingly unreliable and poorly designed, 
+/* "useRootPaddingAwareAlignments": true is seemingly unreliable and poorly designed,
 so we must role our own spacing system rule set */
 // body .editor-styles-wrapper {
 // 	padding: 0;

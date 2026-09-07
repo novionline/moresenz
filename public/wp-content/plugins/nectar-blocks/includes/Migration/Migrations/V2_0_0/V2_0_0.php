@@ -23,7 +23,10 @@ class V2_0_0 implements Migration_Base {
   public function migrate(): bool {
     try {
       $this->migrate_nectar_section_post_meta();
-    } catch (\Exception $e) {
+    } catch (\Throwable $e) {
+      // \Throwable (not \Exception) to match the inner helpers: a \Error/\TypeError escaping
+      // get_posts()/update_post_meta()/Log — none of which are individually wrapped — should make
+      // migrate() return false rather than propagate uncaught out of the migration runner.
       Log::error('Error migrating nectar_section post: ' . $e->getMessage());
       return false;
     }
@@ -33,6 +36,9 @@ class V2_0_0 implements Migration_Base {
   public function migrate_nectar_section_post_meta() {
     $posts = get_posts([
       'post_type' => Global_Sections::POST_TYPE,
+      // get_posts() defaults to numberposts => 5; without -1 the migration silently skips every
+      // Global Section past the fifth, leaving their conditions/operator/locations un-migrated.
+      'numberposts' => -1,
     ]);
 
     foreach ($posts as $post) {
@@ -58,11 +64,7 @@ class V2_0_0 implements Migration_Base {
         $updated_conditions = $this->map_conditions($conditions);
       }
 
-      if ( ! empty($condition_operator) && is_array($condition_operator) ) {
-        $updated_operator = $this->map_operator($operator);
-      } else {
-        $updated_operator = 'and';
-      }
+      $updated_operator = ! empty($operator) ? $this->map_operator($operator) : 'and';
 
       if (empty($locations) || ! is_array($locations)) {
         $updated_locations = [];
@@ -90,8 +92,37 @@ class V2_0_0 implements Migration_Base {
    */
   public function map_conditions($conditions) {
     try {
+      // Drop conditions the array_map below can't faithfully migrate: anything that isn't an array
+      // with a non-empty `key` and a non-empty array of options. The sole caller normalises via
+      // json_decode(..., true) before calling, so production conditions are always array-shaped —
+      // an object here, or a scalar `options` from malformed legacy data, is dropped explicitly
+      // rather than surviving into the mapper (which uses array syntax and would otherwise warn, or
+      // discard the whole post's conditions through the catch below). A condition missing its `key`
+      // is dropped too: the mapper reads $condition['key'] unconditionally, so it would store
+      // ['key' => null, ...] (an E_WARNING the catch does NOT trap), silently corrupting the post's
+      // display logic. Empty-options conditions are likewise dropped — they would map to a
+      // null-filled entry and pollute the migrated data.
+      $conditions = array_filter($conditions, function ($condition) {
+        return is_array($condition)
+          && ! empty($condition['key'])
+          && is_array($condition['options'] ?? null)
+          && ! empty($condition['options']);
+      });
+
       $conditions = array_map(function ($condition) {
+        // Default both fields so a condition whose options carry no `include`/`condition`
+        // entry yields explicit nulls rather than referencing undefined variables (which
+        // emits a PHP notice and stores null silently). array_filter above only drops
+        // conditions with *empty* options, not partially-populated ones.
+        $include_value = null;
+        $condition_value = null;
         foreach ($condition['options'] as $option) {
+          // Skip non-array elements (null/scalars from malformed legacy meta): $option['type'] on a
+          // scalar throws a PHP 8 TypeError, which the catch below would turn into a whole-post data
+          // wipe (return [] → update_post_meta overwrites every condition for the post).
+          if (! is_array($option)) {
+            continue;
+          }
           if ($option['type'] === 'include') {
             if ($option['value'] === 'include') {
               $include_value = true;
@@ -112,7 +143,7 @@ class V2_0_0 implements Migration_Base {
         ];
       }, $conditions);
 
-      return $conditions;
+      return array_values($conditions);
     } catch (\Throwable $e) {
       Log::error('Error mapping conditions: ' . $e->getMessage());
     }
@@ -126,10 +157,10 @@ class V2_0_0 implements Migration_Base {
    */
   public function map_operator($operator) {
     if ($operator === 'and' || $operator === 'or') {
-      Log::error('Invalid operator: ' . $operator);
-      return 'and';
+      return $operator;
     }
-    return $operator;
+    Log::error('Invalid operator: ' . $operator);
+    return 'and';
   }
 
   /**
@@ -139,13 +170,32 @@ class V2_0_0 implements Migration_Base {
    */
   public function map_locations($locations) {
     try {
+      // Same guard as map_conditions(): map_locations has the identical try/array_map/catch shape,
+      // so a malformed entry (a non-array element, or an array missing its `key`/`options`) would
+      // otherwise throw inside the closure, be swallowed by the catch, and wipe *every* hook
+      // placement for that post via the `return []` below. Drop those entries instead. The sole
+      // caller normalises with json_decode(..., true) first, so production input is array-shaped.
+      $locations = array_filter($locations, function ($location) {
+        return is_array($location)
+          && ! empty($location['key'])
+          && is_array($location['options'] ?? null)
+          && ! empty($location['options']);
+      });
+
       $locations = array_map(function ($location) {
         $location_value = '';
         $priority = 10;
 
         foreach ($location['options'] as $option) {
+          // Skip non-array elements (see map_conditions): a scalar $option would throw a PHP 8
+          // TypeError on $option['type'] and the catch would wipe every hook placement for the post.
+          if (! is_array($option)) {
+            continue;
+          }
           if ($option['type'] === 'priority') {
-            $priority = $option['value'];
+            // Cast to int: JSON-decoded meta yields a string ("11"); the new format stores a
+            // numeric priority, and consumers using strict comparison/sorting expect an int.
+            $priority = (int) $option['value'];
           }
 
           if ($option['type'] === 'location') {
@@ -159,7 +209,7 @@ class V2_0_0 implements Migration_Base {
           'location' => $location_value,
         ];
       }, $locations);
-      return $locations;
+      return array_values($locations);
 
     } catch (\Throwable $e) {
       Log::error('Error mapping locations: ' . $e->getMessage());

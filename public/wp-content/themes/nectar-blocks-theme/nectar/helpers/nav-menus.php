@@ -397,6 +397,7 @@ if ( ! function_exists( 'nectar_walker_nav_menu' ) ) {
                             // Also generate dynamic CSS for global section
                             if( class_exists('NectarElDynamicStyles') ) {
 
+                                $global_section_content = '';
                                 if( 0 !== $attached_global_section  ) {
                                     $global_section_query = get_post($attached_global_section);
 
@@ -404,10 +405,12 @@ if ( ! function_exists( 'nectar_walker_nav_menu' ) ) {
                                         $global_section_content = $global_section_query->post_content;
                                     }
                                 }
-                                NectarElDynamicStyles::$element_css = [];
-                                $global_section_css = NectarElDynamicStyles::generate_styles($global_section_content);
-                                if( $global_section_css ) {
-                                    $item_output .= '<style>' . $global_section_css . '</style>';
+                                if( ! empty($global_section_content) ) {
+                                    NectarElDynamicStyles::$element_css = [];
+                                    $global_section_css = NectarElDynamicStyles::generate_styles($global_section_content);
+                                    if( $global_section_css ) {
+                                        $item_output .= '<style>' . $global_section_css . '</style>';
+                                    }
                                 }
                             }
                         }  // end attached and compatible check.

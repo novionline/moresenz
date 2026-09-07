@@ -17,15 +17,20 @@ $blog_social_style = ( get_option( 'salient_social_button_style' ) ) ? get_optio
 get_header();
 
 $post_type = get_post_type();
+$blog_single_post_types = apply_filters( 'nectar_blog_single_post_types', [ 'post' ] );
 
 if ( ! has_action('nectar_template_single__' . $post_type) ) {
-    get_template_part( 'includes/partials/single-post/default-template' );
+    if ( in_array( $post_type, $blog_single_post_types, true ) ) {
+        get_template_part( 'includes/partials/single-post/default-template' );
+    } else {
+        get_template_part( 'includes/partials/single-post/default-template-cpt' );
+    }
 } else { ?>
     <div id="nectar-content-wrap" class="container-wrap">
-        <div class="container main-content">
+        <main class="container main-content">
             <?php nectar_template_single(); ?>
             <?php get_template_part('includes/partials/single-post/post-after-content'); ?>
-        </div>
+        </main>
         <?php nectar_hook_before_container_wrap_close(); ?>
     </div>
     <?php

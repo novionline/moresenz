@@ -70,6 +70,10 @@ class Theme_IE {
         continue;
       }
 
+      if ( isset($value['type']) && $value['type'] === 'custom' ) {
+        continue;
+      }
+
       $data[$id] = $options[$id];
     }
     return $data;
@@ -102,6 +106,12 @@ class Theme_IE {
         continue;
       }
 
+      // Skip display-only controls (info notices) — no real setting value,
+      // and older demo exports may have baked in stale notice HTML.
+      if ( isset($kirki_nectar_fields[$id]['type']) && $kirki_nectar_fields[$id]['type'] === 'custom' ) {
+        continue;
+      }
+
       // error_log('Importing: ' . $id . ' ' . $option_value);
       $updated_value = $option_value;
 
@@ -110,13 +120,119 @@ class Theme_IE {
            array_key_exists('type', $nectar_fields[$id]) &&
            $nectar_fields[$id]['type'] === 'media'
       ){
-        $image_data = $this->sideload_image( $updated_value['url'] );
+        $image_url = isset($updated_value['url']) ? $updated_value['url'] : '';
+
+        // SSRF guard: only sideload remote URLs that resolve to a public host.
+        if ( ! $this->is_safe_remote_url( $image_url ) ) {
+          error_log('Nectar Theme Import: Skipping unsafe image URL for setting ' . $id);
+          set_theme_mod($id, $updated_value);
+          continue;
+        }
+
+        $image_data = $this->sideload_image( $image_url );
         error_log('Nectar Theme Import: Image data: ' . print_r($image_data, true));
-        $updated_value['url'] = $image_data->url;
+        if ( ! is_wp_error( $image_data ) && isset( $image_data->url ) ) {
+          $updated_value['url'] = $image_data->url;
+        }
       }
 
       set_theme_mod($id, $updated_value);
     }
+
+    // Reset any registered global color link fields that were not
+    // included in the import data, so stale links don't persist.
+    if ( class_exists( 'Nectar_Global_Color_Links' ) ) {
+      $suffix = Nectar_Global_Color_Links::LINK_SUFFIX;
+      foreach ( $kirki_nectar_fields as $field_id => $field ) {
+        if ( substr( $field_id, -strlen( $suffix ) ) === $suffix && ! isset( $import_data[$field_id] ) ) {
+          set_theme_mod( $field_id, '' );
+        }
+      }
+    }
+  }
+
+  /**
+   * Validates that a URL is safe to fetch server-side.
+   *
+   * Blocks SSRF attempts against loopback, link-local, and RFC1918 private
+   * ranges (including AWS metadata at 169.254.169.254). Rejects malformed
+   * URLs, non-http(s) schemes, and hostnames that resolve to ANY private IP.
+   *
+   * @since 2.5.5
+   * @access private
+   * @param string $url The URL to validate.
+   * @return bool True if the URL is safe to fetch, false otherwise.
+   */
+  private function is_safe_remote_url( $url ) {
+    if ( ! is_string( $url ) || $url === '' ) {
+      return false;
+    }
+
+    // WP-level validation. Returns false on malformed URLs and on disallowed
+    // hosts when WP_HTTP_BLOCK_EXTERNAL/WP_ACCESSIBLE_HOSTS are in play.
+    if ( false === wp_http_validate_url( $url ) ) {
+      return false;
+    }
+
+    $parts = wp_parse_url( $url );
+    if ( ! is_array( $parts ) || empty( $parts['host'] ) || empty( $parts['scheme'] ) ) {
+      return false;
+    }
+
+    $scheme = strtolower( $parts['scheme'] );
+    if ( $scheme !== 'http' && $scheme !== 'https' ) {
+      return false;
+    }
+
+    $host = $parts['host'];
+
+    // Strip IPv6 brackets if present.
+    if ( strlen( $host ) > 1 && $host[0] === '[' && substr( $host, -1 ) === ']' ) {
+      $host = substr( $host, 1, -1 );
+    }
+
+    // Resolve the host. If it's already a literal IP, gethostbynamel returns
+    // [$host]; otherwise we get the A records (it does not return AAAA).
+    $ips = [];
+    if ( filter_var( $host, FILTER_VALIDATE_IP ) ) {
+      $ips[] = $host;
+    } else {
+      $resolved = @gethostbynamel( $host );
+      if ( is_array( $resolved ) && ! empty( $resolved ) ) {
+        $ips = $resolved;
+      }
+      // Try AAAA records as well so we don't accept an IPv6-only loopback.
+      if ( function_exists( 'dns_get_record' ) ) {
+        $aaaa = @dns_get_record( $host, DNS_AAAA );
+        if ( is_array( $aaaa ) ) {
+          foreach ( $aaaa as $record ) {
+            if ( ! empty( $record['ipv6'] ) ) {
+              $ips[] = $record['ipv6'];
+            }
+          }
+        }
+      }
+    }
+
+    if ( empty( $ips ) ) {
+      // DNS failure: refuse rather than fetch.
+      return false;
+    }
+
+    foreach ( $ips as $ip ) {
+      $public = filter_var(
+          $ip,
+          FILTER_VALIDATE_IP,
+          FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE
+      );
+      if ( false === $public ) {
+        // Belongs to a private/reserved range (10/8, 172.16/12, 192.168/16,
+        // 127/8, 169.254/16, ::1, fc00::/7, fe80::/10, etc.).
+        return false;
+      }
+    }
+
+    return true;
   }
 
   /**
@@ -126,7 +242,7 @@ class Theme_IE {
    * @since 0.1
    * @access private
    * @param string $file The image file path.
-   * @return class An array of image data.
+   * @return \stdClass|\WP_Error Object of image data on success, WP_Error on failure.
    */
   private function sideload_image( $file ) {
     $data = new stdClass();
@@ -139,14 +255,30 @@ class Theme_IE {
 
     if ( ! empty( $file ) ) {
 
-      // Set variables for storage, fix file filename for query strings.
-      // TODO: This doesn't seem to really cover the image suffix set well
-      preg_match( '/[^\?]+\.(jpe?g|jpe|gif|png|webp)\b/i', $file, $matches );
-      $file_array = [];
-      $file_array['name'] = basename( $matches[0] );
+      // Defense in depth: re-validate here in case sideload_image is ever
+      // called from another path that did not pre-check the URL.
+      if ( ! $this->is_safe_remote_url( $file ) ) {
+        return new WP_Error( 'nectar_ie_unsafe_url', 'Refusing to download from unsafe URL.' );
+      }
 
-      // Download file to temp location.
-      $file_array['tmp_name'] = download_url( $file );
+      // Pull a sane filename out of the URL path only, ignoring the query
+      // string entirely. The path-anchored extension match prevents
+      // query-string trickery like `?fake=.jpg`.
+      $path = wp_parse_url( $file, PHP_URL_PATH );
+      if ( ! is_string( $path ) || $path === '' ) {
+        return new WP_Error( 'nectar_ie_bad_url', 'Could not parse URL path.' );
+      }
+
+      if ( ! preg_match( '/\.(jpe?g|gif|png|webp)$/i', $path ) ) {
+        return new WP_Error( 'nectar_ie_bad_ext', 'URL path does not end with a supported image extension.' );
+      }
+
+      $file_array = [];
+      $file_array['name'] = basename( $path );
+
+      // Download file to temp location with a bounded timeout so an
+      // unreachable host cannot pin a worker.
+      $file_array['tmp_name'] = download_url( $file, 30 );
 
       // If error storing temporarily, return the error.
       if ( is_wp_error( $file_array['tmp_name'] ) ) {
@@ -184,9 +316,8 @@ class Theme_IE {
    */
   private function is_image_url( $string = '' ) {
     if ( is_string( $string ) ) {
-
-      // TODO: This doesn't seem to really cover the image suffix set well
-      if ( preg_match( '/\.(jpg|jpeg|png|gif|webp)/i', $string ) ) {
+      $path = wp_parse_url( $string, PHP_URL_PATH );
+      if ( is_string( $path ) && preg_match( '/\.(jpe?g|gif|png|webp)$/i', $path ) ) {
         return true;
       }
     }

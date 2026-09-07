@@ -35,7 +35,6 @@ if (! class_exists('NectarDelayJS')) {
             'nectar-lottie',
             'nectar-parallax',
             'nectar-transit',
-            'fullpage',
             'vivus',
             'owl-carousel',
             'twentytwenty',
@@ -44,8 +43,8 @@ if (! class_exists('NectarDelayJS')) {
             'nectar-waypoints',
             'nectar-sticky-media-sections',
             'nectar-single-product-reviews',
-            'nectar-fullpage',
             'nectar-testimonial-sliders',
+            'nectar-header-builder-ocm-panes',
             'wpb_composer_front_js'
         ];
 
@@ -203,17 +202,17 @@ if (! class_exists('NectarDelayJS')) {
             $page_header_text_effect = (isset($post->ID)) ? get_post_meta($post->ID, '_nectar_page_header_text-effect', true) : '';
             if( 'rotate_in' === $page_header_text_effect ) {
                 $critical_css .= '
-                body #page-header-bg[data-text-effect="rotate_in"] .wraped span, 
-                body .overlaid-content[data-text-effect="rotate_in"] .wraped span, 
-                body #page-header-bg[data-text-effect="rotate_in"] .inner-wrap >*:not(.top-heading), 
+                body #page-header-bg[data-text-effect="rotate_in"] .wraped span,
+                body .overlaid-content[data-text-effect="rotate_in"] .wraped span,
+                body #page-header-bg[data-text-effect="rotate_in"] .inner-wrap >*:not(.top-heading),
                 body .overlaid-content[data-text-effect="rotate_in"] .inner-wrap >*:not(.top-heading),
                 body #page-header-bg[data-text-effect="rotate_in"] >div:not(.nectar-particles) .span_6 .inner-wrap >*:not(.top-heading) {
                     opacity: 1;
                     transform: none;
                 }
-                body #page-header-bg[data-text-effect="rotate_in"] .nectar-particles .inner-wrap:not(.shape-1) >*:not(.top-heading), 
+                body #page-header-bg[data-text-effect="rotate_in"] .nectar-particles .inner-wrap:not(.shape-1) >*:not(.top-heading),
                 #nectar-content-wrap .overlaid-content[data-text-effect="rotate_in"] .inner-wrap:not(.shape-1) >*:not(.top-heading) {
-                    opacity: 0;   
+                    opacity: 0;
                 }';
 
             }
@@ -225,14 +224,14 @@ if (! class_exists('NectarDelayJS')) {
                     top: 0!important;
                 }
                 #nectar-content-wrap .scroll-down-wrap,
-                #nectar-content-wrap #page-header-bg .nectar-particles .inner-wrap >*:not(.top-heading), 
+                #nectar-content-wrap #page-header-bg .nectar-particles .inner-wrap >*:not(.top-heading),
                 #nectar-content-wrap .overlaid-content .inner-wrap >*:not(.top-heading) {
-                    opacity: 1;   
+                    opacity: 1;
                     transform: none;
                 }
-                body #page-header-bg .nectar-particles .inner-wrap:not(.shape-1) >*:not(.top-heading), 
+                body #page-header-bg .nectar-particles .inner-wrap:not(.shape-1) >*:not(.top-heading),
                 #nectar-content-wrap .overlaid-content .inner-wrap:not(.shape-1) >*:not(.top-heading) {
-                    opacity: 0;   
+                    opacity: 0;
                 }';
             }
 
@@ -292,20 +291,20 @@ if (! class_exists('NectarDelayJS')) {
 
             // Portfolio items.
             $critical_css .= '.top-level .portfolio-items[data-loading=lazy-load] .col .inner-wrap.animated .top-level-image {
-                opacity: 1;   
+                opacity: 1;
             }';
 
             // First parallax BGs.
             $critical_css .= '.wpb_row.vc_row.top-level .column-image-bg-wrap[data-n-parallax-bg="true"] .column-image-bg,
             .wpb_row.vc_row.top-level + .wpb_row .column-image-bg-wrap[data-n-parallax-bg="true"] .column-image-bg,
             #portfolio-extra > .wpb_row.vc_row.parallax_section:first-child .row-bg {
-                transform: none!important;  
+                transform: none!important;
                 height: 100%!important;
                 opacity: 1;
             }
-          
+
             #portfolio-extra > .wpb_row.vc_row.parallax_section .row-bg {
-                background-attachment: scroll;   
+                background-attachment: scroll;
             }';
 
             // Iframe video post format
@@ -332,7 +331,7 @@ if (! class_exists('NectarDelayJS')) {
 
             // OCM
             $critical_css .= 'body[data-slide-out-widget-area-style="slide-out-from-right"].material .slide_out_area_close.hide_until_rendered {
-                opacity: 0;   
+                opacity: 0;
             }';
 
             // Masonry Blog/Portfolio.
@@ -445,14 +444,14 @@ if (! class_exists('NectarDelayJS')) {
             }
 
             @media only screen and (max-width: 1024px) {
-                .portfolio-items .col .inner-wrap[data-animation="fade_in"], 
+                .portfolio-items .col .inner-wrap[data-animation="fade_in"],
                 .portfolio-items:not(.carousel) .col .inner-wrap.animated {
                     transform: none;
                     opacity: 1;
                 }
             }
             @media only screen and (min-width: 470px) and (max-width: 690px) {
-                body .portfolio-items .col.elastic-portfolio-item.tall, 
+                body .portfolio-items .col.elastic-portfolio-item.tall,
                 body .portfolio-items .col.elastic-portfolio-item.regular,
                 body .portfolio-items .col.elastic-portfolio-item:not([class*="wide"]) {
                     width: 50%;
@@ -460,21 +459,21 @@ if (! class_exists('NectarDelayJS')) {
             }
 
             @media only screen and (min-width: 691px) {
-                
+
                 body .portfolio-items {
                     display: flex;
                     flex-wrap: wrap;
                 }
 
-                body .portfolio-items .col.elastic-portfolio-item.tall, 
+                body .portfolio-items .col.elastic-portfolio-item.tall,
                 body .portfolio-items .col.elastic-portfolio-item.regular,
                 body .portfolio-items .col.elastic-portfolio-item:not([class*="wide"])  {
                     width: 50%;
                 }
             }
 
-            @media only screen and (min-width: 1025px) { 
-                body .portfolio-items .col.elastic-portfolio-item.tall, 
+            @media only screen and (min-width: 1025px) {
+                body .portfolio-items .col.elastic-portfolio-item.tall,
                 body .portfolio-items .col.elastic-portfolio-item.regular {
                     width: 33.3%;
                 }

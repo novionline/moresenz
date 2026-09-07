@@ -17,6 +17,322 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 14.0.2
  */
 class NectarBlocks_Customizer_Layout {
+  private static function has_header_nav_template(): bool {
+    // Gate the legacy header options to the page being previewed: only when a
+    // Header Navigation template is actually active for that page. A conditional
+    // template leaves the legacy header (and its options) in place on the pages it
+    // doesn't match. The shared detector evaluates the saved Theme Builder
+    // conditions against the previewed URL (resolved for both pane and preview so
+    // their control/section registration stays in sync).
+    if ( ! function_exists( 'nectar_header_nav_template_active_for_url' ) ) {
+      return false;
+    }
+
+    return nectar_header_nav_template_active_for_url( nectar_customizer_previewed_url() );
+  }
+
+  private static function has_ocm_template(): bool {
+    if ( ! function_exists( 'get_posts' ) ) {
+      return false;
+    }
+
+    $posts = get_posts( [
+      'post_type' => 'nectar_templates',
+      'post_status' => 'publish',
+      'posts_per_page' => 1,
+      'no_found_rows' => true,
+      'fields' => 'ids',
+      'suppress_filters' => true,
+      'meta_query' => [
+        [
+          'key' => '_nectar_template_part_options',
+          'value' => 'nectar_template__ocm',
+          'compare' => 'LIKE',
+        ],
+      ],
+    ] );
+
+    return is_array( $posts ) && ! empty( $posts );
+  }
+
+  /**
+   * Get the Theme Builder admin URL.
+   */
+  private static function get_theme_builder_url(): string {
+    return admin_url( 'edit.php?post_type=nectar_templates' );
+  }
+
+  /**
+   * Get simplified notice HTML for the panel description when header builder is active.
+   */
+  private static function header_nav_template_notice_html(): string {
+    $theme_builder_link = '<a href="' . esc_url( self::get_theme_builder_url() ) . '">' . esc_html__( 'Theme Builder', 'nectar-blocks-theme' ) . '</a>';
+
+    return '<strong>' . esc_html__( 'Header Builder Active', 'nectar-blocks-theme' ) . '</strong><br><br>' .
+      sprintf(
+        /* translators: %s: Theme Builder link */
+        esc_html__( 'Your header is being managed by a custom template in the %s. This is a simplified options list showing only settings that remain relevant.', 'nectar-blocks-theme' ),
+          $theme_builder_link
+      );
+  }
+
+  /**
+   * Filter logo/general styling controls to keep only stickiness option when header builder is active.
+   */
+  private static function filter_logo_styling_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep.
+    $keep_ids = [
+      'header-remove-fixed',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter transparency controls to keep only auto-activation options when header builder is active.
+   * The auto-activation locations are still needed to trigger transparent state in the header builder.
+   */
+  private static function filter_transparency_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep (auto-activation related).
+    $keep_ids = [
+      'transparent-header',
+      'transparent-header-auto-activation-locations',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter OCM section controls to keep only styling options when header builder is active.
+   * The OCM trigger/toggle is handled by header builder, but styling options remain relevant.
+   */
+  private static function filter_ocm_styling_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep (OCM styling options).
+    $keep_ids = [
+      'header-slide-out-widget-area-style',
+      // handled directly in the header builder
+      // 'header-slide-out-widget-area-separate-mobile',
+      'header-slide-out-widget-area-slide-from-side-width',
+      'header-slide-out-widget-area-offset',
+      'header-slide-out-widget-area-roundness',
+      'header-slide-out-widget-area-icon-width',
+      'header-slide-out-widget-area-blur-bg',
+      'header-slide-out-widget-area-overlay-opacity',
+      'fullscreen-inline-images-default',
+      // Dropdown behavior is handled by header builder pane navigation.
+      // 'header-slide-out-widget-area-dropdown-behavior',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        // Remove "simple" option from OCM style select - not supported with header builder.
+        if ( $control['id'] === 'header-slide-out-widget-area-style' && isset( $control['options']['simple'] ) ) {
+          unset( $control['options']['simple'] );
+        }
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter mobile menu controls to keep only sticky option when header builder is active.
+   * Layout and breakpoint options are not applicable since header builder handles responsive.
+   */
+  private static function filter_mobile_menu_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep (only sticky on mobile for header builder).
+    $keep_ids = [
+      'header-mobile-fixed',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter animation effects controls to keep only HHUN option when header builder is active.
+   * Other scroll effects (resize, condense) are not applicable to header builder headers.
+   */
+  private static function filter_animation_effects_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep (only HHUN for header builder).
+    $keep_ids = [
+      'header-hide-until-needed',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        // Remove header_format requirements since header builder doesn't use that.
+        if ( isset( $control['required'] ) ) {
+          unset( $control['required'] );
+        }
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter dropdown/megamenu controls for header builder.
+   * Only the overlay option remains relevant as it's a global effect.
+   */
+  private static function filter_dropdown_megamenu_controls( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // IDs of controls to keep (global dropdown options).
+    $keep_ids = [
+      'header-dropdown-overlay',
+      'header-dropdown-overlay-blur',
+    ];
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
+  /**
+   * Filter controls to keep only off-canvas menu colors when header builder is active.
+   * Used for the color scheme section which has some options still relevant.
+   */
+  private static function filter_off_canvas_controls_only( array &$controls, string $section_id ): void {
+    if ( ! self::has_header_nav_template() ) {
+      return;
+    }
+
+    // When an OCM template is in use, keep the off-canvas color pickers
+    // so the customizer values can serve as the editor preview background
+    // and frontend base defaults. The header-color scheme toggle is omitted
+    // since the header is managed by the builder — show pickers directly.
+    $keep_ids = [];
+    if ( self::has_ocm_template() ) {
+      $keep_ids = [
+        'header-slide-out-widget-area-background-color',
+        'header-slide-out-widget-area-header-color',
+        'header-slide-out-widget-area-color',
+        'header-slide-out-widget-area-hover-color',
+        'header-slide-out-widget-area-close-button-bg',
+        'header-slide-out-widget-area-close-button',
+      ];
+    }
+
+    $filtered_controls = [];
+
+    foreach ( $controls as $control ) {
+      if ( isset( $control['id'] ) && in_array( $control['id'], $keep_ids, true ) ) {
+        // Remove the header-color dependency so pickers show unconditionally.
+        unset( $control['required'] );
+        $filtered_controls[] = $control;
+      }
+    }
+
+    // Add notice at the beginning.
+    array_unshift( $filtered_controls, [
+      'id' => 'header-builder-notice-' . $section_id,
+      'type' => 'info',
+      'desc' => self::header_nav_template_notice_html(),
+    ] );
+
+    $controls = $filtered_controls;
+  }
+
   private static function get_title() {
     return [
       'id' => 'layout-title',
@@ -35,6 +351,26 @@ class NectarBlocks_Customizer_Layout {
   }
 
   public static function get_kirki_partials() {
+    // When header builder is active, only show relevant sections.
+    if ( self::has_header_nav_template() ) {
+      $sections = [
+        self::get_header_navigation(),          // Panel definition.
+        self::get_logo_and_gen_styling(),       // Stickiness option.
+        self::get_header_nav_transparency(),    // Auto-activation locations.
+        self::get_header_nav_animation_effects(), // Scroll animation effects (HHUN, resize).
+        self::get_header_dropdown_megamenu(),   // Dropdown overlay option.
+        self::get_header_ocm(),                 // Off-canvas menu settings.
+        self::get_header_mobile_menu(),         // Mobile sticky option.
+      ];
+
+      // OCM template in use — include color scheme section for off-canvas colors.
+      if ( self::has_ocm_template() ) {
+        $sections[] = self::get_header_color_scheme();
+      }
+
+      return $sections;
+    }
+
     return [
       self::get_header_navigation(),
       self::get_logo_and_gen_styling(),
@@ -51,10 +387,18 @@ class NectarBlocks_Customizer_Layout {
   }
 
   public static function get_header_navigation() {
+    $description = '';
+    // Panel descriptions aren't consistently rendered across Customizer UIs, but keep this populated
+    // for any consumers that do display it.
+    if ( self::has_header_nav_template() ) {
+      $description = self::header_nav_template_notice_html();
+    }
+
     return [
       'panel_id' => 'header-navigation-panel',
       'settings' => [
         'title' => esc_html__( 'Header Navigation', 'nectar-blocks-theme' ),
+        'description' => $description,
         'priority' => 15
       ]
     ];
@@ -230,6 +574,7 @@ class NectarBlocks_Customizer_Layout {
       ]
 
     ];
+    self::filter_logo_styling_controls( $controls, 'logo-and-general-styling-section' );
 
     return [
       'section_id' => 'logo-and-general-styling-section',
@@ -570,6 +915,7 @@ class NectarBlocks_Customizer_Layout {
         'default' => '0'
       ],
     ];
+    self::filter_transparency_controls( $controls, 'header-nav-transparency-section' );
 
     return [
       'section_id' => 'header-nav-transparency-section',
@@ -665,6 +1011,9 @@ class NectarBlocks_Customizer_Layout {
       ],
     ];
 
+    // Filter controls when header builder is active.
+    self::filter_animation_effects_controls( $controls, 'header-nav-animation-effects' );
+
     return [
       'section_id' => 'header-nav-animation-effects',
       'settings' => [
@@ -732,6 +1081,15 @@ class NectarBlocks_Customizer_Layout {
         'tooltip' => esc_html__('Adds an overlay that appears when a dropdown is opened to improve focus.', 'nectar-blocks-theme'),
         'desc' => '',
         'default' => '0'
+      ],
+      [
+        'id' => 'header-dropdown-overlay-blur',
+        'type' => 'nectar_blocks_switch_legacy',
+        'title' => esc_html__('Background Blur', 'nectar-blocks-theme'),
+        'tooltip' => esc_html__('Adds a blur effect to the background overlay when dropdowns are opened.', 'nectar-blocks-theme'),
+        'desc' => '',
+        'default' => '0',
+        'required' => [ [ 'header-dropdown-overlay', '=', '1' ] ]
       ],
 
       [
@@ -802,6 +1160,9 @@ class NectarBlocks_Customizer_Layout {
       //   'default' => '0'
       // ),
     ];
+
+    // Filter controls when header builder is active.
+    self::filter_dropdown_megamenu_controls( $controls, 'header-nav-dropdown-megamenu' );
 
     return [
       'section_id' => 'header-nav-dropdown-megamenu',
@@ -906,7 +1267,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area',
         'type' => 'nectar_blocks_switch_legacy',
-        'title' => esc_html__('Off Canvas Menu', 'nectar-blocks-theme'),
+        'title' => esc_html__('Enable on All Viewports', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('This will add an off canvas menu button on all viewports to your header navigation. When this is disabled, the off canvas menu will only be visible on mobile devices.', 'nectar-blocks-theme'),
         'desc' => '',
         'required' => [  ['header-slide-out-widget-area-style', '!=', 'simple'] ],
@@ -916,7 +1277,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-style',
         'type' => 'select',
-        'title' => esc_html__('Off Canvas Menu Style', 'nectar-blocks-theme'),
+        'title' => esc_html__('Style', 'nectar-blocks-theme'),
         'tooltip' => esc_html__('The "Slide Out From Right Hover Triggered" style will force the "Full Width Header" option regardless of your selection.', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
@@ -924,7 +1285,6 @@ class NectarBlocks_Customizer_Layout {
           'slide-out-from-right-hover' => esc_html__('Slide Out From Side Hover Triggered', 'nectar-blocks-theme'),
           'fullscreen' => esc_html__('Fullscreen Cover Slide + Blur BG', 'nectar-blocks-theme'),
           'fullscreen-alt' => esc_html__('Fullscreen Cover Fade', 'nectar-blocks-theme'),
-          //'fullscreen-inline-images' => esc_html__('Fullscreen Inline with Dynamic BG', 'nectar-blocks-theme'),
           'fullscreen-split' => esc_html__('Fullscreen Cover Split', 'nectar-blocks-theme'),
           'simple' => esc_html__('Simple Dropdown', 'nectar-blocks-theme')
         ],
@@ -934,7 +1294,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-separate-mobile',
         'type' => 'nectar_blocks_switch_legacy',
-        'title' => esc_html__('Off Canvas Menu Separate Mobile Menu', 'nectar-blocks-theme'),
+        'title' => esc_html__('Separate Mobile Menu', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('This will cause your off canvas to only display navigation menu items assigned to the "Off Canvas Navigation Menu" location when viewing on a mobile device.', 'nectar-blocks-theme'),
         'desc' => '',
         'required' => [  ['header-slide-out-widget-area', '!=', '1'] ],
@@ -944,7 +1304,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-slide-from-side-width',
         'type' => 'slider',
-        'title' => esc_html__('Off Canvas Menu Desktop Width (%)', 'nectar-blocks-theme'),
+        'title' => esc_html__('Desktop Width (%)', 'nectar-blocks-theme'),
         'desc' => '',
         "default" => 33,
         "min" => 25,
@@ -956,7 +1316,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-offset',
         'type' => 'slider',
-        'title' => esc_html__('Off Canvas Menu Offset', 'nectar-blocks-theme'),
+        'title' => esc_html__('Offset', 'nectar-blocks-theme'),
         'desc' => '',
         "default" => 0,
         "min" => 0,
@@ -967,7 +1327,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-roundness',
         'type' => 'slider',
-        'title' => esc_html__('Off Canvas Menu Roundness', 'nectar-blocks-theme'),
+        'title' => esc_html__('Roundness', 'nectar-blocks-theme'),
         'desc' => '',
         "default" => 0,
         "min" => 0,
@@ -979,7 +1339,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-icon-width',
         'type' => 'slider',
-        'title' => esc_html__('Off Canvas Menu Icon Width', 'nectar-blocks-theme'),
+        'title' => esc_html__('Icon Width', 'nectar-blocks-theme'),
         'desc' => '',
         "default" => 22,
         "min" => 16,
@@ -992,7 +1352,7 @@ class NectarBlocks_Customizer_Layout {
        'id' => 'fullscreen-inline-images-default',
        'type' => 'media',
        'required' => [  ['header-slide-out-widget-area-style', '=', 'fullscreen-inline-images'] ],
-       'title' => esc_html__('Default Off Canvas Background Image', 'nectar-blocks-theme'),
+       'title' => esc_html__('Default Background Image', 'nectar-blocks-theme'),
        'subtitle' => esc_html__('Choose the default image to be shown in your Off Canvas Menu. You can also supply a unique item for each menu item in', 'nectar-blocks-theme') . ' <a href="' . esc_url( admin_url('nav-menus.php') ) . '">' . esc_html__('Appearance > Menus.', 'nectar-blocks-theme') . '</a>',
        'desc' => ''
      ],
@@ -1000,7 +1360,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-dropdown-behavior',
         'type' => 'select',
-        'title' => esc_html__('Off Canvas Menu Dropdown Behavior', 'nectar-blocks-theme'),
+        'title' => esc_html__('Dropdown Behavior', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('Please select the functionality for how dropdowns will behave in your off canvas menu.', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
@@ -1024,14 +1384,14 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-menu-label',
         'type' => 'nectar_blocks_switch_legacy',
-        'title' => esc_html__('Off Canvas Menu Add Menu Label', 'nectar-blocks-theme'),
+        'title' => esc_html__('Menu Label', 'nectar-blocks-theme'),
         'desc' => '',
         'default' => '0'
       ],
       [
        'id' => 'ocm_btn_position',
        'type' => 'select',
-       'title' => esc_html__('Off Canvas Menu Button Position', 'nectar-blocks-theme'),
+       'title' => esc_html__('Button Position', 'nectar-blocks-theme'),
        'desc' => '',
        'required' => [  ['header_format', '!=', 'centered-logo-between-menu'], ['header_format', '!=', 'centered-menu-under-logo'], ['header-slide-out-widget-area-style', '!=', 'simple'] ],
        'options' => [
@@ -1052,7 +1412,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-bottom-text',
         'type' => 'text',
-        'title' => esc_html__('Off Canvas Menu Bottom Text', 'nectar-blocks-theme'),
+        'title' => esc_html__('Bottom Text', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('This will add some text fixed at the bottom of your off canvas menu - useful for copyright or quick contact info etc.', 'nectar-blocks-theme'),
         'desc' => '',
         'default' => ''
@@ -1060,7 +1420,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-overlay-opacity',
         'type' => 'select',
-        'title' => esc_html__('Off Canvas Menu Overlay Strength', 'nectar-blocks-theme'),
+        'title' => esc_html__('Overlay Strength', 'nectar-blocks-theme'),
         'tooltip' => esc_html__('Not all off canvas menu styles utilize this option.', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
@@ -1074,9 +1434,18 @@ class NectarBlocks_Customizer_Layout {
         'required' => [  ['header-slide-out-widget-area-style', '!=', 'simple'] ]
       ],
       [
+        'id' => 'header-slide-out-widget-area-blur-bg',
+        'type' => 'nectar_blocks_switch_legacy',
+        'title' => esc_html__('Blur Background', 'nectar-blocks-theme'),
+        'subtitle' => esc_html__('This will apply a backdrop blur effect to the off canvas menu background.', 'nectar-blocks-theme'),
+        'desc' => '',
+        'required' => [  ['header-slide-out-widget-area-style', '!=', 'simple'] ],
+        'default' => '0'
+      ],
+      [
         'id' => 'header-slide-out-widget-area-top-nav-in-mobile',
         'type' => 'nectar_blocks_switch_legacy',
-        'title' => esc_html__('Off Canvas Menu Mobile Nav Menu items', 'nectar-blocks-theme'),
+        'title' => esc_html__('Mobile Nav Menu Items', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('This will cause your off canvas menu to inherit any navigation items assigned in your "Top Navigation" menu location when viewing on a mobile device.', 'nectar-blocks-theme'),
         'desc' => '',
         'required' => [  ['header-slide-out-widget-area-style', '!=', 'simple'], ['header-slide-out-widget-area', '!=', '0'] ],
@@ -1085,7 +1454,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-icons-display',
         'type' => 'select',
-        'title' => esc_html__('Off Canvas Menu Item Icons', 'nectar-blocks-theme'),
+        'title' => esc_html__('Menu Item Icons', 'nectar-blocks-theme'),
         'subtitle' => esc_html__('This will control what type of icons (if any) to display in your off canvas menu. Icons are defined by you on an individual menu item basis in Appearance > Menus.', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
@@ -1111,7 +1480,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-icon-style',
         'type' => 'select',
-        'title' => esc_html__('Off Canvas Icon Style', 'nectar-blocks-theme'),
+        'title' => esc_html__('Icon Style', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
           'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
@@ -1123,7 +1492,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-menu-btn-bg-color',
         'type' => 'color',
-        'title' => esc_html__('Off Canvas Navigation Menu Button BG Color', 'nectar-blocks-theme'),
+        'title' => esc_html__('Button Background Color', 'nectar-blocks-theme'),
         'desc' => '',
         'transparent' => false,
         'subtitle' => esc_html__('Optionally define a background color for your off canvas navigation button within the header.', 'nectar-blocks-theme'),
@@ -1132,7 +1501,7 @@ class NectarBlocks_Customizer_Layout {
       [
         'id' => 'header-slide-out-widget-area-menu-btn-color',
         'type' => 'color',
-        'title' => esc_html__('Off Canvas Navigation Menu Button Color', 'nectar-blocks-theme'),
+        'title' => esc_html__('Button Color', 'nectar-blocks-theme'),
         'desc' => '',
         'transparent' => false,
         'default' => ''
@@ -1141,7 +1510,7 @@ class NectarBlocks_Customizer_Layout {
       [
        'id' => 'header-slide-out-widget-area-custom-font-size',
        'type' => 'text',
-       'title' => esc_html__('Off Canvas Menu Custom Font Size (Desktop)', 'nectar-blocks-theme'),
+       'title' => esc_html__('Custom Font Size (Desktop)', 'nectar-blocks-theme'),
        'subtitle' => esc_html__('Optionally specify a custom font size to use for your off canvas navigation menu items when viewed on desktop displays. All unit types are accepted.', 'nectar-blocks-theme'),
        'desc' => '',
        'default' => ''
@@ -1149,13 +1518,14 @@ class NectarBlocks_Customizer_Layout {
      [
        'id' => 'header-slide-out-widget-area-custom-font-size-mobile',
        'type' => 'text',
-       'title' => esc_html__('Off Canvas Menu Custom Font Size (Mobile)', 'nectar-blocks-theme'),
+       'title' => esc_html__('Custom Font Size (Mobile)', 'nectar-blocks-theme'),
        'subtitle' => esc_html__('Optionally specify a custom font size to use for your off canvas navigation menu items when viewed on mobile displays. All unit types are accepted.', 'nectar-blocks-theme'),
        'desc' => '',
        'default' => ''
      ],
 
     ];
+    self::filter_ocm_styling_controls( $controls, 'header-ocm' );
 
     return [
       'section_id' => 'header-ocm',
@@ -1230,6 +1600,8 @@ class NectarBlocks_Customizer_Layout {
       ],
 
     ];
+
+    self::filter_mobile_menu_controls( $controls, 'header-mobile-menu' );
 
     return [
       'section_id' => 'header-mobile-menu',
@@ -1594,6 +1966,7 @@ class NectarBlocks_Customizer_Layout {
       ],
 
     ];
+    self::filter_off_canvas_controls_only( $controls, 'header-nav-color-scheme-section' );
 
     return [
       'section_id' => 'header-nav-color-scheme-section',

@@ -275,15 +275,25 @@ function nectar_blog_social_sharing() {
          global $post;
          global $nectar_options;
 
-         $post_header_style = ( ! empty( $nectar_options['blog_header_type'] ) ) ? $nectar_options['blog_header_type'] : 'default';
-         $post_pagination_style = ( ! empty( $nectar_options['blog_next_post_link_style'] ) ) ? $nectar_options['blog_next_post_link_style'] : 'fullwidth_next_only';
-         $post_pagination_style_output = ( $post_pagination_style === 'contained_next_prev' ) ? 'fullwidth_next_prev' : $post_pagination_style;
-         $full_width_content_class = ( $post_pagination_style === 'contained_next_prev' || $post_pagination_style === 'parallax_next_only' ) ? '' : 'full-width-content';
-         $blog_next_post_link_order = ( ! empty( $nectar_options['blog_next_post_link_order'] ) ) ? $nectar_options['blog_next_post_link_order'] : 'default';
-         $blog_limit_cat = ( isset( $nectar_options['blog_next_post_limit_cat'] ) && '1' === $nectar_options['blog_next_post_limit_cat'] ) ? true : false;
-     $blog_next_post_bool = (isset( $nectar_options['blog_next_post_link'] ) && $nectar_options['blog_next_post_link'] === '1') ? true : false;
+         $nav = nectar_single_post_nav_settings();
 
-         $next_post = get_previous_post($blog_limit_cat);
+         $post_header_style = ( ! empty( $nectar_options['blog_header_type'] ) ) ? $nectar_options['blog_header_type'] : 'default';
+         $post_pagination_style = $nav['style'];
+         $post_pagination_style_output = ( $post_pagination_style === 'contained_next_prev' ) ? 'fullwidth_next_prev' : $post_pagination_style;
+         $full_width_content_class = ( $post_pagination_style === 'contained_next_prev' || $post_pagination_style === 'parallax_next_only' ) ? '' : 'wp-block-nectar-blocks-row nectar-blocks-row alignfull';
+         $blog_next_post_link_order = $nav['order'];
+         $blog_limit_cat = $nav['limit'];
+     $blog_next_post_bool = $nav['enabled'];
+         $limit_taxonomy = $nav['taxonomy'];
+
+         $nav_post_type = get_post_type_object( get_post_type() );
+         $nav_singular = ( $nav_post_type && ! empty( $nav_post_type->labels->singular_name ) ) ? esc_html( $nav_post_type->labels->singular_name ) : esc_html__( 'Post', 'nectar-blocks-theme' );
+         /* translators: %s: post type singular name. */
+         $prev_label = sprintf( esc_html__( 'Previous %s', 'nectar-blocks-theme' ), $nav_singular );
+         /* translators: %s: post type singular name. */
+         $next_label = sprintf( esc_html__( 'Next %s', 'nectar-blocks-theme' ), $nav_singular );
+
+         $next_post = get_previous_post($blog_limit_cat, '', $limit_taxonomy);
 
      $blog_nav_attrs = '';
      $blog_nav_img_wrap_o = '';
@@ -300,8 +310,7 @@ function nectar_blog_social_sharing() {
          $post_pagination_style === 'fullwidth_next_prev' && $blog_next_post_bool ||
      $post_pagination_style === 'parallax_next_only' && $blog_next_post_bool ) {
 
-      $row_class = ( $post_pagination_style !== 'parallax_next_only' ) ? 'wpb_row ' : '';
-             echo '<div' . $blog_nav_attrs . ' data-post-header-style="' . esc_attr( $post_header_style ) . '" class="blog_next_prev_buttons nectar-blocks__post-section ' . $row_class . esc_attr( $full_width_content_class ) . ' standard_section" data-style="' . esc_attr( $post_pagination_style_output ) . '" data-midnight="light">';
+             echo '<div' . $blog_nav_attrs . ' data-post-header-style="' . esc_attr( $post_header_style ) . '" class="blog_next_prev_buttons nectar-blocks__post-section ' . esc_attr( $full_width_content_class ) . '" data-style="' . esc_attr( $post_pagination_style_output ) . '" data-midnight="light">';
 
                  if ( ! empty( $next_post ) ) {
                      $bg = get_post_meta( $next_post->ID, '_nectar_header_bg', true );
@@ -315,11 +324,11 @@ function nectar_blog_social_sharing() {
 
                      // next & prev
                      if( $blog_next_post_link_order === 'reverse' ) {
-                         $previous_post = get_previous_post($blog_limit_cat);
-                         $next_post = get_next_post($blog_limit_cat);
+                         $previous_post = get_previous_post($blog_limit_cat, '', $limit_taxonomy);
+                         $next_post = get_next_post($blog_limit_cat, '', $limit_taxonomy);
                      } else {
-                         $previous_post = get_next_post($blog_limit_cat);
-                         $next_post = get_previous_post($blog_limit_cat);
+                         $previous_post = get_next_post($blog_limit_cat, '', $limit_taxonomy);
+                         $next_post = get_previous_post($blog_limit_cat, '', $limit_taxonomy);
                      }
 
                      $hidden_class = ( empty( $previous_post ) ) ? 'hidden' : null;
@@ -357,7 +366,7 @@ function nectar_blog_social_sharing() {
 
                          }
 
-                         echo '<a href="' . esc_url( get_permalink( $previous_post_id ) ) . '" aria-label="' . esc_attr($previous_post->post_title) . '"></a><h3><span>' . esc_html__( 'Previous Post', 'nectar-blocks-theme' ) . '</span><span class="text">' . wp_kses_post( $previous_post->post_title ) . '
+                         echo '<a href="' . esc_url( get_permalink( $previous_post_id ) ) . '" aria-label="' . esc_attr($previous_post->post_title) . '"></a><h3><span>' . $prev_label . '</span><span class="text">' . wp_kses_post( $previous_post->post_title ) . '
 						 <svg class="next-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 39 12"><line class="top" x1="23" y1="-0.5" x2="29.5" y2="6.5" stroke="#ffffff;"></line><line class="bottom" x1="23" y1="12.5" x2="29.5" y2="5.5" stroke="#ffffff;"></line></svg><span class="line"></span></span></h3>';
                      }
 
@@ -395,7 +404,7 @@ function nectar_blog_social_sharing() {
 
                          }
 
-                         echo '<a href="' . esc_url( get_permalink( $next_post_id ) ) . '" aria-label="' . esc_attr($next_post->post_title) . '"></a><h3><span>' . esc_html__( 'Next Post', 'nectar-blocks-theme' ) . '</span><span class="text">' . wp_kses_post( $next_post->post_title ) . '
+                         echo '<a href="' . esc_url( get_permalink( $next_post_id ) ) . '" aria-label="' . esc_attr($next_post->post_title) . '"></a><h3><span>' . $next_label . '</span><span class="text">' . wp_kses_post( $next_post->post_title ) . '
 						 <svg class="next-arrow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 39 12"><line class="top" x1="23" y1="-0.5" x2="29.5" y2="6.5" stroke="#ffffff;"></line><line class="bottom" x1="23" y1="12.5" x2="29.5" y2="5.5" stroke="#ffffff;"></line></svg><span class="line"></span></span></h3>';
 
                      }
@@ -404,7 +413,7 @@ function nectar_blog_social_sharing() {
 
                  } else {
 
-                    $next_post = get_previous_post($blog_limit_cat);
+                    $next_post = get_previous_post($blog_limit_cat, '', $limit_taxonomy);
                     $hidden_class = ( empty( $next_post ) ) ? ' hidden' : '';
 
                      // next only
@@ -430,15 +439,15 @@ function nectar_blog_social_sharing() {
                              $next_prev_title_class = apply_filters('nectar_next_prev_post_title_class', 'next-prev-title nectar-font-label');
 
                              if( $blog_next_post_link_order === 'reverse' ) {
-                                 echo '<span class="' . esc_attr($next_prev_title_class) . '">' . esc_html__( 'Previous Post', 'nectar-blocks-theme' ) . '</span>';
+                                 echo '<span class="' . esc_attr($next_prev_title_class) . '">' . $prev_label . '</span>';
                              } else {
-                                 echo '<span class="' . esc_attr($next_prev_title_class) . '">' . esc_html__( 'Next Post', 'nectar-blocks-theme' ) . '</span>';
+                                 echo '<span class="' . esc_attr($next_prev_title_class) . '">' . $next_label . '</span>';
                              }
-                             previous_post_link( '%link', '<h3>%title</h3>', $blog_limit_cat ); ?>
+                             previous_post_link( '%link', '<h3>%title</h3>', $blog_limit_cat, '', $limit_taxonomy ); ?>
                          </div>
                      </div>
                      <span class="bg-overlay"></span>
-                     <span class="full-link"><?php previous_post_link( '%link', '%title', $blog_limit_cat ); ?></span>
+                     <span class="full-link"><?php previous_post_link( '%link', '%title', $blog_limit_cat, '', $limit_taxonomy ); ?></span>
 
                  <?php } ?>
 

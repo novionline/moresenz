@@ -20,6 +20,7 @@ require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/components/icon-select
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/components/typography/Typography.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/components/divider/Divider.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/components/switch-legacy/SwitchLegacy.php';
+require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/components/responsive-slider/ResponsiveSlider.php';
 
 // Panel imports
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/before-panels.php';
@@ -38,6 +39,7 @@ require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/post-types/post
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/post-types/blog.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/post-types/woocommerce.php';
 require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/post-types/portfolio.php';
+require_once NECTAR_THEME_DIRECTORY . '/nectar/customizer/panels/post-types/custom-post-types.php';
 
 if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
 
@@ -165,6 +167,11 @@ if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
 
       // Set flag for dynamic css regeneration.
       set_transient('nectar_dynamic_css_needs_updating', 'true', DAY_IN_SECONDS);
+
+      // Clear local Google fonts cache when theme typography changes.
+      if ( class_exists( 'Nectar\\Render\\Local_Google_Fonts' ) && \Nectar\Render\Local_Google_Fonts::is_enabled() ) {
+        \Nectar\Render\Local_Google_Fonts::clear_cache();
+      }
     }
 
     private function register_custom_kirki() {
@@ -178,6 +185,7 @@ if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
               $controls['nectar_typography'] = 'Typography';
               $controls['nectar_divider'] = 'Divider';
               $controls['nectar_blocks_switch_legacy'] = 'SwitchLegacy';
+              $controls['nectar_responsive_slider'] = 'ResponsiveSlider';
             return $controls;
           }
         );
@@ -360,6 +368,53 @@ if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
           ],
         ]);
 
+      } elseif ( $control['type'] == 'responsive_slider' ) {
+        // Stored value is either a legacy number (upgrading users) or
+        // an object { desktop?, tablet?, mobile? }. The custom React control
+        // normalizes both shapes; CSS output reads either.
+        $settings = array_merge($settings, [
+          'type' => 'nectar_responsive_slider',
+          'choices' => [
+            'min' => $control['min'],
+            'max' => $control['max'],
+            'step' => $control['step'],
+            'defaultDesktop' => isset( $control['default'] ) ? $control['default'] : 0,
+          ],
+          'sanitize_callback' => function( $value ) use ( $control ) {
+            $min = isset( $control['min'] ) ? floatval( $control['min'] ) : null;
+            $max = isset( $control['max'] ) ? floatval( $control['max'] ) : null;
+
+            $clamp = function( $n ) use ( $min, $max ) {
+              if ( ! is_numeric( $n ) ) return '';
+              $n = floatval( $n );
+              if ( $min !== null && $n < $min ) $n = $min;
+              if ( $max !== null && $n > $max ) $n = $max;
+              return $n;
+            };
+
+            // Legacy number / numeric string.
+            if ( is_numeric( $value ) ) {
+              return $clamp( $value );
+            }
+
+            // Object shape.
+            if ( is_array( $value ) ) {
+              $out = [];
+              foreach ( [ 'desktop', 'tablet', 'mobile' ] as $key ) {
+                if ( isset( $value[$key] ) && '' !== $value[$key] ) {
+                  $clamped = $clamp( $value[$key] );
+                  if ( $clamped !== '' ) {
+                    $out[$key] = $clamped;
+                  }
+                }
+              }
+              return $out;
+            }
+
+            return isset( $control['default'] ) ? $control['default'] : '';
+          }
+        ]);
+
       } elseif ( $control['type'] == 'typography' ) {
         $settings = array_merge($settings, [
           'type' => 'nectar_typography',
@@ -467,6 +522,27 @@ if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
         $settings = array_merge($settings, [
           'type' => 'nectar_blocks_switch_legacy'
         ]);
+
+        // The compatibility Field class doesn't trigger kirki_field_add_control_args,
+        // so Kirki's JS field-dependencies module can't handle this control type.
+        // Convert the active_callback array to a PHP closure instead.
+        if ( isset( $settings['active_callback'] ) && is_array( $settings['active_callback'] ) && ! is_callable( $settings['active_callback'] ) ) {
+          $deps = $settings['active_callback'];
+          $settings['active_callback'] = function() use ( $deps ) {
+            foreach ( $deps as $dep ) {
+              if ( ! isset( $dep['setting'], $dep['operator'], $dep['value'] ) ) {
+                continue;
+              }
+              $val = get_theme_mod( $dep['setting'] );
+              if ( $dep['operator'] === '=' || $dep['operator'] === '==' ) {
+                if ( $val != $dep['value'] ) return false;
+              } elseif ( $dep['operator'] === '!=' ) {
+                if ( $val == $dep['value'] ) return false;
+              }
+            }
+            return true;
+          };
+        }
       }
       elseif ( $control['type'] == 'text' ) {
 
@@ -514,6 +590,26 @@ if ( ! class_exists( 'NectarBlocks_Customizer' ) ) {
       }
 
       Kirki::add_field( 'nectar_kirki_customizer', $settings );
+
+      // Register a companion hidden field for color controls to store
+      // a global color link slug. This is a theme_mod so it exports/imports
+      // automatically with the rest of the customizer settings.
+      if ( $control['type'] === 'color' && class_exists( 'Nectar_Global_Color_Links' ) ) {
+
+        $link_id = $control['id'] . Nectar_Global_Color_Links::LINK_SUFFIX;
+
+        // Default must be '' so set_default_values() never silently
+        // activates links for upgrading users.  New-install defaults
+        // are applied once via Nectar_Global_Color_Links::maybe_set_defaults().
+        Kirki::add_field( 'nectar_kirki_customizer', [
+          'section' => $section,
+          'settings' => $link_id,
+          'type' => 'text',
+          'default' => '',
+          'transport' => 'postMessage',
+          'label' => '',
+        ] );
+      }
     }
 
     public function dequeue_assets() {

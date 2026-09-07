@@ -20,7 +20,7 @@ $theme_skin = NectarThemeManager::$skin;
 $mobile_fixed = ( ! empty( $nectar_options['header-mobile-fixed'] ) ) ? $nectar_options['header-mobile-fixed'] : 'false';
 $has_main_menu = ( has_nav_menu( 'top_nav' ) || $header_format === 'centered-logo-between-menu-alt' ) ? 'true' : 'false';
 $full_width_header = ( ! empty( $nectar_options['header-fullwidth'] ) && $nectar_options['header-fullwidth'] === '1' ) ? true : false;
-$side_widget_class = NectarThemeManager::$ocm_style;
+$side_widget_class = nectar_get_ocm_style_with_header_builder_fallback( NectarThemeManager::$ocm_style );
 $side_widget_area = ( ! empty( $nectar_options['header-slide-out-widget-area'] ) ) ? $nectar_options['header-slide-out-widget-area'] : 'off';
 $side_widget_overlay_opacity = ( ! empty( $nectar_options['header-slide-out-widget-area-overlay-opacity'] ) ) ? $nectar_options['header-slide-out-widget-area-overlay-opacity'] : 'dark';
 $prepend_top_nav_mobile = ( ! empty( $nectar_options['header-slide-out-widget-area-top-nav-in-mobile'] ) ) ? $nectar_options['header-slide-out-widget-area-top-nav-in-mobile'] : 'false';
@@ -28,9 +28,24 @@ $dropdown_func = ( ! empty( $nectar_options['header-slide-out-widget-area-dropdo
 $user_set_side_widget_area = $side_widget_area;
 $separate_mobile_ocm = ( isset( $nectar_options['header-slide-out-widget-area-separate-mobile'] ) && $side_widget_area != '1' ) ? $nectar_options['header-slide-out-widget-area-separate-mobile'] : '0';
 
+$has_header_builder = nectar_has_header_nav_template();
+if ( $has_header_builder ) {
+    // handled directly in the header builder.
+    $separate_mobile_ocm = '0';
+    $user_set_side_widget_area = 'off';
+    // Use default dropdown behavior - the header builder pane system handles dropdowns.
+    $dropdown_func = 'default';
+}
 $has_ocm_template = has_action('nectar_template__ocm');
+$block_menu_items_html = apply_filters( 'nectar_ocm_block_menu_items', '' );
 
 if ( $has_main_menu === 'true' ) {
+    $side_widget_area = '1';
+}
+
+// A header nav template supplies its own OCM trigger and menu items — enable the
+// OCM without requiring the legacy signals (theme option / top_nav menu) above.
+if ( $has_header_builder && '' !== $block_menu_items_html ) {
     $side_widget_area = '1';
 }
 
@@ -50,7 +65,7 @@ if ( $side_widget_class === 'fullscreen' ||
     $dropdown_func = 'default';
 }
 
-$close_icon_escaped = '<a class="slide_out_area_close" role="button" href="#"><span class="screen-reader-text">' . esc_html__('Close Menu', 'nectar-blocks-theme') . '</span>
+$close_icon_escaped = '<a class="slide_out_area_close" role="button" href="#slide-out-widget-area"><span class="screen-reader-text">' . esc_html__('Close Menu', 'nectar-blocks-theme') . '</span>
                     <span class="close-wrap"> <span class="close-line close-line1"></span> <span class="close-line close-line2"></span> </span>
                 </a>';
 
@@ -67,49 +82,45 @@ if ( $side_widget_area === '1' && $side_widget_class !== 'simple' || true === $l
     $ocm_class .= ( $has_ocm_template ) ? ' has-nectar-template' : '';
     $ocm_class .= ' nectar-allow-scroll';
 
-$ocm_bg_markup = '<div id="slide-out-widget-area-bg" class="' . esc_attr( $ocm_class ) . ' ' . esc_attr( $side_widget_overlay_opacity ) . '"></div>';
-$is_fullscreen_ocm = ( $side_widget_class !== 'slide-out-from-right' && $side_widget_class !== 'slide-out-from-right-hover' ) ? true : false;
-?>
+    $ocm_bg_markup = '<div id="slide-out-widget-area-bg" class="' . esc_attr( $ocm_class ) . ' ' . esc_attr( $side_widget_overlay_opacity ) . '"></div>';
+    $is_fullscreen_ocm = ( $side_widget_class !== 'slide-out-from-right' && $side_widget_class !== 'slide-out-from-right-hover' ) ? true : false;
+
+    if ( ! $is_fullscreen_ocm ) {
+        echo $ocm_bg_markup;
+    }
+    ?><div id="slide-out-widget-area" class="<?php echo esc_attr( $ocm_class ); ?>" data-dropdown-func="<?php echo esc_attr( $dropdown_func ); ?>" data-back-txt="<?php echo esc_attr__( 'Back', 'nectar-blocks-theme' ); ?>">
         <?php
-            if ( ! $is_fullscreen_ocm  ) {
-                echo $ocm_bg_markup;
-            }
-        ?>
-        <div id="slide-out-widget-area" class="<?php echo esc_attr( $ocm_class ); ?>" data-dropdown-func="<?php echo esc_attr( $dropdown_func ); ?>" data-back-txt="<?php echo esc_attr__( 'Back', 'nectar-blocks-theme' ); ?>">
+        if ( $is_fullscreen_ocm ) {
+            echo $ocm_bg_markup;
+        }
 
-            <?php
+        if ( $side_widget_class === 'fullscreen' ||
+        $side_widget_class === 'fullscreen-alt' ||
+        $side_widget_class === 'fullscreen-split' ||
+        $side_widget_class === 'slide-out-from-right' ||
+        $side_widget_class === 'slide-out-from-right-hover' ) {
+            echo '<div class="inner-wrap">';
+        }
 
-            if ( $is_fullscreen_ocm  ) {
-                echo $ocm_bg_markup;
-            }
+        if ( has_action('nectar_template__ocm') ) {
+            do_action('nectar_template__ocm');
+            echo $close_icon_escaped;
+        } else {
 
-            if ( $side_widget_class === 'fullscreen' ||
-            $side_widget_class === 'fullscreen-alt' ||
-            $side_widget_class === 'fullscreen-split' ||
-            $side_widget_class === 'slide-out-from-right' ||
-            $side_widget_class === 'slide-out-from-right-hover' ) {
-
-                echo '<div class="inner-wrap">';
-            }
-
-            if ( has_action('nectar_template__ocm') ) {
-                do_action('nectar_template__ocm');
+            $prepend_mobile_menu = ( $prepend_top_nav_mobile === '1' && $has_main_menu === 'true' && $user_set_side_widget_area !== 'off' ) ? 'true' : 'false';
+            ?><div class="inner" data-prepend-menu-mobile="<?php echo esc_attr( $prepend_mobile_menu ); ?>">
+                <?php
                 echo $close_icon_escaped;
-            } else {
-
-            $prepend_mobile_menu = ( $prepend_top_nav_mobile === '1' && $has_main_menu === 'true' && $user_set_side_widget_area !== 'off' ) ? 'true' : 'false'; ?>
-
-            <div class="inner" data-prepend-menu-mobile="<?php echo esc_attr( $prepend_mobile_menu ); ?>">
-
-                <?php echo $close_icon_escaped;
 
                 nectar_hook_ocm_before_menu();
 
                 if ( $user_set_side_widget_area === 'off' && true !== $legacy_double_menu && $separate_mobile_ocm != '1' ||
                     $prepend_top_nav_mobile === '1' && $has_main_menu === 'true' && $separate_mobile_ocm != '1' ) {
-                    ?>
-                    <div class="off-canvas-menu-container mobile-only" role="navigation">
 
+                    // If we're using block-based navigation items, they must be available at all breakpoints
+                    // (overlay can be enabled on desktop/tablet too). The `mobile-only` class would hide them.
+                    $ocm_mobile_only_class = ( ! empty( $block_menu_items_html ) ) ? '' : ' mobile-only';
+                    ?><div class="off-canvas-menu-container<?php echo esc_attr( $ocm_mobile_only_class ); ?>" role="navigation">
                         <?php
                         $header_mobile_func = ( ! empty( $nectar_options['secondary-header-mobile-display'] ) ) ? $nectar_options['secondary-header-mobile-display'] : 'default';
                         $using_secondary = ( ! empty( $nectar_options['header_layout'] ) && $header_format != 'left-header' ) ? $nectar_options['header_layout'] : ' ';
@@ -127,41 +138,41 @@ $is_fullscreen_ocm = ( $side_widget_class !== 'slide-out-from-right' && $side_wi
                             echo '</div>';
                         }
                         ?>
-
                         <ul class="menu">
                             <?php
-
-                            // use default top nav menu if ocm is not activated
-                            // but is needed for mobile when the mobile fixed nav is on
-                            if( has_nav_menu( 'top_nav' ) ) {
-                                wp_nav_menu(
-                                    [
-                                        'walker' => new Nectar_OCM_Icon_Walker(),
-                                        'theme_location' => 'top_nav',
-                                        'container' => '',
-                                        'items_wrap' => '%3$s',
-                                    ]
-                                );
-                            }
-
-                            if ( $header_format === 'centered-menu' ||
-                                $header_format === 'menu-left-aligned' ||
-                                $header_format === 'centered-logo-between-menu' ) {
-
-                                if ( has_nav_menu( 'top_nav_pull_right' ) ) {
+                            if ( ! empty( $block_menu_items_html ) ) {
+                                echo wp_kses_post( $block_menu_items_html );
+                            } else {
+                                // use default top nav menu if ocm is not activated
+                                // but is needed for mobile when the mobile fixed nav is on
+                                if( has_nav_menu( 'top_nav' ) ) {
                                     wp_nav_menu(
                                         [
                                             'walker' => new Nectar_OCM_Icon_Walker(),
-                                            'theme_location' => 'top_nav_pull_right',
+                                            'theme_location' => 'top_nav',
                                             'container' => '',
                                             'items_wrap' => '%3$s',
                                         ]
                                     );
                                 }
-                            }
 
-                            if ( $header_format === 'centered-menu-bottom-bar' ||
-                                 $header_format === 'centered-logo-between-menu-alt'  ) {
+                                if ( $header_format === 'centered-menu' ||
+                                    $header_format === 'menu-left-aligned' ||
+                                    $header_format === 'centered-logo-between-menu' ) {
+                                    if ( has_nav_menu( 'top_nav_pull_right' ) ) {
+                                        wp_nav_menu(
+                                            [
+                                                'walker' => new Nectar_OCM_Icon_Walker(),
+                                                'theme_location' => 'top_nav_pull_right',
+                                                'container' => '',
+                                                'items_wrap' => '%3$s',
+                                            ]
+                                        );
+                                    }
+                                }
+
+                                if ( $header_format === 'centered-menu-bottom-bar' ||
+                                     $header_format === 'centered-logo-between-menu-alt' ) {
                                     if ( has_nav_menu( 'top_nav_pull_left' ) ) {
                                         wp_nav_menu(
                                             [
@@ -173,25 +184,22 @@ $is_fullscreen_ocm = ( $side_widget_class !== 'slide-out-from-right' && $side_wi
                                         );
                                     }
 
-                                if ( has_nav_menu( 'top_nav_pull_right' ) ) {
-                                    wp_nav_menu(
-                                        [
-                                            'walker' => new Nectar_OCM_Icon_Walker(),
-                                            'theme_location' => 'top_nav_pull_right',
-                                            'container' => '',
-                                            'items_wrap' => '%3$s',
-                                        ]
-                                    );
+                                    if ( has_nav_menu( 'top_nav_pull_right' ) ) {
+                                        wp_nav_menu(
+                                            [
+                                                'walker' => new Nectar_OCM_Icon_Walker(),
+                                                'theme_location' => 'top_nav_pull_right',
+                                                'container' => '',
+                                                'items_wrap' => '%3$s',
+                                            ]
+                                        );
+                                    }
                                 }
                             }
-
                             ?>
-
                         </ul>
-
                         <ul class="menu secondary-header-items">
                             <?php
-
                             // Material secondary nav in menu.
                             $using_secondary = ( ! empty( $nectar_options['header_layout'] ) && $header_format != 'left-header' ) ? $nectar_options['header_layout'] : ' ';
 
@@ -207,84 +215,64 @@ $is_fullscreen_ocm = ( $side_widget_class !== 'slide-out-from-right' && $side_wi
                             }
                             ?>
                         </ul>
-                    </div>
-                    <?php
+                    </div><?php
                 }
 
                 if ( has_nav_menu( 'off_canvas_nav' ) && $user_set_side_widget_area != 'off' ||
                     has_nav_menu( 'off_canvas_nav' ) && $separate_mobile_ocm == '1' ) {
-                    ?>
-                    <div class="off-canvas-menu-container" role="navigation">
+                    ?><div class="off-canvas-menu-container" role="navigation">
                         <ul class="menu">
                             <?php
+                            // Always use the off_canvas_nav menu location here.
+                            // Block menu items only replace the main top_nav, not this location.
                             wp_nav_menu(
-                        [
+                                [
                                     'walker' => new Nectar_OCM_Icon_Walker(),
                                     'theme_location' => 'off_canvas_nav',
                                     'container' => '',
                                     'items_wrap' => '%3$s',
                                 ]
-                    );
-
+                            );
                             ?>
-
                         </ul>
-                    </div>
-
-                    <?php
+                    </div><?php
                 }
 
                 nectar_hook_ocm_after_menu();
-
                 nectar_hook_ocm_before_secondary_items();
 
                 // Widget area.
                 if ( $side_widget_class != 'slide-out-from-right-hover' ) {
                     if ( function_exists( 'dynamic_sidebar' ) && dynamic_sidebar( 'Off Canvas Menu' ) ) :
-                        elseif ( ! has_nav_menu( 'off_canvas_nav' ) && $user_set_side_widget_area != 'off' ) :
-                            ?>
+                    elseif ( ! has_nav_menu( 'off_canvas_nav' ) && $user_set_side_widget_area != 'off' ) :
+                        ?><div class="widget"></div><?php
+                    endif;
+                }
 
-                            <div class="widget">
+                // Bottom meta.
+                if( $side_widget_class === 'fullscreen-split' ) {
+                    get_template_part( 'includes/partials/footer/off-canvas-navigation-bottom-meta' );
+                }
 
-                            </div>
-                            <?php
-                        endif;
-
-                    }
-
-                    // Bottom meta.
-                    if( $side_widget_class === 'fullscreen-split' ) {
-                        get_template_part( 'includes/partials/footer/off-canvas-navigation-bottom-meta' );
-                    }
-
-                    nectar_hook_ocm_after_secondary_items();
-
-                    ?>
-
-                </div>
-
-                <?php
-                    // Bottom meta.
-                    if( $side_widget_class !== 'fullscreen-split' ) {
-                        get_template_part( 'includes/partials/footer/off-canvas-navigation-bottom-meta' );
-                    }
+                nectar_hook_ocm_after_secondary_items();
                 ?>
+            </div>
+            <?php
+            // Bottom meta.
+            if( $side_widget_class !== 'fullscreen-split' ) {
+                get_template_part( 'includes/partials/footer/off-canvas-navigation-bottom-meta' );
+            }
 
-                <?php
-                    } // end if ocm template is set
-                ?>
+        } // end if ocm template is set
 
-                <?php
-
-                    if ( $side_widget_class === 'fullscreen' ||
-                    $side_widget_class === 'fullscreen-alt' ||
-                    $side_widget_class === 'fullscreen-split' ||
-          $side_widget_class === 'fullscreen-inline-images' ||
-                    ( $theme_skin === 'material' && $side_widget_class === 'slide-out-from-right' ) ||
-                    ( $theme_skin === 'material' && $side_widget_class === 'slide-out-from-right-hover' ) ) {
-                        echo '</div> <!--/inner-wrap-->';
-                    }
-                    ?>
-
-                </div>
-        <?php }
+        if ( $side_widget_class === 'fullscreen' ||
+        $side_widget_class === 'fullscreen-alt' ||
+        $side_widget_class === 'fullscreen-split' ||
+        $side_widget_class === 'fullscreen-inline-images' ||
+        ( $theme_skin === 'material' && $side_widget_class === 'slide-out-from-right' ) ||
+        ( $theme_skin === 'material' && $side_widget_class === 'slide-out-from-right-hover' ) ) {
+            echo '</div> <!--/inner-wrap-->';
+        }
+        ?>
+    </div><?php
+}

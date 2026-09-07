@@ -68,7 +68,7 @@ body.search #page-header-bg h1 span {
 body.search-no-results[data-header-resize] .container-wrap {
   padding: 8% 0;
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   body.search-no-results[data-header-resize] .container-wrap {
     padding: 14% 0;
   }
@@ -229,7 +229,7 @@ body.search-results #search-results[data-layout*="list"] article .inner-wrap > a
   display: block;
   opacity: 0.7;
 }
-body.search-results #search-results[data-layout*="list"] article[data-post-thumb="1"]:before {
+body.search-results #search-results[data-layout*="list"] article[data-post-thumb="true"]:before {
   color: #fff;
   border: 1px transparent;
 }

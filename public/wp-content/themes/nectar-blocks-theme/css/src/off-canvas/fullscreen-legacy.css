@@ -12,9 +12,7 @@ Description: Off canvas menu set to "Fullscreen" in theme options
    pointer-events: none!important;
  }
 
- #slide-out-widget-area.fullscreen {
-   display: none;
- }
+
 #slide-out-widget-area.fullscreen.open {
    animation: nectar_fullscreen_open var(--ocm-transition-duration) var(--ocm-transition-easing) forwards;
 }
@@ -37,6 +35,11 @@ Description: Off canvas menu set to "Fullscreen" in theme options
     clip-path: inset(0 0 0 0);
   }
 }
+
+#slide-out-widget-area.fullscreen {
+   backdrop-filter: blur(5px);
+}
+
 #slide-out-widget-area.fullscreen.open,
 #slide-out-widget-area.fullscreen-alt.open {
    pointer-events: auto;
@@ -45,6 +48,7 @@ Description: Off canvas menu set to "Fullscreen" in theme options
 #slide-out-widget-area.fullscreen,
 #slide-out-widget-area.fullscreen-alt{
     position:fixed;
+    display: block;
      width: calc(100% - (var(--offset, 0px) * 2));
      height: calc(100% - (var(--offset, 0px) * 2));
      right: var(--offset, 0px);
@@ -55,10 +59,9 @@ Description: Off canvas menu set to "Fullscreen" in theme options
      z-index:9997;
      background-color:transparent!important;
      text-align:center;
-     overflow-y:scroll;
-     overflow-x:hidden;
-     padding-right:20px;
-     box-sizing:content-box;
+     overflow: hidden!important;
+     pointer-events: none;
+     opacity: 0;
 }
  #slide-out-widget-area.fullscreen .inner,
  #slide-out-widget-area.fullscreen-alt .inner{
@@ -69,6 +72,12 @@ Description: Off canvas menu set to "Fullscreen" in theme options
      height: auto;
      margin: auto;
      padding: 30px 0;
+     overflow-y: scroll;
+     scrollbar-width: none; /* Firefox */
+}
+#slide-out-widget-area.fullscreen .inner::-webkit-scrollbar,
+#slide-out-widget-area.fullscreen-alt .inner::-webkit-scrollbar {
+    display: none; /* Chrome/Safari/Opera */
 }
 
  #slide-out-widget-area.fullscreen .inner-wrap,
@@ -76,7 +85,6 @@ Description: Off canvas menu set to "Fullscreen" in theme options
       position: relative;
       z-index: 10;
      height:100%;
-     margin-right:-20px;
      display: flex;
      flex-direction: column;
 }
@@ -141,7 +149,7 @@ Description: Off canvas menu set to "Fullscreen" in theme options
      font-weight:700;
      letter-spacing:-1px
 }
- @media only screen and (max-width: 690px) {
+ @media only screen and (max-width: 767px) {
      #slide-out-widget-area.fullscreen .inner .widget.widget_nav_menu li a,
      #slide-out-widget-area.fullscreen .inner .off-canvas-menu-container li > a,
      #slide-out-widget-area.fullscreen-alt .inner .widget.widget_nav_menu li a,
@@ -231,7 +239,7 @@ body #slide-out-widget-area .inner .off-canvas-menu-container li.menu-item-has-i
  }
 
 
- @media only screen and (min-width:690px){
+ @media only screen and (min-width:768px){
     #slide-out-widget-area.fullscreen .recent_projects_widget div a,
     #slide-out-widget-area.fullscreen-alt .recent_projects_widget div a{
         width:10.5%
@@ -345,7 +353,7 @@ body #slide-out-widget-area .inner .off-canvas-menu-container li.menu-item-has-i
  #slide-out-widget-area.fullscreen-alt .bottom-text {
     color:#fff
 }
- @media only screen and (min-width:1000px){
+ @media only screen and (min-width:1025px){
      #slide-out-widget-area.fullscreen .bottom-text[data-has-desktop-social="false"],
      #slide-out-widget-area.fullscreen-alt .bottom-text[data-has-desktop-social="false"]{
         left:50%;
@@ -378,10 +386,11 @@ body #slide-out-widget-area .inner .off-canvas-menu-container li.menu-item-has-i
      position:relative;
      padding:6px 20px;
      color:#fff;
+     line-height: 1;
 }
- #slide-out-widget-area.fullscreen-alt .menuwrapper li a{
+ /* #slide-out-widget-area.fullscreen-alt .menuwrapper li a{
     overflow:hidden
-}
+} */
  #slide-out-widget-area.fullscreen-alt .menuwrapper li small,
  #slide-out-widget-area .inner .off-canvas-menu-container li > a .item_desc{
     display:block

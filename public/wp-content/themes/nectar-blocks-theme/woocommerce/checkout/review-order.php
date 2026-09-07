@@ -34,7 +34,7 @@ defined( 'ABSPATH' ) || exit;
                         <div class="product-image">
                             <?php
                             echo '<a href="' . esc_url(get_permalink($cart_item['product_id'])) . '" target="_blank">';
-                            echo apply_filters( 'woocommerce_in_cart_product_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
+                            echo wp_kses_post( apply_filters( 'woocommerce_in_cart_product_thumbnail', $_product->get_image(), $cart_item, $cart_item_key ) );
                             echo '</a>';
                             ?>
                         </div>
@@ -43,12 +43,12 @@ defined( 'ABSPATH' ) || exit;
                                 <?php echo '<h4><a href="' . esc_url(get_permalink($cart_item['product_id'])) . '" target="_blank">' . wp_kses_post( apply_filters( 'woocommerce_cart_item_name', $_product->get_name(), $cart_item, $cart_item_key ) ) . '&nbsp;</a>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 <?php echo apply_filters( 'woocommerce_checkout_cart_item_quantity', ' <span class="product-quantity">' . esc_html__('Quantity', 'woocommerce') . ': ' . $cart_item['quantity'] . '</span></h4>', $cart_item, $cart_item_key ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                                 <?php if(function_exists('wc_get_formatted_cart_item_data')) {
-                                    echo wc_get_formatted_cart_item_data( $cart_item );
+                                    echo wp_kses_post( wc_get_formatted_cart_item_data( $cart_item ) );
                                 } else {
-                                    echo WC()->cart->get_item_data( $cart_item );
+                                    echo wp_kses_post( WC()->cart->get_item_data( $cart_item ) );
                                 } ?>
                             </div>
-                            <?php echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ); ?>
+                            <?php echo wp_kses_post( apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key ) ); ?>
                         </div>
                     </div>
                     <?php

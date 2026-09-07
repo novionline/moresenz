@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
+class ComposerStaticInit9e57c9a99a00ee8a45c5f2ebd6a0bb3f
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -202,15 +202,20 @@ class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
         'Nectar\\API\\Dynamic_Block_API' => __DIR__ . '/../..' . '/includes/API/Dynamic_Block_API.php',
         'Nectar\\API\\Dynamic_Data_API' => __DIR__ . '/../..' . '/includes/API/Dynamic_Data_API.php',
         'Nectar\\API\\Global_Settings\\Admin_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Admin_API.php',
+        'Nectar\\API\\Global_Settings\\Adobe_Fonts_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Adobe_Fonts_API.php',
         'Nectar\\API\\Global_Settings\\Color_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Color_API.php',
         'Nectar\\API\\Global_Settings\\Custom_Fonts_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Custom_Fonts_API.php',
         'Nectar\\API\\Global_Settings\\Options_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Options_API.php',
         'Nectar\\API\\Global_Settings\\Typography_API' => __DIR__ . '/../..' . '/includes/API/Global_Settings/Typography_API.php',
         'Nectar\\API\\Import_Export_API' => __DIR__ . '/../..' . '/includes/API/Import_Export_API.php',
+        'Nectar\\API\\Licensing\\Expired_Updates_API' => __DIR__ . '/../..' . '/includes/API/Licensing/Expired_Updates_API.php',
+        'Nectar\\API\\Licensing\\License_API' => __DIR__ . '/../..' . '/includes/API/Licensing/License_API.php',
+        'Nectar\\API\\Local_Templates_API' => __DIR__ . '/../..' . '/includes/API/Local_Templates_API.php',
         'Nectar\\API\\Media\\Image_Upload_API' => __DIR__ . '/../..' . '/includes/API/Media/Image_Upload_API.php',
         'Nectar\\API\\Post_Data_API' => __DIR__ . '/../..' . '/includes/API/Post_Data_API.php',
         'Nectar\\API\\Router' => __DIR__ . '/../..' . '/includes/API/Router.php',
         'Nectar\\Admin_Panel\\Panel' => __DIR__ . '/../..' . '/includes/Admin_Panel/Panel.php',
+        'Nectar\\Ajax\\HeaderSearch' => __DIR__ . '/../..' . '/includes/Ajax/HeaderSearch.php',
         'Nectar\\Dynamic_Data\\Dynamic_Helpers' => __DIR__ . '/../..' . '/includes/Dynamic_Data/Dynamic_Helpers.php',
         'Nectar\\Dynamic_Data\\Frontend_Render' => __DIR__ . '/../..' . '/includes/Dynamic_Data/Frontend_Render.php',
         'Nectar\\Dynamic_Data\\Sources\\ACF' => __DIR__ . '/../..' . '/includes/Dynamic_Data/Sources/ACF.php',
@@ -226,6 +231,7 @@ class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
         'Nectar\\Global_Settings\\Global_Colors' => __DIR__ . '/../..' . '/includes/Global_Settings/Global_Colors.php',
         'Nectar\\Global_Settings\\Global_Settings_Register' => __DIR__ . '/../..' . '/includes/Global_Settings/Global_Settings_Register.php',
         'Nectar\\Global_Settings\\Global_Typography' => __DIR__ . '/../..' . '/includes/Global_Settings/Global_Typography.php',
+        'Nectar\\Global_Settings\\Nectar_Adobe_Fonts' => __DIR__ . '/../..' . '/includes/Global_Settings/Nectar_Adobe_Fonts.php',
         'Nectar\\Global_Settings\\Nectar_Blocks_Options' => __DIR__ . '/../..' . '/includes/Global_Settings/Nectar_Blocks_Options.php',
         'Nectar\\Global_Settings\\Nectar_Custom_Fonts' => __DIR__ . '/../..' . '/includes/Global_Settings/Nectar_Custom_Fonts.php',
         'Nectar\\Global_Settings\\Nectar_Modules' => __DIR__ . '/../..' . '/includes/Global_Settings/Nectar_Modules.php',
@@ -233,6 +239,10 @@ class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
         'Nectar\\Global_Settings\\Settings_Base' => __DIR__ . '/../..' . '/includes/Global_Settings/Settings_Base.php',
         'Nectar\\Global_Settings\\Utilities' => __DIR__ . '/../..' . '/includes/Global_Settings/Utilities.php',
         'Nectar\\Import_Export\\Plugin_IE' => __DIR__ . '/../..' . '/includes/Import_Export/Plugin_IE.php',
+        'Nectar\\Licensing\\Expired_Updates_Service' => __DIR__ . '/../..' . '/includes/Licensing/Expired_Updates_Service.php',
+        'Nectar\\Licensing\\License_Client' => __DIR__ . '/../..' . '/includes/Licensing/License_Client.php',
+        'Nectar\\Licensing\\Token_Refresh_Cron' => __DIR__ . '/../..' . '/includes/Licensing/Token_Refresh_Cron.php',
+        'Nectar\\Licensing\\Token_Service' => __DIR__ . '/../..' . '/includes/Licensing/Token_Service.php',
         'Nectar\\Menu_Options\\Menu_Options_Register' => __DIR__ . '/../..' . '/includes/Menu_Options/Menu_Options_Register.php',
         'Nectar\\Menu_Options\\Modal' => __DIR__ . '/../..' . '/includes/Menu_Options/Modal.php',
         'Nectar\\Menu_Options\\Setting_Field' => __DIR__ . '/../..' . '/includes/Menu_Options/Setting_Field.php',
@@ -244,24 +254,48 @@ class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
         'Nectar\\Nectar_Templates\\Nectar_Templates' => __DIR__ . '/../..' . '/includes/Nectar_Templates/Nectar_Templates.php',
         'Nectar\\Nectar_Templates\\Nectar_Templates_Register' => __DIR__ . '/../..' . '/includes/Nectar_Templates/Nectar_Templates_Register.php',
         'Nectar\\Nectar_Templates\\Render' => __DIR__ . '/../..' . '/includes/Nectar_Templates/Render.php',
+        'Nectar\\Nectar_Templates\\Template_Default_Content' => __DIR__ . '/../..' . '/includes/Nectar_Templates/Template_Default_Content.php',
+        'Nectar\\Notifications\\Domain_Changed_Notice' => __DIR__ . '/../..' . '/includes/Notifications/Domain_Changed_Notice.php',
+        'Nectar\\Notifications\\Expired_License_Notice' => __DIR__ . '/../..' . '/includes/Notifications/Expired_License_Notice.php',
         'Nectar\\Notifications\\NotificationManager' => __DIR__ . '/../..' . '/includes/Notifications/NotificationManager.php',
         'Nectar\\Notifications\\Notifications_Register' => __DIR__ . '/../..' . '/includes/Notifications/Notifications_Register.php',
+        'Nectar\\Notifications\\Reauth_Failed_Notice' => __DIR__ . '/../..' . '/includes/Notifications/Reauth_Failed_Notice.php',
         'Nectar\\Plugin' => __DIR__ . '/../..' . '/includes/Plugin.php',
         'Nectar\\Portfolio\\Portfolio_Register' => __DIR__ . '/../..' . '/includes/Portfolio/Portfolio_Register.php',
         'Nectar\\Render\\BlockControls\\AnimationControl' => __DIR__ . '/../..' . '/includes/Render/BlockControls/AnimationControl.php',
         'Nectar\\Render\\BlockControls\\BlockControlBase' => __DIR__ . '/../..' . '/includes/Render/BlockControls/BlockControlBase.php',
+        'Nectar\\Render\\Block_Dynamic_CSS' => __DIR__ . '/../..' . '/includes/Render/Block_Dynamic_CSS.php',
+        'Nectar\\Render\\Blocks\\AccordionSection\\AccordionSection' => __DIR__ . '/../..' . '/includes/Render/Blocks/AccordionSection/AccordionSection.php',
         'Nectar\\Render\\Blocks\\BlockBase' => __DIR__ . '/../..' . '/includes/Render/Blocks/BlockBase.php',
         'Nectar\\Render\\Blocks\\Button' => __DIR__ . '/../..' . '/includes/Render/Blocks/Button.php',
+        'Nectar\\Render\\Blocks\\Button\\Button' => __DIR__ . '/../..' . '/includes/Render/Blocks/Button/Button.php',
+        'Nectar\\Render\\Blocks\\HeaderActionAccount\\HeaderActionAccount' => __DIR__ . '/../..' . '/includes/Render/Blocks/HeaderActionAccount/HeaderActionAccount.php',
+        'Nectar\\Render\\Blocks\\HeaderActions\\HeaderActions' => __DIR__ . '/../..' . '/includes/Render/Blocks/HeaderActions/HeaderActions.php',
+        'Nectar\\Render\\Blocks\\IconListItem\\IconListItem' => __DIR__ . '/../..' . '/includes/Render/Blocks/IconListItem/IconListItem.php',
+        'Nectar\\Render\\Blocks\\Icon\\Icon' => __DIR__ . '/../..' . '/includes/Render/Blocks/Icon/Icon.php',
+        'Nectar\\Render\\Blocks\\Megamenu\\Megamenu' => __DIR__ . '/../..' . '/includes/Render/Blocks/Megamenu/Megamenu.php',
         'Nectar\\Render\\Blocks\\PostContent\\PostContent' => __DIR__ . '/../..' . '/includes/Render/Blocks/PostContent/PostContent.php',
         'Nectar\\Render\\Blocks\\PostGrid\\PostGrid' => __DIR__ . '/../..' . '/includes/Render/Blocks/PostGrid/PostGrid.php',
+        'Nectar\\Render\\Blocks\\Shared\\IconSlotRenderer' => __DIR__ . '/../..' . '/includes/Render/Blocks/Shared/IconSlotRenderer.php',
+        'Nectar\\Render\\Blocks\\Tabs\\Tabs' => __DIR__ . '/../..' . '/includes/Render/Blocks/Tabs/Tabs.php',
         'Nectar\\Render\\Blocks\\TaxonomyGrid\\TaxonomyGrid' => __DIR__ . '/../..' . '/includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php',
         'Nectar\\Render\\Blocks\\TaxonomyTerms\\TaxonomyTerms' => __DIR__ . '/../..' . '/includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php',
+        'Nectar\\Render\\Blocks\\WorldTime\\WorldTime' => __DIR__ . '/../..' . '/includes/Render/Blocks/WorldTime/WorldTime.php',
         'Nectar\\Render\\Compatibility' => __DIR__ . '/../..' . '/includes/Render/Compatibility.php',
+        'Nectar\\Render\\Conditional_Script_Manager' => __DIR__ . '/../..' . '/includes/Render/Conditional_Script_Manager.php',
+        'Nectar\\Render\\Conditional_Scripts' => __DIR__ . '/../..' . '/includes/Render/Conditional_Scripts.php',
+        'Nectar\\Render\\Enhanced_Navigation' => __DIR__ . '/../..' . '/includes/Render/Enhanced_Navigation.php',
+        'Nectar\\Render\\Header_Variant_Initial' => __DIR__ . '/../..' . '/includes/Render/Header_Variant_Initial.php',
+        'Nectar\\Render\\Lazy_Load_Images' => __DIR__ . '/../..' . '/includes/Render/Lazy_Load_Images.php',
+        'Nectar\\Render\\Local_Google_Fonts' => __DIR__ . '/../..' . '/includes/Render/Local_Google_Fonts.php',
+        'Nectar\\Render\\Preload_BG_Images' => __DIR__ . '/../..' . '/includes/Render/Preload_BG_Images.php',
         'Nectar\\Render\\Render' => __DIR__ . '/../..' . '/includes/Render/Render.php',
         'Nectar\\Render\\RenderJS' => __DIR__ . '/../..' . '/includes/Render/RenderJS.php',
         'Nectar\\Shared\\Helpers' => __DIR__ . '/..' . '/nectar/shared-php/src/Helpers.php',
+        'Nectar\\Shared\\Hostname' => __DIR__ . '/..' . '/nectar/shared-php/src/Hostname.php',
         'Nectar\\Shared\\RemoteVersionCheck' => __DIR__ . '/..' . '/nectar/shared-php/src/RemoteVersionCheck.php',
         'Nectar\\Update\\NectarBlocksUpdater' => __DIR__ . '/../..' . '/includes/Update/NectarBlocksUpdater.php',
+        'Nectar\\Update\\Updaters' => __DIR__ . '/../..' . '/includes/Update/Updaters.php',
         'Nectar\\Utilities\\BlockAnimations' => __DIR__ . '/../..' . '/includes/Utilities/BlockAnimations.php',
         'Nectar\\Utilities\\FlatMap' => __DIR__ . '/../..' . '/includes/Utilities/FlatMap.php',
         'Nectar\\Utilities\\HTTP' => __DIR__ . '/../..' . '/includes/Utilities/HTTP.php',
@@ -499,9 +533,9 @@ class ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitedc50840c5513cb4dd1a4f25116a4147::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit9e57c9a99a00ee8a45c5f2ebd6a0bb3f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit9e57c9a99a00ee8a45c5f2ebd6a0bb3f::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit9e57c9a99a00ee8a45c5f2ebd6a0bb3f::$classMap;
 
         }, null, ClassLoader::class);
     }

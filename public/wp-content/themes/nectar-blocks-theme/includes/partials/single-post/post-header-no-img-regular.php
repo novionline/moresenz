@@ -14,6 +14,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 global $post;
 
+// Honor the per-post "Hide Title" option (synced with the editor eye toggle).
+$post_title_vis = get_post_meta( $post->ID, '_nectar_blocks_hide_post_title', true );
+if ( $post_title_vis === '1' && defined( 'NECTAR_BLOCKS_ROOT_DIR_PATH' ) ) {
+    return;
+}
+
 $nectar_options = get_nectar_theme_options();
 
 $bg = apply_filters('nectar_page_header_bg_val', get_post_meta( $post->ID, '_nectar_header_bg', true ));

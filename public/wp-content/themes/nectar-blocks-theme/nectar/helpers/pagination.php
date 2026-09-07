@@ -149,11 +149,11 @@ if( ! function_exists('be_adjacent_post_link') ) {
         if ( empty($post->post_title) )
             $title = $previous ? esc_html__('Previous Post', 'nectar-blocks-theme') : esc_html__('Next Post', 'nectar-blocks-theme');
 
-        $title = apply_filters('the_title', $title, $post->ID);
+        $title = wp_kses_post( apply_filters('the_title', $title, $post->ID) );
         $date = mysql2date(get_option('date_format'), $post->post_date);
         $rel = $previous ? 'prev' : 'next';
 
-        $string = '<a href="' . esc_url(get_permalink($post)) . '" rel="' . $rel . '">';
+        $string = '<a href="' . esc_url(get_permalink($post)) . '" rel="' . esc_attr( $rel ) . '">';
         $link = str_replace('%title', $title, $link);
         $link = str_replace('%date', $date, $link);
         $link = $string . $link . '</a>';
@@ -161,7 +161,7 @@ if( ! function_exists('be_adjacent_post_link') ) {
         $format = str_replace('%link', $link, $format);
 
         $adjacent = $previous ? 'previous' : 'next';
-        echo apply_filters( "{$adjacent}_post_link", $format, $link );
+        echo wp_kses_post( apply_filters( "{$adjacent}_post_link", $format, $link ) );
     }
 
 }

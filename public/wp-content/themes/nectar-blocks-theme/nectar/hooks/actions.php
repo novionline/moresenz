@@ -25,11 +25,9 @@ if( function_exists('wp_body_open') ) {
 // Before content.
 add_action('nectar_hook_before_content', 'nectar_hook_before_content_global_section', 2);
 add_action('nectar_hook_before_content', 'nectar_buddypress_title');
-add_action('nectar_hook_before_content', 'nectar_fullpage_markup_open');
 
 // After content.
 add_action('nectar_hook_after_content', 'nectar_hook_global_section_after_content', 2);
-add_action('nectar_hook_after_content', 'nectar_fullpage_markup_close');
 
 // Before Header Navigation.
 add_action('nectar_hook_before_header_nav', 'nectar_page_trans_markup');
@@ -73,14 +71,12 @@ function nectar_ocm_fullscreen_split_markup_mods() {
 }
 
 // After theme outer wrap open.
-add_action('nectar_hook_after_outer_wrap_open', 'nectar_fullscreen_blur_wrap_open');
 add_action('nectar_hook_after_outer_wrap_open', 'nectar_hook_global_section_after_header_navigation');
 
 // Before theme outer wrap close.
 add_action('nectar_hook_before_footer_open', 'nectar_hook_global_section_footer', 2);
 add_action('nectar_hook_before_outer_wrap_close', 'nectar_hook_global_section_parallax_footer', 3);
 add_action('nectar_hook_before_outer_wrap_close', 'nectar_hook_global_section_after_footer', 4);
-add_action('nectar_hook_before_outer_wrap_close', 'nectar_fullscreen_blur_wrap_close');
 
 // WooCommerce.
 add_action( 'woocommerce_before_shop_loop', 'nectar_woocommerce_before_shop_loop', 99 );
@@ -256,33 +252,21 @@ function nectar_header_text_widget_content() {
 }
 
 /**
- * Add off canvas menu fullscreen blur wrap opening markup.
+ * Deprecated. No longer used.
  *
  * @since 10.1
  */
 function nectar_fullscreen_blur_wrap_open() {
-
-    $nectar_header_options = nectar_get_header_variables();
-
-    if ( $nectar_header_options['side_widget_area'] === '1' && $nectar_header_options['side_widget_class'] === 'fullscreen' ) {
-        echo '<div class="blurred-wrap">';
-    }
-
+    // Intentionally empty — kept for backwards compatibility with child themes.
 }
 
 /**
- * Add off canvas menu fullscreen blur wrap closing markup.
+ * Deprecated. No longer used.
  *
  * @since 10.1
  */
 function nectar_fullscreen_blur_wrap_close() {
-
-    $nectar_header_options = nectar_get_header_variables();
-
-    if ( $nectar_header_options['side_widget_area'] === '1' && $nectar_header_options['side_widget_class'] === 'fullscreen' ) {
-        echo '</div><!--blurred-wrap-->';
-    }
-
+    // Intentionally empty — kept for backwards compatibility with child themes.
 }
 
 /**
@@ -318,58 +302,6 @@ function nectar_fullscreen_split_ocm_nav_close() {
  */
 function nectar_fullscreen_split_ocm_container_close() {
     echo '</div></div></div>';
-}
-
-/**
- * Add page fullscreen rows wrapping markup.
- *
- * @since 10.1
- */
- function nectar_fullpage_markup_open() {
-
-   if ( is_page() ) {
-
-     if ( is_page_template( 'template-no-footer.php' ) ||
-     is_page_template( 'template-no-header.php' ) ||
-     is_page_template( 'template-no-header-footer.php' ) ||
-     ! is_page_template() ) {
-
-       $nectar_fp_options = nectar_get_full_page_options();
-
-       if ( $nectar_fp_options['page_full_screen_rows'] === 'on' ) {
-         echo '<div id="nectar_fullscreen_rows" data-animation="' . esc_attr( $nectar_fp_options['page_full_screen_rows_animation'] ) . '" data-row-bg-animation="' . esc_attr( $nectar_fp_options['page_full_screen_rows_bg_img_animation'] ) . '" data-animation-speed="' . esc_attr( $nectar_fp_options['page_full_screen_rows_animation_speed'] ) . '" data-content-overflow="' . esc_attr( $nectar_fp_options['page_full_screen_rows_content_overflow'] ) . '" data-mobile-disable="' . esc_attr( $nectar_fp_options['page_full_screen_rows_mobile_disable'] ) . '" data-dot-navigation="' . esc_attr( $nectar_fp_options['page_full_screen_rows_dot_navigation'] ) . '" data-footer="' . esc_attr( $nectar_fp_options['page_full_screen_rows_footer'] ) . '" data-anchors="' . esc_attr( $nectar_fp_options['page_full_screen_rows_anchors'] ) . '">';
-       }
-
-     }
-
-   }
-
- }
-
-/**
- * Add page fullscreen rows closing markup.
- *
- * @since 10.1
- */
-function nectar_fullpage_markup_close() {
-
-  if ( is_page() ) {
-
-    if ( is_page_template( 'template-no-footer.php' ) ||
-    is_page_template( 'template-no-header.php' ) ||
-    is_page_template( 'template-no-header-footer.php' ) ||
-    ! is_page_template() ) {
-
-      $nectar_fp_options = nectar_get_full_page_options();
-
-      if ( $nectar_fp_options['page_full_screen_rows'] === 'on' ) {
-        echo '</div>';
-      }
-
-    }
-
-  }
-
 }
 
 /**

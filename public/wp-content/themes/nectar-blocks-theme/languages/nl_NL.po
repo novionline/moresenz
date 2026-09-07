@@ -40,15 +40,15 @@ msgstr ""
 msgid "NectarBlocks"
 msgstr "NectarBlocks"
 
-#: 404.php:49
+#: 404.php:51
 msgid "404"
 msgstr "404"
 
-#: 404.php:50
+#: 404.php:52
 msgid "Page Not Found"
 msgstr "Pagina Niet Gevonden"
 
-#: 404.php:53
+#: 404.php:55
 msgid "Back Home"
 msgstr "Terug naar Home"
 
@@ -57,22 +57,22 @@ msgid "Join the discussion"
 msgstr "Doe mee aan de discussie"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:109
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "No Comments"
 msgstr "Geen reacties"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
+#: includes/partials/single-post/post-header-no-img-regular.php:109
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "One Comment"
 msgstr "Eén reactie"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:109
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "% Comments"
@@ -84,13 +84,13 @@ msgstr "My comment is"
 
 #: comments.php:59
 msgid "Leave a Reply"
-msgstr "Geef een reactie"
+msgstr "Een reactie plaatsen"
 
 #. translators: %s: comment author name
 #: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
-msgstr "Laat een antwoord achter aan %s"
+msgstr "Reageer op %s"
 
 #: comments.php:62
 msgid "Cancel Reply"
@@ -104,7 +104,7 @@ msgstr "Reactie plaatsen"
 #: comments.php:70
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr "Je moet <a href=\"%s\"> ingelogd zijn op</a> om een reactie te plaatsen."
+msgstr "Je moet <a href=\"%s\">ingelogd zijn</a> om een reactie te plaatsen."
 
 #. translators: 1: user profile URL, 2: user display name, 3: logout URL
 #: comments.php:77
@@ -133,20 +133,20 @@ msgid ""
 "Save my name, email, and website in this browser for the next time I "
 "comment."
 msgstr ""
-"Mijn naam, e-mail en site opslaan in deze browser voor de volgende keer "
-"wanneer ik een reactie plaats."
+"Bewaar mijn naam, e-mailadres en website in deze browser voor de volgende "
+"keer dat ik reageer."
 
-#: css/custom.php:5883
+#: css/custom.php:6093
 #: includes/partials/single-post/author-bio-ascend-skin.php:35
 msgid "Author"
 msgstr "Auteur"
 
-#: includes/header-search.php:38 includes/header-search.php:44
+#: includes/header-search.php:36 includes/header-search.php:41
 #: searchform.php:14 searchform.php:15
 msgid "Search"
 msgstr "Zoeken"
 
-#: includes/header-search.php:58
+#: includes/header-search.php:53
 msgid "Close Search"
 msgstr "Zoeken sluiten"
 
@@ -154,43 +154,43 @@ msgstr "Zoeken sluiten"
 msgid "Back to top"
 msgstr "Terug naar boven"
 
-#: includes/partials/footer/off-canvas-navigation.php:53
+#: includes/partials/footer/off-canvas-navigation.php:62
 msgid "Close Menu"
 msgstr "Menu sluiten"
 
-#: includes/partials/footer/off-canvas-navigation.php:78
+#: includes/partials/footer/off-canvas-navigation.php:85
 msgid "Back"
 msgstr "Terug"
 
-#: includes/partials/header/header-menu.php:106
-#: includes/partials/header/header-menu.php:153 nectar/helpers/header.php:1361
+#: includes/partials/header/header-menu.php:100
+#: includes/partials/header/header-menu.php:136 nectar/helpers/header.php:1946
 msgid "Navigation Menu"
 msgstr "Navigatiemenu"
 
-#: includes/partials/header/header-menu.php:108
-#: includes/partials/header/header-menu.php:110
-#: includes/partials/header/header-menu.php:155
-#: includes/partials/header/header-menu.php:158
-#: nectar/helpers/enqueue-scripts.php:191 nectar/helpers/header.php:1352
-#: nectar/helpers/header.php:1356 nectar/helpers/header.php:1402
-#: nectar/helpers/header.php:1406
+#: includes/partials/header/header-menu.php:102
+#: includes/partials/header/header-menu.php:104
+#: includes/partials/header/header-menu.php:138
+#: includes/partials/header/header-menu.php:140
+#: nectar/helpers/enqueue-scripts.php:205 nectar/helpers/header.php:1937
+#: nectar/helpers/header.php:1941 nectar/helpers/header.php:1989
+#: nectar/helpers/header.php:1993
 msgid "Menu"
 msgstr "Menu"
 
-#: includes/partials/header/header-menu.php:128 nectar/helpers/header.php:1416
+#: includes/partials/header/header-menu.php:120 nectar/helpers/header.php:2003
 msgid "search"
 msgstr "zoeken"
 
-#: includes/partials/header/header-menu.php:134 nectar/helpers/header.php:1420
+#: includes/partials/header/header-menu.php:124 nectar/helpers/header.php:2007
 msgid "account"
 msgstr "account"
 
-#: includes/partials/header/woo-slide-in-cart.php:49
-#: nectar/helpers/woocommerce.php:736
+#: includes/partials/header/woo-slide-in-cart.php:46
+#: nectar/helpers/woocommerce.php:743
 msgid "Cart"
 msgstr "Winkelwagen"
 
-#: includes/partials/header/woo-slide-in-cart.php:49
+#: includes/partials/header/woo-slide-in-cart.php:46
 msgid "Close Cart"
 msgstr "Winkelwagen sluiten"
 
@@ -209,35 +209,35 @@ msgstr "Over"
 
 #: includes/partials/single-post/author-bio.php:51
 msgid "More posts by"
-msgstr "Meer berichten van"
+msgstr "Meer posts van"
 
 #. translators: %s: category name
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:57
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:63
 #, php-format
 msgid "View all posts in %s"
-msgstr "Bekijk alle berichten in %s"
+msgstr "Bekijk alle posts in %s"
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:78
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:85
-#: includes/partials/single-post/post-header-no-img-regular.php:87
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:84
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:91
 #: includes/partials/single-post/post-header-no-img-regular.php:93
+#: includes/partials/single-post/post-header-no-img-regular.php:99
 #: includes/partials/single-post/post-meta-fields.php:46
 #: nectar/helpers/page-header.php:498 nectar/helpers/page-header.php:532
 msgid "F jS, Y"
 msgstr "j F Y"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:79
+#: includes/partials/single-post/post-header-no-img-regular.php:85
 #: nectar/helpers/page-header.php:519
 msgid "By"
 msgstr "Door"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:107
+#: includes/partials/single-post/post-header-no-img-regular.php:113
 #: includes/partials/single-post/post-meta-fields.php:55
 #: nectar/helpers/page-header.php:546
 msgid "min read"
 msgstr "min leestijd"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 msgid "One Comment "
 msgstr "Eén reactie"
@@ -245,10 +245,6 @@ msgstr "Eén reactie"
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:91 search.php:81
 msgid "Blog Post"
 msgstr "Blogbericht"
-
-#: nectar/assets/functions/ajax-search/wp-search-suggest.php:95 search.php:119
-msgid "Page"
-msgstr "Pagina"
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:99
 msgid "Portfolio Item"
@@ -259,16 +255,16 @@ msgstr "Portfolio-item"
 msgid "Product"
 msgstr "Product"
 
-#: nectar/customizer/nectar-blocks-customizer.php:391
+#: nectar/customizer/nectar-blocks-customizer.php:446
 msgid "To"
 msgstr "Naar"
 
-#: nectar/customizer/nectar-blocks-customizer.php:392
+#: nectar/customizer/nectar-blocks-customizer.php:447
 msgid "From"
 msgstr "Van"
 
 #: nectar/customizer/panels/accent-colors.php:125
-#: nectar/customizer/panels/general-settings.php:312
+#: nectar/customizer/panels/general-settings.php:323
 msgid "Performance"
 msgstr "Prestaties"
 
@@ -294,7 +290,7 @@ msgstr "Thema Accentkleur"
 
 #: nectar/customizer/panels/general-settings.php:77
 msgid "learn more about color schemes in the"
-msgstr "leer meer over kleurenschema's in de"
+msgstr "lees meer over kleurenschema's in de"
 
 #: nectar/customizer/panels/general-settings.php:77
 msgid "documentation"
@@ -311,121 +307,97 @@ msgstr ""
 "Wordt gebruikt voor tekst die over de accentkleur op knoppen en meldingen "
 "wordt geplaatst."
 
-#: nectar/customizer/panels/general-settings.php:95
+#: nectar/customizer/panels/general-settings.php:118
 msgid "Button Styling"
 msgstr "Button Styling"
 
-#: nectar/customizer/panels/general-settings.php:96
+#: nectar/customizer/panels/general-settings.php:119
 msgid "This will effect the overall styling of buttons"
 msgstr "Dit heeft invloed op de algemene styling van buttons"
 
-#: nectar/customizer/panels/general-settings.php:98
-#: nectar/customizer/panels/general-settings.php:127
-#: nectar/customizer/panels/general-settings.php:381
-#: nectar/customizer/panels/general-settings.php:437
-#: nectar/customizer/panels/layout.php:754
-#: nectar/customizer/panels/layout.php:866
-#: nectar/customizer/panels/layout.php:1038
-#: nectar/customizer/panels/layout.php:1117
-#: nectar/customizer/panels/post-types/blog.php:166
-#: nectar/customizer/panels/post-types/blog.php:239
-#: nectar/customizer/panels/post-types/blog.php:326
-#: nectar/customizer/panels/post-types/blog.php:618
-#: nectar/customizer/panels/post-types/blog.php:631
-#: nectar/customizer/panels/post-types/blog.php:685
-#: nectar/customizer/panels/post-types/woocommerce.php:209
-#: nectar/customizer/panels/post-types/woocommerce.php:272
-#: nectar/meta/category-meta.php:117 nectar/meta/category-meta.php:137
-msgid "Default"
-msgstr "Standaard"
-
-#: nectar/customizer/panels/general-settings.php:99
+#: nectar/customizer/panels/general-settings.php:122
 msgid "Slightly Rounded"
 msgstr "Licht afgerond"
 
-#: nectar/customizer/panels/general-settings.php:100
+#: nectar/customizer/panels/general-settings.php:123
 msgid "Slightly Rounded Shadow"
 msgstr "Licht afgeronde schaduw"
 
-#: nectar/customizer/panels/general-settings.php:101
+#: nectar/customizer/panels/general-settings.php:124
 msgid "Rounded"
 msgstr "Afgerond"
 
-#: nectar/customizer/panels/general-settings.php:102
+#: nectar/customizer/panels/general-settings.php:125
 msgid "Rounded Shadow"
 msgstr "Afgeronde Schaduw"
 
-#: nectar/customizer/panels/general-settings.php:103
+#: nectar/customizer/panels/general-settings.php:126
 msgid "Rounded Reveal"
-msgstr "Afgeronde Onthulling"
+msgstr "Rounded reveal"
 
-#: nectar/customizer/panels/general-settings.php:110
+#: nectar/customizer/panels/general-settings.php:133
 msgid "Button Roundness"
-msgstr "Button Afronding"
+msgstr "Button afronding"
 
-#: nectar/customizer/panels/general-settings.php:116
-msgid "Fine-tune the rounded edges of your buttons."
-msgstr "Verfijn de afgeronde hoeken van je knoppen."
-
-#: nectar/customizer/panels/general-settings.php:124
+#: nectar/customizer/panels/general-settings.php:146
 msgid "Animated Underline Type"
 msgstr "Type geanimeerde onderstreping"
 
-#: nectar/customizer/panels/general-settings.php:125
+#: nectar/customizer/panels/general-settings.php:147
 msgid ""
 "Various elements in Nectar Blocks display an animated underline when "
 "hovering over. This option allows you to globally fine-tune the styling of "
 "that line."
 msgstr ""
 "Verschillende elementen in Nectar Blocks tonen een geanimeerde onderstreping"
-" bij het hoveren. Met deze optie kun je de stijl van deze lijn globaal "
+" bij het hoveren. Met deze optie kunt u de stijl van deze lijn globaal "
 "aanpassen."
 
-#: nectar/customizer/panels/general-settings.php:128
+#: nectar/customizer/panels/general-settings.php:150
 msgid "Left to Right Simple"
-msgstr "Van Links naar Rechts Eenvoudig"
+msgstr "Van links naar rechts (eenvoudig)"
 
-#: nectar/customizer/panels/general-settings.php:129
+#: nectar/customizer/panels/general-settings.php:151
 msgid "Left to Right Fancy"
-msgstr "Van Links naar Rechts Fancy"
+msgstr "Van links naar rechts (fancy)"
 
-#: nectar/customizer/panels/general-settings.php:136
+#: nectar/customizer/panels/general-settings.php:158
 msgid "Animated Underline Thickness"
 msgstr "Dikte van geanimeerde onderstreping"
 
-#: nectar/customizer/panels/general-settings.php:166
+#: nectar/customizer/panels/general-settings.php:188
 msgid "Theme Font Color"
 msgstr "Letterkleur thema"
 
-#: nectar/customizer/panels/general-settings.php:179
+#: nectar/customizer/panels/general-settings.php:201
 #: nectar/customizer/panels/post-types/blog.php:144
 msgid "Styling"
 msgstr "Styling"
 
-#: nectar/customizer/panels/general-settings.php:192
+#: nectar/customizer/panels/general-settings.php:214
 msgid "Smooth Scrolling"
 msgstr "Vloeiend scrollen"
 
-#: nectar/customizer/panels/general-settings.php:193
+#: nectar/customizer/panels/general-settings.php:215
 msgid ""
 "Toggle whether or not to enable smooth scrolling for browsers which support "
 "it."
 msgstr ""
 "Schakel vloeiend scrollen in of uit voor browsers die dit ondersteunen."
 
-#: nectar/customizer/panels/general-settings.php:200
+#: nectar/customizer/panels/general-settings.php:222
 msgid "Smooth Scroll Strength"
-msgstr "Scroll Snelheid"
+msgstr "Vloeiend scroll sterkte"
 
-#: nectar/customizer/panels/general-settings.php:201
+#: nectar/customizer/panels/general-settings.php:223
 msgid "Controls the intensity of the smooth scrolling effect."
 msgstr "Bepaalt de intensiteit van het smooth scrolling effect."
 
-#: nectar/customizer/panels/general-settings.php:213
+#: nectar/customizer/panels/general-settings.php:235
 msgid "Meta Viewport Functionality"
-msgstr "Meta Viewport Functionaliteit"
+msgstr "Meta viewport functionaliteit"
 
-#: nectar/customizer/panels/general-settings.php:214
+#: nectar/customizer/panels/general-settings.php:236
 msgid ""
 "Determines whether browser zooming/scaling is enabled or disabled. Enabling "
 "this will improve accessibility for users with low vision."
@@ -434,11 +406,11 @@ msgstr ""
 "inschakelen hiervan verbetert de toegankelijkheid voor gebruikers met een "
 "verminderd gezichtsvermogen."
 
-#: nectar/customizer/panels/general-settings.php:224
+#: nectar/customizer/panels/general-settings.php:94
 msgid "Max Website Container Width"
 msgstr "Maximale breedte websitecontainer"
 
-#: nectar/customizer/panels/general-settings.php:225
+#: nectar/customizer/panels/general-settings.php:95
 msgid ""
 "Your container will scale to a maximum width of 1425px, use this option if "
 "you'd like to increase that value."
@@ -446,28 +418,16 @@ msgstr ""
 "Je container zal schalen tot een maximale breedte van 1425px, gebruik deze "
 "optie als je die waarde wilt verhogen."
 
-#: nectar/customizer/panels/general-settings.php:236
-msgid "Container Left/Right Padding"
-msgstr "Container Links/Rechts Padding"
-
-#: nectar/customizer/panels/general-settings.php:237
-msgid ""
-"The main content container will have 90px of padding set on left and right, "
-"use this option if you'd like to modify that."
-msgstr ""
-"De hoofdcontainer voor content heeft standaard 90px padding aan de linker- "
-"en rechterkant, gebruik deze optie als je dat wilt aanpassen."
-
-#: nectar/customizer/panels/general-settings.php:251
+#: nectar/customizer/panels/general-settings.php:249
 #: nectar/customizer/panels/post-types/blog.php:696
 msgid "Functionality"
 msgstr "Functionaliteit"
 
-#: nectar/customizer/panels/general-settings.php:264
+#: nectar/customizer/panels/general-settings.php:262
 msgid "Delay Javascript Execution"
-msgstr "Javascript uitvoering vertragen"
+msgstr "JavaScript-uitvoering uitstellen"
 
-#: nectar/customizer/panels/general-settings.php:265
+#: nectar/customizer/panels/general-settings.php:263
 msgid ""
 "Prevents theme javascript from running until the user makes an interaction "
 "such as scrolling, tapping etc."
@@ -475,11 +435,11 @@ msgstr ""
 "Voorkomt dat theme javascript wordt uitgevoerd totdat de gebruiker een "
 "interactie uitvoert zoals scrollen, tikken etc."
 
-#: nectar/customizer/panels/general-settings.php:272
+#: nectar/customizer/panels/general-settings.php:270
 msgid "Devices to Activate \"Delay Javascript\" Logic"
-msgstr "Apparaten waarop \"Delay Javascript\" logica geactiveerd wordt"
+msgstr "Apparaten voor activering \"JavaScript-uitvoering uitstellen\" logica"
 
-#: nectar/customizer/panels/general-settings.php:273
+#: nectar/customizer/panels/general-settings.php:271
 msgid ""
 "If you are using a performance plugin that caches your pages, this will need"
 " to be set to \"All Devices\" in order to take effect."
@@ -487,19 +447,19 @@ msgstr ""
 "Als je een performance plugin gebruikt die je pagina's cachet, moet dit "
 "worden ingesteld op \"Alle Apparaten\" om effect te hebben."
 
-#: nectar/customizer/panels/general-settings.php:276
+#: nectar/customizer/panels/general-settings.php:274
 msgid "All Devices"
 msgstr "Alle Apparaten"
 
-#: nectar/customizer/panels/general-settings.php:277
+#: nectar/customizer/panels/general-settings.php:275
 msgid "Mobile"
 msgstr "Mobiel"
 
-#: nectar/customizer/panels/general-settings.php:284
+#: nectar/customizer/panels/general-settings.php:295
 msgid "Move jQuery to Footer"
-msgstr "jQuery naar Footer verplaatsen"
+msgstr "jQuery naar footer verplaatsen"
 
-#: nectar/customizer/panels/general-settings.php:285
+#: nectar/customizer/panels/general-settings.php:296
 msgid ""
 "Attempts to move jQuery to the footer to make it non render-blocking. Note "
 "that this can break third party plugins/scripts which require JavaScript to "
@@ -510,23 +470,15 @@ msgstr ""
 "plugins/scripts van derden die vereisen dat JavaScript in de head wordt "
 "geladen."
 
-#: nectar/customizer/panels/general-settings.php:293
+#: nectar/customizer/panels/general-settings.php:304
 msgid "Font Display Swap"
 msgstr "Font Display Swap"
 
-#: nectar/customizer/panels/general-settings.php:294
-msgid ""
-"This is a font performance option which will your allow text to display in a"
-" default font before Google fonts have loaded."
-msgstr ""
-"Dit is een lettertype-prestatie-optie waarmee je tekst in een standaard "
-"lettertype kunt weergeven voordat Google fonts zijn geladen."
-
-#: nectar/customizer/panels/general-settings.php:302
+#: nectar/customizer/panels/general-settings.php:313
 msgid "Remove WordPress Emoji Script/CSS"
 msgstr "WordPress Emoji Script/CSS verwijderen"
 
-#: nectar/customizer/panels/general-settings.php:303
+#: nectar/customizer/panels/general-settings.php:314
 msgid ""
 "Removes the WordPress Emoji assets which automatically convert emoticons to "
 "WP specific emojis."
@@ -534,59 +486,55 @@ msgstr ""
 "Verwijdert de WordPress Emoji-bestanden die automatisch emoticons omzetten "
 "naar WordPress-specifieke emojis."
 
-#: nectar/customizer/panels/general-settings.php:324
+#: nectar/customizer/panels/general-settings.php:335
 msgid "Accent Color"
 msgstr "Accentkleur"
 
-#: nectar/customizer/panels/general-settings.php:325
+#: nectar/customizer/panels/general-settings.php:336
 msgid "Change this color to alter the accent color globally for your site."
 msgstr ""
 "Wijzig deze kleur om de accentkleur voor je hele website aan te passen."
 
-#: nectar/customizer/panels/general-settings.php:333
+#: nectar/customizer/panels/general-settings.php:344
 msgid "Accent Color #2"
 msgstr "Accentkleur #2"
 
-#: nectar/customizer/panels/general-settings.php:343
+#: nectar/customizer/panels/general-settings.php:354
 msgid "Color Scheme"
 msgstr "Kleurenschema"
 
-#: nectar/customizer/panels/general-settings.php:355
+#: nectar/customizer/panels/general-settings.php:366
 msgid "Overall Form Style"
 msgstr "Algemene Formulierstijl"
 
-#: nectar/customizer/panels/general-settings.php:356
+#: nectar/customizer/panels/general-settings.php:367
 msgid "Sets the style of all form elements used."
 msgstr "Bepaalt de stijl van alle gebruikte formulierelementen."
 
-#: nectar/customizer/panels/general-settings.php:357
+#: nectar/customizer/panels/general-settings.php:368
 msgid ""
 "If you're trying to get third party forms to display without any styling "
 "from NectarBlocks, simply select the"
 msgstr ""
-"Als je probeert om formulieren van derden weer te geven zonder opmaak van "
-"NectarBlocks, selecteer dan de"
+"Als je formulieren van derden zonder opmaak van NectarBlocks wilt weergeven,"
+" selecteer dan de"
 
-#: nectar/customizer/panels/general-settings.php:357
-#: nectar/customizer/panels/general-settings.php:359
-#: nectar/customizer/panels/layout.php:713 build/customizer.js:1
+#: nectar/customizer/panels/general-settings.php:368
+#: nectar/customizer/panels/general-settings.php:370
+#: nectar/customizer/panels/layout.php:1062 build/customizer.js:1
 msgid "Inherit"
 msgstr "Overnemen"
 
-#: nectar/customizer/panels/general-settings.php:357
+#: nectar/customizer/panels/general-settings.php:368
 msgid "option."
 msgstr "optie"
 
-#: nectar/customizer/panels/general-settings.php:360
+#: nectar/customizer/panels/general-settings.php:371
 #: nectar/customizer/panels/post-types/blog.php:632
 msgid "Minimal"
 msgstr "Minimaal"
 
-#: nectar/customizer/panels/general-settings.php:368
-msgid "Enable Fancy Select Styling"
-msgstr "Geavanceerde Select-styling inschakelen"
-
-#: nectar/customizer/panels/general-settings.php:369
+#: nectar/customizer/panels/general-settings.php:390
 msgid ""
 "This will add additional styling and functionality to your select (dropdown)"
 " elements."
@@ -594,11 +542,11 @@ msgstr ""
 "Dit voegt extra styling en functionaliteit toe aan je select (dropdown) "
 "elementen."
 
-#: nectar/customizer/panels/general-settings.php:377
+#: nectar/customizer/panels/general-settings.php:407
 msgid "Form Submit Button Style"
-msgstr "Stijl van formulier verzendknop"
+msgstr "Stijl van formulier submit button"
 
-#: nectar/customizer/panels/general-settings.php:378
+#: nectar/customizer/panels/general-settings.php:408
 msgid ""
 "Select your desired style which will be used for submit buttons throughout "
 "your site"
@@ -606,98 +554,98 @@ msgstr ""
 "Selecteer de gewenste stijl die gebruikt zal worden voor submit buttons op "
 "je hele website"
 
-#: nectar/customizer/panels/general-settings.php:382
+#: nectar/customizer/panels/general-settings.php:412
 msgid "Nectar Btn"
 msgstr "Nectar Button"
 
-#: nectar/customizer/panels/general-settings.php:383
+#: nectar/customizer/panels/general-settings.php:413
 msgid "Nectar Btn See Through"
-msgstr "Nectar Doorzichtige Knop"
+msgstr "Nectar doorzichtige button"
 
-#: nectar/customizer/panels/general-settings.php:390
+#: nectar/customizer/panels/general-settings.php:420
 msgid "Form Submit Button Padding"
-msgstr "Padding van Form Submit knop"
+msgstr "Padding van formulier submit button"
 
-#: nectar/customizer/panels/general-settings.php:391
+#: nectar/customizer/panels/general-settings.php:421
 msgid "Fine-tune form submit button padding."
-msgstr "Pas de padding van de formulier-submitknop aan."
+msgstr "Verfijn de padding van de formulier submit button."
 
-#: nectar/customizer/panels/general-settings.php:398
-#: nectar/customizer/panels/general-settings.php:427
+#: nectar/customizer/panels/general-settings.php:428
+#: nectar/customizer/panels/general-settings.php:457
 msgid "Padding Top/Bottom"
 msgstr "Padding Boven/Onder"
 
-#: nectar/customizer/panels/general-settings.php:399
-#: nectar/customizer/panels/general-settings.php:428
+#: nectar/customizer/panels/general-settings.php:429
+#: nectar/customizer/panels/general-settings.php:458
 msgid "Padding Left/Right"
 msgstr "Padding Links/Rechts"
 
-#: nectar/customizer/panels/general-settings.php:406
+#: nectar/customizer/panels/general-settings.php:436
 msgid "Form Input Field Text Size"
 msgstr "Tekstgrootte van formulierinvoerveld"
 
-#: nectar/customizer/panels/general-settings.php:407
+#: nectar/customizer/panels/general-settings.php:437
 msgid "Alters the font size for form input field/textarea elements."
 msgstr ""
 "Wijzigt de lettergrootte voor formulier invoervelden en textarea-elementen."
 
-#: nectar/customizer/panels/general-settings.php:418
+#: nectar/customizer/panels/general-settings.php:448
 msgid "Form Input Field Padding"
 msgstr "Padding van formulier invoerveld"
 
-#: nectar/customizer/panels/general-settings.php:419
+#: nectar/customizer/panels/general-settings.php:449
 msgid "Fine-tune form input fields/textarea element padding."
 msgstr "Verfijn de padding van formulier invoervelden/textarea elementen."
 
-#: nectar/customizer/panels/general-settings.php:435
+#: nectar/customizer/panels/general-settings.php:465
 msgid "Form Input Border Width"
 msgstr "Randbreedte formulierveld"
 
-#: nectar/customizer/panels/general-settings.php:438
-#: nectar/customizer/panels/post-types/woocommerce.php:274
+#: nectar/customizer/panels/general-settings.php:468
+#: nectar/customizer/panels/post-types/woocommerce.php:353
 msgid "1px"
 msgstr "1px"
 
-#: nectar/customizer/panels/general-settings.php:439
-#: nectar/customizer/panels/post-types/woocommerce.php:275
+#: nectar/customizer/panels/general-settings.php:469
+#: nectar/customizer/panels/post-types/woocommerce.php:354
 msgid "2px"
 msgstr "2px"
 
-#: nectar/customizer/panels/general-settings.php:440
-#: nectar/customizer/panels/post-types/woocommerce.php:276
+#: nectar/customizer/panels/general-settings.php:470
+#: nectar/customizer/panels/post-types/woocommerce.php:355
 msgid "3px"
 msgstr "3px"
 
-#: nectar/customizer/panels/general-settings.php:448
+#: nectar/customizer/panels/general-settings.php:478
 msgid "Form Input BG Color"
 msgstr "Achtergrondkleur formulierinvoer"
 
-#: nectar/customizer/panels/general-settings.php:456
+#: nectar/customizer/panels/general-settings.php:486
 msgid "Form Input Text Color"
 msgstr "Tekstkleur formulierinvoer"
 
-#: nectar/customizer/panels/general-settings.php:464
+#: nectar/customizer/panels/general-settings.php:494
 msgid "Form Input Border Color"
 msgstr "Randkleur formulierinvoer"
 
-#: nectar/customizer/panels/general-settings.php:472
+#: nectar/customizer/panels/general-settings.php:502
 msgid "Form Input Border Hover Color"
 msgstr "Randkleur van formulierinvoer bij hover"
 
-#: nectar/customizer/panels/general-settings.php:480
+#: nectar/customizer/panels/general-settings.php:510
 msgid "Form Input Border Focus Color"
 msgstr "Randkleur bij focus van formulierinvoer"
 
-#: nectar/customizer/panels/general-settings.php:490
+#: nectar/customizer/panels/general-settings.php:520
 msgid "Form Styling"
 msgstr "Formulier Styling"
 
-#: nectar/customizer/panels/general-settings.php:502
-#: nectar/customizer/panels/general-settings.php:543
+#: nectar/customizer/panels/general-settings.php:532
+#: nectar/customizer/panels/general-settings.php:573
 msgid "Page Transitions"
-msgstr "Paginaovergangen"
+msgstr "Paginatransities"
 
-#: nectar/customizer/panels/general-settings.php:503
+#: nectar/customizer/panels/general-settings.php:533
 msgid ""
 "Enhance your site with the modern \"View Transitions API\" as a progressive "
 "enhancement. This cutting-edge web technology enables smoother page "
@@ -707,43 +655,43 @@ msgstr ""
 "progressieve verbetering. Deze geavanceerde webtechnologie maakt vloeiendere"
 " paginaovergangen mogelijk. Bekijk"
 
-#: nectar/customizer/panels/general-settings.php:503
+#: nectar/customizer/panels/general-settings.php:533
 msgid "which browsers support it."
 msgstr "welke browsers het ondersteunen."
 
-#: nectar/customizer/panels/general-settings.php:509
+#: nectar/customizer/panels/general-settings.php:539
 msgid "Transition Effect"
 msgstr "Overgangseffect"
 
-#: nectar/customizer/panels/general-settings.php:513
+#: nectar/customizer/panels/general-settings.php:543
 msgid "Cross Fade"
 msgstr "Cross Fade"
 
-#: nectar/customizer/panels/general-settings.php:514
+#: nectar/customizer/panels/general-settings.php:544
 msgid "Fade"
 msgstr "Vervagen"
 
-#: nectar/customizer/panels/general-settings.php:515
+#: nectar/customizer/panels/general-settings.php:545
 msgid "Gradient Fade"
-msgstr "Gradient Verloop"
+msgstr "Gradient verloop"
 
-#: nectar/customizer/panels/general-settings.php:516
+#: nectar/customizer/panels/general-settings.php:546
 msgid "Push Reveal"
-msgstr "Push Onthullen"
+msgstr "Push reveal"
 
-#: nectar/customizer/panels/general-settings.php:523
+#: nectar/customizer/panels/general-settings.php:553
 msgid "Transition BG Color"
-msgstr "Overgangskleur achtergrond"
+msgstr "Overgang achtergrondkleur"
 
-#: nectar/customizer/panels/general-settings.php:527
+#: nectar/customizer/panels/general-settings.php:557
 msgid "Some effects will show this color during the transition."
 msgstr "Sommige effecten zullen deze kleur tonen tijdens de overgang."
 
-#: nectar/customizer/panels/general-settings.php:533
+#: nectar/customizer/panels/general-settings.php:563
 msgid "Enable on Mobile"
 msgstr "Inschakelen op mobiel"
 
-#: nectar/customizer/panels/general-settings.php:534
+#: nectar/customizer/panels/general-settings.php:564
 msgid ""
 "Some mobile devices may struggle to handle page transitions, especially when"
 " heavy block animations are involved."
@@ -756,9 +704,9 @@ msgid "General WordPress Pages"
 msgstr "Algemene WordPress Pages"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:49
-#: nectar/customizer/panels/layout.php:25
+#: nectar/customizer/panels/layout.php:341
 msgid "Layout"
-msgstr "Lay-out"
+msgstr "Layout"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:50
 msgid "The layout for your search results."
@@ -770,11 +718,11 @@ msgstr "Grid & Zijbalk"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:53
 msgid "Grid No Sidebar"
-msgstr "Grid zonder Sidebar"
+msgstr "Grid zonder sidebar"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:54
 msgid "List & Sidebar"
-msgstr "Lijst & Sidebar"
+msgstr "Lijst & sidebar"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:55
 msgid "List No Sidebar"
@@ -805,7 +753,7 @@ msgstr ""
 
 #: nectar/customizer/panels/general-wordpress-settings.php:88
 msgid "Search Results Template"
-msgstr "Zoekresultaten Template"
+msgstr "Template zoekresultaten"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:100
 msgid "Background Color"
@@ -837,7 +785,7 @@ msgstr ""
 
 #: nectar/customizer/panels/general-wordpress-settings.php:122
 msgid "Add Button To Direct User Home"
-msgstr "Voeg knop toe om gebruiker naar startpagina te sturen"
+msgstr "Button toevoegen om gebruiker naar homepage te sturen"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:123
 msgid ""
@@ -848,34 +796,35 @@ msgstr ""
 
 #: nectar/customizer/panels/general-wordpress-settings.php:131
 msgid "404 Not Found Template"
-msgstr "404 Niet Gevonden Template"
+msgstr "404 Not Found Template"
 
 #: nectar/customizer/panels/kirki-testing.php:6
+#: nectar/customizer/panels/layout.php:1280
 msgid "Style"
 msgstr "Stijl"
 
-#: nectar/customizer/panels/layout.php:57
+#: nectar/customizer/panels/layout.php:400
 msgid "Header Navigation"
 msgstr "Header Navigatie"
 
-#: nectar/customizer/panels/layout.php:68
+#: nectar/customizer/panels/layout.php:412
 msgid "Image Logo"
 msgstr "Afbeeldingslogo"
 
-#: nectar/customizer/panels/layout.php:69
+#: nectar/customizer/panels/layout.php:413
 msgid "If left unchecked, your site name will be used instead."
 msgstr ""
-"Als je dit niet aanvinkt, wordt in plaats daarvan je sitenaam gebruikt."
+"Als dit niet wordt aangevinkt, wordt in plaats daarvan uw sitenaam gebruikt."
 
-#: nectar/customizer/panels/layout.php:76
+#: nectar/customizer/panels/layout.php:420
 msgid "Logo Upload"
 msgstr "Logo uploaden"
 
-#: nectar/customizer/panels/layout.php:77
+#: nectar/customizer/panels/layout.php:421
 msgid "Upload your logo here and enter the height of it below."
-msgstr "Upload hier je logo en voer hieronder de hoogte ervan in."
+msgstr "Upload uw logo hier en voer hieronder de hoogte ervan in."
 
-#: nectar/customizer/panels/layout.php:77
+#: nectar/customizer/panels/layout.php:421
 msgid ""
 "Note: there are additional logo upload fields in the transparent header "
 "effect tab."
@@ -883,19 +832,19 @@ msgstr ""
 "Opmerking: er zijn extra logo upload velden in het transparante header "
 "effect tabblad."
 
-#: nectar/customizer/panels/layout.php:94
+#: nectar/customizer/panels/layout.php:438
 msgid "Logo Height"
 msgstr "Logo Hoogte"
 
-#: nectar/customizer/panels/layout.php:103
+#: nectar/customizer/panels/layout.php:447
 msgid "Mobile Logo Height"
 msgstr "Mobiele Logo Hoogte"
 
-#: nectar/customizer/panels/layout.php:112
+#: nectar/customizer/panels/layout.php:456
 msgid "Mobile Only Logo Upload"
 msgstr "Logo uploaden voor mobiel"
 
-#: nectar/customizer/panels/layout.php:113
+#: nectar/customizer/panels/layout.php:457
 msgid ""
 "An optional field that allows you to display a separate logo that will be "
 "shown on mobile devices only."
@@ -903,19 +852,19 @@ msgstr ""
 "Een optioneel veld waarmee je een apart logo kunt weergeven dat alleen op "
 "mobiele apparaten wordt getoond."
 
-#: nectar/customizer/panels/layout.php:121
+#: nectar/customizer/panels/layout.php:465
 msgid "Header Padding"
 msgstr "Header Padding"
 
-#: nectar/customizer/panels/layout.php:133
+#: nectar/customizer/panels/layout.php:477
 msgid "Menu Item Gap"
 msgstr "Tussenruimte Menu-items"
 
-#: nectar/customizer/panels/layout.php:144
+#: nectar/customizer/panels/layout.php:488
 msgid "Background Opacity"
-msgstr "Achtergrond Transparantie"
+msgstr "Achtergrond dekking"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid ""
 "If you are trying to have your header navigation completely see through "
 "before scrolling, setting this very low is not how to achieve it. The fully "
@@ -926,120 +875,109 @@ msgstr ""
 "manier. De volledig transparante stijl zoals te zien is in veel van de "
 "demo's is de optie genaamd"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid "Use Transparent Header When Applicable"
 msgstr "Gebruik transparante header waar van toepassing"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid ""
 "which is available in the Header Navigation ~ Transparent Header Effect tab."
 msgstr ""
 "die beschikbaar is in het tabblad Header Navigatie ~ Transparant Header "
 "Effect."
 
-#: nectar/customizer/panels/layout.php:157
+#: nectar/customizer/panels/layout.php:501
 msgid "Box Shadow"
-msgstr "Schaduw van vak"
+msgstr "Box Shadow"
 
-#: nectar/customizer/panels/layout.php:160
-#: nectar/customizer/panels/layout.php:607
-#: nectar/customizer/panels/layout.php:777
+#: nectar/customizer/panels/layout.php:504
+#: nectar/customizer/panels/layout.php:953
+#: nectar/customizer/panels/layout.php:1135
 msgid "Small"
 msgstr "Klein"
 
-#: nectar/customizer/panels/layout.php:161
-#: nectar/customizer/panels/layout.php:609
-#: nectar/customizer/panels/layout.php:778
+#: nectar/customizer/panels/layout.php:505
+#: nectar/customizer/panels/layout.php:955
+#: nectar/customizer/panels/layout.php:1136
 msgid "Large"
 msgstr "Groot"
 
-#: nectar/customizer/panels/layout.php:162
+#: nectar/customizer/panels/layout.php:506
 msgid "Large With Bottom Line"
 msgstr "Groot met onderlijn"
 
-#: nectar/customizer/panels/layout.php:163
-#: nectar/customizer/panels/layout.php:779
-#: nectar/customizer/panels/layout.php:1071
-#: nectar/customizer/panels/post-types/blog.php:185
-#: nectar/customizer/panels/post-types/blog.php:498
-#: nectar/customizer/panels/post-types/blog.php:510
-#: nectar/customizer/panels/post-types/blog.php:543
-#: nectar/customizer/panels/post-types/portfolio.php:148
-#: nectar/customizer/panels/post-types/portfolio.php:159
-msgid "None"
-msgstr "Geen"
-
-#: nectar/customizer/panels/layout.php:171
+#: nectar/customizer/panels/layout.php:515
+#: nectar/customizer/panels/layout.php:1439
 msgid "Blur Background"
 msgstr "Achtergrond vervagen"
 
-#: nectar/customizer/panels/layout.php:180
+#: nectar/customizer/panels/layout.php:524
 msgid "Blur Background Functionality"
 msgstr "Achtergrond vervagen functionaliteit"
 
-#: nectar/customizer/panels/layout.php:185
+#: nectar/customizer/panels/layout.php:529
 msgid "Active when \"Transparent header effect\" is not"
 msgstr "Actief wanneer \"Transparant header effect\" uit staat"
 
-#: nectar/customizer/panels/layout.php:186
+#: nectar/customizer/panels/layout.php:530
 msgid "Active in all header states"
 msgstr "Actief in alle header-statussen"
 
-#: nectar/customizer/panels/layout.php:210
+#: nectar/customizer/panels/layout.php:554
 msgid "Border"
 msgstr "Rand"
 
-#: nectar/customizer/panels/layout.php:218
+#: nectar/customizer/panels/layout.php:562
 msgid "Header Border Color"
 msgstr "Randkleur header"
 
-#: nectar/customizer/panels/layout.php:228
+#: nectar/customizer/panels/layout.php:572
 msgid "Remove Desktop Stickiness"
-msgstr "Desktop Stickiness verwijderen"
+msgstr "Desktop stickiness verwijderen"
 
-#: nectar/customizer/panels/layout.php:237
+#: nectar/customizer/panels/layout.php:582
 msgid "Logo & General Styling"
 msgstr "Logo & Algemene Styling"
 
-#: nectar/customizer/panels/layout.php:250
+#: nectar/customizer/panels/layout.php:595
 msgid "Header Layout"
 msgstr "Header Layout"
 
-#: nectar/customizer/panels/layout.php:253
-#: nectar/customizer/panels/layout.php:1180
+#: nectar/customizer/panels/layout.php:598
+#: nectar/customizer/panels/layout.php:1550
 msgid "Default Layout"
 msgstr "Standaard Layout"
 
-#: nectar/customizer/panels/layout.php:254
-#: nectar/customizer/panels/layout.php:1181
+#: nectar/customizer/panels/layout.php:599
+#: nectar/customizer/panels/layout.php:1551
 msgid "Centered Menu"
 msgstr "Menu Gecentreerd"
 
-#: nectar/customizer/panels/layout.php:255
+#: nectar/customizer/panels/layout.php:600
 msgid "Centered Menu Alt"
-msgstr "Gecentreerd Menu Alt"
+msgstr "Gecentreerd menu alt"
 
-#: nectar/customizer/panels/layout.php:256
+#: nectar/customizer/panels/layout.php:601
 msgid "Menu Bottom Bar"
-msgstr "Menu Onderbalk"
+msgstr "Menu onderbalk"
 
-#: nectar/customizer/panels/layout.php:257
+#: nectar/customizer/panels/layout.php:602
 msgid "Centered Logo Menu Alt"
-msgstr "Logo menu gecentreerd alternatief"
+msgstr "Gecentreerd logo menu alt"
 
-#: nectar/customizer/panels/layout.php:258
+#: nectar/customizer/panels/layout.php:603
 msgid "Menu Left Aligned"
 msgstr "Menu Links Uitlijnen"
 
-#: nectar/customizer/panels/layout.php:259
+#: nectar/customizer/panels/layout.php:604
 msgid "Left Header"
 msgstr "Linker Header"
 
-#: nectar/customizer/panels/layout.php:268
+#: nectar/customizer/panels/layout.php:613
 msgid "Left Header Dropdown Functionality"
-msgstr "Functionaliteit van Linker Header Dropdown"
+msgstr "Linker header dropdown functionaliteit"
 
-#: nectar/customizer/panels/layout.php:269
+#: nectar/customizer/panels/layout.php:614
 msgid ""
 "Please select the functionality for how dropdowns will behave in the left "
 "header navigation."
@@ -1047,144 +985,147 @@ msgstr ""
 "Selecteer de functionaliteit voor hoe dropdowns zich gedragen in de linker "
 "header navigatie."
 
-#: nectar/customizer/panels/layout.php:273
-#: nectar/customizer/panels/layout.php:1007
+#: nectar/customizer/panels/layout.php:618
+#: nectar/customizer/panels/layout.php:1367
 msgid "Dropdown Parent Link Toggles Submenu"
-msgstr "Dropdown Parent Link Opent/Sluit Submenu"
+msgstr "Dropdown bovenliggende link opent/sluit submenu"
 
-#: nectar/customizer/panels/layout.php:274
-#: nectar/customizer/panels/layout.php:1008
+#: nectar/customizer/panels/layout.php:619
+#: nectar/customizer/panels/layout.php:1368
 msgid "Separate Dropdown Parent Link From Dropdown Toggle"
 msgstr "Dropdown ouderlink scheiden van dropdown toggle"
 
-#: nectar/customizer/panels/layout.php:282
+#: nectar/customizer/panels/layout.php:627
 msgid "Menu Bottom Bar Separator"
-msgstr "Scheidingslijn ondermenu"
+msgstr "Scheidingslijn menu onderbalk"
 
-#: nectar/customizer/panels/layout.php:283
+#: nectar/customizer/panels/layout.php:628
 msgid "Add a line to separate the top/bottom of your header."
 msgstr "Voeg een lijn toe om de boven-/onderkant van je header te scheiden."
 
-#: nectar/customizer/panels/layout.php:293
+#: nectar/customizer/panels/layout.php:638
 msgid "Menu Bottom Bar Alignment"
-msgstr "Menu Bottom Bar Uitlijning"
+msgstr "Uitlijning menu onderbalk"
 
-#: nectar/customizer/panels/layout.php:294
+#: nectar/customizer/panels/layout.php:639
 msgid "Please select how you would like your header content to align."
-msgstr "Selecteer hoe je de inhoud van je koptekst wilt uitlijnen."
+msgstr "Selecteer hoe u de inhoud van uw header wilt uitlijnen."
 
-#: nectar/customizer/panels/layout.php:297
+#: nectar/customizer/panels/layout.php:642
 #: nectar/customizer/panels/post-types/blog.php:405
 #: nectar/customizer/panels/post-types/blog.php:620
-#: nectar/customizer/panels/post-types/woocommerce.php:211
-#: nectar/meta/category-meta.php:119 nectar/meta/category-meta.php:139
+#: nectar/customizer/panels/post-types/woocommerce.php:290
+#: nectar/meta/category-meta.php:123 nectar/meta/category-meta.php:143
 msgid "Center"
-msgstr "Gecentreerd"
+msgstr "Centreren"
 
-#: nectar/customizer/panels/layout.php:298
-#: nectar/customizer/panels/layout.php:1039
+#: nectar/customizer/panels/layout.php:643
+#: nectar/customizer/panels/layout.php:1399
 #: nectar/customizer/panels/post-types/blog.php:404
 #: nectar/customizer/panels/post-types/blog.php:619
-#: nectar/customizer/panels/post-types/woocommerce.php:210
-#: nectar/meta/category-meta.php:118 nectar/meta/category-meta.php:138
+#: nectar/customizer/panels/post-types/woocommerce.php:289
+#: nectar/meta/category-meta.php:122 nectar/meta/category-meta.php:142
 msgid "Left"
 msgstr "Links"
 
-#: nectar/customizer/panels/layout.php:299
+#: nectar/customizer/panels/layout.php:644
 msgid "Left Top Center Bottom"
 msgstr "Links Boven Midden Onder"
 
-#: nectar/customizer/panels/layout.php:307
+#: nectar/customizer/panels/layout.php:652
 msgid "Full Width Header"
-msgstr "Header op volledige breedte"
+msgstr "Full Width Header"
 
-#: nectar/customizer/panels/layout.php:316
+#: nectar/customizer/panels/layout.php:661
 msgid "Full Width Left/Right Padding (px)"
 msgstr "Volledige Breedte Links/Rechts Padding (px)"
 
-#: nectar/customizer/panels/layout.php:332
+#: nectar/customizer/panels/layout.php:677
 msgid "Header Size"
 msgstr "Header Grootte"
 
-#: nectar/customizer/panels/layout.php:335
+#: nectar/customizer/panels/layout.php:680
 msgid "Default (Expanded to screen edges)"
 msgstr "Standaard (Uitgebreid tot schermranden)"
 
-#: nectar/customizer/panels/layout.php:336
+#: nectar/customizer/panels/layout.php:681
 msgid "Contained"
-msgstr "Bevat"
+msgstr "Ingesloten"
 
-#: nectar/customizer/panels/layout.php:349
+#: nectar/customizer/panels/layout.php:694
 #: nectar/customizer/panels/post-types/portfolio.php:134
 msgid "Header Roundness"
 msgstr "Header Afronding"
 
-#: nectar/customizer/panels/layout.php:360
+#: nectar/customizer/panels/layout.php:705
 msgid "Text To Display In Header"
 msgstr "Tekst om weer te geven in header"
 
-#: nectar/customizer/panels/layout.php:361
+#: nectar/customizer/panels/layout.php:706
 msgid ""
 "Enter a small amount of text to display in your header navigation. e.g. a "
 "phone number, store address etc. The positioning of this content will be "
 "determined by the header layout that you are using."
 msgstr ""
-"Voer een kleine hoeveelheid tekst in om weer te geven in je "
-"koptekstnavigatie. Bijvoorbeeld een telefoonnummer, winkeladres etc. De "
-"positionering van deze inhoud wordt bepaald door de koptekstindeling die je "
+"Voer een kleine hoeveelheid tekst in om weer te geven in uw header "
+"navigatie, bijvoorbeeld een telefoonnummer, winkeladres etc. De "
+"positionering van deze content wordt bepaald door de header layout die u "
 "gebruikt."
 
-#: nectar/customizer/panels/layout.php:370
+#: nectar/customizer/panels/layout.php:715
 msgid "Layout & Content Related"
-msgstr "Layout & Content Gerelateerd"
+msgstr "Layout & content gerelateerd"
 
-#: nectar/customizer/panels/layout.php:383
-#: nectar/customizer/panels/layout.php:426
+#: nectar/customizer/panels/layout.php:728
+#: nectar/customizer/panels/layout.php:771
 msgid "Secondary Header Bar"
 msgstr "Secundaire Header Balk"
 
-#: nectar/customizer/panels/layout.php:384
+#: nectar/customizer/panels/layout.php:729
 msgid ""
 "Please select if you would like an additional header bar above the main "
 "navigation."
-msgstr "Selecteer of je een extra header balk boven de hoofdnavigatie wilt hebben."
+msgstr ""
+"Selecteer of u een extra header balk boven de hoofdnavigatie wilt hebben."
 
-#: nectar/customizer/panels/layout.php:387
+#: nectar/customizer/panels/layout.php:732
 msgid "Standard Header"
 msgstr "Standaard Header"
 
-#: nectar/customizer/panels/layout.php:388
+#: nectar/customizer/panels/layout.php:733
 msgid "Header With Secondary Navigation Bar"
 msgstr "Header Met Secundaire Navigatiebalk"
 
-#: nectar/customizer/panels/layout.php:395
+#: nectar/customizer/panels/layout.php:740
 msgid "Secondary Header Text"
 msgstr "Secundaire Header Tekst"
 
-#: nectar/customizer/panels/layout.php:397
+#: nectar/customizer/panels/layout.php:742
 msgid "Add the text that you would like to appear in the secondary header."
 msgstr ""
 "Voeg de tekst toe die je in de secundaire header wilt laten verschijnen."
 
-#: nectar/customizer/panels/layout.php:403
+#: nectar/customizer/panels/layout.php:748
 msgid "Secondary Header Link URL"
 msgstr "URL voor secundaire header link"
 
-#: nectar/customizer/panels/layout.php:405
+#: nectar/customizer/panels/layout.php:750
 msgid "Please enter an optional URL for the secondary header text here."
 msgstr "Voer hier een optionele URL in voor de secundaire header tekst."
 
-#: nectar/customizer/panels/layout.php:412
+#: nectar/customizer/panels/layout.php:757
 msgid "Secondary Header Mobile Functionality"
 msgstr "Mobiele functionaliteit secundaire header"
 
-#: nectar/customizer/panels/layout.php:413
+#: nectar/customizer/panels/layout.php:758
 msgid ""
 "Please select how you would like the secondary header bar to display on "
 "mobile devices."
-msgstr "Selecteer hoe je de secundaire header-balk wilt weergeven op mobiele apparaten."
+msgstr ""
+"Selecteer hoe u de secundaire header-balk wilt weergeven op mobiele "
+"apparaten."
 
-#: nectar/customizer/panels/layout.php:413
+#: nectar/customizer/panels/layout.php:758
 msgid ""
 "The option to \"Display Items Above Mobile Header\" will be skipped when "
 "using the \"Header Permanent Transparent\" option in the Header Navigation >"
@@ -1194,27 +1135,27 @@ msgstr ""
 " de optie \"Header permanent transparant\" wordt gebruikt in het tabblad "
 "Header Navigatie > Transparant effect."
 
-#: nectar/customizer/panels/layout.php:416
+#: nectar/customizer/panels/layout.php:761
 msgid "Add Items Into Mobile Navigation Menu"
 msgstr "Items toevoegen aan mobiel navigatiemenu"
 
-#: nectar/customizer/panels/layout.php:417
+#: nectar/customizer/panels/layout.php:762
 msgid "Display Items Above Mobile Header"
 msgstr "Items boven mobiele header weergeven"
 
-#: nectar/customizer/panels/layout.php:442
+#: nectar/customizer/panels/layout.php:787
 msgid "Archive: "
 msgstr "Archief:"
 
-#: nectar/customizer/panels/layout.php:445
+#: nectar/customizer/panels/layout.php:790
 msgid "Single: "
 msgstr "Enkel:"
 
-#: nectar/customizer/panels/layout.php:453
+#: nectar/customizer/panels/layout.php:798
 msgid "Transparent Header"
 msgstr "Transparante Header"
 
-#: nectar/customizer/panels/layout.php:454
+#: nectar/customizer/panels/layout.php:799
 msgid ""
 "Causes your header to be completely transparent before the user scrolls. "
 "This will be triggered automatically when using a post header, or you can "
@@ -1224,34 +1165,34 @@ msgstr ""
 " automatisch geactiveerd bij gebruik van een post header, of je kunt het "
 "handmatig per page activeren."
 
-#: nectar/customizer/panels/layout.php:462
+#: nectar/customizer/panels/layout.php:807
 msgid "Automatically Enable On"
 msgstr "Automatisch Inschakelen Aan"
 
-#: nectar/customizer/panels/layout.php:470
+#: nectar/customizer/panels/layout.php:815
 msgid "Transparent Light Logo"
 msgstr "Transparant Licht Logo"
 
-#: nectar/customizer/panels/layout.php:471
+#: nectar/customizer/panels/layout.php:816
 msgid "This will be used when the header is transparent state is active."
 msgstr ""
 "Dit wordt gebruikt wanneer de transparante staat van de header actief is."
 
-#: nectar/customizer/panels/layout.php:487
+#: nectar/customizer/panels/layout.php:832
 msgid "Transparent Light Mobile Logo"
 msgstr "Transparant Licht Mobiel Logo"
 
-#: nectar/customizer/panels/layout.php:488
+#: nectar/customizer/panels/layout.php:833
 msgid ""
 "A separate header starting logo that will be shown on mobile devices only."
 msgstr ""
 "Een apart header-logo dat alleen op mobiele apparaten wordt weergegeven."
 
-#: nectar/customizer/panels/layout.php:496
+#: nectar/customizer/panels/layout.php:841
 msgid "Transparent Dark Logo"
 msgstr "Transparant Donker Logo"
 
-#: nectar/customizer/panels/layout.php:497
+#: nectar/customizer/panels/layout.php:842
 msgid ""
 "This will be used when the header transparent effect is active and the dark "
 "color is selected."
@@ -1259,11 +1200,11 @@ msgstr ""
 "Dit wordt gebruikt wanneer het transparante header-effect actief is en de "
 "donkere kleur is geselecteerd."
 
-#: nectar/customizer/panels/layout.php:511
+#: nectar/customizer/panels/layout.php:856
 msgid "Transparent Dark Mobile Logo"
 msgstr "Transparant Donker Mobiel Logo"
 
-#: nectar/customizer/panels/layout.php:512
+#: nectar/customizer/panels/layout.php:857
 msgid ""
 "A separate header starting dark logo that will be shown on mobile devices "
 "only."
@@ -1271,11 +1212,11 @@ msgstr ""
 "Een apart header logo voor donkere weergave dat alleen op mobiele apparaten "
 "wordt getoond."
 
-#: nectar/customizer/panels/layout.php:519
+#: nectar/customizer/panels/layout.php:864
 msgid "Transparent Light Text Color"
 msgstr "Transparante Lichte Tekstkleur"
 
-#: nectar/customizer/panels/layout.php:520
+#: nectar/customizer/panels/layout.php:865
 msgid ""
 "Please select the color you desire for your header text before the user "
 "scrolls"
@@ -1283,11 +1224,11 @@ msgstr ""
 "Selecteer de gewenste kleur voor je header tekst voordat de gebruiker "
 "scrollt"
 
-#: nectar/customizer/panels/layout.php:529
+#: nectar/customizer/panels/layout.php:874
 msgid "Transparent Dark Text Color"
 msgstr "Transparante donkere tekstkleur"
 
-#: nectar/customizer/panels/layout.php:530
+#: nectar/customizer/panels/layout.php:875
 msgid ""
 "Please select the color you desire for your header text when the dark header"
 " is active."
@@ -1295,37 +1236,38 @@ msgstr ""
 "Selecteer de gewenste kleur voor je header tekst wanneer de donkere header "
 "actief is."
 
-#: nectar/customizer/panels/layout.php:541
+#: nectar/customizer/panels/layout.php:886
 msgid "Header Starting Text Opacity"
-msgstr "Startwaarde voor Header Tekst Transparantie"
+msgstr "Begintransparantie headertekst"
 
-#: nectar/customizer/panels/layout.php:544
+#: nectar/customizer/panels/layout.php:889
 msgid "Default (Dimmed)"
 msgstr "Standaard (Gedimd)"
 
-#: nectar/customizer/panels/layout.php:545
+#: nectar/customizer/panels/layout.php:890
 msgid "Full Opacity"
-msgstr "Volledige Ondoorzichtigheid"
+msgstr "Volledige dekking"
 
-#: nectar/customizer/panels/layout.php:552
+#: nectar/customizer/panels/layout.php:897
 msgid "Header Permanent Transparent"
 msgstr "Header Permanent Transparant"
 
-#: nectar/customizer/panels/layout.php:553
+#: nectar/customizer/panels/layout.php:898
 msgid ""
 "Turning this on will allow your header to remain transparent even after "
 "scrolling down. This option will override all colors. When using an image "
 "logo, it must have a transparent background (PNG or SVG)."
 msgstr ""
-"Als je dit inschakelt, blijft je koptekst transparant, zelfs na het "
-"scrollen. Deze optie overschrijft alle kleuren. Bij gebruik van een "
-"afbeeldingslogo moet deze een transparante achtergrond hebben (PNG of SVG)."
+"Als u dit inschakelt, blijft uw header transparant, zelfs tijdens het "
+"scrollen. Deze optie overschrijft alle kleuren. Wanneer u een "
+"afbeeldingslogo gebruikt, moet deze een transparante achtergrond hebben (PNG"
+" of SVG)."
 
-#: nectar/customizer/panels/layout.php:566
+#: nectar/customizer/panels/layout.php:911
 msgid "Add Shadow Behind Transparent Header"
 msgstr "Schaduw toevoegen achter transparante header"
 
-#: nectar/customizer/panels/layout.php:567
+#: nectar/customizer/panels/layout.php:912
 msgid ""
 "Add a subtle shadow behind your transparent header to help with the "
 "visibility of your navigation items."
@@ -1333,103 +1275,105 @@ msgstr ""
 "Voeg een subtiele schaduw toe achter je transparante header om de "
 "zichtbaarheid van je navigatie-items te verbeteren."
 
-#: nectar/customizer/panels/layout.php:577
+#: nectar/customizer/panels/layout.php:923
 msgid "Transparent Header Effect"
 msgstr "Transparant Header Effect"
 
-#: nectar/customizer/panels/layout.php:590
+#: nectar/customizer/panels/layout.php:936
 msgid "Header Link Hover/Active Effect"
-msgstr "Header Link Hover/Actief Effect"
+msgstr "Header Link Hover/Active Effect"
 
-#: nectar/customizer/panels/layout.php:593
+#: nectar/customizer/panels/layout.php:939
 msgid "Color Change"
 msgstr "Kleurwijziging"
 
-#: nectar/customizer/panels/layout.php:594
-#: nectar/customizer/panels/layout.php:701
+#: nectar/customizer/panels/layout.php:940
+#: nectar/customizer/panels/layout.php:1050
 #: nectar/customizer/panels/layout/footer.php:146
 msgid "Animated Underline"
 msgstr "Geanimeerde onderstreping"
 
-#: nectar/customizer/panels/layout.php:595
+#: nectar/customizer/panels/layout.php:941
 msgid "Button Background"
-msgstr "Button Achtergrond"
+msgstr "Button achtergrond"
 
-#: nectar/customizer/panels/layout.php:603
+#: nectar/customizer/panels/layout.php:949
 msgid "Button Background Size"
-msgstr "Button Achtergrond Grootte"
+msgstr "Button achtergrondgrootte"
 
-#: nectar/customizer/panels/layout.php:604
+#: nectar/customizer/panels/layout.php:950
 msgid "Alters the button background size releative to link tett."
 msgstr ""
-"Wijzigt de grootte van de knop-achtergrond ten opzichte van de linktekst."
+"Wijzigt de grootte van de button achtergrond ten opzichte van de linktekst."
 
-#: nectar/customizer/panels/layout.php:608
-#: nectar/customizer/panels/layout.php:1069
+#: nectar/customizer/panels/layout.php:954
+#: nectar/customizer/panels/layout.php:1429
 msgid "Medium"
-msgstr "Medium"
+msgstr "Gemiddeld"
 
-#: nectar/customizer/panels/layout.php:617
+#: nectar/customizer/panels/layout.php:963
 msgid "Button Background Animation"
-msgstr "Button Achtergrond Animatie"
+msgstr "Button achtergrondanimatie"
 
-#: nectar/customizer/panels/layout.php:618
+#: nectar/customizer/panels/layout.php:964
 msgid "Alters the button background entrance animation."
-msgstr "Wijzigt de ingangsanimatie van de achtergrond van de knop."
+msgstr "Wijzigt de ingangsanimatie van de button achtergrond."
 
-#: nectar/customizer/panels/layout.php:621
-#: nectar/customizer/panels/layout.php:756
+#: nectar/customizer/panels/layout.php:967
+#: nectar/customizer/panels/layout.php:1114
 msgid "Fade In"
 msgstr "Fade in"
 
-#: nectar/customizer/panels/layout.php:622
+#: nectar/customizer/panels/layout.php:968
 msgid "Grow In"
 msgstr "Groeien"
 
-#: nectar/customizer/panels/layout.php:631
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:977
+#: nectar/customizer/panels/layout.php:992
 msgid "Header Hide Until Needed"
 msgstr "Header verbergen tot nodig"
 
-#: nectar/customizer/panels/layout.php:632
+#: nectar/customizer/panels/layout.php:978
 msgid ""
 "Do you want the header to be hidden after scrolling until needed? i.e. the "
 "user scrolls back up towards the top"
-msgstr "Wil je dat de header verborgen wordt na het scrollen totdat deze nodig is? D.w.z. wanneer de gebruiker weer naar boven scrollt"
+msgstr ""
+"Wilt u dat de header verborgen wordt na het scrollen totdat deze nodig is? "
+"D.w.z. wanneer de gebruiker weer naar boven scrollt"
 
-#: nectar/customizer/panels/layout.php:641
+#: nectar/customizer/panels/layout.php:987
 msgid "Header Resize On Scroll"
 msgstr "Header verkleinen bij scrollen"
 
-#: nectar/customizer/panels/layout.php:642
+#: nectar/customizer/panels/layout.php:988
 msgid "Do you want the header to shrink a little when you scroll?"
-msgstr "Wil je dat de header iets kleiner wordt tijdens het scrollen?"
+msgstr "Wilt u dat de header iets kleiner wordt tijdens het scrollen?"
 
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:992
 msgid "This will only be active when the"
 msgstr "Dit zal alleen actief zijn wanneer de"
 
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:992
 msgid "effect is turned off"
 msgstr "effect is uitgeschakeld"
 
-#: nectar/customizer/panels/layout.php:651
+#: nectar/customizer/panels/layout.php:997
 msgid "Header Logo Shrink Number (in px)"
-msgstr "Header Logo Verkleining (in px)"
+msgstr "Header logo verkleiningswaarde (in px)"
 
-#: nectar/customizer/panels/layout.php:660
+#: nectar/customizer/panels/layout.php:1006
 msgid "Condense Header On Scroll"
 msgstr "Header verkleinen bij scrollen"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "This option is specific to \"Menu Bottom Bar\" Header Format."
 msgstr "Deze optie is specifiek voor het \"Menu Bottom Bar\" Header Formaat."
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "When Menu Is Center Aligned"
 msgstr "Wanneer Menu Centraal Uitgelijnd Is"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid ""
 "Adds the logo/header buttons into the bottom nav bar when scrolling. Uses "
 "the \"Mobile Only Logo\" if supplied."
@@ -1437,47 +1381,47 @@ msgstr ""
 "Voegt de logo/header-knoppen toe aan de onderste navigatiebalk tijdens het "
 "scrollen. Gebruikt het \"Mobile Only Logo\" indien beschikbaar."
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "When Menu Is left Aligned"
 msgstr "Wanneer het menu links is uitgelijnd"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "Keeps bottom bar sticky when scrolling."
 msgstr "Houdt de onderste balk vast tijdens het scrollen."
 
-#: nectar/customizer/panels/layout.php:671
+#: nectar/customizer/panels/layout.php:1020
 msgid "Animation Effects"
 msgstr "Animatie-effecten"
 
-#: nectar/customizer/panels/layout.php:685
+#: nectar/customizer/panels/layout.php:1034
 msgid "Dropdown Opacity"
-msgstr "Dropdown Transparantie"
+msgstr "Dropdown dekking"
 
-#: nectar/customizer/panels/layout.php:697
+#: nectar/customizer/panels/layout.php:1046
 msgid "Dropdown Link Hover/Active Effect"
 msgstr "Dropdown Link Hover/Active Effect"
 
-#: nectar/customizer/panels/layout.php:700
+#: nectar/customizer/panels/layout.php:1049
 msgid "Background Color Change"
 msgstr "Achtergrondkleur wijzigen"
 
-#: nectar/customizer/panels/layout.php:709
+#: nectar/customizer/panels/layout.php:1058
 msgid "Dropdown Arrows"
 msgstr "Dropdown pijlen"
 
-#: nectar/customizer/panels/layout.php:714
+#: nectar/customizer/panels/layout.php:1063
 msgid "Show Arrow"
 msgstr "Pijl weergeven"
 
-#: nectar/customizer/panels/layout.php:715
+#: nectar/customizer/panels/layout.php:1064
 msgid "Don't Show Arrow"
 msgstr "Pijl niet weergeven"
 
-#: nectar/customizer/panels/layout.php:723
+#: nectar/customizer/panels/layout.php:1072
 msgid "Display Descriptions"
 msgstr "Beschrijvingen weergeven"
 
-#: nectar/customizer/panels/layout.php:724
+#: nectar/customizer/panels/layout.php:1073
 msgid ""
 "This will display the \"Description\" field specified for dropdown menu "
 "items in Appearance > Menus."
@@ -1485,58 +1429,58 @@ msgstr ""
 "Dit toont het \"Beschrijving\" veld dat is opgegeven voor dropdown menu-"
 "items in Weergave > Menu's."
 
-#: nectar/customizer/panels/layout.php:731
+#: nectar/customizer/panels/layout.php:1080
 msgid "Add Background Overlay"
 msgstr "Achtergrondoverlay toevoegen"
 
-#: nectar/customizer/panels/layout.php:732
+#: nectar/customizer/panels/layout.php:1081
 msgid ""
 "Adds an overlay that appears when a dropdown is opened to improve focus."
 msgstr ""
 "Voegt een overlay toe die verschijnt wanneer een dropdown wordt geopend om "
 "de focus te verbeteren."
 
-#: nectar/customizer/panels/layout.php:740
+#: nectar/customizer/panels/layout.php:1098
 msgid "Dropdown Positioning"
 msgstr "Dropdown Positionering"
 
-#: nectar/customizer/panels/layout.php:743
+#: nectar/customizer/panels/layout.php:1101
 msgid "Bottom of Header Navigation Bar"
-msgstr "Onderkant van Header Navigatiebalk"
+msgstr "Onderkant header navigatiebalk"
 
-#: nectar/customizer/panels/layout.php:744
+#: nectar/customizer/panels/layout.php:1102
 msgid "Bottom of Menu Item Label"
 msgstr "Label onderkant menu-item"
 
-#: nectar/customizer/panels/layout.php:751
+#: nectar/customizer/panels/layout.php:1109
 msgid "Dropdown Animation"
 msgstr "Dropdown Animatie"
 
-#: nectar/customizer/panels/layout.php:755
+#: nectar/customizer/panels/layout.php:1113
 msgid "Fade In Up"
-msgstr "Fade In Omhoog"
+msgstr "Fade in omhoog"
 
-#: nectar/customizer/panels/layout.php:763
+#: nectar/customizer/panels/layout.php:1121
 msgid "Dropdown Roundness"
 msgstr "Dropdown Afronding"
 
-#: nectar/customizer/panels/layout.php:774
+#: nectar/customizer/panels/layout.php:1132
 msgid "Dropdown Box Shadow"
-msgstr "Dropdown Schaduw"
+msgstr "Dropdown schaduw"
 
-#: nectar/customizer/panels/layout.php:809
+#: nectar/customizer/panels/layout.php:1170
 msgid "Dropdowns"
 msgstr "Dropdowns"
 
-#: nectar/customizer/panels/layout.php:823
+#: nectar/customizer/panels/layout.php:1184
 msgid "Remove Header search"
 msgstr "Header zoeken verwijderen"
 
-#: nectar/customizer/panels/layout.php:830
+#: nectar/customizer/panels/layout.php:1191
 msgid "Disable AJAX from search"
 msgstr "AJAX uitschakelen voor zoeken"
 
-#: nectar/customizer/panels/layout.php:831
+#: nectar/customizer/panels/layout.php:1192
 msgid ""
 "This will turn off the autocomplete suggestions from appearing when typing "
 "in the search box."
@@ -1544,57 +1488,53 @@ msgstr ""
 "Dit zal de automatische suggesties uitschakelen die verschijnen tijdens het "
 "typen in het zoekveld."
 
-#: nectar/customizer/panels/layout.php:838
+#: nectar/customizer/panels/layout.php:1199
 msgid "AJAX search styling"
 msgstr "AJAX zoekstijlen"
 
-#: nectar/customizer/panels/layout.php:839
+#: nectar/customizer/panels/layout.php:1200
 msgid "Select how to display the search results as the user types."
 msgstr ""
 "Selecteer hoe de zoekresultaten worden weergegeven terwijl de gebruiker "
 "typt."
 
-#: nectar/customizer/panels/layout.php:843
+#: nectar/customizer/panels/layout.php:1204
 msgid "Simple List"
 msgstr "Eenvoudige Lijst"
 
-#: nectar/customizer/panels/layout.php:844
+#: nectar/customizer/panels/layout.php:1205
 msgid "Extended List"
 msgstr "Uitgebreide Lijst"
 
-#: nectar/customizer/panels/layout.php:851
+#: nectar/customizer/panels/layout.php:1212
 msgid "Limit Search To Post Type"
-msgstr "Zoekresultaten beperken tot berichttype"
+msgstr "Zoeken beperken tot post type"
 
-#: nectar/customizer/panels/layout.php:854 nectar/helpers/page-header.php:619
-msgid "All"
-msgstr "Alle"
-
-#: nectar/customizer/panels/layout.php:855
+#: nectar/customizer/panels/layout.php:1216
 msgid "Products"
 msgstr "Producten"
 
-#: nectar/customizer/panels/layout.php:856
+#: nectar/customizer/panels/layout.php:1217
 msgid "Posts"
 msgstr "Berichten"
 
-#: nectar/customizer/panels/layout.php:863
+#: nectar/customizer/panels/layout.php:1224
 msgid "Header Search Typography"
-msgstr "Header Zoeken Typografie"
+msgstr "Header zoeken typografie"
 
-#: nectar/customizer/panels/layout.php:867
+#: nectar/customizer/panels/layout.php:1228
 msgid "Inherit Navigation Typography"
-msgstr "Navigatie-typografie overnemen"
+msgstr "Navigatietypografie overnemen"
 
-#: nectar/customizer/panels/layout.php:874
+#: nectar/customizer/panels/layout.php:1235
 msgid "Search Font Size"
-msgstr "Zoekfont grootte"
+msgstr "Zoekfontgrootte"
 
-#: nectar/customizer/panels/layout.php:885
+#: nectar/customizer/panels/layout.php:1246
 msgid "Search Placeholder Text"
-msgstr "Zoektekst placeholder"
+msgstr "Zoekbalk placeholder tekst"
 
-#: nectar/customizer/panels/layout.php:886
+#: nectar/customizer/panels/layout.php:1247
 msgid ""
 "Define custom text to show to the user when opening the search, before they "
 "start typing."
@@ -1602,15 +1542,11 @@ msgstr ""
 "Definieer aangepaste tekst die aan de gebruiker wordt getoond bij het openen"
 " van de zoekfunctie, voordat ze beginnen met typen."
 
-#: nectar/customizer/panels/layout.php:895
+#: nectar/customizer/panels/layout.php:1256
 msgid "Header Search"
 msgstr "Header Zoeken"
 
-#: nectar/customizer/panels/layout.php:909
-msgid "Off Canvas Menu"
-msgstr "Off-canvas-menu"
-
-#: nectar/customizer/panels/layout.php:910
+#: nectar/customizer/panels/layout.php:1271
 msgid ""
 "This will add an off canvas menu button on all viewports to your header "
 "navigation. When this is disabled, the off canvas menu will only be visible "
@@ -1620,113 +1556,68 @@ msgstr ""
 "schermformaten. Wanneer dit is uitgeschakeld, zal het off canvas menu alleen"
 " zichtbaar zijn op mobiele apparaten."
 
-#: nectar/customizer/panels/layout.php:919
-msgid "Off Canvas Menu Style"
-msgstr "Off-canvas-menustijl"
-
-#: nectar/customizer/panels/layout.php:920
+#: nectar/customizer/panels/layout.php:1281
 msgid ""
 "The \"Slide Out From Right Hover Triggered\" style will force the \"Full "
 "Width Header\" option regardless of your selection."
 msgstr ""
-"De stijl \"Uitschuiven vanaf rechts bij hover\" forceert de optie \"Koptekst"
-" op volledige breedte\" ongeacht je selectie."
+"De \"Slide Out From Right Hover Triggered\" stijl zal de \"Full Width "
+"Header\" optie forceren, ongeacht uw selectie."
 
-#: nectar/customizer/panels/layout.php:923
+#: nectar/customizer/panels/layout.php:1284
 msgid "Slide Out From Side"
-msgstr "Van de zijkant schuiven"
+msgstr "Uitschuiven vanaf zijkant"
 
-#: nectar/customizer/panels/layout.php:924
+#: nectar/customizer/panels/layout.php:1285
 msgid "Slide Out From Side Hover Triggered"
 msgstr "Uitschuiven vanaf zijkant bij hover"
 
-#: nectar/customizer/panels/layout.php:925
+#: nectar/customizer/panels/layout.php:1286
 msgid "Fullscreen Cover Slide + Blur BG"
-msgstr "Fullscreen Cover Slide + Wazige Achtergrond"
+msgstr "Fullscreen cover slide + blur achtergrond"
 
-#: nectar/customizer/panels/layout.php:926
+#: nectar/customizer/panels/layout.php:1287
 msgid "Fullscreen Cover Fade"
-msgstr "Fullscreen Cover Fade-effect"
+msgstr "Fullscreen cover fade"
 
-#: nectar/customizer/panels/layout.php:928
+#: nectar/customizer/panels/layout.php:1288
 msgid "Fullscreen Cover Split"
 msgstr "Fullscreen Cover Split"
 
-#: nectar/customizer/panels/layout.php:929
+#: nectar/customizer/panels/layout.php:1289
 msgid "Simple Dropdown"
 msgstr "Eenvoudige Dropdown"
 
-#: nectar/customizer/panels/layout.php:937
-msgid "Off Canvas Menu Separate Mobile Menu"
-msgstr "Off-canvas-menu apart mobiel menu"
-
-#: nectar/customizer/panels/layout.php:938
+#: nectar/customizer/panels/layout.php:1298
 msgid ""
 "This will cause your off canvas to only display navigation menu items "
 "assigned to the \"Off Canvas Navigation Menu\" location when viewing on a "
 "mobile device."
 msgstr ""
-"Dit zorgt ervoor dat je off-canvas-menu alleen navigatiemenu-items toont die"
-" zijn toegewezen aan de locatie \"Off-canvas-navigatiemenu\" wanneer je op "
-"een mobiel apparaat kijkt."
+"Dit zorgt ervoor dat je off canvas alleen navigatiemenu-items weergeeft die "
+"zijn toegewezen aan de locatie \"Off Canvas Navigation Menu\" wanneer je "
+"deze op een mobiel apparaat bekijkt."
 
-#: nectar/customizer/panels/layout.php:947
-msgid "Off Canvas Menu Desktop Width (%)"
-msgstr "Off-canvas-menubreedte desktop (%)"
-
-#: nectar/customizer/panels/layout.php:959
-msgid "Off Canvas Menu Offset"
-msgstr "Off-canvas-menu-offset"
-
-#: nectar/customizer/panels/layout.php:970
-msgid "Off Canvas Menu Roundness"
-msgstr "Off-canvas-menu-afronding"
-
-#: nectar/customizer/panels/layout.php:982
-msgid "Off Canvas Menu Icon Width"
-msgstr "Breedte menupictogram off-canvas-menu"
-
-#: nectar/customizer/panels/layout.php:995
-msgid "Default Off Canvas Background Image"
-msgstr "Standaard off-canvas-achtergrondafbeelding"
-
-#: nectar/customizer/panels/layout.php:996
+#: nectar/customizer/panels/layout.php:1356
 msgid ""
 "Choose the default image to be shown in your Off Canvas Menu. You can also "
 "supply a unique item for each menu item in"
 msgstr ""
-"Kies de standaardafbeelding die wordt weergegeven in je off-canvas-menu. Je "
-"kunt ook een uniek item opgeven voor elk menu-item in"
+"Kies de standaard afbeelding die wordt weergegeven in je Off Canvas Menu. Je"
+" kunt ook een unieke afbeelding toewijzen aan elk menu-item in"
 
-#: nectar/customizer/panels/layout.php:996
+#: nectar/customizer/panels/layout.php:1356
 msgid "Appearance > Menus."
 msgstr "Weergave > Menu's."
 
-#: nectar/customizer/panels/layout.php:1003
-msgid "Off Canvas Menu Dropdown Behavior"
-msgstr "Dropdown-gedrag off-canvas-menu"
-
-#: nectar/customizer/panels/layout.php:1004
+#: nectar/customizer/panels/layout.php:1364
 msgid ""
 "Please select the functionality for how dropdowns will behave in your off "
 "canvas menu."
 msgstr ""
-"Selecteer de functionaliteit voor hoe dropdowns zich gedragen in je off-"
-"canvas-menu."
+"Selecteer hoe dropdown menu's zich moeten gedragen in uw off canvas menu."
 
-#: nectar/customizer/panels/layout.php:1027
-msgid "Off Canvas Menu Add Menu Label"
-msgstr "Off-canvas-menu toevoegen menulabel"
-
-#: nectar/customizer/panels/layout.php:1034
-msgid "Off Canvas Menu Button Position"
-msgstr "Off-canvas-menuknoppositie"
-
-#: nectar/customizer/panels/layout.php:1055
-msgid "Off Canvas Menu Bottom Text"
-msgstr "Off-canvas-menutekst onderaan"
-
-#: nectar/customizer/panels/layout.php:1056
+#: nectar/customizer/panels/layout.php:1416
 msgid ""
 "This will add some text fixed at the bottom of your off canvas menu - useful"
 " for copyright or quick contact info etc."
@@ -1734,85 +1625,65 @@ msgstr ""
 "Dit voegt vaste tekst toe aan de onderkant van je off canvas menu - handig "
 "voor copyright of snelle contactgegevens etc."
 
-#: nectar/customizer/panels/layout.php:1063
-msgid "Off Canvas Menu Overlay Strength"
-msgstr "Off-canvas-menu overlay-sterkte"
-
-#: nectar/customizer/panels/layout.php:1064
+#: nectar/customizer/panels/layout.php:1424
 msgid "Not all off canvas menu styles utilize this option."
 msgstr "Niet alle off canvas menu stijlen maken gebruik van deze optie."
 
-#: nectar/customizer/panels/layout.php:1067
+#: nectar/customizer/panels/layout.php:1427
 msgid "Solid"
-msgstr "Doorlopend"
+msgstr "Solide"
 
-#: nectar/customizer/panels/layout.php:1068
-#: nectar/customizer/panels/layout.php:1255
+#: nectar/customizer/panels/layout.php:1428
+#: nectar/customizer/panels/layout.php:1627
 msgid "Dark"
 msgstr "Donker"
 
-#: nectar/customizer/panels/layout.php:1070
-#: nectar/customizer/panels/layout.php:1254
+#: nectar/customizer/panels/layout.php:1430
+#: nectar/customizer/panels/layout.php:1626
 msgid "Light"
 msgstr "Licht"
 
-#: nectar/customizer/panels/layout.php:1079
-msgid "Off Canvas Menu Mobile Nav Menu items"
-msgstr "Off-canvas-menu mobiele navigatie-items"
-
-#: nectar/customizer/panels/layout.php:1080
+#: nectar/customizer/panels/layout.php:1449
 msgid ""
 "This will cause your off canvas menu to inherit any navigation items "
 "assigned in your \"Top Navigation\" menu location when viewing on a mobile "
 "device."
 msgstr ""
-"Dit zorgt ervoor dat je off-canvas-menu alle navigatie-items overneemt die "
-"zijn toegewezen aan je menulocatie \"Topnavigatie\" wanneer je de site op "
-"een mobiel apparaat bekijkt."
+"Dit zorgt ervoor dat uw off canvas menu alle navigatie-items overneemt die "
+"zijn toegewezen aan uw \"Top Navigation\" menu locatie wanneer u deze op een"
+" mobiel apparaat bekijkt."
 
-#: nectar/customizer/panels/layout.php:1088
-msgid "Off Canvas Menu Item Icons"
-msgstr "Off-canvas-menu-itempictogrammen"
-
-#: nectar/customizer/panels/layout.php:1089
+#: nectar/customizer/panels/layout.php:1458
 msgid ""
 "This will control what type of icons (if any) to display in your off canvas "
 "menu. Icons are defined by you on an individual menu item basis in "
 "Appearance > Menus."
 msgstr ""
-"Dit bepaalt welk type pictogrammen (indien aanwezig) worden weergegeven in "
-"je off-canvas-menu. Pictogrammen worden door jou per individueel menu-item "
-"gedefinieerd in Weergave > Menu's."
+"Dit bepaalt welk type iconen (indien van toepassing) worden weergegeven in "
+"uw off canvas menu. Iconen worden door u per individueel menu-item "
+"gedefinieerd onder Weergave > Menu's."
 
-#: nectar/customizer/panels/layout.php:1092
+#: nectar/customizer/panels/layout.php:1461
 msgid "Display No Icons"
 msgstr "Geen iconen weergeven"
 
-#: nectar/customizer/panels/layout.php:1093
+#: nectar/customizer/panels/layout.php:1462
 msgid "Display Font/Emoji Icons Only"
-msgstr "Alleen lettertype/emoji-pictogrammen weergeven"
+msgstr "Alleen lettertype/emoji-iconen weergeven"
 
-#: nectar/customizer/panels/layout.php:1094
+#: nectar/customizer/panels/layout.php:1463
 msgid "Display Image Icons Only"
-msgstr "Alleen afbeeldingspictogrammen weergeven"
+msgstr "Alleen afbeeldingsiconen weergeven"
 
-#: nectar/customizer/panels/layout.php:1095
+#: nectar/customizer/panels/layout.php:1464
 msgid "Display All Icons"
 msgstr "Alle Iconen Weergeven"
 
-#: nectar/customizer/panels/layout.php:1114
-msgid "Off Canvas Icon Style"
-msgstr "Off-canvas-pictogramstijl"
-
-#: nectar/customizer/panels/layout.php:1118
+#: nectar/customizer/panels/layout.php:1487
 msgid "Circular"
 msgstr "Circulair"
 
-#: nectar/customizer/panels/layout.php:1126
-msgid "Off Canvas Navigation Menu Button BG Color"
-msgstr "Achtergrondkleur knop off-canvas-navigatiemenu"
-
-#: nectar/customizer/panels/layout.php:1129
+#: nectar/customizer/panels/layout.php:1498
 msgid ""
 "Optionally define a background color for your off canvas navigation button "
 "within the header."
@@ -1820,15 +1691,7 @@ msgstr ""
 "Definieer optioneel een achtergrondkleur voor je off canvas navigatieknop in"
 " de header."
 
-#: nectar/customizer/panels/layout.php:1135
-msgid "Off Canvas Navigation Menu Button Color"
-msgstr "Kleur knop off-canvas-navigatiemenu"
-
-#: nectar/customizer/panels/layout.php:1144
-msgid "Off Canvas Menu Custom Font Size (Desktop)"
-msgstr "Off-canvas-menu aangepaste lettergrootte (desktop)"
-
-#: nectar/customizer/panels/layout.php:1145
+#: nectar/customizer/panels/layout.php:1514
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on desktop displays. All unit types are accepted."
@@ -1837,11 +1700,7 @@ msgstr ""
 "navigatiemenu-items wanneer deze op desktopschermen worden weergegeven. Alle"
 " maateenheden worden geaccepteerd."
 
-#: nectar/customizer/panels/layout.php:1152
-msgid "Off Canvas Menu Custom Font Size (Mobile)"
-msgstr "Off-canvas-menu aangepaste lettergrootte (mobiel)"
-
-#: nectar/customizer/panels/layout.php:1153
+#: nectar/customizer/panels/layout.php:1522
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on mobile displays. All unit types are accepted."
@@ -1850,23 +1709,23 @@ msgstr ""
 "navigatiemenu-items wanneer deze op mobiele schermen worden weergegeven. "
 "Alle maateenheden worden geaccepteerd."
 
-#: nectar/customizer/panels/layout.php:1163
+#: nectar/customizer/panels/layout.php:1533
 msgid "Header Off Canvas Menu"
-msgstr "Koptekst off-canvas-menu"
+msgstr "Header off canvas menu"
 
-#: nectar/customizer/panels/layout.php:1177
+#: nectar/customizer/panels/layout.php:1547
 msgid "Mobile Header Layout"
-msgstr "Mobiele Header Layout"
+msgstr "Mobiele header layout"
 
-#: nectar/customizer/panels/layout.php:1189
+#: nectar/customizer/panels/layout.php:1559
 msgid "Header Sticky On Mobile"
-msgstr "Header Sticky op Mobiel"
+msgstr "Header sticky op mobiel"
 
-#: nectar/customizer/panels/layout.php:1197
+#: nectar/customizer/panels/layout.php:1567
 msgid "Header Mobile Breakpoint"
-msgstr "Header Mobiel Breekpunt"
+msgstr "Header mobiel breakpoint"
 
-#: nectar/customizer/panels/layout.php:1198
+#: nectar/customizer/panels/layout.php:1568
 msgid ""
 "Define at what window size (in px) the header navigation menu will collapse "
 "into the mobile menu style - larger values are useful when you have a "
@@ -1878,150 +1737,146 @@ msgstr ""
 "een navigatie hebt met veel items die niet op één regel passen bij weergave "
 "op kleine desktops/laptops."
 
-#: nectar/customizer/panels/layout.php:1211
+#: nectar/customizer/panels/layout.php:1581
 msgid "Full Width Left/Right Padding"
 msgstr "Volledige Breedte Links/Rechts Opvulling"
 
-#: nectar/customizer/panels/layout.php:1223
+#: nectar/customizer/panels/layout.php:1593
 msgid "Header Top/Bottom Padding"
-msgstr "Padding Boven/Onder Header"
+msgstr "Header boven/onder padding"
 
-#: nectar/customizer/panels/layout.php:1237
+#: nectar/customizer/panels/layout.php:1609
 msgid "Mobile Menu"
 msgstr "Mobiel Menu"
 
-#: nectar/customizer/panels/layout.php:1250
-#: nectar/customizer/panels/layout.php:1601
+#: nectar/customizer/panels/layout.php:1622
+#: nectar/customizer/panels/layout.php:1974
 msgid "Header Color Scheme"
 msgstr "Kleurenschema Header"
 
-#: nectar/customizer/panels/layout.php:1251
+#: nectar/customizer/panels/layout.php:1623
 msgid ""
 "Please select your header color scheme here. Color pickers below will only "
 "be used when using \"Custom\" for the color scheme."
 msgstr ""
-"Selecteer hier je koptekstkleurenschema. De kleurkiezers hieronder worden "
-"alleen gebruikt wanneer je \"Aangepast\" kiest voor het kleurenschema."
+"Selecteer hier uw header kleurenschema. De kleurkiezers hieronder worden "
+"alleen gebruikt wanneer u \"Custom\" kiest als kleurenschema."
 
-#: nectar/customizer/panels/layout.php:1256
-msgid "Custom"
-msgstr "Aangepast"
-
-#: nectar/customizer/panels/layout.php:1264
+#: nectar/customizer/panels/layout.php:1636
 msgid "Header Background"
 msgstr "Header Achtergrond"
 
-#: nectar/customizer/panels/layout.php:1275
+#: nectar/customizer/panels/layout.php:1647
 msgid "Header Font"
 msgstr "Lettertype voor koppen"
 
-#: nectar/customizer/panels/layout.php:1276
-#: nectar/customizer/panels/layout.php:1367
-#: nectar/customizer/panels/layout.php:1394
-#: nectar/customizer/panels/layout.php:1417
-#: nectar/customizer/panels/layout.php:1452
-#: nectar/customizer/panels/layout.php:1476
-#: nectar/customizer/panels/layout.php:1548
+#: nectar/customizer/panels/layout.php:1648
+#: nectar/customizer/panels/layout.php:1739
+#: nectar/customizer/panels/layout.php:1766
+#: nectar/customizer/panels/layout.php:1789
+#: nectar/customizer/panels/layout.php:1824
+#: nectar/customizer/panels/layout.php:1848
+#: nectar/customizer/panels/layout.php:1920
 msgid "Default State"
 msgstr "Standaardstatus"
 
-#: nectar/customizer/panels/layout.php:1288
-#: nectar/customizer/panels/layout.php:1379
-#: nectar/customizer/panels/layout.php:1405
-#: nectar/customizer/panels/layout.php:1429
-#: nectar/customizer/panels/layout.php:1464
-#: nectar/customizer/panels/layout.php:1488
-#: nectar/customizer/panels/layout.php:1560
+#: nectar/customizer/panels/layout.php:1660
+#: nectar/customizer/panels/layout.php:1751
+#: nectar/customizer/panels/layout.php:1777
+#: nectar/customizer/panels/layout.php:1801
+#: nectar/customizer/panels/layout.php:1836
+#: nectar/customizer/panels/layout.php:1860
+#: nectar/customizer/panels/layout.php:1932
 msgid "Hover State"
-msgstr "Hover Status"
+msgstr "Hover-staat"
 
-#: nectar/customizer/panels/layout.php:1299
+#: nectar/customizer/panels/layout.php:1671
 msgid "Header Button Effect"
 msgstr "Header Button Effect"
 
-#: nectar/customizer/panels/layout.php:1303
+#: nectar/customizer/panels/layout.php:1675
 msgid "BG Default State"
 msgstr "BG Standaardstatus"
 
-#: nectar/customizer/panels/layout.php:1312
+#: nectar/customizer/panels/layout.php:1684
 msgid "BG Active State"
 msgstr "BG Actieve Status"
 
-#: nectar/customizer/panels/layout.php:1325
+#: nectar/customizer/panels/layout.php:1697
 msgid "Text Active State"
-msgstr "Tekstkleur actieve status"
+msgstr "Tekst actieve staat"
 
-#: nectar/customizer/panels/layout.php:1334
+#: nectar/customizer/panels/layout.php:1706
 msgid "Header Menu Item Icons"
-msgstr "Header Menu Item Iconen"
+msgstr "Header menu-item iconen"
 
-#: nectar/customizer/panels/layout.php:1355
+#: nectar/customizer/panels/layout.php:1727
 msgid "Secondary Header Background"
 msgstr "Achtergrond Secundaire Header"
 
-#: nectar/customizer/panels/layout.php:1366
+#: nectar/customizer/panels/layout.php:1738
 msgid "Secondary Header Font"
 msgstr "Secundair Header Lettertype"
 
-#: nectar/customizer/panels/layout.php:1391
+#: nectar/customizer/panels/layout.php:1763
 msgid "Dropdown Background"
 msgstr "Dropdown Achtergrond"
 
-#: nectar/customizer/panels/layout.php:1416
+#: nectar/customizer/panels/layout.php:1788
 msgid "Dropdown Font"
 msgstr "Dropdown Lettertype"
 
-#: nectar/customizer/panels/layout.php:1440
+#: nectar/customizer/panels/layout.php:1812
 msgid "Dropdown Menu Item Icons"
 msgstr "Dropdown Menu Item Iconen"
 
-#: nectar/customizer/panels/layout.php:1451
+#: nectar/customizer/panels/layout.php:1823
 msgid "Dropdown Description Font"
 msgstr "Dropdown Beschrijving Lettertype"
 
-#: nectar/customizer/panels/layout.php:1475
+#: nectar/customizer/panels/layout.php:1847
 msgid "Mega Menu Heading Font"
-msgstr "Lettertype Mega Menu Koptekst"
+msgstr "Lettertype mega menu koptekst"
 
-#: nectar/customizer/panels/layout.php:1499
+#: nectar/customizer/panels/layout.php:1871
 msgid "Header Separators"
-msgstr "Header Scheidingslijnen"
+msgstr "Header scheidingslijnen"
 
-#: nectar/customizer/panels/layout.php:1511
+#: nectar/customizer/panels/layout.php:1883
 msgid "Off Canvas Navigation BG"
-msgstr "Off-canvas-navigatie achtergrond"
+msgstr "Off canvas navigatie achtergrond"
 
-#: nectar/customizer/panels/layout.php:1524
+#: nectar/customizer/panels/layout.php:1896
 msgid "Off Canvas Navigation BG 2"
-msgstr "Off-canvas-navigatie achtergrond 2"
+msgstr "Off canvas navigatie achtergrond 2"
 
-#: nectar/customizer/panels/layout.php:1525
+#: nectar/customizer/panels/layout.php:1897
 msgid "Used for gradient"
 msgstr "Gebruikt voor verloop"
 
-#: nectar/customizer/panels/layout.php:1536
+#: nectar/customizer/panels/layout.php:1908
 msgid "Off Canvas Navigation Headers"
-msgstr "Off-canvas-navigatiekopteksten"
+msgstr "Off canvas navigatie headers"
 
-#: nectar/customizer/panels/layout.php:1547
+#: nectar/customizer/panels/layout.php:1919
 msgid "Off Canvas Navigation Text"
-msgstr "Navigatie buiten beeld"
+msgstr "Off canvas navigatietekst"
 
-#: nectar/customizer/panels/layout.php:1572
+#: nectar/customizer/panels/layout.php:1944
 msgid "Off Canvas Navigation Close BG"
-msgstr "Off-canvas-navigatie sluiten achtergrond"
+msgstr "Off canvas navigatie sluit achtergrond"
 
-#: nectar/customizer/panels/layout.php:1585
+#: nectar/customizer/panels/layout.php:1957
 msgid "Off Canvas Navigation Close"
-msgstr "Off-canvas-navigatie sluiten"
+msgstr "Off canvas navigatie sluiten"
 
 #: nectar/customizer/panels/layout/footer.php:31
 msgid "Main Footer Area"
-msgstr "Hoofdvoetgebied"
+msgstr "Hoofdfootergebied"
 
 #: nectar/customizer/panels/layout/footer.php:32
 msgid "Do you want use the main footer that contains all the widgets areas?"
-msgstr "Wil je de hoofdfooter gebruiken die alle widget-gebieden bevat?"
+msgstr "Wilt u de hoofdfooter gebruiken die alle widget-gebieden bevat?"
 
 #: nectar/customizer/panels/layout/footer.php:44
 msgid "Footer Columns"
@@ -2029,8 +1884,7 @@ msgstr "Footer Kolommen"
 
 #: nectar/customizer/panels/layout/footer.php:45
 msgid "Please select the number of columns you would like for your footer."
-msgstr ""
-"Selecteer het aantal kolommen dat je voor je voettekst wilt gebruiken."
+msgstr "Selecteer het aantal kolommen dat u wilt voor uw footer."
 
 #: nectar/customizer/panels/layout/footer.php:48
 msgid "1 Column"
@@ -2095,8 +1949,8 @@ msgid ""
 "Please select the hover effect you would like for links in your footer "
 "copyright area."
 msgstr ""
-"Selecteer het zweefeffect dat je wilt voor links in je voettekst "
-"copyrightgebied."
+"Selecteer het hover-effect dat u wilt gebruiken voor links in het copyright-"
+"gedeelte van uw footer."
 
 #: nectar/customizer/panels/layout/footer.php:145
 msgid "Opacity/Color Change"
@@ -2108,7 +1962,7 @@ msgstr "Footer copyright-gebied uitschakelen"
 
 #: nectar/customizer/panels/layout/footer.php:155
 msgid "This will hide the copyright bar in your footer"
-msgstr "Dit verbergt de copyrightbalk in je voettekst"
+msgstr "Dit verbergt de copyright balk in uw footer"
 
 #: nectar/customizer/panels/layout/footer.php:163
 msgid "Footer Copyright Layout"
@@ -2147,9 +2001,9 @@ msgid ""
 "the additional text you add above in the Footer Copyright Section Text input"
 " - This option allows you to remove that."
 msgstr ""
-"Standaard staat er \"© {YEAR} {SITENAME}\" in je copyrightsectie vóór de "
-"aanvullende tekst die je hierboven toevoegt in het invoerveld Voettekst "
-"copyrightsectietekst - Met deze optie kun je dat verwijderen."
+"Standaard zal uw copyright sectie \"© {YEAR} {SITENAME}\" tonen vóór de "
+"aanvullende tekst die u hierboven toevoegt in het Footer Copyright Sectie "
+"Tekst invoerveld - Deze optie stelt u in staat om dat te verwijderen."
 
 #: nectar/customizer/panels/layout/footer.php:191
 msgid "Footer Background Image"
@@ -2170,7 +2024,9 @@ msgstr "Achtergrond Overlay Footer"
 msgid ""
 "Adjust the overlay opacity here - the overlay colors pulls from your defined"
 " footer background color."
-msgstr "Pas hier de transparantie van de overlay aan - de overlay-kleuren worden overgenomen van de door jou ingestelde achtergrondkleur van de footer."
+msgstr ""
+"Pas hier de transparantie van de overlay aan - de overlay-kleuren worden "
+"overgenomen van de door u ingestelde achtergrondkleur van de footer."
 
 #: nectar/customizer/panels/layout/footer.php:215
 msgid "Footer"
@@ -2186,52 +2042,52 @@ msgstr "Blog Layout"
 
 #: nectar/customizer/panels/post-types/blog.php:69
 msgid "Standard Blog W/ Sidebar"
-msgstr "Standaard Blog Met Sidebar"
+msgstr "Standaard blog met sidebar"
 
 #: nectar/customizer/panels/post-types/blog.php:70
 msgid "Standard Blog No Sidebar"
-msgstr "Standaard Blog Zonder Sidebar"
+msgstr "Standaard blog zonder sidebar"
 
 #: nectar/customizer/panels/post-types/blog.php:71
 msgid "Masonry Blog W/ Sidebar"
-msgstr "Masonry Blog met Sidebar"
+msgstr "Masonry blog met sidebar"
 
 #: nectar/customizer/panels/post-types/blog.php:72
 msgid "Masonry Blog No Sidebar"
-msgstr "Masonry Blog zonder Sidebar"
+msgstr "Masonry blog zonder sidebar"
 
 #: nectar/customizer/panels/post-types/blog.php:73
 msgid "Masonry Blog Fullwidth"
-msgstr "Masonry Blog Volledige Breedte"
+msgstr "Masonry blog volledige breedte"
 
 #: nectar/customizer/panels/post-types/blog.php:82
 msgid "Blog Spacing"
 msgstr "Blog Afstand"
 
 #: nectar/customizer/panels/post-types/blog.php:116
-#: nectar/customizer/panels/post-types/woocommerce.php:147
+#: nectar/customizer/panels/post-types/woocommerce.php:226
 msgid "Enable Sticky Sidebar"
-msgstr "Sticky Sidebar inschakelen"
+msgstr "Sticky sidebar inschakelen"
 
 #: nectar/customizer/panels/post-types/blog.php:124
 msgid "Post Excerpt"
-msgstr "Berichtfragment"
+msgstr "Post Excerpt"
 
 #: nectar/customizer/panels/post-types/blog.php:133
 msgid "Excerpt Length"
-msgstr "Excerpt Lengte"
+msgstr "Excerpt lengte"
 
 #: nectar/customizer/panels/post-types/blog.php:134
 msgid "How many words would you like to display for your post excerpts?"
-msgstr "Hoeveel woorden wil je weergeven voor je berichtfragmenten?"
+msgstr "Hoeveel woorden wilt u weergeven voor uw post samenvattingen?"
 
 #: nectar/customizer/panels/post-types/blog.php:157
 msgid "Hide Sidebar on Single Post"
-msgstr "Zijbalk verbergen op enkel bericht"
+msgstr "Sidebar verbergen op single post"
 
 #: nectar/customizer/panels/post-types/blog.php:164
 msgid "Blog Content Width"
-msgstr "Breedte Blog Content"
+msgstr "Breedte blog content"
 
 #: nectar/customizer/panels/post-types/blog.php:167
 msgid "1000px"
@@ -2255,7 +2111,7 @@ msgstr "Auteur Link"
 
 #: nectar/customizer/panels/post-types/blog.php:183
 msgid "Post Author Archives"
-msgstr "Berichtauteur-archieven"
+msgstr "Post auteur-archieven"
 
 #: nectar/customizer/panels/post-types/blog.php:184
 msgid "Post Author Website URL "
@@ -2267,51 +2123,62 @@ msgstr "Auteur Bio"
 
 #: nectar/customizer/panels/post-types/blog.php:193
 msgid "Display the author's bio at the bottom of posts?"
-msgstr "Toon de biografie van de auteur onderaan berichten?"
+msgstr "Toon de biografie van de auteur onderaan posts?"
 
 #: nectar/customizer/panels/post-types/blog.php:201
+#: nectar/customizer/panels/post-types/custom-post-types.php:65
 msgid "Post Navigation Links"
-msgstr "Berichtnavigatielinks"
+msgstr "Postnavigatie links"
 
 #: nectar/customizer/panels/post-types/blog.php:202
 msgid ""
 "Using this will add navigation link(s) at the bottom of every single post "
 "page."
-msgstr "Door dit te gebruiken worden er navigatielink(s) toegevoegd aan de onderkant van elke enkelvoudige berichtpagina."
+msgstr ""
+"Door dit te gebruiken worden er navigatielink(s) toegevoegd aan de onderkant"
+" van elke single post pagina."
 
 #: nectar/customizer/panels/post-types/blog.php:210
+#: nectar/customizer/panels/post-types/custom-post-types.php:77
 msgid "Post Navigation Style"
-msgstr "Navigatiestijl voor berichten"
+msgstr "Stijl postnavigatie"
 
 #: nectar/customizer/panels/post-types/blog.php:214
+#: nectar/customizer/panels/post-types/custom-post-types.php:81
 msgid "Fullwidth Next Link Only"
 msgstr "Alleen volgende link op volledige breedte"
 
 #: nectar/customizer/panels/post-types/blog.php:215
+#: nectar/customizer/panels/post-types/custom-post-types.php:82
 msgid "Fullwidth Next & Prev Links"
 msgstr "Links voor Volgende & Vorige op volledige breedte"
 
 #: nectar/customizer/panels/post-types/blog.php:216
+#: nectar/customizer/panels/post-types/custom-post-types.php:83
 msgid "Contained Next & Prev Links"
 msgstr "Links voor Volgende & Vorige pagina"
 
 #: nectar/customizer/panels/post-types/blog.php:217
+#: nectar/customizer/panels/post-types/custom-post-types.php:84
 msgid "Parallax Contained Next Link Only"
-msgstr "Parallax binnen container (alleen volgende link)"
+msgstr "Parallax Beperkt Alleen Volgende Link"
 
 #: nectar/customizer/panels/post-types/blog.php:224
 msgid "Limit Post Navigation To Same Category"
-msgstr "Beperk berichtnavigatie tot dezelfde categorie"
+msgstr "Postnavigatie beperken tot dezelfde categorie"
 
 #: nectar/customizer/panels/post-types/blog.php:225
 msgid ""
 "This will ensure that the next/prev links will only show posts that are set "
 "in the same category of the post being viewed."
-msgstr "Dit zorgt ervoor dat de volgende/vorige links alleen berichten tonen die zijn ingesteld in dezelfde categorie als het bericht dat wordt bekeken."
+msgstr ""
+"Dit zorgt ervoor dat de volgende/vorige links alleen posts tonen die zijn "
+"ingesteld in dezelfde categorie als de post die wordt bekeken."
 
 #: nectar/customizer/panels/post-types/blog.php:234
+#: nectar/customizer/panels/post-types/custom-post-types.php:91
 msgid "Post Navigation Ordering"
-msgstr "Berichtnavigatie-volgorde"
+msgstr "Volgorde postnavigatie"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "Default:"
@@ -2319,7 +2186,7 @@ msgstr "Standaard:"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "the next post link will be the next"
-msgstr "de volgende berichtlink zal de volgende zijn"
+msgstr "de volgende postlink zal de volgende zijn"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "oldest"
@@ -2338,22 +2205,24 @@ msgid "newest"
 msgstr "nieuwste"
 
 #: nectar/customizer/panels/post-types/blog.php:240
+#: nectar/customizer/panels/post-types/custom-post-types.php:96
 msgid "Reverse Order"
 msgstr "Omgekeerde volgorde"
 
 #: nectar/customizer/panels/post-types/blog.php:247
 #: nectar/customizer/panels/post-types/blog.php:298
-#: nectar/helpers/blog.php:463 nectar/helpers/blog.php:468
+#: nectar/helpers/blog.php:472 nectar/helpers/blog.php:477
 msgid "Related Posts"
-msgstr "Gerelateerde berichten"
+msgstr "Gerelateerde posts"
 
 #: nectar/customizer/panels/post-types/blog.php:248
 msgid "Adds related posts after the post content on single post pages."
-msgstr "Voegt gerelateerde berichten toe na de berichtinhoud op enkelvoudige berichtpagina's."
+msgstr ""
+"Voegt gerelateerde posts toe na de post content op single post pagina's."
 
 #: nectar/customizer/panels/post-types/blog.php:255
 msgid "Related Posts Functionality"
-msgstr "Gerelateerde berichten functionaliteit"
+msgstr "Gerelateerde posts functionaliteit"
 
 #: nectar/customizer/panels/post-types/blog.php:259
 msgid "Recent in same category"
@@ -2369,37 +2238,37 @@ msgstr "Willekeurig in elke categorie"
 
 #: nectar/customizer/panels/post-types/blog.php:271
 msgid "Related Posts Style"
-msgstr "Gerelateerde berichten stijl"
+msgstr "Stijl gerelateerde posts"
 
 #: nectar/customizer/panels/post-types/blog.php:275
 msgid "Material"
 msgstr "Materiaal"
 
 #: nectar/customizer/panels/post-types/blog.php:276
-#: nectar/customizer/panels/post-types/woocommerce.php:172
+#: nectar/customizer/panels/post-types/woocommerce.php:251
 msgid "Classic"
 msgstr "Klassiek"
 
 #: nectar/customizer/panels/post-types/blog.php:284
 msgid "Display Excerpt In Related Posts"
-msgstr "Toon samenvatting in gerelateerde berichten"
+msgstr "Toon samenvatting in gerelateerde posts"
 
 #: nectar/customizer/panels/post-types/blog.php:294
 msgid "Related Posts Title Text"
-msgstr "Gerelateerde berichten titeltekst"
+msgstr "Titel gerelateerde posts"
 
 #: nectar/customizer/panels/post-types/blog.php:299
-#: nectar/helpers/blog.php:472
+#: nectar/helpers/blog.php:481
 msgid "Similar Posts"
-msgstr "Vergelijkbare berichten"
+msgstr "Vergelijkbare Posts"
 
 #: nectar/customizer/panels/post-types/blog.php:300
-#: nectar/helpers/blog.php:476
+#: nectar/helpers/blog.php:485
 msgid "You May Also Like"
-msgstr "Dit vind je misschien ook leuk"
+msgstr "Dit vindt u misschien ook leuk"
 
 #: nectar/customizer/panels/post-types/blog.php:301
-#: nectar/helpers/blog.php:479
+#: nectar/helpers/blog.php:488
 msgid "Recommended For You"
 msgstr "Aanbevolen Voor Jou"
 
@@ -2409,7 +2278,7 @@ msgstr "Geen (Verborgen)"
 
 #: nectar/customizer/panels/post-types/blog.php:309
 msgid "Blog Section Title Typography"
-msgstr "Typografie voor Blog Sectie Titel"
+msgstr "Typografie blogsectietitel"
 
 #: nectar/customizer/panels/post-types/blog.php:323
 msgid "Author Style in Comments"
@@ -2425,16 +2294,16 @@ msgstr "Tags weergeven"
 
 #: nectar/customizer/panels/post-types/blog.php:335
 msgid "Display tags at the bottom of posts?"
-msgstr "Tags onderaan berichten weergeven?"
+msgstr "Tags onderaan posts weergeven?"
 
 #: nectar/customizer/panels/post-types/blog.php:345
 #: nectar/customizer/panels/post-types/portfolio.php:210
 msgid "Single Post"
-msgstr "Enkel bericht"
+msgstr "Single Post"
 
 #: nectar/customizer/panels/post-types/blog.php:357
 msgid "Blog Header Type"
-msgstr "Blog Header Type"
+msgstr "Type blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:360
 msgid "Variable Height"
@@ -2442,11 +2311,11 @@ msgstr "Variabele hoogte"
 
 #: nectar/customizer/panels/post-types/blog.php:361
 msgid "Featured Media Under Heading"
-msgstr "Featured Media onder kop"
+msgstr "Featured media onder koptekst"
 
 #: nectar/customizer/panels/post-types/blog.php:369
 msgid "Blog Header Image Sizing"
-msgstr "Blog Header Afbeelding Formaat"
+msgstr "Afbeeldingsgrootte blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:374
 #: nectar/customizer/panels/post-types/portfolio.php:121
@@ -2475,15 +2344,15 @@ msgstr "Vierkant (1:1)"
 
 #: nectar/customizer/panels/post-types/blog.php:387
 msgid "Blog Header Roundness"
-msgstr "Blog Header Afronding"
+msgstr "Afronding blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:399
 msgid "Blog Header Alignment"
-msgstr "Blog Header Uitlijning"
+msgstr "Uitlijning blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:413
 msgid "Blog Header Author Style"
-msgstr "Blog Header Auteur Stijl"
+msgstr "Auteurstijl blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:418
 msgid "Small Image Inline"
@@ -2495,21 +2364,21 @@ msgstr "Grote afbeelding meerdere regels"
 
 #: nectar/customizer/panels/post-types/blog.php:428
 msgid "Blog Header Display Excerpt"
-msgstr "Blog Header Weergave Samenvatting"
+msgstr "Samenvatting weergeven in blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:436
 #: nectar/customizer/panels/post-types/blog.php:460
 msgid "Blog Header Overlay Color"
-msgstr "Overlay Kleur Blog Header"
+msgstr "Overlaykleur blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:447
 #: nectar/customizer/panels/post-types/blog.php:472
 msgid "Blog Header Overlay Opacity"
-msgstr "Blog Header Overlay Transparantie"
+msgstr "Overlay dekking blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:485
 msgid "Blog Header Text Color"
-msgstr "Tekstkleur Blog Header"
+msgstr "Tekstkleur blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:495
 msgid "Blog Header Scroll Effect"
@@ -2518,7 +2387,7 @@ msgstr "Blog Header Scroll Effect"
 #: nectar/customizer/panels/post-types/blog.php:496
 #: nectar/customizer/panels/post-types/portfolio.php:146
 msgid "Globally define a scroll effect for your blog header."
-msgstr "Definieer een globaal scroll-effect voor je blog header."
+msgstr "Definieer globaal een scroll-effect voor je blog header."
 
 #: nectar/customizer/panels/post-types/blog.php:499
 #: nectar/customizer/panels/post-types/portfolio.php:149
@@ -2527,12 +2396,12 @@ msgstr "Parallax"
 
 #: nectar/customizer/panels/post-types/blog.php:506
 msgid "Blog Header Load In Animation"
-msgstr "Blog Header Inlaad-animatie"
+msgstr "Inlaadinimatie blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:511
 #: nectar/customizer/panels/post-types/portfolio.php:160
 msgid "Fade In Staggered"
-msgstr "Gefaseerd Infaden"
+msgstr "Gefaseerd fade in"
 
 #: nectar/customizer/panels/post-types/blog.php:519
 msgid "Hide Featured Media"
@@ -2549,20 +2418,20 @@ msgstr ""
 
 #: nectar/customizer/panels/post-types/blog.php:528
 msgid "Single Post Header Inherits Featured Image"
-msgstr "Koptekst van enkel bericht neemt uitgelichte afbeelding over"
+msgstr "Header single post neemt featured image over"
 
 #: nectar/customizer/panels/post-types/blog.php:529
 msgid ""
 "Using this will cause the default background of your post header to use your"
 " featured image when no other post header image is supplied."
 msgstr ""
-"Als je dit gebruikt, wordt de standaardachtergrond van je berichtkoptekst "
-"ingesteld op je uitgelichte afbeelding wanneer er geen andere "
-"berichtkoptekstafbeelding is opgegeven."
+"Als u dit gebruikt, zal de standaard achtergrond van uw post header uw "
+"uitgelichte afbeelding gebruiken wanneer er geen andere post header "
+"afbeelding is opgegeven."
 
 #: nectar/customizer/panels/post-types/blog.php:538
 msgid "Blog Header Category Display"
-msgstr "Weergave van blogheader-categorie"
+msgstr "Categorieweergave blog header"
 
 #: nectar/customizer/panels/post-types/blog.php:541
 msgid "Display All"
@@ -2574,11 +2443,11 @@ msgstr "Alleen hoofdcategorieën"
 
 #: nectar/customizer/panels/post-types/blog.php:553
 msgid "Single Post Header"
-msgstr "Koptekst van enkel bericht"
+msgstr "Header single post"
 
 #: nectar/customizer/panels/post-types/blog.php:565
 msgid "Blog Archive Header Type"
-msgstr "Type Blog Archive Header"
+msgstr "Type blog archief header"
 
 #: nectar/customizer/panels/post-types/blog.php:567
 msgid "Image Background"
@@ -2590,15 +2459,15 @@ msgstr "Achtergrondkleur"
 
 #: nectar/customizer/panels/post-types/blog.php:576
 msgid "Blog Archive Header BG Color"
-msgstr "Achtergrondkleur Blog Archive Header"
+msgstr "Achtergrondkleur blog archief header"
 
 #: nectar/customizer/panels/post-types/blog.php:585
 msgid "Blog Archive Header Text Color"
-msgstr "Tekstkleur Blog Archive Header"
+msgstr "Tekstkleur blog archief header"
 
 #: nectar/customizer/panels/post-types/blog.php:595
 msgid "Blog Archive Header Background Image"
-msgstr "Blog Archive Header Achtergrondafbeelding"
+msgstr "Achtergrondafbeelding blog archief header"
 
 #: nectar/customizer/panels/post-types/blog.php:596
 msgid ""
@@ -2610,7 +2479,7 @@ msgstr ""
 
 #: nectar/customizer/panels/post-types/blog.php:604
 msgid "Blog Archive Background Color Layout"
-msgstr "Achtergrondkleur Layout Blog Archive"
+msgstr "Layout achtergrondkleur blog archief"
 
 #: nectar/customizer/panels/post-types/blog.php:607
 msgid "Default (Solid)"
@@ -2622,11 +2491,11 @@ msgstr "Verloop"
 
 #: nectar/customizer/panels/post-types/blog.php:616
 msgid "Blog Archive Text Alignment"
-msgstr "Blog Archive Tekstuitlijning"
+msgstr "Tekstuitlijning blog archief"
 
 #: nectar/customizer/panels/post-types/blog.php:621
-#: nectar/customizer/panels/post-types/woocommerce.php:212
-#: nectar/meta/category-meta.php:120 nectar/meta/category-meta.php:140
+#: nectar/customizer/panels/post-types/woocommerce.php:291
+#: nectar/meta/category-meta.php:124 nectar/meta/category-meta.php:144
 msgid "Right"
 msgstr "Rechts"
 
@@ -2639,13 +2508,13 @@ msgid "Blog Archive Author Gravatar"
 msgstr "Blog Archive Auteur Gravatar"
 
 #: nectar/customizer/panels/post-types/blog.php:650
-#: nectar/customizer/panels/post-types/woocommerce.php:769
+#: nectar/customizer/panels/post-types/woocommerce.php:861
 msgid "Archive Header"
 msgstr "Archiefheader"
 
 #: nectar/customizer/panels/post-types/blog.php:670
 msgid "Post Date Functionality"
-msgstr "Berichtdatumfunctionaliteit"
+msgstr "Functionaliteit postdatum"
 
 #: nectar/customizer/panels/post-types/blog.php:673
 msgid "Show Published Date"
@@ -2661,29 +2530,31 @@ msgstr "Type paginering"
 
 #: nectar/customizer/panels/post-types/blog.php:682
 msgid "Please select your pagination type here."
-msgstr "Selecteer hier je pagineringstype."
+msgstr "Selecteer hier uw paginatype."
 
 #: nectar/customizer/panels/post-types/blog.php:709
 msgid "Single Post Template"
-msgstr "Sjabloon voor enkel bericht"
+msgstr "Template single post"
 
 #: nectar/customizer/panels/post-types/blog.php:711
 msgid ""
 "Use the following options to control what meta information will be shown on "
 "your single post template."
-msgstr "Gebruik de volgende opties om te bepalen welke meta-informatie wordt weergegeven op je enkelvoudige berichtsjabloon."
+msgstr ""
+"Gebruik de volgende opties om te bepalen welke meta-informatie wordt "
+"weergegeven op je single post template."
 
 #: nectar/customizer/panels/post-types/blog.php:716
 msgid "Remove Single Post Date"
-msgstr "Datum van enkel bericht verwijderen"
+msgstr "Datum single post verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:724
 msgid "Remove Single Post Author"
-msgstr "Verwijder auteur van enkel bericht"
+msgstr "Auteur single post verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:732
 msgid "Remove Single Post Comment Number"
-msgstr "Verwijder aantal reacties bij enkel bericht"
+msgstr "Aantal reacties single post verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:740
 msgid "Remove Single Estimated Reading Time"
@@ -2691,21 +2562,23 @@ msgstr "Verwijder Geschatte Leestijd"
 
 #: nectar/customizer/panels/post-types/blog.php:749
 msgid "Blog Archive (Post Grid/List) Template"
-msgstr "Blog Archief (Bericht Grid/Lijst) Template"
+msgstr "Blog Archief (Post Grid/List) Template"
 
 #: nectar/customizer/panels/post-types/blog.php:751
 msgid ""
 "Use the following options to control what meta information will be shown on "
 "your posts in the main post query."
-msgstr "Gebruik de volgende opties om te bepalen welke meta-informatie wordt weergegeven bij je berichten in de hoofd berichtquery."
+msgstr ""
+"Gebruik de volgende opties om te bepalen welke meta-informatie wordt "
+"weergegeven bij je posts in de hoofd post query."
 
 #: nectar/customizer/panels/post-types/blog.php:756
 msgid "Remove Post Date"
-msgstr "Berichtdatum verwijderen"
+msgstr "Postdatum verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:764
 msgid "Remove Post Author"
-msgstr "Berichtauteur verwijderen"
+msgstr "Postauteur verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:772
 msgid "Remove Categories"
@@ -2713,7 +2586,7 @@ msgstr "Categorieën verwijderen"
 
 #: nectar/customizer/panels/post-types/blog.php:783
 msgid "Post Meta"
-msgstr "Bericht meta"
+msgstr "Post Meta"
 
 #: nectar/customizer/panels/post-types/portfolio.php:28
 msgid "Portfolio"
@@ -2744,7 +2617,7 @@ msgstr "Archieven"
 
 #: nectar/customizer/panels/post-types/portfolio.php:116
 msgid "Header Image Sizing"
-msgstr "Header Afbeelding Formaat"
+msgstr "Header afbeeldingsgrootte"
 
 #: nectar/customizer/panels/post-types/portfolio.php:145
 msgid "Header Scroll Effect"
@@ -2768,33 +2641,33 @@ msgstr "Project Link weergeven"
 
 #: nectar/customizer/panels/post-types/post-types.php:25
 msgid "Post Types"
-msgstr "Berichttypen"
+msgstr "Post Types"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:26
+#: nectar/customizer/panels/post-types/woocommerce.php:105
 msgid "Woocommerce"
 msgstr "WooCommerce"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:45
+#: nectar/customizer/panels/post-types/woocommerce.php:124
 msgid "WooCommerce Cart In Nav"
 msgstr "WooCommerce Winkelwagen In Navigatie"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:46
+#: nectar/customizer/panels/post-types/woocommerce.php:125
 msgid "This will add a cart item to your main navigation."
 msgstr "Dit voegt een winkelwagen-item toe aan je hoofdnavigatie."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:54
+#: nectar/customizer/panels/post-types/woocommerce.php:133
 msgid "Cart In Nav Style"
 msgstr "Winkelwagen in navigatiestijl"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid "Please select the style you would like for your AJAX cart."
 msgstr "Selecteer de stijl die je wilt gebruiken voor je AJAX winkelwagen."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid "Note:"
 msgstr "Opmerking:"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid ""
 "Because WooCommerce caches the cart widget markup, when changing this option"
 " you will need to add a product to the cart to see the full change. "
@@ -2806,69 +2679,73 @@ msgstr ""
 "wanneer je deze optie aanpast. Je kunt ook de \"Clear sessions\" tool "
 "gebruiken in WooCommerce > Status > Tools om dit te bereiken."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:58
+#: nectar/customizer/panels/post-types/woocommerce.php:137
 msgid "Hover Dropdown"
 msgstr "Hover Dropdown"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:59
+#: nectar/customizer/panels/post-types/woocommerce.php:138
 msgid "Click Extended Functionality"
 msgstr "Klik voor uitgebreide functionaliteit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:68
+#: nectar/customizer/panels/post-types/woocommerce.php:147
 msgid "AJAX Product Template Add to Cart"
 msgstr "AJAX Product Template Toevoegen aan Winkelwagen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:69
+#: nectar/customizer/panels/post-types/woocommerce.php:148
 msgid ""
 "Enabling this will allow products to be added to the cart without causing a "
 "page refresh on the single product template and in the quickview modal."
-msgstr "Als je dit inschakelt, kunnen producten aan de winkelwagen worden toegevoegd zonder dat de pagina ververst wordt op de product template en in de quickview modal."
+msgstr ""
+"Als u dit inschakelt, kunnen producten aan de winkelwagen worden toegevoegd "
+"zonder dat de pagina ververst wordt op de product template en in de "
+"quickview modal."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:78
+#: nectar/customizer/panels/post-types/woocommerce.php:157
 msgid "Account Button In Nav"
-msgstr "Account Knop In Navigatie"
+msgstr "Account button in navigatie"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:87
+#: nectar/customizer/panels/post-types/woocommerce.php:166
 msgid "Main Shop Layout"
 msgstr "Hoofdindeling Winkel"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:88
+#: nectar/customizer/panels/post-types/woocommerce.php:167
 msgid "Please select layout you would like to use on your main shop page."
-msgstr "Selecteer de indeling die je wilt gebruiken op je hoofdwinkelpagina."
+msgstr "Selecteer de layout die u wilt gebruiken op uw hoofdshop pagina."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:91
+#: nectar/customizer/panels/post-types/woocommerce.php:170
 msgid "No Sidebar"
 msgstr "Geen Sidebar"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:92
+#: nectar/customizer/panels/post-types/woocommerce.php:171
 msgid "Right Sidebar"
 msgstr "Rechter Zijbalk"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:93
+#: nectar/customizer/panels/post-types/woocommerce.php:172
 msgid "Left Sidebar"
 msgstr "Linker Zijbalk"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:102
+#: nectar/customizer/panels/post-types/woocommerce.php:181
 msgid "Full Width Layout"
 msgstr "Volledige Breedte Layout"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:114
+#: nectar/customizer/panels/post-types/woocommerce.php:193
 msgid "Add Filter Sidebar Toggle"
 msgstr "Filter Sidebar Tonen/Verbergen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:115
+#: nectar/customizer/panels/post-types/woocommerce.php:194
 msgid ""
 "Enabling this will allow your sidebar widget area to be toggled from a "
 "button above your products on all product archives."
 msgstr ""
-"Als je dit inschakelt, kan je zijbalkwidgetgebied worden in- en "
-"uitgeschakeld met een knop boven je producten op alle productarchieven."
+"Als u dit inschakelt, kan uw sidebar widget-gebied worden in- en "
+"uitgeschakeld via een knop boven uw producten op alle product-"
+"archiefpagina's."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:123
+#: nectar/customizer/panels/post-types/woocommerce.php:202
 msgid "Display Active Filters Next To Toggle"
-msgstr "Toon actieve filters naast toggle"
+msgstr "Actieve filters tonen naast toggle"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:124
+#: nectar/customizer/panels/post-types/woocommerce.php:203
 msgid ""
 "Displays currently active filters next to the filter toggle button. Not "
 "compatible with third party plugins which update WooCommerce filters without"
@@ -2878,142 +2755,142 @@ msgstr ""
 " met plugins van derden die WooCommerce filters bijwerken zonder de pagina "
 "te herladen."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:132
+#: nectar/customizer/panels/post-types/woocommerce.php:211
 msgid "Filter Sidebar Toggle Starting State"
-msgstr "Begintoestand van de Filter Zijbalk Schakelaar"
+msgstr "Begintoestand filter sidebar toggle"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:134
+#: nectar/customizer/panels/post-types/woocommerce.php:213
 msgid "Open"
 msgstr "Openen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:135
+#: nectar/customizer/panels/post-types/woocommerce.php:214
 msgid "Closed"
 msgstr "Gesloten"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:148
+#: nectar/customizer/panels/post-types/woocommerce.php:227
 msgid ""
 "Would you like to have your sidebar follow down as your scroll in a sticky "
 "manner?"
 msgstr ""
-"Wil je dat je zijbalk meeschuift tijdens het scrollen op een sticky manier?"
+"Wilt u dat uw sidebar op een vaste manier meebeweegt terwijl u scrollt?"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:168
+#: nectar/customizer/panels/post-types/woocommerce.php:247
 msgid "Product Style"
 msgstr "Productstijl"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:169
+#: nectar/customizer/panels/post-types/woocommerce.php:248
 msgid ""
 "Please select the style you would like your products to display in (single "
 "product page styling will also vary slightly with each)"
 msgstr ""
-"Selecteer de stijl waarin je producten wilt weergeven (de styling van de "
-"enkele productpagina varieert ook enigszins per stijl)"
+"Selecteer de stijl waarin u uw producten wilt weergeven (de styling van de "
+"single product pagina zal ook enigszins variëren per stijl)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:173
+#: nectar/customizer/panels/post-types/woocommerce.php:252
 msgid "Material Design"
 msgstr "Material Design"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:174
+#: nectar/customizer/panels/post-types/woocommerce.php:253
 msgid "Minimal Design"
 msgstr "Minimalistisch Design"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:183
+#: nectar/customizer/panels/post-types/woocommerce.php:262
 msgid "Minimal Product Hover Layout"
-msgstr "Minimale Product Hover Layout"
+msgstr "Minimale product hover layout"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:185
+#: nectar/customizer/panels/post-types/woocommerce.php:264
 msgid "Price Hidden, Minimal Buttons"
-msgstr "Prijs verborgen, minimale knoppen"
+msgstr "Prijs verborgen, minimale buttons"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:186
+#: nectar/customizer/panels/post-types/woocommerce.php:265
 msgid "Price Visible, Flex Buttons"
-msgstr "Prijs zichtbaar, Flex knoppen"
+msgstr "Prijs zichtbaar, flex buttons"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:195
+#: nectar/customizer/panels/post-types/woocommerce.php:274
 msgid "Minimal Product Hover Effect"
 msgstr "Minimaal Product Hover Effect"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:197
+#: nectar/customizer/panels/post-types/woocommerce.php:276
 msgid "Background Grow W/ Shadow"
 msgstr "Achtergrond groeit met schaduw"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:198
+#: nectar/customizer/panels/post-types/woocommerce.php:277
 msgid "Image Zoom"
-msgstr "Afbeelding Zoom"
+msgstr "Afbeelding zoom"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:207
+#: nectar/customizer/panels/post-types/woocommerce.php:286
 msgid "Minimal Product Text Alignment"
 msgstr "Uitlijning Minimale Producttekst"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:222
+#: nectar/customizer/panels/post-types/woocommerce.php:301
 msgid "Button BG Color"
-msgstr "Knop achtergrondkleur"
+msgstr "Button achtergrondkleur"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:231
+#: nectar/customizer/panels/post-types/woocommerce.php:310
 msgid "Button BG Color Hover"
 msgstr "Button achtergrondkleur hover"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:240
+#: nectar/customizer/panels/post-types/woocommerce.php:319
 msgid "Button Text Color"
-msgstr "Tekstkleur knop"
+msgstr "Button tekstkleur"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:250
+#: nectar/customizer/panels/post-types/woocommerce.php:329
 msgid "Button Border Color"
-msgstr "Knop Randkleur"
+msgstr "Button randkleur"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:258
+#: nectar/customizer/panels/post-types/woocommerce.php:337
 msgid "Product Gap"
 msgstr "Productafstand"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:270
+#: nectar/customizer/panels/post-types/woocommerce.php:349
 msgid "Product Border Radius"
 msgstr "Product Hoekafronding"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:273
+#: nectar/customizer/panels/post-types/woocommerce.php:352
 msgid "0px"
 msgstr "0px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:277
+#: nectar/customizer/panels/post-types/woocommerce.php:356
 msgid "4px"
 msgstr "4px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:278
+#: nectar/customizer/panels/post-types/woocommerce.php:357
 msgid "5px"
 msgstr "5px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:279
+#: nectar/customizer/panels/post-types/woocommerce.php:358
 msgid "6px"
 msgstr "6px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:280
+#: nectar/customizer/panels/post-types/woocommerce.php:359
 msgid "7px"
 msgstr "7px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:281
+#: nectar/customizer/panels/post-types/woocommerce.php:360
 msgid "8px"
 msgstr "8px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:282
+#: nectar/customizer/panels/post-types/woocommerce.php:361
 msgid "9px"
 msgstr "9px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:283
+#: nectar/customizer/panels/post-types/woocommerce.php:362
 msgid "10px"
 msgstr "10px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:284
+#: nectar/customizer/panels/post-types/woocommerce.php:363
 msgid "15px"
 msgstr "15px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:285
+#: nectar/customizer/panels/post-types/woocommerce.php:364
 msgid "20px"
 msgstr "20px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:292
+#: nectar/customizer/panels/post-types/woocommerce.php:371
 msgid "Enable WooCommerce Product Quick View"
-msgstr "WooCommerce Product Quick View inschakelen"
+msgstr "WooCommerce product quick view inschakelen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:293
+#: nectar/customizer/panels/post-types/woocommerce.php:372
 msgid ""
 "This will add a \"quick view\" button to your products which will load key "
 "single product page info without having to navigate to the page itself."
@@ -3022,51 +2899,51 @@ msgstr ""
 "productinformatie wordt geladen zonder dat je naar de productpagina zelf "
 "hoeft te navigeren."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:301
+#: nectar/customizer/panels/post-types/woocommerce.php:380
 msgid "Show first gallery image on Product hover"
-msgstr "Toon eerste galerijafbeelding bij product-hover"
+msgstr "Toon eerste galerij-afbeelding bij Product hover"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:303
+#: nectar/customizer/panels/post-types/woocommerce.php:382
 msgid ""
 "Using this will cause your products to show the first gallery image (if "
 "supplied) on hover"
 msgstr ""
-"Als je dit gebruikt, wordt de eerste galerijafbeelding (indien aanwezig) "
-"getoond bij hover over je producten"
+"Als u dit gebruikt, wordt bij het hoveren de eerste galerij-afbeelding "
+"(indien beschikbaar) van uw producten weergegeven"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:310
+#: nectar/customizer/panels/post-types/woocommerce.php:389
 msgid "Disable Product Hover Effect On Mobile"
 msgstr "Producteffect bij aanraking uitschakelen op mobiel"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:318
+#: nectar/customizer/panels/post-types/woocommerce.php:397
 msgid "WooCommerce Button Typography"
-msgstr "WooCommerce Button Typografie"
+msgstr "WooCommerce button typografie"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:322
+#: nectar/customizer/panels/post-types/woocommerce.php:401
 msgid "Label"
 msgstr "Label"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:330
+#: nectar/customizer/panels/post-types/woocommerce.php:409
 msgid "Quantity Button Style"
-msgstr "Stijl van hoeveelheidsknoppen"
+msgstr "Stijl van hoeveelheids-button"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:331
+#: nectar/customizer/panels/post-types/woocommerce.php:410
 msgid "Please select style for your quantity buttons."
-msgstr "Selecteer een stijl voor je hoeveelheidsknoppen."
+msgstr "Selecteer een stijl voor je hoeveelheids-buttons."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:334
+#: nectar/customizer/panels/post-types/woocommerce.php:413
 msgid "Rounded Circles With Shadow"
 msgstr "Afgeronde Cirkels Met Schaduw"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:335
+#: nectar/customizer/panels/post-types/woocommerce.php:414
 msgid "All Grouped Together"
 msgstr "Allemaal Gegroepeerd"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:343
+#: nectar/customizer/panels/post-types/woocommerce.php:422
 msgid "Archive Page Columns (Desktop)"
-msgstr "Archiefpaginakolommen (desktop)"
+msgstr "Kolommen op Archive Page (Desktop)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:344
+#: nectar/customizer/panels/post-types/woocommerce.php:423
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "desktop monitor ( > 1300px)"
@@ -3074,11 +2951,11 @@ msgstr ""
 "Het aantal kolommen dat wordt weergegeven op product archive pages bij "
 "weergave op een desktopmonitor ( > 1300px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:360
+#: nectar/customizer/panels/post-types/woocommerce.php:439
 msgid "Archive Page Columns (Small Desktop)"
-msgstr "Archiefpaginakolommen (klein bureaublad)"
+msgstr "Kolommen op Archive Page (Kleine Desktop)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:361
+#: nectar/customizer/panels/post-types/woocommerce.php:440
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "small desktop monitor (1000px - 1300px)"
@@ -3086,11 +2963,11 @@ msgstr ""
 "Het aantal kolommen dat wordt weergegeven op product archive pages bij "
 "weergave op een kleine desktop monitor (1000px - 1300px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:377
+#: nectar/customizer/panels/post-types/woocommerce.php:456
 msgid "Archive Page Columns (Tablet)"
 msgstr "Kolommen op archief pagina (Tablet)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:378
+#: nectar/customizer/panels/post-types/woocommerce.php:457
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "tablet (690px - 1024px)"
@@ -3098,11 +2975,11 @@ msgstr ""
 "Het aantal kolommen dat wordt weergegeven op product archive pages bij "
 "weergave op een tablet (690px - 1024px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:392
+#: nectar/customizer/panels/post-types/woocommerce.php:471
 msgid "Archive Page Columns (Phone)"
 msgstr "Archiefpagina Kolommen (Telefoon)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:393
+#: nectar/customizer/panels/post-types/woocommerce.php:472
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "phone ( < 690px)"
@@ -3110,135 +2987,136 @@ msgstr ""
 "Het aantal kolommen dat wordt weergegeven op product archive pages bij "
 "weergave op een telefoon ( < 690px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:409
+#: nectar/customizer/panels/post-types/woocommerce.php:488
 msgid "Material Design Product Item BG Color"
 msgstr "Achtergrondkleur Material Design Product Item"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:410
-#: nectar/customizer/panels/post-types/woocommerce.php:421
+#: nectar/customizer/panels/post-types/woocommerce.php:489
+#: nectar/customizer/panels/post-types/woocommerce.php:500
 msgid "Set this to match the BG color of your product images."
 msgstr ""
 "Stel dit in om overeen te komen met de achtergrondkleur van je "
 "productafbeeldingen."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:420
+#: nectar/customizer/panels/post-types/woocommerce.php:499
 msgid "Minimal Design Product Item BG Color"
-msgstr "Minimaal Ontwerp Product Item Achtergrondkleur"
+msgstr "Achtergrondkleur minimalistisch productitem"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:431
+#: nectar/customizer/panels/post-types/woocommerce.php:510
 msgid "Product Archive Page BG Color"
-msgstr "Achtergrondkleur productarchiefpagina"
+msgstr "Achtergrondkleur product archive pagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:432
+#: nectar/customizer/panels/post-types/woocommerce.php:511
 msgid "Allows to you set the BG color for all product archive pages"
-msgstr "Hiermee kun je de achtergrondkleur instellen voor alle product archive pages"
+msgstr ""
+"Hiermee kunt u de achtergrondkleur instellen voor alle product archive pages"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:441
+#: nectar/customizer/panels/post-types/woocommerce.php:520
 msgid "Products Per Page"
 msgstr "Producten Per Pagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:442
+#: nectar/customizer/panels/post-types/woocommerce.php:521
 msgid "Please enter your desired your products per page (default is 12)"
 msgstr "Voer het gewenste aantal producten per pagina in (standaard is 12)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:461
+#: nectar/customizer/panels/post-types/woocommerce.php:549
 msgid "General"
 msgstr "Algemeen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:474
+#: nectar/customizer/panels/post-types/woocommerce.php:562
 msgid "Single Product Layout"
-msgstr "Layout voor Enkel Product"
+msgstr "Layout enkel product"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:475
+#: nectar/customizer/panels/post-types/woocommerce.php:563
 msgid ""
 "Please select layout you would like to use on your single product page."
 msgstr ""
-"Selecteer de indeling die je wilt gebruiken op je enkele productpagina."
+"Selecteer de layout die u wilt gebruiken voor uw single product pagina."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:488
+#: nectar/customizer/panels/post-types/woocommerce.php:576
 msgid "Single Product Gallery Type"
-msgstr "Type Productgalerij"
+msgstr "Type productgalerij"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:489
+#: nectar/customizer/panels/post-types/woocommerce.php:577
 msgid ""
 "Please select what gallery type you would like on your single product page"
 msgstr ""
 "Selecteer welk type galerij je wilt gebruiken op je single product pagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:492
+#: nectar/customizer/panels/post-types/woocommerce.php:580
 msgid "Default WooCommerce Gallery"
-msgstr "Standaard WooCommerce Gallery"
+msgstr "Standaard WooCommerce gallery"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:493
+#: nectar/customizer/panels/post-types/woocommerce.php:581
 msgid "Bottom Thumbnails Slider"
-msgstr "Onderste Miniaturen Slider"
+msgstr "Thumbnails slider onderaan"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:494
+#: nectar/customizer/panels/post-types/woocommerce.php:582
 msgid "Left Thumbnails Slider"
-msgstr "Links Miniaturen Slider"
+msgstr "Thumbnails slider links"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:495
+#: nectar/customizer/panels/post-types/woocommerce.php:583
 msgid "2 Column Images + Sticky Product Info"
 msgstr "2 Kolommen Afbeeldingen + Sticky Product Info"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:502
+#: nectar/customizer/panels/post-types/woocommerce.php:590
 msgid "Custom Product Gallery Width"
 msgstr "Aangepaste Product Galerij Breedte"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:511
+#: nectar/customizer/panels/post-types/woocommerce.php:599
 msgid "Product Gallery Width Percent"
 msgstr "Breedte productgalerij in procenten"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:512
+#: nectar/customizer/panels/post-types/woocommerce.php:600
 msgid ""
 "Specify a custom width for your product gallery to be used on desktop views."
 msgstr ""
 "Geef een aangepaste breedte op voor je productgalerij die gebruikt wordt in "
 "desktop weergave."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:523
+#: nectar/customizer/panels/post-types/woocommerce.php:611
 msgid "Product Gallery Locked To Aspect Ratio"
 msgstr "Productgalerij vergrendeld op beeldverhouding"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:533
+#: nectar/customizer/panels/post-types/woocommerce.php:621
 msgid "Aspect Ratio"
-msgstr "Aspect ratio"
+msgstr "Beeldverhouding"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:551
+#: nectar/customizer/panels/post-types/woocommerce.php:639
 msgid "Product Tab Position"
 msgstr "Positie van Product Tab"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:552
+#: nectar/customizer/panels/post-types/woocommerce.php:640
 msgid ""
 "Please select what area you would like your tabs to display in on the single"
 " product page"
-msgstr "Selecteer waar je de tabs wilt weergeven op de single product pagina"
+msgstr "Selecteer waar u de tabs wilt weergeven op de single product pagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:555
+#: nectar/customizer/panels/post-types/woocommerce.php:643
 msgid "In Side Area"
 msgstr "In Zijgebied"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:556
+#: nectar/customizer/panels/post-types/woocommerce.php:644
 msgid "Fullwidth Under Images"
 msgstr "Volledige breedte onder afbeeldingen"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:557
+#: nectar/customizer/panels/post-types/woocommerce.php:645
 msgid "Fullwidth Under Images Stacked (No Tabs)"
 msgstr "Volledige breedte onder afbeeldingen gestapeld (geen tabs)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:564
+#: nectar/customizer/panels/post-types/woocommerce.php:652
 msgid "Product Reviews Style"
-msgstr "Product Reviews Stijl"
+msgstr "Stijl product reviews"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:565
+#: nectar/customizer/panels/post-types/woocommerce.php:653
 msgid "Determines how product reviews will be styled."
 msgstr "Bepaalt hoe productbeoordelingen worden vormgegeven."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:576
+#: nectar/customizer/panels/post-types/woocommerce.php:664
 msgid "Related/Upsell Products Carousel"
-msgstr "Gerelateerde/Upsell Producten Carousel"
+msgstr "Gerelateerde/upsell producten carousel"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:577
+#: nectar/customizer/panels/post-types/woocommerce.php:665
 msgid ""
 "Increases the max number of related/upsell products to 8 and will enable a "
 "carousel display."
@@ -3246,11 +3124,11 @@ msgstr ""
 "Verhoogt het maximale aantal gerelateerde/upsell producten naar 8 en "
 "activeert een carousel weergave."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:584
+#: nectar/customizer/panels/post-types/woocommerce.php:672
 msgid "Related/Upsell Products Carousel Max Products"
-msgstr "Maximum aantal producten in Related/Upsell Products Carousel"
+msgstr "Maximum producten gerelateerde/upsell carousel"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:590
+#: nectar/customizer/panels/post-types/woocommerce.php:678
 msgid ""
 "Choose the maximum number of related/upsell products to display per "
 "carousel."
@@ -3258,47 +3136,47 @@ msgstr ""
 "Kies het maximale aantal gerelateerde/upsell producten dat per carousel "
 "wordt weergegeven."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:597
+#: nectar/customizer/panels/post-types/woocommerce.php:685
 msgid "Add to Cart Style"
 msgstr "Winkelwagen Stijl"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:610
+#: nectar/customizer/panels/post-types/woocommerce.php:698
 msgid "Product Title Typography"
 msgstr "Typografie van producttitel"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:624
+#: nectar/customizer/panels/post-types/woocommerce.php:712
 msgid "Product Price Typography"
 msgstr "Typografie Productprijs"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:639
+#: nectar/customizer/panels/post-types/woocommerce.php:727
 msgid "Product Tab Heading Typography"
-msgstr "Typografie van Product Tab Heading"
+msgstr "Typografie product tab heading"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:653
+#: nectar/customizer/panels/post-types/woocommerce.php:741
 msgid "Product Variable Product Dropdown Style"
-msgstr "Stijl van Dropdown voor Variabel Product"
+msgstr "Stijl dropdown variabel product"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:665
+#: nectar/customizer/panels/post-types/woocommerce.php:753
 msgid "Product Gallery BG Color"
 msgstr "Achtergrondkleur Product Galerij"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:674
+#: nectar/customizer/panels/post-types/woocommerce.php:762
 msgid "Remove SKU From Product Page"
 msgstr "SKU verwijderen van productpagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:683
+#: nectar/customizer/panels/post-types/woocommerce.php:771
 msgid "Remove Additional Information Tab From Product Page"
 msgstr "Verwijder Extra Informatie Tab Van Product Pagina"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:694
+#: nectar/customizer/panels/post-types/woocommerce.php:784
 msgid "Single Product"
 msgstr "Enkel product"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:707
+#: nectar/customizer/panels/post-types/woocommerce.php:797
 msgid "Archive Header Background Image"
-msgstr "Achtergrondafbeelding Archiefkop"
+msgstr "Achtergrondafbeelding archiefheader"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:708
+#: nectar/customizer/panels/post-types/woocommerce.php:798
 msgid ""
 "Upload an optional background that will be used as the default on all "
 "woocommerce archive pages."
@@ -3306,11 +3184,11 @@ msgstr ""
 "Upload een optionele achtergrond die als standaard zal worden gebruikt op "
 "alle WooCommerce archive pagina's."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:715
+#: nectar/customizer/panels/post-types/woocommerce.php:805
 msgid "Product Category Header Sizing"
-msgstr "Maatvoering Productcategorie Header"
+msgstr "Grootte productcategorie header"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:716
+#: nectar/customizer/panels/post-types/woocommerce.php:806
 msgid ""
 "When a product category header image is supplied, this option will control "
 "the sizing of the header area."
@@ -3318,145 +3196,139 @@ msgstr ""
 "Wanneer er een header afbeelding voor een productcategorie is toegevoegd, "
 "bepaalt deze optie de afmetingen van het header gebied."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:728
+#: nectar/customizer/panels/post-types/woocommerce.php:818
 msgid "Product Category Header Roundness"
-msgstr "Afronding van de Product Categorie Header"
+msgstr "Afronding productcategorie header"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:739
+#: nectar/customizer/panels/post-types/woocommerce.php:829
 msgid "Product Category Header Parallax Scrolling"
-msgstr "Parallax Scrolling voor Product Categorie Header"
+msgstr "Parallax scrolling productcategorie header"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:747
+#: nectar/customizer/panels/post-types/woocommerce.php:837
 msgid "Product Category Header Auto Height"
-msgstr "Product Category Header Automatische Hoogte"
+msgstr "Automatische hoogte productcategorie header"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:748
+#: nectar/customizer/panels/post-types/woocommerce.php:838
 msgid ""
 "Will automatically adjust the height of your header depending on the "
 "content."
 msgstr "Past automatisch de hoogte van je header aan op basis van de inhoud."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:755
+#: nectar/customizer/panels/post-types/woocommerce.php:845
 msgid "Product Category Header Max Content Width"
-msgstr "Maximale contentbreedte van de productcategorie header"
+msgstr "Maximale contentbreedte productcategorie header"
 
-#: nectar/customizer/panels/typography.php:25
+#: nectar/customizer/panels/typography.php:38
 msgid "Typography"
 msgstr "Typografie"
 
-#: nectar/customizer/panels/typography.php:140
+#: nectar/customizer/panels/typography.php:161
 msgid "Logo Font"
 msgstr "Logo Lettertype"
 
-#: nectar/customizer/panels/typography.php:163
+#: nectar/customizer/panels/typography.php:184
 msgid "Navigation Font"
 msgstr "Lettertype navigatie"
 
-#: nectar/customizer/panels/typography.php:179
+#: nectar/customizer/panels/typography.php:200
 msgid "Navigation Dropdown Font"
 msgstr "Lettertype navigatie dropdown"
 
-#: nectar/customizer/panels/typography.php:190
+#: nectar/customizer/panels/typography.php:211
 msgid "Off Canvas Navigation"
-msgstr "Off-canvas-navigatie"
+msgstr "Off canvas navigatie"
 
-#: nectar/customizer/panels/typography.php:220
+#: nectar/customizer/panels/typography.php:241
 msgid "Off Canvas Navigation/Dropdown Description Text"
-msgstr "Off-canvas-navigatie/vervolgkeuzemenu beschrijvingstekst"
+msgstr "Off canvas navigatie/dropdown beschrijvingstekst"
 
-#: nectar/customizer/panels/typography.php:231
+#: nectar/customizer/panels/typography.php:252
 msgid "Navigation Custom Text"
-msgstr "Navigatie Aangepaste Tekst"
+msgstr "Navigatie aangepaste tekst"
 
-#: nectar/customizer/panels/typography.php:232
+#: nectar/customizer/panels/typography.php:253
 msgid "Targets the content added via the \"Text To Display In Header\" field."
 msgstr ""
 "Richt zich op de inhoud die is toegevoegd via het veld \"Weer te geven tekst"
 " in header\"."
 
-#: nectar/customizer/panels/typography.php:242
+#: nectar/customizer/panels/typography.php:263
 msgid "Navigation"
 msgstr "Navigatie"
 
-#: nectar/customizer/panels/typography.php:255
+#: nectar/customizer/panels/typography.php:276
 msgid "Page Heading Font"
 msgstr "Lettertype voor paginakop"
 
-#: nectar/customizer/panels/typography.php:278
+#: nectar/customizer/panels/typography.php:299
 msgid "Page Heading Subtitle Font"
 msgstr "Lettertype voor ondertitel paginakop"
 
-#: nectar/customizer/panels/typography.php:302
+#: nectar/customizer/panels/typography.php:323
 msgid "Page Header"
 msgstr "Pagina Header"
 
-#: nectar/customizer/panels/typography.php:315
+#: nectar/customizer/panels/typography.php:336
 msgid "Blockquote Font"
 msgstr "Blockquote Lettertype"
 
-#: nectar/customizer/panels/typography.php:337
+#: nectar/customizer/panels/typography.php:358
 msgid "Blog Single Post Content"
-msgstr "Inhoud van enkel blogbericht"
+msgstr "Inhoud blog single post"
 
-#: nectar/customizer/panels/typography.php:361
+#: nectar/customizer/panels/typography.php:382
 msgid "WooCommerce Product Title Font"
 msgstr "WooCommerce Product Titel Lettertype"
 
-#: nectar/customizer/panels/typography.php:391
+#: nectar/customizer/panels/typography.php:412
 msgid "WooCommerce Product Secondary Font"
 msgstr "WooCommerce Product Secundair Lettertype"
 
-#: nectar/customizer/panels/typography.php:408
+#: nectar/customizer/panels/typography.php:440
 msgid "Content Elements"
 msgstr "Content Elementen"
 
-#: nectar/helpers/blog.php:360 nectar/helpers/blog.php:433
-#: nectar/helpers/pagination.php:137
+#: nectar/helpers/pagination.php:150
 msgid "Previous Post"
-msgstr "Vorig bericht"
+msgstr "Vorig Bericht"
 
-#: nectar/helpers/blog.php:398 nectar/helpers/blog.php:435
-#: nectar/helpers/pagination.php:137
+#: nectar/helpers/pagination.php:150
 msgid "Next Post"
-msgstr "Volgend bericht"
+msgstr "Volgend Bericht"
 
-#: nectar/helpers/enqueue-scripts.php:192 nectar/helpers/pagination.php:188
-#: nectar/helpers/woocommerce.php:607
+#: nectar/helpers/enqueue-scripts.php:206 nectar/helpers/pagination.php:201
+#: nectar/helpers/woocommerce.php:614
 msgid "Next"
 msgstr "Volgende"
 
-#: nectar/helpers/enqueue-scripts.php:193 nectar/helpers/pagination.php:187
-#: nectar/helpers/woocommerce.php:606
+#: nectar/helpers/enqueue-scripts.php:207 nectar/helpers/pagination.php:200
+#: nectar/helpers/woocommerce.php:613
 msgid "Previous"
 msgstr "Vorige"
 
-#: nectar/helpers/enqueue-scripts.php:194
-msgid "Close"
-msgstr "Sluiten"
-
-#: nectar/helpers/nav-menus.php:1238
+#: nectar/helpers/nav-menus.php:1241
 msgid "Menu Item Style"
 msgstr "Menuitem Stijl"
 
-#: nectar/helpers/nav-menus.php:1240
+#: nectar/helpers/nav-menus.php:1243
 msgid "Standard"
 msgstr "Standaard"
 
-#: nectar/helpers/nav-menus.php:1241
+#: nectar/helpers/nav-menus.php:1244
 msgid "Button Accent Color"
-msgstr "Accentkleur knop"
+msgstr "Button accentkleur"
 
-#: nectar/helpers/nav-menus.php:1242
+#: nectar/helpers/nav-menus.php:1245
 msgid "Button Extra Color #1"
-msgstr "Extra knopkleur #1"
+msgstr "Button extra kleur #1"
 
-#: nectar/helpers/nav-menus.php:1243
+#: nectar/helpers/nav-menus.php:1246
 msgid "Button Bordered Accent Color"
 msgstr "Button met rand in accentkleur"
 
-#: nectar/helpers/nav-menus.php:1244
+#: nectar/helpers/nav-menus.php:1247
 msgid "Button Bordered Extra Color #1"
-msgstr "Button Omlijnd Extra Kleur #1"
+msgstr "Button omlijnd extra kleur #1"
 
 #: nectar/helpers/page-header.php:617
 msgid "Sort Portfolio"
@@ -3464,7 +3336,7 @@ msgstr "Portfolio sorteren"
 
 #: nectar/helpers/page-header.php:831
 msgid "All Posts By"
-msgstr "Alle berichten door"
+msgstr "Alle Posts Door"
 
 #: nectar/helpers/page-header.php:836
 msgid "Category"
@@ -3497,65 +3369,65 @@ msgid "Yearly Archives"
 msgstr "Jaarlijks archief"
 
 #. translators: %s: the word "and" (deprecated separator)
-#: nectar/helpers/pagination.php:65
+#: nectar/helpers/pagination.php:73
 #, php-format
 msgid "Use commas instead of %s to separate excluded categories."
 msgstr ""
 "Gebruik komma's in plaats van %s om uitgesloten categorieën te scheiden."
 
-#: nectar/helpers/pagination.php:177
+#: nectar/helpers/pagination.php:190
 msgid "Pagination Navigation"
 msgstr "Paginanavigatie"
 
-#: nectar/helpers/pagination.php:177
+#: nectar/helpers/pagination.php:190
 msgid "All items loaded"
 msgstr "Alle items geladen"
 
-#: nectar/helpers/woocommerce.php:549 nectar/helpers/woocommerce.php:559
+#: nectar/helpers/woocommerce.php:556 nectar/helpers/woocommerce.php:566
 msgid "Filters"
 msgstr "Filters"
 
-#: nectar/helpers/woocommerce.php:562
+#: nectar/helpers/woocommerce.php:569
 msgid "Close Filters"
 msgstr "Filters sluiten"
 
-#: nectar/helpers/woocommerce.php:1144
+#: nectar/helpers/woocommerce.php:1151
 msgid "was successfully added to your cart."
 msgstr "is succesvol toegevoegd aan je winkelwagen."
 
 #. translators: %1$s: number of reviews
-#: nectar/helpers/woocommerce.php:1211
+#: nectar/helpers/woocommerce.php:1218
 #, php-format
 msgid "Based on %1$s review"
 msgid_plural "Based on %1$s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: nectar/helpers/woocommerce.php:1220 nectar/helpers/woocommerce.php:1246
+#: nectar/helpers/woocommerce.php:1227 nectar/helpers/woocommerce.php:1253
 msgid "Write a Review"
-msgstr "Schrijf een Review"
+msgstr "Schrijf een review"
 
-#: nectar/hooks/actions.php:149
+#: nectar/hooks/actions.php:147
 msgid "Skip to main content"
 msgstr "Ga naar hoofdinhoud"
 
 #: nectar/meta/category-meta.php:19
 msgid "Category Thumbnail Image"
-msgstr "Categorie Miniatuurafbeelding"
+msgstr "Categorie thumbnail afbeelding"
 
 #: nectar/meta/category-meta.php:25 nectar/meta/category-meta.php:36
-#: nectar/meta/category-meta.php:160
+#: nectar/meta/category-meta.php:164
 msgid "Upload"
 msgstr "Uploaden"
 
 #: nectar/meta/category-meta.php:26 nectar/meta/category-meta.php:37
-#: nectar/meta/category-meta.php:161
+#: nectar/meta/category-meta.php:165
 msgid "Remove Upload"
 msgstr "Upload verwijderen"
 
-#: nectar/meta/category-meta.php:31 nectar/meta/category-meta.php:150
+#: nectar/meta/category-meta.php:31 nectar/meta/category-meta.php:154
 msgid "Category Header Image"
-msgstr "Header afbeelding categorie"
+msgstr "Categorie header afbeelding"
 
 #: nectar/meta/category-meta.php:42
 msgid "Category Color"
@@ -3565,13 +3437,13 @@ msgstr "Categorie Kleur"
 msgid "Category Text Color"
 msgstr "Tekstkleur categorie"
 
-#: nectar/meta/category-meta.php:110
+#: nectar/meta/category-meta.php:114
 msgid "Category Header Content Align"
-msgstr "Uitlijning van categorie header inhoud"
+msgstr "Uitlijning categorie header inhoud"
 
-#: nectar/meta/category-meta.php:130
+#: nectar/meta/category-meta.php:134
 msgid "Category Header Text Align"
-msgstr "Tekstuitlijning Categorie Header"
+msgstr "Tekstuitlijning categorie header"
 
 #: nectar/woo/admin-notices.php:11
 msgid ""
@@ -3582,22 +3454,21 @@ msgid ""
 "listed below are present in your theme directory (wp-"
 "content/themes/nectarblocks)."
 msgstr ""
-"Er staan enkele verouderde WooCommerce-sjabloonbestanden in je nectarblocks-"
-"themadirectory die waarschijnlijk zijn overgebleven van een eerdere versie "
-"van het thema. NectarBlocks bevat geen van de volgende bestanden meer in de "
-"nectarblocks/woocommerce/cart-directory. Zorg ervoor dat geen van de "
-"onderstaande bestanden aanwezig zijn in je themadirectory (wp-"
-"content/themes/nectarblocks)."
+"Er bevinden zich verouderde WooCommerce-templatebestanden in de themamap van"
+" je nectarblocks, waarschijnlijk achtergebleven van een eerdere versie. "
+"NectarBlocks bevat de onderstaande bestanden niet meer in de "
+"nectarblocks/woocommerce/cart map. Controleer of geen van deze bestanden "
+"aanwezig zijn in je themamap (wp-content/themes/nectarblocks)."
 
-#: nectar/woo/quick-view.php:63 nectar/woo/quick-view.php:66
+#: nectar/woo/quick-view.php:66 nectar/woo/quick-view.php:69
 msgid "Quick View"
 msgstr "Snelle weergave"
 
-#: nectar/woo/quick-view.php:82
+#: nectar/woo/quick-view.php:85
 msgid "Close Quick View"
 msgstr "Sluit Snelle Weergave"
 
-#: nectar/woo/quick-view.php:209
+#: nectar/woo/quick-view.php:227
 msgid "More Information"
 msgstr "Meer informatie"
 
@@ -3655,7 +3526,7 @@ msgstr "Lettertype bron"
 
 #: build/customizer.js:1
 msgid "Font Family"
-msgstr "Lettertypefamilie"
+msgstr "Lettertype"
 
 #: build/customizer.js:1
 msgid "Font Weight"
@@ -3667,7 +3538,7 @@ msgstr "Lettertype Stijl"
 
 #: build/customizer.js:1
 msgid "Responsive Sizing"
-msgstr "Responsive Afmetingen"
+msgstr "Responsive afmetingen"
 
 #: build/customizer.js:1
 msgid "Font Size"
@@ -3679,19 +3550,465 @@ msgstr "Regelhoogte"
 
 #: build/customizer.js:1
 msgid "Font Subset"
-msgstr "Lettertype Subset"
+msgstr "Font Subset"
 
 #: build/customizer.js:1
 msgid "Transform"
-msgstr "Transformatie"
+msgstr "Transformeren"
 
 #: build/customizer.js:1
 msgid "Letter Spacing"
-msgstr "Letterafstand"
+msgstr "Letter Spacing"
 
 #: build/customizer.js:1
 msgid "Save"
 msgstr "Opslaan"
+
+#: includes/class-nectar-used-css.php:110
+msgid "Flushing..."
+msgstr "Bezig met leegmaken..."
+
+#: includes/class-nectar-used-css.php:119
+msgid "Cache flushed."
+msgstr "Cache gewist."
+
+#: includes/class-nectar-used-css.php:120
+msgid "Error flushing cache."
+msgstr "Fout bij het leegmaken van de cache."
+
+#: includes/class-nectar-used-css.php:125
+msgid "Error."
+msgstr "Fout."
+
+#: nectar/assets/functions/ajax-search/wp-search-suggest.php:95 search.php:119
+msgctxt "search result label: post type"
+msgid "Page"
+msgstr "Pagina"
+
+#: nectar/customizer/panels/general-settings.php:106
+msgid "Container Side Padding"
+msgstr "Container zijopvulling"
+
+#: nectar/customizer/panels/general-settings.php:107
+msgid "Default is 90px. Tablet and Mobile values are optional."
+msgstr "Standaard is 90px. Tablet- en mobiele waarden zijn optioneel."
+
+#: nectar/customizer/panels/general-settings.php:121
+#: nectar/customizer/panels/general-settings.php:149
+#: nectar/customizer/panels/general-settings.php:411
+#: nectar/customizer/panels/general-settings.php:467
+#: nectar/customizer/panels/layout.php:1112
+#: nectar/customizer/panels/layout.php:1227
+#: nectar/customizer/panels/layout.php:1398
+#: nectar/customizer/panels/layout.php:1486
+#: nectar/customizer/panels/post-types/blog.php:166
+#: nectar/customizer/panels/post-types/blog.php:239
+#: nectar/customizer/panels/post-types/blog.php:326
+#: nectar/customizer/panels/post-types/blog.php:618
+#: nectar/customizer/panels/post-types/blog.php:631
+#: nectar/customizer/panels/post-types/blog.php:685
+#: nectar/customizer/panels/post-types/custom-post-types.php:95
+#: nectar/customizer/panels/post-types/woocommerce.php:288
+#: nectar/customizer/panels/post-types/woocommerce.php:351
+#: nectar/meta/category-meta.php:121 nectar/meta/category-meta.php:141
+msgctxt "dropdown option: use the default value"
+msgid "Default"
+msgstr "Standaard"
+
+#: nectar/customizer/panels/general-settings.php:282
+msgid "Used CSS Optimization"
+msgstr "Gebruikte CSS-optimalisatie"
+
+#: nectar/customizer/panels/general-settings.php:283
+msgid ""
+"Analyzes which theme CSS rules are actually used on each page and serves "
+"only the used CSS. Cache is built on first visit and regenerated when pages "
+"are saved or theme options change."
+msgstr ""
+"Analyseert welke CSS-regels van het thema daadwerkelijk worden gebruikt op "
+"elke pagina en levert alleen de gebruikte CSS. De cache wordt opgebouwd bij "
+"het eerste bezoek en opnieuw gegenereerd wanneer pagina's worden opgeslagen "
+"of thema-opties wijzigen."
+
+#: nectar/customizer/panels/general-settings.php:290
+msgid "Flush Used CSS Cache"
+msgstr "Gebruikte CSS-cache wissen"
+
+#: nectar/customizer/panels/general-settings.php:305
+msgid ""
+"This is a font performance option which will allow your text to display in a"
+" default font before Google fonts have loaded."
+msgstr ""
+"Dit is een optie voor lettertypeprestaties waarmee je tekst in een "
+"standaardlettertype wordt weergegeven voordat Google-lettertypen zijn "
+"geladen."
+
+#: nectar/customizer/panels/general-settings.php:379
+msgid "Floating Labels"
+msgstr "Zwevende labels"
+
+#: nectar/customizer/panels/general-settings.php:380
+msgid ""
+"Animates form labels above the input when focused, replacing static "
+"placeholders."
+msgstr ""
+"Animeert formulierlabels boven het invoerveld wanneer gefocust, ter "
+"vervanging van statische placeholders."
+
+#: nectar/customizer/panels/general-settings.php:389
+msgid "Fancy Select Styling"
+msgstr "Aangepaste selectiestijl"
+
+#: nectar/customizer/panels/general-settings.php:398
+msgid "Fancy Checkbox Styling"
+msgstr "Aangepaste checkbox-styling"
+
+#: nectar/customizer/panels/general-settings.php:399
+msgid ""
+"This will add additional styling and functionality to your checkbox "
+"elements."
+msgstr ""
+"Dit voegt extra styling en functionaliteit toe aan je checkbox-elementen."
+
+#: nectar/customizer/panels/layout.php:69
+#: nectar/customizer/panels/post-types/woocommerce.php:49
+#: nectar/customizer/panels/post-types/woocommerce.php:68
+msgid "Theme Builder"
+msgstr "Theme Builder"
+
+#: nectar/customizer/panels/layout.php:71
+msgid "Header Builder Active"
+msgstr "Koptekstbouwer actief"
+
+#. translators: %s: Theme Builder link
+#: nectar/customizer/panels/layout.php:74
+#, php-format
+msgid ""
+"Your header is being managed by a custom template in the %s. This is a "
+"simplified options list showing only settings that remain relevant."
+msgstr ""
+"Je koptekst wordt beheerd door een aangepast sjabloon in de %s. Dit is een "
+"vereenvoudigde optielijst die alleen instellingen toont die relevant "
+"blijven."
+
+#: nectar/customizer/panels/layout.php:507
+#: nectar/customizer/panels/layout.php:1137
+#: nectar/customizer/panels/layout.php:1431
+#: nectar/customizer/panels/post-types/blog.php:185
+#: nectar/customizer/panels/post-types/blog.php:498
+#: nectar/customizer/panels/post-types/blog.php:510
+#: nectar/customizer/panels/post-types/blog.php:543
+#: nectar/customizer/panels/post-types/portfolio.php:148
+#: nectar/customizer/panels/post-types/portfolio.php:159
+msgctxt "dropdown option: no value selected"
+msgid "None"
+msgstr "Geen"
+
+#: nectar/customizer/panels/layout.php:1088
+msgid "Background Blur"
+msgstr "Achtergrondvervaging"
+
+#: nectar/customizer/panels/layout.php:1089
+msgid ""
+"Adds a blur effect to the background overlay when dropdowns are opened."
+msgstr ""
+"Voegt een vervagingseffect toe aan de achtergrondoverlay wanneer dropdowns "
+"worden geopend."
+
+#: nectar/customizer/panels/layout.php:1215
+msgctxt "dropdown option: match all values"
+msgid "All"
+msgstr "Alle"
+
+#: nectar/customizer/panels/layout.php:1270
+msgid "Enable on All Viewports"
+msgstr "Inschakelen op alle viewports"
+
+#: nectar/customizer/panels/layout.php:1297
+msgid "Separate Mobile Menu"
+msgstr "Afzonderlijk mobiel menu"
+
+#: nectar/customizer/panels/layout.php:1307
+msgid "Desktop Width (%)"
+msgstr "Desktopbreedte (%)"
+
+#: nectar/customizer/panels/layout.php:1319
+msgid "Offset"
+msgstr "Verschuiving"
+
+#: nectar/customizer/panels/layout.php:1330
+msgid "Roundness"
+msgstr "Rondheid"
+
+#: nectar/customizer/panels/layout.php:1342
+msgid "Icon Width"
+msgstr "Pictogrambreedte"
+
+#: nectar/customizer/panels/layout.php:1355
+msgid "Default Background Image"
+msgstr "Standaard achtergrondafbeelding"
+
+#: nectar/customizer/panels/layout.php:1363
+msgid "Dropdown Behavior"
+msgstr "Dropdown-gedrag"
+
+#: nectar/customizer/panels/layout.php:1387
+msgid "Menu Label"
+msgstr "Menulabel"
+
+#: nectar/customizer/panels/layout.php:1394
+msgid "Button Position"
+msgstr "Knoppositie"
+
+#: nectar/customizer/panels/layout.php:1415
+msgid "Bottom Text"
+msgstr "Onderste tekst"
+
+#: nectar/customizer/panels/layout.php:1423
+msgid "Overlay Strength"
+msgstr "Overlay-sterkte"
+
+#: nectar/customizer/panels/layout.php:1440
+msgid ""
+"This will apply a backdrop blur effect to the off canvas menu background."
+msgstr ""
+"Dit past een achtergrondvervagingseffect toe op de achtergrond van het off-"
+"canvas-menu."
+
+#: nectar/customizer/panels/layout.php:1448
+msgid "Mobile Nav Menu Items"
+msgstr "Mobiele navigatiemenu-items"
+
+#: nectar/customizer/panels/layout.php:1457
+msgid "Menu Item Icons"
+msgstr "Menupictogrammen"
+
+#: nectar/customizer/panels/layout.php:1483
+msgid "Icon Style"
+msgstr "Pictogramstijl"
+
+#: nectar/customizer/panels/layout.php:1495
+msgid "Button Background Color"
+msgstr "Knopachtergrondkleur"
+
+#: nectar/customizer/panels/layout.php:1504
+msgid "Button Color"
+msgstr "Knopkleur"
+
+#: nectar/customizer/panels/layout.php:1513
+msgid "Custom Font Size (Desktop)"
+msgstr "Aangepaste lettergrootte (desktop)"
+
+#: nectar/customizer/panels/layout.php:1521
+msgid "Custom Font Size (Mobile)"
+msgstr "Aangepaste lettergrootte (mobiel)"
+
+#: nectar/customizer/panels/layout.php:1628
+msgctxt "dropdown option: custom value"
+msgid "Custom"
+msgstr "Aangepast"
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:47
+msgid "Single"
+msgstr "Enkel"
+
+#. translators: %s: post type name.
+#: nectar/customizer/panels/post-types/custom-post-types.php:68
+#, php-format
+msgid "Adds navigation link(s) at the bottom of every single %s page."
+msgstr "Voegt navigatielink(s) toe onderaan elke afzonderlijke %s-pagina."
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:108
+msgid "Limit Post Navigation To Same Term"
+msgstr "Beperk berichtnavigatie tot dezelfde term"
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:109
+msgid ""
+"Only show next/prev links for posts sharing the current term. Requires the "
+"post type to have a taxonomy."
+msgstr ""
+"Toon alleen volgende/vorige links voor berichten die de huidige term delen. "
+"Vereist dat het berichttype een taxonomie heeft."
+
+#. translators: %s: Template label (e.g. "Single Product")
+#: nectar/customizer/panels/post-types/woocommerce.php:53
+#, php-format
+msgid "%s Template Active"
+msgstr "%s-sjabloon actief"
+
+#. translators: 1: Template label, 2: Theme Builder link
+#: nectar/customizer/panels/post-types/woocommerce.php:58
+#, php-format
+msgid ""
+"The %1$s layout is being managed by a Theme Builder template. These "
+"customizer options no longer apply. You can customize or disable the "
+"template in the %2$s."
+msgstr ""
+"De %1$s-indeling wordt beheerd door een Theme Builder-sjabloon. Deze "
+"customizer-opties zijn niet langer van toepassing. Je kunt het sjabloon "
+"aanpassen of uitschakelen in de %2$s."
+
+#: nectar/customizer/panels/post-types/woocommerce.php:70
+msgid "WooCommerce Templates Active"
+msgstr "WooCommerce-sjablonen actief"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:71
+msgid ""
+"One or more WooCommerce Theme Builder templates are active. Some options "
+"below may not apply to pages using these templates."
+msgstr ""
+"Een of meer WooCommerce Theme Builder-sjablonen zijn actief. Sommige "
+"onderstaande opties zijn mogelijk niet van toepassing op pagina's die deze "
+"sjablonen gebruiken."
+
+#. translators: %s: Theme Builder link
+#: nectar/customizer/panels/post-types/woocommerce.php:74
+#, php-format
+msgid "Manage templates in the %s."
+msgstr "Beheer sjablonen in de %s."
+
+#: nectar/customizer/panels/typography.php:428
+msgid "Submit Buttons"
+msgstr "Verzendknoppen"
+
+#: nectar/helpers/blog.php:290
+msgid "Post"
+msgstr "Bericht"
+
+#. translators: %s: post type singular name.
+#: nectar/helpers/blog.php:292
+#, php-format
+msgid "Previous %s"
+msgstr "Vorige %s"
+
+#. translators: %s: post type singular name.
+#: nectar/helpers/blog.php:294
+#, php-format
+msgid "Next %s"
+msgstr "Volgende %s"
+
+#: nectar/helpers/enqueue-scripts.php:208
+msgctxt "button: close mobile menu"
+msgid "Close"
+msgstr "Sluiten"
+
+#: nectar/helpers/page-header.php:619
+msgctxt "portfolio filter label: show all categories"
+msgid "All"
+msgstr "Alle"
+
+#: build/customizer.js:1
+msgid "Tablet"
+msgstr "Tablet"
+
+#: build/customizer.js:1
+msgid "Desktop"
+msgstr "Desktop"
+
+#: build/customizer.js:1
+msgid "auto"
+msgstr "auto"
+
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
+
+#~ msgid "Fine-tune the rounded edges of your buttons."
+#~ msgstr "Verfijn de afgeronde hoeken van je buttons."
+
+#~ msgid "Container Left/Right Padding"
+#~ msgstr "Container links/rechts padding"
+
+#~ msgid ""
+#~ "The main content container will have 90px of padding set on left and right, "
+#~ "use this option if you'd like to modify that."
+#~ msgstr ""
+#~ "De hoofdcontainer voor content heeft standaard 90px padding aan de linker- "
+#~ "en rechterkant, gebruik deze optie als je dat wilt aanpassen."
+
+#~ msgid ""
+#~ "This is a font performance option which will your allow text to display in a"
+#~ " default font before Google fonts have loaded."
+#~ msgstr ""
+#~ "Dit is een lettertype-prestatie-optie waarmee je tekst in een standaard "
+#~ "lettertype kunt weergeven voordat Google fonts zijn geladen."
+
+#~ msgid "Enable Fancy Select Styling"
+#~ msgstr "Geavanceerde Select-styling inschakelen"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "All"
+#~ msgstr "Alle"
+
+#~ msgid "Off Canvas Menu"
+#~ msgstr "Off Canvas Menu"
+
+#~ msgid "Off Canvas Menu Style"
+#~ msgstr "Off canvas menu stijl"
+
+#~ msgid "Off Canvas Menu Separate Mobile Menu"
+#~ msgstr "Off canvas menu apart mobiel menu"
+
+#~ msgid "Off Canvas Menu Desktop Width (%)"
+#~ msgstr "Off canvas menu desktop breedte (%)"
+
+#~ msgid "Off Canvas Menu Offset"
+#~ msgstr "Off canvas menu verschuiving"
+
+#~ msgid "Off Canvas Menu Roundness"
+#~ msgstr "Afronding off canvas menu"
+
+#~ msgid "Off Canvas Menu Icon Width"
+#~ msgstr "Breedte off canvas menu icoon"
+
+#~ msgid "Default Off Canvas Background Image"
+#~ msgstr "Standaard off canvas achtergrondafbeelding"
+
+#~ msgid "Off Canvas Menu Dropdown Behavior"
+#~ msgstr "Gedrag off canvas menu dropdown"
+
+#~ msgid "Off Canvas Menu Add Menu Label"
+#~ msgstr "Off canvas menu label toevoegen"
+
+#~ msgid "Off Canvas Menu Button Position"
+#~ msgstr "Positie off canvas menu button"
+
+#~ msgid "Off Canvas Menu Bottom Text"
+#~ msgstr "Onderste tekst off canvas menu"
+
+#~ msgid "Off Canvas Menu Overlay Strength"
+#~ msgstr "Dekking off canvas menu overlay"
+
+#~ msgid "Off Canvas Menu Mobile Nav Menu items"
+#~ msgstr "Off canvas menu mobiele navigatiemenu-items"
+
+#~ msgid "Off Canvas Menu Item Icons"
+#~ msgstr "Off canvas menu-item iconen"
+
+#~ msgid "Off Canvas Icon Style"
+#~ msgstr "Off canvas icoon stijl"
+
+#~ msgid "Off Canvas Navigation Menu Button BG Color"
+#~ msgstr "Achtergrondkleur off canvas navigatie menu button"
+
+#~ msgid "Off Canvas Navigation Menu Button Color"
+#~ msgstr "Kleur off canvas navigatie menu button"
+
+#~ msgid "Off Canvas Menu Custom Font Size (Desktop)"
+#~ msgstr "Off canvas menu aangepaste lettergrootte (desktop)"
+
+#~ msgid "Off Canvas Menu Custom Font Size (Mobile)"
+#~ msgstr "Off canvas menu aangepaste lettergrootte (mobiel)"
+
+#~ msgid "Custom"
+#~ msgstr "Aangepast"
+
+#~ msgid "Close"
+#~ msgstr "Sluiten"
 
 #~ msgid "nectarblocks/woocommerce/cart/cart.php"
 #~ msgstr "nectarblocks/woocommerce/cart/cart.php"

@@ -4,8 +4,10 @@ namespace Nectar\API\Global_Settings;
 
 use Nectar\API\{Router, API_Route, Access_Utils};
 use Nectar\Global_Settings\{Code_Options, Nectar_Blocks_Options, Nectar_Plugin_Options, Nectar_Modules};
+use Nectar\Licensing\{Expired_Updates_Service, Token_Service};
 use Nectar\Utilities\Log;
-use Nectar\Update\{NectarBlocksUpdater};
+use Nectar\Update\{Updaters};
+use Nectar\Render\Local_Google_Fonts;
 
 /**
  * Admin_API
@@ -58,12 +60,12 @@ class Admin_API implements API_Route {
    */
   public function get_options() {
     $code = Code_Options::get_options();
-    $nectar_options = Nectar_Blocks_Options::get_options();
     $nectar_plugin_options = Nectar_Plugin_Options::get_options();
     $modules = Nectar_Modules::get_options();
     $options = [
       'code' => $code,
-      'auth' => $nectar_options,
+      // public_auth() strips the opaque refreshToken — it must never reach the browser.
+      'auth' => Token_Service::public_auth(),
       'pluginOptions' => $nectar_plugin_options,
       'modules' => $modules
     ];
@@ -106,11 +108,43 @@ class Admin_API implements API_Route {
   }
 
   private function set_auth($data) {
-    Nectar_Blocks_Options::update_options($data);
+    if ( ! is_array($data) ) {
+      return;
+    }
+
+    // Only these keys are browser-writable. The license/token identity fields
+    // (token, refreshToken, tokenExpiresAt, tokenVersion, registeredHostname,
+    // licenseKey, isLicenseActive) are owned by the register/deregister routes and
+    // the server-side refresh lifecycle. Because update_options() is a full-array
+    // replace, a settings save that carried those fields would wipe the
+    // server-owned token — so whitelist-merge onto the current options instead.
+    $writable = [ 'autoUpdate', 'analytics', 'bugReports' ];
+
+    $opts = Nectar_Blocks_Options::get_options();
+    if ( ! is_array($opts) ) {
+      $opts = [];
+    }
+    foreach ( $writable as $key ) {
+      if ( array_key_exists($key, $data) ) {
+        $opts[$key] = $data[$key];
+      }
+    }
+    Nectar_Blocks_Options::update_options($opts);
+
+    // Settings changed — drop the cached expired-updates payload so the
+    // "resubscribe" notice/banner reflects the change immediately instead of
+    // lingering for the full 24h cache.
+    Expired_Updates_Service::purge();
   }
 
   private function set_plugin_options($data) {
     Nectar_Plugin_Options::update_options($data);
+
+    // Clear local Google fonts cache when plugin options change
+    // This ensures fonts regenerate if the option is toggled
+    if ( class_exists( Local_Google_Fonts::class ) ) {
+      Local_Google_Fonts::clear_cache();
+    }
   }
 
   private function set_modules($data) {
@@ -119,20 +153,15 @@ class Admin_API implements API_Route {
 
   /**
    * Reset Updater Transients
+   *
+   * Clears the cached version check for every updater on this install plus the
+   * expired-updates payload, and — unlike the plain delete_transient() this used to
+   * do — the per-key throttle reservation, which would otherwise suppress the very
+   * re-check the admin asked for for up to 15 minutes.
    */
   public function reset_updater_transients() {
-    if ( class_exists('NectarThemeUpdater') ) {
-      delete_transient( \NectarThemeUpdater::UPDATE_KEY );
-      Log::info('NB_Theme transient purged.');
-    }
-
-    if ( class_exists('Nectar\Update\NectarBlocksIEUpdater') ) {
-      delete_transient( \Nectar\Update\NectarBlocksIEUpdater::UPDATE_KEY );
-      Log::info('NB_IE transient purged.');
-    }
-
-    delete_transient( NectarBlocksUpdater::UPDATE_KEY );
-    Log::info('NB_Plugin transient purged.');
+    Updaters::purge_all();
+    Log::info('Updater caches purged: ' . implode(', ', Updaters::update_keys()));
 
     $status = [ 'status' => 'success' ];
     $response = new \WP_REST_Response($status, 200);

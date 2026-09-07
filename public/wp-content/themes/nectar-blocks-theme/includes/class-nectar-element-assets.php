@@ -37,6 +37,11 @@ class NectarElAssets {
 
   public static $templatera_content = [];
 
+  /**
+   * Cache key used to store the global sections content/locations.
+   */
+  const GLOBAL_SECTIONS_CACHE_KEY = 'nectar_global_sections_assets_cache';
+
     /**
      * Constructor.
      */
@@ -44,6 +49,10 @@ class NectarElAssets {
         if( ! is_admin() ) {
             add_action( 'wp', [ $this, 'get_page_content' ], 10 );
         }
+
+        // Invalidate the global sections cache when a global section is created, updated, or deleted.
+        add_action( 'save_post_nectar_g_sections', [ __CLASS__, 'flush_global_sections_cache' ] );
+        add_action( 'delete_post', [ __CLASS__, 'flush_global_sections_cache_on_delete' ] );
   }
 
     /**
@@ -55,6 +64,24 @@ class NectarElAssets {
         }
         return self::$instance;
     }
+
+    /**
+     * Invalidate the global sections cache.
+     */
+  public static function flush_global_sections_cache() {
+        delete_transient( self::GLOBAL_SECTIONS_CACHE_KEY );
+  }
+
+    /**
+     * Invalidate the global sections cache when a post of the relevant type is deleted.
+     *
+     * @param int $post_id The post being deleted.
+     */
+  public static function flush_global_sections_cache_on_delete( $post_id ) {
+        if ( 'nectar_g_sections' === get_post_type( $post_id ) ) {
+            self::flush_global_sections_cache();
+        }
+  }
 
     /**
      * Stores page/post content for searching.
@@ -161,33 +188,46 @@ class NectarElAssets {
     }
 
     // Global Section Locations.
-    $global_sections_query_args = [
-        'post_type' => 'nectar_g_sections',
-        'post_status' => 'publish',
-        'ignore_sticky_posts' => true,
-        'no_found_rows' => true
-    ];
+    // Use a cached copy of the gathered global section content to avoid running
+    // an unbounded WP_Query on every front-end request. The cache is invalidated
+    // when a `nectar_g_sections` post is saved or deleted (see constructor).
+    $cached_global_section_content = get_transient( self::GLOBAL_SECTIONS_CACHE_KEY );
 
-    $global_sections_query = new WP_Query( $global_sections_query_args );
+    if ( false === $cached_global_section_content ) {
 
-    if( $global_sections_query->have_posts() ) : while( $global_sections_query->have_posts() ) : $global_sections_query->the_post();
+        $cached_global_section_content = [];
 
-        $global_section_id = get_the_ID();
+        $global_sections_query_args = [
+            'post_type' => 'nectar_g_sections',
+            'post_status' => 'publish',
+            'ignore_sticky_posts' => true,
+            'no_found_rows' => true,
+            'posts_per_page' => 100,
+        ];
 
-        // Locations.
-        $locations = get_post_meta($global_section_id, 'nectar_g_section_locations', true);
+        $global_sections_query = new WP_Query( $global_sections_query_args );
 
-        if( empty( $locations ) || ! is_array($locations) ) {
-            continue;
-        }
+        if( $global_sections_query->have_posts() ) : while( $global_sections_query->have_posts() ) : $global_sections_query->the_post();
 
-        self::$global_section_locations_content[] = get_the_content();
+            $global_section_id = get_the_ID();
 
-    endwhile; endif;
+            // Locations.
+            $locations = get_post_meta($global_section_id, 'nectar_g_section_locations', true);
 
-    wp_reset_query();
+            if( empty( $locations ) || ! is_array($locations) ) {
+                continue;
+            }
 
-    set_transient('nectar_global_sections_asset_refresh', 'false', 0);
+            $cached_global_section_content[] = get_the_content();
+
+        endwhile; endif;
+
+        wp_reset_postdata();
+
+        set_transient( self::GLOBAL_SECTIONS_CACHE_KEY, $cached_global_section_content, DAY_IN_SECONDS );
+    }
+
+    self::$global_section_locations_content = $cached_global_section_content;
 
   }
 

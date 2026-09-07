@@ -20,6 +20,15 @@ class Theme_Import_Export_API {
       return;
     }
 
+    // No explicit nonce check below, by design: core's rest_cookie_check_errors()
+    // runs on `rest_authentication_errors` before dispatch. A cookie-authenticated
+    // request carrying a bad `wp_rest` nonce is rejected there outright, and one
+    // carrying no nonce at all has its current user reset to 0 — which is what
+    // is_user_logged_in() then sees. Repeating the check here would guard nothing
+    // extra and would break the auth methods core deliberately exempts
+    // (application passwords and the like send no nonce at all).
+    // Remote URLs the import sideloads are vetted separately, in
+    // theme-import-export.php::is_safe_remote_url().
     Router::add_route($this::API_BASE . '/theme/import', [
       'callback' => [$this, 'theme_import'],
       'methods' => 'POST',

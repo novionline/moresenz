@@ -1,0 +1,44 @@
+{
+  "apiVersion": 3,
+  "name": "nectar-blocks/search",
+  "title": "Search",
+  "category": "nectar",
+  "description": "A search block with optional AJAX-powered results.",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "iconStyle": {
+      "type": "string",
+      "default": "default"
+    },
+    "ajaxSearch": {
+      "type": "boolean",
+      "default": false
+    },
+    "postType": {
+      "type": "string",
+      "default": "any"
+    },
+    "showFeaturedImage": {
+      "type": "boolean",
+      "default": true
+    },
+    "showPostType": {
+      "type": "boolean",
+      "default": true
+    },
+    "showExcerpt": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "textdomain": "nectar-blocks",
+  "viewScript": "nectar-blocks-search"
+}
+
+

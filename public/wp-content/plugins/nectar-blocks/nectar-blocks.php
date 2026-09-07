@@ -3,9 +3,9 @@
 /**
  * Plugin Name:       Nectarblocks
  * Description:       Step into the future of WordPress with Nectarblocks, where innovation meets seamless design. Unleash the full potential of your website by transforming the core WordPress editor into a dynamic and robust full-site editor.
- * Version:           2.6.0
+ * Version:           3.3.0
  * Requires at least: 6.5
- * Tested up to:      7.0.0
+ * Tested up to:      7.1.0
  * Requires PHP:      8.0
  * Author:            NectarBlocks
  * Author URI:        https://nectarblocks.com/
@@ -23,7 +23,7 @@ require_once( 'nectar-vars.php' );
 
 use Nectar\Plugin;
 
-define( 'NECTAR_BLOCKS_VERSION', '2.6.0' );
+define( 'NECTAR_BLOCKS_VERSION', '3.3.0' );
 // "/var/www/html/wp-content/plugins/plugin/"
 define( 'NECTAR_BLOCKS_ROOT_DIR_PATH', plugin_dir_path( __FILE__ ) );
 // http://localhost:1000/wp-content/plugins/plugin/build

@@ -387,7 +387,8 @@ Description: Global responsive styles
     max-width: var(--mobile-container-width);
   }
 
-  .container .nectar-global-section > .container {
+  .container .nectar-global-section > .container,
+  .container .nectar-global-section.container {
     max-width: 100%;
   }
 
@@ -550,18 +551,16 @@ Description: Global responsive styles
     padding: var(--header-mobile-vertical-padding, 12px) 0;
   }
 
+  body #nectar-nav:has(.nectar-global-section.nectar_template__header_navigation) {
+    padding: 0;
+  }
+
   body #nectar-nav:has(> .nectar-global-section) {
     padding-top: 0;
   }
 
-  body #nectar-nav > .nectar-global-section:first-child {
+  body #nectar-nav > .nectar-global-section:first-child:not(.nectar_template__header_navigation) {
     margin-bottom: var(--header-mobile-vertical-padding, 12px);
-  }
-
-
-  body.page-template-template-no-header.nectar_using_pfsr #nectar-nav,
-  body.page-template-template-no-header-footer.nectar_using_pfsr #nectar-nav {
-    padding: 0;
   }
 
   body #nectar-nav,
@@ -977,7 +976,7 @@ Description: Global responsive styles
 
 
 /* Phone Landscape */
-@media only screen and (min-width: 480px) and (max-width: 690px) {
+@media only screen and (min-width: 480px) and (max-width: 767px) {
 
   .iosSlider.product-thumbnails .thumb {
     width: 98px;
@@ -1075,10 +1074,6 @@ Description: Global responsive styles
     pointer-events: auto;
   }
 
-  body.using-mobile-browser .blurred-wrap.blurred {
-    -webkit-filter: blur(0px);
-    filter: blur(0px);
-  }
 
 }
 
@@ -1114,7 +1109,7 @@ Description: Global responsive styles
 
 
 
-@media only screen and (max-width: 690px) and (min-width: 470px) {
+@media only screen and (max-width: 767px) and (min-width: 470px) {
 
   .post.quote .post-content .quote-inner,
   .post.link .post-content .link-inner,
@@ -1126,7 +1121,7 @@ Description: Global responsive styles
 
 
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
 
   .post-area.masonry.classic .posts-container:not(.meta-moved) .post-content > .post-meta {

@@ -30,36 +30,28 @@ echo '<div class="bottom-meta-wrap">';
 nectar_hook_ocm_bottom_meta();
 
 if ( $side_widget_class === 'slide-out-from-right-hover' ) {
-  if ( function_exists( 'dynamic_sidebar' ) && dynamic_sidebar( 'Off Canvas Menu' ) ) :
+    if ( function_exists( 'dynamic_sidebar' ) && dynamic_sidebar( 'Off Canvas Menu' ) ) :
     elseif ( ! has_nav_menu( 'off_canvas_nav' ) && $user_set_side_widget_area != 'off' ) :
-      ?>
-      
-      <div class="widget">          
-        
-      </div>
-      <?php
+        ?><div class="widget"></div><?php
     endif;
+}
 
-  }
-
-  global $using_secondary;
-  // Social icons.
-  if ( ! empty( $nectar_options['header-slide-out-widget-area-social'] ) && $nectar_options['header-slide-out-widget-area-social'] === '1' ) {
+global $using_secondary;
+// Social icons.
+if ( ! empty( $nectar_options['header-slide-out-widget-area-social'] ) && $nectar_options['header-slide-out-widget-area-social'] === '1' ) {
     nectar_ocm_add_social();
-  }
-  elseif ( ! empty( $nectar_options['enable_social_in_header'] ) &&
-  $nectar_options['enable_social_in_header'] === '1' &&
-  $using_secondary != 'header_with_secondary' ) {
-
+} elseif ( ! empty( $nectar_options['enable_social_in_header'] ) &&
+    $nectar_options['enable_social_in_header'] === '1' &&
+    $using_secondary != 'header_with_secondary' ) {
     echo '<ul class="off-canvas-social-links mobile-only">';
     nectar_header_social_icons( 'off-canvas' );
     echo '</ul>';
-  }
+}
 
-  // Bottom text.
-  if ( ! empty( $nectar_options['header-slide-out-widget-area-bottom-text'] ) ) {
+// Bottom text.
+if ( ! empty( $nectar_options['header-slide-out-widget-area-bottom-text'] ) ) {
     $desktop_social = ( ! empty( $nectar_options['enable_social_in_header'] ) && $nectar_options['enable_social_in_header'] === '1' ) ? 'false' : 'true';
     echo '<p class="bottom-text" data-has-desktop-social="' . esc_attr( $desktop_social ) . '">' . wp_kses_post( $nectar_options['header-slide-out-widget-area-bottom-text'] ) . '</p>';
-  }
+}
 
-  echo '</div><!--/bottom-meta-wrap-->';
+echo '</div><!--/bottom-meta-wrap-->';

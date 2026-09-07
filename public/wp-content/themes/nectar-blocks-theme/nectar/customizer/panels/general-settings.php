@@ -83,12 +83,35 @@ if ( ! defined( 'ABSPATH' ) ) {
           'id' => 'accent-text-color',
           'type' => 'color',
           'title' => esc_html__('Theme Accent Text Color', 'nectar-blocks-theme'),
-          'tooltip' => esc_html__('Used for text overlaying the accent color on buttons and notifications.', 'nectar-blocks-theme'),
-          'subtitle' => '',
+          'subtitle' => esc_html__('Used for text overlaying the accent color on buttons and notifications.', 'nectar-blocks-theme'),
           'default' => '#ffffff',
           'output' => Nectar_Dynamic_Colors()->kirki_arrays('accent-text-color')
         ],
 
+        [
+          'id' => 'max_container_width',
+          'type' => 'slider',
+          'title' => esc_html__('Max Website Container Width', 'nectar-blocks-theme'),
+          'subtitle' => esc_html__('Your container will scale to a maximum width of 1425px, use this option if you\'d like to increase that value.', 'nectar-blocks-theme'),
+          'desc' => '',
+          "default" => 1400,
+          "min" => 1000,
+          "step" => 10,
+          "max" => 2400,
+          'display_value' => 'text'
+        ],
+        [
+          'id' => 'ext_responsive_padding',
+          'type' => 'responsive_slider',
+          'title' => esc_html__('Container Side Padding', 'nectar-blocks-theme'),
+          'subtitle' => esc_html__('Default is 90px. Tablet and Mobile values are optional.', 'nectar-blocks-theme'),
+          'desc' => '',
+          "default" => 50,
+          "min" => 20,
+          "step" => 5,
+          "max" => 120,
+          'display_value' => 'text'
+        ],
         [
          'id' => 'button-styling',
          'type' => 'select',
@@ -113,7 +136,6 @@ if ( ! defined( 'ABSPATH' ) ) {
          "min" => 1,
          "step" => 1,
          "max" => 50,
-         'subtitle' => esc_html__('Fine-tune the rounded edges of your buttons.', 'nectar-blocks-theme'),
          'required' => [ [ 'button-styling', '!=', 'default' ], [ 'button-styling', '!=', 'rounded'] , [ 'button-styling', '!=', 'rounded_shadow'], [ 'button-styling', '!=', 'rounded_reveal']  ],
          'display_value' => 'label',
        ],
@@ -122,7 +144,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           'type' => 'select',
           'desc' => '',
           'title' => esc_html__('Animated Underline Type', 'nectar-blocks-theme'),
-          'subtitle' => esc_html__('Various elements in Nectar Blocks display an animated underline when hovering over. This option allows you to globally fine-tune the styling of that line.', 'nectar-blocks-theme'),
+          'tooltip' => esc_html__('Various elements in Nectar Blocks display an animated underline when hovering over. This option allows you to globally fine-tune the styling of that line.', 'nectar-blocks-theme'),
           'options' => [
             'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
             'ltr' => esc_html__('Left to Right Simple', 'nectar-blocks-theme'),
@@ -217,31 +239,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             "scalable" => "Scalable",
           ],
           'default' => 'not_scalable'
-        ],
-         [
-           'id' => 'max_container_width',
-           'type' => 'slider',
-           'title' => esc_html__('Max Website Container Width', 'nectar-blocks-theme'),
-           'subtitle' => esc_html__('Your container will scale to a maximum width of 1425px, use this option if you\'d like to increase that value.', 'nectar-blocks-theme'),
-           'desc' => '',
-           "default" => 1400,
-           "min" => 1000,
-           "step" => 10,
-           "max" => 2400,
-           'display_value' => 'text'
-         ],
-         [
-           'id' => 'ext_responsive_padding',
-           'type' => 'slider',
-           'title' => esc_html__('Container Left/Right Padding', 'nectar-blocks-theme'),
-           'subtitle' => esc_html__('The main content container will have 90px of padding set on left and right, use this option if you\'d like to modify that.', 'nectar-blocks-theme'),
-           'desc' => '',
-           "default" => 50,
-           "min" => 20,
-           "step" => 5,
-           "max" => 120,
-           'display_value' => 'text'
-         ]
+        ]
 
       ];
 
@@ -279,6 +277,19 @@ if ( ! defined( 'ABSPATH' ) ) {
           'default' => 'all'
         ],
         [
+          'id' => 'used-css-optimization',
+          'type' => 'nectar_blocks_switch_legacy',
+          'title' => esc_html__('Used CSS Optimization', 'nectar-blocks-theme'),
+          'subtitle' => '<span style="font-size:10px;font-weight:600;background:#3452ff;color:#fff;padding:2px 6px;border-radius:3px;vertical-align:middle">BETA</span> ' . esc_html__('Analyzes which theme CSS rules are actually used on each page and serves only the used CSS. Cache is built on first visit and regenerated when pages are saved or theme options change.', 'nectar-blocks-theme'),
+          'desc' => '',
+          'default' => '0'
+        ],
+        [
+          'id' => 'used-css-flush',
+          'type' => 'info',
+          'desc' => '<button type="button" class="button nectar-flush-used-css">' . esc_html__( 'Flush Used CSS Cache', 'nectar-blocks-theme' ) . '</button><p class="nectar-flush-used-css-status" style="margin:8px 0 0"></p>'
+        ],
+        [
           'id' => 'defer-javascript',
           'type' => 'nectar_blocks_switch_legacy',
           'title' => esc_html__('Move jQuery to Footer', 'nectar-blocks-theme'),
@@ -291,7 +302,7 @@ if ( ! defined( 'ABSPATH' ) ) {
            'id' => 'typography_font_swap',
            'type' => 'nectar_blocks_switch_legacy',
            'title' => esc_html__('Font Display Swap', 'nectar-blocks-theme'),
-           'subtitle' => esc_html__('This is a font performance option which will your allow text to display in a default font before Google fonts have loaded.', 'nectar-blocks-theme'),
+           'subtitle' => esc_html__('This is a font performance option which will allow your text to display in a default font before Google fonts have loaded.', 'nectar-blocks-theme'),
            'desc' => '',
            'default' => '0'
          ],
@@ -363,10 +374,29 @@ if ( ! defined( 'ABSPATH' ) ) {
         ],
 
         [
+          'id' => 'form-floating-labels',
+          'type' => 'nectar_blocks_switch_legacy',
+          'title' => esc_html__('Floating Labels', 'nectar-blocks-theme'),
+          'subtitle' => esc_html__('Animates form labels above the input when focused, replacing static placeholders.', 'nectar-blocks-theme'),
+          'desc' => '',
+          'default' => '0',
+          'required' => [ ['form-style', '!=', 'default'] ],
+        ],
+
+        [
           'id' => 'form-fancy-select',
           'type' => 'nectar_blocks_switch_legacy',
-          'title' => esc_html__('Enable Fancy Select Styling', 'nectar-blocks-theme'),
+          'title' => esc_html__('Fancy Select Styling', 'nectar-blocks-theme'),
           'subtitle' => esc_html__('This will add additional styling and functionality to your select (dropdown) elements.', 'nectar-blocks-theme'),
+          'desc' => '',
+          'default' => '0'
+        ],
+
+        [
+          'id' => 'form-fancy-checkbox',
+          'type' => 'nectar_blocks_switch_legacy',
+          'title' => esc_html__('Fancy Checkbox Styling', 'nectar-blocks-theme'),
+          'subtitle' => esc_html__('This will add additional styling and functionality to your checkbox elements.', 'nectar-blocks-theme'),
           'desc' => '',
           'default' => '0'
         ],

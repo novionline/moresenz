@@ -114,7 +114,10 @@ jQuery(document).ready(function($){
 		$('#preview-action, #wp-admin-bar-view').hide();
 		$('.wrap > #message.updated p').html('Slide Updated.');
 		
-		$('.buttonset').buttonset();
+		// jQuery UI 1.13+ (WP 7.1 ships 1.14.2) removed .buttonset()
+		if( typeof $.fn.buttonset === 'function' ){
+			$('.buttonset').buttonset();
+		}
 		$('.buttonset').append('<span class="msg">This setting is not active when using a video.</span>');
 		
 		checkSlideVideo();

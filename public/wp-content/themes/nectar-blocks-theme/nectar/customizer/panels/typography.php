@@ -17,6 +17,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 14.0.2
  */
 class NectarBlocks_Customizer_Typography {
+  private static function has_header_nav_template(): bool {
+    // Gate the legacy nav typography options to the page being previewed: only when
+    // a Header Navigation template is actually active there. A conditional template
+    // leaves the legacy header (and its typography options) in place on the pages it
+    // doesn't match, so they must stay available. Mirrors the layout panel — resolves
+    // the previewed URL (pane + preview) and evaluates the saved conditions.
+    if ( ! function_exists( 'nectar_header_nav_template_active_for_url' ) ) {
+      return false;
+    }
+
+    return nectar_header_nav_template_active_for_url( nectar_customizer_previewed_url() );
+  }
+
   private static function get_title() {
     return [
       'id' => 'typography-title',
@@ -35,6 +48,14 @@ class NectarBlocks_Customizer_Typography {
   }
 
   public static function get_kirki_partials() {
+    // When header builder is active, navigation typography is controlled via blocks.
+    if ( self::has_header_nav_template() ) {
+      return [
+        self::get_page_header_elements(),
+        self::get_content_elements(),
+      ];
+    }
+
     return [
       self::get_nav_elements(),
       self::get_page_header_elements(),
@@ -399,6 +420,17 @@ class NectarBlocks_Customizer_Typography {
                 'fontWeight' => '500'
               ]
             )
+          ],
+
+          [
+            'id' => 'submit_button_font_family',
+            'type' => 'typography',
+            'title' => esc_html__( 'Submit Buttons', 'nectar-blocks-theme' ),
+            'subtitle' => '',
+
+            // 'transport' => 'postMessage',
+            'nectar_post_message_data' => Nectar_Dynamic_Fonts()->kirki_arrays('submit_button_font_family'),
+            'default' => NectarBlocks_Customizer_Typography::default_typography_empty(),
           ]
     ];
 

@@ -1,1 +1,1 @@
-<?php return array('dependencies' => array(), 'version' => '90a7ac337f705693febc');
+<?php return array('dependencies' => array('gsap'), 'version' => 'f6e908679ae883a38626');

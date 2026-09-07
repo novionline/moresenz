@@ -36,7 +36,7 @@ if ( ! comments_open() ) {
 				<?php
 					/* translators: 1: reviews count 2: product name */
 					$reviews_title = sprintf( esc_html( _n( '%1$s review for %2$s', '%1$s reviews for %2$s', $count, 'woocommerce' ) ), esc_html( $count ), '<span>' . get_the_title() . '</span>' );
-					echo apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ); // WPCS: XSS ok.
+					echo wp_kses_post( apply_filters( 'woocommerce_reviews_title', $reviews_title, $count, $product ) );
 				?>
 			</h2>
 		<?php } ?>
@@ -66,7 +66,7 @@ if ( ! comments_open() ) {
 			<?php
 			/* nectar addition */
 			$no_reviews_title = esc_html__('There are no reviews yet.', 'woocommerce' ); 
-			echo '<p class="woocommerce-noreviews">' . apply_filters('nectar_woocommerce_no_reviews_title', $no_reviews_title) . '</p>';
+			echo '<p class="woocommerce-noreviews">' . wp_kses_post( apply_filters('nectar_woocommerce_no_reviews_title', $no_reviews_title) ) . '</p>';
 			/* nectar addition end */
 			?>
 		<?php endif; ?>

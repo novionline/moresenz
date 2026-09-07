@@ -21,6 +21,10 @@ Description: WooCommerce plugin styles
 	pointer-events: all;
 }
 
+body .wc-block-mini-cart__badge {
+	font-size: 12px;
+}
+
 #nectar-nav .open.widget_shopping_cart {
 	transform: translate3d(0, 0, 0);
 	opacity: 1;
@@ -103,7 +107,7 @@ body nav.woocommerce-pagination .page-numbers.next {
 
 
 /* Tablet Portrait */
-@media only screen and (min-width: 691px) and (max-width: 1024px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
 	body.woocommerce .container div.product div.images div.thumbnails a, body.woocommerce .container #content div.product div.images div.thumbnails a, body.woocommerce-page .container div.product div.images div.thumbnails a, body.woocommerce-page .container #content div.product div.images div.thumbnails a {
 		width: 16.9%;
 		margin-right: 3.8%;
@@ -115,7 +119,7 @@ body nav.woocommerce-pagination .page-numbers.next {
 
 /* Phone */
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	body.woocommerce .post-area .woocommerce-result-count, body.woocommerce .post-area .woocommerce-ordering {
 		float: none;
 	}
@@ -566,7 +570,7 @@ body .cart-collaterals .order-total {
 	padding-right: 2em!important;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	.woocommerce-page.woocommerce-cart .woocommerce p.cart-empty {
 		padding: 0!important;
 		line-height: 1.4;
@@ -791,7 +795,7 @@ nav.woocommerce-pagination {
 
 /*default cols*/
 
-@media only screen and (min-width:1000px) {
+@media only screen and (min-width:1025px) {
 	/* 4 cols */
 	.woocommerce.columns-4 ul.products.columns-4 li.classic {
 		margin-right: 2%;
@@ -850,7 +854,7 @@ nav.woocommerce-pagination {
 
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 691px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
 
 	.woocommerce ul.products li.first.classic, .woocommerce-page ul.products li.first.classic {
 		clear: none;
@@ -861,7 +865,7 @@ nav.woocommerce-pagination {
 	background-color: transparent!important;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	.woocommerce .shop_table .coupon {
 		border: none;
 		margin-top: 30px;
@@ -1058,13 +1062,6 @@ a.added_to_cart, .classic a.added_to_cart {
 	font-size: 0.67em;
 }
 
-.woocommerce .woocommerce-ordering {
-	position: absolute;
-	right: 0;
-	bottom: 13px;
-	margin-bottom: 0;
-}
-
 .woocommerce .span_9 .woocommerce-ordering {
 	right: 20px;
 }
@@ -1108,6 +1105,47 @@ a.added_to_cart, .classic a.added_to_cart {
 	margin-top: 8px;
 }
 
+/* Shop header with no filter bar: the ordering + result count are otherwise floated
+   clear out of the header, or absolutely positioned off a hardcoded right offset that
+   a longer translation collides with. Lay the header out as a grid so they form a bar
+   under the title. */
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	column-gap: 20px;
+}
+
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) > * {
+	grid-column: 1 / -1;
+}
+
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) > .woocommerce-result-count,
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) > .woocommerce-ordering {
+	position: relative;
+	right: auto;
+	bottom: auto;
+	float: none;
+	margin: 13px 0 0;
+}
+
+body.woocommerce .nectar-shop-header:has(> .term-description):has(> .woocommerce-ordering) > .woocommerce-result-count,
+body.woocommerce .nectar-shop-header:has(> .term-description):has(> .woocommerce-ordering) > .woocommerce-ordering {
+	margin-top: var(--nectar-element-spacing);
+}
+
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) > .woocommerce-result-count {
+	order: 1;
+	grid-column: 1;
+	line-height: 1.4;
+}
+
+body.woocommerce .nectar-shop-header:has(> .woocommerce-ordering) > .woocommerce-ordering {
+	order: 2;
+	grid-column: 2;
+	justify-self: end;
+}
+
 .nectar-shop-header .woocommerce-breadcrumb .fa.fa-angle-right {
 	font-size: 14px;
 }
@@ -1134,7 +1172,8 @@ body[data-form-select-js="1"] .woocommerce-ordering .fancy-select-wrap {
 	padding-top: 0;
 }
 
-.woocommerce .woocommerce-result-count, .woocommerce-page .woocommerce-result-count {
+:where(body:not(.nectar-block-template)).woocommerce .woocommerce-result-count,
+:where(body:not(.nectar-block-template)).woocommerce-page .woocommerce-result-count {
 	float: none;
 	margin-bottom: 5px;
 	padding-bottom: 15px;
@@ -1339,7 +1378,7 @@ body[data-form-select-js="1"] .woocommerce-ordering .select2-container--default 
 	padding-top: 0;
 }
 
-.woocommerce-page button[type="submit"].single_add_to_cart_button {
+:where(body:not(.nectar-block-template)).woocommerce-page button[type="submit"].single_add_to_cart_button {
 	margin-top: 30px;
 }
 
@@ -1598,6 +1637,18 @@ div.pp_woocommerce .pp_previous:before, div.pp_woocommerce .pp_next:before {
 }
 
 
+/* Block image gallery */
+#nectar-content-wrap:has(.wc-block-product-gallery-dialog[open]) {
+	z-index: auto;
+}
+.wc-block-product-gallery-dialog[open] {
+	z-index: 10000;
+}
+
+.wc-block-product-gallery-large-image__container {
+	margin: 0;
+}
+
 /* Block Cart */
 
 .main-content .wp-block-woocommerce-cart-items-block table.wc-block-cart-items,
@@ -1699,7 +1750,7 @@ body:not(.ascend) .actions .coupon .button {
 	padding: 25px 20px;
 }
 
-@media only screen and (min-width: 999px) {
+@media only screen and (min-width: 1025px) {
 	.woocommerce table.cart td.product-name {
 		width: 32%;
 	}
@@ -2209,7 +2260,7 @@ body[data-form-select-js="1"] .woocommerce-ordering select {
 	width: 125px;
 }
 
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
 	body[data-form-select-js="1"] .woocommerce-ordering .select2-dropdown {
 		width: 250px!important;
 		right: 0;
@@ -2665,7 +2716,7 @@ body[data-form-style="minimal"] div.widget.woocommerce.widget_product_search but
 	}
 }
 
-@media only screen and (min-width: 691px) {
+@media only screen and (min-width: 768px) {
 	body[data-form-select-js="1"] .woocommerce-ordering .fancy-select-wrap a.select2-choice {
 		border: none;
 	}
@@ -2677,7 +2728,7 @@ body[data-form-style="minimal"] div.widget.woocommerce.widget_product_search but
 	}
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	.woocommerce .container-wrap .woocommerce-ordering {
 		margin-bottom: 20px;
 	}
@@ -3017,6 +3068,12 @@ body .wc-block-components-checkbox .wc-block-components-checkbox__input[type=che
 }
 
 
+.wc-block-product-filter-checkbox-list__input-wrapper:before {
+	width: 1.15em;
+	height: 1.15em;
+}
+
+
 .wp-block-woocommerce-filter-wrapper .wc-block-components-checkbox:hover .wc-filter-element-label-list-count,
 .wp-block-woocommerce-filter-wrapper .wc-block-components-checkbox__input:checked ~ .wc-block-components-checkbox__label .wc-filter-element-label-list-count {
 	color: var(--nectar-accent-text-color, #fff);
@@ -3123,7 +3180,7 @@ body .wc-block-grid.has-4-columns:not(.alignwide):not(.alignfull) .wc-block-grid
 }
 
 /* sticky checkout cart */
-@media only screen and (min-width: 1000px) {
+@media only screen and (min-width: 1025px) {
 
 	body.woocommerce-checkout:has(.wp-block-woocommerce-checkout-order-summary-block) {
 		overflow: visible;
@@ -3738,7 +3795,7 @@ body .pswp {
 	}
 }
 
-@media only screen and (max-width: 1024px) and (min-width: 691px) {
+@media only screen and (max-width: 1024px) and (min-width: 768px) {
 
 	body.woocommerce:not(.single-product) ul.products[data-n-tablet-columns="6"],
 	body.woocommerce:not(.single-product) ul.products[data-n-tablet-columns="5"],
@@ -3764,7 +3821,7 @@ body .pswp {
 	}
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
 
 	body.woocommerce:not(.single-product) ul.products[data-n-phone-columns="4"],
@@ -3831,7 +3888,7 @@ body.woocommerce-account .woocommerce-form.woocommerce-form-login.n-disable-reg 
 	background-image: linear-gradient(to right, #000000 0%, #000000 100%);
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 	.woocommerce-account .woocommerce>#customer_login .nectar-form-controls .control {
 		margin: 10px 15px;
 	}

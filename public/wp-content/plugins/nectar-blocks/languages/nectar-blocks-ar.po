@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: nectar-blocks.php includes/Editor/Blocks.php:737 build/editor.js:1
+#: nectar-blocks.php includes/Editor/Blocks.php:1212 build/editor.js:1
 msgid "Nectarblocks"
 msgstr "Nectarblocks"
 
@@ -62,12 +62,12 @@ msgstr "تعذر إدراج المرفق."
 msgid "Image uploaded successfully. "
 msgstr "تم رفع الصورة بنجاح."
 
-#: includes/API/Post_Data_API.php:493
+#: includes/API/Post_Data_API.php:508
 msgid "Custom Fields"
 msgstr "الحقول المخصصة"
 
-#. translators: the Meta Field name
-#: includes/API/Post_Data_API.php:530
+#. translators: %s is the post type singular name (e.g. "Post", "Page")
+#: includes/API/Post_Data_API.php:545
 #, php-format
 msgid "Meta Fields: %s"
 msgstr "حقول وصفية: %s"
@@ -75,18 +75,6 @@ msgstr "حقول وصفية: %s"
 #: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:1
 msgid "Post Title"
 msgstr "عنوان المقالة"
-
-#: includes/Dynamic_Data/Dynamic_Helpers.php:22
-#: includes/Dynamic_Data/Dynamic_Helpers.php:26
-#: includes/Dynamic_Data/Dynamic_Helpers.php:31
-#: includes/Dynamic_Data/Dynamic_Helpers.php:35
-#: includes/Dynamic_Data/Dynamic_Helpers.php:39
-#: includes/Dynamic_Data/Dynamic_Helpers.php:43
-#: includes/Dynamic_Data/Dynamic_Helpers.php:47
-#: includes/Dynamic_Data/Dynamic_Helpers.php:51
-#: includes/Dynamic_Data/Dynamic_Helpers.php:55
-msgid "Post"
-msgstr "مقالة"
 
 #: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:1
 msgid "Post URL"
@@ -171,7 +159,7 @@ msgstr "التعليق"
 msgid "Featured Image URL"
 msgstr "عنوان URL للصورة المميزة"
 
-#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:1
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101
 msgid "Media"
 msgstr "وسائط"
 
@@ -201,44 +189,46 @@ msgstr "فتح"
 msgid "Closed"
 msgstr "مغلق"
 
-#: includes/Editor/Blocks.php:719 build/editor.js:1
+#: includes/Editor/Blocks.php:1091 build/editor.js:1
 msgid "Desktop"
 msgstr "سطح المكتب"
 
-#: includes/Editor/Blocks.php:720 build/editor.js:1
+#: includes/Editor/Blocks.php:1092 build/editor.js:1
 msgid "Tablet"
 msgstr "الأجهزة اللوحية"
 
-#: includes/Editor/Blocks.php:721
+#: includes/Editor/Blocks.php:1093
 msgid "Phone"
 msgstr "الهاتف"
 
-#: includes/Editor/Post_Meta.php:35
+#: includes/Editor/Post_Meta.php:44
 msgid "Client Name"
 msgstr "اسم العميل"
 
-#: includes/Editor/Post_Meta.php:43
+#: includes/Editor/Post_Meta.php:52
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Date"
 msgstr "التاريخ"
 
-#: includes/Editor/Post_Meta.php:51 build/editor.js:1
+#: includes/Editor/Post_Meta.php:60 build/editor.js:1
 msgid "Project Link"
 msgstr "رابط المشروع"
 
-#: includes/Editor/Post_Meta.php:76 build/editor.js:1
+#: includes/Editor/Post_Meta.php:85 build/editor.js:1
 msgid "Video"
 msgstr "فيديو"
 
-#: includes/Editor/Post_Meta.php:94 build/editor.js:1
+#: includes/Editor/Post_Meta.php:103 build/editor.js:1
 msgid "Description"
 msgstr "الوصف"
 
-#: includes/Editor/Post_Meta.php:102
+#: includes/Editor/Post_Meta.php:111
 msgid "Project URL"
 msgstr "رابط المشروع"
 
-#: includes/Global_Sections/Global_Sections.php:90 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:90
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:481
+#: build/editor.js:1
 msgid "General"
 msgstr "عام"
 
@@ -247,6 +237,8 @@ msgid "Everywhere"
 msgstr "في كل مكان"
 
 #: includes/Global_Sections/Global_Sections.php:99
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:487
+#: build/editor.js:1
 msgid "Archive"
 msgstr "أرشيف"
 
@@ -259,6 +251,8 @@ msgid "Search Results"
 msgstr "نتائج البحث"
 
 #: includes/Global_Sections/Global_Sections.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:485
+#: build/editor.js:1
 msgid "Single"
 msgstr "فردي"
 
@@ -267,12 +261,12 @@ msgid "Specific Post"
 msgstr "مقالة محددة"
 
 #: includes/Global_Sections/Global_Sections.php:120
-#: includes/Nectar_Templates/Nectar_Templates.php:170
+#: includes/Nectar_Templates/Nectar_Templates.php:314
 msgid "Is Taxonomy Term"
 msgstr "هل هو مصطلح تصنيف"
 
 #: includes/Global_Sections/Global_Sections.php:124
-#: includes/Nectar_Templates/Nectar_Templates.php:174
+#: includes/Nectar_Templates/Nectar_Templates.php:318
 msgid "Has Taxonomy Term"
 msgstr "له مصطلح تصنيف"
 
@@ -281,17 +275,17 @@ msgid "Post Types"
 msgstr "أنواع المقالات"
 
 #: includes/Global_Sections/Global_Sections.php:133
-#: includes/Nectar_Templates/Nectar_Templates.php:179
+#: includes/Nectar_Templates/Nectar_Templates.php:323
 msgid "User Roles/Permissions"
 msgstr "الأدوار/الصلاحيات للمستخدمين"
 
 #: includes/Global_Sections/Global_Sections.php:138
-#: includes/Nectar_Templates/Nectar_Templates.php:184
+#: includes/Nectar_Templates/Nectar_Templates.php:328
 msgid "User Logged In"
 msgstr "تم تسجيل دخول المستخدم"
 
 #: includes/Global_Sections/Global_Sections.php:144
-#: includes/Nectar_Templates/Nectar_Templates.php:190
+#: includes/Nectar_Templates/Nectar_Templates.php:334
 msgid "User Not Logged In"
 msgstr "المستخدم غير مسجل الدخول"
 
@@ -337,7 +331,10 @@ msgid "After Blog Loop"
 msgstr "بعد حلقة المدونة"
 
 #: includes/Global_Sections/Global_Sections.php:206
-#: includes/Global_Sections/Global_Sections.php:227 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:227
+#: includes/Nectar_Templates/Nectar_Templates.php:96
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:491
+#: build/editor.js:1
 msgid "Footer"
 msgstr "تذييل"
 
@@ -359,6 +356,7 @@ msgid "Bottom"
 msgstr "أسفل"
 
 #: includes/Global_Sections/Global_Sections.php:231
+#: includes/Nectar_Templates/Nectar_Templates.php:102
 msgid "Footer Parallax"
 msgstr "تأثير Parallax في التذييل"
 
@@ -366,7 +364,9 @@ msgstr "تأثير Parallax في التذييل"
 msgid "After Footer"
 msgstr "بعد التذييل"
 
-#: includes/Global_Sections/Global_Sections.php:241 build/adminPanel.js:171
+#: includes/Global_Sections/Global_Sections.php:241
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:483
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -452,10 +452,11 @@ msgstr "المتابعة إلى الدفع"
 
 #: includes/Global_Sections/Global_Sections_Register.php:99
 #: includes/Global_Sections/Global_Sections_Register.php:102
+#: build/adminPanel.js:171
 msgid "Global Sections"
 msgstr "الأقسام العامة"
 
-#: includes/Global_Sections/Global_Sections_Register.php:100
+#: includes/Global_Sections/Global_Sections_Register.php:100 build/editor.js:1
 msgid "Global Section"
 msgstr "القسم العام"
 
@@ -482,7 +483,7 @@ msgid "Add New Global Section"
 msgstr "إضافة قسم عام جديد"
 
 #: includes/Global_Sections/Global_Sections_Register.php:114
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:80
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:822
 msgid "Section"
 msgstr "قسم"
 
@@ -491,7 +492,7 @@ msgid "Locations"
 msgstr "المواقع"
 
 #: includes/Global_Sections/Global_Sections_Register.php:140
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:106
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1148
 #: build/editor.js:1
 msgid "Conditions"
 msgstr "الشروط"
@@ -508,43 +509,11 @@ msgstr "إخفاء Nectar Hooks"
 msgid "Hook:"
 msgstr "هوك:"
 
-#: includes/Global_Settings/Global_Colors.php:93
-msgid "Core Gradient #1"
-msgstr "تدرج أساسي #1"
-
-#: includes/Global_Settings/Global_Colors.php:98
-msgid "Core Gradient #2"
-msgstr "تدرج أساسي #2"
-
-#: includes/Global_Settings/Global_Colors.php:103
-msgid "Core Gradient #3"
-msgstr "التدرج الأساسي #3"
-
-#: includes/Global_Settings/Global_Colors.php:108
-msgid "Core Gradient #4"
-msgstr "التدرج الأساسي #4"
-
-#: includes/Global_Settings/Global_Colors.php:113
-msgid "Core Gradient #5"
-msgstr "تدرج أساسي #5"
-
-#: includes/Global_Settings/Global_Colors.php:129
+#: includes/Global_Settings/Global_Colors.php:139 build/editor.js:1
 msgid "Light"
 msgstr "فاتح"
 
-#: includes/Global_Settings/Global_Colors.php:134
-msgid "Accent Light"
-msgstr "ضوء خفيف"
-
-#: includes/Global_Settings/Global_Colors.php:139
-msgid "Accent Primary"
-msgstr "اللون الأساسي المميز"
-
-#: includes/Global_Settings/Global_Colors.php:144
-msgid "Accent Dark"
-msgstr "داكن مميز"
-
-#: includes/Global_Settings/Global_Colors.php:149
+#: includes/Global_Settings/Global_Colors.php:159 build/editor.js:1
 msgid "Dark"
 msgstr "داكن"
 
@@ -564,7 +533,7 @@ msgstr "تم الحفظ بنجاح"
 msgid "Options"
 msgstr "الخيارات"
 
-#: includes/Menu_Options/Modal.php:313
+#: includes/Menu_Options/Modal.php:313 build/editor.js:1
 msgid "Menu Item"
 msgstr "عنصر القائمة"
 
@@ -572,7 +541,7 @@ msgstr "عنصر القائمة"
 msgid "Icon"
 msgstr "أيقونة"
 
-#: includes/Menu_Options/Modal.php:323 build/editor.js:1
+#: build/editor.js:1
 msgid "Close"
 msgstr "إغلاق"
 
@@ -608,7 +577,9 @@ msgstr "قسم القائمة الضخمة العام للجوال"
 msgid ""
 "Assign a Global Section to display as your mega menu in the Off Canvas Menu."
 " Not compatible with fullscreen menus."
-msgstr "عيّن قسماً عاماً لعرضه كقائمة ضخمة في القائمة الجانبية. غير متوافق مع القوائم بملء الشاشة."
+msgstr ""
+"عيّن قسماً عاماً لعرضه كقائمة ضخمة في القائمة الجانبية. غير متوافق مع "
+"القوائم بملء الشاشة."
 
 #: includes/Menu_Options/Settings.php:68
 msgid "Persist In Mobile Navigation Header"
@@ -618,7 +589,9 @@ msgstr "الإبقاء في رأس التنقل للهاتف المحمول"
 msgid ""
 "This will cause the link to remain visible in your mobile header navigation "
 "instead of the default location within the off canvas menu."
-msgstr "سيؤدي هذا إلى إبقاء الرابط مرئياً في قائمة التنقل في الترويسة على الهاتف المحمول بدلاً من الموقع الافتراضي داخل القائمة الجانبية."
+msgstr ""
+"سيؤدي هذا إلى إبقاء الرابط مرئياً في قائمة التنقل في الترويسة على الهاتف "
+"المحمول بدلاً من الموقع الافتراضي داخل القائمة الجانبية."
 
 #: includes/Menu_Options/Settings.php:77
 msgid "Menu Item Link Button Style"
@@ -628,7 +601,6 @@ msgstr "نمط زر رابط عنصر القائمة"
 msgid "Choose a style for your menu item."
 msgstr "اختر نمطاً لعنصر القائمة الخاص بك."
 
-#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Default"
 msgstr "افتراضي"
@@ -698,49 +670,28 @@ msgstr "نص (إيموجي)"
 msgid "Menu Icon Text (Emoji)"
 msgstr "نص أيقونة القائمة (إيموجي)"
 
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Add in a symbol or emoji to display as the icon next to your menu title."
-msgstr "أضف رمزاً أو إيموجي ليظهر كأيقونة بجانب عنوان القائمة الخاص بك."
-
-#: includes/Menu_Options/Settings.php:305
-msgid "To add an Emoji:"
-msgstr "لإضافة رمز تعبيري (Emoji):"
-
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Windows: On your keyboard, press and hold the Windows button and either the "
-"period (.) or semicolon (;)"
-msgstr ""
-"نظام ويندوز: على لوحة المفاتيح، اضغط مع الاستمرار على زر Windows وإما النقطة"
-" (.) أو الفاصلة المنقوطة (;)"
-
-#: includes/Menu_Options/Settings.php:305
-msgid "Mac: On your keyboard, press Command + Control + Space"
-msgstr "Mac: على لوحة المفاتيح، اضغط Command + Control + Space"
-
-#: includes/Menu_Options/Settings.php:312
+#: includes/Menu_Options/Settings.php:318
 msgid "Icon Selection"
 msgstr "اختيار الأيقونة"
 
-#: includes/Menu_Options/Settings.php:313
+#: includes/Menu_Options/Settings.php:319
 msgid "Upload an icon to display next to the menu item title."
 msgstr "حمّل أيقونة لعرضها بجانب عنوان عنصر القائمة."
 
-#: includes/Menu_Options/Settings.php:323
+#: includes/Menu_Options/Settings.php:329
 msgid "Menu Icon Size"
 msgstr "حجم أيقونة القائمة"
 
-#: includes/Menu_Options/Settings.php:324
+#: includes/Menu_Options/Settings.php:330
 msgid ""
 "Define a custom size for your icon. Leave this blank for the default value."
 msgstr "حدد حجمًا مخصصًا للأيقونة الخاصة بك. اتركه فارغًا للقيمة الافتراضية."
 
-#: includes/Menu_Options/Settings.php:335
+#: includes/Menu_Options/Settings.php:341
 msgid "Menu Icon Position"
 msgstr "موضع أيقونة القائمة"
 
-#: includes/Menu_Options/Settings.php:336
+#: includes/Menu_Options/Settings.php:342
 msgid ""
 "Determines where the menu icon will be aligned relative to the text. (Only "
 "applies to submenu items)"
@@ -748,19 +699,19 @@ msgstr ""
 "يحدد موضع محاذاة أيقونة القائمة بالنسبة للنص. (ينطبق فقط على عناصر القائمة "
 "الفرعية)"
 
-#: includes/Menu_Options/Settings.php:340
+#: includes/Menu_Options/Settings.php:346
 msgid "Next To Text"
 msgstr "بجانب النص"
 
-#: includes/Menu_Options/Settings.php:341
+#: includes/Menu_Options/Settings.php:347
 msgid "Above Text"
 msgstr "فوق النص"
 
-#: includes/Menu_Options/Settings.php:347
+#: includes/Menu_Options/Settings.php:353
 msgid "Menu Icon Spacing"
 msgstr "المسافة بين أيقونات القائمة"
 
-#: includes/Menu_Options/Settings.php:348
+#: includes/Menu_Options/Settings.php:354
 msgid ""
 "Define a custom amount of spacing between your icon and menu item text. "
 "Leave this blank for the default value. (Only applies to submenu items)"
@@ -776,7 +727,7 @@ msgstr "الشفافية الافتراضية"
 msgid "Hover Opacity"
 msgstr "شفافية التحويم"
 
-#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:1
+#: build/editor.js:1
 msgid "None"
 msgstr "لا شيء"
 
@@ -836,50 +787,50 @@ msgstr "الأرشيف:"
 msgid "404 Template"
 msgstr "قالب 404"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:84
+#: includes/Nectar_Templates/Nectar_Templates.php:90
 msgid "Off Canvas Menu"
 msgstr "القائمة الجانبية"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:166 build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates.php:310 build/editor.js:1
 msgid "Taxonomy Terms"
 msgstr "المصطلحات التصنيفية"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:808
 msgid "Theme Builder"
 msgstr "منشئ القوالب"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:809
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1147
 #: build/editor.js:1
 msgid "Template"
 msgstr "نموذج"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:810
 msgid "Search Templates"
 msgstr "البحث في القوالب"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:811
 msgid "Templates"
 msgstr "القوالب"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:812
 msgid "Parent Template"
 msgstr "القالب الأساسي"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:813
 msgid "Edit Template"
 msgstr "تحرير القالب"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:814
 msgid "Update Template"
 msgstr "تحديث القالب"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:74
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:815
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:816
 msgid "Add New Template"
 msgstr "إضافة قالب جديد"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:254
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1296
 msgid "None Assigned"
 msgstr "غير معين"
 
@@ -990,13 +941,13 @@ msgstr ""
 "تم تحديث بنية الروابط الدائمة للمحفظة. يرجى تحديث الروابط الدائمة بزيارة "
 "الإعدادات ← الروابط الدائمة والضغط على \"حفظ التغييرات\"."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:22
+#: includes/Render/Blocks/PostContent/PostContent.php:24
 msgid ""
 "This is the Content block, it will display all the blocks in any single post"
 " or page."
 msgstr "هذه كتلة المحتوى، ستعرض جميع الكتل في أي مقالة أو صفحة منفردة."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:23
+#: includes/Render/Blocks/PostContent/PostContent.php:25
 msgid ""
 "That might be a simple arrangement like consecutive paragraphs in a blog "
 "post, or a more elaborate composition that includes image galleries, videos,"
@@ -1005,7 +956,7 @@ msgstr ""
 "قد يكون هذا ترتيبًا بسيطًا مثل فقرات متتالية في مقال، أو تكوين أكثر تفصيلاً "
 "يتضمن معارض الصور ومقاطع الفيديو والجداول والأعمدة وأي أنواع مكوِّنات أخرى."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:24
+#: includes/Render/Blocks/PostContent/PostContent.php:26
 msgid ""
 "If there are any Custom Post Types registered at your site, the Content "
 "block can display the contents of those entries as well."
@@ -1013,44 +964,47 @@ msgstr ""
 "إذا كانت هناك أنواع منشورات مخصصة مسجلة في موقعك، يمكن لكتلة المحتوى عرض "
 "محتويات تلك الإدخالات أيضًا."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+#: includes/Render/Blocks/PostGrid/PostGrid.php:130
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1229
 msgid "By"
 msgstr "بواسطة"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+#: includes/Render/Blocks/PostGrid/PostGrid.php:324
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1256
 msgid "min read"
 msgstr "دقيقة قراءة"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:358
-#: includes/Render/Blocks/PostGrid/PostGrid.php:362
+#: includes/Render/Blocks/PostGrid/PostGrid.php:366
+#: includes/Render/Blocks/PostGrid/PostGrid.php:370
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1264
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Read More"
 msgstr "اقرأ المزيد"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:640
+#: includes/Render/Blocks/PostGrid/PostGrid.php:709
 msgid "Pagination Navigation"
 msgstr "التنقل بين الصفحات"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:961
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1296
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219 build/editor.js:1
 msgid "Load More"
 msgstr "تحميل المزيد"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:962
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1297
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220 build/editor.js:1
 msgid "Previous"
 msgstr "السابق"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:963
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1298
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221 build/editor.js:1
 msgid "Next"
 msgstr "التالي"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:979
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1314
 msgid "No posts found."
 msgstr "لا توجد مقالات."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:980
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1315
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
 msgid "Try adjusting your query parameters."
 msgstr "حاول تعديل معلمات الاستعلام الخاصة بك."
@@ -1075,7 +1029,6 @@ msgstr "سيتم عرض مصطلحات \"%s\" هنا."
 msgid "No terms in \"%s\""
 msgstr "لا توجد مصطلحات في \"%s\""
 
-#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
 #: build/editor.js:1
 msgid "All"
 msgstr "الكل"
@@ -1131,10 +1084,6 @@ msgstr "الترخيص النشط"
 #: build/adminPanel.js:171
 msgid "Invalid License"
 msgstr "ترخيص غير صالح"
-
-#: build/adminPanel.js:171
-msgid "Theme License Code"
-msgstr "كود ترخيص القالب"
 
 #: build/adminPanel.js:171
 msgid "license key"
@@ -1201,10 +1150,6 @@ msgid "Custom Code (JS/HTML) After Body Open"
 msgstr "كود مخصص (JS/HTML) بعد بداية الـ Body"
 
 #: build/adminPanel.js:171
-msgid "Add a New Font"
-msgstr "إضافة خط جديد"
-
-#: build/adminPanel.js:171
 msgid "Please enter a font name."
 msgstr "الرجاء إدخال اسم الخط."
 
@@ -1219,10 +1164,6 @@ msgstr "تم تحديث الخط المخصص بنجاح."
 #: build/adminPanel.js:171
 msgid "Add Font"
 msgstr "إضافة خط"
-
-#: build/adminPanel.js:171
-msgid "No changes were made."
-msgstr "لم يتم إجراء أي تغييرات."
 
 #: build/adminPanel.js:171
 msgid "Failed to update custom font variation."
@@ -1385,7 +1326,7 @@ msgstr "محتوى تجريبي"
 msgid "Theme Options"
 msgstr "خيارات القالب"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Settings"
 msgstr "الإعدادات العامة"
 
@@ -1451,11 +1392,11 @@ msgstr "من Nectarblocks."
 msgid "Your export will include the following data:"
 msgstr "سيتضمن التصدير الخاص بك البيانات التالية:"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Colors"
 msgstr "الألوان العامة"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Typography"
 msgstr "التنسيق العام للخطوط"
 
@@ -1612,7 +1553,7 @@ msgstr "خيارات Plugin"
 msgid "Custom Code"
 msgstr "كود مخصص"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/editor.js:1
 msgid "Custom Fonts"
 msgstr "الخطوط المخصصة"
 
@@ -1987,14 +1928,6 @@ msgstr "أدخل Nectarblocks الخاص بك"
 #: build/adminPanel.js:171
 msgid "Enter the name of your font"
 msgstr "أدخل اسم الخط الخاص بك"
-
-#: build/adminPanel.js:171
-msgid ""
-"for a successful import. Once the import process begins, please refrain from"
-" refreshing the page until it has completed."
-msgstr ""
-"لاستيراد ناجح. بمجرد بدء عملية الاستيراد، يرجى الامتناع عن تحديث الصفحة حتى "
-"تكتمل."
 
 #: build/adminPanel.js:171
 msgid ""
@@ -2427,20 +2360,8 @@ msgid "Animation Property"
 msgstr "خاصية الحركة"
 
 #: build/editor.js:1
-msgid "Move Up"
-msgstr "انقل لأعلى"
-
-#: build/editor.js:1
-msgid "Move Down"
-msgstr "انقل لأسفل"
-
-#: build/editor.js:1
 msgid "Edit Animation Property"
 msgstr "تحرير خاصية الحركة"
-
-#: build/editor.js:1
-msgid "Enter"
-msgstr "أدخل"
 
 #: build/editor.js:1
 msgid "Center"
@@ -2491,12 +2412,6 @@ msgid "Pin"
 msgstr "تثبيت"
 
 #: build/editor.js:1
-msgid ""
-"\"Pin\" the block in place within the viewport while the animation plays "
-"through."
-msgstr "\"تثبيت\" الكتلة في مكانها داخل منفذ العرض أثناء تشغيل الرسوم المتحركة."
-
-#: build/editor.js:1
 msgid "Overlap"
 msgstr "التداخل"
 
@@ -2523,24 +2438,8 @@ msgid "Pin On"
 msgstr "تثبيت في"
 
 #: build/editor.js:1
-msgid "Start On"
-msgstr "ابدأ في"
-
-#: build/editor.js:1
 msgid "End After Scrolling"
 msgstr "الإنهاء بعد التمرير"
-
-#: build/editor.js:1
-msgid "End On"
-msgstr "انتهى عند"
-
-#: build/editor.js:1
-msgid "Exit"
-msgstr "اخرج"
-
-#: build/editor.js:1
-msgid "Custom End Offset"
-msgstr "الإزاحة النهائية المخصصة"
 
 #: build/editor.js:1
 msgid ""
@@ -2557,16 +2456,8 @@ msgid "Smooth"
 msgstr "سلس"
 
 #: build/editor.js:1
-msgid "Adds smoothing to the animation while scrolling."
-msgstr "يضيف تنعيمًا للحركة أثناء التمرير."
-
-#: build/editor.js:1
 msgid "Block Animation"
 msgstr "تحريك الكتلة"
-
-#: build/editor.js:1
-msgid "Animation Trigger Type"
-msgstr "نوع مشغّل الحركة"
 
 #: build/editor.js:1
 msgid "Add Animation Trigger"
@@ -2693,10 +2584,6 @@ msgid "Fit"
 msgstr "ملاءمة"
 
 #: build/editor.js:1
-msgid "Custom ID"
-msgstr "معرّف مخصص"
-
-#: build/editor.js:1
 msgid "Invalid element ID / anchor"
 msgstr "معرّف عنصر / رابط غير صالح"
 
@@ -2739,10 +2626,6 @@ msgstr "عرض"
 #: build/editor.js:1
 msgid "Justify"
 msgstr "محاذاة متساوية"
-
-#: build/editor.js:1
-msgid "Flex Wrap"
-msgstr "التفاف مرن"
 
 #: build/editor.js:1
 msgid "Pointer"
@@ -2877,10 +2760,6 @@ msgid "Effect Type"
 msgstr "نوع التأثير"
 
 #: build/editor.js:1
-msgid "Edit Filter"
-msgstr "تحرير الفلتر"
-
-#: build/editor.js:1
 msgid "Backdrop Filters"
 msgstr "مرشحات الخلفية"
 
@@ -2969,10 +2848,6 @@ msgid "Link"
 msgstr "رابط"
 
 #: build/editor.js:1
-msgid "Custom Attributes"
-msgstr "السمات المخصصة"
-
-#: build/editor.js:1
 msgid "Mask"
 msgstr "قناع"
 
@@ -3057,14 +2932,6 @@ msgid "Skew Y"
 msgstr "انحراف Y"
 
 #: build/editor.js:1
-msgid "Translate X"
-msgstr "تحويل أفقي (X)"
-
-#: build/editor.js:1
-msgid "Translate Y"
-msgstr "تحويل عمودي (Y)"
-
-#: build/editor.js:1
 msgid "Transform Type"
 msgstr "نوع التحويل"
 
@@ -3123,10 +2990,6 @@ msgstr "الأكورديونات"
 #: build/editor.js:1
 msgid "nectar"
 msgstr "رحيق"
-
-#: build/editor.js:1
-msgid "Accordion Title"
-msgstr "عنوان الأكورديون"
 
 #: build/editor.js:1
 msgid "Add New Accordion"
@@ -3257,7 +3120,7 @@ msgstr "نوع العرض"
 msgid "Columns"
 msgstr "الأعمدة"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Group"
 msgstr "مجموعة"
 
@@ -3531,14 +3394,6 @@ msgid "Button BG"
 msgstr "خلفية الزر"
 
 #: build/editor.js:1
-msgid "Transition Speed (s)"
-msgstr "سرعة الانتقال (ثانية)"
-
-#: build/editor.js:1
-msgid "Time Between (s)"
-msgstr "الوقت بين (ثانية)"
-
-#: build/editor.js:1
 msgid "Equal Height"
 msgstr "ارتفاع متساوٍ"
 
@@ -3714,7 +3569,8 @@ msgstr "إدراج من URL"
 msgid "Enter URL"
 msgstr "أدخل عنوان URL"
 
-#: build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:638
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Cancel"
 msgstr "إلغاء"
 
@@ -3772,10 +3628,6 @@ msgstr "تحريك العد"
 #: build/editor.js:1
 msgid "Milestone"
 msgstr "معلم رئيسي"
-
-#: build/editor.js:1
-msgid "Highlight an important event or attribute."
-msgstr "سلّط الضوء على حدث أو سمة مهمة."
 
 #: build/editor.js:1
 msgid "milestone"
@@ -4142,10 +3994,6 @@ msgid "Contained"
 msgstr "محتوى"
 
 #: build/editor.js:1
-msgid "Contained Content"
-msgstr "المحتوى المحصور"
-
-#: build/editor.js:1
 msgid "Constraint"
 msgstr "قيد"
 
@@ -4459,14 +4307,6 @@ msgstr ""
 "مستنيرة بثقة."
 
 #: build/editor.js:1
-msgid "John Doe"
-msgstr "جون دو"
-
-#: build/editor.js:1
-msgid "@nectarblocks"
-msgstr "@nectarblocks"
-
-#: build/editor.js:1
 msgid ""
 "This is a testimonial block. Incorporating <mark style=\"background-"
 "color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
@@ -4512,10 +4352,6 @@ msgstr "شهادة"
 #: build/editor.js:1
 msgid "Build trust and credibility by showcasing customer feedback."
 msgstr "اكسب الثقة والمصداقية من خلال عرض آراء العملاء."
-
-#: build/editor.js:1
-msgid "Enter the testimonial text here"
-msgstr "أدخل نص الشهادة هنا"
 
 #: build/editor.js:1
 msgid "Edit as HTML"
@@ -4611,16 +4447,6 @@ msgid "Type / to choose a block or start typing..."
 msgstr "اكتب / لاختيار كتلة أو ابدأ الكتابة..."
 
 #: build/editor.js:1
-msgid ""
-"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
-"my website. I live in Los Angeles, have a great dog named Jack, and I like "
-"piña coladas. (And gettin' caught in the rain.)"
-msgstr ""
-"مرحبًا! أنا ساعي دراجات نهارًا، وممثل طموح ليلًا، وهذا موقعي الإلكتروني. "
-"أعيش في لوس أنجلوس، ولديّ كلب رائع اسمه جاك، وأحب البينا كولادا. (والتبلل "
-"تحت المطر.)"
-
-#: build/editor.js:1
 msgid "Watch Video"
 msgstr "شاهد الفيديو"
 
@@ -4713,10 +4539,6 @@ msgid "Uploading"
 msgstr "تحميل"
 
 #: build/editor.js:1
-msgid "Autoplay Trigger"
-msgstr "تشغيل تلقائي عند الإطلاق"
-
-#: build/editor.js:1
 msgid "Learn more about using this trigger in the"
 msgstr "تعرّف على المزيد حول استخدام هذا المشغّل في"
 
@@ -4755,10 +4577,6 @@ msgstr "رحيق"
 #: build/editor.js:1
 msgid "Nectar Global Colors"
 msgstr "ألوان Nectar العامة"
-
-#: build/editor.js:1
-msgid "WP Custom Color Scheme"
-msgstr "نظام الألوان المخصص في WordPress"
 
 #: build/editor.js:1
 msgid "WP Theme Color Scheme"
@@ -5010,7 +4828,7 @@ msgstr "تم التحديث. تذكّر حفظ المقالة!"
 msgid "Delete Global Color Confirmation"
 msgstr "حذف اللون العام - تأكيد"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Are you sure you want to delete"
 msgstr "هل أنت متأكد من أنك تريد الحذف"
 
@@ -5051,14 +4869,6 @@ msgid "An error occurred saving color!"
 msgstr "حدث خطأ أثناء حفظ اللون!"
 
 #: build/editor.js:1
-msgid "Add Global Color"
-msgstr "أضف لونًا عامًا"
-
-#: build/editor.js:1
-msgid "Add Global Gradient"
-msgstr "أضف تدرجًا عامًا"
-
-#: build/editor.js:1
 msgid "Tranquility"
 msgstr "الهدوء"
 
@@ -5089,30 +4899,6 @@ msgstr "نار المخيم"
 #: build/editor.js:1
 msgid "Electric Harmony"
 msgstr "التناغم الكهربائي"
-
-#: build/editor.js:1
-msgid "Palette Presets"
-msgstr "الإعدادات المسبقة للوحة الألوان"
-
-#: build/editor.js:1
-msgid "Core Colors"
-msgstr "الألوان الأساسية"
-
-#: build/editor.js:1
-msgid "Custom Colors"
-msgstr "الألوان المخصصة"
-
-#: build/editor.js:1
-msgid "Core Gradients"
-msgstr "التدرجات الأساسية"
-
-#: build/editor.js:1
-msgid "Custom Gradients"
-msgstr "التدرجات المخصصة"
-
-#: build/editor.js:1
-msgid "Solids"
-msgstr "الألوان الصلبة"
 
 #: build/editor.js:1
 msgid "Gradients"
@@ -5179,32 +4965,12 @@ msgid "An error occurred saving font!"
 msgstr "حدث خطأ أثناء حفظ الخط!"
 
 #: build/editor.js:1
-msgid "Rename Font"
-msgstr "إعادة تسمية الخط"
-
-#: build/editor.js:1
-msgid "New Name"
-msgstr "الاسم الجديد"
-
-#: build/editor.js:1
-msgid "Save Font Name"
-msgstr "حفظ اسم الخط"
-
-#: build/editor.js:1
 msgid "Rename"
 msgstr "إعادة التسمية"
 
 #: build/editor.js:1
 msgid "Custom Font"
 msgstr "خط مخصص"
-
-#: build/editor.js:1
-msgid "Add New Font Rule"
-msgstr "أضف قاعدة خط جديدة"
-
-#: build/editor.js:1
-msgid "Core Font Rules"
-msgstr "قواعد الخطوط الأساسية"
 
 #: build/editor.js:1
 msgid ""
@@ -5215,16 +4981,8 @@ msgstr ""
 "Nectarblocks."
 
 #: build/editor.js:1
-msgid "Custom Font Rules"
-msgstr "قواعد الخطوط المخصصة"
-
-#: build/editor.js:1
 msgid "Nectarblocks Guide"
 msgstr "دليل Nectarblocks"
-
-#: build/editor.js:1
-msgid "Display Tutorial"
-msgstr "عرض الدليل التعليمي"
 
 #: build/editor.js:1
 msgid "Template Options"
@@ -5394,7 +5152,7 @@ msgstr "استيراد صورة"
 msgid "Photo by"
 msgstr "الصورة بواسطة"
 
-#: build/editor.js:1
+#: includes/Render/RenderJS.php:85 build/editor.js:1
 msgid "No results found"
 msgstr "لم يتم العثور على نتائج"
 
@@ -5407,133 +5165,12 @@ msgid "Nectar Images"
 msgstr "صور Nectar"
 
 #: build/editor.js:1
-msgid "Welcome Guide"
-msgstr "دليل الترحيب"
-
-#: build/editor.js:1
-msgid "Getting Started with Nectarblocks"
-msgstr "البدء مع Nectarblocks"
-
-#: build/editor.js:1
-msgid ""
-"To start creating a page, you can add blocks by clicking the plus icon "
-"located on the left of the top toolbar."
-msgstr ""
-"لبدء إنشاء صفحة، يمكنك إضافة كتل بالنقر على أيقونة الزائد الموجودة على يسار "
-"شريط الأدوات العلوي."
-
-#: build/editor.js:1
-msgid ""
-"The Nectarblocks category will appear at the top of the block list, with "
-"each block highlighted in blue for easy identification."
-msgstr ""
-"ستظهر فئة Nectarblocks في أعلى قائمة الكتل، مع تمييز كل كتلة باللون الأزرق "
-"لسهولة التعرف عليها."
-
-#: build/editor.js:1
-msgid "Meet the Template Library"
-msgstr "مكتبة القوالب"
-
-#: build/editor.js:1
-msgid ""
-"Jump-start your website creation with our professionally designed collection"
-" of pre-made templates."
-msgstr ""
-"ابدأ إنشاء موقعك الإلكتروني بسرعة مع مجموعتنا من القوالب الجاهزة المصممة "
-"بشكل احترافي."
-
-#: build/editor.js:1
-msgid ""
-"You can easily access the library by clicking on the \"Template Library\" "
-"button on the top toolbar. All templates from Nectarblocks are dynamic and "
-"will adapt to fit your current global color and typography settings."
-msgstr ""
-"يمكنك الوصول بسهولة إلى المكتبة بالنقر على زر \"مكتبة القوالب\" في شريط "
-"الأدوات العلوي. جميع القوالب من Nectarblocks ديناميكية وستتكيف لتناسب "
-"إعدادات الألوان العامة والطباعة الحالية لديك."
-
-#: build/editor.js:1
-msgid ""
-"Access global settings by clicking the Nectarblocks logo at the top right. "
-"Create reusable color schemes and typography rules that can then be applied "
-"to blocks throughout your pages."
-msgstr ""
-"الوصول إلى الإعدادات العامة بالنقر على شعار Nectarblocks في الأعلى على "
-"اليسار. أنشئ أنظمة ألوان قابلة لإعادة الاستخدام وقواعد طباعة يمكن تطبيقها "
-"بعد ذلك على الكتل في جميع صفحاتك."
-
-#: build/editor.js:1
 msgid "Block Settings"
 msgstr "إعدادات الكتلة"
 
 #: build/editor.js:1
-msgid ""
-"To access settings for a block, simply click on the Settings icon while the "
-"desired block is selected."
-msgstr ""
-"للوصول إلى إعدادات كتلة، اضغط على أيقونة الإعدادات بينما الكتلة المطلوبة "
-"محددة."
-
-#: build/editor.js:1
-msgid ""
-"Each block offers an extensive range of customization options and settings, "
-"empowering you to harness your global settings effectively. You can easily "
-"maintain consistency and coherence across your entire design."
-msgstr ""
-"تقدم كل كتلة مجموعة واسعة من خيارات التخصيص والإعدادات، مما يمكّنك من "
-"الاستفادة من إعداداتك العامة بفعالية. يمكنك بسهولة الحفاظ على الاتساق "
-"والتناسق عبر تصميمك بالكامل."
-
-#: build/editor.js:1
-msgid "Pro tip: "
-msgstr "نصيحة احترافية:"
-
-#: build/editor.js:1
-msgid ""
-"If you're struggling to select a specific block, check the Document Overview"
-" to easily see the full structure of your page."
-msgstr ""
-"إذا كنت تواجه صعوبة في تحديد كتلة معينة، تحقق من نظرة عامة على المستند لرؤية"
-" البنية الكاملة لصفحتك بسهولة."
-
-#: build/editor.js:1
-msgid "Responsive and Hover Modes"
-msgstr "الأوضاع المستجيبة والتفاعلية"
-
-#: build/editor.js:1
-msgid ""
-"To switch between editing modes, click on one of the icons located at the "
-"top-middle of the interface. Any changes you make to the settings will "
-"affect the selected mode only. This allows for easy customization to "
-"responsive and hover settings."
-msgstr ""
-"للتبديل بين أوضاع التحرير، اضغط على أحد الأيقونات الموجودة في أعلى منتصف "
-"الواجهة. أي تغييرات تجريها على الإعدادات ستؤثر على الوضع المحدد فقط. يتيح "
-"هذا تخصيصًا سهلاً لإعدادات الاستجابة والتمرير."
-
-#: build/editor.js:1
-msgid "Keep an eye out for settings highlighted in"
-msgstr "راقب الإعدادات المميزة في"
-
-#: build/editor.js:1
 msgid "green"
 msgstr "أخضر"
-
-#: build/editor.js:1
-msgid "— these are unique to the selected mode and can be edited separately."
-msgstr "— هذه فريدة للوضع المحدد ويمكن تحريرها بشكل منفصل."
-
-#: build/editor.js:1
-msgid "It's time to start building"
-msgstr "حان الوقت لبدء البناء"
-
-#: build/editor.js:1
-msgid ""
-"To see this guide again, click the “Display Tutorial” button at the bottom "
-"of the Nectarblocks Global Settings panel."
-msgstr ""
-"لمشاهدة هذا الدليل مرة أخرى، اضغط على زر \"عرض الدليل التعليمي\" في أسفل "
-"لوحة إعدادات Nectarblocks العامة."
 
 #: build/editor.js:1
 msgid "About"
@@ -5548,16 +5185,8 @@ msgid "Features"
 msgstr "الميزات"
 
 #: build/editor.js:1
-msgid "Intro"
-msgstr "مقدمة"
-
-#: build/editor.js:1
 msgid "Pricing"
 msgstr "التسعير"
-
-#: build/editor.js:1
-msgid "Quotes"
-msgstr "اقتباسات"
 
 #: build/editor.js:1
 msgid "Scroll Section"
@@ -5624,18 +5253,2662 @@ msgstr "عنوان 6"
 msgid "Paragraph"
 msgstr "فقرة"
 
+#: build/adminPanel.js:171
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"للاستيراد الناجح. بمجرد بدء عملية الاستيراد،\n"
+"يرجى عدم تحديث الصفحة حتى تكتمل العملية."
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgctxt "dynamic data group label"
+msgid "Post"
+msgstr "منشور"
+
+#: includes/Global_Settings/Global_Colors.php:103 build/editor.js:1
+msgid "Tertiary to Primary"
+msgstr "من الثالثي إلى الأساسي"
+
+#: includes/Global_Settings/Global_Colors.php:108 build/editor.js:1
+msgid "Tertiary to Secondary"
+msgstr "من الثالثي إلى الثانوي"
+
+#: includes/Global_Settings/Global_Colors.php:113 build/editor.js:1
+msgid "Tertiary to Dark"
+msgstr "من الثالثي إلى الداكن"
+
+#: includes/Global_Settings/Global_Colors.php:118 build/editor.js:1
+msgid "Light to Primary"
+msgstr "من الفاتح إلى الأساسي"
+
+#: includes/Global_Settings/Global_Colors.php:123 build/editor.js:1
+msgid "Light Fade"
+msgstr "تلاشي خفيف"
+
+#: includes/Global_Settings/Global_Colors.php:144 build/editor.js:1
+msgid "Tertiary"
+msgstr "ثالثي"
+
+#: includes/Global_Settings/Global_Colors.php:149 build/editor.js:1
+msgid "Primary"
+msgstr "الأساسية"
+
+#: includes/Global_Settings/Global_Colors.php:154 build/editor.js:1
+msgid "Secondary"
+msgstr "ثانوي"
+
+#: includes/Menu_Options/Modal.php:323
+msgctxt "button: close modal dialog"
+msgid "Close"
+msgstr "إغلاق"
+
+#: includes/Menu_Options/Settings.php:81
+msgctxt "menu item link button style option"
+msgid "Default"
+msgstr "افتراضي"
+
+#: includes/Menu_Options/Settings.php:97
+msgctxt "menu item link text hover option"
+msgid "Default"
+msgstr "افتراضي"
+
+#. translators: %1$s is "<br><br>", %2$s is "<strong>", %3$s is "</strong>" —
+#. HTML formatting for the description
+#: includes/Menu_Options/Settings.php:307
+#, php-format
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu "
+"title.%1$s%2$sTo add an Emoji:%3$s%1$sWindows: On your keyboard, press and "
+"hold the Windows button and either the period (.) or semicolon (;)%1$sMac: "
+"On your keyboard, press Command + Control + Space"
+msgstr ""
+"أضف رمزًا أو إيموجي لعرضه كأيقونة بجوار عنوان القائمة.%1$s%2$sلإضافة "
+"إيموجي:%3$s%1$sWindows: على لوحة المفاتيح، اضغط مع الاستمرار على زر Windows "
+"وإما النقطة (.) أو الفاصلة المنقوطة (؛)%1$sMac: على لوحة المفاتيح، اضغط على "
+"Command + Control + Space"
+
+#: includes/Menu_Options/Setting_Field.php:224
+msgctxt "widget location option: no selection"
+msgid "None"
+msgstr "لا شيء"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:84
+msgid "Header Navigation"
+msgstr "التنقّل في الترويسة"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:109
+msgid "WooCommerce: Single Product"
+msgstr "WooCommerce: منتج واحد"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:113
+msgid "WooCommerce: Product Archive"
+msgstr "WooCommerce: أرشيف المنتجات"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:117
+msgid "WooCommerce: Cart"
+msgstr "WooCommerce: السلة"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:121
+msgid "WooCommerce: Checkout"
+msgstr "WooCommerce: الدفع"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:125
+msgid "WooCommerce: My Account"
+msgstr "WooCommerce: حسابي"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:129
+msgid "WooCommerce: Order Confirmation"
+msgstr "WooCommerce: تأكيد الطلب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:405
+msgid "Unauthorized"
+msgstr "غير مصرّح"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:417
+msgid "New Template"
+msgstr "قالب جديد"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:489
+#: build/editor.js:1
+msgid "Navigation"
+msgstr "التنقّل"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:625
+msgid "Choose a Template Type"
+msgstr "اختر نوع القالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:631
+msgid "Filter templates..."
+msgstr "تصفية القوالب..."
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:641
+msgid "Create Template"
+msgstr "إنشاء قالب"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:652
+msgid "Blank Template"
+msgstr "قالب فارغ"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:653
+msgid "No templates found"
+msgstr "لم يتم العثور على قوالب"
+
+#: includes/Render/Blocks/HeaderActionAccount/HeaderActionAccount.php:159
+#: build/editor.js:1
+msgid "Account"
+msgstr "الحساب"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
+msgctxt "link: show all taxonomy terms"
+msgid "All"
+msgstr "الكل"
+
+#: includes/Render/Enhanced_Navigation.php:1749 build/editor.js:1
+msgid "Back"
+msgstr "رجوع"
+
+#: includes/Render/RenderJS.php:68 build/editor.js:1
+msgid "Play"
+msgstr "تشغيل"
+
+#: includes/Render/RenderJS.php:69 build/editor.js:1
+msgid "Pause"
+msgstr "إيقاف مؤقت"
+
+#: includes/Render/RenderJS.php:70
+msgid "Mute"
+msgstr "كتم الصوت"
+
+#: includes/Render/RenderJS.php:71
+msgid "Unmute"
+msgstr "إلغاء الكتم"
+
+#: includes/Render/RenderJS.php:72 build/editor.js:1
+msgid "Fullscreen"
+msgstr "ملء الشاشة"
+
+#: includes/Render/RenderJS.php:73
+msgid "Exit fullscreen"
+msgstr "الخروج من وضع ملء الشاشة"
+
+#: includes/Render/RenderJS.php:74
+msgid "%current% of %duration%"
+msgstr "%current% من %duration%"
+
+#: includes/Render/RenderJS.php:86
+msgid "Search unavailable. Please try again."
+msgstr "البحث غير متاح. يرجى المحاولة مرة أخرى."
+
+#: build/adminPanel.js:171
+msgid "Release notes"
+msgstr "ملاحظات الإصدار"
+
+#: build/adminPanel.js:171
+msgid "Fonts"
+msgstr "الخطوط"
+
+#: build/adminPanel.js:171
+msgid "License Key"
+msgstr "مفتاح الترخيص"
+
+#: build/adminPanel.js:171
+msgid "Connected"
+msgstr "متصل"
+
+#: build/adminPanel.js:171
+msgid "Refresh"
+msgstr "تحديث"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts refreshed successfully."
+msgstr "تم تحديث خطوط Adobe بنجاح."
+
+#: build/adminPanel.js:171
+msgid "Failed to refresh Adobe Fonts."
+msgstr "فشل تحديث خطوط Adobe."
+
+#: build/adminPanel.js:171
+msgid "Disconnect"
+msgstr "قطع الاتصال"
+
+#: build/adminPanel.js:171
+msgid "No fonts found in your Adobe Fonts web projects. Add fonts at"
+msgstr ""
+"لم يتم العثور على خطوط في مشاريع Adobe Fonts الخاصة بك. أضف خطوطًا على"
+
+#: build/adminPanel.js:171
+msgid "Disconnect Adobe Fonts"
+msgstr "قطع الاتصال بخطوط Adobe"
+
+#: build/adminPanel.js:171
+msgid ""
+"Are you sure you want to disconnect? Any typography settings using Adobe "
+"Fonts will need to be updated."
+msgstr ""
+"هل أنت متأكد من رغبتك في قطع الاتصال؟ ستحتاج إلى تحديث أي إعدادات طباعة "
+"تستخدم Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Disconnected from Adobe Fonts."
+msgstr "تم قطع الاتصال بخطوط Adobe."
+
+#: build/adminPanel.js:171
+msgid "Failed to disconnect from Adobe Fonts."
+msgstr "فشل قطع الاتصال بـ Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Connect your Adobe Fonts account to use your web fonts."
+msgstr "اربط حساب Adobe Fonts الخاص بك لاستخدام خطوط الويب."
+
+#: build/adminPanel.js:171
+msgid "Get your API token"
+msgstr "احصل على رمز API الخاص بك"
+
+#: build/adminPanel.js:171
+msgid "Enter your Adobe Fonts API token..."
+msgstr "أدخل رمز API الخاص بـ Adobe Fonts..."
+
+#: build/adminPanel.js:171
+msgid "Connect"
+msgstr "اتصل"
+
+#: build/adminPanel.js:171
+msgid "Please enter your Adobe Fonts API token."
+msgstr "يرجى إدخال رمز API الخاص بـ Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Successfully connected to Adobe Fonts."
+msgstr "تم الاتصال بخطوط Adobe بنجاح."
+
+#: build/adminPanel.js:171
+msgid "Failed to connect to Adobe Fonts."
+msgstr "فشل الاتصال بخطوط Adobe."
+
+#: build/adminPanel.js:171
+msgid "Remove Variation"
+msgstr "إزالة التنويع"
+
+#: build/adminPanel.js:171
+msgid "Delete Font"
+msgstr "حذف الخط"
+
+#: build/adminPanel.js:171
+msgid "Delete Font Variation"
+msgstr "حذف تنويعة الخط"
+
+#: build/adminPanel.js:171
+msgid "This will remove the font and all its variations."
+msgstr "سيؤدي هذا إلى إزالة الخط وجميع أشكاله."
+
+#: build/adminPanel.js:171
+msgid "Uploaded Fonts"
+msgstr "الخطوط المرفوعة"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts"
+msgstr "Adobe Fonts"
+
+#: build/adminPanel.js:171 build/editor.js:1
+msgid "Help"
+msgstr "مساعدة"
+
+#: build/adminPanel.js:171
+msgid "Blog Posts"
+msgstr "مقالات المدونة"
+
+#: build/adminPanel.js:171
+msgid "Portfolio Projects"
+msgstr "مشاريع المعرض"
+
+#: build/adminPanel.js:171
+msgid "Products"
+msgstr "المنتجات"
+
+#: build/adminPanel.js:171
+msgid "Theme Builder Templates"
+msgstr "قوالب منشئ القالب"
+
+#: build/adminPanel.js:171
+msgid ""
+"Theme-level templates such as headers, footers, navigation, archive layouts,"
+" and single-post layouts that the demo pages depend on."
+msgstr ""
+"قوالب على مستوى القالب مثل الترويسة والتذييل والتنقّل وتخطيطات الأرشيف "
+"وتخطيطات المقالة الواحدة التي تعتمد عليها صفحات العرض التوضيحي."
+
+#: build/adminPanel.js:171
+msgid ""
+"Reusable section layouts inserted into pages, such as megamenu displays and "
+"shared content blocks."
+msgstr ""
+"تخطيطات أقسام قابلة لإعادة الاستخدام يتم إدراجها في الصفحات، مثل عروض "
+"القوائم الضخمة وكتل المحتوى المشتركة."
+
+#: build/adminPanel.js:171
+msgid "Forms"
+msgstr "النماذج"
+
+#: build/adminPanel.js:171
+msgid ""
+"Fluent Forms used by demo pages (e.g. the contact form). Requires the Fluent"
+" Forms plugin."
+msgstr ""
+"Fluent Forms المستخدمة في صفحات العرض التوضيحي (مثل نموذج الاتصال). يتطلب "
+"إضافة Fluent Forms."
+
+#: build/adminPanel.js:171
+msgid "Include"
+msgstr "تضمين"
+
+#: build/adminPanel.js:171
+msgid "Select all"
+msgstr "اختر الكل"
+
+#: build/adminPanel.js:171
+msgid "isn’t installed."
+msgstr "غير مثبّت."
+
+#: build/adminPanel.js:171
+msgid "Install"
+msgstr "تثبيت"
+
+#: build/adminPanel.js:171
+msgid "Local Google Fonts"
+msgstr "الخطوط المحلية من Google"
+
+#: build/adminPanel.js:171
+msgid ""
+"Automatically download and serve Google Fonts locally for improved "
+"performance and GDPR compliance."
+msgstr ""
+"تنزيل وتقديم خطوط Google محليًا تلقائيًا لتحسين الأداء والامتثال لـ GDPR."
+
+#: build/adminPanel.js:171
+msgid "Lazy Load Images"
+msgstr "تحميل الصور الكسول"
+
+#: build/adminPanel.js:171
+msgid ""
+"Defer off-screen images until they are near the viewport, reducing initial "
+"page weight. Above-the-fold images are detected automatically and load "
+"eagerly."
+msgstr ""
+"تأجيل تحميل الصور خارج الشاشة حتى تقترب من منطقة العرض، مما يقلل من حجم "
+"الصفحة الأولي. يتم اكتشاف الصور الموجودة في الجزء المرئي تلقائيًا وتحميلها "
+"فورًا."
+
+#: build/adminPanel.js:171
+msgid "Nectarblocks 3.0 release artwork"
+msgstr "صورة إصدار Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "What's New"
+msgstr "ما الجديد"
+
+#: build/adminPanel.js:171
+msgid "Welcome to Nectarblocks 3.0"
+msgstr "مرحبًا بك في Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid ""
+"This release introduces a complete header builder, a faster editing "
+"experience, hover interactions with a reworked animation builder, a smarter "
+"design system, and a leaner front end, plus dozens of improvements to the "
+"blocks you use every day. Read on for the highlights, or jump straight in "
+"and start building."
+msgstr ""
+"يقدم هذا الإصدار منشئ ترويسة متكامل، وتجربة تحرير أسرع، وتفاعلات التمرير مع "
+"منشئ رسوم متحركة محسّن، ونظام تصميم أذكى، وواجهة أمامية أخف، بالإضافة إلى "
+"عشرات التحسينات على الكتل التي تستخدمها يوميًا. تابع القراءة للاطلاع على "
+"أبرز الميزات، أو ابدأ مباشرة في البناء."
+
+#: build/adminPanel.js:171
+msgid "The header builder you’ve always wanted"
+msgstr "أداة بناء الترويسة التي طالما أردتها"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build custom site headers right in WordPress with flexible layouts, "
+"responsive controls, and unlimited states. Add search, navigation, overlay "
+"menus, and full megamenus."
+msgstr ""
+"أنشئ ترويسات مخصصة للموقع مباشرة في WordPress بتخطيطات مرنة وعناصر تحكم "
+"متجاوبة وحالات غير محدودة. أضف البحث والتنقّل وقوائم التراكب وقوائم ميجا "
+"كاملة."
+
+#: build/adminPanel.js:171
+msgid "Header builder preview"
+msgstr "معاينة منشئ الترويسة"
+
+#: build/adminPanel.js:171
+msgid "A faster editing experience"
+msgstr "تجربة تحرير أسرع"
+
+#: build/adminPanel.js:171
+msgid ""
+"Reimagined spacing controls, drag-to-reorder layers, active-state "
+"indicators, and drag-to-reposition absolute elements. Settings are better "
+"organized, onboarding is clearer."
+msgstr ""
+"عناصر تحكم محسّنة في التباعد، وإعادة ترتيب الطبقات بالسحب، ومؤشرات الحالة "
+"النشطة، وإعادة تموضع العناصر المطلقة بالسحب. الإعدادات منظّمة بشكل أفضل، "
+"والتعريف بالمنتج أوضح."
+
+#: build/adminPanel.js:171
+msgid "Editor experience preview"
+msgstr "معاينة تجربة المحرر"
+
+#: build/adminPanel.js:171
+msgid "Hover interactions, reworked animation UI"
+msgstr "تفاعلات التمرير، واجهة الرسوم المتحركة المُعاد تصميمها"
+
+#: build/adminPanel.js:171
+msgid ""
+"A new interaction animation system brings limitless hover effects, with "
+"spring physics for natural motion, child-element staggering, and per-"
+"property timelines. The animation builder has been reworked throughout, with"
+" a live preview for every effect."
+msgstr ""
+"نظام جديد لتحريك التفاعلات يوفر تأثيرات تمرير لا محدودة، مع فيزياء نابضية "
+"للحركة الطبيعية، وتأخير متدرج للعناصر الفرعية، وجداول زمنية لكل خاصية. تم "
+"إعادة تصميم منشئ الرسوم المتحركة بالكامل، مع معاينة مباشرة لكل تأثير."
+
+#: build/adminPanel.js:171
+msgid "Animation editor preview"
+msgstr "معاينة محرر الحركة"
+
+#: build/adminPanel.js:171
+msgid "A smarter design system"
+msgstr "نظام تصميم أكثر ذكاءً"
+
+#: build/adminPanel.js:171
+msgid ""
+"Manage typography and color in one place with Adobe Fonts integration, saved"
+" custom palettes, and a new color scale system that generates tonal "
+"variations for every palette color."
+msgstr ""
+"إدارة الطباعة والألوان في مكان واحد مع تكامل Adobe Fonts، ولوحات الألوان "
+"المخصصة المحفوظة، ونظام مقياس الألوان الجديد الذي يولّد تدرجات لونية لكل لون"
+" في اللوحة."
+
+#: build/adminPanel.js:171
+msgid "Design system preview"
+msgstr "معاينة نظام التصميم"
+
+#: build/adminPanel.js:171
+msgid "Faster, leaner front end"
+msgstr "واجهة أمامية أسرع وأخف"
+
+#: build/adminPanel.js:171
+msgid ""
+"Pages ship cleaner markup with per-page CSS generation, locally served "
+"Google Fonts, image lazy loading, and selective script loading. The result "
+"is fewer network requests and faster load times for your visitors."
+msgstr ""
+"تُقدّم الصفحات شيفرة أنظف مع توليد CSS لكل صفحة، وخطوط Google محلية، وتحميل "
+"الصور الكسول، وتحميل انتقائي للسكريبتات. النتيجة هي طلبات شبكة أقل وأوقات "
+"تحميل أسرع لزوارك."
+
+#: build/adminPanel.js:171
+msgid "Performance preview"
+msgstr "معاينة الأداء"
+
+#: build/adminPanel.js:171
+msgid "Powerful new blocks to build with"
+msgstr "كتل جديدة قوية للبناء بها"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build more without leaving the editor with a ticker for auto-scrolling "
+"loops, world time for timezones, an auto-generated table of contents, plus "
+"navigation, search, and header actions blocks."
+msgstr ""
+"ابنِ المزيد دون مغادرة المحرر مع شريط متحرك للحلقات ذاتية التمرير، والوقت "
+"العالمي للمناطق الزمنية، وجدول محتويات يُنشأ تلقائيًا، بالإضافة إلى كتل "
+"التنقّل والبحث وإجراءات الترويسة."
+
+#: build/adminPanel.js:171
+msgid "New blocks preview"
+msgstr "معاينة الكتل الجديدة"
+
+#: build/adminPanel.js:171
+msgid "New templates and a ready-made demo"
+msgstr "قوالب جديدة ونموذج تجريبي جاهز"
+
+#: build/adminPanel.js:171
+msgid ""
+"Start faster with over 35 new pre-made templates, plus Radnor, a complete "
+"business website demo you can install in a click and make your own."
+msgstr ""
+"ابدأ بشكل أسرع مع أكثر من 35 قالبًا جاهزًا جديدًا، بالإضافة إلى Radnor، "
+"نموذج موقع أعمال كامل يمكنك تثبيته بنقرة واحدة وجعله خاصًا بك."
+
+#: build/adminPanel.js:171
+msgid "Templates and demo preview"
+msgstr "القوالب ومعاينة العرض التوضيحي"
+
+#: build/adminPanel.js:171
+msgid "Changelog"
+msgstr "سجل التغييرات"
+
+#: build/adminPanel.js:171
+msgid "More in this release"
+msgstr "المزيد في هذا الإصدار"
+
+#: build/adminPanel.js:171
+msgid ""
+"Over 90 new features, improvements, and fixes for building better WordPress "
+"websites. Explore the full 3.0 release for every detail."
+msgstr ""
+"أكثر من 90 ميزة جديدة وتحسينات وإصلاحات لبناء مواقع WordPress أفضل. استكشف "
+"الإصدار 3.0 الكامل للحصول على جميع التفاصيل."
+
+#: build/adminPanel.js:171
+msgid "Explore Nectarblocks 3.0"
+msgstr "استكشف Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "Version"
+msgstr "الإصدار"
+
+#: build/editor.js:1
+msgid "Reset to Default state"
+msgstr "إعادة تعيين إلى الحالة الافتراضية"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Image"
+msgstr "إدراج صورة ديناميكية"
+
+#: build/editor.js:1
+msgid "Dynamic Image"
+msgstr "صورة ديناميكية"
+
+#: build/editor.js:1
+msgid "Selected"
+msgstr "محدد"
+
+#: build/editor.js:1
+msgid "Interaction"
+msgstr "التفاعل"
+
+#: build/editor.js:1
+msgid "Already added"
+msgstr "تمت الإضافة بالفعل"
+
+#: build/editor.js:1
+msgid "Invert"
+msgstr "عكس"
+
+#: build/editor.js:1
+msgid "Offset"
+msgstr "الإزاحة"
+
+#: build/editor.js:1
+msgid "Self"
+msgstr "نفسه"
+
+#: build/editor.js:1
+msgid "Interaction (On Hover/Focus)"
+msgstr "التفاعل (عند التمرير/التركيز)"
+
+#: build/editor.js:1
+msgid "From"
+msgstr "من"
+
+#: build/editor.js:1
+msgid "To"
+msgstr "إلى"
+
+#: build/editor.js:1
+msgid "Timeline"
+msgstr "الجدول الزمني"
+
+#: build/editor.js:1
+msgid ""
+"Per-property timing is unavailable with spring easing — all properties "
+"animate together."
+msgstr ""
+"التوقيت لكل خاصية غير متاح مع تسهيل الحركة الزنبركية — جميع الخصائص تتحرك "
+"معًا."
+
+#: build/editor.js:1
+msgid "Unable to determine the root block tree for this section."
+msgstr "غير قادر على تحديد شجرة الكتلة الجذرية لهذا القسم."
+
+#: build/editor.js:1
+msgid "Pick Trigger Block"
+msgstr "اختر كتلة المشغّل"
+
+#: build/editor.js:1
+msgid "Use Self"
+msgstr "استخدام الذات"
+
+#: build/editor.js:1
+msgid "Children"
+msgstr "الأبناء"
+
+#: build/editor.js:1
+msgid "Directional"
+msgstr "اتجاهي"
+
+#: build/editor.js:1
+msgid "Distance"
+msgstr "المسافة"
+
+#: build/editor.js:1
+msgid "Scroll Distance"
+msgstr "المسافة المقطوعة بالتمرير"
+
+#: build/editor.js:1
+msgid "Element"
+msgstr "عنصر"
+
+#: build/editor.js:1
+msgid "Viewport"
+msgstr "منفذ العرض"
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation begins."
+msgstr "عندما يلتقي موضع العنصر مع موضع منطقة العرض، تبدأ الحركة."
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation is "
+"complete."
+msgstr "عندما يتطابق موضع العنصر مع موضع منفذ العرض، تكتمل الحركة."
+
+#: build/editor.js:1
+msgid "Entrance"
+msgstr "دخول"
+
+#: build/editor.js:1
+msgid "Pin Offset"
+msgstr "إزاحة الدبوس"
+
+#: build/editor.js:1
+msgid "Properties"
+msgstr "الخصائص"
+
+#: build/editor.js:1
+msgid ""
+"Locks this row to the viewport as the user keeps scrolling. The page appears"
+" to stop while the row's animation plays through, then scrolling resumes "
+"once the animation completes. Use the \"End After Scrolling\" value to "
+"control how much scroll distance the locked-in animation takes up."
+msgstr ""
+"يثبّت هذا الصف في منفذ العرض أثناء استمرار المستخدم في التمرير. تبدو الصفحة "
+"وكأنها توقفت بينما يتم تشغيل الرسوم المتحركة للصف، ثم يستأنف التمرير بمجرد "
+"اكتمال الرسوم المتحركة. استخدم قيمة \"الانتهاء بعد التمرير\" للتحكم في مقدار"
+" مسافة التمرير التي تشغلها الرسوم المتحركة المثبتة."
+
+#: build/editor.js:1
+msgid "Row Animation End"
+msgstr "نهاية حركة الصف"
+
+#: build/editor.js:1
+msgid "Go to Parent"
+msgstr "الانتقال إلى الأصل"
+
+#: build/editor.js:1
+msgid "Edit URL"
+msgstr "تحرير الرابط"
+
+#: build/editor.js:1
+msgid "Edit Background Image URL"
+msgstr "تحرير رابط صورة الخلفية"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Image"
+msgstr "إدراج صورة خلفية ديناميكية"
+
+#: build/editor.js:1
+msgid "Dynamic BG Image"
+msgstr "صورة الخلفية الديناميكية"
+
+#: build/editor.js:1
+msgid "Resting State"
+msgstr "الحالة الافتراضية"
+
+#: build/editor.js:1
+msgid "How the video appears when not hovered."
+msgstr "كيف يظهر الفيديو عندما لا يكون مُشارًا إليه."
+
+#: build/editor.js:1
+msgid "First Frame"
+msgstr "الإطار الأول"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Video"
+msgstr "إدراج فيديو خلفية ديناميكي"
+
+#: build/editor.js:1
+msgid "Dynamic BG Video"
+msgstr "فيديو خلفية ديناميكي"
+
+#: build/editor.js:1
+msgid "Element ID"
+msgstr "معرّف العنصر"
+
+#: build/editor.js:1
+msgid "First"
+msgstr "الأول"
+
+#: build/editor.js:1
+msgid "Last"
+msgstr "الأخير"
+
+#: build/editor.js:1
+msgid "Order"
+msgstr "طلب"
+
+#: build/editor.js:1
+msgid "Outset"
+msgstr "البداية"
+
+#: build/editor.js:1
+msgid "Backdrop Filter"
+msgstr "فلتر الخلفية"
+
+#: build/editor.js:1
+msgid "Filter"
+msgstr "فلتر"
+
+#: build/editor.js:1
+msgid "Inherit Block Color"
+msgstr "وراثة لون الكتلة"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Link"
+msgstr "إدراج رابط ديناميكي"
+
+#: build/editor.js:1
+msgid "Dynamic Link"
+msgstr "رابط ديناميكي"
+
+#: build/editor.js:1
+msgid "Attributes"
+msgstr "السمات"
+
+#: build/editor.js:1
+msgid "Screen reader text"
+msgstr "نص قارئ الشاشة"
+
+#: build/editor.js:1
+msgid "Describe the link for screen readers"
+msgstr "وصف الرابط لقارئات الشاشة"
+
+#: build/editor.js:1
+msgid "Drag to reposition"
+msgstr "اسحب لإعادة الموضع"
+
+#: build/editor.js:1
+msgid "Unlink axes"
+msgstr "إلغاء ربط المحاور"
+
+#: build/editor.js:1
+msgid "Link axes"
+msgstr "ربط المحاور"
+
+#: build/editor.js:1
+msgid "Transform Origin"
+msgstr "نقطة التحويل"
+
+#: build/editor.js:1
+msgid "X"
+msgstr "X"
+
+#: build/editor.js:1
+msgid "Y"
+msgstr "Y"
+
+#: build/editor.js:1
+msgid "Theme Fonts"
+msgstr "خطوط القالب"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Video"
+msgstr "إدراج فيديو ديناميكي"
+
+#: build/editor.js:1
+msgid "Dynamic Video"
+msgstr "فيديو ديناميكي"
+
+#: build/editor.js:1
+msgid "Render link as overlay"
+msgstr "جعل الرابط كطبقة علوية"
+
+#: build/editor.js:1
+msgid "Accordion Title.."
+msgstr "عنوان الأكورديون.."
+
+#: build/editor.js:1
+msgid "No Link"
+msgstr "لا يوجد رابط"
+
+#: build/editor.js:1
+msgid ""
+"On (default): the link sits as an overlay so inner blocks can have their own"
+" links and hover effects. Off: the link wraps the column for better SEO."
+msgstr ""
+"تشغيل (افتراضي): يظهر الرابط كطبقة علوية بحيث يمكن للكتل الداخلية أن تحتوي "
+"على روابطها وتأثيرات التمرير الخاصة بها. إيقاف: يلتف الرابط حول العمود "
+"لتحسين محركات البحث."
+
+#: build/editor.js:1
+msgid ""
+"Use when inner blocks have their own links or hover effects. Add screen "
+"reader text below for accessibility."
+msgstr ""
+"استخدم هذا عندما تحتوي الكتل الداخلية على روابط أو تأثيرات تمرير خاصة بها. "
+"أضف نص قارئ الشاشة أدناه لتحسين إمكانية الوصول."
+
+#: build/editor.js:1
+msgid "Defaults to the WooCommerce My Account page."
+msgstr "يتم الافتراض إلى صفحة حسابي في WooCommerce."
+
+#: build/editor.js:1
+msgid "Header Account"
+msgstr "حساب الترويسة"
+
+#: build/editor.js:1
+msgid "Links to the user account page."
+msgstr "روابط إلى صفحة حساب المستخدم."
+
+#: build/editor.js:1
+msgid "Icon color"
+msgstr "لون الأيقونة"
+
+#: build/editor.js:1
+msgid "Header Actions"
+msgstr "إجراءات الترويسة"
+
+#: build/editor.js:1
+msgid "Icon size"
+msgstr "حجم الأيقونة"
+
+#: build/editor.js:1
+msgid "Header action container (search/cart/account)."
+msgstr "حاوية إجراءات الترويسة (بحث/سلة/حساب)."
+
+#: build/editor.js:1
+msgid "URL copied to clipboard"
+msgstr "تم نسخ الرابط إلى الحافظة"
+
+#: build/editor.js:1
+msgid ""
+"Cover fills the block's size — set a height (e.g. 100vh) in the Size "
+"control."
+msgstr ""
+"الغلاف يملأ حجم الكتلة — حدد ارتفاعًا (مثل 100vh) في عنصر التحكم بالحجم."
+
+#: build/editor.js:1
+msgid "Allow Dragging"
+msgstr "السماح بالسحب"
+
+#: build/editor.js:1
+msgid ""
+"Takes effect on the frontend — slides are never draggable while editing."
+msgstr "يسري على الواجهة الأمامية — الشرائح غير قابلة للسحب أثناء التحرير."
+
+#: build/editor.js:1
+msgid "Edit Image URL"
+msgstr "تحرير رابط الصورة"
+
+#: build/editor.js:1
+msgid "Image Sizes"
+msgstr "أحجام الصور"
+
+#: build/editor.js:1
+msgid "Custom Sizes"
+msgstr "أحجام مخصصة"
+
+#: build/editor.js:1
+msgid "Sizes Value"
+msgstr "قيمة الأحجام"
+
+#: build/editor.js:1
+msgid "Megamenu"
+msgstr "قائمة ضخمة"
+
+#: build/editor.js:1
+msgid "Display a global section or template part as a megamenu dropdown."
+msgstr "عرض قسم عام أو جزء من القالب كقائمة منسدلة ضخمة."
+
+#: build/editor.js:1
+msgid "Pattern"
+msgstr "نمط"
+
+#: build/editor.js:1
+msgid "Megamenu:"
+msgstr "قائمة ميجا:"
+
+#: build/editor.js:1
+msgid "Select a megamenu source"
+msgstr "اختر مصدر القائمة الضخمة"
+
+#: build/editor.js:1
+msgid "Megamenu Settings"
+msgstr "إعدادات القائمة الضخمة"
+
+#: build/editor.js:1
+msgid "Selected:"
+msgstr "محدد:"
+
+#: build/editor.js:1
+msgid "Edit in new tab"
+msgstr "تحرير في علامة تبويب جديدة"
+
+#: build/editor.js:1
+msgid "Change"
+msgstr "تغيير"
+
+#: build/editor.js:1
+msgid "Search global sections..."
+msgstr "ابحث في الأقسام العامة..."
+
+#: build/editor.js:1
+msgid "Search patterns..."
+msgstr "بحث عن الأنماط..."
+
+#: build/editor.js:1
+msgid "No results found."
+msgstr "لم يتم العثور على نتائج."
+
+#: build/editor.js:1
+msgid "No global sections found."
+msgstr "لم يتم العثور على أقسام عامة."
+
+#: build/editor.js:1
+msgid "No patterns found. Create a synced pattern first."
+msgstr "لم يتم العثور على أنماط. أنشئ نمطًا متزامنًا أولاً."
+
+#: build/editor.js:1
+msgid "Animate a number counting up to a target value."
+msgstr "تحريك رقم يعد تصاعديًا إلى قيمة مستهدفة."
+
+#: build/editor.js:1
+msgid "Nectar Navigation"
+msgstr "التنقّل في Nectar"
+
+#: build/editor.js:1
+msgid "WordPress Navigation with Nectar enhancements."
+msgstr "التنقّل في WordPress مع تحسينات Nectar."
+
+#: build/editor.js:1
+msgid ""
+"Only fields that resolve to a URL are used; others fall back to the post "
+"link."
+msgstr ""
+"الحقول التي تُحلّ إلى عنوان URL فقط هي المستخدمة؛ أما الأخرى فتعود إلى رابط "
+"المقالة."
+
+#: build/editor.js:1
+msgid "Apply animation state"
+msgstr "تطبيق حالة الحركة"
+
+#: build/editor.js:1
+msgid "Bypass animation — show raw blocks"
+msgstr "تجاوز الحركة — عرض الكتل الخام"
+
+#: build/editor.js:1
+msgid "Pin animation progress"
+msgstr "تثبيت تقدم الحركة"
+
+#: build/editor.js:1
+msgid ""
+"Stays pinned to the viewport while scrolling. Edit in Animation settings."
+msgstr "يبقى مثبتًا في منطقة العرض أثناء التمرير. عدّل في إعدادات الحركة."
+
+#: build/editor.js:1
+msgid "Pinned Timeline"
+msgstr "الجدول الزمني المثبت"
+
+#: build/editor.js:1
+msgid "Contain Content"
+msgstr "احتواء المحتوى"
+
+#: build/editor.js:1
+msgid "Header Appearance"
+msgstr "مظهر الترويسة"
+
+#: build/editor.js:1
+msgid ""
+"Tags this section so the header switches to a chosen variant while the "
+"section is on screen. \"Default\" leaves the header in its normal lifecycle "
+"state."
+msgstr ""
+"يُعيّن علامة لهذا القسم بحيث تتحوّل الترويسة إلى متغيّر محدّد أثناء ظهور "
+"القسم على الشاشة. \"افتراضي\" يترك الترويسة في حالتها الطبيعية."
+
+#: build/editor.js:1
+msgid "Input BG"
+msgstr "خلفية الإدخال"
+
+#: build/editor.js:1
+msgid "Popup BG"
+msgstr "خلفية النافذة المنبثقة"
+
+#: build/editor.js:1
+msgid "Input Text"
+msgstr "نص الإدخال"
+
+#: build/editor.js:1
+msgid "Result Text"
+msgstr "نص النتيجة"
+
+#: build/editor.js:1
+msgid "Result Hover BG"
+msgstr "خلفية النتيجة عند التمرير"
+
+#: build/editor.js:1
+msgid "All Post Types"
+msgstr "جميع أنواع المحتوى"
+
+#: build/editor.js:1
+msgid "Dropdown"
+msgstr "القائمة المنسدلة"
+
+#: build/editor.js:1
+msgid "Search Settings"
+msgstr "إعدادات البحث"
+
+#: build/editor.js:1
+msgid "Placeholder"
+msgstr "عنصر نائب"
+
+#: build/editor.js:1
+msgid "AJAX Search"
+msgstr "بحث AJAX"
+
+#: build/editor.js:1
+msgid "Limit to post type"
+msgstr "حصر في نوع المحتوى"
+
+#: build/editor.js:1
+msgid "Featured image"
+msgstr "الصورة المميزة"
+
+#: build/editor.js:1
+msgid "Post type"
+msgstr "نوع المحتوى"
+
+#: build/editor.js:1
+msgid "Input Styling"
+msgstr "تنسيق حقل الإدخال"
+
+#: build/editor.js:1
+msgid "Focus"
+msgstr "تركيز"
+
+#: build/editor.js:1
+msgid "Effects"
+msgstr "التأثيرات"
+
+#: build/editor.js:1
+msgid "Clear search"
+msgstr "مسح البحث"
+
+#: build/editor.js:1
+msgid "AJAX results will appear here"
+msgstr "ستظهر نتائج AJAX هنا"
+
+#: build/editor.js:1
+msgid "A search block with optional AJAX-powered results."
+msgstr "كتلة بحث مع نتائج اختيارية مدعومة بـ AJAX."
+
+#: build/editor.js:1
+#, js-format
+msgid "%s out of 5 stars"
+msgstr "%s من 5 نجوم"
+
+#: build/editor.js:1
+msgid "Table of Contents"
+msgstr "جدول المحتويات"
+
+#: build/editor.js:1
+msgid "Link copied"
+msgstr "تم نسخ الرابط"
+
+#: build/editor.js:1
+msgid "Collapsible"
+msgstr "قابل للطي"
+
+#: build/editor.js:1
+msgid "Always Visible"
+msgstr "دائم الظهور"
+
+#: build/editor.js:1
+msgid "Bullet"
+msgstr "نقطة"
+
+#: build/editor.js:1
+msgid "Headings"
+msgstr "العناوين"
+
+#: build/editor.js:1
+msgid "List Style"
+msgstr "نمط القائمة"
+
+#: build/editor.js:1
+msgid "Item Gap"
+msgstr "المسافة بين العناصر"
+
+#: build/editor.js:1
+msgid "Hierarchical"
+msgstr "هرمي"
+
+#: build/editor.js:1
+msgid "Parent Active Only"
+msgstr "نشط للأصل فقط"
+
+#: build/editor.js:1
+msgid ""
+"Highlight only the parent item as scroll moves through its children. Useful "
+"when child headings flow inline."
+msgstr ""
+"تمييز العنصر الأصلي فقط عند التمرير عبر العناصر الفرعية. مفيد عندما تتدفق "
+"العناوين الفرعية بشكل مضمّن."
+
+#: build/editor.js:1
+msgid "Smooth Scroll"
+msgstr "التمرير السلس"
+
+#: build/editor.js:1
+msgid ""
+"Extra space between the header navigation and the heading you scroll to"
+msgstr "مسافة إضافية بين التنقّل في الترويسة والعنوان الذي تنتقل إليه"
+
+#: build/editor.js:1
+msgid "Anchor Links"
+msgstr "روابط الإرساء"
+
+#: build/editor.js:1
+msgid "Adds link icons to headings on the page"
+msgstr "يضيف أيقونات روابط إلى العناوين في الصفحة"
+
+#: build/editor.js:1
+msgid "Heading (default)"
+msgstr "عنوان (افتراضي)"
+
+#: build/editor.js:1
+msgid "Scroll target"
+msgstr "هدف التمرير"
+
+#: build/editor.js:1
+msgid "Current target:"
+msgstr "الهدف الحالي:"
+
+#: build/editor.js:1
+msgid "No blocks available."
+msgstr "لا توجد كتل متاحة."
+
+#: build/editor.js:1
+msgid "Scroll target options"
+msgstr "خيارات هدف التمرير"
+
+#: build/editor.js:1
+msgid "Scroll to:"
+msgstr "انتقل إلى:"
+
+#: build/editor.js:1
+msgid "Items"
+msgstr "العناصر"
+
+#: build/editor.js:1
+msgid "Active Text"
+msgstr "النص النشط"
+
+#: build/editor.js:1
+msgid "Active Opacity"
+msgstr "الشفافية النشطة"
+
+#: build/editor.js:1
+msgid "No headings found. Add heading blocks to your content."
+msgstr "لم يتم العثور على عناوين. أضف كتل العناوين إلى المحتوى الخاص بك."
+
+#: build/editor.js:1
+msgid "Auto-generated navigation for page headings."
+msgstr "التنقّل التلقائي لعناوين الصفحة."
+
+#: build/editor.js:1
+msgid "toc"
+msgstr "جدول المحتويات"
+
+#: build/editor.js:1
+msgid "table of contents"
+msgstr "جدول المحتويات"
+
+#: build/editor.js:1
+msgid "navigation"
+msgstr "التنقّل"
+
+#: build/editor.js:1
+msgid "headings"
+msgstr "العناوين"
+
+#: build/editor.js:1
+msgid "John Doe.."
+msgstr "جون دو.."
+
+#: build/editor.js:1
+msgid "@nectarblocks.."
+msgstr "@nectarblocks.."
+
+#: build/editor.js:1
+msgid "”Enter the testimonial text here..”"
+msgstr "\"أدخل نص الشهادة هنا..\""
+
+#: build/editor.js:1
+msgid "Insert Dynamic Text"
+msgstr "إدراج نص ديناميكي"
+
+#: build/editor.js:1
+msgid "Dynamic Text"
+msgstr "نص ديناميكي"
+
+#: build/editor.js:1
+msgid "Animate by word or by individual character."
+msgstr "تحريك حسب الكلمة أو حسب الحرف الفردي."
+
+#: build/editor.js:1
+msgid "Sync to Pin"
+msgstr "مزامنة مع التثبيت"
+
+#: build/editor.js:1
+msgid "This text animation is synced to a parent block using"
+msgstr "هذه الحركة النصية متزامنة مع كتلة أصلية باستخدام"
+
+#: build/editor.js:1
+msgid "Align text left"
+msgstr "محاذاة النص إلى اليسار"
+
+#: build/editor.js:1
+msgid "Align text center"
+msgstr "محاذاة النص في الوسط"
+
+#: build/editor.js:1
+msgid "Align text right"
+msgstr "محاذاة النص إلى اليمين"
+
+#: build/editor.js:1
+msgid "Align text"
+msgstr "محاذاة النص"
+
+#: build/editor.js:1
+msgid "Ticker Item"
+msgstr "عنصر الشريط المتحرك"
+
+#: build/editor.js:1
+msgid "A section for content inside the ticker."
+msgstr "قسم للمحتوى داخل الشريط المتحرك."
+
+#: build/editor.js:1
+msgid "ticker"
+msgstr "شريط الأخبار"
+
+#: build/editor.js:1
+msgid "ticker item"
+msgstr "عنصر الشريط المتحرك"
+
+#: build/editor.js:1
+msgid "Empty item"
+msgstr "عنصر فارغ"
+
+#: build/editor.js:1
+msgid "Ticker Items"
+msgstr "عناصر الشريط المتحرك"
+
+#: build/editor.js:1
+msgid "Add items to the ticker to reorder them here."
+msgstr "أضف عناصر إلى الشريط المتحرك لإعادة ترتيبها هنا."
+
+#: build/editor.js:1
+msgid "Add Item"
+msgstr "إضافة عنصر"
+
+#: build/editor.js:1
+msgid "Delete item"
+msgstr "حذف العنصر"
+
+#: build/editor.js:1
+msgid "Delete Ticker Item"
+msgstr "حذف عنصر الشريط المتحرك"
+
+#: build/editor.js:1
+msgid "Previous Item"
+msgstr "العنصر السابق"
+
+#: build/editor.js:1
+msgid "Next Item"
+msgstr "العنصر التالي"
+
+#: build/editor.js:1
+msgid "Uniform Width"
+msgstr "عرض موحد"
+
+#: build/editor.js:1
+msgid "Uniform Height"
+msgstr "ارتفاع موحد"
+
+#: build/editor.js:1
+msgid "Drag to Move"
+msgstr "اسحب للتحريك"
+
+#: build/editor.js:1
+msgid "Frontend only"
+msgstr "الواجهة الأمامية فقط"
+
+#: build/editor.js:1
+msgid "Scroll Velocity"
+msgstr "سرعة التمرير"
+
+#: build/editor.js:1
+msgid "Speed increases when scrolling. Frontend only."
+msgstr "تزداد السرعة عند التمرير. الواجهة الأمامية فقط."
+
+#: build/editor.js:1
+msgid "Dynamic Direction"
+msgstr "الاتجاه الديناميكي"
+
+#: build/editor.js:1
+msgid ""
+"Ticker direction follows scroll direction instead of using a fixed "
+"direction."
+msgstr "اتجاه الشريط المتحرك يتبع اتجاه التمرير بدلاً من استخدام اتجاه ثابت."
+
+#: build/editor.js:1
+msgid "Loop copy"
+msgstr "نسخ الحلقة"
+
+#: build/editor.js:1
+msgid "Ticker"
+msgstr "شريط الأخبار"
+
+#: build/editor.js:1
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "عرض المحتوى في حلقة متواصلة لا نهائية بأسلوب الشريط المتحرك."
+
+#: build/editor.js:1
+msgid "scroll"
+msgstr "تمرير"
+
+#: build/editor.js:1
+msgid "loop"
+msgstr "حلقة"
+
+#: build/editor.js:1
+msgid "Custom Skin"
+msgstr "بشرة مخصصة"
+
+#: build/editor.js:1
+msgid "Tint"
+msgstr "تدرج فاتح"
+
+#: build/editor.js:1
+msgid "Toolbar Roundness"
+msgstr "استدارة شريط الأدوات"
+
+#: build/editor.js:1
+msgid "Buttons Roundness"
+msgstr "استدارة الأزرار"
+
+#: build/editor.js:1
+msgid "Bar"
+msgstr "شريط"
+
+#: build/editor.js:1
+msgid "Minimal"
+msgstr "بسيط"
+
+#: build/editor.js:1
+msgid "Preview Video"
+msgstr "معاينة الفيديو"
+
+#: build/editor.js:1
+msgid "Short"
+msgstr "قصير"
+
+#: build/editor.js:1
+msgid "Long"
+msgstr "طويل"
+
+#: build/editor.js:1
+msgid "Numeric"
+msgstr "رقمي"
+
+#: build/editor.js:1
+msgid "Weekday Short"
+msgstr "اختصار اليوم"
+
+#: build/editor.js:1
+msgid "Weekday Full"
+msgstr "يوم الأسبوع كاملاً"
+
+#: build/editor.js:1
+msgid "12h"
+msgstr "12 ساعة"
+
+#: build/editor.js:1
+msgid "24h"
+msgstr "24 ساعة"
+
+#: build/editor.js:1
+msgid "Before"
+msgstr "قبل"
+
+#: build/editor.js:1
+msgid "After"
+msgstr "بعد"
+
+#: build/editor.js:1
+msgid "Same"
+msgstr "نفسه"
+
+#: build/editor.js:1
+msgid "Smaller"
+msgstr "أصغر"
+
+#: build/editor.js:1
+msgid "Time Settings"
+msgstr "إعدادات الوقت"
+
+#: build/editor.js:1
+msgid "City"
+msgstr "مدينة"
+
+#: build/editor.js:1
+msgid "Search for a city..."
+msgstr "ابحث عن مدينة..."
+
+#: build/editor.js:1
+msgid "Time Format"
+msgstr "تنسيق الوقت"
+
+#: build/editor.js:1
+msgid "Format"
+msgstr "التنسيق"
+
+#: build/editor.js:1
+msgid "Show Timezone"
+msgstr "عرض المنطقة الزمنية"
+
+#: build/editor.js:1
+msgid "Show Seconds"
+msgstr "إظهار الثواني"
+
+#: build/editor.js:1
+msgid "World Time"
+msgstr "الوقت العالمي"
+
+#: build/editor.js:1
+msgid "Display the current time for any major city worldwide."
+msgstr "اعرض الوقت الحالي لأي مدينة رئيسية حول العالم."
+
+#: build/editor.js:1
+msgid "time"
+msgstr "الوقت"
+
+#: build/editor.js:1
+msgid "clock"
+msgstr "ساعة"
+
+#: build/editor.js:1
+msgid "world"
+msgstr "العالم"
+
+#: build/editor.js:1
+msgid "timezone"
+msgstr "المنطقة الزمنية"
+
+#: build/editor.js:1
+msgid "Nectarblocks Palette"
+msgstr "لوحة ألوان Nectarblocks"
+
+#: build/editor.js:1
+msgid "WordPress Color Scheme"
+msgstr "نظام ألوان WordPress"
+
+#: build/editor.js:1
+msgid "Linear"
+msgstr "خطي"
+
+#: build/editor.js:1
+msgid "Tension"
+msgstr "توتر"
+
+#: build/editor.js:1
+msgid "Friction"
+msgstr "الاحتكاك"
+
+#: build/editor.js:1
+msgid "Settle"
+msgstr "تسوية"
+
+#: build/editor.js:1
+msgid "Spring"
+msgstr "الربيع"
+
+#: build/editor.js:1
+msgid "Bulk Edit"
+msgstr "تحرير جماعي"
+
+#: build/editor.js:1
+msgid "Deselect image"
+msgstr "إلغاء تحديد الصورة"
+
+#: build/editor.js:1
+msgid "Images"
+msgstr "الصور"
+
+#: build/editor.js:1
+msgid "Select images to delete in bulk"
+msgstr "حدد الصور للحذف بشكل جماعي"
+
+#: build/editor.js:1
+msgid "Select an image to edit its details"
+msgstr "اختر صورة لتعديل تفاصيلها"
+
+#: build/editor.js:1
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#: build/editor.js:1
+msgid "Add"
+msgstr "إضافة"
+
+#: build/editor.js:1
+msgid "Untitled Color"
+msgstr "لون بدون عنوان"
+
+#: build/editor.js:1
+msgid "Untitled Gradient"
+msgstr "تدرج بدون عنوان"
+
+#: build/editor.js:1
+#, js-format
+msgid "Copied %s to clipboard"
+msgstr "تم نسخ %s إلى الحافظة"
+
+#: build/editor.js:1
+msgid "Delete Selected"
+msgstr "حذف المحدد"
+
+#: build/editor.js:1
+msgid "Copy Hex"
+msgstr "نسخ الكود السداسي"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete these"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه"
+
+#: build/editor.js:1
+msgid "colors"
+msgstr "الألوان"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these colors in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"إذا كنت تستخدم هذه الألوان بالفعل في الكتل، يمكنك اختياريًا إعادة تعيينها "
+"إلى لون آخر."
+
+#: build/editor.js:1
+msgid "Reassign"
+msgstr "إعادة تعيين"
+
+#: build/editor.js:1
+msgid "Reassign selected colors"
+msgstr "إعادة تعيين الألوان المحددة"
+
+#: build/editor.js:1
+msgid "Colors deleted successfully!"
+msgstr "تم حذف الألوان بنجاح!"
+
+#: build/editor.js:1
+msgid "Daydream"
+msgstr "Daydream"
+
+#: build/editor.js:1
+msgid "Palette saved"
+msgstr "تم حفظ اللوحة"
+
+#: build/editor.js:1
+msgid "Palette updated"
+msgstr "تم تحديث اللوحة"
+
+#: build/editor.js:1
+msgid "Palette deleted"
+msgstr "تم حذف اللوحة"
+
+#: build/editor.js:1
+msgid "Delete Palette"
+msgstr "حذف اللوحة"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete this palette?"
+msgstr "هل أنت متأكد من رغبتك في حذف هذه اللوحة؟"
+
+#: build/editor.js:1
+msgid "No custom palettes yet."
+msgstr "لا توجد لوحات ألوان مخصصة بعد."
+
+#: build/editor.js:1
+msgid "Update Colors"
+msgstr "تحديث الألوان"
+
+#: build/editor.js:1
+msgid "Palette Name"
+msgstr "اسم اللوحة"
+
+#: build/editor.js:1
+msgid "+ Save Current Colors"
+msgstr "+ حفظ الألوان الحالية"
+
+#: build/editor.js:1
+msgid "Saved"
+msgstr "تم الحفظ"
+
+#: build/editor.js:1
+msgid "Apply"
+msgstr "تطبيق"
+
+#: build/editor.js:1
+msgid "Palettes"
+msgstr "لوحات الألوان"
+
+#: build/editor.js:1
+msgid "Color Scale"
+msgstr "مقياس الألوان"
+
+#: build/editor.js:1
+msgid "Palette"
+msgstr "لوحة الألوان"
+
+#: build/editor.js:1
+msgid "Add Color"
+msgstr "إضافة لون"
+
+#: build/editor.js:1
+msgid "Add Gradient"
+msgstr "أضف تدرجًا"
+
+#: build/editor.js:1
+msgid "Colors"
+msgstr "الألوان"
+
+#: build/editor.js:1
+msgid "Base"
+msgstr "قاعدة"
+
+#: build/editor.js:1
+msgid "font rules"
+msgstr "قواعد الخط"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these fonts in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"إذا كنت تستخدم هذه الخطوط بالفعل في الكتل، يمكنك اختياريًا إعادة تعيينها إلى"
+" خط آخر."
+
+#: build/editor.js:1
+msgid "Reassign selected fonts"
+msgstr "إعادة تعيين الخطوط المحددة"
+
+#: build/editor.js:1
+msgid "Text Styles"
+msgstr "أنماط النص"
+
+#: build/editor.js:1
+msgid "Add Rule"
+msgstr "إضافة قاعدة"
+
+#: build/editor.js:1
+msgid "Restart Guide"
+msgstr "دليل إعادة التشغيل"
+
+#: build/editor.js:1
+msgid "Transition"
+msgstr "انتقال"
+
+#: build/editor.js:1
+msgid "Reset to Default Content"
+msgstr "إعادة تعيين المحتوى الافتراضي"
+
+#: build/editor.js:1
+msgid ""
+"This will replace all current content with the default template. This action"
+" cannot be undone."
+msgstr ""
+"سيؤدي هذا إلى استبدال جميع المحتوى الحالي بالقالب الافتراضي. لا يمكن التراجع"
+" عن هذا الإجراء."
+
+#: build/editor.js:1
+msgid "Resetting..."
+msgstr "جارٍ إعادة التعيين..."
+
+#: build/editor.js:1
+msgid "Reset Content"
+msgstr "إعادة تعيين المحتوى"
+
+#: build/editor.js:1
+msgid "Page titles are hidden globally via Plugin Options → Hide Page Titles."
+msgstr ""
+"عناوين الصفحات مخفية عالميًا عبر خيارات الإضافة ← إخفاء عناوين الصفحات."
+
+#: build/editor.js:1
+msgid "Editor canvas"
+msgstr "لوحة المحرر"
+
+#: build/editor.js:1
+msgid ""
+"Sets the editor-only background behind the header while editing this state. "
+"Helps you design against the real-world context (e.g. a dark hero) without "
+"affecting the published site."
+msgstr ""
+"يضبط الخلفية المرئية في المحرر فقط خلف الترويسة أثناء تحرير هذه الحالة. "
+"يساعدك على التصميم مقابل السياق الواقعي (مثل قسم بطل داكن) دون التأثير على "
+"الموقع المنشور."
+
+#: build/editor.js:1
+msgid "Clear"
+msgstr "مسح"
+
+#: build/editor.js:1
+msgid "More options"
+msgstr "المزيد من الخيارات"
+
+#: build/editor.js:1
+msgid "Delete Variant Confirmation"
+msgstr "حذف تأكيد المتغير"
+
+#: build/editor.js:1
+msgid ""
+"Saved style values for this variant on this page will be removed. You can "
+"undo (Cmd/Ctrl+Z) to restore them. Other pages are unaffected until next "
+"edited."
+msgstr ""
+"ستتم إزالة قيم الأنماط المحفوظة لهذا المتغير في هذه الصفحة. يمكنك التراجع "
+"(Cmd/Ctrl+Z) لاستعادتها. الصفحات الأخرى لن تتأثر حتى يتم تحريرها لاحقًا."
+
+#: build/editor.js:1
+msgid "Name is too long (max 40 characters)."
+msgstr "الاسم طويل جدًا (الحد الأقصى 40 حرفًا)."
+
+#: build/editor.js:1
+msgid "A state or variant already uses that name."
+msgstr "حالة أو متغير يستخدم هذا الاسم بالفعل."
+
+#: build/editor.js:1
+msgid "Name must include letters or numbers."
+msgstr "يجب أن يتضمن الاسم أحرفًا أو أرقامًا."
+
+#: build/editor.js:1
+msgid "Name is required."
+msgstr "الاسم مطلوب."
+
+#: build/editor.js:1
+msgid "Header State"
+msgstr "حالة الترويسة"
+
+#: build/editor.js:1
+msgid "Lifecycle state"
+msgstr "حالة دورة الحياة"
+
+#: build/editor.js:1
+msgid ""
+"Create custom looks for the header to use over specific sections, like a "
+"\"Cream\" version for light hero areas. Tag a row with a variant from its "
+"Header Appearance setting and the header switches to that look while the row"
+" is on screen."
+msgstr ""
+"أنشئ مظاهر مخصصة للترويسة لاستخدامها فوق أقسام معينة، مثل نسخة \"كريمية\" "
+"للمناطق البطولية الفاتحة. ضع علامة على صف بمتغير من إعداد مظهر الترويسة "
+"وستتحول الترويسة إلى ذلك المظهر أثناء ظهور الصف على الشاشة."
+
+#: build/editor.js:1
+msgid "Add Variant"
+msgstr "إضافة متغير"
+
+#: build/editor.js:1
+msgid "e.g. Dark, Cream"
+msgstr "على سبيل المثال: داكن، كريمي"
+
+#: build/editor.js:1
+msgid "Create"
+msgstr "إنشاء"
+
+#: build/editor.js:1
+msgid "Custom color"
+msgstr "لون مخصص"
+
+#: build/editor.js:1
+msgid ""
+"This clears settings stored on this specific combination only. The variant "
+"base and the lifecycle state are unaffected."
+msgstr ""
+"هذا يمسح الإعدادات المخزنة على هذا المزيج المحدد فقط. القاعدة المتغيرة وحالة"
+" دورة الحياة غير متأثرة."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings for this variant (including any lifecycle overrides"
+" inside it). The variant entry itself stays in the list."
+msgstr ""
+"يؤدي هذا إلى مسح جميع الإعدادات لهذا المتغير (بما في ذلك أي تجاوزات لدورة "
+"الحياة بداخله). يبقى إدخال المتغير نفسه في القائمة."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings stored on this lifecycle state. Other states and "
+"variants are unaffected."
+msgstr ""
+"هذا يمسح جميع الإعدادات المخزنة في حالة دورة الحياة هذه. الحالات والمتغيرات "
+"الأخرى لن تتأثر."
+
+#: build/editor.js:1
+msgid "Reset this state"
+msgstr "إعادة تعيين هذه الحالة"
+
+#: build/editor.js:1
+msgid "Reset Header State"
+msgstr "إعادة تعيين حالة الترويسة"
+
+#: build/editor.js:1
+msgid "Are you sure you want to reset the"
+msgstr "هل أنت متأكد من إعادة تعيين"
+
+#: build/editor.js:1
+msgid "header state?"
+msgstr "حالة الترويسة؟"
+
+#: build/editor.js:1
+msgid "Confirm Reset"
+msgstr "تأكيد إعادة التعيين"
+
+#: build/editor.js:1
+msgid "Template State"
+msgstr "حالة القالب"
+
+#: build/editor.js:1
+msgid "Blog"
+msgstr "مدونة"
+
+#: build/editor.js:1
+msgid "FAQ"
+msgstr "الأسئلة الشائعة"
+
+#: build/editor.js:1
+msgid "Gallery"
+msgstr "معرض الصور"
+
+#: build/editor.js:1
+msgid "Hero Section"
+msgstr "قسم البطل"
+
+#: build/editor.js:1
+msgid "Logos"
+msgstr "الشعارات"
+
+#: build/editor.js:1
+msgid "Off-Canvas Menu"
+msgstr "القائمة الجانبية"
+
+#: build/editor.js:1
+msgid "Services"
+msgstr "الخدمات"
+
+#: build/editor.js:1
+msgid "Stats"
+msgstr "الإحصائيات"
+
+#: build/editor.js:1
+msgid "Team"
+msgstr "فريق"
+
+#: build/editor.js:1
+msgid "Testimonials"
+msgstr "الشهادات"
+
+#: build/editor.js:1
+msgid "Hover to preview the pinned scroll animation"
+msgstr "مرر المؤشر لمعاينة حركة التثبيت عند التمرير"
+
+#: build/editor.js:1
+msgid "Pinned Scroll"
+msgstr "التمرير المثبت"
+
+#: build/editor.js:1
+msgid "This template renders content dynamically from your site's data"
+msgstr "هذا القالب يعرض المحتوى ديناميكيًا من بيانات موقعك"
+
+#: build/editor.js:1
+msgid ""
+"Title hidden on the live page — set globally in Plugin Options → Hide Page "
+"Titles"
+msgstr ""
+"العنوان مخفي في الصفحة المباشرة — يُعيَّن عالميًا في خيارات الإضافة ← إخفاء "
+"عناوين الصفحات"
+
+#: build/editor.js:1
+msgid "Title hidden on the live page"
+msgstr "العنوان مخفي على الصفحة المباشرة"
+
+#: build/editor.js:1
+msgid "Title visible on the live page"
+msgstr "العنوان المرئي على الصفحة المباشرة"
+
+#: build/editor.js:1
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: build/editor.js:1
+msgid "Skip tour"
+msgstr "تخطي الجولة"
+
+#: build/editor.js:1
+msgid "Click the highlighted button to continue"
+msgstr "اضغط على الزر المميز للمتابعة"
+
+#: build/editor.js:1
+msgid "Start Tour"
+msgstr "ابدأ الجولة"
+
+#: build/editor.js:1
+msgid "Finish"
+msgstr "إنهاء"
+
+#: build/editor.js:1
+msgid "Welcome to Nectarblocks"
+msgstr "مرحبًا بك في Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"Let's take a quick tour of the editor so you can start building beautiful "
+"pages in no time."
+msgstr ""
+"دعنا نأخذ جولة سريعة في المحرر حتى تتمكن من البدء في بناء صفحات جميلة في وقت"
+" قصير."
+
+#: build/editor.js:1
+msgid "This will only take a moment. You can exit anytime."
+msgstr "سيستغرق هذا لحظة فقط. يمكنك الخروج في أي وقت."
+
+#: build/editor.js:1
+msgid "Add Blocks"
+msgstr "إضافة كتل"
+
+#: build/editor.js:1
+msgid ""
+"This is the block inserter. Go ahead, click it to see the available blocks."
+msgstr "هذه أداة إدراج الكتل. تفضل، اضغط عليها لرؤية الكتل المتاحة."
+
+#: build/editor.js:1
+msgid "The Block Library"
+msgstr "مكتبة الكتل"
+
+#: build/editor.js:1
+msgid ""
+"The Nectarblocks category appears at the top of the list, with each block "
+"highlighted in blue for easy identification."
+msgstr ""
+"تظهر فئة Nectarblocks في أعلى القائمة، مع تمييز كل كتلة باللون الأزرق لسهولة"
+" التعرف عليها."
+
+#: build/editor.js:1
+msgid ""
+"From rows and columns to images, headings, and advanced layouts. Everything "
+"starts here."
+msgstr ""
+"من الصفوف والأعمدة إلى الصور والعناوين والتخطيطات المتقدمة. كل شيء يبدأ من "
+"هنا."
+
+#: build/editor.js:1
+msgid ""
+"Jump-start your design with professionally crafted templates. Click here to "
+"browse the full collection."
+msgstr "ابدأ تصميمك بقوالب مصممة باحترافية. اضغط هنا لتصفح المجموعة الكاملة."
+
+#: build/editor.js:1
+msgid "Every template automatically adapts to your design system."
+msgstr "كل قالب يتكيف تلقائيًا مع نظام التصميم الخاص بك."
+
+#: build/editor.js:1
+msgid "Responsive & Hover Modes"
+msgstr "الأوضاع المستجيبة والتفاعلية"
+
+#: build/editor.js:1
+msgid ""
+"Switch between Desktop, Tablet, Phone, and Hover editing modes here. Changes"
+" apply only to the selected mode, giving you precise control over every "
+"breakpoint."
+msgstr ""
+"انتقل بين أوضاع التحرير لسطح المكتب، الجهاز اللوحي، الهاتف، والتمرير من هنا."
+" تُطبَّق التغييرات على الوضع المحدد فقط، مما يمنحك تحكمًا دقيقًا في كل نقطة "
+"توقف."
+
+#: build/editor.js:1
+msgid "Settings highlighted in"
+msgstr "الإعدادات المميزة في"
+
+#: build/editor.js:1
+msgid "can be customized independently for each mode."
+msgstr "يمكن تخصيصه بشكل مستقل لكل وضع."
+
+#: build/editor.js:1
+msgid "Nectarblocks Sidebar"
+msgstr "الشريط الجانبي لـ Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"This is where your design system lives. Colors, gradients, and typography "
+"that can be applied to any block across your site."
+msgstr ""
+"هنا يعيش نظام التصميم الخاص بك. الألوان والتدرجات والطباعة التي يمكن تطبيقها"
+" على أي كتلة عبر موقعك."
+
+#: build/editor.js:1
+msgid "Click it to take a look inside."
+msgstr "اضغط عليه لإلقاء نظرة بالداخل."
+
+#: build/editor.js:1
+msgid "Your Design System"
+msgstr "نظام التصميم الخاص بك"
+
+#: build/editor.js:1
+msgid ""
+"Manage your global color palette and typography rules here. Changes cascade "
+"across every block on every page, making it easy to maintain a consistent "
+"design system."
+msgstr ""
+"إدارة لوحة الألوان العامة وقواعد الطباعة من هنا. تنتشر التغييرات عبر كل كتلة"
+" في كل صفحة، مما يسهّل الحفاظ على نظام تصميم متسق."
+
+#: build/editor.js:1
+msgid ""
+"Select any block and click here to open its settings panel. Each block "
+"offers extensive customization including colors, spacing, typography, "
+"animations, and more."
+msgstr ""
+"اختر أي كتلة واضغط هنا لفتح لوحة إعداداتها. توفر كل كتلة خيارات تخصيص واسعة "
+"تشمل الألوان، والمسافات، والطباعة، والحركات، والمزيد."
+
+#: build/editor.js:1
+msgid ""
+"Having trouble selecting a block? Try the Document Overview for a full "
+"outline of your page structure."
+msgstr ""
+"هل تواجه صعوبة في تحديد كتلة؟ جرّب نظرة عامة على المستند للحصول على مخطط "
+"كامل لبنية صفحتك."
+
+#: build/editor.js:1
+msgid "You're all set!"
+msgstr "كل شيء جاهز!"
+
+#: build/editor.js:1
+msgid ""
+"You now know the essentials. Start building your page and explore each "
+"block's settings to discover everything Nectarblocks can do."
+msgstr ""
+"أنت الآن تعرف الأساسيات. ابدأ ببناء صفحتك واستكشف إعدادات كل كتلة لاكتشاف كل"
+" ما يمكن لـ Nectarblocks القيام به."
+
+#: build/editor.js:1
+msgid ""
+"To replay this guide, open the Nectarblocks Settings sidebar and click "
+"\"Restart Guide\" at the bottom."
+msgstr ""
+"لإعادة تشغيل هذا الدليل، افتح الشريط الجانبي لإعدادات Nectarblocks واضغط على"
+" \"إعادة تشغيل الدليل\" في الأسفل."
+
+#: build/editor.js:1
+msgid "Visit the Nectarblocks Academy"
+msgstr "قم بزيارة أكاديمية Nectarblocks"
+
+#: build/editor.js:1
+msgid "Inherit (same as desktop)"
+msgstr "الوراثة (نفس سطح المكتب)"
+
+#: build/editor.js:1
+msgid "(Untitled)"
+msgstr "(بدون عنوان)"
+
+#: build/editor.js:1
+msgid "Classic"
+msgstr "كلاسيكي"
+
+#: build/editor.js:1
+msgid "Editing Header State"
+msgstr "تحرير حالة الترويسة"
+
+#: build/editor.js:1
+msgid "Scrolled"
+msgstr "تم التمرير"
+
+#: build/editor.js:1
+msgid "Overlay Menu"
+msgstr "قائمة التراكب"
+
+#: build/editor.js:1
+msgid "on"
+msgstr "مفعّل"
+
+#: build/editor.js:1
+msgid "Menu Items"
+msgstr "عناصر القائمة"
+
+#: build/editor.js:1
+msgid "Dropdowns"
+msgstr "القوائم المنسدلة"
+
+#: build/editor.js:1
+msgid "States"
+msgstr "الولايات"
+
+#: build/editor.js:1
+msgid "FX"
+msgstr "FX"
+
+#: build/editor.js:1
+msgid "Active"
+msgstr "نشط"
+
+#: build/editor.js:1
+msgid "Animation"
+msgstr "الحركة"
+
+#: build/editor.js:1
+msgid "3 Lines"
+msgstr "3 أسطر"
+
+#: build/editor.js:1
+msgid "2 Lines"
+msgstr "سطران"
+
+#: build/editor.js:1
+msgid "Text Only"
+msgstr "نص فقط"
+
+#: build/editor.js:1
+msgid ""
+"The Off Canvas Menu template part is rendering the overlay. Edit it to "
+"change the menu content."
+msgstr "قالب القائمة الجانبية يعرض التراكب. قم بتحريره لتغيير محتوى القائمة."
+
+#: build/editor.js:1
+msgid ""
+"Choose a different menu for the mobile overlay. “Inherit” uses the current "
+"navigation."
+msgstr ""
+"اختر قائمة مختلفة للقائمة الجانبية على الهاتف المحمول. \"الوراثة\" تستخدم "
+"التنقّل الحالي."
+
+#: build/editor.js:1
+msgid "Menu Source"
+msgstr "مصدر القائمة"
+
+#: build/editor.js:1
+msgid "(no title)"
+msgstr "(بدون عنوان)"
+
+#: build/editor.js:1
+msgid "Edit Off Canvas Menu template"
+msgstr "تحرير قالب القائمة الجانبية"
+
+#: build/editor.js:1
+msgid "Select a menu"
+msgstr "اختر قائمة"
+
+#: build/editor.js:1
+msgid "Menu Text"
+msgstr "نص القائمة"
+
+#: build/editor.js:1
+msgid "Close BG"
+msgstr "إغلاق الخلفية"
+
+#: build/editor.js:1
+msgid "Close Icon"
+msgstr "أيقونة الإغلاق"
+
+#: build/editor.js:1
+msgid "Morph"
+msgstr "تحويل"
+
+#: build/editor.js:1
+msgid "Fade"
+msgstr "تلاشي"
+
+#: build/editor.js:1
+msgid "Dropdown BG"
+msgstr "خلفية القائمة المنسدلة"
+
+#: build/editor.js:1
+msgid "Panel"
+msgstr "لوحة"
+
+#: build/editor.js:1
+msgid "Item"
+msgstr "عنصر"
+
+#: build/editor.js:1
+msgid "Menu"
+msgstr "قائمة"
+
+#: build/editor.js:1
+msgid "Span"
+msgstr "نطاق"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block title"
+msgid "Header Account"
+msgstr "حساب الترويسة"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block description"
+msgid "Links to the user account page."
+msgstr "روابط إلى صفحة حساب المستخدم."
+
+#: build/blocks/header-actions/block.json
+msgctxt "block title"
+msgid "Header Actions"
+msgstr "إجراءات الترويسة"
+
+#: build/blocks/header-actions/block.json
+msgctxt "block description"
+msgid "Theme header action container (search/cart/account)."
+msgstr "حاوية إجراءات الترويسة (بحث/سلة/حساب)."
+
+#: build/blocks/megamenu/block.json
+msgctxt "block title"
+msgid "Megamenu"
+msgstr "قائمة ميجا"
+
+#: build/blocks/megamenu/block.json
+msgctxt "block description"
+msgid "Display a global section or pattern as a megamenu dropdown."
+msgstr "عرض قسم عام أو نمط كقائمة منسدلة ضخمة."
+
+#: build/blocks/navigation/block.json
+msgctxt "block title"
+msgid "Nectar Navigation"
+msgstr "التنقّل في Nectar"
+
+#: build/blocks/navigation/block.json
+msgctxt "block description"
+msgid "Nectar wrapper around the WordPress Navigation block."
+msgstr "غلاف Nectar حول كتلة التنقّل في WordPress."
+
+#: build/blocks/search/block.json
+msgctxt "block title"
+msgid "Search"
+msgstr "بحث"
+
+#: build/blocks/search/block.json
+msgctxt "block description"
+msgid "A search block with optional AJAX-powered results."
+msgstr "كتلة بحث مع نتائج اختيارية مدعومة بتقنية AJAX."
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block title"
+msgid "Table of Contents"
+msgstr "جدول المحتويات"
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block description"
+msgid "Auto-generated navigation for page headings."
+msgstr "جدول محتويات تلقائي لعناوين الصفحة."
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block title"
+msgid "Ticker Item"
+msgstr "عنصر الشريط المتحرك"
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block description"
+msgid "A section for content inside the ticker."
+msgstr "قسم للمحتوى داخل الشريط المتحرك."
+
+#: build/blocks/ticker/block.json
+msgctxt "block title"
+msgid "Ticker"
+msgstr "شريط الأخبار"
+
+#: build/blocks/ticker/block.json
+msgctxt "block description"
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "عرض المحتوى في حلقة متواصلة لا نهائية بأسلوب الشريط المتحرك."
+
+#: build/blocks/world-time/block.json
+msgctxt "block title"
+msgid "Nectar World Time"
+msgstr "وقت العالم Nectar"
+
+#: build/blocks/world-time/block.json
+msgctxt "block description"
+msgid "Display the current time for any major city worldwide."
+msgstr "عرض الوقت الحالي لأي مدينة رئيسية حول العالم."
+
+#~ msgid "Post"
+#~ msgstr "مقالة"
+
+#~ msgid "Core Gradient #1"
+#~ msgstr "تدرج أساسي #1"
+
+#~ msgid "Core Gradient #2"
+#~ msgstr "تدرج أساسي #2"
+
+#~ msgid "Core Gradient #3"
+#~ msgstr "التدرج الأساسي #3"
+
+#~ msgid "Core Gradient #4"
+#~ msgstr "التدرج الأساسي #4"
+
+#~ msgid "Core Gradient #5"
+#~ msgstr "تدرج أساسي #5"
+
+#~ msgid "Accent Light"
+#~ msgstr "ضوء خفيف"
+
+#~ msgid "Accent Primary"
+#~ msgstr "اللون الأساسي المميز"
+
+#~ msgid "Accent Dark"
+#~ msgstr "داكن مميز"
+
+#~ msgid ""
+#~ "Add in a symbol or emoji to display as the icon next to your menu title."
+#~ msgstr "أضف رمزاً أو إيموجي ليظهر كأيقونة بجانب عنوان القائمة الخاص بك."
+
+#~ msgid "To add an Emoji:"
+#~ msgstr "لإضافة رمز تعبيري (Emoji):"
+
+#~ msgid ""
+#~ "Windows: On your keyboard, press and hold the Windows button and either the "
+#~ "period (.) or semicolon (;)"
+#~ msgstr ""
+#~ "نظام ويندوز: على لوحة المفاتيح، اضغط مع الاستمرار على زر Windows وإما النقطة"
+#~ " (.) أو الفاصلة المنقوطة (;)"
+
+#~ msgid "Mac: On your keyboard, press Command + Control + Space"
+#~ msgstr "Mac: على لوحة المفاتيح، اضغط Command + Control + Space"
+
+#~ msgid "Theme License Code"
+#~ msgstr "كود ترخيص القالب"
+
+#~ msgid "Add a New Font"
+#~ msgstr "إضافة خط جديد"
+
+#~ msgid "No changes were made."
+#~ msgstr "لم يتم إجراء أي تغييرات."
+
+#~ msgid ""
+#~ "for a successful import. Once the import process begins, please refrain from"
+#~ " refreshing the page until it has completed."
+#~ msgstr ""
+#~ "لاستيراد ناجح. بمجرد بدء عملية الاستيراد، يرجى الامتناع عن تحديث الصفحة حتى "
+#~ "تكتمل."
+
+#~ msgid "Move Up"
+#~ msgstr "انقل لأعلى"
+
+#~ msgid "Move Down"
+#~ msgstr "انقل لأسفل"
+
+#~ msgid "Enter"
+#~ msgstr "أدخل"
+
+#~ msgid ""
+#~ "\"Pin\" the block in place within the viewport while the animation plays "
+#~ "through."
+#~ msgstr "\"تثبيت\" الكتلة في مكانها داخل منفذ العرض أثناء تشغيل الرسوم المتحركة."
+
+#~ msgid "Start On"
+#~ msgstr "ابدأ في"
+
+#~ msgid "End On"
+#~ msgstr "انتهى عند"
+
+#~ msgid "Exit"
+#~ msgstr "اخرج"
+
+#~ msgid "Custom End Offset"
+#~ msgstr "الإزاحة النهائية المخصصة"
+
+#~ msgid "Adds smoothing to the animation while scrolling."
+#~ msgstr "يضيف تنعيمًا للحركة أثناء التمرير."
+
+#~ msgid "Animation Trigger Type"
+#~ msgstr "نوع مشغّل الحركة"
+
+#~ msgid "Custom ID"
+#~ msgstr "معرّف مخصص"
+
+#~ msgid "Flex Wrap"
+#~ msgstr "التفاف مرن"
+
+#~ msgid "Edit Filter"
+#~ msgstr "تحرير الفلتر"
+
+#~ msgid "Custom Attributes"
+#~ msgstr "السمات المخصصة"
+
+#~ msgid "Translate X"
+#~ msgstr "تحويل أفقي (X)"
+
+#~ msgid "Translate Y"
+#~ msgstr "تحويل عمودي (Y)"
+
+#~ msgid "Accordion Title"
+#~ msgstr "عنوان الأكورديون"
+
+#~ msgid "Transition Speed (s)"
+#~ msgstr "سرعة الانتقال (ثانية)"
+
+#~ msgid "Time Between (s)"
+#~ msgstr "الوقت بين (ثانية)"
+
+#~ msgid "Highlight an important event or attribute."
+#~ msgstr "سلّط الضوء على حدث أو سمة مهمة."
+
+#~ msgid "Contained Content"
+#~ msgstr "المحتوى المحصور"
+
+#~ msgid "John Doe"
+#~ msgstr "جون دو"
+
+#~ msgid "@nectarblocks"
+#~ msgstr "@nectarblocks"
+
+#~ msgid "Enter the testimonial text here"
+#~ msgstr "أدخل نص الشهادة هنا"
+
+#~ msgid ""
+#~ "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+#~ "my website. I live in Los Angeles, have a great dog named Jack, and I like "
+#~ "piña coladas. (And gettin' caught in the rain.)"
+#~ msgstr ""
+#~ "مرحبًا! أنا ساعي دراجات نهارًا، وممثل طموح ليلًا، وهذا موقعي الإلكتروني. "
+#~ "أعيش في لوس أنجلوس، ولديّ كلب رائع اسمه جاك، وأحب البينا كولادا. (والتبلل "
+#~ "تحت المطر.)"
+
+#~ msgid "Autoplay Trigger"
+#~ msgstr "تشغيل تلقائي عند الإطلاق"
+
+#~ msgid "WP Custom Color Scheme"
+#~ msgstr "نظام الألوان المخصص في WordPress"
+
+#~ msgid "Add Global Color"
+#~ msgstr "أضف لونًا عامًا"
+
+#~ msgid "Add Global Gradient"
+#~ msgstr "أضف تدرجًا عامًا"
+
+#~ msgid "Palette Presets"
+#~ msgstr "الإعدادات المسبقة للوحة الألوان"
+
+#~ msgid "Core Colors"
+#~ msgstr "الألوان الأساسية"
+
+#~ msgid "Custom Colors"
+#~ msgstr "الألوان المخصصة"
+
+#~ msgid "Core Gradients"
+#~ msgstr "التدرجات الأساسية"
+
+#~ msgid "Custom Gradients"
+#~ msgstr "التدرجات المخصصة"
+
+#~ msgid "Solids"
+#~ msgstr "الألوان الصلبة"
+
+#~ msgid "Rename Font"
+#~ msgstr "إعادة تسمية الخط"
+
+#~ msgid "New Name"
+#~ msgstr "الاسم الجديد"
+
+#~ msgid "Save Font Name"
+#~ msgstr "حفظ اسم الخط"
+
+#~ msgid "Add New Font Rule"
+#~ msgstr "أضف قاعدة خط جديدة"
+
+#~ msgid "Core Font Rules"
+#~ msgstr "قواعد الخطوط الأساسية"
+
+#~ msgid "Custom Font Rules"
+#~ msgstr "قواعد الخطوط المخصصة"
+
+#~ msgid "Display Tutorial"
+#~ msgstr "عرض الدليل التعليمي"
+
+#~ msgid "Welcome Guide"
+#~ msgstr "دليل الترحيب"
+
+#~ msgid "Getting Started with Nectarblocks"
+#~ msgstr "البدء مع Nectarblocks"
+
+#~ msgid ""
+#~ "To start creating a page, you can add blocks by clicking the plus icon "
+#~ "located on the left of the top toolbar."
+#~ msgstr ""
+#~ "لبدء إنشاء صفحة، يمكنك إضافة كتل بالنقر على أيقونة الزائد الموجودة على يسار "
+#~ "شريط الأدوات العلوي."
+
+#~ msgid ""
+#~ "The Nectarblocks category will appear at the top of the block list, with "
+#~ "each block highlighted in blue for easy identification."
+#~ msgstr ""
+#~ "ستظهر فئة Nectarblocks في أعلى قائمة الكتل، مع تمييز كل كتلة باللون الأزرق "
+#~ "لسهولة التعرف عليها."
+
+#~ msgid "Meet the Template Library"
+#~ msgstr "مكتبة القوالب"
+
+#~ msgid ""
+#~ "Jump-start your website creation with our professionally designed collection"
+#~ " of pre-made templates."
+#~ msgstr ""
+#~ "ابدأ إنشاء موقعك الإلكتروني بسرعة مع مجموعتنا من القوالب الجاهزة المصممة "
+#~ "بشكل احترافي."
+
+#~ msgid ""
+#~ "You can easily access the library by clicking on the \"Template Library\" "
+#~ "button on the top toolbar. All templates from Nectarblocks are dynamic and "
+#~ "will adapt to fit your current global color and typography settings."
+#~ msgstr ""
+#~ "يمكنك الوصول بسهولة إلى المكتبة بالنقر على زر \"مكتبة القوالب\" في شريط "
+#~ "الأدوات العلوي. جميع القوالب من Nectarblocks ديناميكية وستتكيف لتناسب "
+#~ "إعدادات الألوان العامة والطباعة الحالية لديك."
+
+#~ msgid ""
+#~ "Access global settings by clicking the Nectarblocks logo at the top right. "
+#~ "Create reusable color schemes and typography rules that can then be applied "
+#~ "to blocks throughout your pages."
+#~ msgstr ""
+#~ "الوصول إلى الإعدادات العامة بالنقر على شعار Nectarblocks في الأعلى على "
+#~ "اليسار. أنشئ أنظمة ألوان قابلة لإعادة الاستخدام وقواعد طباعة يمكن تطبيقها "
+#~ "بعد ذلك على الكتل في جميع صفحاتك."
+
+#~ msgid ""
+#~ "To access settings for a block, simply click on the Settings icon while the "
+#~ "desired block is selected."
+#~ msgstr ""
+#~ "للوصول إلى إعدادات كتلة، اضغط على أيقونة الإعدادات بينما الكتلة المطلوبة "
+#~ "محددة."
+
+#~ msgid ""
+#~ "Each block offers an extensive range of customization options and settings, "
+#~ "empowering you to harness your global settings effectively. You can easily "
+#~ "maintain consistency and coherence across your entire design."
+#~ msgstr ""
+#~ "تقدم كل كتلة مجموعة واسعة من خيارات التخصيص والإعدادات، مما يمكّنك من "
+#~ "الاستفادة من إعداداتك العامة بفعالية. يمكنك بسهولة الحفاظ على الاتساق "
+#~ "والتناسق عبر تصميمك بالكامل."
+
+#~ msgid "Pro tip: "
+#~ msgstr "نصيحة احترافية:"
+
+#~ msgid ""
+#~ "If you're struggling to select a specific block, check the Document Overview"
+#~ " to easily see the full structure of your page."
+#~ msgstr ""
+#~ "إذا كنت تواجه صعوبة في تحديد كتلة معينة، تحقق من نظرة عامة على المستند لرؤية"
+#~ " البنية الكاملة لصفحتك بسهولة."
+
+#~ msgid "Responsive and Hover Modes"
+#~ msgstr "الأوضاع المستجيبة والتفاعلية"
+
+#~ msgid ""
+#~ "To switch between editing modes, click on one of the icons located at the "
+#~ "top-middle of the interface. Any changes you make to the settings will "
+#~ "affect the selected mode only. This allows for easy customization to "
+#~ "responsive and hover settings."
+#~ msgstr ""
+#~ "للتبديل بين أوضاع التحرير، اضغط على أحد الأيقونات الموجودة في أعلى منتصف "
+#~ "الواجهة. أي تغييرات تجريها على الإعدادات ستؤثر على الوضع المحدد فقط. يتيح "
+#~ "هذا تخصيصًا سهلاً لإعدادات الاستجابة والتمرير."
+
+#~ msgid "Keep an eye out for settings highlighted in"
+#~ msgstr "راقب الإعدادات المميزة في"
+
+#~ msgid "— these are unique to the selected mode and can be edited separately."
+#~ msgstr "— هذه فريدة للوضع المحدد ويمكن تحريرها بشكل منفصل."
+
+#~ msgid "It's time to start building"
+#~ msgstr "حان الوقت لبدء البناء"
+
+#~ msgid ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectarblocks Global Settings panel."
+#~ msgstr ""
+#~ "لمشاهدة هذا الدليل مرة أخرى، اضغط على زر \"عرض الدليل التعليمي\" في أسفل "
+#~ "لوحة إعدادات Nectarblocks العامة."
+
+#~ msgid "Intro"
+#~ msgstr "مقدمة"
+
+#~ msgid "Quotes"
+#~ msgstr "اقتباسات"
+
 #~ msgid "Saving..."
 #~ msgstr "جارِ الحفظ..."
 
 #~ msgid "Enter the name of your font.."
 #~ msgstr "أدخل اسم الخط الخاص بك.."
-
-#~ msgid ""
-#~ "for a successful import. Once the import process begins,\n"
-#~ "                please refrain from refreshing the page until it has completed."
-#~ msgstr ""
-#~ "للاستيراد الناجح. بمجرد بدء عملية الاستيراد،\n"
-#~ "يرجى عدم تحديث الصفحة حتى تكتمل العملية."
 
 #~ msgid ""
 #~ "Global Settings are primarily located in the right-hand side of \n"

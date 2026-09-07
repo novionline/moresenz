@@ -40,6 +40,11 @@ class BlockAnimations {
       $attributes['scrollIntoView'] = $animation_attributes['scrollIntoView'];
     }
 
+    // Handle interaction animations
+    if (isset($animation_attributes['interaction']) && ! empty($animation_attributes['interaction'])) {
+      $attributes['interaction'] = $animation_attributes['interaction'];
+    }
+
     if (empty($attributes)) {
       return '';
     }
@@ -48,10 +53,8 @@ class BlockAnimations {
       'data-nectar-block-animation' => esc_attr(wp_json_encode($attributes))
     ];
 
+    // Add data attributes for scroll into view device types
     if (isset($animation_attributes['scrollIntoView'])) {
-      $attributes['scrollIntoView'] = $animation_attributes['scrollIntoView'];
-
-      // Add data attributes for device types
       $deviceTypes = ['desktop', 'tablet', 'mobile'];
       foreach ($deviceTypes as $deviceType) {
         if (isset($attributes['scrollIntoView']['triggerDevices']) &&
@@ -59,12 +62,11 @@ class BlockAnimations {
           $animation_attrs["data-await-in-view-{$deviceType}"] = '';
         }
       }
+    }
 
-      if (! empty($animation_attrs)) {
-        foreach ($animation_attrs as $key => $value) {
-          $output .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
-        }
-      }
+    // Output all animation attributes
+    foreach ($animation_attrs as $key => $value) {
+      $output .= ' ' . esc_attr($key) . '="' . esc_attr($value) . '"';
     }
 
     return $output;

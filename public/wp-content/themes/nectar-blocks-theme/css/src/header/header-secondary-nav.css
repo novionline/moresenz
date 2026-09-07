@@ -163,7 +163,7 @@ body #nectar-nav[data-format="centered-menu-bottom-bar"] #header-secondary-outer
     }
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
 
      body.original #header-secondary-outer .nectar-center-text {
          display: none;
@@ -397,7 +397,7 @@ body[data-header-color="dark"] #header-secondary-outer nav >ul >li >a .sf-sub-in
 }
 
 
-@media only screen and (min-width : 691px) and (max-width: 1024px) {
+@media only screen and (min-width : 768px) and (max-width: 1024px) {
 
   body:not(.material) #header-secondary-outer[data-mobile="display_full"] nav > #social > li:last-child {
     border: none;
@@ -405,7 +405,7 @@ body[data-header-color="dark"] #header-secondary-outer nav >ul >li >a .sf-sub-in
 }
 
 
-@media only screen and (max-width : 690px) {
+@media only screen and (max-width : 767px) {
   body[data-header-format].material #header-secondary-outer {
     display: none;
     height: 0;

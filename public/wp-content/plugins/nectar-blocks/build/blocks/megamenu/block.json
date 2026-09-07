@@ -1,0 +1,55 @@
+{
+  "apiVersion": 3,
+  "name": "nectar-blocks/megamenu",
+  "title": "Megamenu",
+  "category": "nectar",
+  "description": "Display a global section or pattern as a megamenu dropdown.",
+  "supports": {
+    "html": false,
+    "inserter": true
+  },
+  "parent": [
+    "core/navigation",
+    "core/navigation-submenu"
+  ],
+  "viewScript": "nectar-blocks-megamenu",
+  "attributes": {
+    "blockId": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceType": {
+      "type": "string",
+      "default": "global-section"
+    },
+    "sourceId": {
+      "type": "string",
+      "default": ""
+    },
+    "sourceTitle": {
+      "type": "string",
+      "default": ""
+    },
+    "size": {
+      "type": "string",
+      "default": "fullwidth"
+    },
+    "containedWidth": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "unit": {
+          "type": "string"
+        }
+      },
+      "default": {
+        "value": 600,
+        "unit": "px"
+      }
+    }
+  },
+  "textdomain": "nectar-blocks"
+}
+

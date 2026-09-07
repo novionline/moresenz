@@ -73,6 +73,11 @@ if( ! class_exists('NectarThemeManager') ) {
          $theme_ocm_style = 'slide-out-from-right';
       }
 
+      // Apply header builder fallback via utility function if available.
+      if ( function_exists( 'nectar_get_ocm_style_with_header_builder_fallback' ) ) {
+         $theme_ocm_style = nectar_get_ocm_style_with_header_builder_fallback( $theme_ocm_style );
+      }
+
       self::$ocm_style = esc_html($theme_ocm_style);
 
       // Woo filter area.

@@ -3,6 +3,7 @@
 namespace Nectar\API\Global_Settings;
 use Nectar\API\{Router, API_Route, Access_Utils};
 use Nectar\Global_Settings\{Global_Typography};
+use Nectar\Render\Local_Google_Fonts;
 
 /**
  * Typography_API
@@ -53,6 +54,14 @@ class Typography_API implements API_Route {
       }
     ]);
 
+    Router::add_route($this::API_BASE . '/reorder', [
+      'callback' => [$this, 'reorder_typography'],
+      'methods' => 'POST',
+      'permission_callback' => function() {
+        return Access_Utils::can_manage_options();
+      }
+    ]);
+
   }
 
   public function get_typographys() {
@@ -73,6 +82,12 @@ class Typography_API implements API_Route {
     $typographys['userTypography'][$class_name] = $new_typo;
 
     Global_Typography::update_options($typographys);
+
+    // Clear local Google fonts cache when typography changes
+    if ( class_exists( Local_Google_Fonts::class ) && Local_Google_Fonts::is_enabled() ) {
+      Local_Google_Fonts::clear_cache();
+    }
+
     $typographys = Global_Typography::get_options();
     $response = new \WP_REST_Response($typographys, 200);
     return $response;
@@ -95,6 +110,11 @@ class Typography_API implements API_Route {
 
     Global_Typography::update_options($typographys);
 
+    // Clear local Google fonts cache when typography changes
+    if ( class_exists( Local_Google_Fonts::class ) && Local_Google_Fonts::is_enabled() ) {
+      Local_Google_Fonts::clear_cache();
+    }
+
     $typographys = Global_Typography::get_options();
     $response = new \WP_REST_Response($typographys, 200);
     return $response;
@@ -111,6 +131,11 @@ class Typography_API implements API_Route {
 
     Global_Typography::update_options($typographys);
 
+    // Clear local Google fonts cache when typography changes
+    if ( class_exists( Local_Google_Fonts::class ) && Local_Google_Fonts::is_enabled() ) {
+      Local_Google_Fonts::clear_cache();
+    }
+
     $typographys = Global_Typography::get_options();
     $response = new \WP_REST_Response($typographys, 200);
     return $response;
@@ -119,6 +144,51 @@ class Typography_API implements API_Route {
   public function get_google_fonts() {
     $fonts = wp_json_file_decode(NECTAR_BLOCKS_ROOT_DIR_PATH . '/assets/build/google-fonts/google-fonts.json');
     $response = new \WP_REST_Response($fonts, 200);
+    return $response;
+  }
+
+  /**
+   * Reorder user typography items.
+   * Receives an ordered array of keys and reconstructs userTypography in that order.
+   * Backwards compatible: if no order was saved, existing object key order is preserved.
+   */
+  public function reorder_typography(\WP_REST_Request $request) {
+    $json_body = $request->get_json_params();
+
+    if ( ! isset( $json_body['orderedKeys'] ) ) {
+      return new \WP_REST_Response( [ 'error' => 'Missing orderedKeys' ], 400 );
+    }
+
+    $ordered_keys = $json_body['orderedKeys'];
+
+    if ( ! is_array( $ordered_keys ) ) {
+      return new \WP_REST_Response( [ 'error' => 'Invalid orderedKeys' ], 400 );
+    }
+
+    $typographys = Global_Typography::get_options();
+    $current_user_typography = $typographys['userTypography'];
+
+    // Rebuild userTypography in the new order
+    $reordered_user_typography = [];
+    foreach ($ordered_keys as $key) {
+      if ( isset($current_user_typography[$key]) ) {
+        $reordered_user_typography[$key] = $current_user_typography[$key];
+      }
+    }
+
+    // Add any keys that might not be in orderedKeys (safety fallback)
+    foreach ($current_user_typography as $key => $value) {
+      if ( ! isset($reordered_user_typography[$key]) ) {
+        $reordered_user_typography[$key] = $value;
+      }
+    }
+
+    $typographys['userTypography'] = $reordered_user_typography;
+
+    Global_Typography::update_options($typographys);
+
+    $typographys = Global_Typography::get_options();
+    $response = new \WP_REST_Response($typographys, 200);
     return $response;
   }
 }

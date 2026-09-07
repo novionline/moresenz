@@ -22,55 +22,52 @@ $header_format = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_optio
 $mobile_fixed = ( ! empty( $nectar_options['header-mobile-fixed'] ) ) ? $nectar_options['header-mobile-fixed'] : 'false';
 $has_main_menu = ( has_nav_menu( 'top_nav' ) ) ? 'true' : 'false';
 $header_mobile_func = ( ! empty( $nectar_options['secondary-header-mobile-display'] ) ) ? $nectar_options['secondary-header-mobile-display'] : 'default';
+$block_menu_items_html = apply_filters( 'nectar_ocm_block_menu_items', '' );
 
 // Using pull right menu.
 $using_pr_menu = 'false';
 if ( $header_format === 'menu-left-aligned' ||
      $header_format === 'centered-menu' ||
-         $header_format === 'centered-logo-between-menu' ||
-       $header_format === 'centered-logo-between-menu-alt' ) {
+     $header_format === 'centered-logo-between-menu' ||
+     $header_format === 'centered-logo-between-menu-alt' ) {
 
-        if ( has_nav_menu( 'top_nav_pull_right' ) ) {
-            $using_pr_menu = 'true';
-        }
+    if ( has_nav_menu( 'top_nav_pull_right' ) ) {
+        $using_pr_menu = 'true';
+    }
 }
 
-?>
-
-<div id="mobile-menu" data-mobile-fixed="<?php echo esc_attr( $mobile_fixed ); ?>">
-
+?><div id="mobile-menu" data-mobile-fixed="<?php echo esc_attr( $mobile_fixed ); ?>">
     <div class="inner">
-
         <?php
-            $using_secondary = ( ! empty( $nectar_options['header_layout'] ) && $header_format != 'left-header' ) ? $nectar_options['header_layout'] : ' ';
-            $has_secondary_text = 'false';
+        $using_secondary = ( ! empty( $nectar_options['header_layout'] ) && $header_format != 'left-header' ) ? $nectar_options['header_layout'] : ' ';
+        $has_secondary_text = 'false';
 
-            if( isset($nectar_options['header-text-widget']) && ! empty($nectar_options['header-text-widget']) ) {
-                echo '<div class="nectar-header-text-content mobile-only"><div>' . wp_kses_post($nectar_options['header-text-widget']) . '</div></div>';
-            }
+        if( isset($nectar_options['header-text-widget']) && ! empty($nectar_options['header-text-widget']) ) {
+            echo '<div class="nectar-header-text-content mobile-only"><div>' . wp_kses_post($nectar_options['header-text-widget']) . '</div></div>';
+        }
 
-            if ( ! empty( $nectar_options['secondary-header-text'] ) && $using_secondary === 'header_with_secondary' && $header_mobile_func !== 'display_full' ) {
-                $has_secondary_text = 'true';
-                $nectar_secondary_link = ( ! empty( $nectar_options['secondary-header-link'] ) ) ? $nectar_options['secondary-header-link'] : '';
-                echo '<div class="secondary-header-text"><p>';
-                if ( ! empty( $nectar_secondary_link ) ) {
-                    echo '<a href="' . esc_url( $nectar_secondary_link ) . '">';
-                }
-                echo wp_kses_post( $nectar_options['secondary-header-text'] );
-                if ( ! empty( $nectar_secondary_link ) ) {
-                    echo '</a>';
-                }
-                echo '</p></div>';
+        if ( ! empty( $nectar_options['secondary-header-text'] ) && $using_secondary === 'header_with_secondary' && $header_mobile_func !== 'display_full' ) {
+            $has_secondary_text = 'true';
+            $nectar_secondary_link = ( ! empty( $nectar_options['secondary-header-link'] ) ) ? $nectar_options['secondary-header-link'] : '';
+            echo '<div class="secondary-header-text"><p>';
+            if ( ! empty( $nectar_secondary_link ) ) {
+                echo '<a href="' . esc_url( $nectar_secondary_link ) . '">';
             }
+            echo wp_kses_post( $nectar_options['secondary-header-text'] );
+            if ( ! empty( $nectar_secondary_link ) ) {
+                echo '</a>';
+            }
+            echo '</p></div>';
+        }
         ?>
-
         <div class="menu-items-wrap" data-has-secondary-text="<?php echo esc_attr($has_secondary_text); ?>">
-
             <ul>
                 <?php
-
-                if ( $has_main_menu === 'true' ) {
-
+                // When using block-based navigation (Enhanced Navigation), the theme menu locations may be empty.
+                // Reuse the captured block menu items (also used by OCM) so the "Simple Dropdown" style still works.
+                if ( ! empty( $block_menu_items_html ) ) {
+                    echo wp_kses_post( $block_menu_items_html );
+                } elseif ( $has_main_menu === 'true' ) {
                     wp_nav_menu(
                         [
                             'walker' => new Nectar_OCM_Icon_Walker(),
@@ -79,28 +76,26 @@ if ( $header_format === 'menu-left-aligned' ||
                             'items_wrap' => '%3$s',
                         ]
                     );
-
                 }
 
                 if ( $header_format === 'centered-menu-bottom-bar' ||
                      $header_format === 'centered-logo-between-menu-alt' ) {
-
-                        if ( has_nav_menu( 'top_nav_pull_left' ) ) {
-                            wp_nav_menu(
-                                [
-                                    'walker' => new Nectar_OCM_Icon_Walker(),
-                                    'theme_location' => 'top_nav_pull_left',
-                                    'container' => '',
-                                    'items_wrap' => '%3$s',
-                                ]
-                            );
-                        }
+                    if ( has_nav_menu( 'top_nav_pull_left' ) ) {
+                        wp_nav_menu(
+                            [
+                                'walker' => new Nectar_OCM_Icon_Walker(),
+                                'theme_location' => 'top_nav_pull_left',
+                                'container' => '',
+                                'items_wrap' => '%3$s',
+                            ]
+                        );
+                    }
                 }
 
                 if ( $header_format === 'centered-menu' && $using_pr_menu === 'true' ||
                     $header_format === 'menu-left-aligned' && $using_pr_menu == 'true' ||
                     $header_format === 'centered-logo-between-menu' && $using_pr_menu === 'true' ||
-                  $header_format === 'centered-logo-between-menu-alt' && $using_pr_menu === 'true' ) {
+                    $header_format === 'centered-logo-between-menu-alt' && $using_pr_menu === 'true' ) {
 
                     wp_nav_menu(
                         [
@@ -113,35 +108,26 @@ if ( $header_format === 'menu-left-aligned' ||
                     nectar_hook_pull_right_menu_items();
                 }
                 ?>
-
-
             </ul>
-
             <?php
             // Secondary nav menu items.
             $using_secondary = ( ! empty( $nectar_options['header_layout'] ) && $header_format != 'left-header' ) ? $nectar_options['header_layout'] : ' ';
 
-            if ( $using_secondary === 'header_with_secondary' && has_nav_menu( 'secondary_nav' ) && $header_mobile_func !== 'display_full' ) { ?>
-
-                <ul class="secondary-header-items">
-
+            if ( $using_secondary === 'header_with_secondary' && has_nav_menu( 'secondary_nav' ) && $header_mobile_func !== 'display_full' ) {
+                ?><ul class="secondary-header-items">
                     <?php
-                        wp_nav_menu(
-                [
-                                'theme_location' => 'secondary_nav',
-                                'container' => '',
-                                'items_wrap' => '%3$s',
-                            ]
-            );
-
+                    wp_nav_menu(
+                        [
+                            'theme_location' => 'secondary_nav',
+                            'container' => '',
+                            'items_wrap' => '%3$s',
+                        ]
+                    );
                     ?>
-
-                </ul>
-
-            <?php } ?>
-
-        </div><!--/menu-items-wrap-->
-
+                </ul><?php
+            }
+            ?>
+        </div>
         <div class="below-menu-items-wrap">
             <?php
             // Social Icons.
@@ -156,10 +142,7 @@ if ( $header_format === 'menu-left-aligned' ||
             }
 
             nectar_hook_ocm_bottom_meta();
-
             ?>
-        </div><!--/below-menu-items-wrap-->
-
-    </div><!--/inner-->
-
-</div><!--/mobile-menu-->
+        </div>
+    </div>
+</div>

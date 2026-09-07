@@ -46,6 +46,14 @@ class Nectar_Blocks_Options extends Settings_Base {
       'licenseKey' => '',
       'isLicenseActive' => false,
       'token' => '',
+      // JWT V2 refresh lifecycle. All optional and default-safe: a stored
+      // options row that predates these keys reads them via `?? <default>` at
+      // every call site, and tokenVersion 1 (absent => 1) means the eternal-token
+      // V1 behavior is preserved with no cron and no expiry enforcement.
+      'refreshToken' => '',       // opaque, single-use; rotated on every refresh
+      'tokenExpiresAt' => 0,      // absolute unix ts (time()+expiresIn), not the raw expiresIn
+      'tokenVersion' => 1,        // 1 = legacy eternal token; 2 = refreshable pair
+      'registeredHostname' => '', // exact hostname sent to /register; source of truth for aud + refresh
       // Settings
       'autoUpdate' => false,
       'analytics' => false,

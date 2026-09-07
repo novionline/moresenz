@@ -3,6 +3,7 @@
 namespace Nectar\Update;
 
 use Nectar\Global_Settings\Nectar_Blocks_Options;
+use Nectar\Licensing\Token_Service;
 use Nectar\Shared\RemoteVersionCheck;
 
 /**
@@ -69,7 +70,9 @@ class NectarBlocksUpdater {
         self::UPDATE_URL,
         $token,
         self::UPDATE_KEY,
-        $this->cache_allowed
+        $this->cache_allowed,
+        // JWT V2: on a 401 the shared helper refreshes the token and retries once.
+        [ Token_Service::class, 'reauthorize' ]
     );
   }
 

@@ -5,6 +5,7 @@ namespace Nectar\Global_Settings;
 use Nectar\Global_Settings\Settings_Base;
 use Nectar\Utilities\{Log, HTTP};
 use Nectar\Global_Settings\Nectar_Custom_Fonts;
+use Nectar\Global_Settings\Nectar_Adobe_Fonts;
 
 /**
  * Global_Typography
@@ -24,6 +25,31 @@ class Global_Typography extends Settings_Base {
     add_action('after_setup_theme', [$this, 'initialize_defaults']);
   }
 
+  /**
+   * Get typography options with defaults merged in for any missing core entries
+   * or sub-keys. This ensures new core typography items (or new fields added to
+   * existing items) are always present without requiring a migration, while
+   * preserving any values the user has customized.
+   */
+  public static function get_options() {
+    $options = parent::get_options();
+
+    if (! \is_array($options) || ! isset($options['coreTypography'])) {
+      return $options;
+    }
+
+    $defaults = self::defaults();
+
+    foreach ($defaults['coreTypography'] as $key => $default_data) {
+      $options['coreTypography'][$key] = array_replace_recursive(
+          $default_data,
+          $options['coreTypography'][$key] ?? []
+      );
+    }
+
+    return $options;
+  }
+
   public function initialize_defaults() {
     $nectar_options = get_option($this::$OPTION_NAME);
 
@@ -33,14 +59,14 @@ class Global_Typography extends Settings_Base {
 
     update_option(
         $this::$OPTION_NAME,
-        $this->defaults()
+        self::defaults()
     );
     Log::debug('Default typography initialized.');
   }
 
   public static function css_output( $view = 'render', $exclude_core_typography = false ) {
 
-    $global_typography = get_option(self::$OPTION_NAME);
+    $global_typography = self::get_options();
 
     if ( ! is_array($global_typography) ) {
       return;
@@ -63,14 +89,22 @@ class Global_Typography extends Settings_Base {
         // Selectors
         $selectors = '.' . $font;
 
+        // Root element - outputs only font-size to :root selector
+        $is_root_element = ($font === 'root' && $category === 'coreTypography');
+
         if ( $category === 'coreTypography' ) {
           // Bypass core_typography if user is ignoring it
           if ($exclude_core_typography) {
             continue;
           }
 
+          // root element uses :root selector directly so `rem` values
+          // scale fluidly with the viewport (the whole point of the feature).
+          if ( $is_root_element ) {
+            $selectors = ':root';
+          }
           // body needs to be handled differently in editor.
-          if ( $font === 'body' && $view === 'editor' ) {
+          else if ( $font === 'body' && $view === 'editor' ) {
             $selectors = '.nectar-font-' . $font . ', ' . $editor_class_name;
           } else if ( $font === 'h1' && $view === 'editor' ) {
             $selectors = '.nectar-font-' . $font . ', .edit-post-visual-editor__post-title-wrapper ' . $font . ',' . $editor_class_name . $font;
@@ -94,6 +128,27 @@ class Global_Typography extends Settings_Base {
           $enable_responsive_sizing = false;
         }
 
+        // Root element only outputs font-size, skip other properties.
+        if ( $is_root_element ) {
+          // PERF: in editor view, skip emitting `:root { font-size }` into
+          // the stylesheet ONLY when the resolved value is genuinely fluid
+          // (contains `vw`). Class-gated overrides don't help because the
+          // browser keeps the original fluid rule "live" for invalidation
+          // tracking, so every resize tick re-evaluates it and cascades
+          // through every `rem`-using element. Instead, JS owns the value
+          // as inline style on `<html>` (see editor/fluid-root-font-size.ts)
+          // and strips it during a drag.
+          //
+          // For non-fluid configs (the default 16px, or any config with no
+          // `vw`), there's no cascade to avoid — emit normally.
+          $skip_for_js = ($view === 'editor' && ! empty(self::get_editor_fluid_root_data()));
+          if ( ! $skip_for_js ) {
+            $typo_css .= self::get_font_size_rules($settings, $selectors);
+          }
+          // Skip CSS variables and other properties for root.
+          continue;
+        }
+
         //// Family, weight, style, letter spacing, transform, color.
         $typo_css .= $selectors . ' {';
           $typo_css .= self::get_core_font_properties($settings);
@@ -115,8 +170,48 @@ class Global_Typography extends Settings_Base {
 
     } // End category loop.
 
+    // Theme font family classes (wp-font-{slug} from theme.json / FSE Font Library).
+    $typo_css .= self::get_theme_font_family_rules($editor_class_name);
+
     return (! empty($typo_css)) ? $typo_css : '';
 
+  }
+
+  /**
+   * Generate CSS rules for theme.json font families.
+   * Creates .nectar-font-wp-font-{slug} classes that reference WP CSS variables.
+   */
+  public static function get_theme_font_family_rules(string $editor_class_name) {
+    if ( ! function_exists('wp_get_global_settings') ) {
+      return '';
+    }
+
+    $css = '';
+    $font_families = [];
+
+    // Theme origin (static theme.json).
+    $theme_fonts = wp_get_global_settings( [ 'typography', 'fontFamilies', 'theme' ] );
+    if ( is_array($theme_fonts) ) {
+      $font_families = array_merge($font_families, $theme_fonts);
+    }
+
+    // Custom origin (FSE Font Library user additions).
+    $custom_fonts = wp_get_global_settings( [ 'typography', 'fontFamilies', 'custom' ] );
+    if ( is_array($custom_fonts) ) {
+      $font_families = array_merge($font_families, $custom_fonts);
+    }
+
+    foreach ( $font_families as $font ) {
+      if ( empty($font['slug']) || empty($font['fontFamily']) ) {
+        continue;
+      }
+
+      $slug = sanitize_title( $font['slug'] );
+      $selector = $editor_class_name . '.nectar-font-wp-font-' . $slug;
+      $css .= $selector . ' { font-family: var(--wp--preset--font-family--' . $slug . '); }';
+    }
+
+    return $css;
   }
 
   /**
@@ -177,7 +272,7 @@ class Global_Typography extends Settings_Base {
 
     if( isset($settings['fontFamily']) && ! empty($settings['fontFamily']) ) {
       if (
-          isset($settings['fontSource']) && $settings['fontSource'] === 'Uploaded' ||
+          isset($settings['fontSource']) && ($settings['fontSource'] === 'Uploaded' || $settings['fontSource'] === 'Adobe') ||
           self::font_needs_quotes($settings['fontFamily'])
         ) {
         $css .= "font-family: \"$settings[fontFamily]\";";
@@ -332,6 +427,8 @@ class Global_Typography extends Settings_Base {
   public static function get_font_size_rules(array $settings, string $selectors) {
     $css = '';
     $ordered_devices = array_keys(self::$devices);
+    $is_root = ($selectors === ':root');
+
     foreach ($ordered_devices as $device) {
       if (! isset($settings['fontSize'][$device])) {
         continue;
@@ -349,8 +446,12 @@ class Global_Typography extends Settings_Base {
       }
 
       if( isset($size['value']) && ! empty($size['value']) ) {
-        $css .= self::$devices[$device] . ' { ' . $selectors . ' { font-size: ' .
-          self::clamp_values($clampValues, $size) . '; } }';
+        // Use fluid clamp for root typography, standard clamp for others
+        $font_size_value = $is_root
+          ? self::clamp_values_fluid($clampValues, $size)
+          : self::clamp_values($clampValues, $size);
+
+        $css .= self::$devices[$device] . ' { ' . $selectors . ' { font-size: ' . $font_size_value . '; } }';
       }
     }
 
@@ -362,27 +463,139 @@ class Global_Typography extends Settings_Base {
   }
 
   public static function sizing_field_to_string($size) {
-    if (isset($size['value']) && ! empty($size['value']) || $size['value'] === 0 ) {
+    if (isset($size['value']) && (! empty($size['value']) || $size['value'] === 0) ) {
       return $size['value'] . $size['unit'];
     }
     return '';
   }
 
+  /**
+   * Convert a sizing field to string, with optional fluid vw modifier.
+   * If fluidBp is set, outputs calc(value + fluidBpvw).
+   */
+  public static function sizing_field_to_fluid_string($size) {
+    $base = self::sizing_field_to_string($size);
+    if (empty($base)) {
+      return '';
+    }
+
+    // Check for fluid breakpoint modifier
+    if (isset($size['fluidBp']) && ! empty($size['fluidBp'])) {
+      return 'calc(' . $base . ' + ' . $size['fluidBp'] . 'vw)';
+    }
+
+    return $base;
+  }
+
+  /**
+   * Get font size value with optional clamp bounds.
+   * Used for standard typography (body, headings, etc.)
+   */
   public static function clamp_values($clamp, $size) {
+    $preferred = self::sizing_field_to_string($size);
 
     if (isset($clamp['min']['value']) && isset($clamp['max']['value']) &&
       ! empty($clamp['min']['value']) && ! empty($clamp['max']['value'])) {
-      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . self::sizing_field_to_string($size) . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
+      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . $preferred . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
     }
     else if (isset($clamp['min']['value']) && ! empty($clamp['min']['value'])) {
-      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . self::sizing_field_to_string($size) . ', 100vw)';
+      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . $preferred . ', 100vw)';
     }
     else if (isset($clamp['max']['value']) && ! empty($clamp['max']['value'])) {
-      return 'clamp(0px, ' . self::sizing_field_to_string($size) . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
+      return 'clamp(0px, ' . $preferred . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
     }
 
-    return self::sizing_field_to_string($size);
+    return $preferred;
+  }
 
+  /**
+   * Per-device fluid clamp formulas for the root font-size, for the editor
+   * to apply as inline style on `<html>` (instead of via stylesheet) so it
+   * can be stripped during a resize drag without a leftover rule for the
+   * browser to keep evaluating.
+   *
+   * @return array<string,string> e.g. [ 'desktop' => 'clamp(...)', 'tablet' => 'clamp(...)' ]
+   */
+  public static function get_root_font_size_data() {
+    $global_typography = self::get_options();
+    if ( ! is_array($global_typography) ) {
+      return [];
+    }
+
+    $root = $global_typography['coreTypography']['root'] ?? null;
+    if ( ! is_array($root) ) {
+      return [];
+    }
+
+    $data = [];
+    foreach ( array_keys(self::$devices) as $device ) {
+      if ( ! isset($root['fontSize'][$device]) ) {
+        continue;
+      }
+      $size = $root['fontSize'][$device];
+      if ( isset($size['disabled']) && $size['disabled'] === true ) {
+        continue;
+      }
+      if ( ! isset($size['value']) || $size['value'] === '' ) {
+        continue;
+      }
+
+      $clampValues = [
+        'min' => $root['fontSizeMin'][$device] ?? false,
+        'max' => $root['fontSizeMax'][$device] ?? false,
+      ];
+
+      $data[$device] = self::clamp_values_fluid($clampValues, $size);
+    }
+
+    return $data;
+  }
+
+  /**
+   * Per-device root font-size formulas, returned ONLY when at least one
+   * value contains `vw` (i.e., is genuinely fluid and would drive a
+   * per-tick recalc cascade in the editor).
+   *
+   * When this returns a non-empty array, the editor:
+   *   - skips emitting `:root { font-size }` into the stylesheet
+   *   - hands the formulas to JS to apply as inline style on the canvas
+   *     `<html>` (and strip during a resize drag)
+   *
+   * When it returns `[]` (e.g., default config: 16px with no fluid bp /
+   * min / max), the editor emits the rule normally — there's no `vw` to
+   * trigger a cascade, so the JS dance is unnecessary.
+   *
+   * @return array<string,string>
+   */
+  public static function get_editor_fluid_root_data() {
+    $data = self::get_root_font_size_data();
+    foreach ( $data as $value ) {
+      if ( strpos($value, 'vw') !== false ) {
+        return $data;
+      }
+    }
+    return [];
+  }
+
+  /**
+   * Get font size value with fluid calc and optional clamp bounds.
+   * Used for root typography with viewport-width scaling.
+   */
+  public static function clamp_values_fluid($clamp, $size) {
+    $preferred = self::sizing_field_to_fluid_string($size);
+
+    if (isset($clamp['min']['value']) && isset($clamp['max']['value']) &&
+      ! empty($clamp['min']['value']) && ! empty($clamp['max']['value'])) {
+      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . $preferred . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
+    }
+    else if (isset($clamp['min']['value']) && ! empty($clamp['min']['value'])) {
+      return 'clamp(' . self::sizing_field_to_string($clamp['min']) . ', ' . $preferred . ', 100vw)';
+    }
+    else if (isset($clamp['max']['value']) && ! empty($clamp['max']['value'])) {
+      return 'clamp(0px, ' . $preferred . ', ' . self::sizing_field_to_string($clamp['max']) . ')';
+    }
+
+    return $preferred;
   }
 
   public static function create_uploaded_fonts_style(string $view) {
@@ -454,11 +667,11 @@ class Global_Typography extends Settings_Base {
   }
 
   /**
-   * @return link to google fonts or false if no google fonts are used.
+   * @return string|false URL to google fonts or false if no google fonts are used.
    */
   public static function create_google_fonts_link($view) {
 
-    $typography = get_option(self::$OPTION_NAME);
+    $typography = self::get_options();
 
     $all_typography = array_merge($typography['coreTypography'], $typography['userTypography']);
 
@@ -546,6 +759,53 @@ class Global_Typography extends Settings_Base {
     }
 
     return false;
+  }
+
+  /**
+   * Returns de-duplicated array of Adobe Fonts kit IDs that are actually
+   * used in the current typography settings. Used by Render.php to only
+   * enqueue kit CSS for fonts that are assigned.
+   *
+   * @return string[] Array of kit IDs.
+   */
+  public static function get_used_adobe_kit_ids(): array {
+    $typography = self::get_options();
+
+    if ( empty($typography) || ! is_array($typography) ) {
+      return [];
+    }
+
+    $all_typography = array_merge(
+        $typography['coreTypography'] ?? [],
+        $typography['userTypography'] ?? []
+    );
+
+    $adobe_data = Nectar_Adobe_Fonts::get_options();
+
+    if ( ! is_array($adobe_data) || empty($adobe_data['isConnected']) || empty($adobe_data['fonts']) ) {
+      return [];
+    }
+
+    // Build lookup: font family CSS name -> kitId.
+    $font_to_kit = [];
+    foreach ( $adobe_data['fonts'] as $font ) {
+      if ( ! empty($font['family']) && ! empty($font['kitId']) ) {
+        $font_to_kit[$font['family']] = $font['kitId'];
+      }
+    }
+
+    $used_kit_ids = [];
+    foreach ( $all_typography as $font ) {
+      if (
+        isset($font['fontSource']) && $font['fontSource'] === 'Adobe' &&
+        ! empty($font['fontFamily']) &&
+        isset($font_to_kit[$font['fontFamily']])
+      ) {
+        $used_kit_ids[$font_to_kit[$font['fontFamily']]] = true;
+      }
+    }
+
+    return array_keys($used_kit_ids);
   }
 
   /**
@@ -654,12 +914,12 @@ class Global_Typography extends Settings_Base {
   }
 
   /**
-   * Provides defaults for global colors.
+   * Provides defaults for global typography.
    */
-  private function defaults() {
+  public static function defaults() {
 
-    $typography_default = $this->default_typography();
-    $typography_secondary_default = $this->default_secondary_typography();
+    $typography_default = self::default_typography();
+    $typography_secondary_default = self::default_secondary_typography();
 
     return [
       'coreTypography' => [
@@ -765,6 +1025,51 @@ class Global_Typography extends Settings_Base {
           ],
           'fontStyle' => 'italic',
         ]),
+        'root' => [
+          'label' => 'Root (HTML)',
+          'fontSource' => '',
+          'fontFamily' => '',
+          'fontData' => null,
+          'fontSize' => [
+            'desktop' => [
+              'value' => 16,
+              'unit' => 'px',
+              'disabled' => false,
+              'fluidBp' => 0
+            ],
+          ],
+          'fontSizeMin' => [
+            'desktop' => [
+              'value' => null,
+              'unit' => 'px',
+            ],
+          ],
+          'fontSizeMax' => [
+            'desktop' => [
+              'value' => null,
+              'unit' => 'px',
+            ],
+          ],
+          'fontWeight' => '',
+          'letterSpacing' => [
+            'value' => null,
+            'unit' => 'em',
+            'disabled' => true
+          ],
+          'fontStyle' => '',
+          'transform' => '',
+          'lineHeight' => [
+            'desktop' => [
+              'value' => null,
+              'unit' => 'em',
+              'disabled' => true
+            ]
+          ],
+          'fontColor' => [
+            'value' => '',
+            'globalColorData' => null,
+          ]
+        ],
       ],
       'userTypography' => [],
     ];

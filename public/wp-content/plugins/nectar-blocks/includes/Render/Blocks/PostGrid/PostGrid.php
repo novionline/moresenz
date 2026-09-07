@@ -16,6 +16,10 @@ class PostGrid {
 
   private $full_post_link;
 
+  // Per-post resolved item link. Defaults to the post permalink but is
+  // overridden by the Dynamic Link setting when enabled and resolvable.
+  private $current_item_link = '';
+
   public $offset_compat_mode = false;
 
   function __construct($block_attributes, $content) {
@@ -28,8 +32,12 @@ class PostGrid {
     // Compatibility mode for offset in pagination.
     // certain orderby options, such as menu_order, don't work with offset,
     // so we need to set posts_per_page to -1 and handle the offset manually.
+    $is_inherit_query = isset($this->block_attributes['inheritQuery']) &&
+      $this->block_attributes['inheritQuery']['enable'] === true;
+
     if ( $this->block_attributes['orderBy'] === 'menu_order' &&
-      $this->block_attributes['pagination']['enabled'] === true ) {
+      $this->block_attributes['pagination']['enabled'] === true &&
+      ! $is_inherit_query ) {
       $this->offset_compat_mode = true;
     }
   }
@@ -264,7 +272,7 @@ class PostGrid {
 
       $markup = '';
       if ( ! $this->full_post_link ) {
-        $markup = '<a href="' . get_permalink() . '">';
+        $markup = '<a href="' . esc_url($this->get_item_link()) . '">';
       }
 
       if( isset($this->block_attributes['postGridStyle']['hoverEffect']) &&
@@ -354,7 +362,7 @@ class PostGrid {
     </svg>';
 
     if ( ! $this->full_post_link ) {
-      $read_more = '<a class="nectar-blocks-post-grid__item__read-more' . $typo_class_name . '" href="' . get_permalink() . '">
+      $read_more = '<a class="nectar-blocks-post-grid__item__read-more' . $typo_class_name . '" href="' . esc_url($this->get_item_link()) . '">
         <span' . $typo_class_name . '>' . esc_html__('Read More', 'nectar-blocks') . '</span>'
         . $arrow .
       '</a>';
@@ -454,6 +462,67 @@ class PostGrid {
 
   private function get_featured_image_css_class($image_size) {
     return 'nectar-blocks-post-grid__item__featured-media__item size-' . sanitize_html_class($image_size);
+  }
+
+  private function get_item_link() {
+    return $this->current_item_link !== '' ? $this->current_item_link : get_permalink();
+  }
+
+  private function get_dynamic_link_settings() {
+    $defaults = [
+      'enabled' => false,
+      'source' => ''
+    ];
+
+    $dynamic_link_attr = isset($this->block_attributes['dynamicLink']) ? $this->block_attributes['dynamicLink'] : null;
+
+    if ( ! is_array($dynamic_link_attr) ) {
+      return $defaults;
+    }
+
+    return wp_parse_args($dynamic_link_attr, $defaults);
+  }
+
+  private function resolve_item_link($dynamic_link_settings) {
+    $permalink = get_permalink();
+
+    if ( empty($dynamic_link_settings['enabled']) ) {
+      return $permalink;
+    }
+
+    $source = isset($dynamic_link_settings['source']) ? $dynamic_link_settings['source'] : '';
+    if ( empty($source) || strpos($source, '!!nb_dynamic/') === false ) {
+      return $permalink;
+    }
+
+    $dynamic_data_parsed = Dynamic_Helpers::parse_dynamic_field($source);
+    if ( ! $dynamic_data_parsed ) {
+      return $permalink;
+    }
+
+    $resolved = Frontend_Render::get_dynamic_content($dynamic_data_parsed, false);
+    $resolved = is_string($resolved) ? trim($resolved) : '';
+
+    // get_dynamic_content() can return any string (e.g. a plain-text custom
+    // field holding "My Post Title"). Only use it when it actually looks like a
+    // link, otherwise esc_url() would turn it into a broken relative URL instead
+    // of falling back to the permalink.
+    if ( $resolved === '' || ! $this->is_valid_link_value($resolved) ) {
+      return $permalink;
+    }
+
+    return $resolved;
+  }
+
+  private function is_valid_link_value($value) {
+    // Absolute (or protocol-relative via the regex below) URL with a host.
+    if ( wp_http_validate_url($value) ) {
+      return true;
+    }
+
+    // Root-relative paths, fragments, protocol-relative URLs, and mail/tel
+    // schemes are all valid hrefs that wp_http_validate_url() rejects.
+    return (bool) preg_match('#^(//|/|\#|mailto:|tel:)#i', $value);
   }
 
   private function get_dynamic_media_settings() {
@@ -795,6 +864,17 @@ class PostGrid {
 
   function get_query_data() {
 
+    // Template-library preview path — bypass WP_Query and use bundled demo
+    // posts so the card looks populated even on a fresh install with no
+    // user posts. Set via the `useDemoPosts` block attribute by the template
+    // library's render pipeline, not by template-authored markup. Restricted
+    // to REST/admin contexts so a maliciously- or accidentally-set flag in
+    // a saved post can never render demo content on the public frontend.
+    $is_editor_context = ( defined( 'REST_REQUEST' ) && REST_REQUEST ) || is_admin();
+    if ( ! empty( $this->block_attributes['useDemoPosts'] ) && $is_editor_context ) {
+      return $this->build_preview_data();
+    }
+
     $data = [
       'posts' => []
     ];
@@ -875,9 +955,15 @@ class PostGrid {
       $dynamic_media_enabled = isset($dynamic_media_settings['enabled']) && $dynamic_media_settings['enabled'] === true;
       $this->block_attributes['dynamicMedia'] = $dynamic_media_settings;
 
+      $dynamic_link_settings = $this->get_dynamic_link_settings();
+
       while ( $posts_query->have_posts() ) {
         $posts_query->the_post();
         global $post;
+
+        // Resolve the per-item link before building meta so title/read-more
+        // (which render here) and the twig templates all use the same target.
+        $this->current_item_link = $this->resolve_item_link($dynamic_link_settings);
 
         $active_meta = [];
         foreach( $display_meta as $settings ) {
@@ -924,7 +1010,10 @@ class PostGrid {
           'has_featured_image' => $has_featured_image,
           'featured_image' => $featured_image_markup,
           'index' => $posts_query->current_post,
-          'permalink' => get_permalink(),
+          // `_esc` suffix signals the value is already escaped: templates output
+          // it with `|raw`. MUST stay esc_url'd here — any path populating this
+          // key without esc_url would become an XSS vector.
+          'permalink_esc' => esc_url($this->get_item_link()),
           'title' => get_the_title(),
           'meta' => $active_meta,
           'media_meta' => $media_active_meta
@@ -935,6 +1024,252 @@ class PostGrid {
     }
 
     return $data;
+  }
+
+  /**
+   * Builds query_data in the same shape `get_query_data()` returns, but from
+   * the bundled demo-post fixtures instead of WP_Query. Slices the fixtures by
+   * the block's existing `postOffset` + `postsPerPage` (wrapping around so any
+   * combination yields posts), which is how two post-grids on the same
+   * template stay visually distinct without any per-template configuration.
+   */
+  private function build_preview_data() {
+    // Statically cache the fixtures so the file is only loaded once per
+    // request even though the template library renders many post-grids.
+    static $fixtures = null;
+    if ( $fixtures === null ) {
+      $fixtures = require __DIR__ . '/preview-fixtures.php';
+    }
+    $fixture_count = count( $fixtures );
+    if ( $fixture_count === 0 ) {
+      return [
+        'posts' => [],
+        'pagination' => [
+          'totalPages' => 1, 'totalPosts' => 0, 'postsPerPage' => 0,
+          'currentPage' => 1, 'nextPage' => 2, 'prevPage' => 0,
+        ],
+      ];
+    }
+
+    // Clamp offset to non-negative — PHP's modulo on negative operands yields
+    // negative indices, which would error out on the fixture lookup below.
+    $offset = max( 0, intval( $this->block_attributes['postOffset'] ?? 0 ) );
+    $per_page = intval( $this->block_attributes['postsPerPage'] ?? 3 );
+    if ( $per_page <= 0 ) $per_page = 3;
+
+    // Two modes for picking fixtures:
+    //   'sequential' — slice the fixture list in file order starting at
+    //                  postOffset. Use for templates that hand-craft offsets
+    //                  to partition the fixtures across multiple post-grids
+    //                  on one page (no cross-grid duplicates by design).
+    //   'shuffled'   — default. Shuffle indices deterministically per
+    //                  blockId so each grid shows a different mix. Caps
+    //                  per_page at fixture count so no image repeats
+    //                  within a single grid. Cross-grid duplicates are
+    //                  possible since each block renders in its own REST
+    //                  request and can't see siblings.
+    $mode = isset( $this->block_attributes['demoFixtureMode'] ) ? (string) $this->block_attributes['demoFixtureMode'] : 'shuffled';
+
+    if ( $mode === 'sequential' ) {
+      $order = range( 0, $fixture_count - 1 );
+      // Cap to the fixtures remaining after the offset so a sequential grid
+      // never wraps past the end of the set and repeats fixtures a sibling
+      // grid (at a lower offset) already used — preserving the "no cross-grid
+      // duplicates by design" guarantee. max(1, ...) keeps at least one card
+      // if a template over-shoots the offset.
+      $per_page = min( $per_page, max( 1, $fixture_count - $offset ) );
+    } else {
+      $block_id = isset( $this->block_attributes['blockId'] ) ? (string) $this->block_attributes['blockId'] : '';
+      $order = range( 0, $fixture_count - 1 );
+      usort( $order, function ( $a, $b ) use ( $block_id ) {
+        return strcmp( md5( $block_id . '|' . $a ), md5( $block_id . '|' . $b ) );
+      } );
+      // Cap so no image repeats within a single shuffled instance.
+      $per_page = min( $per_page, $fixture_count );
+    }
+
+    $selected = [];
+    for ( $i = 0; $i < $per_page; $i++ ) {
+      $selected[] = $fixtures[$order[( $offset + $i ) % $fixture_count]];
+    }
+
+    $display_meta = isset( $this->block_attributes['displayMeta'] ) && is_array( $this->block_attributes['displayMeta'] )
+      ? $this->block_attributes['displayMeta']
+      : [];
+    $media_display_meta = $this->get_media_display_meta();
+
+    $posts = [];
+    foreach ( $selected as $idx => $fixture ) {
+      $active_meta = [];
+      foreach ( $display_meta as $settings ) {
+        $type = str_replace( '-', '_', $settings['type'] );
+        $active_meta[] = [
+          'type' => $type,
+          'settings' => $settings,
+          'output' => $this->get_demo_meta_output( $type, $fixture, $settings, $display_meta )
+        ];
+      }
+
+      $media_active_meta = [];
+      foreach ( $media_display_meta as $media_settings ) {
+        if ( isset( $media_settings['type'] ) && $media_settings['type'] === 'featured-media' ) {
+          $media_active_meta[] = [
+            'type' => 'featured_media',
+            'settings' => $media_settings,
+            'output' => ''
+          ];
+          continue;
+        }
+        $media_type = str_replace( '-', '_', $media_settings['type'] );
+        $media_active_meta[] = [
+          'type' => $media_type,
+          'settings' => $media_settings,
+          'output' => $this->get_demo_meta_output( $media_type, $fixture, $media_settings, $media_display_meta )
+        ];
+      }
+
+      // Mirror the class that get_featured_image() produces — the post-grid's
+      // CSS (especially content-side layouts) targets these specific classes
+      // for sizing the media column.
+      $image_size = isset( $this->block_attributes['imageSize'] ) ? $this->block_attributes['imageSize'] : 'full';
+      $image_class = $this->get_featured_image_css_class( $image_size );
+      // Explicit width/height give the browser an intrinsic aspect ratio
+      // before the image loads. Without them, post-grids with no `imageRatio`
+      // CSS (which would otherwise constrain the container) collapse or
+      // misbehave because the `<img>` is `position: absolute` inside an
+      // `__featured-media__inner` and contributes nothing to flow sizing.
+      $img_w = isset( $fixture['image_width'] ) ? intval( $fixture['image_width'] ) : 1600;
+      $img_h = isset( $fixture['image_height'] ) ? intval( $fixture['image_height'] ) : 1067;
+      $featured_image = sprintf(
+          '<img src="%s" width="%d" height="%d" class="%s" alt="" loading="lazy" />',
+          esc_url( $fixture['image'] ),
+          $img_w,
+          $img_h,
+          esc_attr( $image_class )
+      );
+
+      $posts[] = [
+        'id' => 'preview-' . $idx,
+        'portfolio_video' => '',
+        'has_featured_image' => true,
+        'featured_image' => $featured_image,
+        'index' => $idx,
+        'permalink_esc' => '#',
+        'title' => $fixture['title'],
+        'meta' => $active_meta,
+        'media_meta' => $media_active_meta
+      ];
+    }
+
+    return [
+      'posts' => $posts,
+      'pagination' => [
+        'totalPages' => 1,
+        'totalPosts' => $per_page,
+        'postsPerPage' => $per_page,
+        'currentPage' => 1,
+        'nextPage' => 2,
+        'prevPage' => 0,
+      ],
+    ];
+  }
+
+  /**
+   * Renders a single meta or media-meta output for one fixture. Mirrors the
+   * HTML produced by the real `get_*` methods (title, excerpt, taxonomies,
+   * author, date, spacer, estimated_read_time, read_more) so the same CSS
+   * targets apply. Anything unsupported here returns an empty string.
+   */
+  private function get_demo_meta_output( string $type, array $fixture, array $settings, array $display_meta ): string {
+    $typo_class_name = '';
+    if ( array_key_exists( 'typography', $settings ) && ! empty( $settings['typography'] ) ) {
+      $typo_class_name = ' ' . $this->typography_class_name( $settings['typography'] );
+    }
+
+    switch ( $type ) {
+
+      case 'title':
+        $h_level = $settings['headingLevel'] ?? 'h2';
+        $allowed = [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p' ];
+        if ( ! in_array( $h_level, $allowed, true ) ) $h_level = 'h2';
+        $title_class_attr = ' class="nectar-blocks-title__text' . $typo_class_name . '"';
+        $heading = '<' . $h_level . $title_class_attr . '>' . esc_html( $fixture['title'] ) . '</' . $h_level . '>';
+        // For wrap-all linkType the entire item is already inside an outer <a>;
+        // nesting another <a> here breaks HTML parsing (browser closes the
+        // outer link early), which collapses the whole layout.
+        return $this->full_post_link ? $heading : '<a href="#">' . $heading . '</a>';
+
+      case 'excerpt':
+        $length = intval( $settings['length'] ?? 24 );
+        $excerpt = wp_trim_words( $fixture['excerpt'] ?? '', $length, '…' );
+        if ( empty( $excerpt ) ) return '';
+        return '<p class="nectar-blocks-post-grid__item__excerpt' . $typo_class_name . '">' . esc_html( $excerpt ) . '</p>';
+
+      case 'spacer':
+        return '<div class="nectar-blocks-post-grid__item__spacer"></div>';
+
+      case 'date':
+        $ts = strtotime( $fixture['date'] ?? '' );
+        $date_formatted = $ts ? date_i18n( get_option( 'date_format' ), $ts ) : '';
+        return '<div class="nectar-blocks-post-grid__item__date inline-meta' . $typo_class_name . '">' . esc_html( $date_formatted ) . '</div>';
+
+      case 'author':
+        $style = $settings['style'] ?? 'simple';
+        $author_text = $fixture['author'] ?? '';
+        if ( $style === 'with-gravatar' ) {
+          $avatar = '<img class="avatar avatar-40 photo" width="40" height="40" alt="" src="https://www.gravatar.com/avatar/' . md5( strtolower( $author_text ) ) . '?s=40&d=mp" />';
+          $inner = '<span class="has-gravatar">' . $avatar . '<span>' . esc_html( $author_text ) . '</span></span>';
+        } else if ( $style === 'with-by-text' ) {
+          $excerpt_typo = '';
+          foreach ( $display_meta as $meta ) {
+            if ( isset( $meta['type'] ) && $meta['type'] === 'excerpt' ) {
+              $excerpt_typo = $this->typography_class_name( $meta['typography'] ?? '', true );
+            }
+          }
+          $inner = '<span class="inherit-typography-size' . esc_attr( $excerpt_typo ) . '">' . esc_html__( 'By', 'nectar-blocks' ) . '</span> <span>' . esc_html( $author_text ) . '</span>';
+        } else {
+          $inner = esc_html( $author_text );
+        }
+        return '<div class="nectar-blocks-post-grid__item__author inline-meta' . $typo_class_name . '">' . $inner . '</div>';
+
+      case 'taxonomies':
+        $tax_style = $settings['style'] ?? 'simple';
+        $typo_attr = $this->typography_class_name( $settings['typography'] ?? '', true );
+        $enable_links = ! empty( $settings['link'] ) && $settings['link'] === true && ! $this->full_post_link;
+        $tag = $enable_links ? 'a' : 'span';
+        $href_attr = $enable_links ? ' href="#"' : '';
+        $cats = $fixture['taxonomies'] ?? [];
+        $count = count( $cats );
+        $output = '';
+        foreach ( $cats as $i => $tax_name ) {
+          $output .= '<' . $tag . ' class="style--' . esc_attr( $tax_style ) . esc_attr( $typo_attr ) . '"' . $href_attr . '>' . esc_html( $tax_name ) . '</' . $tag . '>';
+          if ( ! in_array( $tax_style, [ 'button', 'button-border' ], true ) && $i < $count - 1 ) {
+            $output .= '<span class="delimiter">, </span>';
+          }
+        }
+        // Mirror the real `get_taxonomies` — third-party plugins may hook
+        // this filter, and the preview should match the inserted result.
+        return apply_filters( 'nectar_blocks_post_grid_taxonomies', $output );
+
+      case 'estimated_read_time':
+        $read_time = intval( $fixture['read_time'] ?? 5 );
+        return '<div class="nectar-blocks-post-grid__item__read-time inline-meta' . $typo_class_name . '">' . $read_time . ' ' . esc_html__( 'min read', 'nectar-blocks' ) . '</div>';
+
+      case 'read_more':
+        $arrow = '<svg width="20" height="20" aria-hidden="true" viewBox="0 0 22 22"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 12.3H7.8C6 12.3 4.5 10.8 4.5 9V6.5"></path><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="m13.5 17.5 5-5M13.5 7.5l5 5"></path></g></svg>';
+        $rm_tag = $this->full_post_link ? 'div' : 'a';
+        $rm_href = $this->full_post_link ? '' : ' href="#"';
+        $inner_span_class = trim( $typo_class_name );
+        $inner_span_attr = $inner_span_class !== '' ? ' class="' . esc_attr( $inner_span_class ) . '"' : '';
+        return '<' . $rm_tag . ' class="nectar-blocks-post-grid__item__read-more' . $typo_class_name . '"' . $rm_href . '><span' . $inner_span_attr . '>' . esc_html__( 'Read More', 'nectar-blocks' ) . '</span>' . $arrow . '</' . $rm_tag . '>';
+
+      default:
+        // Unhandled meta types (e.g. `custom`, which reads post_meta) silently
+        // render empty in the preview. If a template uses one of these in
+        // displayMeta, the preview will show a gap relative to the inserted
+        // version — acceptable since post_meta has no demo equivalent.
+        return '';
+    }
   }
 
   function render() {

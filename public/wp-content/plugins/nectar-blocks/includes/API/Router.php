@@ -7,9 +7,11 @@ use Nectar\API\Global_Settings\{
   Options_API,
   Typography_API,
   Admin_API,
-  Custom_Fonts_API
+  Custom_Fonts_API,
+  Adobe_Fonts_API
 };
 use Nectar\API\Media\{Image_Upload_API};
+use Nectar\API\Licensing\{Expired_Updates_API, License_API};
 use Nectar\API\{
   CSS_API,
   Assets_API,
@@ -29,6 +31,13 @@ interface API_Route {
  * @version 2.0.0
  */
 class Router {
+  /**
+   * The REST namespace every Nectarblocks route is registered under. Public so
+   * callers that need to build a path for apiFetch (which takes the full route,
+   * not a namespace + route pair) don't hardcode the string.
+   */
+  const REST_NAMESPACE = 'nectar/v1';
+
   function __construct() {
     $this->initialize_hooks();
   }
@@ -44,6 +53,7 @@ class Router {
       new Options_API(),
       new Admin_API(),
       new Custom_Fonts_API(),
+      new Adobe_Fonts_API(),
 
       new Image_Upload_API(),
 
@@ -52,7 +62,10 @@ class Router {
       new Post_Data_API(),
       new Dynamic_Block_API(),
       new Dynamic_Data_API(),
-      new Import_Export_API()
+      new Import_Export_API(),
+
+      new Expired_Updates_API(),
+      new License_API()
     ];
 
     if ( class_exists( 'Theme_Import_Export_API' ) ) {
@@ -74,6 +87,6 @@ class Router {
    * @since 0.0.2
    */
   public static function add_route($route, $args) {
-    register_rest_route( 'nectar/v1', $route, $args);
+    register_rest_route( self::REST_NAMESPACE, $route, $args);
   }
 }

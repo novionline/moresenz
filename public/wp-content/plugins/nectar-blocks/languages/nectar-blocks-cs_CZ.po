@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: nectar-blocks.php includes/Editor/Blocks.php:737 build/editor.js:1
+#: nectar-blocks.php includes/Editor/Blocks.php:1212 build/editor.js:1
 msgid "Nectarblocks"
 msgstr "Nectarblocks"
 
@@ -64,12 +64,12 @@ msgstr "Obrázek byl úspěšně nahrán."
 
 # "Custom Fields" je standardní termín ve WordPress, který se běžně
 # nepřekládá.
-#: includes/API/Post_Data_API.php:493
+#: includes/API/Post_Data_API.php:508
 msgid "Custom Fields"
-msgstr "Vlastní pole"
+msgstr "Custom Fields"
 
-#. translators: the Meta Field name
-#: includes/API/Post_Data_API.php:530
+#. translators: %s is the post type singular name (e.g. "Post", "Page")
+#: includes/API/Post_Data_API.php:545
 #, php-format
 msgid "Meta Fields: %s"
 msgstr "Meta pole: %s"
@@ -77,18 +77,6 @@ msgstr "Meta pole: %s"
 #: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:1
 msgid "Post Title"
 msgstr "Název příspěvku"
-
-#: includes/Dynamic_Data/Dynamic_Helpers.php:22
-#: includes/Dynamic_Data/Dynamic_Helpers.php:26
-#: includes/Dynamic_Data/Dynamic_Helpers.php:31
-#: includes/Dynamic_Data/Dynamic_Helpers.php:35
-#: includes/Dynamic_Data/Dynamic_Helpers.php:39
-#: includes/Dynamic_Data/Dynamic_Helpers.php:43
-#: includes/Dynamic_Data/Dynamic_Helpers.php:47
-#: includes/Dynamic_Data/Dynamic_Helpers.php:51
-#: includes/Dynamic_Data/Dynamic_Helpers.php:55
-msgid "Post"
-msgstr "Příspěvek"
 
 #: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:1
 msgid "Post URL"
@@ -173,7 +161,7 @@ msgstr "Komentář"
 msgid "Featured Image URL"
 msgstr "URL obrázku náhledu"
 
-#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:1
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101
 msgid "Media"
 msgstr "Nahrát soubor"
 
@@ -203,44 +191,46 @@ msgstr "Otevřeno"
 msgid "Closed"
 msgstr "Uzavřeno"
 
-#: includes/Editor/Blocks.php:719 build/editor.js:1
+#: includes/Editor/Blocks.php:1091 build/editor.js:1
 msgid "Desktop"
 msgstr "Počítač"
 
-#: includes/Editor/Blocks.php:720 build/editor.js:1
+#: includes/Editor/Blocks.php:1092 build/editor.js:1
 msgid "Tablet"
 msgstr "Tablet"
 
-#: includes/Editor/Blocks.php:721
+#: includes/Editor/Blocks.php:1093
 msgid "Phone"
 msgstr "Telefon"
 
-#: includes/Editor/Post_Meta.php:35
+#: includes/Editor/Post_Meta.php:44
 msgid "Client Name"
 msgstr "Jméno klienta"
 
-#: includes/Editor/Post_Meta.php:43
+#: includes/Editor/Post_Meta.php:52
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Date"
 msgstr "Datum"
 
-#: includes/Editor/Post_Meta.php:51 build/editor.js:1
+#: includes/Editor/Post_Meta.php:60 build/editor.js:1
 msgid "Project Link"
 msgstr "Odkaz na projekt"
 
-#: includes/Editor/Post_Meta.php:76 build/editor.js:1
+#: includes/Editor/Post_Meta.php:85 build/editor.js:1
 msgid "Video"
 msgstr "Video"
 
-#: includes/Editor/Post_Meta.php:94 build/editor.js:1
+#: includes/Editor/Post_Meta.php:103 build/editor.js:1
 msgid "Description"
 msgstr "Popis"
 
-#: includes/Editor/Post_Meta.php:102
+#: includes/Editor/Post_Meta.php:111
 msgid "Project URL"
 msgstr "URL projektu"
 
-#: includes/Global_Sections/Global_Sections.php:90 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:90
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:481
+#: build/editor.js:1
 msgid "General"
 msgstr "Obecné"
 
@@ -249,6 +239,8 @@ msgid "Everywhere"
 msgstr "Všude"
 
 #: includes/Global_Sections/Global_Sections.php:99
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:487
+#: build/editor.js:1
 msgid "Archive"
 msgstr "Archiv"
 
@@ -261,6 +253,8 @@ msgid "Search Results"
 msgstr "Výsledky vyhledávání"
 
 #: includes/Global_Sections/Global_Sections.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:485
+#: build/editor.js:1
 msgid "Single"
 msgstr "Jeden"
 
@@ -269,12 +263,12 @@ msgid "Specific Post"
 msgstr "Konkrétní příspěvek"
 
 #: includes/Global_Sections/Global_Sections.php:120
-#: includes/Nectar_Templates/Nectar_Templates.php:170
+#: includes/Nectar_Templates/Nectar_Templates.php:314
 msgid "Is Taxonomy Term"
 msgstr "Je taxonomický termín"
 
 #: includes/Global_Sections/Global_Sections.php:124
-#: includes/Nectar_Templates/Nectar_Templates.php:174
+#: includes/Nectar_Templates/Nectar_Templates.php:318
 msgid "Has Taxonomy Term"
 msgstr "Má taxonomický termín"
 
@@ -283,17 +277,17 @@ msgid "Post Types"
 msgstr "Typy příspěvků"
 
 #: includes/Global_Sections/Global_Sections.php:133
-#: includes/Nectar_Templates/Nectar_Templates.php:179
+#: includes/Nectar_Templates/Nectar_Templates.php:323
 msgid "User Roles/Permissions"
 msgstr "Uživatelské role/Oprávnění"
 
 #: includes/Global_Sections/Global_Sections.php:138
-#: includes/Nectar_Templates/Nectar_Templates.php:184
+#: includes/Nectar_Templates/Nectar_Templates.php:328
 msgid "User Logged In"
 msgstr "Uživatel přihlášen"
 
 #: includes/Global_Sections/Global_Sections.php:144
-#: includes/Nectar_Templates/Nectar_Templates.php:190
+#: includes/Nectar_Templates/Nectar_Templates.php:334
 msgid "User Not Logged In"
 msgstr "Uživatel není přihlášen"
 
@@ -339,7 +333,10 @@ msgid "After Blog Loop"
 msgstr "Po seznamu příspěvků"
 
 #: includes/Global_Sections/Global_Sections.php:206
-#: includes/Global_Sections/Global_Sections.php:227 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:227
+#: includes/Nectar_Templates/Nectar_Templates.php:96
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:491
+#: build/editor.js:1
 msgid "Footer"
 msgstr "Zápatí"
 
@@ -361,6 +358,7 @@ msgid "Bottom"
 msgstr "Dolů"
 
 #: includes/Global_Sections/Global_Sections.php:231
+#: includes/Nectar_Templates/Nectar_Templates.php:102
 msgid "Footer Parallax"
 msgstr "Paralaxní efekt patičky"
 
@@ -368,7 +366,9 @@ msgstr "Paralaxní efekt patičky"
 msgid "After Footer"
 msgstr "Po patičce"
 
-#: includes/Global_Sections/Global_Sections.php:241 build/adminPanel.js:171
+#: includes/Global_Sections/Global_Sections.php:241
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:483
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -454,10 +454,11 @@ msgstr "Pokračovat k pokladně"
 
 #: includes/Global_Sections/Global_Sections_Register.php:99
 #: includes/Global_Sections/Global_Sections_Register.php:102
+#: build/adminPanel.js:171
 msgid "Global Sections"
 msgstr "Globální sekce"
 
-#: includes/Global_Sections/Global_Sections_Register.php:100
+#: includes/Global_Sections/Global_Sections_Register.php:100 build/editor.js:1
 msgid "Global Section"
 msgstr "Globální sekce"
 
@@ -484,7 +485,7 @@ msgid "Add New Global Section"
 msgstr "Přidat novou globální sekci"
 
 #: includes/Global_Sections/Global_Sections_Register.php:114
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:80
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:822
 msgid "Section"
 msgstr "Sekce"
 
@@ -493,7 +494,7 @@ msgid "Locations"
 msgstr "Umístění"
 
 #: includes/Global_Sections/Global_Sections_Register.php:140
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:106
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1148
 #: build/editor.js:1
 msgid "Conditions"
 msgstr "Podmínky"
@@ -510,43 +511,11 @@ msgstr "Skrýt Nectar Hooks"
 msgid "Hook:"
 msgstr "Hook:"
 
-#: includes/Global_Settings/Global_Colors.php:93
-msgid "Core Gradient #1"
-msgstr "Základní gradient #1"
-
-#: includes/Global_Settings/Global_Colors.php:98
-msgid "Core Gradient #2"
-msgstr "Základní gradient #2"
-
-#: includes/Global_Settings/Global_Colors.php:103
-msgid "Core Gradient #3"
-msgstr "Základní gradient #3"
-
-#: includes/Global_Settings/Global_Colors.php:108
-msgid "Core Gradient #4"
-msgstr "Základní gradient #4"
-
-#: includes/Global_Settings/Global_Colors.php:113
-msgid "Core Gradient #5"
-msgstr "Základní gradient #5"
-
-#: includes/Global_Settings/Global_Colors.php:129
+#: includes/Global_Settings/Global_Colors.php:139 build/editor.js:1
 msgid "Light"
 msgstr "Světlý"
 
-#: includes/Global_Settings/Global_Colors.php:134
-msgid "Accent Light"
-msgstr "Světlý akcent"
-
-#: includes/Global_Settings/Global_Colors.php:139
-msgid "Accent Primary"
-msgstr "Primární zvýraznění"
-
-#: includes/Global_Settings/Global_Colors.php:144
-msgid "Accent Dark"
-msgstr "Tmavý akcent"
-
-#: includes/Global_Settings/Global_Colors.php:149
+#: includes/Global_Settings/Global_Colors.php:159 build/editor.js:1
 msgid "Dark"
 msgstr "Tmavý"
 
@@ -566,7 +535,7 @@ msgstr "Úspěšně uloženo"
 msgid "Options"
 msgstr "Možnosti"
 
-#: includes/Menu_Options/Modal.php:313
+#: includes/Menu_Options/Modal.php:313 build/editor.js:1
 msgid "Menu Item"
 msgstr "Položka menu"
 
@@ -574,7 +543,7 @@ msgstr "Položka menu"
 msgid "Icon"
 msgstr "Ikona"
 
-#: includes/Menu_Options/Modal.php:323 build/editor.js:1
+#: build/editor.js:1
 msgid "Close"
 msgstr "Zavřít"
 
@@ -634,7 +603,6 @@ msgstr "Styl tlačítka odkazu položky menu"
 msgid "Choose a style for your menu item."
 msgstr "Vyberte styl pro vaši položku menu."
 
-#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Default"
 msgstr "Výchozí"
@@ -704,52 +672,29 @@ msgstr "Text (Emoji)"
 msgid "Menu Icon Text (Emoji)"
 msgstr "Text ikony menu (Emoji)"
 
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Add in a symbol or emoji to display as the icon next to your menu title."
-msgstr ""
-"Přidejte symbol nebo emoji, který se zobrazí jako ikona vedle názvu vaší "
-"nabídky."
-
-#: includes/Menu_Options/Settings.php:305
-msgid "To add an Emoji:"
-msgstr "Pro přidání Emoji:"
-
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Windows: On your keyboard, press and hold the Windows button and either the "
-"period (.) or semicolon (;)"
-msgstr ""
-"Windows: Na klávesnici stiskněte a podržte klávesu Windows a buď tečku (.) "
-"nebo středník (;)"
-
-#: includes/Menu_Options/Settings.php:305
-msgid "Mac: On your keyboard, press Command + Control + Space"
-msgstr "Mac: Na klávesnici stiskněte Command + Control + Space"
-
-#: includes/Menu_Options/Settings.php:312
+#: includes/Menu_Options/Settings.php:318
 msgid "Icon Selection"
 msgstr "Výběr ikony"
 
-#: includes/Menu_Options/Settings.php:313
+#: includes/Menu_Options/Settings.php:319
 msgid "Upload an icon to display next to the menu item title."
 msgstr "Nahrajte ikonu, která se zobrazí vedle názvu položky menu."
 
-#: includes/Menu_Options/Settings.php:323
+#: includes/Menu_Options/Settings.php:329
 msgid "Menu Icon Size"
 msgstr "Velikost ikony menu"
 
-#: includes/Menu_Options/Settings.php:324
+#: includes/Menu_Options/Settings.php:330
 msgid ""
 "Define a custom size for your icon. Leave this blank for the default value."
 msgstr ""
 "Definujte vlastní velikost vaší ikony. Pro výchozí hodnotu ponechte prázdné."
 
-#: includes/Menu_Options/Settings.php:335
+#: includes/Menu_Options/Settings.php:341
 msgid "Menu Icon Position"
 msgstr "Pozice ikony menu"
 
-#: includes/Menu_Options/Settings.php:336
+#: includes/Menu_Options/Settings.php:342
 msgid ""
 "Determines where the menu icon will be aligned relative to the text. (Only "
 "applies to submenu items)"
@@ -757,19 +702,19 @@ msgstr ""
 "Určuje, kde bude ikona menu zarovnána vzhledem k textu. (Platí pouze pro "
 "položky submenu)"
 
-#: includes/Menu_Options/Settings.php:340
+#: includes/Menu_Options/Settings.php:346
 msgid "Next To Text"
 msgstr "Vedle textu"
 
-#: includes/Menu_Options/Settings.php:341
+#: includes/Menu_Options/Settings.php:347
 msgid "Above Text"
 msgstr "Nad textem"
 
-#: includes/Menu_Options/Settings.php:347
+#: includes/Menu_Options/Settings.php:353
 msgid "Menu Icon Spacing"
 msgstr "Mezery u ikony menu"
 
-#: includes/Menu_Options/Settings.php:348
+#: includes/Menu_Options/Settings.php:354
 msgid ""
 "Define a custom amount of spacing between your icon and menu item text. "
 "Leave this blank for the default value. (Only applies to submenu items)"
@@ -785,7 +730,7 @@ msgstr "Výchozí průhlednost"
 msgid "Hover Opacity"
 msgstr "Průhlednost při najetí myší"
 
-#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:1
+#: build/editor.js:1
 msgid "None"
 msgstr "Žádné"
 
@@ -845,50 +790,50 @@ msgstr "Archiv:"
 msgid "404 Template"
 msgstr "404 šablona"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:84
+#: includes/Nectar_Templates/Nectar_Templates.php:90
 msgid "Off Canvas Menu"
 msgstr "Menu mimo plátno"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:166 build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates.php:310 build/editor.js:1
 msgid "Taxonomy Terms"
 msgstr "Taxonomy termy"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:808
 msgid "Theme Builder"
 msgstr "Tvůrce šablony"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:809
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1147
 #: build/editor.js:1
 msgid "Template"
 msgstr "Šablona stránky"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:810
 msgid "Search Templates"
 msgstr "Hledat šablony"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:811
 msgid "Templates"
 msgstr "Šablony"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:812
 msgid "Parent Template"
 msgstr "Rodičovská šablona"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:813
 msgid "Edit Template"
 msgstr "Upravit šablonu"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:814
 msgid "Update Template"
 msgstr "Aktualizovat šablonu"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:74
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:815
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:816
 msgid "Add New Template"
 msgstr "Přidat novou šablonu"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:254
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1296
 msgid "None Assigned"
 msgstr "Nepřiřazeno"
 
@@ -1003,7 +948,7 @@ msgstr ""
 "permalinky návštěvou Nastavení > Trvalé odkazy a kliknutím na \"Uložit "
 "změny\"."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:22
+#: includes/Render/Blocks/PostContent/PostContent.php:24
 msgid ""
 "This is the Content block, it will display all the blocks in any single post"
 " or page."
@@ -1011,7 +956,7 @@ msgstr ""
 "Toto je blok obsahu příspěvku, zobrazí všechny bloky v každém jednotlivém "
 "příspěvku nebo na stránce."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:23
+#: includes/Render/Blocks/PostContent/PostContent.php:25
 msgid ""
 "That might be a simple arrangement like consecutive paragraphs in a blog "
 "post, or a more elaborate composition that includes image galleries, videos,"
@@ -1021,7 +966,7 @@ msgstr ""
 "příspěvku na blogu, nebo propracovanější kompozice, která zahrnuje obrázkové"
 " galerie, videa, tabulky, sloupce a jakékoli další typy bloků."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:24
+#: includes/Render/Blocks/PostContent/PostContent.php:26
 msgid ""
 "If there are any Custom Post Types registered at your site, the Content "
 "block can display the contents of those entries as well."
@@ -1029,44 +974,47 @@ msgstr ""
 "Pokud jsou na vašem webu zaregistrovány nějaké vlastní typy příspěvků, může "
 "blok Obsah příspěvku zobrazit také obsah těchto záznamů."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+#: includes/Render/Blocks/PostGrid/PostGrid.php:130
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1229
 msgid "By"
 msgstr "Od"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+#: includes/Render/Blocks/PostGrid/PostGrid.php:324
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1256
 msgid "min read"
 msgstr "min čtení"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:358
-#: includes/Render/Blocks/PostGrid/PostGrid.php:362
+#: includes/Render/Blocks/PostGrid/PostGrid.php:366
+#: includes/Render/Blocks/PostGrid/PostGrid.php:370
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1264
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Read More"
 msgstr "Pokračovat ve čtení"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:640
+#: includes/Render/Blocks/PostGrid/PostGrid.php:709
 msgid "Pagination Navigation"
 msgstr "Navigace stránkování"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:961
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1296
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219 build/editor.js:1
 msgid "Load More"
 msgstr "Načíst další"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:962
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1297
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220 build/editor.js:1
 msgid "Previous"
 msgstr "Předchozí"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:963
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1298
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221 build/editor.js:1
 msgid "Next"
 msgstr "Další"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:979
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1314
 msgid "No posts found."
 msgstr "Nebyly nalezeny žádné příspěvky."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:980
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1315
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
 msgid "Try adjusting your query parameters."
 msgstr "Zkuste upravit parametry vašeho dotazu."
@@ -1091,7 +1039,6 @@ msgstr "Zde se zobrazí termíny \"%s\"."
 msgid "No terms in \"%s\""
 msgstr "Žádné položky v \"%s\""
 
-#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
 #: build/editor.js:1
 msgid "All"
 msgstr "Vše"
@@ -1147,10 +1094,6 @@ msgstr "Aktivní licence"
 #: build/adminPanel.js:171
 msgid "Invalid License"
 msgstr "Neplatná licence"
-
-#: build/adminPanel.js:171
-msgid "Theme License Code"
-msgstr "Licenční kód šablony"
 
 #: build/adminPanel.js:171
 msgid "license key"
@@ -1217,10 +1160,6 @@ msgid "Custom Code (JS/HTML) After Body Open"
 msgstr "Vlastní kód (JS/HTML) po otevření značky body"
 
 #: build/adminPanel.js:171
-msgid "Add a New Font"
-msgstr "Přidat nové písmo"
-
-#: build/adminPanel.js:171
 msgid "Please enter a font name."
 msgstr "Zadejte název písma."
 
@@ -1235,10 +1174,6 @@ msgstr "Vlastní písmo bylo úspěšně aktualizováno."
 #: build/adminPanel.js:171
 msgid "Add Font"
 msgstr "Přidat písmo"
-
-#: build/adminPanel.js:171
-msgid "No changes were made."
-msgstr "Nebyly provedeny žádné změny."
 
 #: build/adminPanel.js:171
 msgid "Failed to update custom font variation."
@@ -1403,7 +1338,7 @@ msgstr "Demo obsah"
 msgid "Theme Options"
 msgstr "Možnosti šablony"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Settings"
 msgstr "Globální nastavení"
 
@@ -1469,11 +1404,11 @@ msgstr "z Nectarblocks."
 msgid "Your export will include the following data:"
 msgstr "Váš export bude obsahovat následující data:"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Colors"
 msgstr "Globální barvy"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Typography"
 msgstr "Globální typografie"
 
@@ -1614,7 +1549,8 @@ msgstr "Zakázat jádro"
 #: build/adminPanel.js:171
 msgid ""
 " rules to allow your theme to control typography, rather than Nectarblocks."
-msgstr "pravidla umožňující vaší šabloně řídit typografii namísto Nectarblocks."
+msgstr ""
+"pravidla umožňující vaší šabloně řídit typografii namísto Nectarblocks."
 
 #: build/adminPanel.js:171
 msgid "Getting Started"
@@ -1632,7 +1568,7 @@ msgstr "Nastavení pluginu"
 msgid "Custom Code"
 msgstr "Vlastní kód"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/editor.js:1
 msgid "Custom Fonts"
 msgstr "Vlastní písma"
 
@@ -2012,14 +1948,6 @@ msgstr "Zadejte svůj Nectarblocks"
 #: build/adminPanel.js:171
 msgid "Enter the name of your font"
 msgstr "Zadejte název vašeho písma"
-
-#: build/adminPanel.js:171
-msgid ""
-"for a successful import. Once the import process begins, please refrain from"
-" refreshing the page until it has completed."
-msgstr ""
-"pro úspěšný import. Jakmile proces importu začne, zdržte se prosím "
-"obnovování stránky, dokud nebude dokončen."
 
 #: build/adminPanel.js:171
 msgid ""
@@ -2453,20 +2381,8 @@ msgid "Animation Property"
 msgstr "Vlastnost animace"
 
 #: build/editor.js:1
-msgid "Move Up"
-msgstr "Přesunout nahoru"
-
-#: build/editor.js:1
-msgid "Move Down"
-msgstr "Přesunout dolů"
-
-#: build/editor.js:1
 msgid "Edit Animation Property"
 msgstr "Upravit vlastnost animace"
-
-#: build/editor.js:1
-msgid "Enter"
-msgstr "Zadat"
 
 #: build/editor.js:1
 msgid "Center"
@@ -2506,10 +2422,7 @@ msgstr "Přidat vlastnost animace"
 
 #: build/editor.js:1
 msgid "Preview Starting State"
-msgstr "Náhled výchozího stavu"
-"# Preview Starting State\n"
-"\n"
-"Náhled výchozího stavu"
+msgstr "Náhled počátečního stavu"
 
 #: build/editor.js:1
 msgid "Animation Boundaries"
@@ -2518,12 +2431,6 @@ msgstr "Hranice animace"
 #: build/editor.js:1
 msgid "Pin"
 msgstr "Připnout"
-
-#: build/editor.js:1
-msgid ""
-"\"Pin\" the block in place within the viewport while the animation plays "
-"through."
-msgstr "Připnout blok na místo v zobrazení během přehrávání animace."
 
 #: build/editor.js:1
 msgid "Overlap"
@@ -2553,24 +2460,8 @@ msgid "Pin On"
 msgstr "Připnout na"
 
 #: build/editor.js:1
-msgid "Start On"
-msgstr "Zapnout při"
-
-#: build/editor.js:1
 msgid "End After Scrolling"
 msgstr "Ukončit po posunu"
-
-#: build/editor.js:1
-msgid "End On"
-msgstr "Konec zapnuto"
-
-#: build/editor.js:1
-msgid "Exit"
-msgstr "Ukončit"
-
-#: build/editor.js:1
-msgid "Custom End Offset"
-msgstr "Vlastní koncové odsazení"
 
 #: build/editor.js:1
 msgid ""
@@ -2589,16 +2480,8 @@ msgid "Smooth"
 msgstr "Plynulé"
 
 #: build/editor.js:1
-msgid "Adds smoothing to the animation while scrolling."
-msgstr "Přidává vyhlazení animace při rolování."
-
-#: build/editor.js:1
 msgid "Block Animation"
 msgstr "Animace bloku"
-
-#: build/editor.js:1
-msgid "Animation Trigger Type"
-msgstr "Typ spouštěče animace"
 
 #: build/editor.js:1
 msgid "Add Animation Trigger"
@@ -2625,9 +2508,8 @@ msgid "No Repeat"
 msgstr "Bez opakování"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Repeat All Directions"
-msgstr ""
+msgstr "Opakovat všechny směry"
 
 #: build/editor.js:1
 msgid "Repeat Horizontal"
@@ -2726,10 +2608,6 @@ msgid "Fit"
 msgstr "Přizpůsobit"
 
 #: build/editor.js:1
-msgid "Custom ID"
-msgstr "Vlastní ID"
-
-#: build/editor.js:1
 msgid "Invalid element ID / anchor"
 msgstr "Neplatné ID prvku / kotva"
 
@@ -2772,10 +2650,6 @@ msgstr "Zobrazit"
 #: build/editor.js:1
 msgid "Justify"
 msgstr "Zarovnat do bloku"
-
-#: build/editor.js:1
-msgid "Flex Wrap"
-msgstr "Zalamování flex"
 
 #: build/editor.js:1
 msgid "Pointer"
@@ -2910,10 +2784,6 @@ msgid "Effect Type"
 msgstr "Typ efektu"
 
 #: build/editor.js:1
-msgid "Edit Filter"
-msgstr "Upravit filtr"
-
-#: build/editor.js:1
 msgid "Backdrop Filters"
 msgstr "Filtry pozadí"
 
@@ -3002,10 +2872,6 @@ msgid "Link"
 msgstr "Odkaz"
 
 #: build/editor.js:1
-msgid "Custom Attributes"
-msgstr "Vlastní atributy"
-
-#: build/editor.js:1
 msgid "Mask"
 msgstr "Maska"
 
@@ -3090,14 +2956,6 @@ msgid "Skew Y"
 msgstr "Zkosení Y"
 
 #: build/editor.js:1
-msgid "Translate X"
-msgstr "Posunutí X"
-
-#: build/editor.js:1
-msgid "Translate Y"
-msgstr "Posunutí Y"
-
-#: build/editor.js:1
 msgid "Transform Type"
 msgstr "Typ transformace"
 
@@ -3156,10 +3014,6 @@ msgstr "akordeony"
 #: build/editor.js:1
 msgid "nectar"
 msgstr "nektar"
-
-#: build/editor.js:1
-msgid "Accordion Title"
-msgstr "Název akordeonu"
 
 #: build/editor.js:1
 msgid "Add New Accordion"
@@ -3291,7 +3145,7 @@ msgstr "Typ šířky"
 msgid "Columns"
 msgstr "Sloupce"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Group"
 msgstr "Skupina"
 
@@ -3567,14 +3421,6 @@ msgid "Button BG"
 msgstr "Pozadí tlačítka"
 
 #: build/editor.js:1
-msgid "Transition Speed (s)"
-msgstr "Rychlost přechodu (s)"
-
-#: build/editor.js:1
-msgid "Time Between (s)"
-msgstr "Čas mezi (s)"
-
-#: build/editor.js:1
 msgid "Equal Height"
 msgstr "Stejná výška"
 
@@ -3750,7 +3596,8 @@ msgstr "Vložit z URL"
 msgid "Enter URL"
 msgstr "Zadejte URL"
 
-#: build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:638
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Cancel"
 msgstr "Zrušit"
 
@@ -3809,10 +3656,6 @@ msgstr "Animace počítání"
 #: build/editor.js:1
 msgid "Milestone"
 msgstr "Milník"
-
-#: build/editor.js:1
-msgid "Highlight an important event or attribute."
-msgstr "Zvýrazněte důležitou událost nebo atribut."
 
 #: build/editor.js:1
 msgid "milestone"
@@ -3931,9 +3774,8 @@ msgstr ""
 "jeden výše nebo zadat vlastní ručně."
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Before Text"
-msgstr ""
+msgstr "Před textem"
 
 #: build/editor.js:1
 msgid "After Text"
@@ -4178,10 +4020,6 @@ msgstr "řádek"
 #: build/editor.js:1
 msgid "Contained"
 msgstr "Obsaženo"
-
-#: build/editor.js:1
-msgid "Contained Content"
-msgstr "Obsah v kontejneru"
 
 #: build/editor.js:1
 msgid "Constraint"
@@ -4500,14 +4338,6 @@ msgstr ""
 " potenciálním zákazníkům činit informovaná rozhodnutí s důvěrou."
 
 #: build/editor.js:1
-msgid "John Doe"
-msgstr "John Doe"
-
-#: build/editor.js:1
-msgid "@nectarblocks"
-msgstr "@nectarblocks"
-
-#: build/editor.js:1
 msgid ""
 "This is a testimonial block. Incorporating <mark style=\"background-"
 "color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
@@ -4553,10 +4383,6 @@ msgstr "Doporučení"
 #: build/editor.js:1
 msgid "Build trust and credibility by showcasing customer feedback."
 msgstr "Budujte důvěru a důvěryhodnost prezentací zpětné vazby od zákazníků."
-
-#: build/editor.js:1
-msgid "Enter the testimonial text here"
-msgstr "Zde zadejte text reference"
 
 #: build/editor.js:1
 msgid "Edit as HTML"
@@ -4654,16 +4480,6 @@ msgid "Type / to choose a block or start typing..."
 msgstr "Zadejte / pro výběr bloku nebo začněte psát..."
 
 #: build/editor.js:1
-msgid ""
-"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
-"my website. I live in Los Angeles, have a great dog named Jack, and I like "
-"piña coladas. (And gettin' caught in the rain.)"
-msgstr ""
-"Ahoj! Přes den jsem cyklistický kurýr, večer začínající herec a tohle je můj"
-" web. Žiju v Los Angeles, mám skvělého psa jménem Jack a mám rád piña "
-"colady. (A nechat se chytit deštěm.)"
-
-#: build/editor.js:1
 msgid "Watch Video"
 msgstr "Přehrát video"
 
@@ -4756,10 +4572,6 @@ msgid "Uploading"
 msgstr "Nahrávání"
 
 #: build/editor.js:1
-msgid "Autoplay Trigger"
-msgstr "Spuštění automatického přehrávání"
-
-#: build/editor.js:1
 msgid "Learn more about using this trigger in the"
 msgstr "Zjistěte více o použití tohoto spouštěče v"
 
@@ -4798,10 +4610,6 @@ msgstr "Nectar"
 #: build/editor.js:1
 msgid "Nectar Global Colors"
 msgstr "Globální barvy Nectar"
-
-#: build/editor.js:1
-msgid "WP Custom Color Scheme"
-msgstr "Vlastní barevné schéma WP"
 
 #: build/editor.js:1
 msgid "WP Theme Color Scheme"
@@ -5054,7 +4862,7 @@ msgstr "Aktualizováno. Nezapomeňte uložit příspěvek!"
 msgid "Delete Global Color Confirmation"
 msgstr "Potvrzení smazání globální barvy"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Are you sure you want to delete"
 msgstr "Opravdu chcete smazat"
 
@@ -5095,14 +4903,6 @@ msgid "An error occurred saving color!"
 msgstr "Při ukládání barvy došlo k chybě!"
 
 #: build/editor.js:1
-msgid "Add Global Color"
-msgstr "Přidat globální barvu"
-
-#: build/editor.js:1
-msgid "Add Global Gradient"
-msgstr "Přidat globální přechod"
-
-#: build/editor.js:1
 msgid "Tranquility"
 msgstr "Klid"
 
@@ -5133,30 +4933,6 @@ msgstr "Táborák"
 #: build/editor.js:1
 msgid "Electric Harmony"
 msgstr "Elektrická harmonie"
-
-#: build/editor.js:1
-msgid "Palette Presets"
-msgstr "Předvolby palety"
-
-#: build/editor.js:1
-msgid "Core Colors"
-msgstr "Základní barvy"
-
-#: build/editor.js:1
-msgid "Custom Colors"
-msgstr "Vlastní barvy"
-
-#: build/editor.js:1
-msgid "Core Gradients"
-msgstr "Základní přechody"
-
-#: build/editor.js:1
-msgid "Custom Gradients"
-msgstr "Vlastní přechody"
-
-#: build/editor.js:1
-msgid "Solids"
-msgstr "Plné barvy"
 
 #: build/editor.js:1
 msgid "Gradients"
@@ -5223,32 +4999,12 @@ msgid "An error occurred saving font!"
 msgstr "Při ukládání písma došlo k chybě!"
 
 #: build/editor.js:1
-msgid "Rename Font"
-msgstr "Přejmenovat písmo"
-
-#: build/editor.js:1
-msgid "New Name"
-msgstr "Nový název"
-
-#: build/editor.js:1
-msgid "Save Font Name"
-msgstr "Uložit název písma"
-
-#: build/editor.js:1
 msgid "Rename"
 msgstr "Přejmenovat"
 
 #: build/editor.js:1
 msgid "Custom Font"
 msgstr "Vlastní písmo"
-
-#: build/editor.js:1
-msgid "Add New Font Rule"
-msgstr "Přidat nové pravidlo písma"
-
-#: build/editor.js:1
-msgid "Core Font Rules"
-msgstr "Pravidla základních písem"
 
 #: build/editor.js:1
 msgid ""
@@ -5259,16 +5015,8 @@ msgstr ""
 "prostřednictvím možností pluginu Nectarblocks."
 
 #: build/editor.js:1
-msgid "Custom Font Rules"
-msgstr "Pravidla vlastních písem"
-
-#: build/editor.js:1
 msgid "Nectarblocks Guide"
 msgstr "Průvodce Nectarblocks"
-
-#: build/editor.js:1
-msgid "Display Tutorial"
-msgstr "Zobrazit návod"
 
 #: build/editor.js:1
 msgid "Template Options"
@@ -5442,7 +5190,7 @@ msgstr "Importovat obrázek"
 msgid "Photo by"
 msgstr "Foto od"
 
-#: build/editor.js:1
+#: includes/Render/RenderJS.php:85 build/editor.js:1
 msgid "No results found"
 msgstr "Nebyly nalezeny žádné výsledky"
 
@@ -5455,135 +5203,12 @@ msgid "Nectar Images"
 msgstr "Obrázky Nectar"
 
 #: build/editor.js:1
-msgid "Welcome Guide"
-msgstr "Průvodce"
-
-#: build/editor.js:1
-msgid "Getting Started with Nectarblocks"
-msgstr "Začínáme s Nectarblocks"
-
-#: build/editor.js:1
-msgid ""
-"To start creating a page, you can add blocks by clicking the plus icon "
-"located on the left of the top toolbar."
-msgstr ""
-"Chcete-li začít vytvářet stránku, můžete přidat bloky kliknutím na ikonu "
-"plus umístěnou vlevo na horním panelu nástrojů."
-
-#: build/editor.js:1
-msgid ""
-"The Nectarblocks category will appear at the top of the block list, with "
-"each block highlighted in blue for easy identification."
-msgstr ""
-"Kategorie Nectarblocks se zobrazí v horní části seznamu bloků, přičemž každý"
-" blok bude zvýrazněn modře pro snadnou identifikaci."
-
-#: build/editor.js:1
-msgid "Meet the Template Library"
-msgstr "Seznamte se s knihovnou šablon"
-
-#: build/editor.js:1
-msgid ""
-"Jump-start your website creation with our professionally designed collection"
-" of pre-made templates."
-msgstr ""
-"Nastartujte tvorbu svého webu s naší profesionálně navrženou kolekcí "
-"předpřipravených šablon."
-
-#: build/editor.js:1
-msgid ""
-"You can easily access the library by clicking on the \"Template Library\" "
-"button on the top toolbar. All templates from Nectarblocks are dynamic and "
-"will adapt to fit your current global color and typography settings."
-msgstr ""
-"Knihovnu snadno otevřete kliknutím na tlačítko „Knihovna šablon\" v horní "
-"liště nástrojů. Všechny šablony z Nectarblocks jsou dynamické a automaticky "
-"se přizpůsobí vašim aktuálním globálním nastavením barev a typografie."
-
-#: build/editor.js:1
-msgid ""
-"Access global settings by clicking the Nectarblocks logo at the top right. "
-"Create reusable color schemes and typography rules that can then be applied "
-"to blocks throughout your pages."
-msgstr ""
-"Přístup ke globálním nastavením získáte kliknutím na logo Nectarblocks v "
-"pravém horním rohu. Vytvořte opakovaně použitelná barevná schémata a "
-"typografická pravidla, která pak můžete aplikovat na bloky na vašich "
-"stránkách."
-
-#: build/editor.js:1
 msgid "Block Settings"
 msgstr "Nastavení bloku"
 
 #: build/editor.js:1
-msgid ""
-"To access settings for a block, simply click on the Settings icon while the "
-"desired block is selected."
-msgstr ""
-"Chcete-li získat přístup k nastavení bloku, jednoduše klikněte na ikonu "
-"Nastavení, když je požadovaný blok vybrán."
-
-#: build/editor.js:1
-msgid ""
-"Each block offers an extensive range of customization options and settings, "
-"empowering you to harness your global settings effectively. You can easily "
-"maintain consistency and coherence across your entire design."
-msgstr ""
-"Každý blok nabízí rozsáhlou škálu možností přizpůsobení a nastavení, které "
-"vám umožňují efektivně využívat globální nastavení. Snadno tak můžete udržet"
-" konzistenci a soudržnost v celém designu."
-
-#: build/editor.js:1
-msgid "Pro tip: "
-msgstr "Profesionální tip:"
-
-#: build/editor.js:1
-msgid ""
-"If you're struggling to select a specific block, check the Document Overview"
-" to easily see the full structure of your page."
-msgstr ""
-"Pokud máte potíže s výběrem konkrétního bloku, zkontrolujte Přehled "
-"dokumentu, kde snadno uvidíte celou strukturu vaší stránky."
-
-#: build/editor.js:1
-msgid "Responsive and Hover Modes"
-msgstr "Responzivní režimy a režimy při najetí myší"
-
-#: build/editor.js:1
-msgid ""
-"To switch between editing modes, click on one of the icons located at the "
-"top-middle of the interface. Any changes you make to the settings will "
-"affect the selected mode only. This allows for easy customization to "
-"responsive and hover settings."
-msgstr ""
-"Pro přepínání mezi režimy úprav klikněte na jednu z ikon umístěných v horní "
-"střední části rozhraní. Jakékoli změny, které provedete v nastavení, ovlivní"
-" pouze vybraný režim. To umožňuje snadné přizpůsobení responzivního "
-"nastavení a nastavení při najetí myší."
-
-#: build/editor.js:1
-msgid "Keep an eye out for settings highlighted in"
-msgstr "Sledujte nastavení zvýrazněná v"
-
-#: build/editor.js:1
 msgid "green"
 msgstr "zelená"
-
-#: build/editor.js:1
-msgid "— these are unique to the selected mode and can be edited separately."
-msgstr "— jsou jedinečné pro vybraný režim a lze je upravovat samostatně."
-
-#: build/editor.js:1
-msgid "It's time to start building"
-msgstr "Je čas začít tvořit"
-
-#: build/editor.js:1
-msgid ""
-"To see this guide again, click the “Display Tutorial” button at the bottom "
-"of the Nectarblocks Global Settings panel."
-msgstr ""
-"Chcete-li tuto příručku zobrazit znovu, klikněte na tlačítko „Zobrazit "
-"tutoriál\" v dolní části panelu Globální nastavení Nectarblocks."
 
 #: build/editor.js:1
 msgid "About"
@@ -5598,16 +5223,8 @@ msgid "Features"
 msgstr "Funkce"
 
 #: build/editor.js:1
-msgid "Intro"
-msgstr "Úvod"
-
-#: build/editor.js:1
 msgid "Pricing"
 msgstr "Ceník"
-
-#: build/editor.js:1
-msgid "Quotes"
-msgstr "Citace"
 
 #: build/editor.js:1
 msgid "Scroll Section"
@@ -5674,18 +5291,2688 @@ msgstr "Nadpis 6"
 msgid "Paragraph"
 msgstr "Odstavec"
 
+#: build/adminPanel.js:171
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"pro úspěšný import. Jakmile proces importu začne,\n"
+"prosím neobnovujte stránku, dokud nebude dokončen."
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgctxt "dynamic data group label"
+msgid "Post"
+msgstr "Příspěvek"
+
+#: includes/Global_Settings/Global_Colors.php:103 build/editor.js:1
+msgid "Tertiary to Primary"
+msgstr "Terciární na primární"
+
+#: includes/Global_Settings/Global_Colors.php:108 build/editor.js:1
+msgid "Tertiary to Secondary"
+msgstr "Terciární na sekundární"
+
+#: includes/Global_Settings/Global_Colors.php:113 build/editor.js:1
+msgid "Tertiary to Dark"
+msgstr "Terciární na tmavou"
+
+#: includes/Global_Settings/Global_Colors.php:118 build/editor.js:1
+msgid "Light to Primary"
+msgstr "Světlá na primární"
+
+#: includes/Global_Settings/Global_Colors.php:123 build/editor.js:1
+msgid "Light Fade"
+msgstr "Světlé prolnutí"
+
+#: includes/Global_Settings/Global_Colors.php:144 build/editor.js:1
+msgid "Tertiary"
+msgstr "Terciární"
+
+#: includes/Global_Settings/Global_Colors.php:149 build/editor.js:1
+msgid "Primary"
+msgstr "Primární"
+
+#: includes/Global_Settings/Global_Colors.php:154 build/editor.js:1
+msgid "Secondary"
+msgstr "Sekundární"
+
+#: includes/Menu_Options/Modal.php:323
+msgctxt "button: close modal dialog"
+msgid "Close"
+msgstr "Zavřít"
+
+#: includes/Menu_Options/Settings.php:81
+msgctxt "menu item link button style option"
+msgid "Default"
+msgstr "Výchozí"
+
+#: includes/Menu_Options/Settings.php:97
+msgctxt "menu item link text hover option"
+msgid "Default"
+msgstr "Výchozí"
+
+#. translators: %1$s is "<br><br>", %2$s is "<strong>", %3$s is "</strong>" —
+#. HTML formatting for the description
+#: includes/Menu_Options/Settings.php:307
+#, php-format
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu "
+"title.%1$s%2$sTo add an Emoji:%3$s%1$sWindows: On your keyboard, press and "
+"hold the Windows button and either the period (.) or semicolon (;)%1$sMac: "
+"On your keyboard, press Command + Control + Space"
+msgstr ""
+"Přidejte symbol nebo emoji, které se zobrazí jako ikona vedle názvu vašeho "
+"menu.%1$s%2$sPřidání emoji:%3$s%1$sWindows: Na klávesnici stiskněte a "
+"podržte tlačítko Windows a buď tečku (.) nebo středník (;)%1$sMac: Na "
+"klávesnici stiskněte Command + Control + mezerník"
+
+#: includes/Menu_Options/Setting_Field.php:224
+msgctxt "widget location option: no selection"
+msgid "None"
+msgstr "Žádné"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:84
+msgid "Header Navigation"
+msgstr "Navigace v záhlaví"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:109
+msgid "WooCommerce: Single Product"
+msgstr "WooCommerce: Jeden produkt"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:113
+msgid "WooCommerce: Product Archive"
+msgstr "WooCommerce: Archiv produktů"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:117
+msgid "WooCommerce: Cart"
+msgstr "WooCommerce: Košík"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:121
+msgid "WooCommerce: Checkout"
+msgstr "WooCommerce: Pokladna"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:125
+msgid "WooCommerce: My Account"
+msgstr "WooCommerce: Můj účet"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:129
+msgid "WooCommerce: Order Confirmation"
+msgstr "WooCommerce: Potvrzení objednávky"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:405
+msgid "Unauthorized"
+msgstr "Neoprávněný přístup"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:417
+msgid "New Template"
+msgstr "Nová šablona"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:489
+#: build/editor.js:1
+msgid "Navigation"
+msgstr "Navigace"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:625
+msgid "Choose a Template Type"
+msgstr "Vyberte typ šablony"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:631
+msgid "Filter templates..."
+msgstr "Filtrovat šablony..."
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:641
+msgid "Create Template"
+msgstr "Vytvořit šablonu"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:652
+msgid "Blank Template"
+msgstr "Prázdná šablona"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:653
+msgid "No templates found"
+msgstr "Nebyly nalezeny žádné šablony"
+
+#: includes/Render/Blocks/HeaderActionAccount/HeaderActionAccount.php:159
+#: build/editor.js:1
+msgid "Account"
+msgstr "Účet"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
+msgctxt "link: show all taxonomy terms"
+msgid "All"
+msgstr "Vše"
+
+#: includes/Render/Enhanced_Navigation.php:1749 build/editor.js:1
+msgid "Back"
+msgstr "Zpět"
+
+#: includes/Render/RenderJS.php:68 build/editor.js:1
+msgid "Play"
+msgstr "Přehrát"
+
+#: includes/Render/RenderJS.php:69 build/editor.js:1
+msgid "Pause"
+msgstr "Pozastavit"
+
+#: includes/Render/RenderJS.php:70
+msgid "Mute"
+msgstr "Ztlumit"
+
+#: includes/Render/RenderJS.php:71
+msgid "Unmute"
+msgstr "Zapnout zvuk"
+
+#: includes/Render/RenderJS.php:72 build/editor.js:1
+msgid "Fullscreen"
+msgstr "Celá obrazovka"
+
+#: includes/Render/RenderJS.php:73
+msgid "Exit fullscreen"
+msgstr "Ukončit režim celé obrazovky"
+
+#: includes/Render/RenderJS.php:74
+msgid "%current% of %duration%"
+msgstr "%current% z %duration%"
+
+#: includes/Render/RenderJS.php:86
+msgid "Search unavailable. Please try again."
+msgstr "Vyhledávání není k dispozici. Zkuste to prosím znovu."
+
+#: build/adminPanel.js:171
+msgid "Release notes"
+msgstr "Poznámky k vydání"
+
+#: build/adminPanel.js:171
+msgid "Fonts"
+msgstr "Písma"
+
+#: build/adminPanel.js:171
+msgid "License Key"
+msgstr "Licenční klíč"
+
+#: build/adminPanel.js:171
+msgid "Connected"
+msgstr "Připojeno"
+
+#: build/adminPanel.js:171
+msgid "Refresh"
+msgstr "Obnovit"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts refreshed successfully."
+msgstr "Písma Adobe byla úspěšně obnovena."
+
+#: build/adminPanel.js:171
+msgid "Failed to refresh Adobe Fonts."
+msgstr "Nepodařilo se obnovit Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Disconnect"
+msgstr "Odpojit"
+
+#: build/adminPanel.js:171
+msgid "No fonts found in your Adobe Fonts web projects. Add fonts at"
+msgstr ""
+"V projektech Adobe Fonts nebyly nalezeny žádné písma. Přidejte písma na"
+
+#: build/adminPanel.js:171
+msgid "Disconnect Adobe Fonts"
+msgstr "Odpojit Adobe Fonts"
+
+#: build/adminPanel.js:171
+msgid ""
+"Are you sure you want to disconnect? Any typography settings using Adobe "
+"Fonts will need to be updated."
+msgstr ""
+"Opravdu chcete odpojit? Všechna nastavení typografie používající Adobe Fonts"
+" bude nutné aktualizovat."
+
+#: build/adminPanel.js:171
+msgid "Disconnected from Adobe Fonts."
+msgstr "Odpojeno od Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to disconnect from Adobe Fonts."
+msgstr "Nepodařilo se odpojit od Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Connect your Adobe Fonts account to use your web fonts."
+msgstr "Připojte svůj účet Adobe Fonts a používejte své webové fonty."
+
+#: build/adminPanel.js:171
+msgid "Get your API token"
+msgstr "Získejte svůj API token"
+
+#: build/adminPanel.js:171
+msgid "Enter your Adobe Fonts API token..."
+msgstr "Zadejte svůj API token Adobe Fonts..."
+
+#: build/adminPanel.js:171
+msgid "Connect"
+msgstr "Připojit"
+
+#: build/adminPanel.js:171
+msgid "Please enter your Adobe Fonts API token."
+msgstr "Zadejte prosím svůj API token Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Successfully connected to Adobe Fonts."
+msgstr "Úspěšně připojeno k Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to connect to Adobe Fonts."
+msgstr "Nepodařilo se připojit k Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Remove Variation"
+msgstr "Odebrat variaci"
+
+#: build/adminPanel.js:171
+msgid "Delete Font"
+msgstr "Smazat písmo"
+
+#: build/adminPanel.js:171
+msgid "Delete Font Variation"
+msgstr "Smazat variantu písma"
+
+#: build/adminPanel.js:171
+msgid "This will remove the font and all its variations."
+msgstr "Tímto odstraníte písmo a všechny jeho varianty."
+
+#: build/adminPanel.js:171
+msgid "Uploaded Fonts"
+msgstr "Nahrané písma"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts"
+msgstr "Adobe Fonts"
+
+#: build/adminPanel.js:171 build/editor.js:1
+msgid "Help"
+msgstr "Nápověda"
+
+#: build/adminPanel.js:171
+msgid "Blog Posts"
+msgstr "Příspěvky blogu"
+
+#: build/adminPanel.js:171
+msgid "Portfolio Projects"
+msgstr "Projekty portfolia"
+
+#: build/adminPanel.js:171
+msgid "Products"
+msgstr "Produkty"
+
+#: build/adminPanel.js:171
+msgid "Theme Builder Templates"
+msgstr "Šablony tvůrce šablony"
+
+#: build/adminPanel.js:171
+msgid ""
+"Theme-level templates such as headers, footers, navigation, archive layouts,"
+" and single-post layouts that the demo pages depend on."
+msgstr ""
+"Šablony na úrovni motivu, jako jsou záhlaví, patičky, navigace, rozložení "
+"archivů a rozložení jednotlivých příspěvků, na kterých závisí ukázkové "
+"stránky."
+
+#: build/adminPanel.js:171
+msgid ""
+"Reusable section layouts inserted into pages, such as megamenu displays and "
+"shared content blocks."
+msgstr ""
+"Opakovaně použitelná rozložení sekcí vložená do stránek, jako jsou zobrazení"
+" megamenu a sdílené bloky obsahu."
+
+#: build/adminPanel.js:171
+msgid "Forms"
+msgstr "Formuláře"
+
+#: build/adminPanel.js:171
+msgid ""
+"Fluent Forms used by demo pages (e.g. the contact form). Requires the Fluent"
+" Forms plugin."
+msgstr ""
+"Fluent Forms používané demo stránkami (např. kontaktní formulář). Vyžaduje "
+"plugin Fluent Forms."
+
+#: build/adminPanel.js:171
+msgid "Include"
+msgstr "Zahrnout"
+
+#: build/adminPanel.js:171
+msgid "Select all"
+msgstr "Vybrat vše"
+
+#: build/adminPanel.js:171
+msgid "isn’t installed."
+msgstr "není nainstalován."
+
+#: build/adminPanel.js:171
+msgid "Install"
+msgstr "Instalovat"
+
+#: build/adminPanel.js:171
+msgid "Local Google Fonts"
+msgstr "Místní Google Fonts"
+
+#: build/adminPanel.js:171
+msgid ""
+"Automatically download and serve Google Fonts locally for improved "
+"performance and GDPR compliance."
+msgstr ""
+"Automaticky stahovat a poskytovat Google Fonts lokálně pro lepší výkon a "
+"soulad s GDPR."
+
+#: build/adminPanel.js:171
+msgid "Lazy Load Images"
+msgstr "Líné načítání obrázků"
+
+#: build/adminPanel.js:171
+msgid ""
+"Defer off-screen images until they are near the viewport, reducing initial "
+"page weight. Above-the-fold images are detected automatically and load "
+"eagerly."
+msgstr ""
+"Odložte načítání obrázků mimo obrazovku, dokud se nepřiblíží k zobrazované "
+"oblasti, čímž snížíte počáteční váhu stránky. Obrázky nad zlomem se detekují"
+" automaticky a načítají se okamžitě."
+
+#: build/adminPanel.js:171
+msgid "Nectarblocks 3.0 release artwork"
+msgstr "Grafika k vydání Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "What's New"
+msgstr "Co je nového"
+
+#: build/adminPanel.js:171
+msgid "Welcome to Nectarblocks 3.0"
+msgstr "Vítejte v Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid ""
+"This release introduces a complete header builder, a faster editing "
+"experience, hover interactions with a reworked animation builder, a smarter "
+"design system, and a leaner front end, plus dozens of improvements to the "
+"blocks you use every day. Read on for the highlights, or jump straight in "
+"and start building."
+msgstr ""
+"Tato verze přináší kompletní tvůrce záhlaví, rychlejší editaci, interakce "
+"při najetí myší s přepracovaným tvůrcem animací, chytřejší systém designu a "
+"odlehčený front end, plus desítky vylepšení bloků, které používáte každý "
+"den. Přečtěte si hlavní novinky, nebo se rovnou pusťte do tvorby."
+
+#: build/adminPanel.js:171
+msgid "The header builder you’ve always wanted"
+msgstr "Tvůrce záhlaví, po kterém jste vždy toužili"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build custom site headers right in WordPress with flexible layouts, "
+"responsive controls, and unlimited states. Add search, navigation, overlay "
+"menus, and full megamenus."
+msgstr ""
+"Vytvářejte vlastní záhlaví webu přímo ve WordPressu s flexibilními "
+"rozvrženími, responzivními ovládacími prvky a neomezenými stavy. Přidejte "
+"vyhledávání, navigaci, překryvná menu a plná megamenu."
+
+#: build/adminPanel.js:171
+msgid "Header builder preview"
+msgstr "Náhled tvůrce záhlaví"
+
+#: build/adminPanel.js:171
+msgid "A faster editing experience"
+msgstr "Rychlejší editace"
+
+#: build/adminPanel.js:171
+msgid ""
+"Reimagined spacing controls, drag-to-reorder layers, active-state "
+"indicators, and drag-to-reposition absolute elements. Settings are better "
+"organized, onboarding is clearer."
+msgstr ""
+"Přepracované ovládání mezer, přesouvání vrstev přetažením, indikátory "
+"aktivního stavu a přemisťování absolutně pozicovaných prvků přetažením. "
+"Nastavení jsou lépe uspořádána, úvodní průvodce je přehlednější."
+
+#: build/adminPanel.js:171
+msgid "Editor experience preview"
+msgstr "Náhled editoru"
+
+#: build/adminPanel.js:171
+msgid "Hover interactions, reworked animation UI"
+msgstr "Interakce při najetí myší, přepracované rozhraní animací"
+
+#: build/adminPanel.js:171
+msgid ""
+"A new interaction animation system brings limitless hover effects, with "
+"spring physics for natural motion, child-element staggering, and per-"
+"property timelines. The animation builder has been reworked throughout, with"
+" a live preview for every effect."
+msgstr ""
+"Nový systém animací interakcí přináší neomezené efekty při najetí myší, s "
+"pružinovou fyzikou pro přirozený pohyb, postupným zobrazováním podřízených "
+"prvků a časovými osami pro jednotlivé vlastnosti. Tvůrce animací byl "
+"kompletně přepracován a nyní obsahuje živý náhled pro každý efekt."
+
+#: build/adminPanel.js:171
+msgid "Animation editor preview"
+msgstr "Náhled editoru animací"
+
+#: build/adminPanel.js:171
+msgid "A smarter design system"
+msgstr "Chytřejší designový systém"
+
+#: build/adminPanel.js:171
+msgid ""
+"Manage typography and color in one place with Adobe Fonts integration, saved"
+" custom palettes, and a new color scale system that generates tonal "
+"variations for every palette color."
+msgstr ""
+"Spravujte typografii a barvy na jednom místě s integrací Adobe Fonts, "
+"uloženými vlastními paletami a novým systémem barevné škály, který generuje "
+"tónové variace pro každou barvu palety."
+
+#: build/adminPanel.js:171
+msgid "Design system preview"
+msgstr "Náhled designového systému"
+
+#: build/adminPanel.js:171
+msgid "Faster, leaner front end"
+msgstr "Rychlejší a štíhlejší front end"
+
+#: build/adminPanel.js:171
+msgid ""
+"Pages ship cleaner markup with per-page CSS generation, locally served "
+"Google Fonts, image lazy loading, and selective script loading. The result "
+"is fewer network requests and faster load times for your visitors."
+msgstr ""
+"Stránky dodávají čistší kód s generováním CSS pro jednotlivé stránky, "
+"lokálně poskytovanými fonty Google, lazy loadingem obrázků a selektivním "
+"načítáním skriptů. Výsledkem je méně síťových požadavků a rychlejší načítání"
+" pro vaše návštěvníky."
+
+#: build/adminPanel.js:171
+msgid "Performance preview"
+msgstr "Náhled výkonu"
+
+#: build/adminPanel.js:171
+msgid "Powerful new blocks to build with"
+msgstr "Výkonné nové bloky pro tvorbu"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build more without leaving the editor with a ticker for auto-scrolling "
+"loops, world time for timezones, an auto-generated table of contents, plus "
+"navigation, search, and header actions blocks."
+msgstr ""
+"Vytvářejte více, aniž byste opouštěli editor, s tickerem pro automaticky se "
+"posouvající smyčky, světovým časem pro časová pásma, automaticky generovaným"
+" obsahem a bloky pro navigaci, vyhledávání a akce v záhlaví."
+
+#: build/adminPanel.js:171
+msgid "New blocks preview"
+msgstr "Náhled nových bloků"
+
+#: build/adminPanel.js:171
+msgid "New templates and a ready-made demo"
+msgstr "Nové šablony a připravené demo"
+
+#: build/adminPanel.js:171
+msgid ""
+"Start faster with over 35 new pre-made templates, plus Radnor, a complete "
+"business website demo you can install in a click and make your own."
+msgstr ""
+"Začněte rychleji s více než 35 novými předpřipravenými šablonami a navíc s "
+"Radnor, kompletní ukázkovou firemní webovou stránkou, kterou můžete "
+"nainstalovat jedním kliknutím a přizpůsobit si ji."
+
+#: build/adminPanel.js:171
+msgid "Templates and demo preview"
+msgstr "Šablony a náhled dema"
+
+#: build/adminPanel.js:171
+msgid "Changelog"
+msgstr "Seznam změn"
+
+#: build/adminPanel.js:171
+msgid "More in this release"
+msgstr "Další novinky v této verzi"
+
+#: build/adminPanel.js:171
+msgid ""
+"Over 90 new features, improvements, and fixes for building better WordPress "
+"websites. Explore the full 3.0 release for every detail."
+msgstr ""
+"Více než 90 nových funkcí, vylepšení a oprav pro tvorbu lepších webových "
+"stránek ve WordPressu. Prozkoumejte kompletní vydání 3.0 pro všechny "
+"podrobnosti."
+
+#: build/adminPanel.js:171
+msgid "Explore Nectarblocks 3.0"
+msgstr "Prozkoumejte Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "Version"
+msgstr "Verze"
+
+#: build/editor.js:1
+msgid "Reset to Default state"
+msgstr "Obnovit výchozí stav"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Image"
+msgstr "Vložit dynamický obrázek"
+
+#: build/editor.js:1
+msgid "Dynamic Image"
+msgstr "Dynamický obrázek"
+
+#: build/editor.js:1
+msgid "Selected"
+msgstr "Vybráno"
+
+#: build/editor.js:1
+msgid "Interaction"
+msgstr "Interakce"
+
+#: build/editor.js:1
+msgid "Already added"
+msgstr "Již přidáno"
+
+#: build/editor.js:1
+msgid "Invert"
+msgstr "Invertovat"
+
+#: build/editor.js:1
+msgid "Offset"
+msgstr "Odsazení"
+
+#: build/editor.js:1
+msgid "Self"
+msgstr "Vlastní"
+
+#: build/editor.js:1
+msgid "Interaction (On Hover/Focus)"
+msgstr "Interakce (při najetí myší/zaměření)"
+
+#: build/editor.js:1
+msgid "From"
+msgstr "Od"
+
+#: build/editor.js:1
+msgid "To"
+msgstr "Do"
+
+#: build/editor.js:1
+msgid "Timeline"
+msgstr "Časová osa"
+
+#: build/editor.js:1
+msgid ""
+"Per-property timing is unavailable with spring easing — all properties "
+"animate together."
+msgstr ""
+"Časování jednotlivých vlastností není u pružinového zpomalení k dispozici — "
+"všechny vlastnosti se animují společně."
+
+#: build/editor.js:1
+msgid "Unable to determine the root block tree for this section."
+msgstr "Nelze určit kořenový strom bloků pro tuto sekci."
+
+#: build/editor.js:1
+msgid "Pick Trigger Block"
+msgstr "Vyberte spouštěcí blok"
+
+#: build/editor.js:1
+msgid "Use Self"
+msgstr "Použít vlastní"
+
+#: build/editor.js:1
+msgid "Children"
+msgstr "Potomci"
+
+#: build/editor.js:1
+msgid "Directional"
+msgstr "Směrový"
+
+#: build/editor.js:1
+msgid "Distance"
+msgstr "Vzdálenost"
+
+#: build/editor.js:1
+msgid "Scroll Distance"
+msgstr "Vzdálenost posunutí"
+
+#: build/editor.js:1
+msgid "Element"
+msgstr "Prvek"
+
+#: build/editor.js:1
+msgid "Viewport"
+msgstr "Viewport"
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation begins."
+msgstr "Když pozice prvku odpovídá pozici viewportu, animace začne."
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation is "
+"complete."
+msgstr "Když pozice prvku odpovídá pozici viewportu, animace je dokončena."
+
+#: build/editor.js:1
+msgid "Entrance"
+msgstr "Vstup"
+
+#: build/editor.js:1
+msgid "Pin Offset"
+msgstr "Odsazení špendlíku"
+
+#: build/editor.js:1
+msgid "Properties"
+msgstr "Vlastnosti"
+
+#: build/editor.js:1
+msgid ""
+"Locks this row to the viewport as the user keeps scrolling. The page appears"
+" to stop while the row's animation plays through, then scrolling resumes "
+"once the animation completes. Use the \"End After Scrolling\" value to "
+"control how much scroll distance the locked-in animation takes up."
+msgstr ""
+"Uzamkne tento řádek k zobrazení, zatímco uživatel pokračuje v rolování. "
+"Stránka se zdánlivě zastaví, zatímco se přehrává animace řádku, poté se "
+"rolování obnoví, jakmile je animace dokončena. Pomocí hodnoty „Ukončit po "
+"rolování\" můžete řídit, jakou vzdálenost rolování uzamčená animace zabere."
+
+#: build/editor.js:1
+msgid "Row Animation End"
+msgstr "Konec animace řádku"
+
+#: build/editor.js:1
+msgid "Go to Parent"
+msgstr "Přejít na nadřazenou"
+
+#: build/editor.js:1
+msgid "Edit URL"
+msgstr "Upravit URL"
+
+#: build/editor.js:1
+msgid "Edit Background Image URL"
+msgstr "Upravit URL obrázku na pozadí"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Image"
+msgstr "Vložit dynamický obrázek na pozadí"
+
+#: build/editor.js:1
+msgid "Dynamic BG Image"
+msgstr "Dynamický obrázek na pozadí"
+
+#: build/editor.js:1
+msgid "Resting State"
+msgstr "Klidový stav"
+
+#: build/editor.js:1
+msgid "How the video appears when not hovered."
+msgstr "Jak se video zobrazuje, když na něj není najetí myší."
+
+#: build/editor.js:1
+msgid "First Frame"
+msgstr "První snímek"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Video"
+msgstr "Vložit dynamické video na pozadí"
+
+#: build/editor.js:1
+msgid "Dynamic BG Video"
+msgstr "Dynamické video na pozadí"
+
+#: build/editor.js:1
+msgid "Element ID"
+msgstr "ID elementu"
+
+#: build/editor.js:1
+msgid "First"
+msgstr "První"
+
+#: build/editor.js:1
+msgid "Last"
+msgstr "Poslední"
+
+#: build/editor.js:1
+msgid "Order"
+msgstr "Objednávka"
+
+#: build/editor.js:1
+msgid "Outset"
+msgstr "Outset"
+
+#: build/editor.js:1
+msgid "Backdrop Filter"
+msgstr "Filtr pozadí"
+
+#: build/editor.js:1
+msgid "Filter"
+msgstr "Filtr"
+
+#: build/editor.js:1
+msgid "Inherit Block Color"
+msgstr "Zdědit barvu bloku"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Link"
+msgstr "Vložit dynamický odkaz"
+
+#: build/editor.js:1
+msgid "Dynamic Link"
+msgstr "Dynamický odkaz"
+
+#: build/editor.js:1
+msgid "Attributes"
+msgstr "Atributy"
+
+#: build/editor.js:1
+msgid "Screen reader text"
+msgstr "Text pro čtečky obrazovky"
+
+#: build/editor.js:1
+msgid "Describe the link for screen readers"
+msgstr "Popište odkaz pro čtečky obrazovky"
+
+#: build/editor.js:1
+msgid "Drag to reposition"
+msgstr "Přetažením změníte pozici"
+
+#: build/editor.js:1
+msgid "Unlink axes"
+msgstr "Odpojit osy"
+
+#: build/editor.js:1
+msgid "Link axes"
+msgstr "Propojit osy"
+
+#: build/editor.js:1
+msgid "Transform Origin"
+msgstr "Počátek transformace"
+
+#: build/editor.js:1
+msgid "X"
+msgstr "X"
+
+#: build/editor.js:1
+msgid "Y"
+msgstr "Y"
+
+#: build/editor.js:1
+msgid "Theme Fonts"
+msgstr "Písma šablony"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Video"
+msgstr "Vložit dynamické video"
+
+#: build/editor.js:1
+msgid "Dynamic Video"
+msgstr "Dynamické video"
+
+#: build/editor.js:1
+msgid "Render link as overlay"
+msgstr "Vykreslit odkaz jako překrytí"
+
+#: build/editor.js:1
+msgid "Accordion Title.."
+msgstr "Název akordeonu.."
+
+#: build/editor.js:1
+msgid "No Link"
+msgstr "Bez odkazu"
+
+#: build/editor.js:1
+msgid ""
+"On (default): the link sits as an overlay so inner blocks can have their own"
+" links and hover effects. Off: the link wraps the column for better SEO."
+msgstr ""
+"Zapnuto (výchozí): odkaz je umístěn jako překryvná vrstva, takže vnitřní "
+"bloky mohou mít vlastní odkazy a efekty při najetí myší. Vypnuto: odkaz "
+"obaluje sloupec pro lepší SEO."
+
+#: build/editor.js:1
+msgid ""
+"Use when inner blocks have their own links or hover effects. Add screen "
+"reader text below for accessibility."
+msgstr ""
+"Použijte, když vnitřní bloky mají vlastní odkazy nebo efekty při najetí "
+"myší. Pro přístupnost přidejte níže text pro čtečky obrazovky."
+
+#: build/editor.js:1
+msgid "Defaults to the WooCommerce My Account page."
+msgstr "Výchozí je stránka Můj účet WooCommerce."
+
+#: build/editor.js:1
+msgid "Header Account"
+msgstr "Účet v záhlaví"
+
+#: build/editor.js:1
+msgid "Links to the user account page."
+msgstr "Odkazy na stránku uživatelského účtu."
+
+#: build/editor.js:1
+msgid "Icon color"
+msgstr "Barva ikony"
+
+#: build/editor.js:1
+msgid "Header Actions"
+msgstr "Akce záhlaví"
+
+#: build/editor.js:1
+msgid "Icon size"
+msgstr "Velikost ikony"
+
+#: build/editor.js:1
+msgid "Header action container (search/cart/account)."
+msgstr "Kontejner akcí záhlaví (vyhledávání/košík/účet)."
+
+#: build/editor.js:1
+msgid "URL copied to clipboard"
+msgstr "URL zkopírována do schránky"
+
+#: build/editor.js:1
+msgid ""
+"Cover fills the block's size — set a height (e.g. 100vh) in the Size "
+"control."
+msgstr ""
+"Obal vyplňuje velikost bloku — nastavte výšku (např. 100vh) v ovládacím "
+"prvku Velikost."
+
+#: build/editor.js:1
+msgid "Allow Dragging"
+msgstr "Povolit přetahování"
+
+#: build/editor.js:1
+msgid ""
+"Takes effect on the frontend — slides are never draggable while editing."
+msgstr "Projeví se na frontendu — snímky nelze při úpravách přetahovat."
+
+#: build/editor.js:1
+msgid "Edit Image URL"
+msgstr "Upravit URL obrázku"
+
+#: build/editor.js:1
+msgid "Image Sizes"
+msgstr "Velikosti obrázků"
+
+#: build/editor.js:1
+msgid "Custom Sizes"
+msgstr "Vlastní velikosti"
+
+#: build/editor.js:1
+msgid "Sizes Value"
+msgstr "Hodnota velikostí"
+
+#: build/editor.js:1
+msgid "Megamenu"
+msgstr "Mega menu"
+
+#: build/editor.js:1
+msgid "Display a global section or template part as a megamenu dropdown."
+msgstr "Zobrazit globální sekci nebo část šablony jako rozbalovací mega menu."
+
+#: build/editor.js:1
+msgid "Pattern"
+msgstr "Vzor"
+
+#: build/editor.js:1
+msgid "Megamenu:"
+msgstr "Mega menu:"
+
+#: build/editor.js:1
+msgid "Select a megamenu source"
+msgstr "Vyberte zdroj mega menu"
+
+#: build/editor.js:1
+msgid "Megamenu Settings"
+msgstr "Nastavení mega menu"
+
+#: build/editor.js:1
+msgid "Selected:"
+msgstr "Vybráno:"
+
+#: build/editor.js:1
+msgid "Edit in new tab"
+msgstr "Upravit v nové kartě"
+
+#: build/editor.js:1
+msgid "Change"
+msgstr "Změnit"
+
+#: build/editor.js:1
+msgid "Search global sections..."
+msgstr "Hledat globální sekce..."
+
+#: build/editor.js:1
+msgid "Search patterns..."
+msgstr "Hledat vzory..."
+
+#: build/editor.js:1
+msgid "No results found."
+msgstr "Nebyly nalezeny žádné výsledky."
+
+#: build/editor.js:1
+msgid "No global sections found."
+msgstr "Nebyly nalezeny žádné globální sekce."
+
+#: build/editor.js:1
+msgid "No patterns found. Create a synced pattern first."
+msgstr "Nebyly nalezeny žádné vzory. Nejprve vytvořte synchronizovaný vzor."
+
+#: build/editor.js:1
+msgid "Animate a number counting up to a target value."
+msgstr "Animovat číslo počítající nahoru k cílové hodnotě."
+
+#: build/editor.js:1
+msgid "Nectar Navigation"
+msgstr "Navigace Nectar"
+
+#: build/editor.js:1
+msgid "WordPress Navigation with Nectar enhancements."
+msgstr "WordPress navigace s vylepšeními Nectar."
+
+#: build/editor.js:1
+msgid ""
+"Only fields that resolve to a URL are used; others fall back to the post "
+"link."
+msgstr ""
+"Používají se pouze pole, která se převádějí na URL; ostatní se vrátí k "
+"odkazu příspěvku."
+
+#: build/editor.js:1
+msgid "Apply animation state"
+msgstr "Použít stav animace"
+
+#: build/editor.js:1
+msgid "Bypass animation — show raw blocks"
+msgstr "Obejít animaci — zobrazit čisté bloky"
+
+#: build/editor.js:1
+msgid "Pin animation progress"
+msgstr "Připnout průběh animace"
+
+#: build/editor.js:1
+msgid ""
+"Stays pinned to the viewport while scrolling. Edit in Animation settings."
+msgstr ""
+"Zůstává připnutý k zobrazení při rolování. Upravte v nastavení animace."
+
+#: build/editor.js:1
+msgid "Pinned Timeline"
+msgstr "Připnutá časová osa"
+
+#: build/editor.js:1
+msgid "Contain Content"
+msgstr "Omezit obsah"
+
+#: build/editor.js:1
+msgid "Header Appearance"
+msgstr "Vzhled záhlaví"
+
+#: build/editor.js:1
+msgid ""
+"Tags this section so the header switches to a chosen variant while the "
+"section is on screen. \"Default\" leaves the header in its normal lifecycle "
+"state."
+msgstr ""
+"Označí tuto sekci, aby se záhlaví přepnulo na zvolenou variantu, když je "
+"sekce na obrazovce. „Výchozí\" ponechá záhlaví v jeho normálním stavu "
+"životního cyklu."
+
+#: build/editor.js:1
+msgid "Input BG"
+msgstr "Pozadí vstupu"
+
+#: build/editor.js:1
+msgid "Popup BG"
+msgstr "Pozadí vyskakovacího okna"
+
+#: build/editor.js:1
+msgid "Input Text"
+msgstr "Vstupní text"
+
+#: build/editor.js:1
+msgid "Result Text"
+msgstr "Text výsledku"
+
+#: build/editor.js:1
+msgid "Result Hover BG"
+msgstr "Pozadí výsledku při najetí"
+
+#: build/editor.js:1
+msgid "All Post Types"
+msgstr "Všechny typy příspěvků"
+
+#: build/editor.js:1
+msgid "Dropdown"
+msgstr "Rozbalovací nabídka"
+
+#: build/editor.js:1
+msgid "Search Settings"
+msgstr "Nastavení vyhledávání"
+
+#: build/editor.js:1
+msgid "Placeholder"
+msgstr "Zástupný symbol"
+
+#: build/editor.js:1
+msgid "AJAX Search"
+msgstr "AJAX vyhledávání"
+
+#: build/editor.js:1
+msgid "Limit to post type"
+msgstr "Omezit na typ příspěvku"
+
+#: build/editor.js:1
+msgid "Featured image"
+msgstr "Hlavní obrázek"
+
+#: build/editor.js:1
+msgid "Post type"
+msgstr "Typ příspěvku"
+
+#: build/editor.js:1
+msgid "Input Styling"
+msgstr "Stylování vstupů"
+
+#: build/editor.js:1
+msgid "Focus"
+msgstr "Zaměření"
+
+#: build/editor.js:1
+msgid "Effects"
+msgstr "Efekty"
+
+#: build/editor.js:1
+msgid "Clear search"
+msgstr "Vymazat vyhledávání"
+
+#: build/editor.js:1
+msgid "AJAX results will appear here"
+msgstr "Výsledky AJAX se zobrazí zde"
+
+#: build/editor.js:1
+msgid "A search block with optional AJAX-powered results."
+msgstr "Blok vyhledávání s volitelnými výsledky pomocí AJAX."
+
+#: build/editor.js:1
+#, js-format
+msgid "%s out of 5 stars"
+msgstr "%s z 5 hvězdiček"
+
+#: build/editor.js:1
+msgid "Table of Contents"
+msgstr "Obsah"
+
+#: build/editor.js:1
+msgid "Link copied"
+msgstr "Odkaz zkopírován"
+
+#: build/editor.js:1
+msgid "Collapsible"
+msgstr "Sbalitelné"
+
+#: build/editor.js:1
+msgid "Always Visible"
+msgstr "Vždy viditelné"
+
+#: build/editor.js:1
+msgid "Bullet"
+msgstr "Odrážka"
+
+#: build/editor.js:1
+msgid "Headings"
+msgstr "Nadpisy"
+
+#: build/editor.js:1
+msgid "List Style"
+msgstr "Styl seznamu"
+
+#: build/editor.js:1
+msgid "Item Gap"
+msgstr "Mezera mezi položkami"
+
+#: build/editor.js:1
+msgid "Hierarchical"
+msgstr "Hierarchický"
+
+#: build/editor.js:1
+msgid "Parent Active Only"
+msgstr "Pouze aktivní nadřazené"
+
+#: build/editor.js:1
+msgid ""
+"Highlight only the parent item as scroll moves through its children. Useful "
+"when child headings flow inline."
+msgstr ""
+"Zvýrazňovat pouze nadřazenou položku při procházení jejích podřízených "
+"položek. Užitečné, když podřízené nadpisy plynou v řádku."
+
+#: build/editor.js:1
+msgid "Smooth Scroll"
+msgstr "Plynulé posouvání"
+
+#: build/editor.js:1
+msgid ""
+"Extra space between the header navigation and the heading you scroll to"
+msgstr ""
+"Dodatečný prostor mezi navigací v záhlaví a nadpisem, ke kterému se "
+"posouváte"
+
+#: build/editor.js:1
+msgid "Anchor Links"
+msgstr "Kotevní odkazy"
+
+#: build/editor.js:1
+msgid "Adds link icons to headings on the page"
+msgstr "Přidá ikony odkazů k nadpisům na stránce"
+
+#: build/editor.js:1
+msgid "Heading (default)"
+msgstr "Nadpis (výchozí)"
+
+#: build/editor.js:1
+msgid "Scroll target"
+msgstr "Cíl posouvání"
+
+#: build/editor.js:1
+msgid "Current target:"
+msgstr "Aktuální cíl:"
+
+#: build/editor.js:1
+msgid "No blocks available."
+msgstr "Nejsou k dispozici žádné bloky."
+
+#: build/editor.js:1
+msgid "Scroll target options"
+msgstr "Možnosti cíle posouvání"
+
+#: build/editor.js:1
+msgid "Scroll to:"
+msgstr "Přejít na:"
+
+#: build/editor.js:1
+msgid "Items"
+msgstr "Položky"
+
+#: build/editor.js:1
+msgid "Active Text"
+msgstr "Aktivní text"
+
+#: build/editor.js:1
+msgid "Active Opacity"
+msgstr "Aktivní průhlednost"
+
+#: build/editor.js:1
+msgid "No headings found. Add heading blocks to your content."
+msgstr "Nebyly nalezeny žádné nadpisy. Přidejte do obsahu bloky nadpisů."
+
+#: build/editor.js:1
+msgid "Auto-generated navigation for page headings."
+msgstr "Automaticky generovaná navigace pro nadpisy stránky."
+
+#: build/editor.js:1
+msgid "toc"
+msgstr "obsah"
+
+#: build/editor.js:1
+msgid "table of contents"
+msgstr "obsah"
+
+#: build/editor.js:1
+msgid "navigation"
+msgstr "navigace"
+
+#: build/editor.js:1
+msgid "headings"
+msgstr "nadpisy"
+
+#: build/editor.js:1
+msgid "John Doe.."
+msgstr "John Doe.."
+
+#: build/editor.js:1
+msgid "@nectarblocks.."
+msgstr "@nectarblocks.."
+
+#: build/editor.js:1
+msgid "”Enter the testimonial text here..”"
+msgstr "„Zde zadejte text reference..\""
+
+#: build/editor.js:1
+msgid "Insert Dynamic Text"
+msgstr "Vložit dynamický text"
+
+#: build/editor.js:1
+msgid "Dynamic Text"
+msgstr "Dynamický text"
+
+#: build/editor.js:1
+msgid "Animate by word or by individual character."
+msgstr "Animujte po slovech nebo po jednotlivých znacích."
+
+#: build/editor.js:1
+msgid "Sync to Pin"
+msgstr "Synchronizovat s připnutím"
+
+#: build/editor.js:1
+msgid "This text animation is synced to a parent block using"
+msgstr "Tato animace textu je synchronizována s nadřazeným blokem pomocí"
+
+#: build/editor.js:1
+msgid "Align text left"
+msgstr "Zarovnat text vlevo"
+
+#: build/editor.js:1
+msgid "Align text center"
+msgstr "Zarovnat text na střed"
+
+#: build/editor.js:1
+msgid "Align text right"
+msgstr "Zarovnat text vpravo"
+
+#: build/editor.js:1
+msgid "Align text"
+msgstr "Zarovnat text"
+
+#: build/editor.js:1
+msgid "Ticker Item"
+msgstr "Položka tickeru"
+
+#: build/editor.js:1
+msgid "A section for content inside the ticker."
+msgstr "Sekce pro obsah uvnitř tickeru."
+
+#: build/editor.js:1
+msgid "ticker"
+msgstr "ticker"
+
+#: build/editor.js:1
+msgid "ticker item"
+msgstr "položka tickeru"
+
+#: build/editor.js:1
+msgid "Empty item"
+msgstr "Prázdná položka"
+
+#: build/editor.js:1
+msgid "Ticker Items"
+msgstr "Položky tickeru"
+
+#: build/editor.js:1
+msgid "Add items to the ticker to reorder them here."
+msgstr "Přidejte položky do tickeru a změňte zde jejich pořadí."
+
+#: build/editor.js:1
+msgid "Add Item"
+msgstr "Přidat položku"
+
+#: build/editor.js:1
+msgid "Delete item"
+msgstr "Smazat položku"
+
+#: build/editor.js:1
+msgid "Delete Ticker Item"
+msgstr "Smazat položku tickeru"
+
+#: build/editor.js:1
+msgid "Previous Item"
+msgstr "Předchozí položka"
+
+#: build/editor.js:1
+msgid "Next Item"
+msgstr "Další položka"
+
+#: build/editor.js:1
+msgid "Uniform Width"
+msgstr "Jednotná šířka"
+
+#: build/editor.js:1
+msgid "Uniform Height"
+msgstr "Jednotná výška"
+
+#: build/editor.js:1
+msgid "Drag to Move"
+msgstr "Přetáhněte pro přesunutí"
+
+#: build/editor.js:1
+msgid "Frontend only"
+msgstr "Pouze frontend"
+
+#: build/editor.js:1
+msgid "Scroll Velocity"
+msgstr "Rychlost posouvání"
+
+#: build/editor.js:1
+msgid "Speed increases when scrolling. Frontend only."
+msgstr "Rychlost se zvyšuje při rolování. Pouze na frontendu."
+
+#: build/editor.js:1
+msgid "Dynamic Direction"
+msgstr "Dynamický směr"
+
+#: build/editor.js:1
+msgid ""
+"Ticker direction follows scroll direction instead of using a fixed "
+"direction."
+msgstr "Směr tickeru sleduje směr rolování místo použití pevného směru."
+
+#: build/editor.js:1
+msgid "Loop copy"
+msgstr "Kopie smyčky"
+
+#: build/editor.js:1
+msgid "Ticker"
+msgstr "Ticker"
+
+#: build/editor.js:1
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "Zobrazit obsah v nekonečné souvislé smyčce ve stylu běžícího textu."
+
+#: build/editor.js:1
+msgid "scroll"
+msgstr "posunout"
+
+#: build/editor.js:1
+msgid "loop"
+msgstr "smyčka"
+
+#: build/editor.js:1
+msgid "Custom Skin"
+msgstr "Vlastní vzhled"
+
+#: build/editor.js:1
+msgid "Tint"
+msgstr "Odstín"
+
+#: build/editor.js:1
+msgid "Toolbar Roundness"
+msgstr "Zaoblení panelu nástrojů"
+
+#: build/editor.js:1
+msgid "Buttons Roundness"
+msgstr "Zaoblení tlačítek"
+
+#: build/editor.js:1
+msgid "Bar"
+msgstr "Pruh"
+
+#: build/editor.js:1
+msgid "Minimal"
+msgstr "Minimální"
+
+#: build/editor.js:1
+msgid "Preview Video"
+msgstr "Náhled videa"
+
+#: build/editor.js:1
+msgid "Short"
+msgstr "Krátký"
+
+#: build/editor.js:1
+msgid "Long"
+msgstr "Dlouhý"
+
+#: build/editor.js:1
+msgid "Numeric"
+msgstr "Číselné"
+
+#: build/editor.js:1
+msgid "Weekday Short"
+msgstr "Den v týdnu zkrácený"
+
+#: build/editor.js:1
+msgid "Weekday Full"
+msgstr "Den v týdnu úplný"
+
+#: build/editor.js:1
+msgid "12h"
+msgstr "12h"
+
+#: build/editor.js:1
+msgid "24h"
+msgstr "24 h"
+
+#: build/editor.js:1
+msgid "Before"
+msgstr "Před"
+
+#: build/editor.js:1
+msgid "After"
+msgstr "Po"
+
+#: build/editor.js:1
+msgid "Same"
+msgstr "Stejné"
+
+#: build/editor.js:1
+msgid "Smaller"
+msgstr "Menší"
+
+#: build/editor.js:1
+msgid "Time Settings"
+msgstr "Nastavení času"
+
+#: build/editor.js:1
+msgid "City"
+msgstr "Město"
+
+#: build/editor.js:1
+msgid "Search for a city..."
+msgstr "Vyhledat město..."
+
+#: build/editor.js:1
+msgid "Time Format"
+msgstr "Formát času"
+
+#: build/editor.js:1
+msgid "Format"
+msgstr "Formát"
+
+#: build/editor.js:1
+msgid "Show Timezone"
+msgstr "Zobrazit časové pásmo"
+
+#: build/editor.js:1
+msgid "Show Seconds"
+msgstr "Zobrazit sekundy"
+
+#: build/editor.js:1
+msgid "World Time"
+msgstr "Světový čas"
+
+#: build/editor.js:1
+msgid "Display the current time for any major city worldwide."
+msgstr "Zobrazit aktuální čas pro jakékoliv velké město na světě."
+
+#: build/editor.js:1
+msgid "time"
+msgstr "čas"
+
+#: build/editor.js:1
+msgid "clock"
+msgstr "hodiny"
+
+#: build/editor.js:1
+msgid "world"
+msgstr "svět"
+
+#: build/editor.js:1
+msgid "timezone"
+msgstr "časové pásmo"
+
+#: build/editor.js:1
+msgid "Nectarblocks Palette"
+msgstr "Paleta Nectarblocks"
+
+#: build/editor.js:1
+msgid "WordPress Color Scheme"
+msgstr "Barevné schéma WordPressu"
+
+#: build/editor.js:1
+msgid "Linear"
+msgstr "Lineární"
+
+#: build/editor.js:1
+msgid "Tension"
+msgstr "Napětí"
+
+#: build/editor.js:1
+msgid "Friction"
+msgstr "Tření"
+
+#: build/editor.js:1
+msgid "Settle"
+msgstr "Vyrovnat"
+
+#: build/editor.js:1
+msgid "Spring"
+msgstr "Jaro"
+
+#: build/editor.js:1
+msgid "Bulk Edit"
+msgstr "Hromadná úprava"
+
+#: build/editor.js:1
+msgid "Deselect image"
+msgstr "Zrušit výběr obrázku"
+
+#: build/editor.js:1
+msgid "Images"
+msgstr "Obrázky"
+
+#: build/editor.js:1
+msgid "Select images to delete in bulk"
+msgstr "Vyberte obrázky k hromadnému smazání"
+
+#: build/editor.js:1
+msgid "Select an image to edit its details"
+msgstr "Vyberte obrázek pro úpravu jeho podrobností"
+
+#: build/editor.js:1
+msgid "Reset"
+msgstr "Obnovit"
+
+#: build/editor.js:1
+msgid "Add"
+msgstr "Přidat"
+
+#: build/editor.js:1
+msgid "Untitled Color"
+msgstr "Nepojmenovaná barva"
+
+#: build/editor.js:1
+msgid "Untitled Gradient"
+msgstr "Nepojmenovaný přechod"
+
+#: build/editor.js:1
+#, js-format
+msgid "Copied %s to clipboard"
+msgstr "Zkopírováno %s do schránky"
+
+#: build/editor.js:1
+msgid "Delete Selected"
+msgstr "Smazat vybrané"
+
+#: build/editor.js:1
+msgid "Copy Hex"
+msgstr "Kopírovat hex"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete these"
+msgstr "Opravdu chcete tyto položky smazat"
+
+#: build/editor.js:1
+msgid "colors"
+msgstr "barvy"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these colors in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Pokud tyto barvy již používáte v blocích, můžete je volitelně přiřadit k "
+"jiné."
+
+#: build/editor.js:1
+msgid "Reassign"
+msgstr "Přeřadit"
+
+#: build/editor.js:1
+msgid "Reassign selected colors"
+msgstr "Přeřadit vybrané barvy"
+
+#: build/editor.js:1
+msgid "Colors deleted successfully!"
+msgstr "Barvy byly úspěšně odstraněny!"
+
+#: build/editor.js:1
+msgid "Daydream"
+msgstr "Daydream"
+
+#: build/editor.js:1
+msgid "Palette saved"
+msgstr "Paleta uložena"
+
+#: build/editor.js:1
+msgid "Palette updated"
+msgstr "Paleta aktualizována"
+
+#: build/editor.js:1
+msgid "Palette deleted"
+msgstr "Paleta smazána"
+
+#: build/editor.js:1
+msgid "Delete Palette"
+msgstr "Smazat paletu"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete this palette?"
+msgstr "Opravdu chcete odstranit tuto paletu?"
+
+#: build/editor.js:1
+msgid "No custom palettes yet."
+msgstr "Zatím žádné vlastní palety."
+
+#: build/editor.js:1
+msgid "Update Colors"
+msgstr "Aktualizovat barvy"
+
+#: build/editor.js:1
+msgid "Palette Name"
+msgstr "Název palety"
+
+#: build/editor.js:1
+msgid "+ Save Current Colors"
+msgstr "+ Uložit aktuální barvy"
+
+#: build/editor.js:1
+msgid "Saved"
+msgstr "Uloženo"
+
+#: build/editor.js:1
+msgid "Apply"
+msgstr "Použít"
+
+#: build/editor.js:1
+msgid "Palettes"
+msgstr "Palety"
+
+#: build/editor.js:1
+msgid "Color Scale"
+msgstr "Barevná škála"
+
+#: build/editor.js:1
+msgid "Palette"
+msgstr "Paleta"
+
+#: build/editor.js:1
+msgid "Add Color"
+msgstr "Přidat barvu"
+
+#: build/editor.js:1
+msgid "Add Gradient"
+msgstr "Přidat přechod"
+
+#: build/editor.js:1
+msgid "Colors"
+msgstr "Barvy"
+
+#: build/editor.js:1
+msgid "Base"
+msgstr "Základ"
+
+#: build/editor.js:1
+msgid "font rules"
+msgstr "pravidla písma"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these fonts in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Pokud již tyto písma používáte v blocích, můžete je volitelně přiřadit k "
+"jinému."
+
+#: build/editor.js:1
+msgid "Reassign selected fonts"
+msgstr "Přeřadit vybraná písma"
+
+#: build/editor.js:1
+msgid "Text Styles"
+msgstr "Styly textu"
+
+#: build/editor.js:1
+msgid "Add Rule"
+msgstr "Přidat pravidlo"
+
+#: build/editor.js:1
+msgid "Restart Guide"
+msgstr "Průvodce restartem"
+
+#: build/editor.js:1
+msgid "Transition"
+msgstr "Přechod"
+
+#: build/editor.js:1
+msgid "Reset to Default Content"
+msgstr "Obnovit výchozí obsah"
+
+#: build/editor.js:1
+msgid ""
+"This will replace all current content with the default template. This action"
+" cannot be undone."
+msgstr ""
+"Tímto nahradíte veškerý aktuální obsah výchozí šablonou. Tuto akci nelze "
+"vrátit zpět."
+
+#: build/editor.js:1
+msgid "Resetting..."
+msgstr "Resetování..."
+
+#: build/editor.js:1
+msgid "Reset Content"
+msgstr "Obnovit obsah"
+
+#: build/editor.js:1
+msgid "Page titles are hidden globally via Plugin Options → Hide Page Titles."
+msgstr ""
+"Názvy stránek jsou skryty globálně přes Možnosti pluginu → Skrýt názvy "
+"stránek."
+
+#: build/editor.js:1
+msgid "Editor canvas"
+msgstr "Plátno editoru"
+
+#: build/editor.js:1
+msgid ""
+"Sets the editor-only background behind the header while editing this state. "
+"Helps you design against the real-world context (e.g. a dark hero) without "
+"affecting the published site."
+msgstr ""
+"Nastaví pozadí záhlaví pouze v editoru při úpravě tohoto stavu. Pomůže vám "
+"navrhovat vzhled s ohledem na reálný kontext (např. tmavý hero banner), aniž"
+" by to ovlivnilo publikovaný web."
+
+#: build/editor.js:1
+msgid "Clear"
+msgstr "Vymazat"
+
+#: build/editor.js:1
+msgid "More options"
+msgstr "Další možnosti"
+
+#: build/editor.js:1
+msgid "Delete Variant Confirmation"
+msgstr "Potvrzení smazání varianty"
+
+#: build/editor.js:1
+msgid ""
+"Saved style values for this variant on this page will be removed. You can "
+"undo (Cmd/Ctrl+Z) to restore them. Other pages are unaffected until next "
+"edited."
+msgstr ""
+"Uložené hodnoty stylů pro tuto variantu na této stránce budou odstraněny. "
+"Můžete je obnovit pomocí zpět (Cmd/Ctrl+Z). Ostatní stránky zůstanou "
+"nedotčeny, dokud nebudou upraveny."
+
+#: build/editor.js:1
+msgid "Name is too long (max 40 characters)."
+msgstr "Název je příliš dlouhý (max. 40 znaků)."
+
+#: build/editor.js:1
+msgid "A state or variant already uses that name."
+msgstr "Tento název již používá jiný stav nebo varianta."
+
+#: build/editor.js:1
+msgid "Name must include letters or numbers."
+msgstr "Název musí obsahovat písmena nebo čísla."
+
+#: build/editor.js:1
+msgid "Name is required."
+msgstr "Jméno je povinné."
+
+#: build/editor.js:1
+msgid "Header State"
+msgstr "Stav záhlaví"
+
+#: build/editor.js:1
+msgid "Lifecycle state"
+msgstr "Stav životního cyklu"
+
+#: build/editor.js:1
+msgid ""
+"Create custom looks for the header to use over specific sections, like a "
+"\"Cream\" version for light hero areas. Tag a row with a variant from its "
+"Header Appearance setting and the header switches to that look while the row"
+" is on screen."
+msgstr ""
+"Vytvořte vlastní vzhled záhlaví pro použití nad konkrétními sekcemi, "
+"například verzi „Cream\" pro světlé úvodní oblasti. Označte řádek variantou "
+"v nastavení Vzhled záhlaví a záhlaví se přepne na tento vzhled, když je "
+"řádek na obrazovce."
+
+#: build/editor.js:1
+msgid "Add Variant"
+msgstr "Přidat variantu"
+
+#: build/editor.js:1
+msgid "e.g. Dark, Cream"
+msgstr "např. Tmavá, Krémová"
+
+#: build/editor.js:1
+msgid "Create"
+msgstr "Vytvořit"
+
+#: build/editor.js:1
+msgid "Custom color"
+msgstr "Vlastní barva"
+
+#: build/editor.js:1
+msgid ""
+"This clears settings stored on this specific combination only. The variant "
+"base and the lifecycle state are unaffected."
+msgstr ""
+"Tímto vymažete nastavení uložená pouze pro tuto konkrétní kombinaci. "
+"Základní varianta a stav životního cyklu zůstanou nedotčeny."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings for this variant (including any lifecycle overrides"
+" inside it). The variant entry itself stays in the list."
+msgstr ""
+"Tímto vymažete všechna nastavení pro tuto variantu (včetně všech přepsání "
+"životního cyklu uvnitř ní). Samotná položka varianty zůstane v seznamu."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings stored on this lifecycle state. Other states and "
+"variants are unaffected."
+msgstr ""
+"Tímto vymažete všechna nastavení uložená v tomto stavu životního cyklu. "
+"Ostatní stavy a varianty zůstanou nedotčeny."
+
+#: build/editor.js:1
+msgid "Reset this state"
+msgstr "Resetovat tento stav"
+
+#: build/editor.js:1
+msgid "Reset Header State"
+msgstr "Obnovit stav záhlaví"
+
+#: build/editor.js:1
+msgid "Are you sure you want to reset the"
+msgstr "Opravdu chcete resetovat"
+
+#: build/editor.js:1
+msgid "header state?"
+msgstr "stav záhlaví?"
+
+#: build/editor.js:1
+msgid "Confirm Reset"
+msgstr "Potvrdit obnovení"
+
+#: build/editor.js:1
+msgid "Template State"
+msgstr "Stav šablony"
+
+#: build/editor.js:1
+msgid "Blog"
+msgstr "Blog"
+
+#: build/editor.js:1
+msgid "FAQ"
+msgstr "Často kladené otázky"
+
+#: build/editor.js:1
+msgid "Gallery"
+msgstr "Galerie"
+
+#: build/editor.js:1
+msgid "Hero Section"
+msgstr "Sekce hero"
+
+#: build/editor.js:1
+msgid "Logos"
+msgstr "Loga"
+
+#: build/editor.js:1
+msgid "Off-Canvas Menu"
+msgstr "Menu mimo plátno"
+
+#: build/editor.js:1
+msgid "Services"
+msgstr "Služby"
+
+#: build/editor.js:1
+msgid "Stats"
+msgstr "Statistiky"
+
+#: build/editor.js:1
+msgid "Team"
+msgstr "Tým"
+
+#: build/editor.js:1
+msgid "Testimonials"
+msgstr "Recenze"
+
+#: build/editor.js:1
+msgid "Hover to preview the pinned scroll animation"
+msgstr "Najeďte myší pro náhled animace připnutého posouvání"
+
+#: build/editor.js:1
+msgid "Pinned Scroll"
+msgstr "Připnuté posouvání"
+
+#: build/editor.js:1
+msgid "This template renders content dynamically from your site's data"
+msgstr "Tato šablona vykresluje obsah dynamicky z dat vašeho webu"
+
+#: build/editor.js:1
+msgid ""
+"Title hidden on the live page — set globally in Plugin Options → Hide Page "
+"Titles"
+msgstr ""
+"Nadpis skrytý na živé stránce — nastavte globálně v Plugin Options → Hide "
+"Page Titles"
+
+#: build/editor.js:1
+msgid "Title hidden on the live page"
+msgstr "Název skrytý na živé stránce"
+
+#: build/editor.js:1
+msgid "Title visible on the live page"
+msgstr "Název viditelný na živé stránce"
+
+#: build/editor.js:1
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: build/editor.js:1
+msgid "Skip tour"
+msgstr "Přeskočit prohlídku"
+
+#: build/editor.js:1
+msgid "Click the highlighted button to continue"
+msgstr "Klikněte na zvýrazněné tlačítko pro pokračování"
+
+#: build/editor.js:1
+msgid "Start Tour"
+msgstr "Spustit prohlídku"
+
+#: build/editor.js:1
+msgid "Finish"
+msgstr "Dokončit"
+
+#: build/editor.js:1
+msgid "Welcome to Nectarblocks"
+msgstr "Vítejte v Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"Let's take a quick tour of the editor so you can start building beautiful "
+"pages in no time."
+msgstr ""
+"Pojďme si udělat rychlou prohlídku editoru, abyste mohli začít vytvářet "
+"krásné stránky během okamžiku."
+
+#: build/editor.js:1
+msgid "This will only take a moment. You can exit anytime."
+msgstr "Zabere to jen chvíli. Můžete kdykoliv odejít."
+
+#: build/editor.js:1
+msgid "Add Blocks"
+msgstr "Přidat bloky"
+
+#: build/editor.js:1
+msgid ""
+"This is the block inserter. Go ahead, click it to see the available blocks."
+msgstr ""
+"Toto je nástroj pro vkládání bloků. Klikněte na něj a zobrazte dostupné "
+"bloky."
+
+#: build/editor.js:1
+msgid "The Block Library"
+msgstr "Knihovna bloků"
+
+#: build/editor.js:1
+msgid ""
+"The Nectarblocks category appears at the top of the list, with each block "
+"highlighted in blue for easy identification."
+msgstr ""
+"Kategorie Nectarblocks se zobrazuje v horní části seznamu, přičemž každý "
+"blok je zvýrazněn modře pro snadnou identifikaci."
+
+#: build/editor.js:1
+msgid ""
+"From rows and columns to images, headings, and advanced layouts. Everything "
+"starts here."
+msgstr ""
+"Od řádků a sloupců po obrázky, nadpisy a pokročilá rozvržení. Vše začíná "
+"zde."
+
+#: build/editor.js:1
+msgid ""
+"Jump-start your design with professionally crafted templates. Click here to "
+"browse the full collection."
+msgstr ""
+"Nastartujte svůj design s profesionálně vytvořenými šablonami. Klikněte zde "
+"pro procházení celé kolekce."
+
+#: build/editor.js:1
+msgid "Every template automatically adapts to your design system."
+msgstr "Každá šablona se automaticky přizpůsobí vašemu designovému systému."
+
+#: build/editor.js:1
+msgid "Responsive & Hover Modes"
+msgstr "Responzivní režimy a režimy při najetí myší"
+
+#: build/editor.js:1
+msgid ""
+"Switch between Desktop, Tablet, Phone, and Hover editing modes here. Changes"
+" apply only to the selected mode, giving you precise control over every "
+"breakpoint."
+msgstr ""
+"Zde můžete přepínat mezi režimy úprav pro počítač, tablet, telefon a najetí "
+"myší. Změny se použijí pouze pro vybraný režim, což vám dává přesnou "
+"kontrolu nad každým breakpointem."
+
+#: build/editor.js:1
+msgid "Settings highlighted in"
+msgstr "Nastavení zvýrazněná v"
+
+#: build/editor.js:1
+msgid "can be customized independently for each mode."
+msgstr "lze přizpůsobit nezávisle pro každý režim."
+
+#: build/editor.js:1
+msgid "Nectarblocks Sidebar"
+msgstr "Postranní panel Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"This is where your design system lives. Colors, gradients, and typography "
+"that can be applied to any block across your site."
+msgstr ""
+"Zde se nachází váš designový systém. Barvy, přechody a typografie, které lze"
+" aplikovat na jakýkoli blok na vašem webu."
+
+#: build/editor.js:1
+msgid "Click it to take a look inside."
+msgstr "Klikněte na něj a podívejte se dovnitř."
+
+#: build/editor.js:1
+msgid "Your Design System"
+msgstr "Váš designový systém"
+
+#: build/editor.js:1
+msgid ""
+"Manage your global color palette and typography rules here. Changes cascade "
+"across every block on every page, making it easy to maintain a consistent "
+"design system."
+msgstr ""
+"Spravujte zde svou globální paletu barev a pravidla typografie. Změny se "
+"projeví ve všech blocích na všech stránkách, což usnadňuje udržování "
+"konzistentního designového systému."
+
+#: build/editor.js:1
+msgid ""
+"Select any block and click here to open its settings panel. Each block "
+"offers extensive customization including colors, spacing, typography, "
+"animations, and more."
+msgstr ""
+"Vyberte libovolný blok a klikněte sem pro otevření jeho panelu nastavení. "
+"Každý blok nabízí rozsáhlé možnosti přizpůsobení včetně barev, mezer, "
+"typografie, animací a dalších."
+
+#: build/editor.js:1
+msgid ""
+"Having trouble selecting a block? Try the Document Overview for a full "
+"outline of your page structure."
+msgstr ""
+"Máte potíže s výběrem bloku? Zkuste Přehled dokumentu pro kompletní náhled "
+"struktury vaší stránky."
+
+#: build/editor.js:1
+msgid "You're all set!"
+msgstr "Vše je nastaveno!"
+
+#: build/editor.js:1
+msgid ""
+"You now know the essentials. Start building your page and explore each "
+"block's settings to discover everything Nectarblocks can do."
+msgstr ""
+"Nyní znáte základy. Začněte vytvářet svou stránku a prozkoumejte nastavení "
+"každého bloku, abyste objevili vše, co Nectarblocks umí."
+
+#: build/editor.js:1
+msgid ""
+"To replay this guide, open the Nectarblocks Settings sidebar and click "
+"\"Restart Guide\" at the bottom."
+msgstr ""
+"Chcete-li průvodce spustit znovu, otevřete postranní panel Nastavení "
+"Nectarblocks a klikněte na „Spustit průvodce znovu\" ve spodní části."
+
+#: build/editor.js:1
+msgid "Visit the Nectarblocks Academy"
+msgstr "Navštivte Nectarblocks Academy"
+
+#: build/editor.js:1
+msgid "Inherit (same as desktop)"
+msgstr "Zdědit (stejné jako na počítači)"
+
+#: build/editor.js:1
+msgid "(Untitled)"
+msgstr "(Bez názvu)"
+
+#: build/editor.js:1
+msgid "Classic"
+msgstr "Klasický"
+
+#: build/editor.js:1
+msgid "Editing Header State"
+msgstr "Úprava stavu záhlaví"
+
+#: build/editor.js:1
+msgid "Scrolled"
+msgstr "Posunuto"
+
+#: build/editor.js:1
+msgid "Overlay Menu"
+msgstr "Menu přes celou obrazovku"
+
+#: build/editor.js:1
+msgid "on"
+msgstr "zapnuto"
+
+#: build/editor.js:1
+msgid "Menu Items"
+msgstr "Položky menu"
+
+#: build/editor.js:1
+msgid "Dropdowns"
+msgstr "Rozbalovací nabídky"
+
+#: build/editor.js:1
+msgid "States"
+msgstr "Státy"
+
+#: build/editor.js:1
+msgid "FX"
+msgstr "FX"
+
+#: build/editor.js:1
+msgid "Active"
+msgstr "Aktivní"
+
+#: build/editor.js:1
+msgid "Animation"
+msgstr "Animace"
+
+#: build/editor.js:1
+msgid "3 Lines"
+msgstr "3 řádky"
+
+#: build/editor.js:1
+msgid "2 Lines"
+msgstr "2 řádky"
+
+#: build/editor.js:1
+msgid "Text Only"
+msgstr "Pouze text"
+
+#: build/editor.js:1
+msgid ""
+"The Off Canvas Menu template part is rendering the overlay. Edit it to "
+"change the menu content."
+msgstr ""
+"Šablona části Off Canvas Menu vykresluje překryvnou vrstvu. Upravte ji pro "
+"změnu obsahu menu."
+
+#: build/editor.js:1
+msgid ""
+"Choose a different menu for the mobile overlay. “Inherit” uses the current "
+"navigation."
+msgstr ""
+"Vyberte jiné menu pro mobilní překryvnou vrstvu. „Zdědit\" použije aktuální "
+"navigaci."
+
+#: build/editor.js:1
+msgid "Menu Source"
+msgstr "Zdroj menu"
+
+#: build/editor.js:1
+msgid "(no title)"
+msgstr "(bez názvu)"
+
+#: build/editor.js:1
+msgid "Edit Off Canvas Menu template"
+msgstr "Upravit šablonu menu mimo plátno"
+
+#: build/editor.js:1
+msgid "Select a menu"
+msgstr "Vyberte menu"
+
+#: build/editor.js:1
+msgid "Menu Text"
+msgstr "Text menu"
+
+#: build/editor.js:1
+msgid "Close BG"
+msgstr "Zavřít pozadí"
+
+#: build/editor.js:1
+msgid "Close Icon"
+msgstr "Ikona zavření"
+
+#: build/editor.js:1
+msgid "Morph"
+msgstr "Morph"
+
+#: build/editor.js:1
+msgid "Fade"
+msgstr "Prolínání"
+
+#: build/editor.js:1
+msgid "Dropdown BG"
+msgstr "Pozadí rozbalovacího menu"
+
+#: build/editor.js:1
+msgid "Panel"
+msgstr "Panel"
+
+#: build/editor.js:1
+msgid "Item"
+msgstr "Položka"
+
+#: build/editor.js:1
+msgid "Menu"
+msgstr "Menu"
+
+#: build/editor.js:1
+msgid "Span"
+msgstr "Rozpětí"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block title"
+msgid "Header Account"
+msgstr "Účet v záhlaví"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block description"
+msgid "Links to the user account page."
+msgstr "Odkazy na stránku uživatelského účtu."
+
+#: build/blocks/header-actions/block.json
+msgctxt "block title"
+msgid "Header Actions"
+msgstr "Akce záhlaví"
+
+#: build/blocks/header-actions/block.json
+msgctxt "block description"
+msgid "Theme header action container (search/cart/account)."
+msgstr "Kontejner akcí záhlaví šablony (vyhledávání/košík/účet)."
+
+#: build/blocks/megamenu/block.json
+msgctxt "block title"
+msgid "Megamenu"
+msgstr "Mega menu"
+
+#: build/blocks/megamenu/block.json
+msgctxt "block description"
+msgid "Display a global section or pattern as a megamenu dropdown."
+msgstr "Zobrazit globální sekci nebo vzor jako rozbalovací mega menu."
+
+#: build/blocks/navigation/block.json
+msgctxt "block title"
+msgid "Nectar Navigation"
+msgstr "Navigace Nectar"
+
+#: build/blocks/navigation/block.json
+msgctxt "block description"
+msgid "Nectar wrapper around the WordPress Navigation block."
+msgstr "Obal Nectarblocks pro blok WordPress Navigation."
+
+#: build/blocks/search/block.json
+msgctxt "block title"
+msgid "Search"
+msgstr "Hledat"
+
+#: build/blocks/search/block.json
+msgctxt "block description"
+msgid "A search block with optional AJAX-powered results."
+msgstr "Blok vyhledávání s volitelným zobrazením výsledků pomocí AJAX."
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block title"
+msgid "Table of Contents"
+msgstr "Obsah"
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block description"
+msgid "Auto-generated navigation for page headings."
+msgstr "Automaticky generovaná navigace pro nadpisy stránky."
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block title"
+msgid "Ticker Item"
+msgstr "Položka tickeru"
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block description"
+msgid "A section for content inside the ticker."
+msgstr "Sekce pro obsah uvnitř tickeru."
+
+#: build/blocks/ticker/block.json
+msgctxt "block title"
+msgid "Ticker"
+msgstr "Ticker"
+
+#: build/blocks/ticker/block.json
+msgctxt "block description"
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr "Zobrazuje obsah v nekonečné souvislé smyčce ve stylu běžícího textu."
+
+#: build/blocks/world-time/block.json
+msgctxt "block title"
+msgid "Nectar World Time"
+msgstr "Světový čas Nectar"
+
+#: build/blocks/world-time/block.json
+msgctxt "block description"
+msgid "Display the current time for any major city worldwide."
+msgstr "Zobrazí aktuální čas pro jakékoliv velké město na světě."
+
+#~ msgid "Post"
+#~ msgstr "Příspěvek"
+
+#~ msgid "Core Gradient #1"
+#~ msgstr "Základní gradient #1"
+
+#~ msgid "Core Gradient #2"
+#~ msgstr "Základní gradient #2"
+
+#~ msgid "Core Gradient #3"
+#~ msgstr "Základní gradient #3"
+
+#~ msgid "Core Gradient #4"
+#~ msgstr "Základní gradient #4"
+
+#~ msgid "Core Gradient #5"
+#~ msgstr "Základní gradient #5"
+
+#~ msgid "Accent Light"
+#~ msgstr "Světlý akcent"
+
+#~ msgid "Accent Primary"
+#~ msgstr "Primární zvýraznění"
+
+#~ msgid "Accent Dark"
+#~ msgstr "Tmavý akcent"
+
+#~ msgid ""
+#~ "Add in a symbol or emoji to display as the icon next to your menu title."
+#~ msgstr ""
+#~ "Přidejte symbol nebo emoji, který se zobrazí jako ikona vedle názvu vaší "
+#~ "nabídky."
+
+#~ msgid "To add an Emoji:"
+#~ msgstr "Pro přidání Emoji:"
+
+#~ msgid ""
+#~ "Windows: On your keyboard, press and hold the Windows button and either the "
+#~ "period (.) or semicolon (;)"
+#~ msgstr ""
+#~ "Windows: Na klávesnici stiskněte a podržte klávesu Windows a buď tečku (.) "
+#~ "nebo středník (;)"
+
+#~ msgid "Mac: On your keyboard, press Command + Control + Space"
+#~ msgstr "Mac: Na klávesnici stiskněte Command + Control + Space"
+
+#~ msgid "Theme License Code"
+#~ msgstr "Licenční kód šablony"
+
+#~ msgid "Add a New Font"
+#~ msgstr "Přidat nové písmo"
+
+#~ msgid "No changes were made."
+#~ msgstr "Nebyly provedeny žádné změny."
+
+#~ msgid ""
+#~ "for a successful import. Once the import process begins, please refrain from"
+#~ " refreshing the page until it has completed."
+#~ msgstr ""
+#~ "pro úspěšný import. Jakmile proces importu začne, zdržte se prosím "
+#~ "obnovování stránky, dokud nebude dokončen."
+
+#~ msgid "Move Up"
+#~ msgstr "Přesunout nahoru"
+
+#~ msgid "Move Down"
+#~ msgstr "Přesunout dolů"
+
+#~ msgid "Enter"
+#~ msgstr "Zadat"
+
+#~ msgid ""
+#~ "\"Pin\" the block in place within the viewport while the animation plays "
+#~ "through."
+#~ msgstr "Připnout blok na místo v zobrazení během přehrávání animace."
+
+#~ msgid "Start On"
+#~ msgstr "Zapnout při"
+
+#~ msgid "End On"
+#~ msgstr "Konec zapnuto"
+
+#~ msgid "Exit"
+#~ msgstr "Ukončit"
+
+#~ msgid "Custom End Offset"
+#~ msgstr "Vlastní koncové odsazení"
+
+#~ msgid "Adds smoothing to the animation while scrolling."
+#~ msgstr "Přidává vyhlazení animace při rolování."
+
+#~ msgid "Animation Trigger Type"
+#~ msgstr "Typ spouštěče animace"
+
+#~ msgid "Custom ID"
+#~ msgstr "Vlastní ID"
+
+#~ msgid "Flex Wrap"
+#~ msgstr "Zalamování flex"
+
+#~ msgid "Edit Filter"
+#~ msgstr "Upravit filtr"
+
+#~ msgid "Custom Attributes"
+#~ msgstr "Vlastní atributy"
+
+#~ msgid "Translate X"
+#~ msgstr "Posunutí X"
+
+#~ msgid "Translate Y"
+#~ msgstr "Posunutí Y"
+
+#~ msgid "Accordion Title"
+#~ msgstr "Název akordeonu"
+
+#~ msgid "Transition Speed (s)"
+#~ msgstr "Rychlost přechodu (s)"
+
+#~ msgid "Time Between (s)"
+#~ msgstr "Čas mezi (s)"
+
+#~ msgid "Highlight an important event or attribute."
+#~ msgstr "Zvýrazněte důležitou událost nebo atribut."
+
+#~ msgid "Contained Content"
+#~ msgstr "Obsah v kontejneru"
+
+#~ msgid "John Doe"
+#~ msgstr "John Doe"
+
+#~ msgid "@nectarblocks"
+#~ msgstr "@nectarblocks"
+
+#~ msgid "Enter the testimonial text here"
+#~ msgstr "Zde zadejte text reference"
+
+#~ msgid ""
+#~ "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+#~ "my website. I live in Los Angeles, have a great dog named Jack, and I like "
+#~ "piña coladas. (And gettin' caught in the rain.)"
+#~ msgstr ""
+#~ "Ahoj! Přes den jsem cyklistický kurýr, večer začínající herec a tohle je můj"
+#~ " web. Žiju v Los Angeles, mám skvělého psa jménem Jack a mám rád piña "
+#~ "colady. (A nechat se chytit deštěm.)"
+
+#~ msgid "Autoplay Trigger"
+#~ msgstr "Spuštění automatického přehrávání"
+
+#~ msgid "WP Custom Color Scheme"
+#~ msgstr "Vlastní barevné schéma WP"
+
+#~ msgid "Add Global Color"
+#~ msgstr "Přidat globální barvu"
+
+#~ msgid "Add Global Gradient"
+#~ msgstr "Přidat globální přechod"
+
+#~ msgid "Palette Presets"
+#~ msgstr "Předvolby palety"
+
+#~ msgid "Core Colors"
+#~ msgstr "Základní barvy"
+
+#~ msgid "Custom Colors"
+#~ msgstr "Vlastní barvy"
+
+#~ msgid "Core Gradients"
+#~ msgstr "Základní přechody"
+
+#~ msgid "Custom Gradients"
+#~ msgstr "Vlastní přechody"
+
+#~ msgid "Solids"
+#~ msgstr "Plné barvy"
+
+#~ msgid "Rename Font"
+#~ msgstr "Přejmenovat písmo"
+
+#~ msgid "New Name"
+#~ msgstr "Nový název"
+
+#~ msgid "Save Font Name"
+#~ msgstr "Uložit název písma"
+
+#~ msgid "Add New Font Rule"
+#~ msgstr "Přidat nové pravidlo písma"
+
+#~ msgid "Core Font Rules"
+#~ msgstr "Pravidla základních písem"
+
+#~ msgid "Custom Font Rules"
+#~ msgstr "Pravidla vlastních písem"
+
+#~ msgid "Display Tutorial"
+#~ msgstr "Zobrazit návod"
+
+#~ msgid "Welcome Guide"
+#~ msgstr "Průvodce"
+
+#~ msgid "Getting Started with Nectarblocks"
+#~ msgstr "Začínáme s Nectarblocks"
+
+#~ msgid ""
+#~ "To start creating a page, you can add blocks by clicking the plus icon "
+#~ "located on the left of the top toolbar."
+#~ msgstr ""
+#~ "Chcete-li začít vytvářet stránku, můžete přidat bloky kliknutím na ikonu "
+#~ "plus umístěnou vlevo na horním panelu nástrojů."
+
+#~ msgid ""
+#~ "The Nectarblocks category will appear at the top of the block list, with "
+#~ "each block highlighted in blue for easy identification."
+#~ msgstr ""
+#~ "Kategorie Nectarblocks se zobrazí v horní části seznamu bloků, přičemž každý"
+#~ " blok bude zvýrazněn modře pro snadnou identifikaci."
+
+#~ msgid "Meet the Template Library"
+#~ msgstr "Seznamte se s knihovnou šablon"
+
+#~ msgid ""
+#~ "Jump-start your website creation with our professionally designed collection"
+#~ " of pre-made templates."
+#~ msgstr ""
+#~ "Nastartujte tvorbu svého webu s naší profesionálně navrženou kolekcí "
+#~ "předpřipravených šablon."
+
+#~ msgid ""
+#~ "You can easily access the library by clicking on the \"Template Library\" "
+#~ "button on the top toolbar. All templates from Nectarblocks are dynamic and "
+#~ "will adapt to fit your current global color and typography settings."
+#~ msgstr ""
+#~ "Knihovnu snadno otevřete kliknutím na tlačítko „Knihovna šablon\" v horní "
+#~ "liště nástrojů. Všechny šablony z Nectarblocks jsou dynamické a automaticky "
+#~ "se přizpůsobí vašim aktuálním globálním nastavením barev a typografie."
+
+#~ msgid ""
+#~ "Access global settings by clicking the Nectarblocks logo at the top right. "
+#~ "Create reusable color schemes and typography rules that can then be applied "
+#~ "to blocks throughout your pages."
+#~ msgstr ""
+#~ "Přístup ke globálním nastavením získáte kliknutím na logo Nectarblocks v "
+#~ "pravém horním rohu. Vytvořte opakovaně použitelná barevná schémata a "
+#~ "typografická pravidla, která pak můžete aplikovat na bloky na vašich "
+#~ "stránkách."
+
+#~ msgid ""
+#~ "To access settings for a block, simply click on the Settings icon while the "
+#~ "desired block is selected."
+#~ msgstr ""
+#~ "Chcete-li získat přístup k nastavení bloku, jednoduše klikněte na ikonu "
+#~ "Nastavení, když je požadovaný blok vybrán."
+
+#~ msgid ""
+#~ "Each block offers an extensive range of customization options and settings, "
+#~ "empowering you to harness your global settings effectively. You can easily "
+#~ "maintain consistency and coherence across your entire design."
+#~ msgstr ""
+#~ "Každý blok nabízí rozsáhlou škálu možností přizpůsobení a nastavení, které "
+#~ "vám umožňují efektivně využívat globální nastavení. Snadno tak můžete udržet"
+#~ " konzistenci a soudržnost v celém designu."
+
+#~ msgid "Pro tip: "
+#~ msgstr "Profesionální tip:"
+
+#~ msgid ""
+#~ "If you're struggling to select a specific block, check the Document Overview"
+#~ " to easily see the full structure of your page."
+#~ msgstr ""
+#~ "Pokud máte potíže s výběrem konkrétního bloku, zkontrolujte Přehled "
+#~ "dokumentu, kde snadno uvidíte celou strukturu vaší stránky."
+
+#~ msgid "Responsive and Hover Modes"
+#~ msgstr "Responzivní režimy a režimy při najetí myší"
+
+#~ msgid ""
+#~ "To switch between editing modes, click on one of the icons located at the "
+#~ "top-middle of the interface. Any changes you make to the settings will "
+#~ "affect the selected mode only. This allows for easy customization to "
+#~ "responsive and hover settings."
+#~ msgstr ""
+#~ "Pro přepínání mezi režimy úprav klikněte na jednu z ikon umístěných v horní "
+#~ "střední části rozhraní. Jakékoli změny, které provedete v nastavení, ovlivní"
+#~ " pouze vybraný režim. To umožňuje snadné přizpůsobení responzivního "
+#~ "nastavení a nastavení při najetí myší."
+
+#~ msgid "Keep an eye out for settings highlighted in"
+#~ msgstr "Sledujte nastavení zvýrazněná v"
+
+#~ msgid "— these are unique to the selected mode and can be edited separately."
+#~ msgstr "— jsou jedinečné pro vybraný režim a lze je upravovat samostatně."
+
+#~ msgid "It's time to start building"
+#~ msgstr "Je čas začít tvořit"
+
+#~ msgid ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectarblocks Global Settings panel."
+#~ msgstr ""
+#~ "Chcete-li tuto příručku zobrazit znovu, klikněte na tlačítko „Zobrazit "
+#~ "tutoriál\" v dolní části panelu Globální nastavení Nectarblocks."
+
+#~ msgid "Intro"
+#~ msgstr "Úvod"
+
+#~ msgid "Quotes"
+#~ msgstr "Citace"
+
 #~ msgid "Saving..."
 #~ msgstr "Ukládání..."
 
 #~ msgid "Enter the name of your font.."
 #~ msgstr "Zadejte název písma.."
-
-#~ msgid ""
-#~ "for a successful import. Once the import process begins,\n"
-#~ "                please refrain from refreshing the page until it has completed."
-#~ msgstr ""
-#~ "pro úspěšný import. Jakmile proces importu začne,\n"
-#~ "prosím neobnovujte stránku, dokud nebude dokončen."
 
 #~ msgid ""
 #~ "Global Settings are primarily located in the right-hand side of \n"

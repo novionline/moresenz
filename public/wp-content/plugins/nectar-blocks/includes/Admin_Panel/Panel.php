@@ -1,7 +1,7 @@
 <?php
 
 namespace Nectar\Admin_Panel;
-use Nectar\Global_Settings\{Global_Typography};
+use Nectar\Global_Settings\{Global_Typography, Nectar_Adobe_Fonts};
 
 /**
  * Admin Panel creation
@@ -50,11 +50,26 @@ class Panel {
         true
     );
     wp_set_script_translations( 'nectar-admin-panel', 'nectar-blocks', NECTAR_BLOCKS_ROOT_DIR_PATH . '/languages'  );
-    wp_enqueue_style( 'nectar-admin-panel', NECTAR_BLOCKS_BUILD_PATH . '/adminPanel.css', [], '1.0');
+    wp_enqueue_style( 'nectar-admin-panel', NECTAR_BLOCKS_BUILD_PATH . '/adminPanel.css', [], NECTAR_BLOCKS_VERSION );
 
     $uploaded_fonts = Global_Typography::create_uploaded_fonts_style('editor');
     if ( $uploaded_fonts ) {
       wp_add_inline_style( 'nectar-admin-panel', $uploaded_fonts);
+    }
+
+    // Adobe Fonts — load all kits in admin for font preview.
+    $adobe_data = Nectar_Adobe_Fonts::get_options();
+    if ( is_array($adobe_data) && ! empty($adobe_data['isConnected']) && ! empty($adobe_data['kits']) ) {
+      foreach ( $adobe_data['kits'] as $kit ) {
+        if ( ! empty($kit['id']) ) {
+          wp_enqueue_style(
+              'nectar-blocks-adobe-fonts-' . sanitize_key( $kit['id'] ),
+              'https://use.typekit.net/' . sanitize_key( $kit['id'] ) . '.css',
+              [],
+              null
+          );
+        }
+      }
     }
   }
 }

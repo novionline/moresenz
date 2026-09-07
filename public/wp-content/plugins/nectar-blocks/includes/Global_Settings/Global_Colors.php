@@ -87,31 +87,41 @@ class Global_Colors extends Settings_Base {
   }
 
   public static function create_gradients($solid_colors) {
+    $color = function($key, $fallback) use ($solid_colors) {
+      return $solid_colors[$key]['value'] ?? $fallback;
+    };
+
+    $light = $color('light', '#ffffff');
+    $accentLight = $color('accentLight', '#cccccc');
+    $accentPrimary = $color('accentPrimary', '#666666');
+    $accentDark = $color('accentDark', '#333333');
+    $dark = $color('dark', '#000000');
+
     $gradients = [
       [
         'slug' => 'gradient-1',
-        'label' => __('Core Gradient #1', 'nectar-blocks'),
-        'value' => 'linear-gradient(135deg,' . $solid_colors['accentLight']['value'] . ' 0%,' . $solid_colors['accentPrimary']['value'] . ' 100%)'
+        'label' => __('Tertiary to Primary', 'nectar-blocks'),
+        'value' => "linear-gradient(135deg,{$accentLight} 0%,{$accentPrimary} 100%)"
       ],
       [
         'slug' => 'gradient-2',
-        'label' => __('Core Gradient #2', 'nectar-blocks'),
-        'value' => 'linear-gradient(135deg,' . $solid_colors['accentLight']['value'] . ' 0%,' . $solid_colors['accentDark']['value'] . ' 100%)'
-      ],
-      [
-        'slug' => 'gradient-3',
-        'label' => __('Core Gradient #3', 'nectar-blocks'),
-        'value' => 'linear-gradient(180deg,' . $solid_colors['light']['value'] . ' 0%,' . $solid_colors['accentPrimary']['value'] . ' 100%)'
+        'label' => __('Tertiary to Secondary', 'nectar-blocks'),
+        'value' => "linear-gradient(135deg,{$accentLight} 0%,{$accentDark} 100%)"
       ],
       [
         'slug' => 'gradient-4',
-        'label' => __('Core Gradient #4', 'nectar-blocks'),
-        'value' => 'linear-gradient(135deg,' . $solid_colors['accentLight']['value'] . ' 0%,' . $solid_colors['dark']['value'] . ' 100%)'
+        'label' => __('Tertiary to Dark', 'nectar-blocks'),
+        'value' => "linear-gradient(135deg,{$accentLight} 0%,{$dark} 100%)"
+      ],
+      [
+        'slug' => 'gradient-3',
+        'label' => __('Light to Primary', 'nectar-blocks'),
+        'value' => "linear-gradient(180deg,{$light} 0%,{$accentPrimary} 100%)"
       ],
       [
         'slug' => 'gradient-5',
-        'label' => __('Core Gradient #5', 'nectar-blocks'),
-        'value' => 'linear-gradient(225deg,' . $solid_colors['light']['value'] . ' 25%,' . self::hex_to_rgba($solid_colors['light']['value'], 0.2) . ' 100%)'
+        'label' => __('Light Fade', 'nectar-blocks'),
+        'value' => "linear-gradient(225deg,{$light} 25%," . self::hex_to_rgba($light, 0.2) . " 100%)"
       ]
     ];
 
@@ -123,31 +133,31 @@ class Global_Colors extends Settings_Base {
    */
   private function defaults() {
 
-    // Defaults to "Tranquility" palette
+    // Defaults to "Nectar" palette
     $core_solids = [
       'light' => [
         'label' => __('Light', 'nectar-blocks'),
-        'value' => '#fbfaf9',
+        'value' => '#ffffff',
         'slug' => 'light'
       ],
       'accentLight' => [
-        'label' => __('Accent Light', 'nectar-blocks'),
-        'value' => '#e8e6e0',
+        'label' => __('Tertiary', 'nectar-blocks'),
+        'value' => '#eef1f8',
         'slug' => 'accentLight'
       ],
       'accentPrimary' => [
-        'label' => __('Accent Primary', 'nectar-blocks'),
-        'value' => '#f6c062',
+        'label' => __('Primary', 'nectar-blocks'),
+        'value' => '#3452ff',
         'slug' => 'accentPrimary'
       ],
       'accentDark' => [
-        'label' => __('Accent Dark', 'nectar-blocks'),
-        'value' => '#64793a',
+        'label' => __('Secondary', 'nectar-blocks'),
+        'value' => '#1a1f3d',
         'slug' => 'accentDark'
       ],
       'dark' => [
         'label' => __('Dark', 'nectar-blocks'),
-        'value' => '#000000',
+        'value' => '#0a0b14',
         'slug' => 'dark'
       ]
     ];
@@ -160,6 +170,21 @@ class Global_Colors extends Settings_Base {
       'userSolids' => [],
       'userGradients' => []
     ];
+  }
+
+  // ── Custom Palette Presets ────────────────────────────────
+
+  public static function get_custom_palettes(): array {
+    $options = get_option(self::$OPTION_NAME, []);
+    $palettes = $options['savedPalettes'] ?? [];
+    return is_array($palettes) ? $palettes : [];
+  }
+
+  public static function update_custom_palettes(array $palettes): array {
+    $options = get_option(self::$OPTION_NAME, []);
+    $options['savedPalettes'] = $palettes;
+    update_option(self::$OPTION_NAME, $options);
+    return $palettes;
   }
 
   private static function hex_to_rgba($hex, $alpha = 1) {

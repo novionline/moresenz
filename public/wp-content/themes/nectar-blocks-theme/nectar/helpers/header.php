@@ -25,6 +25,13 @@ if( ! function_exists('nectar_blocks_transparent_header_option') ) {
             return false;
         }
 
+        // Customizer transparent-header is the master switch. When it's off, the per-post
+        // _nectar_blocks_transparent_header_effect should NOT force-activate transparency.
+        // Contained-header is independent of the customizer toggle and stays exempt.
+        if ( ! nectar_customizer_trans_header_enabled() && ! nectar_is_contained_header() ) {
+            return $active;
+        }
+
         $transparent_effect = get_post_meta( $post->ID, '_nectar_blocks_transparent_header_effect', true );
 
         if ( $transparent_effect === '1' ) {
@@ -123,9 +130,23 @@ function nectar_get_header_variables() {
 
     $theme_skin = NectarThemeManager::$skin;
 
-    if ( ! empty( $nectar_options['transparent-header'] ) &&
+    $is_header_builder_mode = function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template();
+
+    if ( $is_header_builder_mode ) {
+        $header_format = 'default';
+    }
+
+    // Header builder mode: only require the meta option (page-level setting).
+    // Non-header builder mode: require both theme option AND meta conditions.
+    $theme_option_allows_transparency = ! empty( $nectar_options['transparent-header'] ) &&
         $nectar_options['transparent-header'] === '1' &&
-        $header_format != 'left-header' || nectar_is_contained_header() ) {
+        $header_format != 'left-header';
+
+    $should_process_transparency = $is_header_builder_mode ||
+        $theme_option_allows_transparency ||
+        nectar_is_contained_header();
+
+    if ( $should_process_transparency ) {
 
         $starting_color = ( empty( $nectar_options['header-starting-color'] ) ) ? '#ffffff' : $nectar_options['header-starting-color'];
         $activate_transparency = $using_page_header;
@@ -148,11 +169,14 @@ function nectar_get_header_variables() {
 
         if ($activate_transparency == 'true') {
             $transparency_markup = 'data-transparent-header="true" ';
-            if ( $transparent_header_shadow == 'true' ) {
-                $transparency_markup .= 'data-transparent-shadow-helper="' . esc_attr($transparent_header_shadow) . '" ';
-            }
-            if ( $remove_border == 'true' ) {
-                $transparency_markup .= 'data-remove-border="' . esc_attr($remove_border) . '" ';
+            // Skip these attributes in header builder mode - they're handled by block editor.
+            if ( ! $is_header_builder_mode ) {
+                if ( $transparent_header_shadow == 'true' ) {
+                    $transparency_markup .= 'data-transparent-shadow-helper="' . esc_attr($transparent_header_shadow) . '" ';
+                }
+                if ( $remove_border == 'true' ) {
+                    $transparency_markup .= 'data-remove-border="' . esc_attr($remove_border) . '" ';
+                }
             }
             $transparency_markup .= 'class="' . apply_filters("nectar_header_outer_classes", 'transparent') . esc_attr($nectar_transparency_color_class) . '"';
         }
@@ -164,7 +188,7 @@ function nectar_get_header_variables() {
     $using_mobile_logo_s = ( ! empty( $nectar_options['use-logo'] ) && $nectar_options['use-logo'] === '1' && ! empty( $nectar_options['header-starting-mobile-only-logo'] ) && ! empty( $nectar_options['header-starting-mobile-only-logo']['url'] ) ) ? 'true' : 'false';
     $using_mobile_logo_sd = ( ! empty( $nectar_options['use-logo'] ) && $nectar_options['use-logo'] === '1' && ! empty( $nectar_options['header-starting-mobile-only-logo-dark'] ) && ! empty( $nectar_options['header-starting-mobile-only-logo-dark']['url'] ) ) ? 'true' : 'false';
     $side_widget_area = ( ! empty( $nectar_options['header-slide-out-widget-area'] ) && $header_format != 'left-header' ) ? $nectar_options['header-slide-out-widget-area'] : 'off';
-    $side_widget_class = NectarThemeManager::$ocm_style;
+    $side_widget_class = nectar_get_ocm_style_with_header_builder_fallback( NectarThemeManager::$ocm_style );
     $header_search = ( ! empty( $nectar_options['header-disable-search'] ) && $nectar_options['header-disable-search'] === '1' ) ? 'false' : 'true';
     $user_account_btn = ( ! empty( $nectar_options['header-account-button'] ) && $nectar_options['header-account-button'] === '1' ) ? 'true' : 'false';
     $user_account_btn_url = ( ! empty( $nectar_options['header-account-button-url'] ) ) ? $nectar_options['header-account-button-url'] : '';
@@ -246,7 +270,6 @@ function nectar_get_header_variables() {
 
     $prepend_top_nav_mobile = ( ! empty( $nectar_options['header-slide-out-widget-area-top-nav-in-mobile'] ) && $user_set_side_widget_area === '1' ) ? $nectar_options['header-slide-out-widget-area-top-nav-in-mobile'] : 'false';
     $smooth_scrolling = '0';
-    $page_full_screen_rows = ( isset( $post->ID ) ) ? get_post_meta( $post->ID, '_nectar_full_screen_rows', true ) : '';
     $form_submit_style = ( ! empty( $nectar_options['form-submit-btn-style'] ) ) ? $nectar_options['form-submit-btn-style'] : 'default';
     $n_remove_mobile_parallax = ( ! empty( $nectar_options['disable-mobile-parallax'] ) && $nectar_options['disable-mobile-parallax'] === '1' ) ? true : false;
     $n_remove_mobile_video_bgs = ( ! empty( $nectar_options['disable-mobile-video-bgs'] ) && $nectar_options['disable-mobile-video-bgs'] === '1' ) ? true : false;
@@ -345,7 +368,6 @@ function nectar_get_header_variables() {
         'using_pr_menu' => $using_pr_menu,
         'using_header_buttons' => $using_header_buttons,
         'using_secondary' => $using_secondary,
-        'page_full_screen_rows' => $page_full_screen_rows,
         'header_text_widget' => $header_text_widget,
     ];
 
@@ -424,8 +446,16 @@ function nectar_body_attributes() {
     echo 'data-responsive="1" ';
     echo 'data-ext-responsive="true" ';
 
-    if( isset( $nectar_options['ext_responsive_padding'] ) && ! empty( $nectar_options['ext_responsive_padding'] ) && '90' !== $nectar_options['ext_responsive_padding'] ) {
-        echo 'data-ext-padding="' . esc_attr($nectar_options['ext_responsive_padding']) . '" ';
+    // `ext_responsive_padding` may be a legacy scalar or a responsive object
+    // { desktop?, tablet?, mobile? } — emit desktop as the data-attribute value.
+    $ext_pad_setting = isset( $nectar_options['ext_responsive_padding'] ) ? $nectar_options['ext_responsive_padding'] : '';
+    if ( is_array( $ext_pad_setting ) ) {
+        $ext_pad_value = isset( $ext_pad_setting['desktop'] ) ? (string) $ext_pad_setting['desktop'] : '';
+    } else {
+        $ext_pad_value = (string) $ext_pad_setting;
+    }
+    if ( '' !== $ext_pad_value && '90' !== $ext_pad_value ) {
+        echo 'data-ext-padding="' . esc_attr( $ext_pad_value ) . '" ';
     } else {
         echo 'data-ext-padding="90" ';
     }
@@ -447,11 +477,82 @@ function nectar_body_attributes() {
 }
 
 /**
+ * Output minimal header navigation attributes for header builder mode.
+ * Only outputs transparency-related attributes since everything else is handled by the block editor.
+ *
+ * @since 14.0
+ */
+function nectar_header_nav_attributes_builder() {
+    $nectar_header_options = nectar_get_header_variables();
+    extract( $nectar_header_options );
+
+    /**
+     * Filter the class list applied to `#nectar-nav` in header builder mode.
+     * Generic hook — any plugin/theme override can contribute classes.
+     *
+     * Note on the post id: `get_the_ID()` returns 0 here because the header
+     * renders before the main loop sets up the global `$post`. Use the
+     * queried object id, which is populated as soon as `parse_query` runs.
+     *
+     * @param string[] $classes  List of class names (will be space-joined).
+     * @param int      $post_id  Queried post id, or 0 when not on a singular.
+     */
+    $classes = apply_filters( 'nectar_header_nav_classes', [], get_queried_object_id() );
+    $extra_classes = '';
+    if ( is_array( $classes ) && ! empty( $classes ) ) {
+        $sanitized = array_filter( array_map( 'sanitize_html_class', $classes ) );
+        if ( ! empty( $sanitized ) ) {
+            $extra_classes = implode( ' ', $sanitized );
+        }
+    }
+
+    // Transparency-related attributes.
+    if ( $disable_effect === 'on' ) {
+        echo 'data-transparency-option="0" ';
+    } else {
+        echo 'data-transparency-option="' . esc_attr( $using_fw_slider ) . '" ';
+    }
+
+    // Filter-contributed classes (e.g. `is-variant-<key>`) must share the SAME
+    // `class="..."` attribute as the transparency markup. Emitting them as a
+    // separate attribute produces two `class=` attrs on #nectar-nav; the browser
+    // keeps only the first and drops `transparent`, so transparency is missing on
+    // first paint until JS re-adds it on scroll. Merge into the single attribute.
+    if ( $transparency_markup ) {
+        if ( '' !== $extra_classes ) {
+            $transparency_markup = preg_replace(
+                '/\bclass="/',
+                'class="' . esc_attr( $extra_classes ) . ' ',
+                $transparency_markup,
+                1
+            );
+        }
+        echo $transparency_markup;
+    } elseif ( '' !== $extra_classes ) {
+        echo 'class="' . esc_attr( $extra_classes ) . '" ';
+    }
+
+    // Mobile sticky header.
+    echo 'data-mobile-fixed="' . esc_attr( $mobile_fixed ) . '" ';
+
+    // Marker so globally-cached legacy CSS that styles the shared `#nectar-nav`
+    // wrapper directly (e.g. the header background-color) can scope itself out of
+    // builder-managed headers via `:not([data-header-builder])`.
+    echo 'data-header-builder="true" ';
+}
+
+/**
  * Output the NectarBlocks header navigation attributes
  *
  * @since 9.0.2
  */
 function nectar_header_nav_attributes() {
+
+    // Use minimal attributes for header builder mode.
+    if ( function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template() ) {
+        nectar_header_nav_attributes_builder();
+        return;
+    }
 
     global $woocommerce;
     global $nectar_options;
@@ -605,7 +706,19 @@ if ( ! function_exists( 'nectar_get_mobile_header_height' ) ) {
 }
 
 if ( ! function_exists( 'nectar_is_contained_header' ) ) {
-    function nectar_is_contained_header() {
+    function nectar_is_contained_header( $has_header_builder = null ) {
+
+        // $has_header_builder defaults to the per-request signal (render-time correct).
+        // Cached-CSS callers (custom.php) MUST pass the page-agnostic unconditional state,
+        // or a regen that runs on a builder page omits contained-header CSS from the
+        // globally-shared file. Keep the param.
+        if ( null === $has_header_builder ) {
+            $has_header_builder = function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template();
+        }
+        if ( $has_header_builder ) {
+            return false;
+        }
+
         $nectar_options = get_nectar_theme_options();
 
         $using_secondary = ( isset($nectar_options['header_layout']) ) ? $nectar_options['header_layout'] : 'default';
@@ -730,55 +843,531 @@ if ( ! function_exists( 'nectar_javascript_check' ) ) {
 }
 
 /**
- * Stores scrollbar width for CSS access and
- * tracks if a mobile device is being used.
+ * Determine if a Header Navigation template override should be considered active.
  *
- * @since 9.0
+ * In normal frontend renders, the Theme Builder registers the action hook on `wp`,
+ * so `has_action('nectar_template__header_navigation')` is reliable.
+ * When previewing a `nectar_templates` post directly, the Theme Builder render registration
+ * is skipped in admin contexts, so we also detect that singular preview case.
+ *
+ * @since 2.6.0
  */
-add_action( 'nectar_hook_after_body_open', 'nectar_essential_js', 1 );
+if ( ! function_exists( 'nectar_has_header_nav_template' ) ) {
+    function nectar_has_header_nav_template(): bool {
+        if ( has_action( 'nectar_template__header_navigation' ) ) {
+            return true;
+        }
 
-if ( ! function_exists( 'nectar_essential_js' ) ) {
+        // Template post direct preview: treat header navigation template as active to avoid rendering the default header.
+        if ( function_exists( 'is_singular' ) && is_singular( 'nectar_templates' ) ) {
+            $post_id = function_exists( 'get_the_ID' ) ? get_the_ID() : 0;
+            if ( $post_id && function_exists( 'get_post_meta' ) ) {
+                $meta = get_post_meta( $post_id, '_nectar_template_part_options', true );
+                if ( is_array( $meta ) && isset( $meta['templatePart'] ) && 'nectar_template__header_navigation' === $meta['templatePart'] ) {
+                    return true;
+                }
+            }
+        }
 
-    function nectar_essential_js() {
-        echo '<script type="text/javascript">
-	 (function(window, document) {
-
-		 if(navigator.userAgent.match(/(Android|iPod|iPhone|iPad|BlackBerry|IEMobile|Opera Mini)/)) {
-			 document.body.className += " using-mobile-browser mobile ";
-		 }
-		 if(navigator.userAgent.match(/Mac/) && navigator.maxTouchPoints && navigator.maxTouchPoints > 2) {
-			document.body.className += " using-ios-device ";
-		}
-
-		 if( !("ontouchstart" in window) ) {
-
-			 var body = document.querySelector("body");
-			 var winW = window.innerWidth;
-			 var bodyW = body.clientWidth;
-
-			 if (winW > bodyW + 2) {
-				 var vwTestEl = document.createElement("div");
-				 vwTestEl.style.position = "absolute";
-				 vwTestEl.style.top = "-9999px";
-				 vwTestEl.style.width = "100vw";
-				 body.appendChild(vwTestEl);
-				 var vwWidth = vwTestEl.offsetWidth;
-				 body.removeChild(vwTestEl);
-
-				 if (vwWidth > bodyW + 2) {
-					 body.setAttribute("style", "--scroll-bar-w: " + (winW - bodyW) + "px");
-				 } else {
-					 body.setAttribute("style", "--scroll-bar-w: 0px");
-				 }
-			 } else {
-				 body.setAttribute("style", "--scroll-bar-w: 0px");
-			 }
-		 }
-
-	 })(window, document);
-   </script>';
+        return false;
     }
+}
 
+/**
+ * Whether a set of Theme Builder display conditions resolves to "every request".
+ *
+ * Mirrors the include/exclude semantics of `Render::verify_conditional_display()`:
+ * empty conditions display everywhere, an `everywhere` include displays everywhere,
+ * while any specific include or any exclude narrows coverage. Conservative by design
+ * — anything that *could* narrow coverage returns false so callers fall back to the
+ * legacy (non-builder) path, which stays correct on the pages a conditional template
+ * doesn't match.
+ *
+ * Note the exclude case is intentional, NOT a missed optimisation: an
+ * "everywhere except post X" template still renders the LEGACY header on post X,
+ * so the sole consumer (`nectar_has_unconditional_header_nav_template` → the
+ * globally-cached dynamic-CSS gate) MUST return false here to keep the legacy CSS
+ * in the cache for post X. Treating it as unconditional would skip that CSS and
+ * break post X. The builder pages are kept clean by the `:not([data-header-builder])`
+ * selector scoping, not by suppressing the cached CSS.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_template_conditions_apply_everywhere' ) ) {
+    function nectar_template_conditions_apply_everywhere( $conditions ): bool {
+        if ( empty( $conditions ) || ! is_array( $conditions ) ) {
+            return true;
+        }
+
+        foreach ( $conditions as $condition ) {
+            $value = is_array( $condition ) && isset( $condition['condition'] ) ? $condition['condition'] : '';
+            if ( ! is_string( $value ) || '' === $value ) {
+                // Skip empty/malformed rows, exactly as Render::verify_conditional_display
+                // does (`if ( empty($conditional_value) ) continue;`). A condition set
+                // that is entirely empty therefore resolves to "display everywhere" in
+                // Render too, so treating it as unconditional here is consistent — and
+                // it correctly handles a valid `everywhere` include left beside a blank
+                // repeater row. (Returning false here would mis-flag that common case.)
+                continue;
+            }
+            $include = is_array( $condition ) && isset( $condition['include'] ) ? $condition['include'] : true;
+            if ( false === $include || 'everywhere' !== $value ) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+
+/**
+ * Published Header Navigation templates as [post_id => parsed meta], fetched once
+ * per request and shared by the unconditional/page-aware detectors so they don't
+ * each issue the same query. Confirms templatePart since the LIKE query can match
+ * templates that merely mention the string.
+ *
+ * @since 3.0.1
+ * @return array<int,array>
+ */
+if ( ! function_exists( 'nectar_get_header_nav_templates_meta' ) ) {
+    function nectar_get_header_nav_templates_meta(): array {
+        static $cache = null;
+        if ( null !== $cache ) {
+            return $cache;
+        }
+
+        // Return without memoizing if get_posts() isn't loaded yet, so the next call
+        // retries rather than caching an empty result for the request.
+        if ( ! function_exists( 'get_posts' ) ) {
+            return [];
+        }
+
+        // NB: deliberately NOT guarding on post_type_exists('nectar_templates'). The
+        // Customizer builds its panels (and runs this gating) in its constructor on
+        // after_setup_theme — before init, where the CPT isn't registered yet. get_posts()
+        // queries by post_type string regardless of registration, so it still finds the
+        // templates; a post_type_exists() guard here would silently disable all gating.
+        $cache = [];
+
+        $template_ids = get_posts( [
+            'post_type' => 'nectar_templates',
+            'post_status' => 'publish',
+            'posts_per_page' => -1,
+            'no_found_rows' => true,
+            'fields' => 'ids',
+            'suppress_filters' => true,
+            'meta_query' => [
+                [
+                    'key' => '_nectar_template_part_options',
+                    'value' => 'nectar_template__header_navigation',
+                    'compare' => 'LIKE',
+                ],
+            ],
+        ] );
+
+        if ( is_array( $template_ids ) ) {
+            foreach ( $template_ids as $template_id ) {
+                $meta = get_post_meta( $template_id, '_nectar_template_part_options', true );
+                if ( is_array( $meta ) && isset( $meta['templatePart'] ) && 'nectar_template__header_navigation' === $meta['templatePart'] ) {
+                    $cache[(int) $template_id] = $meta;
+                }
+            }
+        }
+
+        return $cache;
+    }
+}
+
+/**
+ * Whether a published Header Navigation template applies to *every* request.
+ *
+ * Condition-aware and context-independent: it inspects saved Theme Builder
+ * conditions directly instead of the per-request `nectar_template__header_navigation`
+ * action. Use it for globally-cached output (dynamic CSS) and Customizer gating,
+ * where the per-request `nectar_has_header_nav_template()` signal is either wrong
+ * (the cache captures one page's state) or unavailable (admin context). A
+ * *conditional* header template returns false here so the legacy header CSS/options
+ * stay intact for the pages it doesn't cover.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_has_unconditional_header_nav_template' ) ) {
+    function nectar_has_unconditional_header_nav_template(): bool {
+        static $result = null;
+        if ( null !== $result ) {
+            return $result;
+        }
+
+        $result = false;
+
+        foreach ( nectar_get_header_nav_templates_meta() as $meta ) {
+            $conditions = isset( $meta['conditions'] ) && is_array( $meta['conditions'] ) ? $meta['conditions'] : [];
+            if ( nectar_template_conditions_apply_everywhere( $conditions ) ) {
+                $result = true;
+                break;
+            }
+        }
+
+        return $result;
+    }
+}
+
+/**
+ * Resolve a frontend URL to the minimal page context needed to evaluate Theme
+ * Builder display conditions from an admin/Customizer request, where the real
+ * conditional tags (is_front_page() etc.) reflect the admin screen rather than
+ * the previewed page.
+ *
+ * Best-effort: covers the singular / front-page / post-type conditions header
+ * templates use in practice. Archive, taxonomy, search and role conditions
+ * can't be derived from a URL alone and are treated as non-matching upstream.
+ *
+ * @since 3.0.1
+ * @return array{is_front_page:bool, is_posts_page:bool, is_singular:bool, post_id:int, post_type:string}
+ */
+if ( ! function_exists( 'nectar_resolve_url_page_context' ) ) {
+    function nectar_resolve_url_page_context( string $url ): array {
+        $context = [
+            'is_front_page' => false,
+            'is_posts_page' => false,
+            'is_singular' => false,
+            'post_id' => 0,
+            'post_type' => '',
+        ];
+
+        $front_page_id = ( 'page' === get_option( 'show_on_front' ) ) ? (int) get_option( 'page_on_front' ) : 0;
+        $posts_page_id = ( 'page' === get_option( 'show_on_front' ) ) ? (int) get_option( 'page_for_posts' ) : 0;
+
+        $apply_front_page = function() use ( &$context, $front_page_id ) {
+            $context['is_front_page'] = true;
+            if ( $front_page_id ) {
+                $context['is_singular'] = true;
+                $context['post_id'] = $front_page_id;
+                $context['post_type'] = 'page';
+            }
+        };
+
+        // Strip query/fragment without strtok(), which clobbers PHP's global
+        // tokenizer pointer for any caller mid-chain up the stack.
+        $clean = '' !== $url ? explode( '?', explode( '#', $url )[0] )[0] : '';
+
+        if ( '' === $clean || untrailingslashit( $clean ) === untrailingslashit( home_url( '/' ) ) ) {
+            $apply_front_page();
+            return $context;
+        }
+
+        // Posts Page (blog index): url_to_postid() returns 0 for it since it's an
+        // archive, so detect it by permalink — mirrors Render's is_home() branch.
+        if ( $posts_page_id && function_exists( 'get_permalink' ) ) {
+            $posts_url = get_permalink( $posts_page_id );
+            if ( $posts_url && untrailingslashit( explode( '?', explode( '#', $posts_url )[0] )[0] ) === untrailingslashit( $clean ) ) {
+                $context['is_posts_page'] = true;
+                $context['post_id'] = $posts_page_id;
+                // The Posts Page is a page-type post, so get_post_type() returns 'page'
+                // on the blog index at runtime — set it so post_type__page matches as
+                // Render::parse_conditional does. (is_singular stays false — is_home().)
+                $context['post_type'] = 'page';
+                return $context;
+            }
+        }
+
+        $post_id = function_exists( 'url_to_postid' ) ? (int) url_to_postid( $url ) : 0;
+        if ( $post_id > 0 ) {
+            $context['is_singular'] = true;
+            $context['post_id'] = $post_id;
+            $context['post_type'] = (string) get_post_type( $post_id );
+            if ( $front_page_id && $front_page_id === $post_id ) {
+                $context['is_front_page'] = true;
+            }
+        }
+
+        return $context;
+    }
+}
+
+/**
+ * Whether a single Theme Builder condition matches a resolved URL context.
+ *
+ * Mirrors the per-conditional branches of `Render::parse_conditional()` for the
+ * URL-resolvable cases (everywhere, front/posts page, specific post, post type,
+ * single). Conditions that can't be derived from a URL alone (archive, taxonomy,
+ * search, role, logged-in) deliberately return false — erring toward *showing*
+ * the legacy options. This is the intended direction: returning true instead
+ * would gate the legacy options on every previewed URL for a template scoped to,
+ * say, `is_archive` (the evaluator can't confirm the current URL is an archive),
+ * re-introducing the over-gating this change exists to fix. The tradeoff is that
+ * a template scoped only to an unresolvable condition won't gate its options when
+ * previewing a page where the builder is genuinely active — accepted, since those
+ * options are inert (not shown) there anyway.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_template_condition_matches_context' ) ) {
+    function nectar_template_condition_matches_context( string $conditional, $condition, array $context ): bool {
+        if ( 'everywhere' === $conditional ) {
+            return true;
+        }
+        if ( 'is_front_page' === $conditional ) {
+            return $context['is_front_page'];
+        }
+        if ( 'is_single' === $conditional ) {
+            return $context['is_singular'] && '' !== $context['post_type'] && 'page' !== $context['post_type'];
+        }
+        if ( 'specific_post' === $conditional ) {
+            $selected = 0;
+            $post_data = null;
+            if ( is_array( $condition ) ) {
+                if ( isset( $condition['postData'] ) ) {
+                    $post_data = $condition['postData'];
+                } else if ( isset( $condition['post_data'] ) ) {
+                    $post_data = $condition['post_data'];
+                }
+            }
+            if ( is_array( $post_data ) && isset( $post_data['id'] ) ) {
+                $selected = (int) $post_data['id'];
+            } else if ( is_object( $post_data ) && isset( $post_data->id ) ) {
+                $selected = (int) $post_data->id;
+            }
+            // Mirror Render::parse_conditional: matches the selected singular post,
+            // or the selected page when it's assigned as the Posts Page (is_home()).
+            return $selected > 0 && $context['post_id'] === $selected
+                && ( $context['is_singular'] || $context['is_posts_page'] );
+        }
+        if ( 0 === strpos( $conditional, 'single__pt__' ) ) {
+            // Mirror Render::parse_conditional, which uses is_single() — false for
+            // pages — so a single__pt__page condition never renders on a page.
+            $pt = str_replace( 'single__pt__', '', $conditional );
+            return $context['is_singular'] && 'page' !== $context['post_type'] && $context['post_type'] === $pt;
+        }
+        if ( 0 === strpos( $conditional, 'post_type__' ) ) {
+            return $context['post_type'] === str_replace( 'post_type__', '', $conditional );
+        }
+
+        return false;
+    }
+}
+
+/**
+ * Evaluate a template's conditions/operator against a resolved URL context.
+ *
+ * Mirrors `Render::verify_conditional_display()`: empty conditions match
+ * everywhere, a matched exclude denies, otherwise the caller's operator is
+ * applied (AND by default — matching the Render class, whose callers pass `'and'`
+ * when the meta key is absent — OR only when `operator` is explicitly `'or'`).
+ * Excludes contribute an allowing value to the include set (matching the plugin)
+ * and only deny via the matched-exclude short-circuit.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_template_conditions_match_context' ) ) {
+    function nectar_template_conditions_match_context( $conditions, string $operator, array $context ): bool {
+        // Default coverage is "everywhere" (no/empty conditions), mirroring Render.
+        $allow = true;
+
+        if ( is_array( $conditions ) && ! empty( $conditions ) ) {
+            $conditionals = [];
+            $exclude_matched = false;
+
+            foreach ( $conditions as $condition ) {
+                $value = is_array( $condition ) && isset( $condition['condition'] ) ? $condition['condition'] : '';
+                if ( ! is_string( $value ) || '' === $value ) {
+                    continue;
+                }
+                $include = is_array( $condition ) && isset( $condition['include'] ) ? $condition['include'] : true;
+                $match = nectar_template_condition_matches_context( $value, $condition, $context );
+
+                if ( false === $include ) {
+                    if ( $match ) {
+                        $exclude_matched = true;
+                    }
+                    $conditionals[] = true;
+                } else {
+                    $conditionals[] = $match;
+                }
+            }
+
+            if ( $exclude_matched ) {
+                $allow = false;
+            } else if ( ! empty( $conditionals ) ) {
+                // empty $conditionals (all rows skipped) leaves $allow true — everywhere.
+                $allow = in_array( true, $conditionals, true );
+                if ( 'and' === $operator && in_array( false, $conditionals, true ) ) {
+                    $allow = false;
+                }
+            }
+        }
+
+        // Intentionally NOT applying the salient_global_section_allow_display filter
+        // here (unlike Render::verify_conditional_display). This evaluator only runs in
+        // admin/Customizer context — never at frontend render time — so a context-aware
+        // filter callback (e.g. one returning false during is_admin() to hide global
+        // sections from admin previews) would wrongly force the gate off. The Customizer
+        // gate is a best-effort mirror of the saved conditions, not the render filter.
+        return $allow;
+    }
+}
+
+/**
+ * Whether a published Header Navigation template is active for a given frontend URL.
+ *
+ * Condition-aware and usable from admin/Customizer requests (it resolves the URL
+ * rather than relying on the per-request `nectar_template__header_navigation`
+ * action). Used to gate the Customizer header options to the page being previewed.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_header_nav_template_active_for_url' ) ) {
+    function nectar_header_nav_template_active_for_url( string $url ): bool {
+        static $memo = [];
+        if ( array_key_exists( $url, $memo ) ) {
+            return $memo[$url];
+        }
+
+        $active = false;
+        $context = nectar_resolve_url_page_context( $url );
+
+        foreach ( nectar_get_header_nav_templates_meta() as $meta ) {
+            $conditions = isset( $meta['conditions'] ) && is_array( $meta['conditions'] ) ? $meta['conditions'] : [];
+            $operator = isset( $meta['operator'] ) ? $meta['operator'] : 'and';
+            if ( nectar_template_conditions_match_context( $conditions, $operator, $context ) ) {
+                $active = true;
+                break;
+            }
+        }
+
+        $memo[$url] = $active;
+        return $active;
+    }
+}
+
+/**
+ * The page URL currently being previewed in the Customizer.
+ *
+ * `customize_register` fires in two requests that must agree, or the preview will
+ * deactivate controls the pane registered (and vice versa):
+ *  - the pane (wp-admin/customize.php?url=...) where `$_REQUEST['url']` holds it;
+ *  - the preview iframe render, where there is no `url` param and the current
+ *    request *is* the previewed page.
+ * It also runs before customize.php calls set_preview_url(), so get_preview_url()
+ * isn't reliable yet. Falls back to the front page (the Customizer's default).
+ *
+ * Shared by the Customizer panels that gate header options so they resolve the
+ * same previewed page.
+ *
+ * @since 3.0.1
+ */
+if ( ! function_exists( 'nectar_customizer_previewed_url' ) ) {
+    function nectar_customizer_previewed_url(): string {
+        // Only meaningful during an actual Customizer request. The customizer bootstrap
+        // builds its panels from its constructor (not just customize_register), and that
+        // file loads on any request type while theme-mod defaults need (re)seeding — so
+        // without this guard a stray ?url= on an unrelated frontend/AJAX/REST request
+        // would be misread as the previewed page. $GLOBALS['wp_customize'] is only set
+        // on real Customizer (pane + preview) requests.
+        if ( ! isset( $GLOBALS['wp_customize'] ) || ! is_object( $GLOBALS['wp_customize'] ) ) {
+            return '';
+        }
+
+        if ( ! empty( $_REQUEST['url'] ) ) {
+            return esc_url_raw( wp_unslash( $_REQUEST['url'] ) );
+        }
+
+        $is_preview_render = isset( $_GET['customize_changeset_uuid'] ) || isset( $_GET['customize_messenger_channel'] );
+        if ( $is_preview_render && ! empty( $_SERVER['REQUEST_URI'] ) ) {
+            // Use the canonical scheme/host/port from home_url(), not $_SERVER — behind a
+            // reverse proxy or on a non-default port, $_SERVER['HTTP_HOST']/is_ssl() can
+            // disagree with home_url(), and url_to_postid() (host-matched against
+            // home_url()) would then return 0 for every page.
+            $home = wp_parse_url( home_url() );
+            $scheme = ( ! empty( $home['scheme'] ) ? $home['scheme'] : ( is_ssl() ? 'https' : 'http' ) ) . '://';
+            $host = ! empty( $home['host'] ) ? $home['host'] : '';
+            if ( ! empty( $home['port'] ) ) {
+                $host .= ':' . $home['port'];
+            }
+            $url = remove_query_arg(
+                [ 'customize_changeset_uuid', 'customize_messenger_channel', 'customize_autosaved', 'customize_theme', 'customize_preview_nonce', 'wp_customize' ],
+                $scheme . $host . wp_unslash( $_SERVER['REQUEST_URI'] )
+            );
+            return esc_url_raw( $url );
+        }
+
+        if ( isset( $GLOBALS['wp_customize'] ) && is_object( $GLOBALS['wp_customize'] )
+            && method_exists( $GLOBALS['wp_customize'], 'get_preview_url' ) ) {
+            return (string) $GLOBALS['wp_customize']->get_preview_url();
+        }
+
+        return '';
+    }
+}
+
+/**
+ * Get the OCM style with header builder fallback applied.
+ *
+ * The "Simple Dropdown" OCM style is not supported when the Header Builder is active.
+ * This utility ensures consistent fallback to "slide-out-from-right" across the theme.
+ *
+ * @since 2.6.0
+ *
+ * @param string $style The current OCM style. If empty, will be read from theme options.
+ * @return string The OCM style with fallback applied if needed.
+ */
+if ( ! function_exists( 'nectar_ocm_customizer_var_overrides' ) ) {
+    /**
+     * Generate CSS variable overrides for OCM from customizer values.
+     *
+     * Outputs inline CSS that overrides the hardcoded defaults in
+     * header-builder-vars.css with the customizer color values.
+     *
+     * @return string CSS rules or empty string.
+     */
+    function nectar_ocm_customizer_var_overrides(): string {
+        if ( ! function_exists( 'get_nectar_theme_options' ) ) {
+            return '';
+        }
+
+        $opts = get_nectar_theme_options();
+        $map = [
+            'header-slide-out-widget-area-background-color' => '--nectar-ocm-bg',
+            'header-slide-out-widget-area-color' => '--nectar-ocm-text',
+            'header-slide-out-widget-area-hover-color' => '--nectar-ocm-text-hover',
+            'header-slide-out-widget-area-header-color' => '--nectar-ocm-heading',
+            'header-slide-out-widget-area-close-button-bg' => '--nectar-ocm-close-bg',
+            'header-slide-out-widget-area-close-button' => '--nectar-ocm-close-icon',
+        ];
+
+        $declarations = '';
+        foreach ( $map as $option_key => $css_var ) {
+            $val = $opts[$option_key] ?? '';
+            if ( ! empty( $val ) ) {
+                $declarations .= "{$css_var}: " . esc_attr( $val ) . '; ';
+            }
+        }
+
+        if ( empty( $declarations ) ) {
+            return '';
+        }
+
+        return '#slide-out-widget-area { ' . $declarations . '}';
+    }
+}
+
+if ( ! function_exists( 'nectar_get_ocm_style_with_header_builder_fallback' ) ) {
+    function nectar_get_ocm_style_with_header_builder_fallback( $style = '' ) {
+        // If empty, get from options.
+        if ( empty( $style ) ) {
+            $nectar_options = get_nectar_theme_options();
+            $style = ( ! empty( $nectar_options['header-slide-out-widget-area-style'] ) )
+                ? $nectar_options['header-slide-out-widget-area-style']
+                : 'slide-out-from-right';
+        }
+
+        // "Simple" style is not supported with header builder - fallback to slide-out-from-right.
+        if ( nectar_has_header_nav_template() && $style === 'simple' ) {
+            $style = 'slide-out-from-right';
+        }
+
+        return $style;
+    }
 }
 
 /**
@@ -1358,7 +1947,7 @@ if( ! function_exists('nectar_ocm_button_markup') ) {
         }
 
         echo '<li class="slide-out-widget-area-toggle" data-icon-animation="simple-transform" data-custom-color="' . esc_attr($ocm_menu_btn_bg_color) . '">';
-            echo '<div> <a href="#sidewidgetarea" aria-label="' . esc_attr__('Navigation Menu', 'nectar-blocks-theme') . '" aria-expanded="false" role="button" class="closed' . $menu_label_class . '"> ' . $menu_label . '<span aria-hidden="true"> <i class="lines-button x2"> <i class="lines"></i> </i> </span> </a> </div>';
+            echo '<div> <a href="#slide-out-widget-area" aria-label="' . esc_attr__('Navigation Menu', 'nectar-blocks-theme') . '" aria-expanded="false" role="button" class="closed' . $menu_label_class . '"> ' . $menu_label . '<span aria-hidden="true"> <i class="lines-button x2"> <i class="lines"></i> </i> </span> </a> </div>';
         echo '</li>';
     }
 }
@@ -1374,11 +1963,13 @@ if ( ! function_exists( 'nectar_header_button_items' ) ) {
         global $nectar_options;
         global $woocommerce;
 
-        $side_widget_class = NectarThemeManager::$ocm_style;
+        $side_widget_class = nectar_get_ocm_style_with_header_builder_fallback( NectarThemeManager::$ocm_style );
         $header_search = ( ! empty( $nectar_options['header-disable-search'] ) && $nectar_options['header-disable-search'] === '1' ) ? 'false' : 'true';
         $user_account_btn = ( ! empty( $nectar_options['header-account-button'] ) && $nectar_options['header-account-button'] === '1' ) ? 'true' : 'false';
         $user_account_btn_url = ( ! empty( $nectar_options['header-account-button-url'] ) ) ? $nectar_options['header-account-button-url'] : '';
-        $header_format = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default';
+        $header_format = ( function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template() ) ? 'default' : (
+            ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default'
+        );
         $full_width_header = ( ! empty( $nectar_options['header-fullwidth'] ) && $nectar_options['header-fullwidth'] === '1' ) ? 'true' : 'false';
         $side_widget_area = ( ! empty( $nectar_options['header-slide-out-widget-area'] ) && $header_format != 'left-header' ) ? $nectar_options['header-slide-out-widget-area'] : 'off';
 
@@ -1413,7 +2004,7 @@ if ( ! function_exists( 'nectar_header_button_items' ) ) {
         do_action('nectar_before_header_button_list_items');
 
         if ( $header_search != 'false' ) {
-            echo '<li id="search-btn"><div><a href="#searchbox" role="button"><span class="icon-nectar-blocks-search" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('search', 'nectar-blocks-theme') . '</span></a></div> </li>';
+            echo '<li id="search-btn"><div><a href="#search-outer" role="button"><span class="icon-nectar-blocks-search" aria-hidden="true"></span><span class="screen-reader-text">' . esc_html__('search', 'nectar-blocks-theme') . '</span></a></div> </li>';
         }
 
         if ( $user_account_btn != 'false' && class_exists( 'WooCommerce' ) && function_exists('wc_get_page_id') ) {
@@ -1448,7 +2039,9 @@ if ( ! function_exists( 'nectar_header_button_check' ) ) {
         global $nectar_options;
         global $woocommerce;
 
-        $header_format = ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default';
+        $header_format = ( function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template() ) ? 'default' : (
+            ( ! empty( $nectar_options['header_format'] ) ) ? $nectar_options['header_format'] : 'default'
+        );
         $using_header_cart = ( $woocommerce && ! empty( $nectar_options['enable-cart'] ) && $nectar_options['enable-cart'] === '1' ) ? true : false;
         $user_account_btn = ( ! empty( $nectar_options['header-account-button'] ) && $nectar_options['header-account-button'] === '1' ) ? true : false;
         $header_search = ( ! empty( $nectar_options['header-disable-search'] ) && $nectar_options['header-disable-search'] === '1' ) ? false : true;

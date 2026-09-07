@@ -45,7 +45,7 @@ Description: Styles for the "Auto Masonry: Meta Overlaid Spaced" post style.
   -webkit-transform:scale(1.07)
 }
 
-@media only screen and (max-width : 690px) {
+@media only screen and (max-width : 767px) {
   .auto_meta_overlaid_spaced .masonry-blog-item {
     margin-bottom: 0;
   }
@@ -354,7 +354,7 @@ body .auto_meta_overlaid_spaced .masonry-blog-item .post-featured-img.no-img {
   width: 100%;
 }
 
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 767px) {
   .post-area.auto_meta_overlaid_spaced .masonry-blog-item .post-content {
     height: 33vh;
   }

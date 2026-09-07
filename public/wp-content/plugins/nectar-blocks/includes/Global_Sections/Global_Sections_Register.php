@@ -195,12 +195,13 @@ class Global_Sections_Register {
     ];
 
     foreach($conditions as $index => $condition) {
-      $condition_key = isset($condition['condition']) ? $condition['condition'] : '';
+      $condition_key = isset($condition['condition']) && is_string($condition['condition']) ? $condition['condition'] : '';
       // Get the labels
       if (array_key_exists($condition_key, $conditions_map)) {
         $condition_label = $conditions_map[$condition_key];
       } else if ( ! empty($condition_key) ) {
-        $condition_label = $condition_key;
+        // Unrecognized value straight from the stored meta — escape it.
+        $condition_label = esc_html($condition_key);
       } else {
         $condition_label = '';
       }
@@ -286,7 +287,8 @@ class Global_Sections_Register {
       if (count($template_part_option) === 1) {
         array_push($location_labels, array_values($template_part_option)[0]['label']);
       } else {
-        array_push($location_labels, $location['location']);
+        // Unrecognized value straight from the stored meta — escape it.
+        array_push($location_labels, esc_html($location['location']));
       }
     }
     return implode('', array_map(fn($x) => '<div class="location">' . $x . '</div>', $location_labels));

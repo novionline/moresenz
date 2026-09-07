@@ -1,0 +1,72 @@
+body[data-form-style="minimal"] .nectar-floating-label {
+  position: relative;
+}
+
+body[data-form-style="minimal"] .nectar-floating-label > label,
+body[data-form-style="minimal"] .nectar-floating-label .wpforms-field-label,
+body[data-form-style="minimal"] .nectar-floating-label .ff-el-input--label {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  transform: translateY(0.7em);
+  transform-origin: 0 0;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  line-height: 1.4;
+  width: 100%;
+}
+
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-ready > label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-ready .wpforms-field-label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-ready .ff-el-input--label {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-active > label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-active .wpforms-field-label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-active .ff-el-input--label {
+  transform: translateY(-0.55em) scale(0.78);
+  opacity: 0.85;
+}
+
+/* Inputs and textareas — exclude select2 internal inputs */
+body[data-form-style="minimal"] .nectar-floating-label > input:not([type="submit"]):not([type="checkbox"]):not([type="radio"]),
+body[data-form-style="minimal"] .nectar-floating-label > textarea,
+body[data-form-style="minimal"] .nectar-floating-label .ff-el-input--content > input,
+body[data-form-style="minimal"] .nectar-floating-label .ff-el-input--content > textarea,
+body[data-form-style="minimal"] .nectar-floating-label .wpforms-field-medium,
+body[data-form-style="minimal"] .nectar-floating-label .wpforms-field-large,
+body[data-form-style="minimal"] .nectar-floating-label .wpcf7-form-control:not(.wpcf7-submit),
+body[data-form-style="minimal"] .nectar-floating-label > .input-text,
+body[data-form-style="minimal"] .nectar-floating-label .form-row > input,
+body[data-form-style="minimal"] .nectar-floating-label .form-row > textarea {
+  padding-top: 1.2em;
+}
+
+body[data-form-style="minimal"] .nectar-floating-label input::placeholder,
+body[data-form-style="minimal"] .nectar-floating-label textarea::placeholder {
+  color: transparent;
+}
+
+/* Native select */
+body[data-form-style="minimal"] .nectar-floating-label > select,
+body[data-form-style="minimal"] .nectar-floating-label .ff-el-input--content > .fancy-select-wrap > select,
+body[data-form-style="minimal"] .nectar-floating-label .ff-el-input--content > select {
+  padding-top: 1.2em;
+}
+
+/* Select/Select2 — always keep label floated up since the field shows its own value/placeholder */
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-has-select > label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-has-select .wpforms-field-label,
+body[data-form-style="minimal"] .nectar-floating-label.nectar-fl-has-select .ff-el-input--label {
+  transform: translateY(-0.55em) scale(0.78);
+  opacity: 0.85;
+}
+
+/* Select2 — add top space for label */
+body[data-form-style="minimal"] .nectar-floating-label .select2-container--default .select2-selection--single {
+  padding-top: 1.2em;
+}

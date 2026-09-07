@@ -392,9 +392,50 @@ if (! function_exists('nectar_fonts_output')) {
 }
 
 /**
+ * Returns the directory path, URL, and filename for the dynamic CSS file
+ * in the uploads directory. Uses wp_upload_dir() which natively handles
+ * multisite per-site paths.
+ *
+ * @since 3.0
+ * @return array{dir: string, url: string, file: string}|false False on wp_upload_dir error.
+ */
+function nectar_dynamic_css_upload_paths() {
+
+    $paths = Nectar_Theme_Uploads::paths( 'dynamic-styles' );
+
+    if ( false === $paths ) {
+        return false;
+    }
+
+    return [
+        'dir' => $paths['dir'],
+        'url' => $paths['url'],
+        'file' => 'theme-styles.css',
+    ];
+}
+
+/**
+ * Returns the path to the old dynamic CSS file in the theme directory,
+ * or empty string if no old file exists. Used for migration detection.
+ *
+ * @since 3.0
+ * @return string Full file path, or empty string.
+ */
+function nectar_dynamic_css_old_theme_path() {
+
+    if ( is_multisite() ) {
+        $old_path = NECTAR_THEME_DIRECTORY . '/css/nectar-blocks-dynamic-styles-multi-id-' . get_current_blog_id() . '.css';
+    } else {
+        $old_path = NECTAR_THEME_DIRECTORY . '/css/nectar-blocks-dynamic-styles.css';
+    }
+
+    return file_exists( $old_path ) ? $old_path : '';
+}
+
+/**
  * Writes the dynamic CSS into a file
  * @since 6.0
- * @version 1.0
+ * @version 3.0
  * @hooked redux/options/nectar_redux/saved
  */
 function nectar_generate_options_css() {
@@ -403,7 +444,15 @@ function nectar_generate_options_css() {
 
     if( true === nectar_dynamic_css_dir_writable() ) {
 
-        $css_dir = get_template_directory() . '/css/';
+        $paths = nectar_dynamic_css_upload_paths();
+
+        if ( false === $paths ) {
+            update_option( 'nectar_dynamic_css_success', 'false' );
+            return;
+        }
+
+        $css_file = $paths['file'];
+
         ob_start();
 
         // Include css.
@@ -414,41 +463,17 @@ function nectar_generate_options_css() {
         $css = ob_get_clean();
         $css = nectar_quick_minify($css);
 
-        // Write css to file.
-        global $wp_filesystem;
-
-        if ( empty($wp_filesystem) ) {
-            require_once( ABSPATH . 'wp-admin/includes/file.php' );
-        }
-
-        WP_Filesystem();
-
-        $file_chmod = ( defined('FS_CHMOD_FILE') ) ? FS_CHMOD_FILE : false;
-
-        if ( is_multisite() ) {
-            if( ! $wp_filesystem->put_contents($css_dir . 'nectar-blocks-dynamic-styles-multi-id-' . get_current_blog_id() . '.css', $css, $file_chmod)) {
-                // Filesystem can not write.
-                update_option('nectar_dynamic_css_success', 'false');
-            } else {
-                update_option('nectar_dynamic_css_success', 'true');
-            }
-        } else {
-            if( ! $wp_filesystem->put_contents($css_dir . 'nectar-blocks-dynamic-styles.css', $css, $file_chmod)) {
-                // Filesystem can not write.
-                update_option('nectar_dynamic_css_success', 'false');
-            } else {
-                update_option('nectar_dynamic_css_success', 'true');
-            }
-        }
+        // Write css to file (atomic — the file is live-served).
+        $written = Nectar_Theme_Uploads::put_contents( 'dynamic-styles/' . $css_file, $css );
+        update_option( 'nectar_dynamic_css_success', $written ? 'true' : 'false' );
 
         // Update version number for cache busting.
         $random_number = rand( 0, 99999 );
-        update_option('nectar_dynamic_css_version', $random_number);
+        update_option( 'nectar_dynamic_css_version', $random_number );
 
     } // endif CSS dir is writable.
     else {
-        // Filesystem can not write.
-        update_option('nectar_dynamic_css_success', 'false');
+        update_option( 'nectar_dynamic_css_success', 'false' );
     }
 
 }
@@ -502,15 +527,18 @@ function nectar_enqueue_dynamic_css() {
     $nectar_theme_version = nectar_get_theme_version();
     $dynamic_css_version_num = ( ! get_option('nectar_dynamic_css_version') ) ? $nectar_theme_version : get_option('nectar_dynamic_css_version');
 
-    if( is_multisite() && file_exists( NECTAR_THEME_DIRECTORY . '/css/nectar-blocks-dynamic-styles-multi-id-' . get_current_blog_id() . '.css' ) ) {
-        wp_register_style('dynamic-css', get_template_directory_uri() . '/css/nectar-blocks-dynamic-styles-multi-id-' . get_current_blog_id() . '.css', '', $dynamic_css_version_num);
+    $paths = nectar_dynamic_css_upload_paths();
+
+    if ( false !== $paths ) {
+        $css_url = trailingslashit( $paths['url'] ) . $paths['file'];
+        wp_register_style( 'dynamic-css', $css_url, '', $dynamic_css_version_num );
     } else {
-        wp_register_style('dynamic-css', get_template_directory_uri() . '/css/nectar-blocks-dynamic-styles.css', '', $dynamic_css_version_num);
+        wp_register_style( 'dynamic-css', false );
     }
 
     wp_enqueue_style('dynamic-css');
 
-    // Handle page specific dynamic
+    // Handle page specific dynamic.
     $nectar_page_specific_dynamic_css = nectar_page_specific_dynamic();
     wp_add_inline_style( 'dynamic-css', $nectar_page_specific_dynamic_css );
 
@@ -551,13 +579,20 @@ function nectar_dynamic_css_external_bool() {
         return false;
     }
 
-    // Multisite enqueue dynamic css.
-    if( is_multisite() && file_exists( NECTAR_THEME_DIRECTORY . '/css/nectar-blocks-dynamic-styles-multi-id-' . get_current_blog_id() . '.css' ) ) {
-        return true;
+    // Check the uploads location.
+    $paths = nectar_dynamic_css_upload_paths();
+    if ( false !== $paths ) {
+        $full_path = trailingslashit( $paths['dir'] ) . $paths['file'];
+        if ( file_exists( $full_path ) ) {
+            return true;
+        }
     }
-    // Non multisite enqueue dynamic css.
-    else if( ! is_multisite() && file_exists( NECTAR_THEME_DIRECTORY . '/css/nectar-blocks-dynamic-styles.css' ) ) {
-        return true;
+
+    // Migration: old file exists in theme dir but not in new location.
+    // Schedule regeneration into the uploads dir for the next page load.
+    $old_path = nectar_dynamic_css_old_theme_path();
+    if ( ! empty( $old_path ) ) {
+        set_transient( 'nectar_dynamic_css_needs_updating', 'true', DAY_IN_SECONDS );
     }
 
     return false;
@@ -576,10 +611,22 @@ function nectar_dynamic_css_dir_writable() {
         require_once( ABSPATH . 'wp-admin/includes/file.php' );
     }
 
-    $path = NECTAR_THEME_DIRECTORY . '/css/';
+    $paths = nectar_dynamic_css_upload_paths();
+    if ( false === $paths ) {
+        return false;
+    }
+
+    $dir = $paths['dir'];
+
+    // Ensure the directory exists.
+    if ( ! is_dir( $dir ) ) {
+        if ( ! wp_mkdir_p( $dir ) ) {
+            return false;
+        }
+    }
 
     // Does the fs have direct access?
-    if( get_filesystem_method([], $path) === "direct" ) {
+    if( get_filesystem_method( [], $dir ) === 'direct' ) {
         return true;
     }
 
@@ -589,7 +636,7 @@ function nectar_dynamic_css_dir_writable() {
     }
 
     ob_start();
-    $fs_stored_credentials = request_filesystem_credentials('', '', false, false, null);
+    $fs_stored_credentials = request_filesystem_credentials( '', '', false, false, null );
     ob_end_clean();
 
     if ( $fs_stored_credentials && WP_Filesystem( $fs_stored_credentials ) ) {
@@ -736,17 +783,6 @@ if (! function_exists('nectar_page_specific_dynamic')) {
          else {
              $font_color = get_post_meta($post->ID, '_nectar_header_font_color', true);
          }
-
-         // header space growth for nectar_hook_before_secondary_header asap
-         if( has_action('nectar_hook_before_secondary_header') && ! nectar_is_contained_header() ) {
-            echo '
-      :root {
-        --before_secondary_header_height: 0px;
-      }
-      #nectar-nav-spacer {
-        margin-bottom: var(--before_secondary_header_height);
-      }';
-        }
 
          //// Default minimal blog header.
          $default_minimal_text_color = (! empty($nectar_options['default_minimal_text_color'])) ? $nectar_options['default_minimal_text_color'] : false;
@@ -1138,7 +1174,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
 
       // Roundness.
       if( $image_under_roundness !== '0' ) {
-        echo '.featured-media-under-header__featured-media, .blog_next_prev_buttons[data-post-header-style="image_under"]:not(.full-width-content) .parallax-layer-wrap {
+        echo '.featured-media-under-header__featured-media, .blog_next_prev_buttons[data-post-header-style="image_under"]:not(.alignfull) .parallax-layer-wrap {
       border-radius: ' . esc_attr($image_under_roundness) . 'px;
     }';
       }
@@ -1504,7 +1540,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
         }
 
         #nectar-nav.entrance-animation {
-          animation: header_nav_entrance_animation 1.5s ease forwards;
+          animation: header_nav_entrance_animation 1.2s ease forwards;
           animation-delay: ' . floatval($header_nav_entrance_animation_delay) . 's;
         }
       }
@@ -1515,7 +1551,28 @@ if (! function_exists('nectar_page_specific_dynamic')) {
             '1' === $header_nav_entrance_animation &&
             'slide' === $header_nav_entrance_animation_effect
         ) {
-            echo '
+            // Per-page inline output (nectar_page_specific_dynamic), not the global
+            // cache — so the per-request detector is correct and required: a
+            // conditional builder template active on THIS page must take the builder
+            // branch, or the builder #nectar-nav is left stuck at opacity:0.01.
+            $is_header_builder_mode = function_exists( 'nectar_has_header_nav_template' ) && nectar_has_header_nav_template();
+
+            if ( $is_header_builder_mode ) {
+                echo '
+      @keyframes header_nav_entrance_animation_2 {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(0); }
+      }
+
+      @media only screen and (min-width: 691px) {
+        #nectar-nav.entrance-animation {
+          animation: header_nav_entrance_animation_2 1.2s cubic-bezier(0.25,1,0.5,1) forwards;
+          animation-delay: ' . floatval($header_nav_entrance_animation_delay) . 's;
+        }
+      }
+      ';
+            } else {
+                echo '
       @keyframes header_nav_entrance_animation {
         0% { opacity: 0.01; }
         100% { opacity: 1; }
@@ -1532,17 +1589,18 @@ if (! function_exists('nectar_page_specific_dynamic')) {
         }
 
         #nectar-nav.entrance-animation {
-          animation: header_nav_entrance_animation 1.5s cubic-bezier(0.25,1,0.5,1) forwards;
+          animation: header_nav_entrance_animation 1.2s cubic-bezier(0.25,1,0.5,1) forwards;
           animation-delay: ' . floatval($header_nav_entrance_animation_delay) . 's;
         }
 
         #nectar-nav.entrance-animation #top,
         #nectar-nav.entrance-animation #header-secondary-outer {
-          animation: header_nav_entrance_animation_2 1.5s cubic-bezier(0.25,1,0.5,1) forwards;
+          animation: header_nav_entrance_animation_2 1.2s cubic-bezier(0.25,1,0.5,1) forwards;
           animation-delay: ' . floatval($header_nav_entrance_animation_delay) . 's;
         }
       }
       ';
+            }
         }
 
         //// Page header text effect.
@@ -1939,16 +1997,6 @@ if (! function_exists('nectar_page_specific_dynamic')) {
             $header_space = $logo_height + ($header_padding * 2) + $extra_secondary_height;
         }
 
-        //// Hide scrollbar during loading if using fullpage option.
-        $page_full_screen_rows = (isset($post->ID)) ? get_post_meta($post->ID, '_nectar_full_screen_rows', true) : '';
-        if( $page_full_screen_rows === 'on' && ! is_search() ) {
-
-            echo 'body,html {
-        overflow: hidden;
-        height: 100%;
-      }';
-        }
-
         // BODY BORDER.
         $body_border = (! empty($nectar_options['body-border'])) ? $nectar_options['body-border'] : 'off';
         $body_border_size = (! empty($nectar_options['body-border-size'])) ? $nectar_options['body-border-size'] : '20';
@@ -2096,11 +2144,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
 
              }
 
-             echo '#nectar_fullscreen_rows {
-         margin-top: ' . esc_attr($body_border_size) . 'px;
-       }
-
-      #slide-out-widget-area.fullscreen .off-canvas-social-links {
+             echo '#slide-out-widget-area.fullscreen .off-canvas-social-links {
         padding-right: ' . esc_attr($body_border_size) . 'px;
       }
 
@@ -2167,7 +2211,6 @@ if (! function_exists('nectar_page_specific_dynamic')) {
                 echo '#nectar-nav:not([data-using-secondary="1"]):not(.transparent),
         body.ascend #search-outer,
         body[data-slide-out-widget-area-style="fullscreen-alt"] #nectar-nav:not([data-using-secondary="1"]),
-        #nectar_fullscreen_rows,
         body #slide-out-widget-area-bg {
           margin-top: 0!important;
         }
@@ -2359,18 +2402,8 @@ if (! function_exists('nectar_page_specific_dynamic')) {
 
                         if( $header_secondary_m_bool ) {
 
-                            $page_full_screen_rows = ( isset( $post->ID ) ) ? get_post_meta( $post->ID, '_nectar_full_screen_rows', true ) : '';
-                            $page_full_screen_rows_mobile_disable = ( isset( $post->ID ) ) ? get_post_meta( $post->ID, '_nectar_full_screen_rows_mobile_disable', true ) : '';
-                            if( $page_full_screen_rows === 'on' && $page_full_screen_rows_mobile_disable === 'on' && ! is_search()) {
-                                echo 'body.using-mobile-browser #nectar-nav-spacer:not([data-header-mobile-fixed="false"]) {
-                  display: block!important;
-                  margin-bottom: -' . (intval($mobile_logo_height) + 26) . 'px;
-                }';
-                                echo '#nectar-nav[data-mobile-fixed="false"], body.nectar_using_pfsr:not(.using-mobile-browser) #nectar-nav {';
-                            } else {
-                                echo '#nectar-nav[data-mobile-fixed="false"], body.nectar_using_pfsr #nectar-nav {';
-                            }
-                            echo 'top: 0!important;
+                            echo '#nectar-nav[data-mobile-fixed="false"] {
+                top: 0!important;
                 margin-bottom: -' . (intval($mobile_logo_height) + 26) . 'px!important;
                 position: relative!important;
               }';
@@ -2447,8 +2480,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
         #page-header-wrap.fullscreen-header,
         #page-header-wrap.fullscreen-header #page-header-bg,
         html:not(.nectar-box-roll-loaded) .nectar-box-roll > #page-header-bg.fullscreen-header,
-        .nectar_fullscreen_zoom_recent_projects,
-        #nectar_fullscreen_rows:not(.afterLoaded) > div {
+        .nectar_fullscreen_zoom_recent_projects {
           height: 100vh;
         }
 
@@ -2466,8 +2498,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
                 if( is_admin_bar_showing() ) {
                     echo '.admin-bar #page-header-wrap.fullscreen-header,
           .admin-bar #page-header-wrap.fullscreen-header #page-header-bg,
-          .admin-bar .nectar_fullscreen_zoom_recent_projects,
-          .admin-bar #nectar_fullscreen_rows:not(.afterLoaded) > div {
+          .admin-bar .nectar_fullscreen_zoom_recent_projects {
             height: calc(100vh - 32px);
           }
           .admin-bar .wpb_row.vc_row-o-full-height.top-level,
@@ -2605,8 +2636,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
         #page-header-wrap.fullscreen-header,
         #page-header-wrap.fullscreen-header #page-header-bg,
         html:not(.nectar-box-roll-loaded) .nectar-box-roll > #page-header-bg.fullscreen-header,
-        .nectar_fullscreen_zoom_recent_projects,
-        #nectar_fullscreen_rows:not(.afterLoaded) > div {
+        .nectar_fullscreen_zoom_recent_projects {
           height: calc(100vh - ' . (intval($header_space) - 1) . 'px);
         }
 
@@ -2622,8 +2652,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
                 if( is_admin_bar_showing() ) {
                     echo '.admin-bar #page-header-wrap.fullscreen-header,
           .admin-bar #page-header-wrap.fullscreen-header #page-header-bg,
-          .admin-bar .nectar_fullscreen_zoom_recent_projects,
-          .admin-bar #nectar_fullscreen_rows:not(.afterLoaded) > div {
+          .admin-bar .nectar_fullscreen_zoom_recent_projects {
             height: calc(100vh - ' . (intval($header_space) - 1) . 'px - 32px);
           }
           .admin-bar .wpb_row.vc_row-o-full-height.top-level,
@@ -2665,43 +2694,80 @@ if (! function_exists('nectar_page_specific_dynamic')) {
 
         if( nectar_is_contained_header() && ( $post_title_hidden === '1' || true === $global_post_hide_title_vis ) ) {
 
-            $first_row_inner = '.wp-block-nectar-blocks-row:is(:first-child) > .nectar-blocks-row__wrapper > .nectar-blocks-row__inner';
+            // New markup (V2+): one unified rule across L1/L2/L3. The row block emits the
+            // user's padding-top as `--nb-padding-t` on the element this rule targets per
+            // level, so calc() sums them. Fallback 0 covers rows with no user padding-top.
+            // !important is needed for L1 because the plugin's padding rule lands on
+            // `#blockId` (1,0,0), which a class-based selector can't outrank; applying it
+            // uniformly keeps the rule simple at the cost of overriding user hover-state
+            // padding-top on first-child rows under transparent header (rare edge case).
+            // Old saved markup (pre-V2) doesn't emit the var, so keep the legacy approach —
+            // padding on __inner (different element from user's padding on __wrapper) for
+            // old L3, margin on root for old L1.
+            $first_row_new_selector = function( $parent = '' ) {
+                $p = $parent ? $parent . ' > ' : '';
+                $l1 = $p . '.wp-block-nectar-blocks-row.nectar-l1:is(:first-child)';
+                $l2 = $p . '.wp-block-nectar-blocks-row.nectar-l2:is(:first-child) > .nectar-blocks-row__inner';
+                $l3 = $p . '.wp-block-nectar-blocks-row.nectar-l3:is(:first-child) > .nectar-blocks-row__wrapper';
+                return $l1 . ', ' . $l2 . ', ' . $l3;
+            };
+            $first_row_old_padding_selector = function( $parent = '' ) {
+                $p = $parent ? $parent . ' > ' : '';
+                // Pre-V3.1 saves only — exclude .nectar-l* (new V3+) rows to avoid double-applying
+                // on top of $first_row_new_selector (which targets __wrapper for new L3 — the
+                // same element __wrapper that sits above __inner here).
+                // - V3.0.0 L3:   .wp-block (no .nectar-l*) > .__wrapper > .__inner
+                // - V3.0.0 L2 C: .wp-block.__wrapper > .__inner  (root IS the __wrapper)
+                $old_l3 = $p . '.wp-block-nectar-blocks-row:not(.nectar-l1):not(.nectar-l2):not(.nectar-l3):is(:first-child) > .nectar-blocks-row__wrapper > .nectar-blocks-row__inner';
+                $old_l2c = $p . '.wp-block-nectar-blocks-row.nectar-blocks-row__wrapper:is(:first-child) > .nectar-blocks-row__inner';
+                return $old_l3 . ', ' . $old_l2c;
+            };
+            $first_row_old_margin_selector = function( $parent = '' ) {
+                $p = $parent ? $parent . ' > ' : '';
+                return $p . '.nectar-blocks-row__inner.nectar-blocks-row__wrapper:is(:first-child)';
+            };
             // Global section after header section alters selector.
             if( has_action('nectar_hook_global_section_after_header_navigation')) {
 
-                echo '.nectar_hook_global_section_after_header_navigation:first-of-type > .container > ' . $first_row_inner . ' {
-          padding-top: ' . (intval($header_space) + 30) . 'px;
-        }
+                $ctx = '.nectar_hook_global_section_after_header_navigation:first-of-type > .container';
+                $val = (intval($header_space) + 30) . 'px';
+                $val_mobile = (intval($mobile_logo_height) + $nectar_mobile_padding) . 'px';
+                echo $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val . ') !important; }
+        ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val . '; }
+        ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val . '; }
         @media only screen and (max-width: 1024px) {
-          .nectar_hook_global_section_after_header_navigation:first-of-type > .container > ' . $first_row_inner . '  {
-            padding-top: ' . (intval($mobile_logo_height) + $nectar_mobile_padding) . 'px;
-          }
+          ' . $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val_mobile . ') !important; }
+          ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val_mobile . '; }
+          ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val_mobile . '; }
         }';
             }
             else if( nectar_using_before_content_global_section() ) {
                 // Second Global section which may be at the top of the page.
-                echo '.nectar_hook_before_content_global_section:first-of-type > .container > ' . $first_row_inner . ' {
-          padding-top: ' . (intval($header_space) + 30) . 'px;
-        }
+                $ctx = '.nectar_hook_before_content_global_section:first-of-type > .container';
+                $val = (intval($header_space) + 30) . 'px';
+                $val_mobile = (intval($mobile_logo_height) + $nectar_mobile_padding) . 'px';
+                echo $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val . ') !important; }
+        ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val . '; }
+        ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val . '; }
         @media only screen and (max-width: 1024px) {
-          .nectar_hook_before_content_global_section:first-of-type > .container > ' . $first_row_inner . ' {
-            padding-top: ' . (intval($mobile_logo_height) + $nectar_mobile_padding) . 'px;
-          }
-
+          ' . $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val_mobile . ') !important; }
+          ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val_mobile . '; }
+          ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val_mobile . '; }
         }';
 
             }
             // Regular top level row.
             else if( ! nectar_is_yoast_breadcrumb_active() ) {
-                echo '.nectar-content.main-content > ' . $first_row_inner . ',
-            .nectar-content.main-content > .nectar-blocks-row__wrapper:is(:first-child) > .nectar-blocks-row__inner {
-          padding-top: calc(' . (intval($header_space)) . 'px + max(calc(var(--container-padding)/3), 25px));
-        }
+                $ctx = '.nectar-content.main-content';
+                $val = 'calc(' . intval($header_space) . 'px + max(calc(var(--container-padding)/3), 25px))';
+                $val_mobile = 'calc(' . nectar_get_mobile_header_height() . 'px + 25px)';
+                echo $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val . ') !important; }
+        ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val . '; }
+        ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val . '; }
         @media only screen and (max-width: 1024px) {
-          .nectar-content.main-content > ' . $first_row_inner . ',
-          .nectar-content.main-content > .nectar-blocks-row__wrapper:is(:first-child) > .nectar-blocks-row__inner {
-            padding-top: calc(' . (nectar_get_mobile_header_height()) . 'px + 25px);
-          }
+          ' . $first_row_new_selector($ctx) . ' { padding-top: calc(var(--nb-padding-t, 0px) + ' . $val_mobile . ') !important; }
+          ' . $first_row_old_padding_selector($ctx) . ' { padding-top: ' . $val_mobile . '; }
+          ' . $first_row_old_margin_selector($ctx) . ' { margin-top: ' . $val_mobile . '; }
         }';
             }
 
@@ -2725,10 +2791,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
         height: calc(100vh - ' . (intval($mobile_logo_height_header_calcs) + $nectar_mobile_browser_padding) . 'px);
       }';
         }
-        echo '.using-mobile-browser #nectar_fullscreen_rows:not(.afterLoaded):not([data-mobile-disable="on"]) > div {
-      height: calc(100vh - ' . (intval($mobile_logo_height_header_calcs) + $nectar_mobile_browser_padding) . 'px);
-    }
-    .using-mobile-browser .wpb_row.vc_row-o-full-height.top-level,
+        echo '.using-mobile-browser .wpb_row.vc_row-o-full-height.top-level,
     .using-mobile-browser .wpb_row.vc_row-o-full-height.top-level > .col.span_12,
     [data-permanent-transparent="1"].using-mobile-browser .wpb_row.vc_row-o-full-height.top-level,
     [data-permanent-transparent="1"].using-mobile-browser .wpb_row.vc_row-o-full-height.top-level > .col.span_12 {
@@ -2745,8 +2808,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
             echo 'html:not(.nectar-box-roll-loaded) .admin-bar .nectar-box-roll > #page-header-bg.fullscreen-header,
       .admin-bar .nectar_fullscreen_zoom_recent_projects,
       .admin-bar .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded),
-      .admin-bar .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded) .swiper-container,
-      .admin-bar #nectar_fullscreen_rows:not(.afterLoaded):not([data-mobile-disable="on"]) > div  {
+      .admin-bar .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded) .swiper-container {
         height: calc(100vh - ' . (intval($mobile_logo_height_header_calcs) + $nectar_mobile_padding) . 'px - 46px);
       }
       .admin-bar .wpb_row.vc_row-o-full-height.top-level,
@@ -2764,8 +2826,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
        html:not(.nectar-box-roll-loaded) .nectar-box-roll > #page-header-bg.fullscreen-header,
        .nectar_fullscreen_zoom_recent_projects,
        .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded),
-       .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded) .swiper-container,
-       #nectar_fullscreen_rows:not(.afterLoaded):not([data-mobile-disable="on"]) > div {
+       .nectar-slider-wrap[data-fullscreen="true"]:not(.loaded) .swiper-container {
         height: calc(100vh - ' . (intval($mobile_logo_height_header_calcs) + $nectar_mobile_padding) . 'px);
       }
       .wpb_row.vc_row-o-full-height.top-level,
@@ -2794,28 +2855,6 @@ if (! function_exists('nectar_page_specific_dynamic')) {
     }
 
   }';
-
-        // Page full screen rows.
-        global $post;
-        $page_full_screen_rows_bg_color = (isset($post->ID)) ? get_post_meta($post->ID, '_nectar_full_screen_rows_overall_bg_color', true) : '#333333';
-        $page_full_screen_rows_animation = (isset($post->ID)) ? get_post_meta($post->ID, '_nectar_full_screen_rows_animation', true) : '';
-
-        if( $page_full_screen_rows_bg_color ) {
-            echo '#nectar_fullscreen_rows {
-        background-color: ' . esc_attr($page_full_screen_rows_bg_color) . ';
-      }';
-        }
-        if( 'parallax' === $page_full_screen_rows_animation ) {
-            echo '#nectar_fullscreen_rows > .wpb_row .full-page-inner-wrap {
-        background-color: ' . esc_attr($page_full_screen_rows_bg_color) . ';
-      }';
-        }
-
-        if( 'none' === $page_full_screen_rows_animation ) {
-            echo '#nectar_fullscreen_rows {
-        background-color: transparent;
-      }';
-        }
 
         global $woocommerce;
         // WooCommerce items.
@@ -2897,7 +2936,7 @@ if (! function_exists('nectar_page_specific_dynamic')) {
                 $blog_next_font_color = get_post_meta($next_post->ID, '_nectar_header_font_color', true);
 
                 if(! empty($blog_next_font_color)){
-                    echo '.blog_next_prev_buttons .col h3, .full-width-content.blog_next_prev_buttons > .col.span_12.dark h3, .blog_next_prev_buttons span {
+                    echo '.blog_next_prev_buttons .col h3, .alignfull.blog_next_prev_buttons > .col.span_12.dark h3, .blog_next_prev_buttons span {
             color: ' . esc_attr($blog_next_font_color) . ';
           }';
                 }

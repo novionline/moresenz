@@ -14,7 +14,13 @@
     <gutenberg-block type="nectar-blocks/milestone" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
       <key encoding="json" name="data-nectar-milestone-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
       <xpath>//*[self::span or self::div[contains(@class, 'nectar-blocks-milestone')]]</xpath>
+      <xpath type="link" label="Milestone href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/tabs" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
@@ -55,13 +61,26 @@
         </key>
       </key>
       <xpath label="Button text">//span[@class="nectar-blocks-button__text"]</xpath>
+      <xpath label="Button reveal text">//span[contains(@class, "nectar-blocks-button__text__inner")]/@data-text</xpath>
       <xpath type="link" label="Button href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/image" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
+      <xpath type="link" label="Image href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/icon" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
+      <xpath type="link" label="Icon href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/icon-list" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
@@ -69,7 +88,13 @@
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/icon-list-item" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
       <xpath>//div[contains(@class, 'nectar-blocks-icon-list-item')]//*[self::span or self::div or self::p]</xpath>
+      <xpath type="link" label="Icon list item href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/tab-section" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
@@ -85,11 +110,23 @@
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/column" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
       <xpath>//div[contains(@class, 'nectar-blocks-column')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+      <xpath type="link" label="Column href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/flex-box" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
       <xpath>//div[contains(@class, 'nectar-blocks-flex-box')]//*[self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6 or self::p or self::span or self::div]</xpath>
+      <xpath type="link" label="Flex box href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/divider" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
@@ -103,7 +140,13 @@
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/scrolling-marquee" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
+      <key name="link">
+        <key name="href">
+          <key name="value" type="link" />
+        </key>
+      </key>
       <xpath>//div[contains(@class, 'nectar-blocks-scrolling-marquee')]//*[self::span or self::div or self::p or self::h1 or self::h2 or self::h3 or self::h4 or self::h5 or self::h6]</xpath>
+      <xpath type="link" label="Scrolling marquee href">//a/@href</xpath>
     </gutenberg-block>
     <gutenberg-block type="nectar-blocks/taxonomy-terms" translate="1">
       <key encoding="json" name="data-nectar-block-animation" />
@@ -115,6 +158,12 @@
     </gutenberg-block>
   </gutenberg-blocks>
   <custom-fields>
+    <custom-field action="translate">_nectar_portfolio_client</custom-field>
+    <custom-field action="translate">_nectar_portfolio_date</custom-field>
+    <custom-field action="translate">_nectar_portfolio_description</custom-field>
+    <custom-field action="translate">_nectar_portfolio_project_link</custom-field>
+    <custom-field action="copy">_nectar_portfolio_project_url</custom-field>
+    <custom-field action="copy">_nectar_portfolio_video</custom-field>
     <custom-field action="copy">_nectar_blocks_css</custom-field>
     <custom-field action="copy">_nectar_blocks_page_css</custom-field>
     <custom-field action="copy">_nectar_blocks_page_js</custom-field>
@@ -123,8 +172,9 @@
     <custom-field action="copy">_nectar_blocks_transparent_header_effect_color</custom-field>
     <custom-field action="copy">_nectar_blocks_header_animation</custom-field>
     <custom-field action="copy">_nectar_blocks_header_animation_effect</custom-field>
-    <custom-field action="copy">nectar_g_section_conditions</custom-field>
-    <custom-field action="copy">nectar_g_section_locations</custom-field>
-    <custom-field action="copy">_nectar_g_section_options</custom-field>
+    <custom-field action="copy-once">nectar_g_section_conditions</custom-field>
+    <custom-field action="copy-once">nectar_g_section_locations</custom-field>
+    <custom-field action="copy-once">_nectar_g_section_options</custom-field>
+    <custom-field action="copy-once">_nectar_template_part_options</custom-field>
   </custom-fields>
 </wpml-config>

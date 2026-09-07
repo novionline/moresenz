@@ -48,12 +48,10 @@ $nectar_header_options = nectar_get_header_variables();
 
         nectar_page_header($post->ID);
 
-        $nectar_fp_options = nectar_get_full_page_options();
-
         ?>
         
         <div id="nectar-content-wrap" class="container-wrap">
-            <div class="<?php if ( $nectar_fp_options['page_full_screen_rows'] !== 'on' ) { echo 'container'; } ?> main-content">
+            <div class="container main-content">
                     <?php
 
                     nectar_hook_before_content();

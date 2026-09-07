@@ -139,8 +139,12 @@ class TaxonomyTerms {
 
       // All link
       if ($this->block_attributes['enableLink'] && $this->block_attributes['enableAllLink']) {
-        // Get post types associated with this taxonomy
-        $post_types = get_taxonomy($taxonomy)->object_type;
+        // Get post types associated with this taxonomy. get_taxonomy() returns
+        // false when the stored taxonomy slug is not registered on this site
+        // (e.g. a cross-site paste of a custom taxonomy), so guard against a
+        // null property read before iterating.
+        $taxonomy_object = get_taxonomy($taxonomy);
+        $post_types = ($taxonomy_object instanceof \WP_Taxonomy) ? $taxonomy_object->object_type : [];
         $all_link_href = '';
 
         // Use the first post type that has an archive
@@ -148,15 +152,27 @@ class TaxonomyTerms {
           if ($post_type === 'post') {
             // Special handling for blog posts
             $posts_page_id = get_option('page_for_posts');
+            // A trashed/deleted posts page makes get_permalink() return false;
+            // fall back to the site home so the "All" link still resolves.
             if ($posts_page_id) {
-              $all_link_href = get_permalink($posts_page_id);
+              $all_link_href = get_permalink($posts_page_id) ?: home_url('/');
             } else {
               $all_link_href = home_url('/');
             }
             break;
-          } else if (get_post_type_object($post_type)->has_archive) {
-            $all_link_href = get_post_type_archive_link($post_type);
-            break;
+          } else {
+            // get_post_type_object() returns null for a post type that is not
+            // registered on this site, so guard before reading ->has_archive.
+            $post_type_object = get_post_type_object($post_type);
+            if ($post_type_object && $post_type_object->has_archive) {
+              $all_link_href = get_post_type_archive_link($post_type);
+              // A filtered/edge archive link can still be false; only stop the
+              // search once a URL actually resolved so other post types in the
+              // taxonomy still get a chance to provide one.
+              if ($all_link_href) {
+                break;
+              }
+            }
           }
         }
 
@@ -174,10 +190,17 @@ class TaxonomyTerms {
 
         $all_link_text = _x('All', 'link: show all taxonomy terms', 'nectar-blocks');
         if (! empty($hover_effect_class)) {
-          $all_link_text = '<span class="text"><span class="text__inner" data-text="' . esc_attr($all_link_text) . '">' . $all_link_text . '</span></span>';
+          $all_link_text = '<span class="text"><span class="text__inner" data-text="' . esc_attr($all_link_text) . '">' . esc_html($all_link_text) . '</span></span>';
         }
 
-        $output .= "<a class=\"" . esc_attr(implode(' ', $all_link_classes)) . "\" href=\"" . esc_url($all_link_href) . "\">" . $all_link_text . "</a>";
+        // Only emit the "All" link when a real destination was resolved; an
+        // empty href would otherwise render an anchor pointing at the current page.
+        // Use empty() rather than a strict !== '' check: get_permalink() and
+        // get_post_type_archive_link() return string|false, and '' !== false is
+        // true in PHP, so a strict check would let a false href through.
+        if (! empty($all_link_href)) {
+          $output .= "<a class=\"" . esc_attr(implode(' ', $all_link_classes)) . "\" href=\"" . esc_url($all_link_href) . "\">" . $all_link_text . "</a>";
+        }
       }
 
       foreach ($assigned_terms as $key => $term) {

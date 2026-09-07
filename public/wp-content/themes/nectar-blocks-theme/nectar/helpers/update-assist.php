@@ -42,6 +42,15 @@
  }
 
  /**
+  * @deprecated since 10.5
+  */
+ if ( ! function_exists( 'nectar_current_page_url' ) ) {
+   function nectar_current_page_url() {
+     return '';
+   }
+ }
+
+ /**
   * Alias for nectar_current_page_url
   */
  if( ! function_exists('current_page_url') ) {
@@ -125,3 +134,55 @@
    }
  }
 
+ /**
+  * Page full screen rows removal aliases.
+  *
+  * The full screen rows feature was removed along with support for
+  * leftover Salient page metabox settings. These fallbacks keep child
+  * themes with outdated template copies or hook references from fataling.
+  */
+ if( ! function_exists('nectar_get_full_page_options') ) {
+   function nectar_get_full_page_options() {
+
+     return [
+       'page_full_screen_rows' => '',
+       'page_full_screen_rows_animation' => '',
+       'page_full_screen_rows_animation_speed' => '',
+       'page_full_screen_rows_anchors' => '',
+       'page_full_screen_rows_dot_navigation' => '',
+       'page_full_screen_rows_footer' => '',
+       'page_full_screen_rows_content_overflow' => '',
+       'page_full_screen_rows_bg_img_animation' => '',
+       'page_full_screen_rows_mobile_disable' => '',
+     ];
+
+   }
+ }
+
+ if( ! function_exists('nectar_using_pfsr_class') ) {
+   function nectar_using_pfsr_class( $classes ) {
+
+     return $classes;
+
+   }
+ }
+
+ if( ! function_exists('nectar_using_pfsr_editor_class') ) {
+   function nectar_using_pfsr_editor_class( $classes ) {
+
+     return $classes;
+
+   }
+ }
+
+ if( ! function_exists('nectar_add_pfsr_bodyclass') ) {
+   function nectar_add_pfsr_bodyclass() {}
+ }
+
+ if( ! function_exists('nectar_fullpage_markup_open') ) {
+   function nectar_fullpage_markup_open() {}
+ }
+
+ if( ! function_exists('nectar_fullpage_markup_close') ) {
+   function nectar_fullpage_markup_close() {}
+ }

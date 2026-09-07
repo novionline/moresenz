@@ -2,6 +2,8 @@
 
 namespace Nectar\API;
 use Nectar\API\{Router, API_Route};
+use Nectar\Global_Sections\Global_Sections;
+use Nectar\Nectar_Templates\Nectar_Templates;
 
 /**
  * Dynamic Block API
@@ -61,6 +63,42 @@ class Dynamic_Block_API implements API_Route {
   }
 
   /**
+   * Find a block inside published global-section / template CPTs.
+   *
+   * Their inner blocks are injected into pages via hooks (e.g. "after page
+   * content") and are therefore NOT part of the viewed page's post_content, so
+   * the primary findBlock() on the page misses them. Returns the first matching
+   * block array, searching by the globally-unique blockId.
+   *
+   * @since 0.0.10
+   * @version 0.0.10
+   * @param string $block_id
+   * @return array|false
+   */
+  private function findBlockInInjectedSources($block_id) {
+    $query = new \WP_Query([
+      'post_type' => [ Global_Sections::POST_TYPE, Nectar_Templates::POST_TYPE ],
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      'no_found_rows' => true,
+      'fields' => 'ids',
+    ]);
+
+    foreach ($query->posts as $source_id) {
+      $content = get_post_field('post_content', $source_id);
+      if (empty($content)) {
+        continue;
+      }
+
+      if ($block = $this->findBlock(parse_blocks($content), $block_id)) {
+        return $block;
+      }
+    }
+
+    return false;
+  }
+
+  /**
    * Get the dynamic post.
    * @since 0.0.9
    * @version 0.0.9
@@ -89,6 +127,12 @@ class Dynamic_Block_API implements API_Route {
         $block_id
     );
 
+    // The block may live in a global section / template CPT injected into the
+    // page via a hook rather than in the page's own post_content.
+    if ($block === false) {
+      $block = $this->findBlockInInjectedSources($block_id);
+    }
+
     if ($block === false) {
       return new \WP_REST_Response(
           [
@@ -103,7 +147,31 @@ class Dynamic_Block_API implements API_Route {
         $block['attrs'],
         $override_attrs
     );
-    $rendered = render_block($block);
+
+    // Render with the requested page set up as the current post so the block's
+    // render_callback sees the same context it had on the initial page load.
+    // post-grid's excludeCurrentPost uses get_the_ID(), which must resolve to the
+    // page being paginated — without this the AJAX re-render excludes a different
+    // (or no) post than the first render, shifting the pagination window by one.
+    //
+    // Snapshot and restore the previous global $post explicitly: wp_reset_postdata()
+    // restores from $wp_query->post, which is empty in a REST request, so it would
+    // leave the paginated page as the global $post for later hooks (e.g.
+    // rest_post_dispatch). The try/finally guarantees the restore even if
+    // render_block() throws.
+    $previous_post = $GLOBALS['post'] ?? null;
+    $GLOBALS['post'] = $post;
+    setup_postdata($post);
+    try {
+      $rendered = render_block($block);
+    } finally {
+      $GLOBALS['post'] = $previous_post;
+      if ($previous_post instanceof \WP_Post) {
+        setup_postdata($previous_post);
+      } else {
+        wp_reset_postdata();
+      }
+    }
 
     $response_data = [
       'status' => 'success',

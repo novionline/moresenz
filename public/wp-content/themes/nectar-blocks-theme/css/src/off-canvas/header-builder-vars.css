@@ -1,0 +1,542 @@
+/*
+Theme Name:  Nectar Blocks
+Description: Off canvas menu CSS variables for Header Builder integration.
+             When the header builder is active, colors are controlled via the
+             Enhanced Navigation block rather than the Customizer.
+*/
+
+/* Define CSS variables with sensible defaults for the off-canvas menu.
+   These can be overridden by the Enhanced Navigation block's Overlay Menu controls. */
+#slide-out-widget-area {
+  --nectar-ocm-bg: #1f1f1f;
+  --nectar-ocm-text: #fff;
+  --nectar-ocm-text-hover: var(--nectar-ocm-text);
+  --nectar-ocm-heading: var(--nectar-ocm-text);
+  --nectar-ocm-close-bg: transparent;
+  --nectar-ocm-close-icon: var(--nectar-ocm-text);
+  --nectar-ocm-font-size: 2.5rem;
+  --nectar-ocm-line-height: 1.2;
+  --nectar-ocm-text-align: left;
+}
+
+/* Background color - use !important to override inline styles from customizer */
+#slide-out-widget-area:not(.fullscreen-alt):not(.fullscreen),
+#slide-out-widget-area-bg.fullscreen,
+#slide-out-widget-area-bg.fullscreen-alt,
+#slide-out-widget-area-bg.fullscreen-split,
+body.material #slide-out-widget-area {
+  background-color: var(--nectar-ocm-bg) !important;
+}
+
+/* Text color */
+body #slide-out-widget-area,
+body #slide-out-widget-area:not(.has-nectar-template) a,
+body #slide-out-widget-area:not(.has-nectar-template),
+body #slide-out-widget-area.fullscreen-alt .inner .widget.widget_nav_menu li a,
+body #slide-out-widget-area.fullscreen-alt .inner .off-canvas-menu-container li > a,
+#slide-out-widget-area.fullscreen-split .inner .widget.widget_nav_menu li a,
+#slide-out-widget-area.fullscreen-split .inner .off-canvas-menu-container li > a,
+#slide-out-widget-area.fullscreen-inline-images .inner .off-canvas-menu-container li > a,
+body #slide-out-widget-area.fullscreen .menuwrapper li a,
+body #slide-out-widget-area.slide-out-from-right-hover .inner .off-canvas-menu-container li > a,
+body #slide-out-widget-area .slide_out_area_close .icon-default-style[class^="icon-"],
+body #slide-out-widget-area .nectar-menu-label,
+body #slide-out-widget-area.fullscreen-inline-images .bottom-text,
+.material #slide-out-widget-area.fullscreen-inline-images .wp-block-search input[type=search] {
+  color: var(--nectar-ocm-text);
+}
+
+/* Text color - background-color variant (menu label, close lines) */
+body #slide-out-widget-area .nectar-menu-label:before,
+.slide_out_area_close .close-wrap .close-line {
+  background-color: var(--nectar-ocm-text);
+}
+
+/* Font size, line-height, and text align - Header Builder menu structure */
+#slide-out-widget-area .off-canvas-menu-container .wp-block-navigation-item__content {
+  font-size: var(--nectar-ocm-font-size);
+  line-height: var(--nectar-ocm-line-height);
+  text-align: var(--nectar-ocm-text-align);
+}
+
+/* Font size, line-height, and text align - Legacy/Classic menu structure */
+body #slide-out-widget-area .inner .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content),
+body #slide-out-widget-area.fullscreen .menuwrapper li a,
+body #slide-out-widget-area.fullscreen-alt .inner .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content),
+#slide-out-widget-area.fullscreen-split .inner .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content),
+#slide-out-widget-area.fullscreen-inline-images .inner .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content),
+body #slide-out-widget-area.slide-out-from-right-hover .inner .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content),
+body.material #slide-out-widget-area[class*="slide-out-from-right"] .off-canvas-menu-container li > a:not(.wp-block-navigation-item__content) {
+  font-size: var(--nectar-ocm-font-size);
+  line-height: var(--nectar-ocm-line-height);
+  text-align: var(--nectar-ocm-text-align);
+}
+
+/* Border color */
+#slide-out-widget-area .tagcloud a,
+body.material #slide-out-widget-area[class*="slide-out-from-right"] .off-canvas-menu-container li > a:after,
+#slide-out-widget-area.fullscreen-split .inner .off-canvas-menu-container li > a:after {
+  border-color: var(--nectar-ocm-text);
+}
+
+/* Heading color */
+#slide-out-widget-area:not(.has-nectar-template) h1,
+#slide-out-widget-area:not(.has-nectar-template) h2,
+#slide-out-widget-area:not(.has-nectar-template) h3,
+#slide-out-widget-area:not(.has-nectar-template) h4,
+#slide-out-widget-area:not(.has-nectar-template) h5,
+#slide-out-widget-area.has-nectar-template h6 {
+  color: var(--nectar-ocm-heading);
+}
+
+/* Hover/active text color */
+body #slide-out-widget-area[class*="fullscreen"] .current-menu-item > a,
+body #slide-out-widget-area.fullscreen li.menu-item > a:hover,
+body #slide-out-widget-area.fullscreen-split li.menu-item > a:hover,
+body #slide-out-widget-area.fullscreen-split .off-canvas-menu-container .current-menu-item > a,
+#slide-out-widget-area.slide-out-from-right-hover li.menu-item > a:hover,
+body.material #slide-out-widget-area.slide-out-from-right .off-canvas-social-links a i:after,
+body #slide-out-widget-area.slide-out-from-right li.menu-item > a:hover,
+body #slide-out-widget-area.fullscreen-alt .inner .off-canvas-menu-container li.menu-item > a:hover,
+#slide-out-widget-area.slide-out-from-right-hover .inner .off-canvas-menu-container li.menu-item > a:hover,
+#slide-out-widget-area.slide-out-from-right-hover .inner .off-canvas-menu-container li.current-menu-item a,
+#slide-out-widget-area.slide-out-from-right-hover.no-text-effect .inner .off-canvas-menu-container li.menu-item > a:hover,
+body #slide-out-widget-area .slide_out_area_close:hover .icon-default-style[class^="icon-"],
+body.material #slide-out-widget-area.slide-out-from-right .off-canvas-menu-container .current-menu-item > a,
+body #slide-out-widget-area.fullscreen-inline-images a:hover {
+  color: var(--nectar-ocm-text-hover);
+}
+
+/* Hover border color */
+body.material #slide-out-widget-area[class*="slide-out-from-right"] .off-canvas-menu-container li > a:after,
+#slide-out-widget-area.fullscreen-split .inner .off-canvas-menu-container li > a:after,
+#slide-out-widget-area .tagcloud a:hover,
+#slide-out-widget-area.fullscreen-inline-images .inner .off-canvas-menu-container li > a span:after {
+  border-color: var(--nectar-ocm-text-hover);
+}
+
+/* Close button background */
+#slide-out-widget-area .slide_out_area_close:before {
+  background-color: var(--nectar-ocm-close-bg);
+}
+
+/* Close button icon color - overrides text color when explicitly set */
+#slide-out-widget-area .slide_out_area_close .close-wrap .close-line {
+  background-color: var(--nectar-ocm-close-icon);
+}
+
+/* Underline animation colors */
+#slide-out-widget-area.fullscreen-split .widget ul:not([class*="nectar_blog_posts"]) li > a:not(.tag-cloud-link):not(.nectar-button),
+#slide-out-widget-area.fullscreen-split .textwidget a:not(.nectar-button),
+#slide-out-widget-area ul .menu-item .nectar-ext-menu-item .menu-title-text {
+  background-image: linear-gradient(to right, var(--nectar-ocm-text-hover) 0%, var(--nectar-ocm-text-hover) 100%);
+}
+
+/* ==========================================================================
+   Pane-based Drilldown Navigation (Header Builder)
+   Cross-fades between stacked menu panes for ALL OCM styles.
+   ========================================================================== */
+
+/* Panes wrapper */
+#slide-out-widget-area.nectar-hb-ocm--panes .off-canvas-menu-container {
+  position: relative;
+  /* visible (no slide remains to clip) so the icons' BG circles, which sit just
+     outside the menu column, aren't clipped. The panel itself clips overflow. */
+  overflow: visible;
+  padding: 0;
+  width: 100%;
+  margin: 0 auto!important;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes.fullscreen .off-canvas-menu-container,
+#slide-out-widget-area.nectar-hb-ocm--panes.fullscreen-alt .off-canvas-menu-container {
+  padding: 0 90px;
+  max-width: 1425px;
+}
+
+/* Top-anchor the menu in drilldown mode. The default `margin: auto 0` centers
+   the menu vertically; with sliding panes of differing heights that re-centering
+   makes the previous pane jump. Pinning to the top keeps existing items fixed. */
+body #slide-out-widget-area.nectar-hb-ocm--panes .inner-wrap {
+  margin: 0 0 auto;
+}
+
+/* Panes stack in a single grid cell — no horizontal slide. The cell sizes to the
+   tallest pane present; the active pane sits at the top. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__panes {
+  display: grid;
+  align-items: start;
+  width: 100%;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane {
+  grid-area: 1 / 1;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 1;
+}
+
+/* Outgoing pane: quick fade-out. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane.is-leaving {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+/* Resting / hidden pane: instant, no clicks (pointer-events stops the stacked
+   pane from intercepting clicks meant for the active one). */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  /* visibility:hidden also removes the hidden pane's links from the keyboard
+     tab order (opacity:0 alone leaves them tabbable while invisible). */
+  visibility: hidden;
+}
+
+/* Incoming pane: title + top-level items stagger in with a subtle directional
+   slide — `--nectar-hb-ocm-dx` is +5px going deeper (enter from the right) and
+   -5px going back (enter from the left). Index + direction set in JS.
+   NOT on fullscreen — its big item styling/transitions fight the per-item
+   animation and flicker; fullscreen fades the whole pane instead (below). */
+#slide-out-widget-area.nectar-hb-ocm--panes:not([class*="fullscreen"]) .nectar-hb-ocm__pane.is-entering > .nectar-hb-ocm__pane-title,
+#slide-out-widget-area.nectar-hb-ocm--panes:not([class*="fullscreen"]) .nectar-hb-ocm__pane.is-entering > ul > li {
+  opacity: 0;
+  animation: nectar-hb-ocm-item-in 0.5s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  animation-delay: calc(var(--nectar-hb-ocm-i, 0) * 0.03s);
+}
+
+@keyframes nectar-hb-ocm-item-in {
+  from { opacity: 0; transform: translateX(var(--nectar-hb-ocm-dx, 0)); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Fullscreen: fade the whole pane in as one (smooth, no per-item flicker). */
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .nectar-hb-ocm__pane.is-entering {
+  animation: nectar-hb-ocm-pane-in 0.4s ease forwards;
+}
+
+@keyframes nectar-hb-ocm-pane-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* The entrance stagger fades each item's <li>. Several OCM styles also dim menu
+   links to 0.7 with an opacity transition that fires (1→0.7) as the pane builds,
+   fighting the stagger and flickering. Suppress link transitions during entry. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane.is-entering > ul li a {
+  transition: none;
+  -webkit-transition: none;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane > ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ocm-item-gap, var(--nectar-ocm-menu-item-gap, 10px));
+}
+
+/* The flex gap above is the sole source of inter-item spacing. Zero the legacy
+   per-item margins so the configured gap is the full, uniform spacing for both
+   the primary list and drilldown submenus. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane > ul > li {
+  margin: 0;
+}
+
+/* ===== Standard side drawer (.slide-out-from-right) ======================= */
+/* One inset drives the panel padding: the menu column AND the in-column icon row
+   share this left/right/top spacing. The top also clears the admin bar. */
+#slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes {
+  --nectar-hb-ocm-edge: 33px;
+}
+
+body #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes {
+  padding-left: var(--nectar-hb-ocm-edge);
+  padding-right: var(--nectar-hb-ocm-edge);
+  padding-top: calc(var(--nectar-hb-ocm-edge) + var(--wp-admin--admin-bar--height, 0px));
+}
+
+/* Room for the in-column icon row (42px BG circle) + a gap before the menu. */
+#slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__panes {
+  padding-top: calc(42px + var(--nectar-hb-ocm-edge));
+}
+
+/* ===== Hover side drawer (.slide-out-from-right-hover) ==================== */
+/* Separate, smaller inset; the hover panel manages its own padding, and the back
+   icon + the theme's menu toggle sit at the DRAWER TOP (not in the menu column). */
+#slide-out-widget-area.slide-out-from-right-hover.nectar-hb-ocm--panes {
+  --nectar-hb-ocm-edge: 22px;
+}
+
+/* Menu only needs to clear the top icon row (back + toggle). */
+#slide-out-widget-area.slide-out-from-right-hover.nectar-hb-ocm--panes .nectar-hb-ocm__panes {
+  padding-top: calc(60px + var(--wp-admin--admin-bar--height, 0px));
+}
+
+/* Nudge the theme's fixed hover toggle in from the top-right corner (its trigger-
+   positioning JS doesn't run for the header builder). Sibling of the panel. */
+#slide-out-widget-area.slide-out-from-right-hover.nectar-hb-ocm--panes ~ .slide-out-hover-icon-effect {
+  top: calc(var(--nectar-hb-ocm-edge, 22px) + var(--wp-admin--admin-bar--height, 0px));
+  right: var(--nectar-hb-ocm-edge, 22px);
+}
+
+/* Close icon: moved into the menu container (see JS) and pinned to its top-right.
+   Sized to its 42px BG circle so the circle (not the smaller default button box)
+   aligns flush with the menu column edge. */
+#slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .slide_out_area_close {
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: auto !important;
+  width: 42px !important;
+  height: 42px !important;
+}
+
+/* Back icon — shared base. Standard drawer: lives in the menu container at its
+   top-left (top:0/left:0), sized to the 42px BG circle. Hover overrides position
+   and size below. Visible only while drilled. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--nectar-ocm-close-icon, var(--nectar-ocm-text));
+  opacity: 0;
+  pointer-events: none;
+  /* visibility:hidden keeps the back button out of the keyboard tab order while
+     it's invisible (before drilling). Transitioned so the hide still fades out
+     (visibility flips at the end of the fade), then locks out of tab order. */
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Non-standard styles (hover, fullscreen, …): the back is a DIRECT child of the
+   panel (placed by JS) so it anchors to the overlay top-left — inline with that
+   style's own close/menu icon — rather than the inset/centred menu area. No BG
+   circle; sized to the arrow. Edge inherits per style (hover 22), else falls back. */
+#slide-out-widget-area.nectar-hb-ocm--panes > .nectar-hb-ocm__back {
+  top: calc(var(--nectar-hb-ocm-edge, 30px) + var(--wp-admin--admin-bar--height, 0px));
+  left: var(--nectar-hb-ocm-edge, 30px);
+  width: 28px;
+  height: 28px;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes.nectar-hb-ocm--drilled .nectar-hb-ocm__back {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* The "Back" text label is hidden by default (the back is an icon-only button on
+   the drawer styles); fullscreen shows it (see below). */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__back-text {
+  display: none;
+}
+
+/* ===== Fullscreen styles ================================================= */
+/* The header nav overlays the overlay top, so the back can't sit there. It's
+   placed in-flow in the menu container (above the panes) and rendered as a
+   "Back" text button, hidden until drilled. */
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .off-canvas-menu-container > .nectar-hb-ocm__back {
+  position: static;
+  display: none;
+  width: auto;
+  height: auto;
+  gap: 8px;
+  margin-bottom: var(--ocm-item-gap, var(--nectar-ocm-menu-item-gap, 10px));
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes.nectar-hb-ocm--drilled .off-canvas-menu-container > .nectar-hb-ocm__back {
+  display: inline-flex;
+  /* fade in with the pane (the 0.2s delay matches the transition gap before the
+     incoming pane reveals; `both` holds opacity 0 during the delay — no pop). */
+  animation: nectar-hb-ocm-pane-in 0.4s ease 0.2s both;
+}
+
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .nectar-hb-ocm__back-text {
+  display: inline;
+  line-height: 1;
+}
+
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .off-canvas-menu-container > .nectar-hb-ocm__back .nectar-hb-ocm__back-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Left-align everything in the fullscreen drilldown — the native fullscreen layout
+   centres container content, which centres the back button + parent title while
+   the items sit left. text-align on the container fixes the back/title; the
+   content rule handles the (flex) item links. */
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .off-canvas-menu-container {
+  text-align: left;
+}
+
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .nectar-hb-ocm__pane .wp-block-navigation-item__content {
+  text-align: left;
+  justify-content: flex-start;
+}
+
+/* Fullscreen dims menu links to 0.7 with an opacity transition that fires (1→0.7)
+   as the menu opens — the root pane doesn't stagger on open, so the is-entering
+   guard above doesn't catch it and it flickers. Transition colour only here. */
+#slide-out-widget-area[class*="fullscreen"].nectar-hb-ocm--panes .off-canvas-menu-container li > a {
+  transition: color 0.2s ease;
+  -webkit-transition: color 0.2s ease;
+}
+
+/* Background circle — standard side drawer only (the -hover variant's back button
+   is a plain arrow with no circle). Same geometry/behaviour as the close button's
+   ::before: the Close-BG color and a scale-on-hover, so the two buttons match. */
+#slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__back::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  margin: -21px 0 0 -21px;
+  border-radius: 50%;
+  background-color: var(--nectar-ocm-close-bg);
+  transform: scale(1) translateZ(0);
+  transition: transform 0.45s cubic-bezier(.15, 0.2, .1, 1);
+}
+
+#slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__back:hover:not(:focus)::before {
+  transform: scale(1.2) translateZ(0);
+}
+
+/* Back arrow — masked SVG (inherits currentColor), sits above the circle. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__back-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7.82843 10.9999H20V12.9999H7.82843L13.1924 18.3638L11.7782 19.778L4 11.9999L11.7782 4.22168L13.1924 5.63589L7.82843 10.9999Z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+/* Phones: shrink the in-column back + close buttons from the 42px desktop size
+   to 34px (the theme's default close size), and the back arrow with them, so
+   they don't crowd the narrow drawer. Standard side drawer + panes only. */
+@media (max-width: 767px) {
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes {
+    --nectar-hb-ocm-edge: 20px;
+  }
+
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__panes {
+    padding-top: calc(34px + var(--nectar-hb-ocm-edge));
+  }
+
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .slide_out_area_close {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__back {
+    width: 34px;
+    height: 34px;
+  }
+
+  /* BG circles (close + back share the same geometry). */
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .slide_out_area_close:before,
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__back::before {
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+  }
+
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .nectar-hb-ocm__back-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  #slide-out-widget-area.slide-out-from-right.nectar-hb-ocm--panes .slide_out_area_close .close-wrap {
+    transform: translateX(-50%) translateY(-50%) translateZ(0) scale(0.8);
+  }
+}
+
+/* Pane title (parent link) — small label above the submenu. The muting lives on
+   the inner link so the parent can fade 0→1 in the stagger without fighting it. */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane-title {
+  margin-bottom: var(--ocm-item-gap, var(--nectar-ocm-menu-item-gap, 10px));
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane-title a {
+  text-decoration: none;
+  color: var(--nectar-ocm-text);
+  font-size: 14px;
+  line-height: 1.2;
+  opacity: 0.6;
+}
+
+/* Hide default submenus in root pane - they're shown in the child pane slot */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane:not(.nectar-hb-ocm__pane--child) .wp-block-navigation__submenu-container,
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__pane:not(.nectar-hb-ocm__pane--child) ul.sub-menu {
+  display: none !important;
+}
+
+/* Style the dynamically built submenu in the child pane */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__submenu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__submenu li {
+  margin: 0;
+  padding: 0;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-hb-ocm__submenu a {
+  display: block;
+  text-decoration: none;
+  color: var(--nectar-ocm-text);
+  font-size: var(--nectar-ocm-font-size);
+  line-height: var(--nectar-ocm-line-height);
+}
+
+/* Item row styling for items with children in pane mode */
+#slide-out-widget-area.nectar-hb-ocm--panes .nectar-nb-ocm__item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/* Arrow indicator for items with submenus — masked SVG (inherits currentColor). */
+#slide-out-widget-area.nectar-hb-ocm--panes li[data-nectar-hb-pane-id] > .nectar-nb-ocm__item-row::after,
+#slide-out-widget-area.nectar-hb-ocm--panes li[data-nectar-hb-pane-id] > a:not(.nectar-nb-ocm__item-row)::after {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  margin-left: auto;
+  margin-right: 5px;
+  opacity: 0.5;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+#slide-out-widget-area.nectar-hb-ocm--panes li[data-nectar-hb-pane-id]:hover > .nectar-nb-ocm__item-row::after,
+#slide-out-widget-area.nectar-hb-ocm--panes li[data-nectar-hb-pane-id]:hover > a:not(.nectar-nb-ocm__item-row)::after {
+  opacity: 1;
+}
+
+/* Hide toggle buttons in pane mode - whole row is clickable */
+#slide-out-widget-area.nectar-hb-ocm--panes .wp-block-navigation-submenu__toggle,
+#slide-out-widget-area.nectar-hb-ocm--panes .wp-block-navigation-item__toggle {
+  display: none;
+}

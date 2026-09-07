@@ -80,7 +80,8 @@
       {% for post in queryData %}
         <article class="{{ blockClassName }}__item">
           {% if settings.linkType is defined and settings.linkType is same as('wrap-all') %}
-            <a href="{{ post.permalink|e }}" aria-label="{{ post.title|e }}" class="{{ blockClassName }}__link">
+            {# permalink_esc is already esc_url()'d in PHP; output with |raw — do not add |e (double-encodes query strings). #}
+            <a href="{{ post.permalink_esc|raw }}" aria-label="{{ post.title|e }}" class="{{ blockClassName }}__link">
           {% endif %}
           <div class="{{ blockClassName }}__item__inner">
             {% set isContentSideLayout = settings.itemLayout is same as('content-side') %}

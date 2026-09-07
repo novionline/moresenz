@@ -14,7 +14,7 @@ msgstr ""
 "X-Generator: WP-CLI 2.12.0\n"
 
 #. Plugin Name of the plugin
-#: nectar-blocks.php includes/Editor/Blocks.php:737 build/editor.js:1
+#: nectar-blocks.php includes/Editor/Blocks.php:1212 build/editor.js:1
 msgid "Nectarblocks"
 msgstr "Nectarblocks"
 
@@ -24,7 +24,11 @@ msgid ""
 "Step into the future of WordPress with Nectarblocks, where innovation meets "
 "seamless design. Unleash the full potential of your website by transforming "
 "the core WordPress editor into a dynamic and robust full-site editor."
-msgstr "Зробіть крок у майбутнє WordPress разом з Nectarblocks, де інновації поєднуються з бездоганним дизайном. Розкрийте повний потенціал Вашого веб-сайту, перетворивши базовий редактор WordPress на динамічний та потужний редактор повного сайту."
+msgstr ""
+"Зробіть крок у майбутнє WordPress разом з Nectarblocks, де інновації "
+"поєднуються з бездоганним дизайном. Розкрийте повний потенціал Вашого веб-"
+"сайту, перетворивши базовий редактор WordPress на динамічний та потужний "
+"редактор повного сайту."
 
 #. Author URI of the plugin
 #: nectar-blocks.php
@@ -59,12 +63,12 @@ msgstr "Не вдалося вставити вкладення."
 msgid "Image uploaded successfully. "
 msgstr "Зображення успішно завантажено."
 
-#: includes/API/Post_Data_API.php:493
+#: includes/API/Post_Data_API.php:508
 msgid "Custom Fields"
 msgstr "Користувацькі поля"
 
-#. translators: the Meta Field name
-#: includes/API/Post_Data_API.php:530
+#. translators: %s is the post type singular name (e.g. "Post", "Page")
+#: includes/API/Post_Data_API.php:545
 #, php-format
 msgid "Meta Fields: %s"
 msgstr "Мета-поля: %s"
@@ -72,18 +76,6 @@ msgstr "Мета-поля: %s"
 #: includes/Dynamic_Data/Dynamic_Helpers.php:21 build/editor.js:1
 msgid "Post Title"
 msgstr "Заголовок запису"
-
-#: includes/Dynamic_Data/Dynamic_Helpers.php:22
-#: includes/Dynamic_Data/Dynamic_Helpers.php:26
-#: includes/Dynamic_Data/Dynamic_Helpers.php:31
-#: includes/Dynamic_Data/Dynamic_Helpers.php:35
-#: includes/Dynamic_Data/Dynamic_Helpers.php:39
-#: includes/Dynamic_Data/Dynamic_Helpers.php:43
-#: includes/Dynamic_Data/Dynamic_Helpers.php:47
-#: includes/Dynamic_Data/Dynamic_Helpers.php:51
-#: includes/Dynamic_Data/Dynamic_Helpers.php:55
-msgid "Post"
-msgstr "Запис"
 
 #: includes/Dynamic_Data/Dynamic_Helpers.php:25 build/editor.js:1
 msgid "Post URL"
@@ -168,7 +160,7 @@ msgstr "Коментар"
 msgid "Featured Image URL"
 msgstr "URL зображення-обкладинки"
 
-#: includes/Dynamic_Data/Dynamic_Helpers.php:101 build/editor.js:1
+#: includes/Dynamic_Data/Dynamic_Helpers.php:101
 msgid "Media"
 msgstr "Медіа"
 
@@ -198,44 +190,46 @@ msgstr "Відкрити"
 msgid "Closed"
 msgstr "Закрито"
 
-#: includes/Editor/Blocks.php:719 build/editor.js:1
+#: includes/Editor/Blocks.php:1091 build/editor.js:1
 msgid "Desktop"
 msgstr "Десктоп"
 
-#: includes/Editor/Blocks.php:720 build/editor.js:1
+#: includes/Editor/Blocks.php:1092 build/editor.js:1
 msgid "Tablet"
 msgstr "Планшет"
 
-#: includes/Editor/Blocks.php:721
+#: includes/Editor/Blocks.php:1093
 msgid "Phone"
 msgstr "Телефон"
 
-#: includes/Editor/Post_Meta.php:35
+#: includes/Editor/Post_Meta.php:44
 msgid "Client Name"
 msgstr "Ім’я клієнта"
 
-#: includes/Editor/Post_Meta.php:43
+#: includes/Editor/Post_Meta.php:52
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Date"
 msgstr "Дата"
 
-#: includes/Editor/Post_Meta.php:51 build/editor.js:1
+#: includes/Editor/Post_Meta.php:60 build/editor.js:1
 msgid "Project Link"
 msgstr "Посилання на проект"
 
-#: includes/Editor/Post_Meta.php:76 build/editor.js:1
+#: includes/Editor/Post_Meta.php:85 build/editor.js:1
 msgid "Video"
 msgstr "Відео"
 
-#: includes/Editor/Post_Meta.php:94 build/editor.js:1
+#: includes/Editor/Post_Meta.php:103 build/editor.js:1
 msgid "Description"
 msgstr "Опис"
 
-#: includes/Editor/Post_Meta.php:102
+#: includes/Editor/Post_Meta.php:111
 msgid "Project URL"
 msgstr "URL проекту"
 
-#: includes/Global_Sections/Global_Sections.php:90 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:90
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:481
+#: build/editor.js:1
 msgid "General"
 msgstr "Загальна"
 
@@ -244,6 +238,8 @@ msgid "Everywhere"
 msgstr "Всюди"
 
 #: includes/Global_Sections/Global_Sections.php:99
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:487
+#: build/editor.js:1
 msgid "Archive"
 msgstr "Архів"
 
@@ -256,6 +252,8 @@ msgid "Search Results"
 msgstr "Результати пошуку"
 
 #: includes/Global_Sections/Global_Sections.php:112
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:485
+#: build/editor.js:1
 msgid "Single"
 msgstr "Одиничний"
 
@@ -264,12 +262,12 @@ msgid "Specific Post"
 msgstr "Конкретний запис"
 
 #: includes/Global_Sections/Global_Sections.php:120
-#: includes/Nectar_Templates/Nectar_Templates.php:170
+#: includes/Nectar_Templates/Nectar_Templates.php:314
 msgid "Is Taxonomy Term"
 msgstr "Є терміном таксономії"
 
 #: includes/Global_Sections/Global_Sections.php:124
-#: includes/Nectar_Templates/Nectar_Templates.php:174
+#: includes/Nectar_Templates/Nectar_Templates.php:318
 msgid "Has Taxonomy Term"
 msgstr "Має термін таксономії"
 
@@ -278,17 +276,17 @@ msgid "Post Types"
 msgstr "Типи записів"
 
 #: includes/Global_Sections/Global_Sections.php:133
-#: includes/Nectar_Templates/Nectar_Templates.php:179
+#: includes/Nectar_Templates/Nectar_Templates.php:323
 msgid "User Roles/Permissions"
 msgstr "Ролі користувачів/Дозволи"
 
 #: includes/Global_Sections/Global_Sections.php:138
-#: includes/Nectar_Templates/Nectar_Templates.php:184
+#: includes/Nectar_Templates/Nectar_Templates.php:328
 msgid "User Logged In"
 msgstr "Користувач увійшов"
 
 #: includes/Global_Sections/Global_Sections.php:144
-#: includes/Nectar_Templates/Nectar_Templates.php:190
+#: includes/Nectar_Templates/Nectar_Templates.php:334
 msgid "User Not Logged In"
 msgstr "Користувач не авторизований"
 
@@ -334,7 +332,10 @@ msgid "After Blog Loop"
 msgstr "Після циклу блогу"
 
 #: includes/Global_Sections/Global_Sections.php:206
-#: includes/Global_Sections/Global_Sections.php:227 build/editor.js:1
+#: includes/Global_Sections/Global_Sections.php:227
+#: includes/Nectar_Templates/Nectar_Templates.php:96
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:491
+#: build/editor.js:1
 msgid "Footer"
 msgstr "Підвал"
 
@@ -356,6 +357,7 @@ msgid "Bottom"
 msgstr "Низ"
 
 #: includes/Global_Sections/Global_Sections.php:231
+#: includes/Nectar_Templates/Nectar_Templates.php:102
 msgid "Footer Parallax"
 msgstr "Паралакс підвалу"
 
@@ -363,7 +365,9 @@ msgstr "Паралакс підвалу"
 msgid "After Footer"
 msgstr "Після підвалу"
 
-#: includes/Global_Sections/Global_Sections.php:241 build/adminPanel.js:171
+#: includes/Global_Sections/Global_Sections.php:241
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:483
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "WooCommerce"
 msgstr "WooCommerce"
 
@@ -449,10 +453,11 @@ msgstr "Кошик Перейти до оформлення замовлення
 
 #: includes/Global_Sections/Global_Sections_Register.php:99
 #: includes/Global_Sections/Global_Sections_Register.php:102
+#: build/adminPanel.js:171
 msgid "Global Sections"
 msgstr "Глобальні секції"
 
-#: includes/Global_Sections/Global_Sections_Register.php:100
+#: includes/Global_Sections/Global_Sections_Register.php:100 build/editor.js:1
 msgid "Global Section"
 msgstr "Глобальна секція"
 
@@ -479,7 +484,7 @@ msgid "Add New Global Section"
 msgstr "Додати новий глобальний розділ"
 
 #: includes/Global_Sections/Global_Sections_Register.php:114
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:80
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:822
 msgid "Section"
 msgstr "Секція"
 
@@ -488,7 +493,7 @@ msgid "Locations"
 msgstr "Локації"
 
 #: includes/Global_Sections/Global_Sections_Register.php:140
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:106
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1148
 #: build/editor.js:1
 msgid "Conditions"
 msgstr "Умови"
@@ -505,43 +510,11 @@ msgstr "Приховати хуки Nectar"
 msgid "Hook:"
 msgstr "Хук:"
 
-#: includes/Global_Settings/Global_Colors.php:93
-msgid "Core Gradient #1"
-msgstr "Основний градієнт #1"
-
-#: includes/Global_Settings/Global_Colors.php:98
-msgid "Core Gradient #2"
-msgstr "Основний градієнт #2"
-
-#: includes/Global_Settings/Global_Colors.php:103
-msgid "Core Gradient #3"
-msgstr "Основний градієнт #3"
-
-#: includes/Global_Settings/Global_Colors.php:108
-msgid "Core Gradient #4"
-msgstr "Основний градієнт #4"
-
-#: includes/Global_Settings/Global_Colors.php:113
-msgid "Core Gradient #5"
-msgstr "Основний градієнт #5"
-
-#: includes/Global_Settings/Global_Colors.php:129
+#: includes/Global_Settings/Global_Colors.php:139 build/editor.js:1
 msgid "Light"
 msgstr "Світла"
 
-#: includes/Global_Settings/Global_Colors.php:134
-msgid "Accent Light"
-msgstr "Акцентне світло"
-
-#: includes/Global_Settings/Global_Colors.php:139
-msgid "Accent Primary"
-msgstr "Основний акцент"
-
-#: includes/Global_Settings/Global_Colors.php:144
-msgid "Accent Dark"
-msgstr "Темний акцент"
-
-#: includes/Global_Settings/Global_Colors.php:149
+#: includes/Global_Settings/Global_Colors.php:159 build/editor.js:1
 msgid "Dark"
 msgstr "Темна"
 
@@ -561,7 +534,7 @@ msgstr "Успішно збережено"
 msgid "Options"
 msgstr "Параметри"
 
-#: includes/Menu_Options/Modal.php:313
+#: includes/Menu_Options/Modal.php:313 build/editor.js:1
 msgid "Menu Item"
 msgstr "Пункт меню"
 
@@ -569,7 +542,7 @@ msgstr "Пункт меню"
 msgid "Icon"
 msgstr "Іконка"
 
-#: includes/Menu_Options/Modal.php:323 build/editor.js:1
+#: build/editor.js:1
 msgid "Close"
 msgstr "Закрити"
 
@@ -629,7 +602,6 @@ msgstr "Стиль кнопки посилання пункту меню"
 msgid "Choose a style for your menu item."
 msgstr "Оберіть стиль для пункту меню."
 
-#: includes/Menu_Options/Settings.php:81 includes/Menu_Options/Settings.php:97
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Default"
 msgstr "За замовчуванням"
@@ -699,51 +671,30 @@ msgstr "Емодзі"
 msgid "Menu Icon Text (Emoji)"
 msgstr "Іконка меню (Емодзі)"
 
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Add in a symbol or emoji to display as the icon next to your menu title."
-msgstr "Додайте символ або емодзі для відображення як іконки поруч із заголовком Вашого меню."
-
-#: includes/Menu_Options/Settings.php:305
-msgid "To add an Emoji:"
-msgstr "Щоб додати Емодзі:"
-
-#: includes/Menu_Options/Settings.php:305
-msgid ""
-"Windows: On your keyboard, press and hold the Windows button and either the "
-"period (.) or semicolon (;)"
-msgstr ""
-"Windows: На клавіатурі натисніть і утримуйте кнопку Windows та крапку (.) "
-"або крапку з комою (;)"
-
-#: includes/Menu_Options/Settings.php:305
-msgid "Mac: On your keyboard, press Command + Control + Space"
-msgstr "Mac: На клавіатурі натисніть Command + Control + Space"
-
-#: includes/Menu_Options/Settings.php:312
+#: includes/Menu_Options/Settings.php:318
 msgid "Icon Selection"
 msgstr "Вибір іконки"
 
-#: includes/Menu_Options/Settings.php:313
+#: includes/Menu_Options/Settings.php:319
 msgid "Upload an icon to display next to the menu item title."
 msgstr "Завантажте іконку для відображення поруч із заголовком пункту меню."
 
-#: includes/Menu_Options/Settings.php:323
+#: includes/Menu_Options/Settings.php:329
 msgid "Menu Icon Size"
 msgstr "Розмір іконки меню"
 
-#: includes/Menu_Options/Settings.php:324
+#: includes/Menu_Options/Settings.php:330
 msgid ""
 "Define a custom size for your icon. Leave this blank for the default value."
 msgstr ""
 "Визначте власний розмір для вашої іконки. Залиште порожнім для значення за "
 "замовчуванням."
 
-#: includes/Menu_Options/Settings.php:335
+#: includes/Menu_Options/Settings.php:341
 msgid "Menu Icon Position"
 msgstr "Позиція іконки меню"
 
-#: includes/Menu_Options/Settings.php:336
+#: includes/Menu_Options/Settings.php:342
 msgid ""
 "Determines where the menu icon will be aligned relative to the text. (Only "
 "applies to submenu items)"
@@ -751,19 +702,19 @@ msgstr ""
 "Визначає, де буде розташована іконка меню відносно тексту. (Застосовується "
 "лише до елементів підменю)"
 
-#: includes/Menu_Options/Settings.php:340
+#: includes/Menu_Options/Settings.php:346
 msgid "Next To Text"
 msgstr "Поруч із текстом"
 
-#: includes/Menu_Options/Settings.php:341
+#: includes/Menu_Options/Settings.php:347
 msgid "Above Text"
 msgstr "Над текстом"
 
-#: includes/Menu_Options/Settings.php:347
+#: includes/Menu_Options/Settings.php:353
 msgid "Menu Icon Spacing"
 msgstr "Відступи іконки меню"
 
-#: includes/Menu_Options/Settings.php:348
+#: includes/Menu_Options/Settings.php:354
 msgid ""
 "Define a custom amount of spacing between your icon and menu item text. "
 "Leave this blank for the default value. (Only applies to submenu items)"
@@ -780,7 +731,7 @@ msgstr "Стандартна прозорість"
 msgid "Hover Opacity"
 msgstr "Прозорість при наведенні"
 
-#: includes/Menu_Options/Setting_Field.php:224 build/editor.js:1
+#: build/editor.js:1
 msgid "None"
 msgstr "Немає"
 
@@ -840,50 +791,50 @@ msgstr "Архів:"
 msgid "404 Template"
 msgstr "404 шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:84
+#: includes/Nectar_Templates/Nectar_Templates.php:90
 msgid "Off Canvas Menu"
 msgstr "Меню поза полотном"
 
-#: includes/Nectar_Templates/Nectar_Templates.php:166 build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates.php:310 build/editor.js:1
 msgid "Taxonomy Terms"
 msgstr "Терміни таксономії"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:66
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:808
 msgid "Theme Builder"
 msgstr "Конструктор тем"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:67
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:105
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:809
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1147
 #: build/editor.js:1
 msgid "Template"
 msgstr "Шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:68
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:810
 msgid "Search Templates"
 msgstr "Шукати шаблони"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:69
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:811
 msgid "Templates"
 msgstr "Шаблони"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:70
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:812
 msgid "Parent Template"
 msgstr "Батьківський шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:71
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:813
 msgid "Edit Template"
 msgstr "Редагувати шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:72
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:814
 msgid "Update Template"
 msgstr "Оновити шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:73
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:74
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:815
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:816
 msgid "Add New Template"
 msgstr "Додати новий шаблон"
 
-#: includes/Nectar_Templates/Nectar_Templates_Register.php:254
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:1296
 msgid "None Assigned"
 msgstr "Не призначено"
 
@@ -993,9 +944,12 @@ msgstr "База тегів портфоліо"
 msgid ""
 "Portfolio permalink structure updated. Please refresh permalinks by visiting"
 " Settings > Permalinks and clicking \"Save Changes\"."
-msgstr "Структуру постійних посилань для портфоліо оновлено. Будь ласка, оновіть постійні посилання, перейшовши до Налаштування > Постійні посилання та натиснувши \"Зберегти зміни\"."
+msgstr ""
+"Структуру постійних посилань для портфоліо оновлено. Будь ласка, оновіть "
+"постійні посилання, перейшовши до Налаштування > Постійні посилання та "
+"натиснувши \"Зберегти зміни\"."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:22
+#: includes/Render/Blocks/PostContent/PostContent.php:24
 msgid ""
 "This is the Content block, it will display all the blocks in any single post"
 " or page."
@@ -1003,14 +957,17 @@ msgstr ""
 "Це блок вмісту, він відображатиме всі блоки в будь-якому окремому записі або"
 " сторінці."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:23
+#: includes/Render/Blocks/PostContent/PostContent.php:25
 msgid ""
 "That might be a simple arrangement like consecutive paragraphs in a blog "
 "post, or a more elaborate composition that includes image galleries, videos,"
 " tables, columns, and any other block types."
-msgstr "Це може бути простим розташуванням, як послідовні абзаци в блозі, або більш складною композицією, що включає галереї зображень, відео, таблиці, колонки та будь-які інші типи блоків."
+msgstr ""
+"Це може бути простим розташуванням, як послідовні абзаци в блозі, або більш "
+"складною композицією, що включає галереї зображень, відео, таблиці, колонки "
+"та будь-які інші типи блоків."
 
-#: includes/Render/Blocks/PostContent/PostContent.php:24
+#: includes/Render/Blocks/PostContent/PostContent.php:26
 msgid ""
 "If there are any Custom Post Types registered at your site, the Content "
 "block can display the contents of those entries as well."
@@ -1018,44 +975,47 @@ msgstr ""
 "Якщо на Вашому сайті зареєстровані будь-які користувацькі типи записів, блок"
 " Content також може відображати вміст цих записів."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:122
+#: includes/Render/Blocks/PostGrid/PostGrid.php:130
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1229
 msgid "By"
 msgstr "Автор"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:316
+#: includes/Render/Blocks/PostGrid/PostGrid.php:324
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1256
 msgid "min read"
 msgstr "хв читання"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:358
-#: includes/Render/Blocks/PostGrid/PostGrid.php:362
+#: includes/Render/Blocks/PostGrid/PostGrid.php:366
+#: includes/Render/Blocks/PostGrid/PostGrid.php:370
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1264
 #: build/blocks/post-grid/frontend-script.js:1 build/editor.js:1
 msgid "Read More"
 msgstr "Читати далі"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:640
+#: includes/Render/Blocks/PostGrid/PostGrid.php:709
 msgid "Pagination Navigation"
 msgstr "Пагінація"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:961
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1296
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:219 build/editor.js:1
 msgid "Load More"
 msgstr "Завантажити ще"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:962
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1297
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:220 build/editor.js:1
 msgid "Previous"
 msgstr "Попередній"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:963
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1298
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:221 build/editor.js:1
 msgid "Next"
 msgstr "Наступний"
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:979
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1314
 msgid "No posts found."
 msgstr "Записів не знайдено."
 
-#: includes/Render/Blocks/PostGrid/PostGrid.php:980
+#: includes/Render/Blocks/PostGrid/PostGrid.php:1315
 #: includes/Render/Blocks/TaxonomyGrid/TaxonomyGrid.php:231
 msgid "Try adjusting your query parameters."
 msgstr "Спробуйте налаштувати параметри запиту."
@@ -1080,7 +1040,6 @@ msgstr "Тут відображатимуться терміни \"%s\"."
 msgid "No terms in \"%s\""
 msgstr "Немає термінів у \"%s\""
 
-#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
 #: build/editor.js:1
 msgid "All"
 msgstr "Всі"
@@ -1136,10 +1095,6 @@ msgstr "Активна ліцензія"
 #: build/adminPanel.js:171
 msgid "Invalid License"
 msgstr "Недійсна ліцензія"
-
-#: build/adminPanel.js:171
-msgid "Theme License Code"
-msgstr "Ліцензійний код теми"
 
 #: build/adminPanel.js:171
 msgid "license key"
@@ -1206,10 +1161,6 @@ msgid "Custom Code (JS/HTML) After Body Open"
 msgstr "Користувацький код (JS/HTML) після відкриття тегу body"
 
 #: build/adminPanel.js:171
-msgid "Add a New Font"
-msgstr "Додати новий шрифт"
-
-#: build/adminPanel.js:171
 msgid "Please enter a font name."
 msgstr "Будь ласка, введіть назву шрифту."
 
@@ -1224,10 +1175,6 @@ msgstr "Користувацький шрифт успішно оновлено.
 #: build/adminPanel.js:171
 msgid "Add Font"
 msgstr "Додати шрифт"
-
-#: build/adminPanel.js:171
-msgid "No changes were made."
-msgstr "Зміни не були внесені."
 
 #: build/adminPanel.js:171
 msgid "Failed to update custom font variation."
@@ -1306,7 +1253,9 @@ msgstr "Колекція блоків"
 msgid ""
 "A robust collection of powerful blocks designed to simplify the process of "
 "building your website."
-msgstr "Надійна колекція потужних блоків, створених для спрощення процесу розробки Вашого веб-сайту."
+msgstr ""
+"Надійна колекція потужних блоків, створених для спрощення процесу розробки "
+"Вашого веб-сайту."
 
 #: build/adminPanel.js:171
 msgid "The Template Library"
@@ -1316,7 +1265,9 @@ msgstr "Бібліотека шаблонів"
 msgid ""
 "Jump start your Website creation with our professionally designed collection"
 " of pre-made templates"
-msgstr "Прискорте створення Вашого сайту за допомогою нашої професійно розробленої колекції готових шаблонів"
+msgstr ""
+"Прискорте створення Вашого сайту за допомогою нашої професійно розробленої "
+"колекції готових шаблонів"
 
 #: build/adminPanel.js:171
 msgid "Streamlined Global Settings"
@@ -1326,7 +1277,9 @@ msgstr "Оптимізовані глобальні налаштування"
 msgid ""
 "Establish reusable color schemes and typography rules that can be "
 "effortlessly applied to Nectar blocks across all your pages."
-msgstr "Створюйте готові колірні схеми та типографічні правила, які можна легко застосовувати до блоків Nectar на всіх сторінках Вашого сайту."
+msgstr ""
+"Створюйте готові колірні схеми та типографічні правила, які можна легко "
+"застосовувати до блоків Nectar на всіх сторінках Вашого сайту."
 
 #: build/adminPanel.js:171
 msgid "Extensively Customizable Block Settings"
@@ -1351,7 +1304,11 @@ msgid ""
 "intuitive control interface. Whether adjusting settings for each device "
 "individually or hovering over elements, you can instantly see the changes in"
 " an active preview."
-msgstr "Легко налаштовуйте параметри блока для різних пристроїв за допомогою єдиного інтуїтивного інтерфейсу керування. Незалежно від того, чи налаштовуєте параметри для кожного пристрою окремо, чи наводите курсор на елементи, Ви можете миттєво бачити зміни в активному попередньому перегляді."
+msgstr ""
+"Легко налаштовуйте параметри блока для різних пристроїв за допомогою єдиного"
+" інтуїтивного інтерфейсу керування. Незалежно від того, чи налаштовуєте "
+"параметри для кожного пристрою окремо, чи наводите курсор на елементи, Ви "
+"можете миттєво бачити зміни в активному попередньому перегляді."
 
 #: build/adminPanel.js:171
 msgid "Integrated Unsplash Images"
@@ -1361,7 +1318,9 @@ msgstr "Інтегровані зображення Unsplash"
 msgid ""
 "Nectarblocks seamlessly integrates with Unsplash to provide you with a vast "
 "library of high quality images to choose from."
-msgstr "Nectarblocks легко інтегрується з Unsplash, щоб надати Вам доступ до великої бібліотеки високоякісних зображень на вибір."
+msgstr ""
+"Nectarblocks легко інтегрується з Unsplash, щоб надати Вам доступ до великої"
+" бібліотеки високоякісних зображень на вибір."
 
 #: build/adminPanel.js:171
 msgid ""
@@ -1383,7 +1342,7 @@ msgstr "Демонстраційний контент"
 msgid "Theme Options"
 msgstr "Налаштування теми"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Settings"
 msgstr "Глобальні налаштування"
 
@@ -1394,7 +1353,9 @@ msgstr "Віджети"
 #: build/adminPanel.js:171
 msgid ""
 "The duration of prebuilt website imports can vary. Ensure that your server"
-msgstr "Тривалість імпорту готових веб-сайтів може відрізнятися. Переконайтеся, що Ваш сервер"
+msgstr ""
+"Тривалість імпорту готових веб-сайтів може відрізнятися. Переконайтеся, що "
+"Ваш сервер"
 
 #: build/adminPanel.js:171
 msgid "fulfills all necessary requirements"
@@ -1448,11 +1409,11 @@ msgstr "від Nectarblocks."
 msgid "Your export will include the following data:"
 msgstr "Ваш експорт міститиме такі дані:"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Colors"
 msgstr "Глобальні кольори"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/adminPanel.js:171
 msgid "Global Typography"
 msgstr "Глобальна типографіка"
 
@@ -1528,13 +1489,18 @@ msgstr "Налаштування налаштовувача теми Nectarblock
 msgid ""
 "Please authorize Nectarblocks with your license key to access the Demo "
 "Importer. That can be done in Authorization tab in the Admin Panel."
-msgstr "Будь ласка, авторизуйте Nectarblocks за допомогою Вашого ліцензійного ключа для доступу до Demo Importer. Це можна зробити у вкладці Авторизація в Admin Panel."
+msgstr ""
+"Будь ласка, авторизуйте Nectarblocks за допомогою Вашого ліцензійного ключа "
+"для доступу до Demo Importer. Це можна зробити у вкладці Авторизація в Admin"
+" Panel."
 
 #: build/adminPanel.js:171
 msgid ""
 "You must install the Nectarblocks Importer/Exporter plugin to access the "
 "Demo Importer."
-msgstr "Для доступу до Demo Importer Вам необхідно встановити плагін Nectarblocks Importer/Exporter."
+msgstr ""
+"Для доступу до Demo Importer Вам необхідно встановити плагін Nectarblocks "
+"Importer/Exporter."
 
 #: build/adminPanel.js:171
 msgid "Demos"
@@ -1589,7 +1555,9 @@ msgstr "Вимкнути ядро"
 #: build/adminPanel.js:171
 msgid ""
 " rules to allow your theme to control typography, rather than Nectarblocks."
-msgstr "правила, які дозволяють Вашій темі контролювати типографіку замість Nectarblocks."
+msgstr ""
+"правила, які дозволяють Вашій темі контролювати типографіку замість "
+"Nectarblocks."
 
 #: build/adminPanel.js:171
 msgid "Getting Started"
@@ -1607,7 +1575,7 @@ msgstr "Налаштування плагіна"
 msgid "Custom Code"
 msgstr "Власний код"
 
-#: build/adminPanel.js:171 build/editor.js:1
+#: build/editor.js:1
 msgid "Custom Fonts"
 msgstr "Користувацькі шрифти"
 
@@ -1988,14 +1956,6 @@ msgstr "Введіть назву Вашого шрифту"
 
 #: build/adminPanel.js:171
 msgid ""
-"for a successful import. Once the import process begins, please refrain from"
-" refreshing the page until it has completed."
-msgstr ""
-"для успішного імпорту. Після початку процесу імпорту, будь ласка, "
-"утримайтеся від оновлення сторінки до його завершення."
-
-#: build/adminPanel.js:171
-msgid ""
 "Global Settings are primarily located in the right-hand side of the editor "
 "when clicking on the Nectarblocks logo, and a few are contained in this "
 "options panel."
@@ -2017,7 +1977,9 @@ msgid ""
 "Theme Customizer settings are available in the WordPress Customizer "
 "(Appearance → Customize) and handle all the general styling for the "
 "Nectarblocks theme."
-msgstr "Налаштування налаштовувача теми доступні в налаштовувачі WordPress (Вигляд → Налаштувати) і керують усім загальним стилем теми Nectarblocks."
+msgstr ""
+"Налаштування налаштовувача теми доступні в налаштовувачі WordPress (Вигляд →"
+" Налаштувати) і керують усім загальним стилем теми Nectarblocks."
 
 #: build/adminPanel.js:171
 msgid ""
@@ -2424,20 +2386,8 @@ msgid "Animation Property"
 msgstr "Властивість анімації"
 
 #: build/editor.js:1
-msgid "Move Up"
-msgstr "Перемістити вгору"
-
-#: build/editor.js:1
-msgid "Move Down"
-msgstr "Перемістити вниз"
-
-#: build/editor.js:1
 msgid "Edit Animation Property"
 msgstr "Редагувати властивість анімації"
-
-#: build/editor.js:1
-msgid "Enter"
-msgstr "Введіть"
 
 #: build/editor.js:1
 msgid "Center"
@@ -2488,13 +2438,6 @@ msgid "Pin"
 msgstr "Закріпити"
 
 #: build/editor.js:1
-msgid ""
-"\"Pin\" the block in place within the viewport while the animation plays "
-"through."
-msgstr ""
-"Закріпити блок на місці у вікні перегляду під час відтворення анімації."
-
-#: build/editor.js:1
 msgid "Overlap"
 msgstr "Перекриття"
 
@@ -2522,24 +2465,8 @@ msgid "Pin On"
 msgstr "Закріпити на"
 
 #: build/editor.js:1
-msgid "Start On"
-msgstr "Увімкнути"
-
-#: build/editor.js:1
 msgid "End After Scrolling"
 msgstr "Завершити після прокручування"
-
-#: build/editor.js:1
-msgid "End On"
-msgstr "Закінчити на"
-
-#: build/editor.js:1
-msgid "Exit"
-msgstr "Вийти"
-
-#: build/editor.js:1
-msgid "Custom End Offset"
-msgstr "Користувацьке кінцеве зміщення"
 
 #: build/editor.js:1
 msgid ""
@@ -2558,16 +2485,8 @@ msgid "Smooth"
 msgstr "Плавний"
 
 #: build/editor.js:1
-msgid "Adds smoothing to the animation while scrolling."
-msgstr "Додає згладжування до анімації під час прокручування."
-
-#: build/editor.js:1
 msgid "Block Animation"
 msgstr "Анімація блоку"
-
-#: build/editor.js:1
-msgid "Animation Trigger Type"
-msgstr "Тип тригера анімації"
 
 #: build/editor.js:1
 msgid "Add Animation Trigger"
@@ -2586,18 +2505,16 @@ msgid "Contain"
 msgstr "Містити"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Repeat"
-msgstr ""
+msgstr "Повторити"
 
 #: build/editor.js:1
 msgid "No Repeat"
 msgstr "Без повторення"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Repeat All Directions"
-msgstr ""
+msgstr "Повторити всі напрямки"
 
 #: build/editor.js:1
 msgid "Repeat Horizontal"
@@ -2696,10 +2613,6 @@ msgid "Fit"
 msgstr "Вмістити"
 
 #: build/editor.js:1
-msgid "Custom ID"
-msgstr "Користувацький ID"
-
-#: build/editor.js:1
 msgid "Invalid element ID / anchor"
 msgstr "Недійсний ID елемента / якір"
 
@@ -2742,10 +2655,6 @@ msgstr "Показати"
 #: build/editor.js:1
 msgid "Justify"
 msgstr "Вирівняти по ширині"
-
-#: build/editor.js:1
-msgid "Flex Wrap"
-msgstr "Перенесення flex"
 
 #: build/editor.js:1
 msgid "Pointer"
@@ -2880,10 +2789,6 @@ msgid "Effect Type"
 msgstr "Тип ефекту"
 
 #: build/editor.js:1
-msgid "Edit Filter"
-msgstr "Редагувати фільтр"
-
-#: build/editor.js:1
 msgid "Backdrop Filters"
 msgstr "Фільтри тла"
 
@@ -2966,17 +2871,12 @@ msgid "URL"
 msgstr "URL"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "Remove URL"
-msgstr ""
+msgstr "Видалити URL"
 
 #: build/editor.js:1
 msgid "Link"
 msgstr "Посилання"
-
-#: build/editor.js:1
-msgid "Custom Attributes"
-msgstr "Користувацькі атрибути"
 
 #: build/editor.js:1
 msgid "Mask"
@@ -3063,14 +2963,6 @@ msgid "Skew Y"
 msgstr "Нахил Y"
 
 #: build/editor.js:1
-msgid "Translate X"
-msgstr "Зміщення по X"
-
-#: build/editor.js:1
-msgid "Translate Y"
-msgstr "Зміщення по Y"
-
-#: build/editor.js:1
 msgid "Transform Type"
 msgstr "Тип трансформації"
 
@@ -3129,10 +3021,6 @@ msgstr "акордеони"
 #: build/editor.js:1
 msgid "nectar"
 msgstr "нектар"
-
-#: build/editor.js:1
-msgid "Accordion Title"
-msgstr "Заголовок акордеона"
 
 #: build/editor.js:1
 msgid "Add New Accordion"
@@ -3265,7 +3153,7 @@ msgstr "Тип ширини"
 msgid "Columns"
 msgstr "Колонки"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Group"
 msgstr "Група"
 
@@ -3544,14 +3432,6 @@ msgid "Button BG"
 msgstr "Тло кнопки"
 
 #: build/editor.js:1
-msgid "Transition Speed (s)"
-msgstr "Швидкість переходу (с)"
-
-#: build/editor.js:1
-msgid "Time Between (s)"
-msgstr "Час між (с)"
-
-#: build/editor.js:1
 msgid "Equal Height"
 msgstr "Однакова висота"
 
@@ -3727,7 +3607,8 @@ msgstr "Вставити з URL"
 msgid "Enter URL"
 msgstr "Введіть URL"
 
-#: build/editor.js:1
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:638
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -3786,10 +3667,6 @@ msgstr "Анімація підрахунку"
 #: build/editor.js:1
 msgid "Milestone"
 msgstr "Віха"
-
-#: build/editor.js:1
-msgid "Highlight an important event or attribute."
-msgstr "Виділіть важливу подію або атрибут."
 
 #: build/editor.js:1
 msgid "milestone"
@@ -4100,9 +3977,8 @@ msgid "Two columns; equal split"
 msgstr "Дві колонки; рівний поділ"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "33 / 66"
-msgstr ""
+msgstr "33 / 66"
 
 #: build/editor.js:1
 msgid "Two columns; one-third, two-thirds split"
@@ -4155,10 +4031,6 @@ msgstr "рядок"
 #: build/editor.js:1
 msgid "Contained"
 msgstr "Контейнер"
-
-#: build/editor.js:1
-msgid "Contained Content"
-msgstr "Вміст у контейнері"
 
 #: build/editor.js:1
 msgid "Constraint"
@@ -4476,14 +4348,6 @@ msgstr ""
 "потенційним клієнтам приймати обґрунтовані рішення з упевненістю."
 
 #: build/editor.js:1
-msgid "John Doe"
-msgstr "Іван Іваненко"
-
-#: build/editor.js:1
-msgid "@nectarblocks"
-msgstr "@nectarblocks"
-
-#: build/editor.js:1
 msgid ""
 "This is a testimonial block. Incorporating <mark style=\"background-"
 "color:#f1ffa8\" class=\"has-inline-color\">genuine testimonials</mark> not "
@@ -4529,10 +4393,6 @@ msgstr "Відгук"
 #: build/editor.js:1
 msgid "Build trust and credibility by showcasing customer feedback."
 msgstr "Будуйте довіру та авторитет, демонструючи відгуки клієнтів."
-
-#: build/editor.js:1
-msgid "Enter the testimonial text here"
-msgstr "Введіть текст відгуку тут"
 
 #: build/editor.js:1
 msgid "Edit as HTML"
@@ -4631,16 +4491,6 @@ msgid "Type / to choose a block or start typing..."
 msgstr "Введіть / щоб вибрати блок або почніть друкувати..."
 
 #: build/editor.js:1
-msgid ""
-"Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
-"my website. I live in Los Angeles, have a great dog named Jack, and I like "
-"piña coladas. (And gettin' caught in the rain.)"
-msgstr ""
-"Привіт! Я велокур’єр удень, актор-початківець увечері, і це мій вебсайт. Я "
-"живу в Лос-Анджелесі, маю чудового пса на ім’я Джек, і люблю піна-коладу. (І"
-" потрапляти під дощ.)"
-
-#: build/editor.js:1
 msgid "Watch Video"
 msgstr "Дивитися відео"
 
@@ -4724,15 +4574,13 @@ msgstr "Введіть прямий URL файлу MP4/WebM/OGV"
 msgid ""
 "Video upload failed: missing media URL. Please try again or select from the "
 "Media Library."
-msgstr "Не вдалося завантажити відео: відсутня URL-адреса медіафайлу. Будь ласка, спробуйте ще раз або виберіть із медіатеки"
+msgstr ""
+"Не вдалося завантажити відео: відсутня URL-адреса медіафайлу. Будь ласка, "
+"спробуйте ще раз або виберіть із медіатеки"
 
 #: build/editor.js:1
 msgid "Uploading"
 msgstr "Завантаження"
-
-#: build/editor.js:1
-msgid "Autoplay Trigger"
-msgstr "Тригер автовідтворення"
 
 #: build/editor.js:1
 msgid "Learn more about using this trigger in the"
@@ -4773,10 +4621,6 @@ msgstr "Nectar"
 #: build/editor.js:1
 msgid "Nectar Global Colors"
 msgstr "Глобальні кольори Nectar"
-
-#: build/editor.js:1
-msgid "WP Custom Color Scheme"
-msgstr "Користувацька колірна схема WP"
 
 #: build/editor.js:1
 msgid "WP Theme Color Scheme"
@@ -5030,7 +4874,7 @@ msgstr "Оновлено. Не забудьте зберегти запис!"
 msgid "Delete Global Color Confirmation"
 msgstr "Підтвердження видалення глобального кольору"
 
-#: build/editor.js:1
+#: build/adminPanel.js:171 build/editor.js:1
 msgid "Are you sure you want to delete"
 msgstr "Ви впевнені, що хочете видалити"
 
@@ -5071,14 +4915,6 @@ msgid "An error occurred saving color!"
 msgstr "Під час збереження кольору сталася помилка!"
 
 #: build/editor.js:1
-msgid "Add Global Color"
-msgstr "Додати глобальний колір"
-
-#: build/editor.js:1
-msgid "Add Global Gradient"
-msgstr "Додати глобальний градієнт"
-
-#: build/editor.js:1
 msgid "Tranquility"
 msgstr "Спокій"
 
@@ -5109,30 +4945,6 @@ msgstr "Вогнище"
 #: build/editor.js:1
 msgid "Electric Harmony"
 msgstr "Електрична гармонія"
-
-#: build/editor.js:1
-msgid "Palette Presets"
-msgstr "Попередні налаштування палітри"
-
-#: build/editor.js:1
-msgid "Core Colors"
-msgstr "Основні кольори"
-
-#: build/editor.js:1
-msgid "Custom Colors"
-msgstr "Користувацькі кольори"
-
-#: build/editor.js:1
-msgid "Core Gradients"
-msgstr "Основні градієнти"
-
-#: build/editor.js:1
-msgid "Custom Gradients"
-msgstr "Користувацькі градієнти"
-
-#: build/editor.js:1
-msgid "Solids"
-msgstr "Суцільні"
 
 #: build/editor.js:1
 msgid "Gradients"
@@ -5199,32 +5011,12 @@ msgid "An error occurred saving font!"
 msgstr "Під час збереження шрифту сталася помилка!"
 
 #: build/editor.js:1
-msgid "Rename Font"
-msgstr "Перейменувати шрифт"
-
-#: build/editor.js:1
-msgid "New Name"
-msgstr "Нова назва"
-
-#: build/editor.js:1
-msgid "Save Font Name"
-msgstr "Зберегти назву шрифту"
-
-#: build/editor.js:1
 msgid "Rename"
 msgstr "Перейменувати"
 
 #: build/editor.js:1
 msgid "Custom Font"
 msgstr "Користувацький шрифт"
-
-#: build/editor.js:1
-msgid "Add New Font Rule"
-msgstr "Додати нове правило шрифту"
-
-#: build/editor.js:1
-msgid "Core Font Rules"
-msgstr "Основні правила шрифтів"
 
 #: build/editor.js:1
 msgid ""
@@ -5235,16 +5027,8 @@ msgstr ""
 "параметри плагіна Nectarblocks."
 
 #: build/editor.js:1
-msgid "Custom Font Rules"
-msgstr "Правила користувацьких шрифтів"
-
-#: build/editor.js:1
 msgid "Nectarblocks Guide"
 msgstr "Посібник Nectarblocks"
-
-#: build/editor.js:1
-msgid "Display Tutorial"
-msgstr "Показати підручник"
 
 #: build/editor.js:1
 msgid "Template Options"
@@ -5289,9 +5073,11 @@ msgid "CSS Code"
 msgstr "CSS-код"
 
 #: build/editor.js:1
-#, fuzzy
 msgid "JS Code"
 msgstr ""
+"```\n"
+"JS-код\n"
+"```"
 
 #: build/editor.js:1
 msgid "Desktop (Main)"
@@ -5421,7 +5207,7 @@ msgstr "Імпортувати зображення"
 msgid "Photo by"
 msgstr "Фото:"
 
-#: build/editor.js:1
+#: includes/Render/RenderJS.php:85 build/editor.js:1
 msgid "No results found"
 msgstr "Результатів не знайдено"
 
@@ -5434,136 +5220,12 @@ msgid "Nectar Images"
 msgstr "Зображення Nectar"
 
 #: build/editor.js:1
-msgid "Welcome Guide"
-msgstr "Вітальний посібник"
-
-#: build/editor.js:1
-msgid "Getting Started with Nectarblocks"
-msgstr "Початок роботи з Nectarblocks"
-
-#: build/editor.js:1
-msgid ""
-"To start creating a page, you can add blocks by clicking the plus icon "
-"located on the left of the top toolbar."
-msgstr ""
-"Щоб почати створювати сторінку, Ви можете додавати блоки, натиснувши значок "
-"плюса, розташований ліворуч на верхній панелі інструментів."
-
-#: build/editor.js:1
-msgid ""
-"The Nectarblocks category will appear at the top of the block list, with "
-"each block highlighted in blue for easy identification."
-msgstr ""
-"Категорія Nectarblocks з’явиться у верхній частині списку блоків, кожен блок"
-" буде виділено синім кольором для легкої ідентифікації."
-
-#: build/editor.js:1
-msgid "Meet the Template Library"
-msgstr "Знайомтеся з бібліотекою шаблонів"
-
-#: build/editor.js:1
-msgid ""
-"Jump-start your website creation with our professionally designed collection"
-" of pre-made templates."
-msgstr ""
-"Швидко розпочніть створення Вашого вебсайту з нашою професійно розробленою "
-"колекцією готових шаблонів."
-
-#: build/editor.js:1
-msgid ""
-"You can easily access the library by clicking on the \"Template Library\" "
-"button on the top toolbar. All templates from Nectarblocks are dynamic and "
-"will adapt to fit your current global color and typography settings."
-msgstr ""
-"Ви можете легко отримати доступ до бібліотеки, натиснувши кнопку «Бібліотека"
-" шаблонів» на верхній панелі інструментів. Усі шаблони від Nectarblocks є "
-"динамічними і адаптуються до Ваших поточних глобальних налаштувань кольорів "
-"та типографіки."
-
-#: build/editor.js:1
-msgid ""
-"Access global settings by clicking the Nectarblocks logo at the top right. "
-"Create reusable color schemes and typography rules that can then be applied "
-"to blocks throughout your pages."
-msgstr ""
-"Отримайте доступ до глобальних налаштувань, клацнувши логотип Nectarblocks у"
-" верхньому правому куті. Створюйте багаторазові колірні схеми та "
-"типографічні правила, які потім можна застосовувати до блоків на Ваших "
-"сторінках."
-
-#: build/editor.js:1
 msgid "Block Settings"
 msgstr "Налаштування блоку"
 
 #: build/editor.js:1
-msgid ""
-"To access settings for a block, simply click on the Settings icon while the "
-"desired block is selected."
-msgstr ""
-"Щоб отримати доступ до налаштувань блоку, просто клацніть на піктограмі "
-"«Налаштування», коли потрібний блок вибрано."
-
-#: build/editor.js:1
-msgid ""
-"Each block offers an extensive range of customization options and settings, "
-"empowering you to harness your global settings effectively. You can easily "
-"maintain consistency and coherence across your entire design."
-msgstr ""
-"Кожен блок пропонує широкий спектр параметрів налаштування, що дає Вам змогу"
-" ефективно використовувати Ваші глобальні налаштування. Ви можете легко "
-"підтримувати узгодженість і цілісність у всьому Вашому дизайні."
-
-#: build/editor.js:1
-msgid "Pro tip: "
-msgstr "Професійна порада:"
-
-#: build/editor.js:1
-msgid ""
-"If you're struggling to select a specific block, check the Document Overview"
-" to easily see the full structure of your page."
-msgstr ""
-"Якщо Ви не можете вибрати конкретний блок, перевірте огляд документа, щоб "
-"легко побачити повну структуру Вашої сторінки."
-
-#: build/editor.js:1
-msgid "Responsive and Hover Modes"
-msgstr "Режими адаптивності та наведення"
-
-#: build/editor.js:1
-msgid ""
-"To switch between editing modes, click on one of the icons located at the "
-"top-middle of the interface. Any changes you make to the settings will "
-"affect the selected mode only. This allows for easy customization to "
-"responsive and hover settings."
-msgstr ""
-"Щоб перемикатися між режимами редагування, клацніть на одній з іконок, "
-"розташованих у верхній середній частині інтерфейсу. Будь-які зміни, які Ви "
-"внесете до налаштувань, вплинуть лише на вибраний режим. Це дозволяє легко "
-"налаштовувати параметри адаптивності та наведення курсора."
-
-#: build/editor.js:1
-msgid "Keep an eye out for settings highlighted in"
-msgstr "Слідкуйте за налаштуваннями, виділеними в"
-
-#: build/editor.js:1
 msgid "green"
 msgstr "зелений"
-
-#: build/editor.js:1
-msgid "— these are unique to the selected mode and can be edited separately."
-msgstr "— вони унікальні для вибраного режиму і можуть редагуватися окремо."
-
-#: build/editor.js:1
-msgid "It's time to start building"
-msgstr "Час почати створення"
-
-#: build/editor.js:1
-msgid ""
-"To see this guide again, click the “Display Tutorial” button at the bottom "
-"of the Nectarblocks Global Settings panel."
-msgstr ""
-"Щоб побачити цей посібник знову, натисніть кнопку «Показати навчання» внизу "
-"панелі глобальних налаштувань Nectarblocks."
 
 #: build/editor.js:1
 msgid "About"
@@ -5578,16 +5240,8 @@ msgid "Features"
 msgstr "Можливості"
 
 #: build/editor.js:1
-msgid "Intro"
-msgstr "Вступ"
-
-#: build/editor.js:1
 msgid "Pricing"
 msgstr "Ціноутворення"
-
-#: build/editor.js:1
-msgid "Quotes"
-msgstr "Цитати"
 
 #: build/editor.js:1
 msgid "Scroll Section"
@@ -5654,18 +5308,2703 @@ msgstr "Заголовок 6"
 msgid "Paragraph"
 msgstr "Абзац"
 
+#: build/adminPanel.js:171
+msgid ""
+"for a successful import. Once the import process begins,\n"
+"                please refrain from refreshing the page until it has completed."
+msgstr ""
+"для успішного імпорту. Після початку процесу імпорту,\n"
+"будь ласка, не оновлюйте сторінку до його завершення."
+
+#: includes/Dynamic_Data/Dynamic_Helpers.php:22
+#: includes/Dynamic_Data/Dynamic_Helpers.php:26
+#: includes/Dynamic_Data/Dynamic_Helpers.php:31
+#: includes/Dynamic_Data/Dynamic_Helpers.php:35
+#: includes/Dynamic_Data/Dynamic_Helpers.php:39
+#: includes/Dynamic_Data/Dynamic_Helpers.php:43
+#: includes/Dynamic_Data/Dynamic_Helpers.php:47
+#: includes/Dynamic_Data/Dynamic_Helpers.php:51
+#: includes/Dynamic_Data/Dynamic_Helpers.php:55
+msgctxt "dynamic data group label"
+msgid "Post"
+msgstr "Запис"
+
+#: includes/Global_Settings/Global_Colors.php:103 build/editor.js:1
+msgid "Tertiary to Primary"
+msgstr "Третинний до первинного"
+
+#: includes/Global_Settings/Global_Colors.php:108 build/editor.js:1
+msgid "Tertiary to Secondary"
+msgstr "Третинна до вторинної"
+
+#: includes/Global_Settings/Global_Colors.php:113 build/editor.js:1
+msgid "Tertiary to Dark"
+msgstr "Третинний до темного"
+
+#: includes/Global_Settings/Global_Colors.php:118 build/editor.js:1
+msgid "Light to Primary"
+msgstr "Світлий до основного"
+
+#: includes/Global_Settings/Global_Colors.php:123 build/editor.js:1
+msgid "Light Fade"
+msgstr "Світле згасання"
+
+#: includes/Global_Settings/Global_Colors.php:144 build/editor.js:1
+msgid "Tertiary"
+msgstr "Третинний"
+
+#: includes/Global_Settings/Global_Colors.php:149 build/editor.js:1
+msgid "Primary"
+msgstr "Основне"
+
+#: includes/Global_Settings/Global_Colors.php:154 build/editor.js:1
+msgid "Secondary"
+msgstr "Вторинне"
+
+#: includes/Menu_Options/Modal.php:323
+msgctxt "button: close modal dialog"
+msgid "Close"
+msgstr "Закрити"
+
+#: includes/Menu_Options/Settings.php:81
+msgctxt "menu item link button style option"
+msgid "Default"
+msgstr "Типово"
+
+#: includes/Menu_Options/Settings.php:97
+msgctxt "menu item link text hover option"
+msgid "Default"
+msgstr "Типово"
+
+#. translators: %1$s is "<br><br>", %2$s is "<strong>", %3$s is "</strong>" —
+#. HTML formatting for the description
+#: includes/Menu_Options/Settings.php:307
+#, php-format
+msgid ""
+"Add in a symbol or emoji to display as the icon next to your menu "
+"title.%1$s%2$sTo add an Emoji:%3$s%1$sWindows: On your keyboard, press and "
+"hold the Windows button and either the period (.) or semicolon (;)%1$sMac: "
+"On your keyboard, press Command + Control + Space"
+msgstr ""
+"Додайте символ або емодзі для відображення як піктограми поруч із заголовком"
+" Вашого меню.%1$s%2$sЩоб додати емодзі:%3$s%1$sWindows: На клавіатурі "
+"натисніть і утримуйте кнопку Windows та крапку (.) або крапку з комою "
+"(;)%1$sMac: На клавіатурі натисніть Command + Control + Space"
+
+#: includes/Menu_Options/Setting_Field.php:224
+msgctxt "widget location option: no selection"
+msgid "None"
+msgstr "Немає"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:84
+msgid "Header Navigation"
+msgstr "Навігація шапки"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:109
+msgid "WooCommerce: Single Product"
+msgstr "WooCommerce: Окремий товар"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:113
+msgid "WooCommerce: Product Archive"
+msgstr "WooCommerce: Архів товарів"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:117
+msgid "WooCommerce: Cart"
+msgstr "WooCommerce: Кошик"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:121
+msgid "WooCommerce: Checkout"
+msgstr "WooCommerce: Оформлення замовлення"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:125
+msgid "WooCommerce: My Account"
+msgstr "WooCommerce: Мій обліковий запис"
+
+#: includes/Nectar_Templates/Nectar_Templates.php:129
+msgid "WooCommerce: Order Confirmation"
+msgstr "WooCommerce: Підтвердження замовлення"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:405
+msgid "Unauthorized"
+msgstr "Неавторизовано"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:417
+msgid "New Template"
+msgstr "Новий шаблон"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:489
+#: build/editor.js:1
+msgid "Navigation"
+msgstr "Навігація"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:625
+msgid "Choose a Template Type"
+msgstr "Виберіть тип шаблону"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:631
+msgid "Filter templates..."
+msgstr "Фільтрувати шаблони..."
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:641
+msgid "Create Template"
+msgstr "Створити шаблон"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:652
+msgid "Blank Template"
+msgstr "Порожній шаблон"
+
+#: includes/Nectar_Templates/Nectar_Templates_Register.php:653
+msgid "No templates found"
+msgstr "Шаблони не знайдено"
+
+#: includes/Render/Blocks/HeaderActionAccount/HeaderActionAccount.php:159
+#: build/editor.js:1
+msgid "Account"
+msgstr "Обліковий запис"
+
+#: includes/Render/Blocks/TaxonomyTerms/TaxonomyTerms.php:175
+msgctxt "link: show all taxonomy terms"
+msgid "All"
+msgstr "Усі"
+
+#: includes/Render/Enhanced_Navigation.php:1749 build/editor.js:1
+msgid "Back"
+msgstr "Назад"
+
+#: includes/Render/RenderJS.php:68 build/editor.js:1
+msgid "Play"
+msgstr "Відтворити"
+
+#: includes/Render/RenderJS.php:69 build/editor.js:1
+msgid "Pause"
+msgstr "Пауза"
+
+#: includes/Render/RenderJS.php:70
+msgid "Mute"
+msgstr "Вимкнути звук"
+
+#: includes/Render/RenderJS.php:71
+msgid "Unmute"
+msgstr "Увімкнути звук"
+
+#: includes/Render/RenderJS.php:72 build/editor.js:1
+msgid "Fullscreen"
+msgstr "Повноекранний режим"
+
+#: includes/Render/RenderJS.php:73
+msgid "Exit fullscreen"
+msgstr "Вийти з повноекранного режиму"
+
+#: includes/Render/RenderJS.php:74
+msgid "%current% of %duration%"
+msgstr "%current% з %duration%"
+
+#: includes/Render/RenderJS.php:86
+msgid "Search unavailable. Please try again."
+msgstr "Пошук недоступний. Будь ласка, спробуйте ще раз."
+
+#: build/adminPanel.js:171
+msgid "Release notes"
+msgstr "Примітки до випуску"
+
+#: build/adminPanel.js:171
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: build/adminPanel.js:171
+msgid "License Key"
+msgstr "Ліцензійний ключ"
+
+#: build/adminPanel.js:171
+msgid "Connected"
+msgstr "Підключено"
+
+#: build/adminPanel.js:171
+msgid "Refresh"
+msgstr "Оновити"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts refreshed successfully."
+msgstr "Adobe Fonts успішно оновлено."
+
+#: build/adminPanel.js:171
+msgid "Failed to refresh Adobe Fonts."
+msgstr "Не вдалося оновити шрифти Adobe."
+
+#: build/adminPanel.js:171
+msgid "Disconnect"
+msgstr "Від'єднати"
+
+#: build/adminPanel.js:171
+msgid "No fonts found in your Adobe Fonts web projects. Add fonts at"
+msgstr ""
+"У Ваших веб-проєктах Adobe Fonts не знайдено шрифтів. Додайте шрифти на"
+
+#: build/adminPanel.js:171
+msgid "Disconnect Adobe Fonts"
+msgstr "Від'єднати Adobe Fonts"
+
+#: build/adminPanel.js:171
+msgid ""
+"Are you sure you want to disconnect? Any typography settings using Adobe "
+"Fonts will need to be updated."
+msgstr ""
+"Ви впевнені, що хочете від'єднатися? Будь-які налаштування типографіки, що "
+"використовують Adobe Fonts, потрібно буде оновити."
+
+#: build/adminPanel.js:171
+msgid "Disconnected from Adobe Fonts."
+msgstr "Від'єднано від Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to disconnect from Adobe Fonts."
+msgstr "Не вдалося від'єднатися від Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Connect your Adobe Fonts account to use your web fonts."
+msgstr ""
+"Підключіть Ваш обліковий запис Adobe Fonts, щоб використовувати Ваші веб-"
+"шрифти."
+
+#: build/adminPanel.js:171
+msgid "Get your API token"
+msgstr "Отримайте Ваш токен API"
+
+#: build/adminPanel.js:171
+msgid "Enter your Adobe Fonts API token..."
+msgstr "Введіть Ваш токен API Adobe Fonts..."
+
+#: build/adminPanel.js:171
+msgid "Connect"
+msgstr "Підключити"
+
+#: build/adminPanel.js:171
+msgid "Please enter your Adobe Fonts API token."
+msgstr "Будь ласка, введіть Ваш токен API Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Successfully connected to Adobe Fonts."
+msgstr "Успішно підключено до Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Failed to connect to Adobe Fonts."
+msgstr "Не вдалося підключитися до Adobe Fonts."
+
+#: build/adminPanel.js:171
+msgid "Remove Variation"
+msgstr "Видалити варіацію"
+
+#: build/adminPanel.js:171
+msgid "Delete Font"
+msgstr "Видалити шрифт"
+
+#: build/adminPanel.js:171
+msgid "Delete Font Variation"
+msgstr "Видалити варіацію шрифту"
+
+#: build/adminPanel.js:171
+msgid "This will remove the font and all its variations."
+msgstr "Це видалить шрифт та всі його варіації."
+
+#: build/adminPanel.js:171
+msgid "Uploaded Fonts"
+msgstr "Завантажені шрифти"
+
+#: build/adminPanel.js:171
+msgid "Adobe Fonts"
+msgstr "Adobe Fonts"
+
+#: build/adminPanel.js:171 build/editor.js:1
+msgid "Help"
+msgstr "Допомога"
+
+#: build/adminPanel.js:171
+msgid "Blog Posts"
+msgstr "Записи блогу"
+
+#: build/adminPanel.js:171
+msgid "Portfolio Projects"
+msgstr "Проєкти портфоліо"
+
+#: build/adminPanel.js:171
+msgid "Products"
+msgstr "Товари"
+
+#: build/adminPanel.js:171
+msgid "Theme Builder Templates"
+msgstr "Шаблони конструктора теми"
+
+#: build/adminPanel.js:171
+msgid ""
+"Theme-level templates such as headers, footers, navigation, archive layouts,"
+" and single-post layouts that the demo pages depend on."
+msgstr ""
+"Шаблони рівня теми, такі як шапки, підвали, навігація, макети архівів та "
+"макети окремих записів, від яких залежать демонстраційні сторінки."
+
+#: build/adminPanel.js:171
+msgid ""
+"Reusable section layouts inserted into pages, such as megamenu displays and "
+"shared content blocks."
+msgstr ""
+"Багаторазові макети розділів, що вставляються на сторінки, такі як "
+"відображення мега-меню та спільні блоки вмісту."
+
+#: build/adminPanel.js:171
+msgid "Forms"
+msgstr "Форми"
+
+#: build/adminPanel.js:171
+msgid ""
+"Fluent Forms used by demo pages (e.g. the contact form). Requires the Fluent"
+" Forms plugin."
+msgstr ""
+"Fluent Forms використовується демонстраційними сторінками (наприклад, форма "
+"зворотного зв'язку). Потрібен плагін Fluent Forms."
+
+#: build/adminPanel.js:171
+msgid "Include"
+msgstr "Включити"
+
+#: build/adminPanel.js:171
+msgid "Select all"
+msgstr "Вибрати все"
+
+#: build/adminPanel.js:171
+msgid "isn’t installed."
+msgstr "не встановлено."
+
+#: build/adminPanel.js:171
+msgid "Install"
+msgstr "Встановити"
+
+#: build/adminPanel.js:171
+msgid "Local Google Fonts"
+msgstr "Локальні шрифти Google"
+
+#: build/adminPanel.js:171
+msgid ""
+"Automatically download and serve Google Fonts locally for improved "
+"performance and GDPR compliance."
+msgstr ""
+"Автоматично завантажувати та надавати шрифти Google локально для покращення "
+"продуктивності та відповідності GDPR."
+
+#: build/adminPanel.js:171
+msgid "Lazy Load Images"
+msgstr "Ліниве завантаження зображень"
+
+#: build/adminPanel.js:171
+msgid ""
+"Defer off-screen images until they are near the viewport, reducing initial "
+"page weight. Above-the-fold images are detected automatically and load "
+"eagerly."
+msgstr ""
+"Відкладати завантаження зображень поза екраном, доки вони не наблизяться до "
+"області перегляду, зменшуючи початкову вагу сторінки. Зображення у видимій "
+"частині виявляються автоматично та завантажуються негайно."
+
+#: build/adminPanel.js:171
+msgid "Nectarblocks 3.0 release artwork"
+msgstr "Графіка випуску Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "What's New"
+msgstr "Що нового"
+
+#: build/adminPanel.js:171
+msgid "Welcome to Nectarblocks 3.0"
+msgstr "Ласкаво просимо до Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid ""
+"This release introduces a complete header builder, a faster editing "
+"experience, hover interactions with a reworked animation builder, a smarter "
+"design system, and a leaner front end, plus dozens of improvements to the "
+"blocks you use every day. Read on for the highlights, or jump straight in "
+"and start building."
+msgstr ""
+"Цей випуск представляє повноцінний конструктор шапки, швидший досвід "
+"редагування, взаємодії при наведенні з переробленим конструктором анімації, "
+"розумнішу систему дизайну та легший front end, а також десятки покращень "
+"блоків, які Ви використовуєте щодня. Читайте далі, щоб дізнатися про основні"
+" моменти, або переходьте одразу до створення."
+
+#: build/adminPanel.js:171
+msgid "The header builder you’ve always wanted"
+msgstr "Конструктор шапки, про який Ви завжди мріяли"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build custom site headers right in WordPress with flexible layouts, "
+"responsive controls, and unlimited states. Add search, navigation, overlay "
+"menus, and full megamenus."
+msgstr ""
+"Створюйте користувацькі шапки сайту прямо у WordPress з гнучкими макетами, "
+"адаптивними елементами керування та необмеженими станами. Додавайте пошук, "
+"навігацію, оверлейні меню та повноцінні мега-меню."
+
+#: build/adminPanel.js:171
+msgid "Header builder preview"
+msgstr "Попередній перегляд конструктора шапки"
+
+#: build/adminPanel.js:171
+msgid "A faster editing experience"
+msgstr "Швидший досвід редагування"
+
+#: build/adminPanel.js:171
+msgid ""
+"Reimagined spacing controls, drag-to-reorder layers, active-state "
+"indicators, and drag-to-reposition absolute elements. Settings are better "
+"organized, onboarding is clearer."
+msgstr ""
+"Переосмислені елементи керування відступами, перетягування для зміни порядку"
+" шарів, індикатори активного стану та перетягування для зміни позиції "
+"абсолютних елементів. Налаштування краще організовані, ознайомлення "
+"зрозуміліше."
+
+#: build/adminPanel.js:171
+msgid "Editor experience preview"
+msgstr "Попередній перегляд редактора"
+
+#: build/adminPanel.js:171
+msgid "Hover interactions, reworked animation UI"
+msgstr "Взаємодії при наведенні, перероблений інтерфейс анімації"
+
+#: build/adminPanel.js:171
+msgid ""
+"A new interaction animation system brings limitless hover effects, with "
+"spring physics for natural motion, child-element staggering, and per-"
+"property timelines. The animation builder has been reworked throughout, with"
+" a live preview for every effect."
+msgstr ""
+"Нова система анімації взаємодії надає безмежні ефекти наведення, з пружинною"
+" фізикою для природного руху, поетапною появою дочірніх елементів та "
+"окремими часовими шкалами для кожної властивості. Конструктор анімації "
+"повністю перероблено, з живим попереднім переглядом для кожного ефекту."
+
+#: build/adminPanel.js:171
+msgid "Animation editor preview"
+msgstr "Попередній перегляд редактора анімації"
+
+#: build/adminPanel.js:171
+msgid "A smarter design system"
+msgstr "Розумніша система дизайну"
+
+#: build/adminPanel.js:171
+msgid ""
+"Manage typography and color in one place with Adobe Fonts integration, saved"
+" custom palettes, and a new color scale system that generates tonal "
+"variations for every palette color."
+msgstr ""
+"Керуйте типографікою та кольорами в одному місці завдяки інтеграції Adobe "
+"Fonts, збереженим користувацьким палітрам і новій системі колірної шкали, "
+"яка генерує тональні варіації для кожного кольору палітри."
+
+#: build/adminPanel.js:171
+msgid "Design system preview"
+msgstr "Попередній перегляд системи дизайну"
+
+#: build/adminPanel.js:171
+msgid "Faster, leaner front end"
+msgstr "Швидший, легший інтерфейс"
+
+#: build/adminPanel.js:171
+msgid ""
+"Pages ship cleaner markup with per-page CSS generation, locally served "
+"Google Fonts, image lazy loading, and selective script loading. The result "
+"is fewer network requests and faster load times for your visitors."
+msgstr ""
+"Сторінки постачаються з чистішою розміткою завдяки генерації CSS для кожної "
+"сторінки, локально розміщеним шрифтам Google, відкладеному завантаженню "
+"зображень та вибірковому завантаженню скриптів. Результат — менше мережевих "
+"запитів та швидше завантаження для Ваших відвідувачів."
+
+#: build/adminPanel.js:171
+msgid "Performance preview"
+msgstr "Попередній перегляд продуктивності"
+
+#: build/adminPanel.js:171
+msgid "Powerful new blocks to build with"
+msgstr "Потужні нові блоки для створення"
+
+#: build/adminPanel.js:171
+msgid ""
+"Build more without leaving the editor with a ticker for auto-scrolling "
+"loops, world time for timezones, an auto-generated table of contents, plus "
+"navigation, search, and header actions blocks."
+msgstr ""
+"Створюйте більше, не виходячи з редактора, за допомогою бігучого рядка для "
+"автопрокручуваних циклів, світового часу для часових поясів, автоматично "
+"згенерованого змісту, а також блоків навігації, пошуку та дій шапки."
+
+#: build/adminPanel.js:171
+msgid "New blocks preview"
+msgstr "Попередній перегляд нових блоків"
+
+#: build/adminPanel.js:171
+msgid "New templates and a ready-made demo"
+msgstr "Нові шаблони та готове демо"
+
+#: build/adminPanel.js:171
+msgid ""
+"Start faster with over 35 new pre-made templates, plus Radnor, a complete "
+"business website demo you can install in a click and make your own."
+msgstr ""
+"Почніть швидше з понад 35 новими готовими шаблонами, а також Radnor — "
+"повноцінною демонстраційною версією бізнес-сайту, яку Ви можете встановити "
+"одним кліком і зробити своєю."
+
+#: build/adminPanel.js:171
+msgid "Templates and demo preview"
+msgstr "Шаблони та попередній перегляд демо"
+
+#: build/adminPanel.js:171
+msgid "Changelog"
+msgstr "Журнал змін"
+
+#: build/adminPanel.js:171
+msgid "More in this release"
+msgstr "Більше в цьому випуску"
+
+#: build/adminPanel.js:171
+msgid ""
+"Over 90 new features, improvements, and fixes for building better WordPress "
+"websites. Explore the full 3.0 release for every detail."
+msgstr ""
+"Понад 90 нових функцій, покращень та виправлень для створення кращих "
+"WordPress-сайтів. Ознайомтеся з повним випуском 3.0 для отримання всіх "
+"деталей."
+
+#: build/adminPanel.js:171
+msgid "Explore Nectarblocks 3.0"
+msgstr "Ознайомтеся з Nectarblocks 3.0"
+
+#: build/adminPanel.js:171
+msgid "Version"
+msgstr "Версія"
+
+#: build/editor.js:1
+msgid "Reset to Default state"
+msgstr "Скинути до стандартного стану"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Image"
+msgstr "Вставити динамічне зображення"
+
+#: build/editor.js:1
+msgid "Dynamic Image"
+msgstr "Динамічне зображення"
+
+#: build/editor.js:1
+msgid "Selected"
+msgstr "Вибрано"
+
+#: build/editor.js:1
+msgid "Interaction"
+msgstr "Взаємодія"
+
+#: build/editor.js:1
+msgid "Already added"
+msgstr "Вже додано"
+
+#: build/editor.js:1
+msgid "Invert"
+msgstr "Інвертувати"
+
+#: build/editor.js:1
+msgid "Offset"
+msgstr "Зміщення"
+
+#: build/editor.js:1
+msgid "Self"
+msgstr "Сам"
+
+#: build/editor.js:1
+msgid "Interaction (On Hover/Focus)"
+msgstr "Взаємодія (при наведенні/фокусі)"
+
+#: build/editor.js:1
+msgid "From"
+msgstr "Від"
+
+#: build/editor.js:1
+msgid "To"
+msgstr "До"
+
+#: build/editor.js:1
+msgid "Timeline"
+msgstr "Хронологія"
+
+#: build/editor.js:1
+msgid ""
+"Per-property timing is unavailable with spring easing — all properties "
+"animate together."
+msgstr ""
+"Налаштування часу для окремих властивостей недоступне з пружинним "
+"згладжуванням — усі властивості анімуються разом."
+
+#: build/editor.js:1
+msgid "Unable to determine the root block tree for this section."
+msgstr "Не вдалося визначити кореневе дерево блоків для цього розділу."
+
+#: build/editor.js:1
+msgid "Pick Trigger Block"
+msgstr "Вибрати блок тригера"
+
+#: build/editor.js:1
+msgid "Use Self"
+msgstr "Використовувати власний"
+
+#: build/editor.js:1
+msgid "Children"
+msgstr "Дочірні"
+
+#: build/editor.js:1
+msgid "Directional"
+msgstr "Напрямний"
+
+#: build/editor.js:1
+msgid "Distance"
+msgstr "Відстань"
+
+#: build/editor.js:1
+msgid "Scroll Distance"
+msgstr "Відстань прокручування"
+
+#: build/editor.js:1
+msgid "Element"
+msgstr "Елемент"
+
+#: build/editor.js:1
+msgid "Viewport"
+msgstr "Область перегляду"
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation begins."
+msgstr ""
+"Коли позиція елемента відповідає позиції області перегляду, анімація "
+"починається."
+
+#: build/editor.js:1
+msgid ""
+"When the element position meets the viewport position, the animation is "
+"complete."
+msgstr ""
+"Коли позиція елемента відповідає позиції області перегляду, анімація "
+"завершена."
+
+#: build/editor.js:1
+msgid "Entrance"
+msgstr "Вхід"
+
+#: build/editor.js:1
+msgid "Pin Offset"
+msgstr "Зміщення піна"
+
+#: build/editor.js:1
+msgid "Properties"
+msgstr "Властивості"
+
+#: build/editor.js:1
+msgid ""
+"Locks this row to the viewport as the user keeps scrolling. The page appears"
+" to stop while the row's animation plays through, then scrolling resumes "
+"once the animation completes. Use the \"End After Scrolling\" value to "
+"control how much scroll distance the locked-in animation takes up."
+msgstr ""
+"Фіксує цей рядок до вікна перегляду, поки користувач продовжує прокручувати."
+" Сторінка здається зупиненою, поки відтворюється анімація рядка, потім "
+"прокручування відновлюється після завершення анімації. Використовуйте "
+"значення «Завершити після прокручування», щоб контролювати, яку відстань "
+"прокручування займає зафіксована анімація."
+
+#: build/editor.js:1
+msgid "Row Animation End"
+msgstr "Кінець анімації рядка"
+
+#: build/editor.js:1
+msgid "Go to Parent"
+msgstr "Перейти до батьківського"
+
+#: build/editor.js:1
+msgid "Edit URL"
+msgstr "Редагувати URL"
+
+#: build/editor.js:1
+msgid "Edit Background Image URL"
+msgstr "Редагувати URL зображення тла"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Image"
+msgstr "Вставити динамічне фонове зображення"
+
+#: build/editor.js:1
+msgid "Dynamic BG Image"
+msgstr "Динамічне фонове зображення"
+
+#: build/editor.js:1
+msgid "Resting State"
+msgstr "Стан спокою"
+
+#: build/editor.js:1
+msgid "How the video appears when not hovered."
+msgstr "Як відео виглядає, коли на нього не наведено курсор."
+
+#: build/editor.js:1
+msgid "First Frame"
+msgstr "Перший кадр"
+
+#: build/editor.js:1
+msgid "Insert Dynamic BG Video"
+msgstr "Вставити динамічне фонове відео"
+
+#: build/editor.js:1
+msgid "Dynamic BG Video"
+msgstr "Динамічне фонове відео"
+
+#: build/editor.js:1
+msgid "Element ID"
+msgstr "ID елемента"
+
+#: build/editor.js:1
+msgid "First"
+msgstr "Перший"
+
+#: build/editor.js:1
+msgid "Last"
+msgstr "Останній"
+
+#: build/editor.js:1
+msgid "Order"
+msgstr "Замовлення"
+
+#: build/editor.js:1
+msgid "Outset"
+msgstr "Початок"
+
+#: build/editor.js:1
+msgid "Backdrop Filter"
+msgstr "Фільтр тла"
+
+#: build/editor.js:1
+msgid "Filter"
+msgstr "Фільтр"
+
+#: build/editor.js:1
+msgid "Inherit Block Color"
+msgstr "Успадкувати колір блоку"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Link"
+msgstr "Вставити динамічне посилання"
+
+#: build/editor.js:1
+msgid "Dynamic Link"
+msgstr "Динамічне посилання"
+
+#: build/editor.js:1
+msgid "Attributes"
+msgstr "Атрибути"
+
+#: build/editor.js:1
+msgid "Screen reader text"
+msgstr "Текст для програм читання з екрана"
+
+#: build/editor.js:1
+msgid "Describe the link for screen readers"
+msgstr "Опишіть посилання для програм читання з екрана"
+
+#: build/editor.js:1
+msgid "Drag to reposition"
+msgstr "Перетягніть, щоб змінити позицію"
+
+#: build/editor.js:1
+msgid "Unlink axes"
+msgstr "Від'єднати осі"
+
+#: build/editor.js:1
+msgid "Link axes"
+msgstr "Зв'язати осі"
+
+#: build/editor.js:1
+msgid "Transform Origin"
+msgstr "Початок трансформації"
+
+#: build/editor.js:1
+msgid "X"
+msgstr "X"
+
+#: build/editor.js:1
+msgid "Y"
+msgstr "Y"
+
+#: build/editor.js:1
+msgid "Theme Fonts"
+msgstr "Шрифти теми"
+
+#: build/editor.js:1
+msgid "Insert Dynamic Video"
+msgstr "Вставити динамічне відео"
+
+#: build/editor.js:1
+msgid "Dynamic Video"
+msgstr "Динамічне відео"
+
+#: build/editor.js:1
+msgid "Render link as overlay"
+msgstr "Відобразити посилання як накладку"
+
+#: build/editor.js:1
+msgid "Accordion Title.."
+msgstr "Заголовок акордеона.."
+
+#: build/editor.js:1
+msgid "No Link"
+msgstr "Без посилання"
+
+#: build/editor.js:1
+msgid ""
+"On (default): the link sits as an overlay so inner blocks can have their own"
+" links and hover effects. Off: the link wraps the column for better SEO."
+msgstr ""
+"Увімкнено (типово): посилання розташоване як накладка, тому внутрішні блоки "
+"можуть мати власні посилання та ефекти наведення. Вимкнено: посилання "
+"обгортає колонку для кращого SEO."
+
+#: build/editor.js:1
+msgid ""
+"Use when inner blocks have their own links or hover effects. Add screen "
+"reader text below for accessibility."
+msgstr ""
+"Використовуйте, коли внутрішні блоки мають власні посилання або ефекти "
+"наведення. Додайте текст для програм читання з екрана нижче для доступності."
+
+#: build/editor.js:1
+msgid "Defaults to the WooCommerce My Account page."
+msgstr "За замовчуванням — сторінка «Мій обліковий запис» WooCommerce."
+
+#: build/editor.js:1
+msgid "Header Account"
+msgstr "Обліковий запис шапки"
+
+#: build/editor.js:1
+msgid "Links to the user account page."
+msgstr "Посилання на сторінку облікового запису користувача."
+
+#: build/editor.js:1
+msgid "Icon color"
+msgstr "Колір піктограми"
+
+#: build/editor.js:1
+msgid "Header Actions"
+msgstr "Дії шапки"
+
+#: build/editor.js:1
+msgid "Icon size"
+msgstr "Розмір піктограми"
+
+#: build/editor.js:1
+msgid "Header action container (search/cart/account)."
+msgstr "Контейнер дій шапки (пошук/кошик/обліковий запис)."
+
+#: build/editor.js:1
+msgid "URL copied to clipboard"
+msgstr "URL скопійовано до буфера обміну"
+
+#: build/editor.js:1
+msgid ""
+"Cover fills the block's size — set a height (e.g. 100vh) in the Size "
+"control."
+msgstr ""
+"Обкладинка заповнює розмір блоку — встановіть висоту (наприклад, 100vh) у "
+"налаштуванні розміру."
+
+#: build/editor.js:1
+msgid "Allow Dragging"
+msgstr "Дозволити перетягування"
+
+#: build/editor.js:1
+msgid ""
+"Takes effect on the frontend — slides are never draggable while editing."
+msgstr ""
+"Діє на фронтенді — слайди ніколи не можна перетягувати під час редагування."
+
+#: build/editor.js:1
+msgid "Edit Image URL"
+msgstr "Редагувати URL зображення"
+
+#: build/editor.js:1
+msgid "Image Sizes"
+msgstr "Розміри зображень"
+
+#: build/editor.js:1
+msgid "Custom Sizes"
+msgstr "Користувацькі розміри"
+
+#: build/editor.js:1
+msgid "Sizes Value"
+msgstr "Значення розмірів"
+
+#: build/editor.js:1
+msgid "Megamenu"
+msgstr "Мега-меню"
+
+#: build/editor.js:1
+msgid "Display a global section or template part as a megamenu dropdown."
+msgstr "Відображати глобальну секцію або частину шаблону як спадне мега-меню."
+
+#: build/editor.js:1
+msgid "Pattern"
+msgstr "Шаблон"
+
+#: build/editor.js:1
+msgid "Megamenu:"
+msgstr "Мега-меню:"
+
+#: build/editor.js:1
+msgid "Select a megamenu source"
+msgstr "Виберіть джерело мега-меню"
+
+#: build/editor.js:1
+msgid "Megamenu Settings"
+msgstr "Налаштування мега-меню"
+
+#: build/editor.js:1
+msgid "Selected:"
+msgstr "Вибрано:"
+
+#: build/editor.js:1
+msgid "Edit in new tab"
+msgstr "Редагувати в новій вкладці"
+
+#: build/editor.js:1
+msgid "Change"
+msgstr "Змінити"
+
+#: build/editor.js:1
+msgid "Search global sections..."
+msgstr "Шукати глобальні секції..."
+
+#: build/editor.js:1
+msgid "Search patterns..."
+msgstr "Шукати шаблони..."
+
+#: build/editor.js:1
+msgid "No results found."
+msgstr "Результатів не знайдено."
+
+#: build/editor.js:1
+msgid "No global sections found."
+msgstr "Глобальні секції не знайдено."
+
+#: build/editor.js:1
+msgid "No patterns found. Create a synced pattern first."
+msgstr "Патернів не знайдено. Спочатку створіть синхронізований патерн."
+
+#: build/editor.js:1
+msgid "Animate a number counting up to a target value."
+msgstr "Анімувати підрахунок числа до цільового значення."
+
+#: build/editor.js:1
+msgid "Nectar Navigation"
+msgstr "Навігація Nectar"
+
+#: build/editor.js:1
+msgid "WordPress Navigation with Nectar enhancements."
+msgstr "WordPress-навігація з покращеннями Nectar."
+
+#: build/editor.js:1
+msgid ""
+"Only fields that resolve to a URL are used; others fall back to the post "
+"link."
+msgstr ""
+"Використовуються лише поля, які перетворюються на URL; інші повертаються до "
+"посилання запису."
+
+#: build/editor.js:1
+msgid "Apply animation state"
+msgstr "Застосувати стан анімації"
+
+#: build/editor.js:1
+msgid "Bypass animation — show raw blocks"
+msgstr "Обійти анімацію — показати необроблені блоки"
+
+#: build/editor.js:1
+msgid "Pin animation progress"
+msgstr "Закріпити прогрес анімації"
+
+#: build/editor.js:1
+msgid ""
+"Stays pinned to the viewport while scrolling. Edit in Animation settings."
+msgstr ""
+"Залишається прикріпленим до області перегляду під час прокручування. "
+"Редагуйте в налаштуваннях анімації."
+
+#: build/editor.js:1
+msgid "Pinned Timeline"
+msgstr "Закріплена хронологія"
+
+#: build/editor.js:1
+msgid "Contain Content"
+msgstr "Вмістити вміст"
+
+#: build/editor.js:1
+msgid "Header Appearance"
+msgstr "Вигляд шапки"
+
+#: build/editor.js:1
+msgid ""
+"Tags this section so the header switches to a chosen variant while the "
+"section is on screen. \"Default\" leaves the header in its normal lifecycle "
+"state."
+msgstr ""
+"Позначає цей розділ, щоб шапка перемикалася на обраний варіант, поки розділ "
+"на екрані. \"Default\" залишає шапку у її звичайному стані життєвого циклу."
+
+#: build/editor.js:1
+msgid "Input BG"
+msgstr "Фон поля введення"
+
+#: build/editor.js:1
+msgid "Popup BG"
+msgstr "Тло спливаючого вікна"
+
+#: build/editor.js:1
+msgid "Input Text"
+msgstr "Текст введення"
+
+#: build/editor.js:1
+msgid "Result Text"
+msgstr "Текст результату"
+
+#: build/editor.js:1
+msgid "Result Hover BG"
+msgstr "Фон результату при наведенні"
+
+#: build/editor.js:1
+msgid "All Post Types"
+msgstr "Усі типи записів"
+
+#: build/editor.js:1
+msgid "Dropdown"
+msgstr "Випадний список"
+
+#: build/editor.js:1
+msgid "Search Settings"
+msgstr "Налаштування пошуку"
+
+#: build/editor.js:1
+msgid "Placeholder"
+msgstr "Заповнювач"
+
+#: build/editor.js:1
+msgid "AJAX Search"
+msgstr "AJAX-пошук"
+
+#: build/editor.js:1
+msgid "Limit to post type"
+msgstr "Обмежити типом запису"
+
+#: build/editor.js:1
+msgid "Featured image"
+msgstr "Головне зображення"
+
+#: build/editor.js:1
+msgid "Post type"
+msgstr "Тип запису"
+
+#: build/editor.js:1
+msgid "Input Styling"
+msgstr "Стилізація полів введення"
+
+#: build/editor.js:1
+msgid "Focus"
+msgstr "Фокус"
+
+#: build/editor.js:1
+msgid "Effects"
+msgstr "Ефекти"
+
+#: build/editor.js:1
+msgid "Clear search"
+msgstr "Очистити пошук"
+
+#: build/editor.js:1
+msgid "AJAX results will appear here"
+msgstr "Результати AJAX з'являться тут"
+
+#: build/editor.js:1
+msgid "A search block with optional AJAX-powered results."
+msgstr "Блок пошуку з необов'язковими результатами на основі AJAX."
+
+#: build/editor.js:1
+#, js-format
+msgid "%s out of 5 stars"
+msgstr "%s з 5 зірок"
+
+#: build/editor.js:1
+msgid "Table of Contents"
+msgstr "Зміст"
+
+#: build/editor.js:1
+msgid "Link copied"
+msgstr "Посилання скопійовано"
+
+#: build/editor.js:1
+msgid "Collapsible"
+msgstr "Згортається"
+
+#: build/editor.js:1
+msgid "Always Visible"
+msgstr "Завжди видимий"
+
+#: build/editor.js:1
+msgid "Bullet"
+msgstr "Маркер"
+
+#: build/editor.js:1
+msgid "Headings"
+msgstr "Заголовки"
+
+#: build/editor.js:1
+msgid "List Style"
+msgstr "Стиль списку"
+
+#: build/editor.js:1
+msgid "Item Gap"
+msgstr "Проміжок між елементами"
+
+#: build/editor.js:1
+msgid "Hierarchical"
+msgstr "Ієрархічний"
+
+#: build/editor.js:1
+msgid "Parent Active Only"
+msgstr "Лише активний батьківський"
+
+#: build/editor.js:1
+msgid ""
+"Highlight only the parent item as scroll moves through its children. Useful "
+"when child headings flow inline."
+msgstr ""
+"Виділяти лише батьківський елемент, коли прокручування переміщується через "
+"його дочірні елементи. Корисно, коли дочірні заголовки розташовані в один "
+"рядок."
+
+#: build/editor.js:1
+msgid "Smooth Scroll"
+msgstr "Плавне прокручування"
+
+#: build/editor.js:1
+msgid ""
+"Extra space between the header navigation and the heading you scroll to"
+msgstr ""
+"Додатковий простір між навігацією шапки та заголовком, до якого Ви "
+"прокручуєте"
+
+#: build/editor.js:1
+msgid "Anchor Links"
+msgstr "Якірні посилання"
+
+#: build/editor.js:1
+msgid "Adds link icons to headings on the page"
+msgstr "Додає іконки посилань до заголовків на сторінці"
+
+#: build/editor.js:1
+msgid "Heading (default)"
+msgstr "Заголовок (типово)"
+
+#: build/editor.js:1
+msgid "Scroll target"
+msgstr "Ціль прокручування"
+
+#: build/editor.js:1
+msgid "Current target:"
+msgstr "Поточна ціль:"
+
+#: build/editor.js:1
+msgid "No blocks available."
+msgstr "Немає доступних блоків."
+
+#: build/editor.js:1
+msgid "Scroll target options"
+msgstr "Параметри цілі прокручування"
+
+#: build/editor.js:1
+msgid "Scroll to:"
+msgstr "Прокрутити до:"
+
+#: build/editor.js:1
+msgid "Items"
+msgstr "Елементи"
+
+#: build/editor.js:1
+msgid "Active Text"
+msgstr "Активний текст"
+
+#: build/editor.js:1
+msgid "Active Opacity"
+msgstr "Непрозорість активного"
+
+#: build/editor.js:1
+msgid "No headings found. Add heading blocks to your content."
+msgstr "Заголовків не знайдено. Додайте блоки заголовків до Вашого вмісту."
+
+#: build/editor.js:1
+msgid "Auto-generated navigation for page headings."
+msgstr "Автоматично згенерована навігація для заголовків сторінки."
+
+#: build/editor.js:1
+msgid "toc"
+msgstr "зміст"
+
+#: build/editor.js:1
+msgid "table of contents"
+msgstr "зміст"
+
+#: build/editor.js:1
+msgid "navigation"
+msgstr "навігація"
+
+#: build/editor.js:1
+msgid "headings"
+msgstr "заголовки"
+
+#: build/editor.js:1
+msgid "John Doe.."
+msgstr "John Doe.."
+
+#: build/editor.js:1
+msgid "@nectarblocks.."
+msgstr "@nectarblocks.."
+
+#: build/editor.js:1
+msgid "”Enter the testimonial text here..”"
+msgstr "\"Введіть текст відгуку тут..\""
+
+#: build/editor.js:1
+msgid "Insert Dynamic Text"
+msgstr "Вставити динамічний текст"
+
+#: build/editor.js:1
+msgid "Dynamic Text"
+msgstr "Динамічний текст"
+
+#: build/editor.js:1
+msgid "Animate by word or by individual character."
+msgstr "Анімувати за словом або за окремим символом."
+
+#: build/editor.js:1
+msgid "Sync to Pin"
+msgstr "Синхронізувати з пін-кодом"
+
+#: build/editor.js:1
+msgid "This text animation is synced to a parent block using"
+msgstr "Цю анімацію тексту синхронізовано з батьківським блоком за допомогою"
+
+#: build/editor.js:1
+msgid "Align text left"
+msgstr "Вирівняти текст ліворуч"
+
+#: build/editor.js:1
+msgid "Align text center"
+msgstr "Вирівняти текст по центру"
+
+#: build/editor.js:1
+msgid "Align text right"
+msgstr "Вирівняти текст праворуч"
+
+#: build/editor.js:1
+msgid "Align text"
+msgstr "Вирівняти текст"
+
+#: build/editor.js:1
+msgid "Ticker Item"
+msgstr "Елемент стрічки"
+
+#: build/editor.js:1
+msgid "A section for content inside the ticker."
+msgstr "Секція для вмісту всередині стрічки."
+
+#: build/editor.js:1
+msgid "ticker"
+msgstr "тікер"
+
+#: build/editor.js:1
+msgid "ticker item"
+msgstr "елемент стрічки"
+
+#: build/editor.js:1
+msgid "Empty item"
+msgstr "Порожній елемент"
+
+#: build/editor.js:1
+msgid "Ticker Items"
+msgstr "Елементи тікера"
+
+#: build/editor.js:1
+msgid "Add items to the ticker to reorder them here."
+msgstr "Додайте елементи до стрічки, щоб змінити їхній порядок тут."
+
+#: build/editor.js:1
+msgid "Add Item"
+msgstr "Додати елемент"
+
+#: build/editor.js:1
+msgid "Delete item"
+msgstr "Видалити елемент"
+
+#: build/editor.js:1
+msgid "Delete Ticker Item"
+msgstr "Видалити елемент тікера"
+
+#: build/editor.js:1
+msgid "Previous Item"
+msgstr "Попередній елемент"
+
+#: build/editor.js:1
+msgid "Next Item"
+msgstr "Наступний елемент"
+
+#: build/editor.js:1
+msgid "Uniform Width"
+msgstr "Однакова ширина"
+
+#: build/editor.js:1
+msgid "Uniform Height"
+msgstr "Однакова висота"
+
+#: build/editor.js:1
+msgid "Drag to Move"
+msgstr "Перетягніть, щоб перемістити"
+
+#: build/editor.js:1
+msgid "Frontend only"
+msgstr "Лише фронтенд"
+
+#: build/editor.js:1
+msgid "Scroll Velocity"
+msgstr "Швидкість прокручування"
+
+#: build/editor.js:1
+msgid "Speed increases when scrolling. Frontend only."
+msgstr "Швидкість збільшується під час прокручування. Тільки на фронтенді."
+
+#: build/editor.js:1
+msgid "Dynamic Direction"
+msgstr "Динамічний напрямок"
+
+#: build/editor.js:1
+msgid ""
+"Ticker direction follows scroll direction instead of using a fixed "
+"direction."
+msgstr ""
+"Напрямок стрічки слідує за напрямком прокручування замість використання "
+"фіксованого напрямку."
+
+#: build/editor.js:1
+msgid "Loop copy"
+msgstr "Копія циклу"
+
+#: build/editor.js:1
+msgid "Ticker"
+msgstr "Тікер"
+
+#: build/editor.js:1
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr ""
+"Відображати вміст у нескінченному безперервному циклі у стилі біжучого "
+"рядка."
+
+#: build/editor.js:1
+msgid "scroll"
+msgstr "прокрутка"
+
+#: build/editor.js:1
+msgid "loop"
+msgstr "цикл"
+
+#: build/editor.js:1
+msgid "Custom Skin"
+msgstr "Користувацька обкладинка"
+
+#: build/editor.js:1
+msgid "Tint"
+msgstr "Відтінок"
+
+#: build/editor.js:1
+msgid "Toolbar Roundness"
+msgstr "Заокругленість панелі інструментів"
+
+#: build/editor.js:1
+msgid "Buttons Roundness"
+msgstr "Округлість кнопок"
+
+#: build/editor.js:1
+msgid "Bar"
+msgstr "Панель"
+
+#: build/editor.js:1
+msgid "Minimal"
+msgstr "Мінімальний"
+
+#: build/editor.js:1
+msgid "Preview Video"
+msgstr "Попередній перегляд відео"
+
+#: build/editor.js:1
+msgid "Short"
+msgstr "Короткий"
+
+#: build/editor.js:1
+msgid "Long"
+msgstr "Довгий"
+
+#: build/editor.js:1
+msgid "Numeric"
+msgstr "Числовий"
+
+#: build/editor.js:1
+msgid "Weekday Short"
+msgstr "Скорочений день тижня"
+
+#: build/editor.js:1
+msgid "Weekday Full"
+msgstr "День тижня повністю"
+
+#: build/editor.js:1
+msgid "12h"
+msgstr "12 год"
+
+#: build/editor.js:1
+msgid "24h"
+msgstr "24 год"
+
+#: build/editor.js:1
+msgid "Before"
+msgstr "Перед"
+
+#: build/editor.js:1
+msgid "After"
+msgstr "Після"
+
+#: build/editor.js:1
+msgid "Same"
+msgstr "Те саме"
+
+#: build/editor.js:1
+msgid "Smaller"
+msgstr "Менше"
+
+#: build/editor.js:1
+msgid "Time Settings"
+msgstr "Налаштування часу"
+
+#: build/editor.js:1
+msgid "City"
+msgstr "Місто"
+
+#: build/editor.js:1
+msgid "Search for a city..."
+msgstr "Шукати місто..."
+
+#: build/editor.js:1
+msgid "Time Format"
+msgstr "Формат часу"
+
+#: build/editor.js:1
+msgid "Format"
+msgstr "Формат"
+
+#: build/editor.js:1
+msgid "Show Timezone"
+msgstr "Показати часовий пояс"
+
+#: build/editor.js:1
+msgid "Show Seconds"
+msgstr "Показувати секунди"
+
+#: build/editor.js:1
+msgid "World Time"
+msgstr "Світовий час"
+
+#: build/editor.js:1
+msgid "Display the current time for any major city worldwide."
+msgstr "Відображати поточний час для будь-якого великого міста у світі."
+
+#: build/editor.js:1
+msgid "time"
+msgstr "час"
+
+#: build/editor.js:1
+msgid "clock"
+msgstr "годинник"
+
+#: build/editor.js:1
+msgid "world"
+msgstr "світ"
+
+#: build/editor.js:1
+msgid "timezone"
+msgstr "часовий пояс"
+
+#: build/editor.js:1
+msgid "Nectarblocks Palette"
+msgstr "Палітра Nectarblocks"
+
+#: build/editor.js:1
+msgid "WordPress Color Scheme"
+msgstr "Колірна схема WordPress"
+
+#: build/editor.js:1
+msgid "Linear"
+msgstr "Лінійний"
+
+#: build/editor.js:1
+msgid "Tension"
+msgstr "Напруга"
+
+#: build/editor.js:1
+msgid "Friction"
+msgstr "Тертя"
+
+#: build/editor.js:1
+msgid "Settle"
+msgstr "Settle"
+
+#: build/editor.js:1
+msgid "Spring"
+msgstr "Весна"
+
+#: build/editor.js:1
+msgid "Bulk Edit"
+msgstr "Масове редагування"
+
+#: build/editor.js:1
+msgid "Deselect image"
+msgstr "Скасувати вибір зображення"
+
+#: build/editor.js:1
+msgid "Images"
+msgstr "Зображення"
+
+#: build/editor.js:1
+msgid "Select images to delete in bulk"
+msgstr "Виберіть зображення для масового видалення"
+
+#: build/editor.js:1
+msgid "Select an image to edit its details"
+msgstr "Виберіть зображення, щоб редагувати його деталі"
+
+#: build/editor.js:1
+msgid "Reset"
+msgstr "Скинути"
+
+#: build/editor.js:1
+msgid "Add"
+msgstr "Додати"
+
+#: build/editor.js:1
+msgid "Untitled Color"
+msgstr "Колір без назви"
+
+#: build/editor.js:1
+msgid "Untitled Gradient"
+msgstr "Градієнт без назви"
+
+#: build/editor.js:1
+#, js-format
+msgid "Copied %s to clipboard"
+msgstr "Скопійовано %s до буфера обміну"
+
+#: build/editor.js:1
+msgid "Delete Selected"
+msgstr "Видалити вибране"
+
+#: build/editor.js:1
+msgid "Copy Hex"
+msgstr "Копіювати Hex"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete these"
+msgstr "Ви впевнені, що хочете видалити це"
+
+#: build/editor.js:1
+msgid "colors"
+msgstr "кольори"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these colors in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Якщо Ви вже використовуєте ці кольори в блоках, Ви можете за бажанням "
+"переназначити їх на інші."
+
+#: build/editor.js:1
+msgid "Reassign"
+msgstr "Перепризначити"
+
+#: build/editor.js:1
+msgid "Reassign selected colors"
+msgstr "Перепризначити вибрані кольори"
+
+#: build/editor.js:1
+msgid "Colors deleted successfully!"
+msgstr "Кольори успішно видалено!"
+
+#: build/editor.js:1
+msgid "Daydream"
+msgstr "Мрія"
+
+#: build/editor.js:1
+msgid "Palette saved"
+msgstr "Палітру збережено"
+
+#: build/editor.js:1
+msgid "Palette updated"
+msgstr "Палітру оновлено"
+
+#: build/editor.js:1
+msgid "Palette deleted"
+msgstr "Палітру видалено"
+
+#: build/editor.js:1
+msgid "Delete Palette"
+msgstr "Видалити палітру"
+
+#: build/editor.js:1
+msgid "Are you sure you want to delete this palette?"
+msgstr "Ви впевнені, що хочете видалити цю палітру?"
+
+#: build/editor.js:1
+msgid "No custom palettes yet."
+msgstr "Ще немає користувацьких палітр."
+
+#: build/editor.js:1
+msgid "Update Colors"
+msgstr "Оновити кольори"
+
+#: build/editor.js:1
+msgid "Palette Name"
+msgstr "Назва палітри"
+
+#: build/editor.js:1
+msgid "+ Save Current Colors"
+msgstr "+ Зберегти поточні кольори"
+
+#: build/editor.js:1
+msgid "Saved"
+msgstr "Збережено"
+
+#: build/editor.js:1
+msgid "Apply"
+msgstr "Застосувати"
+
+#: build/editor.js:1
+msgid "Palettes"
+msgstr "Палітри"
+
+#: build/editor.js:1
+msgid "Color Scale"
+msgstr "Шкала кольорів"
+
+#: build/editor.js:1
+msgid "Palette"
+msgstr "Палітра"
+
+#: build/editor.js:1
+msgid "Add Color"
+msgstr "Додати колір"
+
+#: build/editor.js:1
+msgid "Add Gradient"
+msgstr "Додати градієнт"
+
+#: build/editor.js:1
+msgid "Colors"
+msgstr "Кольори"
+
+#: build/editor.js:1
+msgid "Base"
+msgstr "База"
+
+#: build/editor.js:1
+msgid "font rules"
+msgstr "правила шрифту"
+
+#: build/editor.js:1
+msgid ""
+"If you're already using these fonts in blocks, you can optionally reassign "
+"them to another."
+msgstr ""
+"Якщо Ви вже використовуєте ці шрифти в блоках, Ви можете за бажанням "
+"переназначити їх на інший."
+
+#: build/editor.js:1
+msgid "Reassign selected fonts"
+msgstr "Перепризначити вибрані шрифти"
+
+#: build/editor.js:1
+msgid "Text Styles"
+msgstr "Стилі тексту"
+
+#: build/editor.js:1
+msgid "Add Rule"
+msgstr "Додати правило"
+
+#: build/editor.js:1
+msgid "Restart Guide"
+msgstr "Посібник з перезапуску"
+
+#: build/editor.js:1
+msgid "Transition"
+msgstr "Перехід"
+
+#: build/editor.js:1
+msgid "Reset to Default Content"
+msgstr "Скинути до типового вмісту"
+
+#: build/editor.js:1
+msgid ""
+"This will replace all current content with the default template. This action"
+" cannot be undone."
+msgstr ""
+"Це замінить весь поточний вміст типовим шаблоном. Цю дію не можна скасувати."
+
+#: build/editor.js:1
+msgid "Resetting..."
+msgstr "Скидання..."
+
+#: build/editor.js:1
+msgid "Reset Content"
+msgstr "Скинути вміст"
+
+#: build/editor.js:1
+msgid "Page titles are hidden globally via Plugin Options → Hide Page Titles."
+msgstr ""
+"Заголовки сторінок приховано глобально через Параметри плагіна → Приховати "
+"заголовки сторінок."
+
+#: build/editor.js:1
+msgid "Editor canvas"
+msgstr "Полотно редактора"
+
+#: build/editor.js:1
+msgid ""
+"Sets the editor-only background behind the header while editing this state. "
+"Helps you design against the real-world context (e.g. a dark hero) without "
+"affecting the published site."
+msgstr ""
+"Встановлює фон лише для редактора позаду шапки під час редагування цього "
+"стану. Допомагає Вам проектувати з урахуванням реального контексту "
+"(наприклад, темного hero-блоку) без впливу на опублікований сайт."
+
+#: build/editor.js:1
+msgid "Clear"
+msgstr "Очистити"
+
+#: build/editor.js:1
+msgid "More options"
+msgstr "Більше параметрів"
+
+#: build/editor.js:1
+msgid "Delete Variant Confirmation"
+msgstr "Підтвердження видалення варіанта"
+
+#: build/editor.js:1
+msgid ""
+"Saved style values for this variant on this page will be removed. You can "
+"undo (Cmd/Ctrl+Z) to restore them. Other pages are unaffected until next "
+"edited."
+msgstr ""
+"Збережені значення стилів для цього варіанта на цій сторінці буде видалено. "
+"Ви можете скасувати (Cmd/Ctrl+Z), щоб відновити їх. Інші сторінки залишаться"
+" незмінними до наступного редагування."
+
+#: build/editor.js:1
+msgid "Name is too long (max 40 characters)."
+msgstr "Ім'я занадто довге (макс. 40 символів)."
+
+#: build/editor.js:1
+msgid "A state or variant already uses that name."
+msgstr "Стан або варіант уже використовує цю назву."
+
+#: build/editor.js:1
+msgid "Name must include letters or numbers."
+msgstr "Ім'я має містити літери або цифри."
+
+#: build/editor.js:1
+msgid "Name is required."
+msgstr "Ім'я є обов'язковим."
+
+#: build/editor.js:1
+msgid "Header State"
+msgstr "Стан шапки"
+
+#: build/editor.js:1
+msgid "Lifecycle state"
+msgstr "Стан життєвого циклу"
+
+#: build/editor.js:1
+msgid ""
+"Create custom looks for the header to use over specific sections, like a "
+"\"Cream\" version for light hero areas. Tag a row with a variant from its "
+"Header Appearance setting and the header switches to that look while the row"
+" is on screen."
+msgstr ""
+"Створюйте власні варіанти вигляду шапки для використання над певними "
+"секціями, наприклад версію \"Кремова\" для світлих геройських областей. "
+"Позначте рядок варіантом у його налаштуванні \"Вигляд шапки\", і шапка "
+"перемкнеться на цей вигляд, поки рядок на екрані."
+
+#: build/editor.js:1
+msgid "Add Variant"
+msgstr "Додати варіант"
+
+#: build/editor.js:1
+msgid "e.g. Dark, Cream"
+msgstr "наприклад, темна, кремова"
+
+#: build/editor.js:1
+msgid "Create"
+msgstr "Створити"
+
+#: build/editor.js:1
+msgid "Custom color"
+msgstr "Користувацький колір"
+
+#: build/editor.js:1
+msgid ""
+"This clears settings stored on this specific combination only. The variant "
+"base and the lifecycle state are unaffected."
+msgstr ""
+"Це очищає налаштування, збережені лише для цієї конкретної комбінації. "
+"Базовий варіант і стан життєвого циклу залишаються незмінними."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings for this variant (including any lifecycle overrides"
+" inside it). The variant entry itself stays in the list."
+msgstr ""
+"Це очищає всі налаштування для цього варіанта (включно з будь-якими "
+"перевизначеннями життєвого циклу всередині нього). Сам запис варіанта "
+"залишається у списку."
+
+#: build/editor.js:1
+msgid ""
+"This clears all settings stored on this lifecycle state. Other states and "
+"variants are unaffected."
+msgstr ""
+"Це очищає всі налаштування, збережені в цьому стані життєвого циклу. Інші "
+"стани та варіанти залишаються незмінними."
+
+#: build/editor.js:1
+msgid "Reset this state"
+msgstr "Скинути цей стан"
+
+#: build/editor.js:1
+msgid "Reset Header State"
+msgstr "Скинути стан шапки"
+
+#: build/editor.js:1
+msgid "Are you sure you want to reset the"
+msgstr "Ви впевнені, що хочете скинути"
+
+#: build/editor.js:1
+msgid "header state?"
+msgstr "стан шапки?"
+
+#: build/editor.js:1
+msgid "Confirm Reset"
+msgstr "Підтвердити скидання"
+
+#: build/editor.js:1
+msgid "Template State"
+msgstr "Стан шаблону"
+
+#: build/editor.js:1
+msgid "Blog"
+msgstr "Блог"
+
+#: build/editor.js:1
+msgid "FAQ"
+msgstr "ЧаПи"
+
+#: build/editor.js:1
+msgid "Gallery"
+msgstr "Галерея"
+
+#: build/editor.js:1
+msgid "Hero Section"
+msgstr "Секція героя"
+
+#: build/editor.js:1
+msgid "Logos"
+msgstr "Логотипи"
+
+#: build/editor.js:1
+msgid "Off-Canvas Menu"
+msgstr "Меню поза полотном"
+
+#: build/editor.js:1
+msgid "Services"
+msgstr "Послуги"
+
+#: build/editor.js:1
+msgid "Stats"
+msgstr "Статистика"
+
+#: build/editor.js:1
+msgid "Team"
+msgstr "Команда"
+
+#: build/editor.js:1
+msgid "Testimonials"
+msgstr "Відгуки"
+
+#: build/editor.js:1
+msgid "Hover to preview the pinned scroll animation"
+msgstr "Наведіть курсор, щоб переглянути закріплену анімацію прокручування"
+
+#: build/editor.js:1
+msgid "Pinned Scroll"
+msgstr "Закріплена прокрутка"
+
+#: build/editor.js:1
+msgid "This template renders content dynamically from your site's data"
+msgstr "Цей шаблон відображає вміст динамічно з даних Вашого сайту"
+
+#: build/editor.js:1
+msgid ""
+"Title hidden on the live page — set globally in Plugin Options → Hide Page "
+"Titles"
+msgstr ""
+"Заголовок прихований на опублікованій сторінці — встановлено глобально в "
+"Параметри плагіна → Приховати заголовки сторінок"
+
+#: build/editor.js:1
+msgid "Title hidden on the live page"
+msgstr "Заголовок прихований на опублікованій сторінці"
+
+#: build/editor.js:1
+msgid "Title visible on the live page"
+msgstr "Заголовок, видимий на опублікованій сторінці"
+
+#: build/editor.js:1
+msgid "Unsplash"
+msgstr "Unsplash"
+
+#: build/editor.js:1
+msgid "Skip tour"
+msgstr "Пропустити тур"
+
+#: build/editor.js:1
+msgid "Click the highlighted button to continue"
+msgstr "Натисніть виділену кнопку, щоб продовжити"
+
+#: build/editor.js:1
+msgid "Start Tour"
+msgstr "Розпочати тур"
+
+#: build/editor.js:1
+msgid "Finish"
+msgstr "Завершити"
+
+#: build/editor.js:1
+msgid "Welcome to Nectarblocks"
+msgstr "Ласкаво просимо до Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"Let's take a quick tour of the editor so you can start building beautiful "
+"pages in no time."
+msgstr ""
+"Давайте швидко ознайомимося з редактором, щоб Ви могли почати створювати "
+"красиві сторінки без зайвих зусиль."
+
+#: build/editor.js:1
+msgid "This will only take a moment. You can exit anytime."
+msgstr "Це займе лише мить. Ви можете вийти будь-коли."
+
+#: build/editor.js:1
+msgid "Add Blocks"
+msgstr "Додати блоки"
+
+#: build/editor.js:1
+msgid ""
+"This is the block inserter. Go ahead, click it to see the available blocks."
+msgstr "Це вставка блоків. Натисніть її, щоб побачити доступні блоки."
+
+#: build/editor.js:1
+msgid "The Block Library"
+msgstr "Бібліотека блоків"
+
+#: build/editor.js:1
+msgid ""
+"The Nectarblocks category appears at the top of the list, with each block "
+"highlighted in blue for easy identification."
+msgstr ""
+"Категорія Nectarblocks з'являється у верхній частині списку, кожен блок "
+"виділено синім кольором для легкої ідентифікації."
+
+#: build/editor.js:1
+msgid ""
+"From rows and columns to images, headings, and advanced layouts. Everything "
+"starts here."
+msgstr ""
+"Від рядків і колонок до зображень, заголовків та складних макетів. Все "
+"починається тут."
+
+#: build/editor.js:1
+msgid ""
+"Jump-start your design with professionally crafted templates. Click here to "
+"browse the full collection."
+msgstr ""
+"Швидко розпочніть свій дизайн із професійно створених шаблонів. Клацніть "
+"тут, щоб переглянути повну колекцію."
+
+#: build/editor.js:1
+msgid "Every template automatically adapts to your design system."
+msgstr "Кожен шаблон автоматично адаптується до Вашої системи дизайну."
+
+#: build/editor.js:1
+msgid "Responsive & Hover Modes"
+msgstr "Режими адаптивності та наведення"
+
+#: build/editor.js:1
+msgid ""
+"Switch between Desktop, Tablet, Phone, and Hover editing modes here. Changes"
+" apply only to the selected mode, giving you precise control over every "
+"breakpoint."
+msgstr ""
+"Перемикайтеся між режимами редагування для комп'ютера, планшета, телефону та"
+" наведення тут. Зміни застосовуються лише до вибраного режиму, надаючи Вам "
+"точний контроль над кожною контрольною точкою."
+
+#: build/editor.js:1
+msgid "Settings highlighted in"
+msgstr "Налаштування виділені в"
+
+#: build/editor.js:1
+msgid "can be customized independently for each mode."
+msgstr "можна налаштувати незалежно для кожного режиму."
+
+#: build/editor.js:1
+msgid "Nectarblocks Sidebar"
+msgstr "Бічна панель Nectarblocks"
+
+#: build/editor.js:1
+msgid ""
+"This is where your design system lives. Colors, gradients, and typography "
+"that can be applied to any block across your site."
+msgstr ""
+"Тут знаходиться Ваша система дизайну. Кольори, градієнти та типографіка, які"
+" можна застосувати до будь-якого блоку на Вашому сайті."
+
+#: build/editor.js:1
+msgid "Click it to take a look inside."
+msgstr "Клацніть, щоб переглянути вміст."
+
+#: build/editor.js:1
+msgid "Your Design System"
+msgstr "Ваша система дизайну"
+
+#: build/editor.js:1
+msgid ""
+"Manage your global color palette and typography rules here. Changes cascade "
+"across every block on every page, making it easy to maintain a consistent "
+"design system."
+msgstr ""
+"Керуйте Вашою глобальною палітрою кольорів та правилами типографіки тут. "
+"Зміни каскадуються на кожен блок на кожній сторінці, що полегшує підтримку "
+"послідовної системи дизайну."
+
+#: build/editor.js:1
+msgid ""
+"Select any block and click here to open its settings panel. Each block "
+"offers extensive customization including colors, spacing, typography, "
+"animations, and more."
+msgstr ""
+"Виберіть будь-який блок і клацніть тут, щоб відкрити його панель "
+"налаштувань. Кожен блок пропонує широкі можливості налаштування, включаючи "
+"кольори, відступи, типографіку, анімації та багато іншого."
+
+#: build/editor.js:1
+msgid ""
+"Having trouble selecting a block? Try the Document Overview for a full "
+"outline of your page structure."
+msgstr ""
+"Маєте проблеми з вибором блоку? Спробуйте огляд документа для повного "
+"контуру структури Вашої сторінки."
+
+#: build/editor.js:1
+msgid "You're all set!"
+msgstr "Все готово!"
+
+#: build/editor.js:1
+msgid ""
+"You now know the essentials. Start building your page and explore each "
+"block's settings to discover everything Nectarblocks can do."
+msgstr ""
+"Тепер Ви знаєте основи. Почніть створювати свою сторінку та досліджуйте "
+"налаштування кожного блоку, щоб відкрити все, що може Nectarblocks."
+
+#: build/editor.js:1
+msgid ""
+"To replay this guide, open the Nectarblocks Settings sidebar and click "
+"\"Restart Guide\" at the bottom."
+msgstr ""
+"Щоб переглянути цей посібник знову, відкрийте бічну панель налаштувань "
+"Nectarblocks і натисніть «Перезапустити посібник» внизу."
+
+#: build/editor.js:1
+msgid "Visit the Nectarblocks Academy"
+msgstr "Відвідайте Академію Nectarblocks"
+
+#: build/editor.js:1
+msgid "Inherit (same as desktop)"
+msgstr "Успадкувати (як на комп'ютері)"
+
+#: build/editor.js:1
+msgid "(Untitled)"
+msgstr "(Без назви)"
+
+#: build/editor.js:1
+msgid "Classic"
+msgstr "Класичний"
+
+#: build/editor.js:1
+msgid "Editing Header State"
+msgstr "Редагування стану шапки"
+
+#: build/editor.js:1
+msgid "Scrolled"
+msgstr "Прокручено"
+
+#: build/editor.js:1
+msgid "Overlay Menu"
+msgstr "Меню-накладка"
+
+#: build/editor.js:1
+msgid "on"
+msgstr "увімкнено"
+
+#: build/editor.js:1
+msgid "Menu Items"
+msgstr "Елементи меню"
+
+#: build/editor.js:1
+msgid "Dropdowns"
+msgstr "Випадні списки"
+
+#: build/editor.js:1
+msgid "States"
+msgstr "Штати"
+
+#: build/editor.js:1
+msgid "FX"
+msgstr "FX"
+
+#: build/editor.js:1
+msgid "Active"
+msgstr "Активний"
+
+#: build/editor.js:1
+msgid "Animation"
+msgstr "Анімація"
+
+#: build/editor.js:1
+msgid "3 Lines"
+msgstr "3 рядки"
+
+#: build/editor.js:1
+msgid "2 Lines"
+msgstr "2 рядки"
+
+#: build/editor.js:1
+msgid "Text Only"
+msgstr "Лише текст"
+
+#: build/editor.js:1
+msgid ""
+"The Off Canvas Menu template part is rendering the overlay. Edit it to "
+"change the menu content."
+msgstr ""
+"Шаблонна частина меню поза полотном відображає оверлей. Відредагуйте її, щоб"
+" змінити вміст меню."
+
+#: build/editor.js:1
+msgid ""
+"Choose a different menu for the mobile overlay. “Inherit” uses the current "
+"navigation."
+msgstr ""
+"Виберіть інше меню для мобільного оверлею. «Успадкувати» використовує "
+"поточну навігацію."
+
+#: build/editor.js:1
+msgid "Menu Source"
+msgstr "Джерело меню"
+
+#: build/editor.js:1
+msgid "(no title)"
+msgstr "(без назви)"
+
+#: build/editor.js:1
+msgid "Edit Off Canvas Menu template"
+msgstr "Редагувати шаблон меню поза полотном"
+
+#: build/editor.js:1
+msgid "Select a menu"
+msgstr "Виберіть меню"
+
+#: build/editor.js:1
+msgid "Menu Text"
+msgstr "Текст меню"
+
+#: build/editor.js:1
+msgid "Close BG"
+msgstr "Закрити тло"
+
+#: build/editor.js:1
+msgid "Close Icon"
+msgstr "Піктограма закриття"
+
+#: build/editor.js:1
+msgid "Morph"
+msgstr "Морф"
+
+#: build/editor.js:1
+msgid "Fade"
+msgstr "Згасання"
+
+#: build/editor.js:1
+msgid "Dropdown BG"
+msgstr "Тло випадного меню"
+
+#: build/editor.js:1
+msgid "Panel"
+msgstr "Панель"
+
+#: build/editor.js:1
+msgid "Item"
+msgstr "Елемент"
+
+#: build/editor.js:1
+msgid "Menu"
+msgstr "Меню"
+
+#: build/editor.js:1
+msgid "Span"
+msgstr "Проміжок"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block title"
+msgid "Header Account"
+msgstr "Обліковий запис шапки"
+
+#: build/blocks/header-action-account/block.json
+msgctxt "block description"
+msgid "Links to the user account page."
+msgstr "Посилання на сторінку облікового запису користувача."
+
+#: build/blocks/header-actions/block.json
+msgctxt "block title"
+msgid "Header Actions"
+msgstr "Дії шапки"
+
+#: build/blocks/header-actions/block.json
+msgctxt "block description"
+msgid "Theme header action container (search/cart/account)."
+msgstr "Контейнер дій шапки теми (пошук/кошик/обліковий запис)."
+
+#: build/blocks/megamenu/block.json
+msgctxt "block title"
+msgid "Megamenu"
+msgstr "Мега-меню"
+
+#: build/blocks/megamenu/block.json
+msgctxt "block description"
+msgid "Display a global section or pattern as a megamenu dropdown."
+msgstr "Відображати глобальний розділ або шаблон як спадне мега-меню."
+
+#: build/blocks/navigation/block.json
+msgctxt "block title"
+msgid "Nectar Navigation"
+msgstr "Навігація Nectar"
+
+#: build/blocks/navigation/block.json
+msgctxt "block description"
+msgid "Nectar wrapper around the WordPress Navigation block."
+msgstr "Обгортка Nectar навколо блоку Navigation WordPress."
+
+#: build/blocks/search/block.json
+msgctxt "block title"
+msgid "Search"
+msgstr "Пошук"
+
+#: build/blocks/search/block.json
+msgctxt "block description"
+msgid "A search block with optional AJAX-powered results."
+msgstr "Блок пошуку з необов'язковими результатами на основі AJAX."
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block title"
+msgid "Table of Contents"
+msgstr "Зміст"
+
+#: build/blocks/table-of-contents/block.json
+msgctxt "block description"
+msgid "Auto-generated navigation for page headings."
+msgstr "Автоматично згенерована навігація для заголовків сторінки."
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block title"
+msgid "Ticker Item"
+msgstr "Елемент тікера"
+
+#: build/blocks/ticker-item/block.json
+msgctxt "block description"
+msgid "A section for content inside the ticker."
+msgstr "Секція для вмісту всередині стрічки."
+
+#: build/blocks/ticker/block.json
+msgctxt "block title"
+msgid "Ticker"
+msgstr "Тікер"
+
+#: build/blocks/ticker/block.json
+msgctxt "block description"
+msgid "Display content in an endless continuous marquee-style loop."
+msgstr ""
+"Відображає вміст у нескінченному безперервному циклі у стилі біжучого рядка."
+
+#: build/blocks/world-time/block.json
+msgctxt "block title"
+msgid "Nectar World Time"
+msgstr "Nectar World Time"
+
+#: build/blocks/world-time/block.json
+msgctxt "block description"
+msgid "Display the current time for any major city worldwide."
+msgstr "Відображає поточний час для будь-якого великого міста у світі."
+
+#~ msgid "Post"
+#~ msgstr "Запис"
+
+#~ msgid "Core Gradient #1"
+#~ msgstr "Основний градієнт #1"
+
+#~ msgid "Core Gradient #2"
+#~ msgstr "Основний градієнт #2"
+
+#~ msgid "Core Gradient #3"
+#~ msgstr "Основний градієнт #3"
+
+#~ msgid "Core Gradient #4"
+#~ msgstr "Основний градієнт #4"
+
+#~ msgid "Core Gradient #5"
+#~ msgstr "Основний градієнт #5"
+
+#~ msgid "Accent Light"
+#~ msgstr "Акцентне світло"
+
+#~ msgid "Accent Primary"
+#~ msgstr "Основний акцент"
+
+#~ msgid "Accent Dark"
+#~ msgstr "Темний акцент"
+
+#~ msgid ""
+#~ "Add in a symbol or emoji to display as the icon next to your menu title."
+#~ msgstr ""
+#~ "Додайте символ або емодзі для відображення як іконки поруч із заголовком "
+#~ "Вашого меню."
+
+#~ msgid "To add an Emoji:"
+#~ msgstr "Щоб додати Емодзі:"
+
+#~ msgid ""
+#~ "Windows: On your keyboard, press and hold the Windows button and either the "
+#~ "period (.) or semicolon (;)"
+#~ msgstr ""
+#~ "Windows: На клавіатурі натисніть і утримуйте кнопку Windows та крапку (.) "
+#~ "або крапку з комою (;)"
+
+#~ msgid "Mac: On your keyboard, press Command + Control + Space"
+#~ msgstr "Mac: На клавіатурі натисніть Command + Control + Space"
+
+#~ msgid "Theme License Code"
+#~ msgstr "Ліцензійний код теми"
+
+#~ msgid "Add a New Font"
+#~ msgstr "Додати новий шрифт"
+
+#~ msgid "No changes were made."
+#~ msgstr "Зміни не були внесені."
+
+#~ msgid ""
+#~ "for a successful import. Once the import process begins, please refrain from"
+#~ " refreshing the page until it has completed."
+#~ msgstr ""
+#~ "для успішного імпорту. Після початку процесу імпорту, будь ласка, "
+#~ "утримайтеся від оновлення сторінки до його завершення."
+
+#~ msgid "Move Up"
+#~ msgstr "Перемістити вгору"
+
+#~ msgid "Move Down"
+#~ msgstr "Перемістити вниз"
+
+#~ msgid "Enter"
+#~ msgstr "Введіть"
+
+#~ msgid ""
+#~ "\"Pin\" the block in place within the viewport while the animation plays "
+#~ "through."
+#~ msgstr ""
+#~ "Закріпити блок на місці у вікні перегляду під час відтворення анімації."
+
+#~ msgid "Start On"
+#~ msgstr "Увімкнути"
+
+#~ msgid "End On"
+#~ msgstr "Закінчити на"
+
+#~ msgid "Exit"
+#~ msgstr "Вийти"
+
+#~ msgid "Custom End Offset"
+#~ msgstr "Користувацьке кінцеве зміщення"
+
+#~ msgid "Adds smoothing to the animation while scrolling."
+#~ msgstr "Додає згладжування до анімації під час прокручування."
+
+#~ msgid "Animation Trigger Type"
+#~ msgstr "Тип тригера анімації"
+
+#~ msgid "Custom ID"
+#~ msgstr "Користувацький ID"
+
+#~ msgid "Flex Wrap"
+#~ msgstr "Перенесення flex"
+
+#~ msgid "Edit Filter"
+#~ msgstr "Редагувати фільтр"
+
+#~ msgid "Custom Attributes"
+#~ msgstr "Користувацькі атрибути"
+
+#~ msgid "Translate X"
+#~ msgstr "Зміщення по X"
+
+#~ msgid "Translate Y"
+#~ msgstr "Зміщення по Y"
+
+#~ msgid "Accordion Title"
+#~ msgstr "Заголовок акордеона"
+
+#~ msgid "Transition Speed (s)"
+#~ msgstr "Швидкість переходу (с)"
+
+#~ msgid "Time Between (s)"
+#~ msgstr "Час між (с)"
+
+#~ msgid "Highlight an important event or attribute."
+#~ msgstr "Виділіть важливу подію або атрибут."
+
+#~ msgid "Contained Content"
+#~ msgstr "Вміст у контейнері"
+
+#~ msgid "John Doe"
+#~ msgstr "Іван Іваненко"
+
+#~ msgid "@nectarblocks"
+#~ msgstr "@nectarblocks"
+
+#~ msgid "Enter the testimonial text here"
+#~ msgstr "Введіть текст відгуку тут"
+
+#~ msgid ""
+#~ "Hi there! I'm a bike messenger by day, aspiring actor by night, and this is "
+#~ "my website. I live in Los Angeles, have a great dog named Jack, and I like "
+#~ "piña coladas. (And gettin' caught in the rain.)"
+#~ msgstr ""
+#~ "Привіт! Я велокур’єр удень, актор-початківець увечері, і це мій вебсайт. Я "
+#~ "живу в Лос-Анджелесі, маю чудового пса на ім’я Джек, і люблю піна-коладу. (І"
+#~ " потрапляти під дощ.)"
+
+#~ msgid "Autoplay Trigger"
+#~ msgstr "Тригер автовідтворення"
+
+#~ msgid "WP Custom Color Scheme"
+#~ msgstr "Користувацька колірна схема WP"
+
+#~ msgid "Add Global Color"
+#~ msgstr "Додати глобальний колір"
+
+#~ msgid "Add Global Gradient"
+#~ msgstr "Додати глобальний градієнт"
+
+#~ msgid "Palette Presets"
+#~ msgstr "Попередні налаштування палітри"
+
+#~ msgid "Core Colors"
+#~ msgstr "Основні кольори"
+
+#~ msgid "Custom Colors"
+#~ msgstr "Користувацькі кольори"
+
+#~ msgid "Core Gradients"
+#~ msgstr "Основні градієнти"
+
+#~ msgid "Custom Gradients"
+#~ msgstr "Користувацькі градієнти"
+
+#~ msgid "Solids"
+#~ msgstr "Суцільні"
+
+#~ msgid "Rename Font"
+#~ msgstr "Перейменувати шрифт"
+
+#~ msgid "New Name"
+#~ msgstr "Нова назва"
+
+#~ msgid "Save Font Name"
+#~ msgstr "Зберегти назву шрифту"
+
+#~ msgid "Add New Font Rule"
+#~ msgstr "Додати нове правило шрифту"
+
+#~ msgid "Core Font Rules"
+#~ msgstr "Основні правила шрифтів"
+
+#~ msgid "Custom Font Rules"
+#~ msgstr "Правила користувацьких шрифтів"
+
+#~ msgid "Display Tutorial"
+#~ msgstr "Показати підручник"
+
+#~ msgid "Welcome Guide"
+#~ msgstr "Вітальний посібник"
+
+#~ msgid "Getting Started with Nectarblocks"
+#~ msgstr "Початок роботи з Nectarblocks"
+
+#~ msgid ""
+#~ "To start creating a page, you can add blocks by clicking the plus icon "
+#~ "located on the left of the top toolbar."
+#~ msgstr ""
+#~ "Щоб почати створювати сторінку, Ви можете додавати блоки, натиснувши значок "
+#~ "плюса, розташований ліворуч на верхній панелі інструментів."
+
+#~ msgid ""
+#~ "The Nectarblocks category will appear at the top of the block list, with "
+#~ "each block highlighted in blue for easy identification."
+#~ msgstr ""
+#~ "Категорія Nectarblocks з’явиться у верхній частині списку блоків, кожен блок"
+#~ " буде виділено синім кольором для легкої ідентифікації."
+
+#~ msgid "Meet the Template Library"
+#~ msgstr "Знайомтеся з бібліотекою шаблонів"
+
+#~ msgid ""
+#~ "Jump-start your website creation with our professionally designed collection"
+#~ " of pre-made templates."
+#~ msgstr ""
+#~ "Швидко розпочніть створення Вашого вебсайту з нашою професійно розробленою "
+#~ "колекцією готових шаблонів."
+
+#~ msgid ""
+#~ "You can easily access the library by clicking on the \"Template Library\" "
+#~ "button on the top toolbar. All templates from Nectarblocks are dynamic and "
+#~ "will adapt to fit your current global color and typography settings."
+#~ msgstr ""
+#~ "Ви можете легко отримати доступ до бібліотеки, натиснувши кнопку «Бібліотека"
+#~ " шаблонів» на верхній панелі інструментів. Усі шаблони від Nectarblocks є "
+#~ "динамічними і адаптуються до Ваших поточних глобальних налаштувань кольорів "
+#~ "та типографіки."
+
+#~ msgid ""
+#~ "Access global settings by clicking the Nectarblocks logo at the top right. "
+#~ "Create reusable color schemes and typography rules that can then be applied "
+#~ "to blocks throughout your pages."
+#~ msgstr ""
+#~ "Отримайте доступ до глобальних налаштувань, клацнувши логотип Nectarblocks у"
+#~ " верхньому правому куті. Створюйте багаторазові колірні схеми та "
+#~ "типографічні правила, які потім можна застосовувати до блоків на Ваших "
+#~ "сторінках."
+
+#~ msgid ""
+#~ "To access settings for a block, simply click on the Settings icon while the "
+#~ "desired block is selected."
+#~ msgstr ""
+#~ "Щоб отримати доступ до налаштувань блоку, просто клацніть на піктограмі "
+#~ "«Налаштування», коли потрібний блок вибрано."
+
+#~ msgid ""
+#~ "Each block offers an extensive range of customization options and settings, "
+#~ "empowering you to harness your global settings effectively. You can easily "
+#~ "maintain consistency and coherence across your entire design."
+#~ msgstr ""
+#~ "Кожен блок пропонує широкий спектр параметрів налаштування, що дає Вам змогу"
+#~ " ефективно використовувати Ваші глобальні налаштування. Ви можете легко "
+#~ "підтримувати узгодженість і цілісність у всьому Вашому дизайні."
+
+#~ msgid "Pro tip: "
+#~ msgstr "Професійна порада:"
+
+#~ msgid ""
+#~ "If you're struggling to select a specific block, check the Document Overview"
+#~ " to easily see the full structure of your page."
+#~ msgstr ""
+#~ "Якщо Ви не можете вибрати конкретний блок, перевірте огляд документа, щоб "
+#~ "легко побачити повну структуру Вашої сторінки."
+
+#~ msgid "Responsive and Hover Modes"
+#~ msgstr "Режими адаптивності та наведення"
+
+#~ msgid ""
+#~ "To switch between editing modes, click on one of the icons located at the "
+#~ "top-middle of the interface. Any changes you make to the settings will "
+#~ "affect the selected mode only. This allows for easy customization to "
+#~ "responsive and hover settings."
+#~ msgstr ""
+#~ "Щоб перемикатися між режимами редагування, клацніть на одній з іконок, "
+#~ "розташованих у верхній середній частині інтерфейсу. Будь-які зміни, які Ви "
+#~ "внесете до налаштувань, вплинуть лише на вибраний режим. Це дозволяє легко "
+#~ "налаштовувати параметри адаптивності та наведення курсора."
+
+#~ msgid "Keep an eye out for settings highlighted in"
+#~ msgstr "Слідкуйте за налаштуваннями, виділеними в"
+
+#~ msgid "— these are unique to the selected mode and can be edited separately."
+#~ msgstr "— вони унікальні для вибраного режиму і можуть редагуватися окремо."
+
+#~ msgid "It's time to start building"
+#~ msgstr "Час почати створення"
+
+#~ msgid ""
+#~ "To see this guide again, click the “Display Tutorial” button at the bottom "
+#~ "of the Nectarblocks Global Settings panel."
+#~ msgstr ""
+#~ "Щоб побачити цей посібник знову, натисніть кнопку «Показати навчання» внизу "
+#~ "панелі глобальних налаштувань Nectarblocks."
+
+#~ msgid "Intro"
+#~ msgstr "Вступ"
+
+#~ msgid "Quotes"
+#~ msgstr "Цитати"
+
 #~ msgid "Saving..."
 #~ msgstr "Збереження..."
 
 #~ msgid "Enter the name of your font.."
 #~ msgstr "Введіть назву вашого шрифту..."
-
-#~ msgid ""
-#~ "for a successful import. Once the import process begins,\n"
-#~ "                please refrain from refreshing the page until it has completed."
-#~ msgstr ""
-#~ "для успішного імпорту. Після початку процесу імпорту,\n"
-#~ "будь ласка, не оновлюйте сторінку до його завершення."
 
 #~ msgid ""
 #~ "Global Settings are primarily located in the right-hand side of \n"

@@ -27,6 +27,7 @@ function nectar_add_woo_admin_notice_script() {
 
     wp_localize_script( 'nectar-woo-admin-notice-update', 'notice_params', [
         'ajaxurl' => esc_url(get_admin_url()) . 'admin-ajax.php',
+        'nonce' => wp_create_nonce( 'nectar_dismiss_older_woo_templates_notice' ),
     ]);
 
     wp_enqueue_script(  'nectar-woo-admin-notice-update' );
@@ -36,6 +37,12 @@ function nectar_add_woo_admin_notice_script() {
 add_action( 'wp_ajax_nectar_dismiss_older_woo_templates_notice', 'nectar_dismiss_older_woo_templates_notice' );
 
 function nectar_dismiss_older_woo_templates_notice() {
+    check_ajax_referer( 'nectar_dismiss_older_woo_templates_notice', 'nonce' );
+
+    if ( ! current_user_can( 'manage_options' ) ) {
+        wp_send_json_error( 'forbidden', 403 );
+    }
+
     update_option( 'nectar_dismiss_older_woo_templates_notice', 'true' );
     wp_die();
 }

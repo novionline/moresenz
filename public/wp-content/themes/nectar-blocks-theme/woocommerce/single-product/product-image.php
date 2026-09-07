@@ -95,7 +95,7 @@ if( in_array($product_gallery_style, ['ios_slider','left_thumb_sticky','left_thu
 
             <div class="<?php echo esc_attr($slider_slide_class); ?>">
                 <?php
-                        $main_image_markup = '<div data-thumb="' . get_the_post_thumbnail_url( $post->ID, $gallery_thumbnail_size ) . '" class="woocommerce-product-gallery__image easyzoom">
+                        $main_image_markup = '<div data-thumb="' . esc_url( get_the_post_thumbnail_url( $post->ID, $gallery_thumbnail_size ) ) . '" class="woocommerce-product-gallery__image easyzoom">
 	          	<a href="' . esc_url( $img_link ) . '" class="no-ajaxy">' . get_the_post_thumbnail( $post->ID, 'shop_single', $attributes ) . '</a>
 	          </div>';
                         echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $main_image_markup, $product->get_image_id() );
@@ -127,7 +127,7 @@ if( in_array($product_gallery_style, ['ios_slider','left_thumb_sticky','left_thu
                                     'data-large_image_height' => $full_size_image[2],
                                 ];
 
-                            echo '<div class="' . esc_attr($slider_slide_class) . '"><div class="woocommerce-product-gallery__image easyzoom" data-thumb="' . get_the_post_thumbnail_url( $post->ID, $gallery_thumbnail_size ) . '"><a href="' . wp_get_attachment_url($product_attach_id) . '" class="no-ajaxy">';
+                            echo '<div class="' . esc_attr($slider_slide_class) . '"><div class="woocommerce-product-gallery__image easyzoom" data-thumb="' . esc_url( get_the_post_thumbnail_url( $post->ID, $gallery_thumbnail_size ) ) . '"><a href="' . esc_url( wp_get_attachment_url($product_attach_id) ) . '" class="no-ajaxy">';
                             echo wp_get_attachment_image($product_attach_id, 'shop_single', false, $attributes);
                             echo '</a></div></div>';
 
@@ -242,7 +242,7 @@ else if( 'two_column_images' === $product_gallery_style ) {
                     'data-large_image_height' => $full_size_image[2],
                 ];
 
-                echo '<div class="woocommerce-product-gallery__image"><a href="' . wp_get_attachment_url($product_attach_id) . '" class="no-ajaxy">';
+                echo '<div class="woocommerce-product-gallery__image"><a href="' . esc_url( wp_get_attachment_url($product_attach_id) ) . '" class="no-ajaxy">';
 
                 $gallery_img_size = 'shop_single';
 

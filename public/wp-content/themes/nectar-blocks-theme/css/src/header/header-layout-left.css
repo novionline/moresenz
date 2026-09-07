@@ -81,10 +81,9 @@ Description: Header Layout set to "Left Header" in theme options
         left:0;
          padding-left:var(--left-header-width, 275px);
     }
-     body[data-footer-reveal="1"][data-header-format="left-header"] #nectar_fullscreen_rows #footer-outer{
-        padding-left:0
-    }
-     body[data-header-format="left-header"] #nectar-content-wrap, body > .nectar-global-section {
+     body[data-header-format="left-header"] #nectar-content-wrap,
+     body > .nectar-global-section,
+     body:not([data-footer-reveal="1"]) #footer-outer {
         margin-left:var(--left-header-width, 275px)
     }
     body[data-header-format="left-header"].page-template-template-no-header #nectar-content-wrap,
@@ -786,6 +785,7 @@ body[data-header-format="left-header"][class*="page-template-template-no-header"
   .main-content > [class*="wp-block"].alignfull,
   .main-content > .nectar-blocks-row__sticky-wrapper > [class*="wp-block"].alignfull,
   .nectar-global-section > .normal-container > [class*="wp-block"].alignfull,
+  .nectar-global-section.normal-container > [class*="wp-block"].alignfull:not(:where(.span_9 *)),
   .single .post-area.span_12 .post-content > [class*="wp-block"].alignfull {
     margin-left: calc(-50vw + 135px);
 		margin-left: calc(-50vw + 135px + var(--scroll-bar-w)/2)!important;

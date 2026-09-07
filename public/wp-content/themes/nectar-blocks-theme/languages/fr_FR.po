@@ -40,15 +40,15 @@ msgstr ""
 msgid "NectarBlocks"
 msgstr "NectarBlocks"
 
-#: 404.php:49
+#: 404.php:51
 msgid "404"
 msgstr "404"
 
-#: 404.php:50
+#: 404.php:52
 msgid "Page Not Found"
 msgstr "Page Non Trouvée"
 
-#: 404.php:53
+#: 404.php:55
 msgid "Back Home"
 msgstr "Retour à l’accueil"
 
@@ -57,22 +57,22 @@ msgid "Join the discussion"
 msgstr "Rejoindre la discussion"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:109
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "No Comments"
 msgstr "Aucun commentaire"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
+#: includes/partials/single-post/post-header-no-img-regular.php:109
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "One Comment"
 msgstr "Un commentaire"
 
 #: comments.php:20
-#: includes/partials/single-post/post-header-no-img-regular.php:103
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:109
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "% Comments"
@@ -108,7 +108,7 @@ msgstr "Vous devez <a href=\"%s\">vous connecter</a> pour publier un commentaire
 
 #. translators: 1: user profile URL, 2: user display name, 3: logout URL
 #: comments.php:77
-#, php-format, fuzzy
+#, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
@@ -136,17 +136,17 @@ msgstr ""
 "Enregistrer mon nom, mon e-mail et mon site dans le navigateur pour mon "
 "prochain commentaire."
 
-#: css/custom.php:5883
+#: css/custom.php:6093
 #: includes/partials/single-post/author-bio-ascend-skin.php:35
 msgid "Author"
 msgstr "Auteur"
 
-#: includes/header-search.php:38 includes/header-search.php:44
+#: includes/header-search.php:36 includes/header-search.php:41
 #: searchform.php:14 searchform.php:15
 msgid "Search"
 msgstr "Rechercher"
 
-#: includes/header-search.php:58
+#: includes/header-search.php:53
 msgid "Close Search"
 msgstr "Fermer la recherche"
 
@@ -154,43 +154,43 @@ msgstr "Fermer la recherche"
 msgid "Back to top"
 msgstr "Retour en haut"
 
-#: includes/partials/footer/off-canvas-navigation.php:53
+#: includes/partials/footer/off-canvas-navigation.php:62
 msgid "Close Menu"
 msgstr "Fermer le menu"
 
-#: includes/partials/footer/off-canvas-navigation.php:78
+#: includes/partials/footer/off-canvas-navigation.php:85
 msgid "Back"
 msgstr "Retour"
 
-#: includes/partials/header/header-menu.php:106
-#: includes/partials/header/header-menu.php:153 nectar/helpers/header.php:1361
+#: includes/partials/header/header-menu.php:100
+#: includes/partials/header/header-menu.php:136 nectar/helpers/header.php:1946
 msgid "Navigation Menu"
 msgstr "Menu de navigation"
 
-#: includes/partials/header/header-menu.php:108
-#: includes/partials/header/header-menu.php:110
-#: includes/partials/header/header-menu.php:155
-#: includes/partials/header/header-menu.php:158
-#: nectar/helpers/enqueue-scripts.php:191 nectar/helpers/header.php:1352
-#: nectar/helpers/header.php:1356 nectar/helpers/header.php:1402
-#: nectar/helpers/header.php:1406
+#: includes/partials/header/header-menu.php:102
+#: includes/partials/header/header-menu.php:104
+#: includes/partials/header/header-menu.php:138
+#: includes/partials/header/header-menu.php:140
+#: nectar/helpers/enqueue-scripts.php:205 nectar/helpers/header.php:1937
+#: nectar/helpers/header.php:1941 nectar/helpers/header.php:1989
+#: nectar/helpers/header.php:1993
 msgid "Menu"
 msgstr "Menu"
 
-#: includes/partials/header/header-menu.php:128 nectar/helpers/header.php:1416
+#: includes/partials/header/header-menu.php:120 nectar/helpers/header.php:2003
 msgid "search"
 msgstr "rechercher"
 
-#: includes/partials/header/header-menu.php:134 nectar/helpers/header.php:1420
+#: includes/partials/header/header-menu.php:124 nectar/helpers/header.php:2007
 msgid "account"
 msgstr "compte"
 
-#: includes/partials/header/woo-slide-in-cart.php:49
-#: nectar/helpers/woocommerce.php:736
+#: includes/partials/header/woo-slide-in-cart.php:46
+#: nectar/helpers/woocommerce.php:743
 msgid "Cart"
 msgstr "Panier"
 
-#: includes/partials/header/woo-slide-in-cart.php:49
+#: includes/partials/header/woo-slide-in-cart.php:46
 msgid "Close Cart"
 msgstr "Fermer le panier"
 
@@ -212,32 +212,32 @@ msgid "More posts by"
 msgstr "Plus d’articles par"
 
 #. translators: %s: category name
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:57
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:63
 #, php-format
 msgid "View all posts in %s"
 msgstr "Voir tous les articles dans %s"
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:78
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:85
-#: includes/partials/single-post/post-header-no-img-regular.php:87
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:84
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:91
 #: includes/partials/single-post/post-header-no-img-regular.php:93
+#: includes/partials/single-post/post-header-no-img-regular.php:99
 #: includes/partials/single-post/post-meta-fields.php:46
 #: nectar/helpers/page-header.php:498 nectar/helpers/page-header.php:532
 msgid "F jS, Y"
 msgstr "j F Y"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:79
+#: includes/partials/single-post/post-header-no-img-regular.php:85
 #: nectar/helpers/page-header.php:519
 msgid "By"
 msgstr "Par"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:107
+#: includes/partials/single-post/post-header-no-img-regular.php:113
 #: includes/partials/single-post/post-meta-fields.php:55
 #: nectar/helpers/page-header.php:546
 msgid "min read"
 msgstr "min de lecture"
 
-#: includes/partials/single-post/post-header-no-img-regular.php:117
+#: includes/partials/single-post/post-header-no-img-regular.php:123
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 msgid "One Comment "
 msgstr "Un commentaire"
@@ -245,10 +245,6 @@ msgstr "Un commentaire"
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:91 search.php:81
 msgid "Blog Post"
 msgstr "Article de blog"
-
-#: nectar/assets/functions/ajax-search/wp-search-suggest.php:95 search.php:119
-msgid "Page"
-msgstr "Page"
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:99
 msgid "Portfolio Item"
@@ -259,16 +255,16 @@ msgstr "Élément de Portfolio"
 msgid "Product"
 msgstr "Produit"
 
-#: nectar/customizer/nectar-blocks-customizer.php:391
+#: nectar/customizer/nectar-blocks-customizer.php:446
 msgid "To"
 msgstr "Au"
 
-#: nectar/customizer/nectar-blocks-customizer.php:392
+#: nectar/customizer/nectar-blocks-customizer.php:447
 msgid "From"
 msgstr "Du"
 
 #: nectar/customizer/panels/accent-colors.php:125
-#: nectar/customizer/panels/general-settings.php:312
+#: nectar/customizer/panels/general-settings.php:323
 msgid "Performance"
 msgstr "Performance"
 
@@ -311,67 +307,43 @@ msgstr ""
 "Utilisé pour le texte superposé à la couleur d’accentuation sur les boutons "
 "et les notifications."
 
-#: nectar/customizer/panels/general-settings.php:95
+#: nectar/customizer/panels/general-settings.php:118
 msgid "Button Styling"
 msgstr "Style de bouton"
 
-#: nectar/customizer/panels/general-settings.php:96
+#: nectar/customizer/panels/general-settings.php:119
 msgid "This will effect the overall styling of buttons"
 msgstr "Cela affectera le style général des boutons"
 
-#: nectar/customizer/panels/general-settings.php:98
-#: nectar/customizer/panels/general-settings.php:127
-#: nectar/customizer/panels/general-settings.php:381
-#: nectar/customizer/panels/general-settings.php:437
-#: nectar/customizer/panels/layout.php:754
-#: nectar/customizer/panels/layout.php:866
-#: nectar/customizer/panels/layout.php:1038
-#: nectar/customizer/panels/layout.php:1117
-#: nectar/customizer/panels/post-types/blog.php:166
-#: nectar/customizer/panels/post-types/blog.php:239
-#: nectar/customizer/panels/post-types/blog.php:326
-#: nectar/customizer/panels/post-types/blog.php:618
-#: nectar/customizer/panels/post-types/blog.php:631
-#: nectar/customizer/panels/post-types/blog.php:685
-#: nectar/customizer/panels/post-types/woocommerce.php:209
-#: nectar/customizer/panels/post-types/woocommerce.php:272
-#: nectar/meta/category-meta.php:117 nectar/meta/category-meta.php:137
-msgid "Default"
-msgstr "Par défaut"
-
-#: nectar/customizer/panels/general-settings.php:99
+#: nectar/customizer/panels/general-settings.php:122
 msgid "Slightly Rounded"
 msgstr "Légèrement arrondi"
 
-#: nectar/customizer/panels/general-settings.php:100
+#: nectar/customizer/panels/general-settings.php:123
 msgid "Slightly Rounded Shadow"
 msgstr "Ombre légèrement arrondie"
 
-#: nectar/customizer/panels/general-settings.php:101
+#: nectar/customizer/panels/general-settings.php:124
 msgid "Rounded"
 msgstr "Arrondis"
 
-#: nectar/customizer/panels/general-settings.php:102
+#: nectar/customizer/panels/general-settings.php:125
 msgid "Rounded Shadow"
 msgstr "Ombre arrondie"
 
-#: nectar/customizer/panels/general-settings.php:103
+#: nectar/customizer/panels/general-settings.php:126
 msgid "Rounded Reveal"
 msgstr "Révélation arrondie"
 
-#: nectar/customizer/panels/general-settings.php:110
+#: nectar/customizer/panels/general-settings.php:133
 msgid "Button Roundness"
 msgstr "Arrondi des boutons"
 
-#: nectar/customizer/panels/general-settings.php:116
-msgid "Fine-tune the rounded edges of your buttons."
-msgstr "Affinez les bords arrondis de vos boutons."
-
-#: nectar/customizer/panels/general-settings.php:124
+#: nectar/customizer/panels/general-settings.php:146
 msgid "Animated Underline Type"
 msgstr "Type de soulignement animé"
 
-#: nectar/customizer/panels/general-settings.php:125
+#: nectar/customizer/panels/general-settings.php:147
 msgid ""
 "Various elements in Nectar Blocks display an animated underline when "
 "hovering over. This option allows you to globally fine-tune the styling of "
@@ -381,32 +353,32 @@ msgstr ""
 "survol. Cette option vous permet d’ajuster globalement le style de cette "
 "ligne."
 
-#: nectar/customizer/panels/general-settings.php:128
+#: nectar/customizer/panels/general-settings.php:150
 msgid "Left to Right Simple"
 msgstr "De gauche à droite simple"
 
-#: nectar/customizer/panels/general-settings.php:129
+#: nectar/customizer/panels/general-settings.php:151
 msgid "Left to Right Fancy"
 msgstr "De gauche à droite fantaisie"
 
-#: nectar/customizer/panels/general-settings.php:136
+#: nectar/customizer/panels/general-settings.php:158
 msgid "Animated Underline Thickness"
 msgstr "Épaisseur du soulignement animé"
 
-#: nectar/customizer/panels/general-settings.php:166
+#: nectar/customizer/panels/general-settings.php:188
 msgid "Theme Font Color"
 msgstr "Couleur de la police du thème"
 
-#: nectar/customizer/panels/general-settings.php:179
+#: nectar/customizer/panels/general-settings.php:201
 #: nectar/customizer/panels/post-types/blog.php:144
 msgid "Styling"
 msgstr "Style"
 
-#: nectar/customizer/panels/general-settings.php:192
+#: nectar/customizer/panels/general-settings.php:214
 msgid "Smooth Scrolling"
 msgstr "Défilement fluide"
 
-#: nectar/customizer/panels/general-settings.php:193
+#: nectar/customizer/panels/general-settings.php:215
 msgid ""
 "Toggle whether or not to enable smooth scrolling for browsers which support "
 "it."
@@ -414,19 +386,19 @@ msgstr ""
 "Activer ou désactiver le défilement fluide pour les navigateurs qui le "
 "prennent en charge."
 
-#: nectar/customizer/panels/general-settings.php:200
+#: nectar/customizer/panels/general-settings.php:222
 msgid "Smooth Scroll Strength"
 msgstr "Force du défilement fluide"
 
-#: nectar/customizer/panels/general-settings.php:201
+#: nectar/customizer/panels/general-settings.php:223
 msgid "Controls the intensity of the smooth scrolling effect."
 msgstr "Contrôle l’intensité de l’effet de défilement fluide."
 
-#: nectar/customizer/panels/general-settings.php:213
+#: nectar/customizer/panels/general-settings.php:235
 msgid "Meta Viewport Functionality"
 msgstr "Fonctionnalité Meta Viewport"
 
-#: nectar/customizer/panels/general-settings.php:214
+#: nectar/customizer/panels/general-settings.php:236
 msgid ""
 "Determines whether browser zooming/scaling is enabled or disabled. Enabling "
 "this will improve accessibility for users with low vision."
@@ -435,11 +407,11 @@ msgstr ""
 "désactivé. L’activation de cette option améliorera l’accessibilité pour les "
 "utilisateurs malvoyants."
 
-#: nectar/customizer/panels/general-settings.php:224
+#: nectar/customizer/panels/general-settings.php:94
 msgid "Max Website Container Width"
 msgstr "Largeur maximale du conteneur du site web"
 
-#: nectar/customizer/panels/general-settings.php:225
+#: nectar/customizer/panels/general-settings.php:95
 msgid ""
 "Your container will scale to a maximum width of 1425px, use this option if "
 "you'd like to increase that value."
@@ -447,28 +419,16 @@ msgstr ""
 "Votre conteneur s’adaptera jusqu’à une largeur maximale de 1425 px, utilisez"
 " cette option si vous souhaitez augmenter cette valeur."
 
-#: nectar/customizer/panels/general-settings.php:236
-msgid "Container Left/Right Padding"
-msgstr "Padding gauche/droite du conteneur"
-
-#: nectar/customizer/panels/general-settings.php:237
-msgid ""
-"The main content container will have 90px of padding set on left and right, "
-"use this option if you'd like to modify that."
-msgstr ""
-"Le conteneur principal aura un padding de 90px défini à gauche et à droite, "
-"utilisez cette option si vous souhaitez modifier cela."
-
-#: nectar/customizer/panels/general-settings.php:251
+#: nectar/customizer/panels/general-settings.php:249
 #: nectar/customizer/panels/post-types/blog.php:696
 msgid "Functionality"
 msgstr "Fonctionnalités"
 
-#: nectar/customizer/panels/general-settings.php:264
+#: nectar/customizer/panels/general-settings.php:262
 msgid "Delay Javascript Execution"
 msgstr "Différer l’exécution de JavaScript"
 
-#: nectar/customizer/panels/general-settings.php:265
+#: nectar/customizer/panels/general-settings.php:263
 msgid ""
 "Prevents theme javascript from running until the user makes an interaction "
 "such as scrolling, tapping etc."
@@ -476,11 +436,11 @@ msgstr ""
 "Empêche l’exécution du JavaScript du thème jusqu’à ce que l’utilisateur "
 "effectue une interaction telle que le défilement, le toucher, etc."
 
-#: nectar/customizer/panels/general-settings.php:272
+#: nectar/customizer/panels/general-settings.php:270
 msgid "Devices to Activate \"Delay Javascript\" Logic"
 msgstr "Appareils pour activer la logique \"Delay Javascript\""
 
-#: nectar/customizer/panels/general-settings.php:273
+#: nectar/customizer/panels/general-settings.php:271
 msgid ""
 "If you are using a performance plugin that caches your pages, this will need"
 " to be set to \"All Devices\" in order to take effect."
@@ -489,19 +449,19 @@ msgstr ""
 "cette option devra être définie sur « Tous les appareils » pour prendre "
 "effet."
 
-#: nectar/customizer/panels/general-settings.php:276
+#: nectar/customizer/panels/general-settings.php:274
 msgid "All Devices"
 msgstr "Tous les appareils"
 
-#: nectar/customizer/panels/general-settings.php:277
+#: nectar/customizer/panels/general-settings.php:275
 msgid "Mobile"
 msgstr "Mobile"
 
-#: nectar/customizer/panels/general-settings.php:284
+#: nectar/customizer/panels/general-settings.php:295
 msgid "Move jQuery to Footer"
 msgstr "Déplacer jQuery vers le pied de page"
 
-#: nectar/customizer/panels/general-settings.php:285
+#: nectar/customizer/panels/general-settings.php:296
 msgid ""
 "Attempts to move jQuery to the footer to make it non render-blocking. Note "
 "that this can break third party plugins/scripts which require JavaScript to "
@@ -511,24 +471,15 @@ msgstr ""
 "pour le rendu. Notez que cela peut casser des extensions/scripts tiers qui "
 "nécessitent le chargement de JavaScript dans l’en-tête."
 
-#: nectar/customizer/panels/general-settings.php:293
+#: nectar/customizer/panels/general-settings.php:304
 msgid "Font Display Swap"
 msgstr "Permutation d’affichage de police"
 
-#: nectar/customizer/panels/general-settings.php:294
-msgid ""
-"This is a font performance option which will your allow text to display in a"
-" default font before Google fonts have loaded."
-msgstr ""
-"Il s’agit d’une option de performance de police qui permettra à votre texte "
-"de s’afficher dans une police par défaut avant le chargement des polices "
-"Google."
-
-#: nectar/customizer/panels/general-settings.php:302
+#: nectar/customizer/panels/general-settings.php:313
 msgid "Remove WordPress Emoji Script/CSS"
 msgstr "Supprimer les scripts/CSS des emojis WordPress"
 
-#: nectar/customizer/panels/general-settings.php:303
+#: nectar/customizer/panels/general-settings.php:314
 msgid ""
 "Removes the WordPress Emoji assets which automatically convert emoticons to "
 "WP specific emojis."
@@ -536,33 +487,33 @@ msgstr ""
 "Supprime les ressources WordPress Emoji qui convertissent automatiquement "
 "les émoticônes en emojis spécifiques à WordPress."
 
-#: nectar/customizer/panels/general-settings.php:324
+#: nectar/customizer/panels/general-settings.php:335
 msgid "Accent Color"
 msgstr "Couleur d’accentuation"
 
-#: nectar/customizer/panels/general-settings.php:325
+#: nectar/customizer/panels/general-settings.php:336
 msgid "Change this color to alter the accent color globally for your site."
 msgstr ""
 "Modifiez cette couleur pour changer la couleur d’accentuation globalement "
 "sur votre site."
 
-#: nectar/customizer/panels/general-settings.php:333
+#: nectar/customizer/panels/general-settings.php:344
 msgid "Accent Color #2"
 msgstr "Couleur d’accentuation nº 2"
 
-#: nectar/customizer/panels/general-settings.php:343
+#: nectar/customizer/panels/general-settings.php:354
 msgid "Color Scheme"
 msgstr "Schéma de couleurs"
 
-#: nectar/customizer/panels/general-settings.php:355
+#: nectar/customizer/panels/general-settings.php:366
 msgid "Overall Form Style"
 msgstr "Style général du formulaire"
 
-#: nectar/customizer/panels/general-settings.php:356
+#: nectar/customizer/panels/general-settings.php:367
 msgid "Sets the style of all form elements used."
 msgstr "Définit le style de tous les éléments de formulaire utilisés."
 
-#: nectar/customizer/panels/general-settings.php:357
+#: nectar/customizer/panels/general-settings.php:368
 msgid ""
 "If you're trying to get third party forms to display without any styling "
 "from NectarBlocks, simply select the"
@@ -570,26 +521,22 @@ msgstr ""
 "Si vous essayez d’afficher des formulaires tiers sans aucun style provenant "
 "de NectarBlocks, sélectionnez simplement le"
 
-#: nectar/customizer/panels/general-settings.php:357
-#: nectar/customizer/panels/general-settings.php:359
-#: nectar/customizer/panels/layout.php:713 build/customizer.js:7843
+#: nectar/customizer/panels/general-settings.php:368
+#: nectar/customizer/panels/general-settings.php:370
+#: nectar/customizer/panels/layout.php:1062 build/customizer.js:1
 msgid "Inherit"
 msgstr "Hériter"
 
-#: nectar/customizer/panels/general-settings.php:357
+#: nectar/customizer/panels/general-settings.php:368
 msgid "option."
 msgstr "option"
 
-#: nectar/customizer/panels/general-settings.php:360
+#: nectar/customizer/panels/general-settings.php:371
 #: nectar/customizer/panels/post-types/blog.php:632
 msgid "Minimal"
 msgstr "Minimal"
 
-#: nectar/customizer/panels/general-settings.php:368
-msgid "Enable Fancy Select Styling"
-msgstr "Activer le style de sélection élégant"
-
-#: nectar/customizer/panels/general-settings.php:369
+#: nectar/customizer/panels/general-settings.php:390
 msgid ""
 "This will add additional styling and functionality to your select (dropdown)"
 " elements."
@@ -597,11 +544,11 @@ msgstr ""
 "Cela ajoutera des styles et des fonctionnalités supplémentaires à vos "
 "éléments select (menu déroulant)."
 
-#: nectar/customizer/panels/general-settings.php:377
+#: nectar/customizer/panels/general-settings.php:407
 msgid "Form Submit Button Style"
 msgstr "Style du bouton de soumission du formulaire"
 
-#: nectar/customizer/panels/general-settings.php:378
+#: nectar/customizer/panels/general-settings.php:408
 msgid ""
 "Select your desired style which will be used for submit buttons throughout "
 "your site"
@@ -609,100 +556,100 @@ msgstr ""
 "Sélectionnez le style souhaité qui sera utilisé pour les boutons de "
 "soumission sur l’ensemble de votre site"
 
-#: nectar/customizer/panels/general-settings.php:382
+#: nectar/customizer/panels/general-settings.php:412
 msgid "Nectar Btn"
 msgstr "Bouton Nectar"
 
-#: nectar/customizer/panels/general-settings.php:383
+#: nectar/customizer/panels/general-settings.php:413
 msgid "Nectar Btn See Through"
 msgstr "Bouton Nectar Transparent"
 
-#: nectar/customizer/panels/general-settings.php:390
+#: nectar/customizer/panels/general-settings.php:420
 msgid "Form Submit Button Padding"
 msgstr "Marge interne du bouton de soumission du formulaire"
 
-#: nectar/customizer/panels/general-settings.php:391
+#: nectar/customizer/panels/general-settings.php:421
 msgid "Fine-tune form submit button padding."
 msgstr ""
 "Ajuster le remplissage (padding) du bouton de soumission du formulaire."
 
-#: nectar/customizer/panels/general-settings.php:398
-#: nectar/customizer/panels/general-settings.php:427
+#: nectar/customizer/panels/general-settings.php:428
+#: nectar/customizer/panels/general-settings.php:457
 msgid "Padding Top/Bottom"
 msgstr "Marge interne Haut/Bas"
 
-#: nectar/customizer/panels/general-settings.php:399
-#: nectar/customizer/panels/general-settings.php:428
+#: nectar/customizer/panels/general-settings.php:429
+#: nectar/customizer/panels/general-settings.php:458
 msgid "Padding Left/Right"
 msgstr "Padding Gauche/Droite"
 
-#: nectar/customizer/panels/general-settings.php:406
+#: nectar/customizer/panels/general-settings.php:436
 msgid "Form Input Field Text Size"
 msgstr "Taille du texte du champ de saisie"
 
-#: nectar/customizer/panels/general-settings.php:407
+#: nectar/customizer/panels/general-settings.php:437
 msgid "Alters the font size for form input field/textarea elements."
 msgstr ""
 "Modifie la taille de la police pour les champs de saisie et les zones de "
 "texte des formulaires."
 
-#: nectar/customizer/panels/general-settings.php:418
+#: nectar/customizer/panels/general-settings.php:448
 msgid "Form Input Field Padding"
 msgstr "Marge interne du champ de saisie"
 
-#: nectar/customizer/panels/general-settings.php:419
+#: nectar/customizer/panels/general-settings.php:449
 msgid "Fine-tune form input fields/textarea element padding."
 msgstr "Ajuster le padding des champs de formulaire et des zones de texte."
 
-#: nectar/customizer/panels/general-settings.php:435
+#: nectar/customizer/panels/general-settings.php:465
 msgid "Form Input Border Width"
 msgstr "Largeur de bordure du champ de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:438
-#: nectar/customizer/panels/post-types/woocommerce.php:274
+#: nectar/customizer/panels/general-settings.php:468
+#: nectar/customizer/panels/post-types/woocommerce.php:353
 msgid "1px"
 msgstr "1px"
 
-#: nectar/customizer/panels/general-settings.php:439
-#: nectar/customizer/panels/post-types/woocommerce.php:275
+#: nectar/customizer/panels/general-settings.php:469
+#: nectar/customizer/panels/post-types/woocommerce.php:354
 msgid "2px"
 msgstr "2px"
 
-#: nectar/customizer/panels/general-settings.php:440
-#: nectar/customizer/panels/post-types/woocommerce.php:276
+#: nectar/customizer/panels/general-settings.php:470
+#: nectar/customizer/panels/post-types/woocommerce.php:355
 msgid "3px"
 msgstr "3px"
 
-#: nectar/customizer/panels/general-settings.php:448
+#: nectar/customizer/panels/general-settings.php:478
 msgid "Form Input BG Color"
 msgstr "Couleur d’arrière-plan du champ de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:456
+#: nectar/customizer/panels/general-settings.php:486
 msgid "Form Input Text Color"
 msgstr "Couleur du texte du champ de saisie"
 
-#: nectar/customizer/panels/general-settings.php:464
+#: nectar/customizer/panels/general-settings.php:494
 msgid "Form Input Border Color"
 msgstr "Couleur de bordure du champ de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:472
+#: nectar/customizer/panels/general-settings.php:502
 msgid "Form Input Border Hover Color"
 msgstr "Couleur de bordure au survol du champ de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:480
+#: nectar/customizer/panels/general-settings.php:510
 msgid "Form Input Border Focus Color"
 msgstr "Couleur de bordure au focus du champ de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:490
+#: nectar/customizer/panels/general-settings.php:520
 msgid "Form Styling"
 msgstr "Style de formulaire"
 
-#: nectar/customizer/panels/general-settings.php:502
-#: nectar/customizer/panels/general-settings.php:543
+#: nectar/customizer/panels/general-settings.php:532
+#: nectar/customizer/panels/general-settings.php:573
 msgid "Page Transitions"
 msgstr "Transitions de page"
 
-#: nectar/customizer/panels/general-settings.php:503
+#: nectar/customizer/panels/general-settings.php:533
 msgid ""
 "Enhance your site with the modern \"View Transitions API\" as a progressive "
 "enhancement. This cutting-edge web technology enables smoother page "
@@ -712,43 +659,43 @@ msgstr ""
 "amélioration progressive. Cette technologie web de pointe permet des "
 "transitions de page plus fluides. Voir"
 
-#: nectar/customizer/panels/general-settings.php:503
+#: nectar/customizer/panels/general-settings.php:533
 msgid "which browsers support it."
 msgstr "quels navigateurs le prennent en charge."
 
-#: nectar/customizer/panels/general-settings.php:509
+#: nectar/customizer/panels/general-settings.php:539
 msgid "Transition Effect"
 msgstr "Effet de transition"
 
-#: nectar/customizer/panels/general-settings.php:513
+#: nectar/customizer/panels/general-settings.php:543
 msgid "Cross Fade"
 msgstr "Fondu enchaîné"
 
-#: nectar/customizer/panels/general-settings.php:514
+#: nectar/customizer/panels/general-settings.php:544
 msgid "Fade"
 msgstr "Fondu"
 
-#: nectar/customizer/panels/general-settings.php:515
+#: nectar/customizer/panels/general-settings.php:545
 msgid "Gradient Fade"
 msgstr "Dégradé progressif"
 
-#: nectar/customizer/panels/general-settings.php:516
+#: nectar/customizer/panels/general-settings.php:546
 msgid "Push Reveal"
 msgstr "Pousser pour révéler"
 
-#: nectar/customizer/panels/general-settings.php:523
+#: nectar/customizer/panels/general-settings.php:553
 msgid "Transition BG Color"
 msgstr "Couleur d’arrière-plan de transition"
 
-#: nectar/customizer/panels/general-settings.php:527
+#: nectar/customizer/panels/general-settings.php:557
 msgid "Some effects will show this color during the transition."
 msgstr "Certains effets afficheront cette couleur pendant la transition."
 
-#: nectar/customizer/panels/general-settings.php:533
+#: nectar/customizer/panels/general-settings.php:563
 msgid "Enable on Mobile"
 msgstr "Activer sur Mobile"
 
-#: nectar/customizer/panels/general-settings.php:534
+#: nectar/customizer/panels/general-settings.php:564
 msgid ""
 "Some mobile devices may struggle to handle page transitions, especially when"
 " heavy block animations are involved."
@@ -762,7 +709,7 @@ msgid "General WordPress Pages"
 msgstr "Pages WordPress générales"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:49
-#: nectar/customizer/panels/layout.php:25
+#: nectar/customizer/panels/layout.php:341
 msgid "Layout"
 msgstr "Mise en page"
 
@@ -858,32 +805,33 @@ msgid "404 Not Found Template"
 msgstr "Modèle 404 introuvable"
 
 #: nectar/customizer/panels/kirki-testing.php:6
+#: nectar/customizer/panels/layout.php:1280
 msgid "Style"
 msgstr "Style"
 
-#: nectar/customizer/panels/layout.php:57
+#: nectar/customizer/panels/layout.php:400
 msgid "Header Navigation"
 msgstr "Navigation de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:68
+#: nectar/customizer/panels/layout.php:412
 msgid "Image Logo"
 msgstr "Logo Image"
 
-#: nectar/customizer/panels/layout.php:69
+#: nectar/customizer/panels/layout.php:413
 msgid "If left unchecked, your site name will be used instead."
 msgstr ""
 "Si cette option n’est pas cochée, le nom de votre site sera utilisé à la "
 "place."
 
-#: nectar/customizer/panels/layout.php:76
+#: nectar/customizer/panels/layout.php:420
 msgid "Logo Upload"
 msgstr "Téléchargement du logo"
 
-#: nectar/customizer/panels/layout.php:77
+#: nectar/customizer/panels/layout.php:421
 msgid "Upload your logo here and enter the height of it below."
 msgstr "Téléchargez votre logo ici et saisissez sa hauteur ci-dessous."
 
-#: nectar/customizer/panels/layout.php:77
+#: nectar/customizer/panels/layout.php:421
 msgid ""
 "Note: there are additional logo upload fields in the transparent header "
 "effect tab."
@@ -891,19 +839,19 @@ msgstr ""
 "Remarque : des champs de téléversement de logo supplémentaires sont "
 "disponibles dans l’onglet de l’effet d’en-tête transparent."
 
-#: nectar/customizer/panels/layout.php:94
+#: nectar/customizer/panels/layout.php:438
 msgid "Logo Height"
 msgstr "Hauteur du logo"
 
-#: nectar/customizer/panels/layout.php:103
+#: nectar/customizer/panels/layout.php:447
 msgid "Mobile Logo Height"
 msgstr "Hauteur du logo mobile"
 
-#: nectar/customizer/panels/layout.php:112
+#: nectar/customizer/panels/layout.php:456
 msgid "Mobile Only Logo Upload"
 msgstr "Logo pour mobile uniquement"
 
-#: nectar/customizer/panels/layout.php:113
+#: nectar/customizer/panels/layout.php:457
 msgid ""
 "An optional field that allows you to display a separate logo that will be "
 "shown on mobile devices only."
@@ -911,19 +859,19 @@ msgstr ""
 "Un champ facultatif qui vous permet d’afficher un logo distinct qui sera "
 "affiché uniquement sur les appareils mobiles."
 
-#: nectar/customizer/panels/layout.php:121
+#: nectar/customizer/panels/layout.php:465
 msgid "Header Padding"
 msgstr "Marge de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:133
+#: nectar/customizer/panels/layout.php:477
 msgid "Menu Item Gap"
 msgstr "Espacement des éléments du menu"
 
-#: nectar/customizer/panels/layout.php:144
+#: nectar/customizer/panels/layout.php:488
 msgid "Background Opacity"
 msgstr "Opacité du fond"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid ""
 "If you are trying to have your header navigation completely see through "
 "before scrolling, setting this very low is not how to achieve it. The fully "
@@ -934,120 +882,109 @@ msgstr ""
 "la bonne méthode. Le style entièrement transparent tel qu’affiché sur de "
 "nombreuses démos est l’option intitulée"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid "Use Transparent Header When Applicable"
 msgstr "Utiliser l’en-tête transparent lorsque applicable"
 
-#: nectar/customizer/panels/layout.php:150
+#: nectar/customizer/panels/layout.php:494
 msgid ""
 "which is available in the Header Navigation ~ Transparent Header Effect tab."
 msgstr ""
 "qui est disponible dans l’onglet Navigation de l’en-tête ~ Effet d’en-tête "
 "transparent."
 
-#: nectar/customizer/panels/layout.php:157
+#: nectar/customizer/panels/layout.php:501
 msgid "Box Shadow"
 msgstr "Ombre portée"
 
-#: nectar/customizer/panels/layout.php:160
-#: nectar/customizer/panels/layout.php:607
-#: nectar/customizer/panels/layout.php:777
+#: nectar/customizer/panels/layout.php:504
+#: nectar/customizer/panels/layout.php:953
+#: nectar/customizer/panels/layout.php:1135
 msgid "Small"
 msgstr "Petite"
 
-#: nectar/customizer/panels/layout.php:161
-#: nectar/customizer/panels/layout.php:609
-#: nectar/customizer/panels/layout.php:778
+#: nectar/customizer/panels/layout.php:505
+#: nectar/customizer/panels/layout.php:955
+#: nectar/customizer/panels/layout.php:1136
 msgid "Large"
 msgstr "Grande"
 
-#: nectar/customizer/panels/layout.php:162
+#: nectar/customizer/panels/layout.php:506
 msgid "Large With Bottom Line"
 msgstr "Grand avec ligne inférieure"
 
-#: nectar/customizer/panels/layout.php:163
-#: nectar/customizer/panels/layout.php:779
-#: nectar/customizer/panels/layout.php:1071
-#: nectar/customizer/panels/post-types/blog.php:185
-#: nectar/customizer/panels/post-types/blog.php:498
-#: nectar/customizer/panels/post-types/blog.php:510
-#: nectar/customizer/panels/post-types/blog.php:543
-#: nectar/customizer/panels/post-types/portfolio.php:148
-#: nectar/customizer/panels/post-types/portfolio.php:159
-msgid "None"
-msgstr "Aucun"
-
-#: nectar/customizer/panels/layout.php:171
+#: nectar/customizer/panels/layout.php:515
+#: nectar/customizer/panels/layout.php:1439
 msgid "Blur Background"
 msgstr "Arrière-plan flou"
 
-#: nectar/customizer/panels/layout.php:180
+#: nectar/customizer/panels/layout.php:524
 msgid "Blur Background Functionality"
 msgstr "Fonctionnalité d’arrière-plan flou"
 
-#: nectar/customizer/panels/layout.php:185
+#: nectar/customizer/panels/layout.php:529
 msgid "Active when \"Transparent header effect\" is not"
 msgstr "Actif lorsque « Effet d’en-tête transparent » n’est pas activé"
 
-#: nectar/customizer/panels/layout.php:186
+#: nectar/customizer/panels/layout.php:530
 msgid "Active in all header states"
 msgstr "Actif dans tous les états de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:210
+#: nectar/customizer/panels/layout.php:554
 msgid "Border"
 msgstr "Bordure"
 
-#: nectar/customizer/panels/layout.php:218
+#: nectar/customizer/panels/layout.php:562
 msgid "Header Border Color"
 msgstr "Couleur de bordure de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:228
+#: nectar/customizer/panels/layout.php:572
 msgid "Remove Desktop Stickiness"
 msgstr "Supprimer l’adhérence sur ordinateur"
 
-#: nectar/customizer/panels/layout.php:237
+#: nectar/customizer/panels/layout.php:582
 msgid "Logo & General Styling"
 msgstr "Logo & Style général"
 
-#: nectar/customizer/panels/layout.php:250
+#: nectar/customizer/panels/layout.php:595
 msgid "Header Layout"
 msgstr "Disposition de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:253
-#: nectar/customizer/panels/layout.php:1180
+#: nectar/customizer/panels/layout.php:598
+#: nectar/customizer/panels/layout.php:1550
 msgid "Default Layout"
 msgstr "Mise en page par défaut"
 
-#: nectar/customizer/panels/layout.php:254
-#: nectar/customizer/panels/layout.php:1181
+#: nectar/customizer/panels/layout.php:599
+#: nectar/customizer/panels/layout.php:1551
 msgid "Centered Menu"
 msgstr "Menu centré"
 
-#: nectar/customizer/panels/layout.php:255
+#: nectar/customizer/panels/layout.php:600
 msgid "Centered Menu Alt"
 msgstr "Menu centré alternatif"
 
-#: nectar/customizer/panels/layout.php:256
+#: nectar/customizer/panels/layout.php:601
 msgid "Menu Bottom Bar"
 msgstr "Barre de menu inférieure"
 
-#: nectar/customizer/panels/layout.php:257
+#: nectar/customizer/panels/layout.php:602
 msgid "Centered Logo Menu Alt"
 msgstr "Menu alternatif avec logo centré"
 
-#: nectar/customizer/panels/layout.php:258
+#: nectar/customizer/panels/layout.php:603
 msgid "Menu Left Aligned"
 msgstr "Menu aligné à gauche"
 
-#: nectar/customizer/panels/layout.php:259
+#: nectar/customizer/panels/layout.php:604
 msgid "Left Header"
 msgstr "En-tête gauche"
 
-#: nectar/customizer/panels/layout.php:268
+#: nectar/customizer/panels/layout.php:613
 msgid "Left Header Dropdown Functionality"
 msgstr "Fonctionnalité du menu déroulant de l’en-tête gauche"
 
-#: nectar/customizer/panels/layout.php:269
+#: nectar/customizer/panels/layout.php:614
 msgid ""
 "Please select the functionality for how dropdowns will behave in the left "
 "header navigation."
@@ -1055,84 +992,86 @@ msgstr ""
 "Veuillez sélectionner la fonctionnalité pour le comportement des menus "
 "déroulants dans la navigation de l’en-tête gauche."
 
-#: nectar/customizer/panels/layout.php:273
-#: nectar/customizer/panels/layout.php:1007
+#: nectar/customizer/panels/layout.php:618
+#: nectar/customizer/panels/layout.php:1367
 msgid "Dropdown Parent Link Toggles Submenu"
 msgstr "Le lien parent du menu déroulant active le sous-menu"
 
-#: nectar/customizer/panels/layout.php:274
-#: nectar/customizer/panels/layout.php:1008
+#: nectar/customizer/panels/layout.php:619
+#: nectar/customizer/panels/layout.php:1368
 msgid "Separate Dropdown Parent Link From Dropdown Toggle"
 msgstr ""
 "Séparer le lien parent du menu déroulant de la bascule du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:282
+#: nectar/customizer/panels/layout.php:627
 msgid "Menu Bottom Bar Separator"
 msgstr "Séparateur de la barre de menu inférieure"
 
-#: nectar/customizer/panels/layout.php:283
+#: nectar/customizer/panels/layout.php:628
 msgid "Add a line to separate the top/bottom of your header."
 msgstr "Ajoutez une ligne pour séparer le haut/bas de votre en-tête."
 
-#: nectar/customizer/panels/layout.php:293
+#: nectar/customizer/panels/layout.php:638
 msgid "Menu Bottom Bar Alignment"
 msgstr "Alignement de la barre de menu inférieure"
 
-#: nectar/customizer/panels/layout.php:294
+#: nectar/customizer/panels/layout.php:639
 msgid "Please select how you would like your header content to align."
-msgstr "Veuillez sélectionner comment vous souhaitez aligner le contenu de votre en-tête."
+msgstr ""
+"Veuillez sélectionner comment vous souhaitez aligner le contenu de votre en-"
+"tête."
 
-#: nectar/customizer/panels/layout.php:297
+#: nectar/customizer/panels/layout.php:642
 #: nectar/customizer/panels/post-types/blog.php:405
 #: nectar/customizer/panels/post-types/blog.php:620
-#: nectar/customizer/panels/post-types/woocommerce.php:211
-#: nectar/meta/category-meta.php:119 nectar/meta/category-meta.php:139
+#: nectar/customizer/panels/post-types/woocommerce.php:290
+#: nectar/meta/category-meta.php:123 nectar/meta/category-meta.php:143
 msgid "Center"
 msgstr "Centre"
 
-#: nectar/customizer/panels/layout.php:298
-#: nectar/customizer/panels/layout.php:1039
+#: nectar/customizer/panels/layout.php:643
+#: nectar/customizer/panels/layout.php:1399
 #: nectar/customizer/panels/post-types/blog.php:404
 #: nectar/customizer/panels/post-types/blog.php:619
-#: nectar/customizer/panels/post-types/woocommerce.php:210
-#: nectar/meta/category-meta.php:118 nectar/meta/category-meta.php:138
+#: nectar/customizer/panels/post-types/woocommerce.php:289
+#: nectar/meta/category-meta.php:122 nectar/meta/category-meta.php:142
 msgid "Left"
 msgstr "Gauche"
 
-#: nectar/customizer/panels/layout.php:299
+#: nectar/customizer/panels/layout.php:644
 msgid "Left Top Center Bottom"
 msgstr "Gauche Haut Centre Bas"
 
-#: nectar/customizer/panels/layout.php:307
+#: nectar/customizer/panels/layout.php:652
 msgid "Full Width Header"
 msgstr "En-tête pleine largeur"
 
-#: nectar/customizer/panels/layout.php:316
+#: nectar/customizer/panels/layout.php:661
 msgid "Full Width Left/Right Padding (px)"
 msgstr "Marge intérieure gauche/droite en pleine largeur (px)"
 
-#: nectar/customizer/panels/layout.php:332
+#: nectar/customizer/panels/layout.php:677
 msgid "Header Size"
 msgstr "Taille de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:335
+#: nectar/customizer/panels/layout.php:680
 msgid "Default (Expanded to screen edges)"
 msgstr "Par défaut (Étendu jusqu’aux bords de l’écran)"
 
-#: nectar/customizer/panels/layout.php:336
+#: nectar/customizer/panels/layout.php:681
 msgid "Contained"
 msgstr "Contenu"
 
-#: nectar/customizer/panels/layout.php:349
+#: nectar/customizer/panels/layout.php:694
 #: nectar/customizer/panels/post-types/portfolio.php:134
 msgid "Header Roundness"
 msgstr "Arrondi de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:360
+#: nectar/customizer/panels/layout.php:705
 msgid "Text To Display In Header"
 msgstr "Texte à afficher dans l’en-tête"
 
-#: nectar/customizer/panels/layout.php:361
+#: nectar/customizer/panels/layout.php:706
 msgid ""
 "Enter a small amount of text to display in your header navigation. e.g. a "
 "phone number, store address etc. The positioning of this content will be "
@@ -1143,16 +1082,16 @@ msgstr ""
 "positionnement de ce contenu sera déterminé par la mise en page d’en-tête "
 "que vous utilisez."
 
-#: nectar/customizer/panels/layout.php:370
+#: nectar/customizer/panels/layout.php:715
 msgid "Layout & Content Related"
 msgstr "Mise en page & Contenu associé"
 
-#: nectar/customizer/panels/layout.php:383
-#: nectar/customizer/panels/layout.php:426
+#: nectar/customizer/panels/layout.php:728
+#: nectar/customizer/panels/layout.php:771
 msgid "Secondary Header Bar"
 msgstr "Barre d’en-tête secondaire"
 
-#: nectar/customizer/panels/layout.php:384
+#: nectar/customizer/panels/layout.php:729
 msgid ""
 "Please select if you would like an additional header bar above the main "
 "navigation."
@@ -1160,37 +1099,37 @@ msgstr ""
 "Veuillez sélectionner si vous souhaitez une barre d’en-tête supplémentaire "
 "au-dessus de la navigation principale."
 
-#: nectar/customizer/panels/layout.php:387
+#: nectar/customizer/panels/layout.php:732
 msgid "Standard Header"
 msgstr "En-tête standard"
 
-#: nectar/customizer/panels/layout.php:388
+#: nectar/customizer/panels/layout.php:733
 msgid "Header With Secondary Navigation Bar"
 msgstr "En-tête avec barre de navigation secondaire"
 
-#: nectar/customizer/panels/layout.php:395
+#: nectar/customizer/panels/layout.php:740
 msgid "Secondary Header Text"
 msgstr "Texte secondaire de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:397
+#: nectar/customizer/panels/layout.php:742
 msgid "Add the text that you would like to appear in the secondary header."
 msgstr ""
 "Ajoutez le texte que vous souhaitez afficher dans l’en-tête secondaire."
 
-#: nectar/customizer/panels/layout.php:403
+#: nectar/customizer/panels/layout.php:748
 msgid "Secondary Header Link URL"
 msgstr "URL du lien d’en-tête secondaire"
 
-#: nectar/customizer/panels/layout.php:405
+#: nectar/customizer/panels/layout.php:750
 msgid "Please enter an optional URL for the secondary header text here."
 msgstr ""
 "Saisissez ici une URL facultative pour le texte secondaire de l’en-tête."
 
-#: nectar/customizer/panels/layout.php:412
+#: nectar/customizer/panels/layout.php:757
 msgid "Secondary Header Mobile Functionality"
 msgstr "Fonctionnalité de l’en-tête secondaire sur mobile"
 
-#: nectar/customizer/panels/layout.php:413
+#: nectar/customizer/panels/layout.php:758
 msgid ""
 "Please select how you would like the secondary header bar to display on "
 "mobile devices."
@@ -1198,7 +1137,7 @@ msgstr ""
 "Veuillez sélectionner comment vous souhaitez que la barre d’en-tête "
 "secondaire s’affiche sur les appareils mobiles."
 
-#: nectar/customizer/panels/layout.php:413
+#: nectar/customizer/panels/layout.php:758
 msgid ""
 "The option to \"Display Items Above Mobile Header\" will be skipped when "
 "using the \"Header Permanent Transparent\" option in the Header Navigation >"
@@ -1208,27 +1147,27 @@ msgstr ""
 "ignorée lors de l’utilisation de l’option « En-tête transparent permanent » "
 "dans l’onglet Navigation de l’en-tête > Effet transparent."
 
-#: nectar/customizer/panels/layout.php:416
+#: nectar/customizer/panels/layout.php:761
 msgid "Add Items Into Mobile Navigation Menu"
 msgstr "Ajouter des éléments au menu de navigation mobile"
 
-#: nectar/customizer/panels/layout.php:417
+#: nectar/customizer/panels/layout.php:762
 msgid "Display Items Above Mobile Header"
 msgstr "Afficher les éléments au-dessus de l’en-tête mobile"
 
-#: nectar/customizer/panels/layout.php:442
+#: nectar/customizer/panels/layout.php:787
 msgid "Archive: "
 msgstr "Archive :"
 
-#: nectar/customizer/panels/layout.php:445
+#: nectar/customizer/panels/layout.php:790
 msgid "Single: "
 msgstr "Unique :"
 
-#: nectar/customizer/panels/layout.php:453
+#: nectar/customizer/panels/layout.php:798
 msgid "Transparent Header"
 msgstr "En-tête transparent"
 
-#: nectar/customizer/panels/layout.php:454
+#: nectar/customizer/panels/layout.php:799
 msgid ""
 "Causes your header to be completely transparent before the user scrolls. "
 "This will be triggered automatically when using a post header, or you can "
@@ -1238,34 +1177,35 @@ msgstr ""
 " défiler la page. Ceci sera déclenché automatiquement lors de l’utilisation "
 "d’un en-tête d’article, ou vous pouvez le déclencher manuellement par page."
 
-#: nectar/customizer/panels/layout.php:462
+#: nectar/customizer/panels/layout.php:807
 msgid "Automatically Enable On"
 msgstr "Activer automatiquement"
 
-#: nectar/customizer/panels/layout.php:470
+#: nectar/customizer/panels/layout.php:815
 msgid "Transparent Light Logo"
 msgstr "Logo clair transparent"
 
-#: nectar/customizer/panels/layout.php:471
+#: nectar/customizer/panels/layout.php:816
 msgid "This will be used when the header is transparent state is active."
-msgstr "Ce paramètre sera utilisé lorsque l’état transparent de l’en-tête est actif."
+msgstr ""
+"Ce paramètre sera utilisé lorsque l’état transparent de l’en-tête est actif."
 
-#: nectar/customizer/panels/layout.php:487
+#: nectar/customizer/panels/layout.php:832
 msgid "Transparent Light Mobile Logo"
 msgstr "Logo mobile clair transparent"
 
-#: nectar/customizer/panels/layout.php:488
+#: nectar/customizer/panels/layout.php:833
 msgid ""
 "A separate header starting logo that will be shown on mobile devices only."
 msgstr ""
 "Un logo d’en-tête distinct qui sera affiché uniquement sur les appareils "
 "mobiles."
 
-#: nectar/customizer/panels/layout.php:496
+#: nectar/customizer/panels/layout.php:841
 msgid "Transparent Dark Logo"
 msgstr "Logo Sombre Transparent"
 
-#: nectar/customizer/panels/layout.php:497
+#: nectar/customizer/panels/layout.php:842
 msgid ""
 "This will be used when the header transparent effect is active and the dark "
 "color is selected."
@@ -1273,11 +1213,11 @@ msgstr ""
 "Ceci sera utilisé lorsque l’effet d’en-tête transparent est actif et que la "
 "couleur sombre est sélectionnée."
 
-#: nectar/customizer/panels/layout.php:511
+#: nectar/customizer/panels/layout.php:856
 msgid "Transparent Dark Mobile Logo"
 msgstr "Logo mobile sombre transparent"
 
-#: nectar/customizer/panels/layout.php:512
+#: nectar/customizer/panels/layout.php:857
 msgid ""
 "A separate header starting dark logo that will be shown on mobile devices "
 "only."
@@ -1285,160 +1225,170 @@ msgstr ""
 "Un logo sombre d’en-tête distinct qui sera affiché uniquement sur les "
 "appareils mobiles."
 
-#: nectar/customizer/panels/layout.php:519
+#: nectar/customizer/panels/layout.php:864
 msgid "Transparent Light Text Color"
 msgstr "Couleur du texte clair transparent"
 
-#: nectar/customizer/panels/layout.php:520
+#: nectar/customizer/panels/layout.php:865
 msgid ""
 "Please select the color you desire for your header text before the user "
 "scrolls"
-msgstr "Veuillez sélectionner la couleur souhaitée pour le texte de votre en-tête avant le défilement"
+msgstr ""
+"Veuillez sélectionner la couleur souhaitée pour le texte de votre en-tête "
+"avant le défilement"
 
-#: nectar/customizer/panels/layout.php:529
+#: nectar/customizer/panels/layout.php:874
 msgid "Transparent Dark Text Color"
 msgstr "Couleur de texte sombre transparente"
 
-#: nectar/customizer/panels/layout.php:530
+#: nectar/customizer/panels/layout.php:875
 msgid ""
 "Please select the color you desire for your header text when the dark header"
 " is active."
-msgstr "Veuillez sélectionner la couleur souhaitée pour le texte de votre en-tête lorsque l’en-tête sombre est actif."
+msgstr ""
+"Veuillez sélectionner la couleur souhaitée pour le texte de votre en-tête "
+"lorsque l’en-tête sombre est actif."
 
-#: nectar/customizer/panels/layout.php:541
+#: nectar/customizer/panels/layout.php:886
 msgid "Header Starting Text Opacity"
 msgstr "Opacité du texte de début de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:544
+#: nectar/customizer/panels/layout.php:889
 msgid "Default (Dimmed)"
 msgstr "Par défaut (Atténué)"
 
-#: nectar/customizer/panels/layout.php:545
+#: nectar/customizer/panels/layout.php:890
 msgid "Full Opacity"
 msgstr "Opacité totale"
 
-#: nectar/customizer/panels/layout.php:552
+#: nectar/customizer/panels/layout.php:897
 msgid "Header Permanent Transparent"
 msgstr "En-tête Permanent Transparent"
 
-#: nectar/customizer/panels/layout.php:553
+#: nectar/customizer/panels/layout.php:898
 msgid ""
 "Turning this on will allow your header to remain transparent even after "
 "scrolling down. This option will override all colors. When using an image "
 "logo, it must have a transparent background (PNG or SVG)."
-msgstr "L’activation de cette option permettra à votre en-tête de rester transparent même après le défilement de la page. Cette option remplacera toutes les couleurs. Lorsque vous utilisez un logo en image, celui-ci doit avoir un fond transparent (PNG ou SVG)."
+msgstr ""
+"L’activation de cette option permettra à votre en-tête de rester transparent"
+" même après le défilement de la page. Cette option remplacera toutes les "
+"couleurs. Lorsque vous utilisez un logo en image, celui-ci doit avoir un "
+"fond transparent (PNG ou SVG)."
 
-#: nectar/customizer/panels/layout.php:566
+#: nectar/customizer/panels/layout.php:911
 msgid "Add Shadow Behind Transparent Header"
 msgstr "Ajouter une ombre derrière l’en-tête transparent"
 
-#: nectar/customizer/panels/layout.php:567
+#: nectar/customizer/panels/layout.php:912
 msgid ""
 "Add a subtle shadow behind your transparent header to help with the "
 "visibility of your navigation items."
-msgstr "Ajoutez une ombre subtile derrière votre en-tête transparent pour améliorer la visibilité de vos éléments de navigation."
+msgstr ""
+"Ajoutez une ombre subtile derrière votre en-tête transparent pour améliorer "
+"la visibilité de vos éléments de navigation."
 
-#: nectar/customizer/panels/layout.php:577
+#: nectar/customizer/panels/layout.php:923
 msgid "Transparent Header Effect"
 msgstr "Effet d’en-tête transparent"
 
-#: nectar/customizer/panels/layout.php:590
+#: nectar/customizer/panels/layout.php:936
 msgid "Header Link Hover/Active Effect"
 msgstr "Effet de survol/actif du lien d’en-tête"
 
-#: nectar/customizer/panels/layout.php:593
+#: nectar/customizer/panels/layout.php:939
 msgid "Color Change"
 msgstr "Changement de couleur"
 
-#: nectar/customizer/panels/layout.php:594
-#: nectar/customizer/panels/layout.php:701
+#: nectar/customizer/panels/layout.php:940
+#: nectar/customizer/panels/layout.php:1050
 #: nectar/customizer/panels/layout/footer.php:146
 msgid "Animated Underline"
 msgstr "Soulignement animé"
 
-#: nectar/customizer/panels/layout.php:595
+#: nectar/customizer/panels/layout.php:941
 msgid "Button Background"
 msgstr "Arrière-plan du bouton"
 
-#: nectar/customizer/panels/layout.php:603
+#: nectar/customizer/panels/layout.php:949
 msgid "Button Background Size"
 msgstr "Taille du fond du bouton"
 
-#: nectar/customizer/panels/layout.php:604
+#: nectar/customizer/panels/layout.php:950
 msgid "Alters the button background size releative to link tett."
 msgstr ""
 "Modifie la taille de l’arrière-plan du bouton par rapport au texte du lien."
 
-#: nectar/customizer/panels/layout.php:608
-#: nectar/customizer/panels/layout.php:1069
+#: nectar/customizer/panels/layout.php:954
+#: nectar/customizer/panels/layout.php:1429
 msgid "Medium"
 msgstr "Moyenne"
 
-#: nectar/customizer/panels/layout.php:617
+#: nectar/customizer/panels/layout.php:963
 msgid "Button Background Animation"
 msgstr "Animation de l’arrière-plan du bouton"
 
-#: nectar/customizer/panels/layout.php:618
+#: nectar/customizer/panels/layout.php:964
 msgid "Alters the button background entrance animation."
 msgstr "Modifie l’animation d’entrée de l’arrière-plan du bouton."
 
-#: nectar/customizer/panels/layout.php:621
-#: nectar/customizer/panels/layout.php:756
+#: nectar/customizer/panels/layout.php:967
+#: nectar/customizer/panels/layout.php:1114
 msgid "Fade In"
 msgstr "Fondu en entrée"
 
-#: nectar/customizer/panels/layout.php:622
+#: nectar/customizer/panels/layout.php:968
 msgid "Grow In"
 msgstr "Agrandir"
 
-#: nectar/customizer/panels/layout.php:631
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:977
+#: nectar/customizer/panels/layout.php:992
 msgid "Header Hide Until Needed"
 msgstr "Masquer l’en-tête jusqu’à ce qu’il soit nécessaire"
 
-#: nectar/customizer/panels/layout.php:632
+#: nectar/customizer/panels/layout.php:978
 msgid ""
 "Do you want the header to be hidden after scrolling until needed? i.e. the "
 "user scrolls back up towards the top"
 msgstr ""
-"Voulez-vous que l’en-tête soit masqué après le défilement jusqu’à ce "
-"qu’il soit nécessaire ? C’est-à-dire lorsque l’utilisateur fait défiler "
-"vers le haut."
+"Voulez-vous que l’en-tête soit masqué après le défilement jusqu’à ce qu’il "
+"soit nécessaire ? C’est-à-dire lorsque l’utilisateur fait défiler vers le "
+"haut."
 
-#: nectar/customizer/panels/layout.php:641
+#: nectar/customizer/panels/layout.php:987
 msgid "Header Resize On Scroll"
 msgstr "Réduire l’en-tête au défilement"
 
-#: nectar/customizer/panels/layout.php:642
+#: nectar/customizer/panels/layout.php:988
 msgid "Do you want the header to shrink a little when you scroll?"
 msgstr "Voulez-vous que l’en-tête se réduise légèrement lors du défilement ?"
 
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:992
 msgid "This will only be active when the"
 msgstr "Cela ne sera actif que lorsque le"
 
-#: nectar/customizer/panels/layout.php:646
+#: nectar/customizer/panels/layout.php:992
 msgid "effect is turned off"
 msgstr "l’effet est désactivé"
 
-#: nectar/customizer/panels/layout.php:651
+#: nectar/customizer/panels/layout.php:997
 msgid "Header Logo Shrink Number (in px)"
 msgstr "Réduction du logo de l’en-tête (en px)"
 
-#: nectar/customizer/panels/layout.php:660
+#: nectar/customizer/panels/layout.php:1006
 msgid "Condense Header On Scroll"
 msgstr "Condenser l’en-tête au défilement"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "This option is specific to \"Menu Bottom Bar\" Header Format."
 msgstr ""
 "Cette option est spécifique au format d’en-tête « Barre de menu en bas »."
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "When Menu Is Center Aligned"
 msgstr "Lorsque le menu est aligné au centre"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid ""
 "Adds the logo/header buttons into the bottom nav bar when scrolling. Uses "
 "the \"Mobile Only Logo\" if supplied."
@@ -1447,47 +1397,47 @@ msgstr ""
 "inférieure lors du défilement. Utilise le « Logo mobile uniquement » s’il "
 "est fourni."
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "When Menu Is left Aligned"
 msgstr "Lorsque le menu est aligné à gauche"
 
-#: nectar/customizer/panels/layout.php:661
+#: nectar/customizer/panels/layout.php:1007
 msgid "Keeps bottom bar sticky when scrolling."
 msgstr "Maintient la barre inférieure fixe pendant le défilement."
 
-#: nectar/customizer/panels/layout.php:671
+#: nectar/customizer/panels/layout.php:1020
 msgid "Animation Effects"
 msgstr "Effets d’animation"
 
-#: nectar/customizer/panels/layout.php:685
+#: nectar/customizer/panels/layout.php:1034
 msgid "Dropdown Opacity"
 msgstr "Opacité du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:697
+#: nectar/customizer/panels/layout.php:1046
 msgid "Dropdown Link Hover/Active Effect"
 msgstr "Effet au survol/actif du lien déroulant"
 
-#: nectar/customizer/panels/layout.php:700
+#: nectar/customizer/panels/layout.php:1049
 msgid "Background Color Change"
 msgstr "Changement de couleur d’arrière-plan"
 
-#: nectar/customizer/panels/layout.php:709
+#: nectar/customizer/panels/layout.php:1058
 msgid "Dropdown Arrows"
 msgstr "Flèches du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:714
+#: nectar/customizer/panels/layout.php:1063
 msgid "Show Arrow"
 msgstr "Afficher la flèche"
 
-#: nectar/customizer/panels/layout.php:715
+#: nectar/customizer/panels/layout.php:1064
 msgid "Don't Show Arrow"
 msgstr "Ne pas afficher la flèche"
 
-#: nectar/customizer/panels/layout.php:723
+#: nectar/customizer/panels/layout.php:1072
 msgid "Display Descriptions"
 msgstr "Afficher les descriptions"
 
-#: nectar/customizer/panels/layout.php:724
+#: nectar/customizer/panels/layout.php:1073
 msgid ""
 "This will display the \"Description\" field specified for dropdown menu "
 "items in Appearance > Menus."
@@ -1495,58 +1445,58 @@ msgstr ""
 "Cela affichera le champ \"Description\" spécifié pour les éléments du menu "
 "déroulant dans Apparence > Menus."
 
-#: nectar/customizer/panels/layout.php:731
+#: nectar/customizer/panels/layout.php:1080
 msgid "Add Background Overlay"
 msgstr "Ajouter une superposition d’arrière-plan"
 
-#: nectar/customizer/panels/layout.php:732
+#: nectar/customizer/panels/layout.php:1081
 msgid ""
 "Adds an overlay that appears when a dropdown is opened to improve focus."
 msgstr ""
 "Ajoute une superposition qui apparaît lorsqu’un menu déroulant est ouvert "
 "pour améliorer la concentration."
 
-#: nectar/customizer/panels/layout.php:740
+#: nectar/customizer/panels/layout.php:1098
 msgid "Dropdown Positioning"
 msgstr "Positionnement du Dropdown"
 
-#: nectar/customizer/panels/layout.php:743
+#: nectar/customizer/panels/layout.php:1101
 msgid "Bottom of Header Navigation Bar"
 msgstr "Bas de la barre de navigation de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:744
+#: nectar/customizer/panels/layout.php:1102
 msgid "Bottom of Menu Item Label"
 msgstr "Étiquette du bas de l’élément de menu"
 
-#: nectar/customizer/panels/layout.php:751
+#: nectar/customizer/panels/layout.php:1109
 msgid "Dropdown Animation"
 msgstr "Animation du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:755
+#: nectar/customizer/panels/layout.php:1113
 msgid "Fade In Up"
 msgstr "Fondu vers le haut"
 
-#: nectar/customizer/panels/layout.php:763
+#: nectar/customizer/panels/layout.php:1121
 msgid "Dropdown Roundness"
 msgstr "Arrondi du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:774
+#: nectar/customizer/panels/layout.php:1132
 msgid "Dropdown Box Shadow"
 msgstr "Ombre portée du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:809
+#: nectar/customizer/panels/layout.php:1170
 msgid "Dropdowns"
 msgstr "Listes déroulantes"
 
-#: nectar/customizer/panels/layout.php:823
+#: nectar/customizer/panels/layout.php:1184
 msgid "Remove Header search"
 msgstr "Supprimer la recherche de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:830
+#: nectar/customizer/panels/layout.php:1191
 msgid "Disable AJAX from search"
 msgstr "Désactiver AJAX de la recherche"
 
-#: nectar/customizer/panels/layout.php:831
+#: nectar/customizer/panels/layout.php:1192
 msgid ""
 "This will turn off the autocomplete suggestions from appearing when typing "
 "in the search box."
@@ -1554,56 +1504,52 @@ msgstr ""
 "Cela désactivera l’affichage des suggestions de saisie automatique lors de "
 "la frappe dans le champ de recherche."
 
-#: nectar/customizer/panels/layout.php:838
+#: nectar/customizer/panels/layout.php:1199
 msgid "AJAX search styling"
 msgstr "Style de recherche AJAX"
 
-#: nectar/customizer/panels/layout.php:839
+#: nectar/customizer/panels/layout.php:1200
 msgid "Select how to display the search results as the user types."
 msgstr ""
 "Sélectionnez comment afficher les résultats de recherche pendant la saisie."
 
-#: nectar/customizer/panels/layout.php:843
+#: nectar/customizer/panels/layout.php:1204
 msgid "Simple List"
 msgstr "Liste simple"
 
-#: nectar/customizer/panels/layout.php:844
+#: nectar/customizer/panels/layout.php:1205
 msgid "Extended List"
 msgstr "Liste étendue"
 
-#: nectar/customizer/panels/layout.php:851
+#: nectar/customizer/panels/layout.php:1212
 msgid "Limit Search To Post Type"
 msgstr "Limiter la recherche au type de publication"
 
-#: nectar/customizer/panels/layout.php:854 nectar/helpers/page-header.php:619
-msgid "All"
-msgstr "Toutes"
-
-#: nectar/customizer/panels/layout.php:855
+#: nectar/customizer/panels/layout.php:1216
 msgid "Products"
 msgstr "Produits"
 
-#: nectar/customizer/panels/layout.php:856
+#: nectar/customizer/panels/layout.php:1217
 msgid "Posts"
 msgstr "Articles"
 
-#: nectar/customizer/panels/layout.php:863
+#: nectar/customizer/panels/layout.php:1224
 msgid "Header Search Typography"
 msgstr "Typographie de la recherche de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:867
+#: nectar/customizer/panels/layout.php:1228
 msgid "Inherit Navigation Typography"
 msgstr "Hériter de la typographie de navigation"
 
-#: nectar/customizer/panels/layout.php:874
+#: nectar/customizer/panels/layout.php:1235
 msgid "Search Font Size"
 msgstr "Taille de la police de recherche"
 
-#: nectar/customizer/panels/layout.php:885
+#: nectar/customizer/panels/layout.php:1246
 msgid "Search Placeholder Text"
 msgstr "Texte de substitution de recherche"
 
-#: nectar/customizer/panels/layout.php:886
+#: nectar/customizer/panels/layout.php:1247
 msgid ""
 "Define custom text to show to the user when opening the search, before they "
 "start typing."
@@ -1611,15 +1557,11 @@ msgstr ""
 "Définissez un texte personnalisé à afficher à l’utilisateur lors de "
 "l’ouverture de la recherche, avant qu’il ne commence à saisir."
 
-#: nectar/customizer/panels/layout.php:895
+#: nectar/customizer/panels/layout.php:1256
 msgid "Header Search"
 msgstr "Recherche dans l’en-tête"
 
-#: nectar/customizer/panels/layout.php:909
-msgid "Off Canvas Menu"
-msgstr "Menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:910
+#: nectar/customizer/panels/layout.php:1271
 msgid ""
 "This will add an off canvas menu button on all viewports to your header "
 "navigation. When this is disabled, the off canvas menu will only be visible "
@@ -1629,11 +1571,7 @@ msgstr ""
 "dans la navigation de votre en-tête. Lorsque cette option est désactivée, le"
 " menu hors canevas ne sera visible que sur les appareils mobiles."
 
-#: nectar/customizer/panels/layout.php:919
-msgid "Off Canvas Menu Style"
-msgstr "Style du menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:920
+#: nectar/customizer/panels/layout.php:1281
 msgid ""
 "The \"Slide Out From Right Hover Triggered\" style will force the \"Full "
 "Width Header\" option regardless of your selection."
@@ -1641,35 +1579,31 @@ msgstr ""
 "Le style « Slide Out From Right Hover Triggered » forcera l’option « En-tête"
 " pleine largeur » indépendamment de votre sélection."
 
-#: nectar/customizer/panels/layout.php:923
+#: nectar/customizer/panels/layout.php:1284
 msgid "Slide Out From Side"
 msgstr "Glissement latéral"
 
-#: nectar/customizer/panels/layout.php:924
+#: nectar/customizer/panels/layout.php:1285
 msgid "Slide Out From Side Hover Triggered"
 msgstr "Glissement latéral déclenché au survol"
 
-#: nectar/customizer/panels/layout.php:925
+#: nectar/customizer/panels/layout.php:1286
 msgid "Fullscreen Cover Slide + Blur BG"
 msgstr "Diapositive plein écran avec arrière-plan flouté"
 
-#: nectar/customizer/panels/layout.php:926
+#: nectar/customizer/panels/layout.php:1287
 msgid "Fullscreen Cover Fade"
 msgstr "Couverture plein écran avec fondu"
 
-#: nectar/customizer/panels/layout.php:928
+#: nectar/customizer/panels/layout.php:1288
 msgid "Fullscreen Cover Split"
 msgstr "Couverture plein écran divisée"
 
-#: nectar/customizer/panels/layout.php:929
+#: nectar/customizer/panels/layout.php:1289
 msgid "Simple Dropdown"
 msgstr "Menu déroulant simple"
 
-#: nectar/customizer/panels/layout.php:937
-msgid "Off Canvas Menu Separate Mobile Menu"
-msgstr "Menu hors-écran Menu mobile distinct"
-
-#: nectar/customizer/panels/layout.php:938
+#: nectar/customizer/panels/layout.php:1298
 msgid ""
 "This will cause your off canvas to only display navigation menu items "
 "assigned to the \"Off Canvas Navigation Menu\" location when viewing on a "
@@ -1679,27 +1613,7 @@ msgstr ""
 "éléments de menu de navigation assignés à l’emplacement « Menu de navigation"
 " hors canevas » lors de la consultation sur un appareil mobile."
 
-#: nectar/customizer/panels/layout.php:947
-msgid "Off Canvas Menu Desktop Width (%)"
-msgstr "Largeur du menu Off Canvas sur ordinateur (%)"
-
-#: nectar/customizer/panels/layout.php:959
-msgid "Off Canvas Menu Offset"
-msgstr "Décalage du menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:970
-msgid "Off Canvas Menu Roundness"
-msgstr "Arrondi du menu hors-champ"
-
-#: nectar/customizer/panels/layout.php:982
-msgid "Off Canvas Menu Icon Width"
-msgstr "Largeur de l’icône du menu hors canevas"
-
-#: nectar/customizer/panels/layout.php:995
-msgid "Default Off Canvas Background Image"
-msgstr "Image d’arrière-plan par défaut du panneau hors canevas"
-
-#: nectar/customizer/panels/layout.php:996
+#: nectar/customizer/panels/layout.php:1356
 msgid ""
 "Choose the default image to be shown in your Off Canvas Menu. You can also "
 "supply a unique item for each menu item in"
@@ -1707,15 +1621,11 @@ msgstr ""
 "Choisissez l’image par défaut à afficher dans votre menu hors canevas. Vous "
 "pouvez également fournir un élément unique pour chaque élément de menu dans"
 
-#: nectar/customizer/panels/layout.php:996
+#: nectar/customizer/panels/layout.php:1356
 msgid "Appearance > Menus."
 msgstr "Apparence > Menus"
 
-#: nectar/customizer/panels/layout.php:1003
-msgid "Off Canvas Menu Dropdown Behavior"
-msgstr "Comportement du menu déroulant Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1004
+#: nectar/customizer/panels/layout.php:1364
 msgid ""
 "Please select the functionality for how dropdowns will behave in your off "
 "canvas menu."
@@ -1723,19 +1633,7 @@ msgstr ""
 "Veuillez sélectionner le comportement des menus déroulants dans votre menu "
 "off canvas."
 
-#: nectar/customizer/panels/layout.php:1027
-msgid "Off Canvas Menu Add Menu Label"
-msgstr "Menu hors canevas Ajouter une étiquette de menu"
-
-#: nectar/customizer/panels/layout.php:1034
-msgid "Off Canvas Menu Button Position"
-msgstr "Position du bouton de menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1055
-msgid "Off Canvas Menu Bottom Text"
-msgstr "Texte du bas du menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1056
+#: nectar/customizer/panels/layout.php:1416
 msgid ""
 "This will add some text fixed at the bottom of your off canvas menu - useful"
 " for copyright or quick contact info etc."
@@ -1743,33 +1641,25 @@ msgstr ""
 "Cela ajoutera du texte fixe au bas de votre menu off canvas - utile pour les"
 " mentions de copyright ou les informations de contact rapide, etc."
 
-#: nectar/customizer/panels/layout.php:1063
-msgid "Off Canvas Menu Overlay Strength"
-msgstr "Intensité de la superposition du menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1064
+#: nectar/customizer/panels/layout.php:1424
 msgid "Not all off canvas menu styles utilize this option."
 msgstr "Tous les styles de menu hors canevas n’utilisent pas cette option."
 
-#: nectar/customizer/panels/layout.php:1067
+#: nectar/customizer/panels/layout.php:1427
 msgid "Solid"
 msgstr "Unie"
 
-#: nectar/customizer/panels/layout.php:1068
-#: nectar/customizer/panels/layout.php:1255
+#: nectar/customizer/panels/layout.php:1428
+#: nectar/customizer/panels/layout.php:1627
 msgid "Dark"
 msgstr "Sombre"
 
-#: nectar/customizer/panels/layout.php:1070
-#: nectar/customizer/panels/layout.php:1254
+#: nectar/customizer/panels/layout.php:1430
+#: nectar/customizer/panels/layout.php:1626
 msgid "Light"
 msgstr "Clair"
 
-#: nectar/customizer/panels/layout.php:1079
-msgid "Off Canvas Menu Mobile Nav Menu items"
-msgstr "Menu hors-champ Éléments du menu de navigation mobile"
-
-#: nectar/customizer/panels/layout.php:1080
+#: nectar/customizer/panels/layout.php:1449
 msgid ""
 "This will cause your off canvas menu to inherit any navigation items "
 "assigned in your \"Top Navigation\" menu location when viewing on a mobile "
@@ -1779,11 +1669,7 @@ msgstr ""
 "navigation assignés à l’emplacement de menu « Navigation supérieure » lors "
 "de l’affichage sur un appareil mobile."
 
-#: nectar/customizer/panels/layout.php:1088
-msgid "Off Canvas Menu Item Icons"
-msgstr "Icônes des éléments du menu Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1089
+#: nectar/customizer/panels/layout.php:1458
 msgid ""
 "This will control what type of icons (if any) to display in your off canvas "
 "menu. Icons are defined by you on an individual menu item basis in "
@@ -1793,35 +1679,27 @@ msgstr ""
 "hors canevas. Les icônes sont définies individuellement pour chaque élément "
 "de menu dans Apparence > Menus."
 
-#: nectar/customizer/panels/layout.php:1092
+#: nectar/customizer/panels/layout.php:1461
 msgid "Display No Icons"
 msgstr "N’afficher aucune icône"
 
-#: nectar/customizer/panels/layout.php:1093
+#: nectar/customizer/panels/layout.php:1462
 msgid "Display Font/Emoji Icons Only"
 msgstr "Afficher uniquement les icônes de police/emoji"
 
-#: nectar/customizer/panels/layout.php:1094
+#: nectar/customizer/panels/layout.php:1463
 msgid "Display Image Icons Only"
 msgstr "Afficher uniquement les icônes d’image"
 
-#: nectar/customizer/panels/layout.php:1095
+#: nectar/customizer/panels/layout.php:1464
 msgid "Display All Icons"
 msgstr "Afficher toutes les icônes"
 
-#: nectar/customizer/panels/layout.php:1114
-msgid "Off Canvas Icon Style"
-msgstr "Style de l’icône hors canevas"
-
-#: nectar/customizer/panels/layout.php:1118
+#: nectar/customizer/panels/layout.php:1487
 msgid "Circular"
 msgstr "Circulaire"
 
-#: nectar/customizer/panels/layout.php:1126
-msgid "Off Canvas Navigation Menu Button BG Color"
-msgstr "Couleur de fond du bouton du menu de navigation Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1129
+#: nectar/customizer/panels/layout.php:1498
 msgid ""
 "Optionally define a background color for your off canvas navigation button "
 "within the header."
@@ -1829,15 +1707,7 @@ msgstr ""
 "Définissez éventuellement une couleur d’arrière-plan pour votre bouton de "
 "navigation hors canevas dans l’en-tête."
 
-#: nectar/customizer/panels/layout.php:1135
-msgid "Off Canvas Navigation Menu Button Color"
-msgstr "Couleur du bouton du menu de navigation Off Canvas"
-
-#: nectar/customizer/panels/layout.php:1144
-msgid "Off Canvas Menu Custom Font Size (Desktop)"
-msgstr "Taille de police personnalisée du menu Off Canvas (Desktop)"
-
-#: nectar/customizer/panels/layout.php:1145
+#: nectar/customizer/panels/layout.php:1514
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on desktop displays. All unit types are accepted."
@@ -1846,11 +1716,7 @@ msgstr ""
 "les éléments de votre menu de navigation hors canevas lorsqu’ils sont "
 "affichés sur des écrans de bureau. Tous les types d’unités sont acceptés."
 
-#: nectar/customizer/panels/layout.php:1152
-msgid "Off Canvas Menu Custom Font Size (Mobile)"
-msgstr "Taille de police personnalisée du menu Off Canvas (Mobile)"
-
-#: nectar/customizer/panels/layout.php:1153
+#: nectar/customizer/panels/layout.php:1522
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on mobile displays. All unit types are accepted."
@@ -1859,23 +1725,23 @@ msgstr ""
 "les éléments de votre menu de navigation hors canevas lorsqu’ils sont "
 "affichés sur des écrans mobiles. Tous les types d’unités sont acceptés."
 
-#: nectar/customizer/panels/layout.php:1163
+#: nectar/customizer/panels/layout.php:1533
 msgid "Header Off Canvas Menu"
 msgstr "Menu hors canevas de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1177
+#: nectar/customizer/panels/layout.php:1547
 msgid "Mobile Header Layout"
 msgstr "Mise en page de l’en-tête mobile"
 
-#: nectar/customizer/panels/layout.php:1189
+#: nectar/customizer/panels/layout.php:1559
 msgid "Header Sticky On Mobile"
 msgstr "En-tête fixe sur mobile"
 
-#: nectar/customizer/panels/layout.php:1197
+#: nectar/customizer/panels/layout.php:1567
 msgid "Header Mobile Breakpoint"
 msgstr "Point de rupture mobile de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1198
+#: nectar/customizer/panels/layout.php:1568
 msgid ""
 "Define at what window size (in px) the header navigation menu will collapse "
 "into the mobile menu style - larger values are useful when you have a "
@@ -1888,24 +1754,24 @@ msgstr ""
 "tiendraient pas sur une seule ligne sur les petits ordinateurs de bureau ou "
 "portables."
 
-#: nectar/customizer/panels/layout.php:1211
+#: nectar/customizer/panels/layout.php:1581
 msgid "Full Width Left/Right Padding"
 msgstr "Marge intérieure gauche/droite pleine largeur"
 
-#: nectar/customizer/panels/layout.php:1223
+#: nectar/customizer/panels/layout.php:1593
 msgid "Header Top/Bottom Padding"
 msgstr "Marges internes supérieure/inférieure de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1237
+#: nectar/customizer/panels/layout.php:1609
 msgid "Mobile Menu"
 msgstr "Menu mobile"
 
-#: nectar/customizer/panels/layout.php:1250
-#: nectar/customizer/panels/layout.php:1601
+#: nectar/customizer/panels/layout.php:1622
+#: nectar/customizer/panels/layout.php:1974
 msgid "Header Color Scheme"
 msgstr "Jeu de couleurs de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1251
+#: nectar/customizer/panels/layout.php:1623
 msgid ""
 "Please select your header color scheme here. Color pickers below will only "
 "be used when using \"Custom\" for the color scheme."
@@ -1914,115 +1780,111 @@ msgstr ""
 "couleurs ci-dessous ne seront utilisés que si vous choisissez "
 "« Personnalisé » pour le jeu de couleurs."
 
-#: nectar/customizer/panels/layout.php:1256
-msgid "Custom"
-msgstr "Personnalisé"
-
-#: nectar/customizer/panels/layout.php:1264
+#: nectar/customizer/panels/layout.php:1636
 msgid "Header Background"
 msgstr "Arrière-plan de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1275
+#: nectar/customizer/panels/layout.php:1647
 msgid "Header Font"
 msgstr "Police de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1276
-#: nectar/customizer/panels/layout.php:1367
-#: nectar/customizer/panels/layout.php:1394
-#: nectar/customizer/panels/layout.php:1417
-#: nectar/customizer/panels/layout.php:1452
-#: nectar/customizer/panels/layout.php:1476
-#: nectar/customizer/panels/layout.php:1548
+#: nectar/customizer/panels/layout.php:1648
+#: nectar/customizer/panels/layout.php:1739
+#: nectar/customizer/panels/layout.php:1766
+#: nectar/customizer/panels/layout.php:1789
+#: nectar/customizer/panels/layout.php:1824
+#: nectar/customizer/panels/layout.php:1848
+#: nectar/customizer/panels/layout.php:1920
 msgid "Default State"
 msgstr "État par défaut"
 
-#: nectar/customizer/panels/layout.php:1288
-#: nectar/customizer/panels/layout.php:1379
-#: nectar/customizer/panels/layout.php:1405
-#: nectar/customizer/panels/layout.php:1429
-#: nectar/customizer/panels/layout.php:1464
-#: nectar/customizer/panels/layout.php:1488
-#: nectar/customizer/panels/layout.php:1560
+#: nectar/customizer/panels/layout.php:1660
+#: nectar/customizer/panels/layout.php:1751
+#: nectar/customizer/panels/layout.php:1777
+#: nectar/customizer/panels/layout.php:1801
+#: nectar/customizer/panels/layout.php:1836
+#: nectar/customizer/panels/layout.php:1860
+#: nectar/customizer/panels/layout.php:1932
 msgid "Hover State"
 msgstr "État au survol"
 
-#: nectar/customizer/panels/layout.php:1299
+#: nectar/customizer/panels/layout.php:1671
 msgid "Header Button Effect"
 msgstr "Effet du bouton d’en-tête"
 
-#: nectar/customizer/panels/layout.php:1303
+#: nectar/customizer/panels/layout.php:1675
 msgid "BG Default State"
 msgstr "État par défaut de l’arrière-plan"
 
-#: nectar/customizer/panels/layout.php:1312
+#: nectar/customizer/panels/layout.php:1684
 msgid "BG Active State"
 msgstr "État actif de l’arrière-plan"
 
-#: nectar/customizer/panels/layout.php:1325
+#: nectar/customizer/panels/layout.php:1697
 msgid "Text Active State"
 msgstr "État actif"
 
-#: nectar/customizer/panels/layout.php:1334
+#: nectar/customizer/panels/layout.php:1706
 msgid "Header Menu Item Icons"
 msgstr "Icônes des éléments du menu d’en-tête"
 
-#: nectar/customizer/panels/layout.php:1355
+#: nectar/customizer/panels/layout.php:1727
 msgid "Secondary Header Background"
 msgstr "Arrière-plan de l’en-tête secondaire"
 
-#: nectar/customizer/panels/layout.php:1366
+#: nectar/customizer/panels/layout.php:1738
 msgid "Secondary Header Font"
 msgstr "Police secondaire de l’en-tête"
 
-#: nectar/customizer/panels/layout.php:1391
+#: nectar/customizer/panels/layout.php:1763
 msgid "Dropdown Background"
 msgstr "Arrière-plan du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:1416
+#: nectar/customizer/panels/layout.php:1788
 msgid "Dropdown Font"
 msgstr "Police du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:1440
+#: nectar/customizer/panels/layout.php:1812
 msgid "Dropdown Menu Item Icons"
 msgstr "Icônes des éléments du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:1451
+#: nectar/customizer/panels/layout.php:1823
 msgid "Dropdown Description Font"
 msgstr "Police de la description du menu déroulant"
 
-#: nectar/customizer/panels/layout.php:1475
+#: nectar/customizer/panels/layout.php:1847
 msgid "Mega Menu Heading Font"
 msgstr "Police des titres du Mega Menu"
 
-#: nectar/customizer/panels/layout.php:1499
+#: nectar/customizer/panels/layout.php:1871
 msgid "Header Separators"
 msgstr "Séparateurs d’en-tête"
 
-#: nectar/customizer/panels/layout.php:1511
+#: nectar/customizer/panels/layout.php:1883
 msgid "Off Canvas Navigation BG"
 msgstr "Arrière-plan de la navigation Off Canvas"
 
-#: nectar/customizer/panels/layout.php:1524
+#: nectar/customizer/panels/layout.php:1896
 msgid "Off Canvas Navigation BG 2"
 msgstr "Arrière-plan 2 de la navigation Off Canvas"
 
-#: nectar/customizer/panels/layout.php:1525
+#: nectar/customizer/panels/layout.php:1897
 msgid "Used for gradient"
 msgstr "Utilisé pour le dégradé"
 
-#: nectar/customizer/panels/layout.php:1536
+#: nectar/customizer/panels/layout.php:1908
 msgid "Off Canvas Navigation Headers"
 msgstr "En-têtes de navigation Off Canvas"
 
-#: nectar/customizer/panels/layout.php:1547
+#: nectar/customizer/panels/layout.php:1919
 msgid "Off Canvas Navigation Text"
 msgstr "Navigation Off Canvas"
 
-#: nectar/customizer/panels/layout.php:1572
+#: nectar/customizer/panels/layout.php:1944
 msgid "Off Canvas Navigation Close BG"
 msgstr "Arrière-plan du bouton de fermeture de la navigation Off Canvas"
 
-#: nectar/customizer/panels/layout.php:1585
+#: nectar/customizer/panels/layout.php:1957
 msgid "Off Canvas Navigation Close"
 msgstr "Fermer la navigation Off Canvas"
 
@@ -2149,8 +2011,8 @@ msgstr "Texte de la section copyright du pied de page"
 #: nectar/customizer/panels/layout/footer.php:176
 msgid "Please enter the copyright section text. e.g. All Rights Reserved"
 msgstr ""
-"Veuillez saisir le texte de la section copyright. Par exemple : Tous "
-"droits réservés"
+"Veuillez saisir le texte de la section copyright. Par exemple : Tous droits "
+"réservés"
 
 #: nectar/customizer/panels/layout/footer.php:183
 msgid "Disable Automatic Copyright"
@@ -2227,7 +2089,7 @@ msgid "Blog Spacing"
 msgstr "Espacement du blog"
 
 #: nectar/customizer/panels/post-types/blog.php:116
-#: nectar/customizer/panels/post-types/woocommerce.php:147
+#: nectar/customizer/panels/post-types/woocommerce.php:226
 msgid "Enable Sticky Sidebar"
 msgstr "Activer la barre latérale fixe"
 
@@ -2289,6 +2151,7 @@ msgid "Display the author's bio at the bottom of posts?"
 msgstr "Afficher la biographie de l’auteur en bas des articles ?"
 
 #: nectar/customizer/panels/post-types/blog.php:201
+#: nectar/customizer/panels/post-types/custom-post-types.php:65
 msgid "Post Navigation Links"
 msgstr "Liens de navigation des posts"
 
@@ -2301,22 +2164,27 @@ msgstr ""
 "de chaque page de post individuel."
 
 #: nectar/customizer/panels/post-types/blog.php:210
+#: nectar/customizer/panels/post-types/custom-post-types.php:77
 msgid "Post Navigation Style"
 msgstr "Style de navigation des posts"
 
 #: nectar/customizer/panels/post-types/blog.php:214
+#: nectar/customizer/panels/post-types/custom-post-types.php:81
 msgid "Fullwidth Next Link Only"
 msgstr "Lien suivant pleine largeur uniquement"
 
 #: nectar/customizer/panels/post-types/blog.php:215
+#: nectar/customizer/panels/post-types/custom-post-types.php:82
 msgid "Fullwidth Next & Prev Links"
 msgstr "Liens Suivant & Précédent en pleine largeur"
 
 #: nectar/customizer/panels/post-types/blog.php:216
+#: nectar/customizer/panels/post-types/custom-post-types.php:83
 msgid "Contained Next & Prev Links"
 msgstr "Liens Suivant & Précédent contenus"
 
 #: nectar/customizer/panels/post-types/blog.php:217
+#: nectar/customizer/panels/post-types/custom-post-types.php:84
 msgid "Parallax Contained Next Link Only"
 msgstr "Lien suivant uniquement en parallaxe contenu"
 
@@ -2333,6 +2201,7 @@ msgstr ""
 "articles définis dans la même catégorie que l’article consulté."
 
 #: nectar/customizer/panels/post-types/blog.php:234
+#: nectar/customizer/panels/post-types/custom-post-types.php:91
 msgid "Post Navigation Ordering"
 msgstr "Ordre de navigation des posts"
 
@@ -2361,12 +2230,13 @@ msgid "newest"
 msgstr "le plus récent"
 
 #: nectar/customizer/panels/post-types/blog.php:240
+#: nectar/customizer/panels/post-types/custom-post-types.php:96
 msgid "Reverse Order"
 msgstr "Ordre inverse"
 
 #: nectar/customizer/panels/post-types/blog.php:247
 #: nectar/customizer/panels/post-types/blog.php:298
-#: nectar/helpers/blog.php:463 nectar/helpers/blog.php:468
+#: nectar/helpers/blog.php:472 nectar/helpers/blog.php:477
 msgid "Related Posts"
 msgstr "Articles similaires"
 
@@ -2401,7 +2271,7 @@ msgid "Material"
 msgstr "Matériel"
 
 #: nectar/customizer/panels/post-types/blog.php:276
-#: nectar/customizer/panels/post-types/woocommerce.php:172
+#: nectar/customizer/panels/post-types/woocommerce.php:251
 msgid "Classic"
 msgstr "Classique"
 
@@ -2414,17 +2284,17 @@ msgid "Related Posts Title Text"
 msgstr "Titre des articles connexes"
 
 #: nectar/customizer/panels/post-types/blog.php:299
-#: nectar/helpers/blog.php:472
+#: nectar/helpers/blog.php:481
 msgid "Similar Posts"
 msgstr "Articles similaires"
 
 #: nectar/customizer/panels/post-types/blog.php:300
-#: nectar/helpers/blog.php:476
+#: nectar/helpers/blog.php:485
 msgid "You May Also Like"
 msgstr "Vous aimerez peut-être aussi"
 
 #: nectar/customizer/panels/post-types/blog.php:301
-#: nectar/helpers/blog.php:479
+#: nectar/helpers/blog.php:488
 msgid "Recommended For You"
 msgstr "Recommandé pour vous"
 
@@ -2651,8 +2521,8 @@ msgid "Blog Archive Text Alignment"
 msgstr "Alignement du texte des archives du blog"
 
 #: nectar/customizer/panels/post-types/blog.php:621
-#: nectar/customizer/panels/post-types/woocommerce.php:212
-#: nectar/meta/category-meta.php:120 nectar/meta/category-meta.php:140
+#: nectar/customizer/panels/post-types/woocommerce.php:291
+#: nectar/meta/category-meta.php:124 nectar/meta/category-meta.php:144
 msgid "Right"
 msgstr "Droite"
 
@@ -2665,7 +2535,7 @@ msgid "Blog Archive Author Gravatar"
 msgstr "Gravatar de l’auteur de l’archive du blog"
 
 #: nectar/customizer/panels/post-types/blog.php:650
-#: nectar/customizer/panels/post-types/woocommerce.php:769
+#: nectar/customizer/panels/post-types/woocommerce.php:861
 msgid "Archive Header"
 msgstr "En-tête d’archive"
 
@@ -2800,32 +2670,32 @@ msgstr "Afficher le lien du projet"
 msgid "Post Types"
 msgstr "Types de post"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:26
+#: nectar/customizer/panels/post-types/woocommerce.php:105
 msgid "Woocommerce"
 msgstr "WooCommerce"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:45
+#: nectar/customizer/panels/post-types/woocommerce.php:124
 msgid "WooCommerce Cart In Nav"
 msgstr "Panier WooCommerce dans la navigation"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:46
+#: nectar/customizer/panels/post-types/woocommerce.php:125
 msgid "This will add a cart item to your main navigation."
 msgstr "Cela ajoutera un élément panier à votre navigation principale."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:54
+#: nectar/customizer/panels/post-types/woocommerce.php:133
 msgid "Cart In Nav Style"
 msgstr "Style du panier dans la navigation"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid "Please select the style you would like for your AJAX cart."
 msgstr ""
 "Veuillez sélectionner le style que vous souhaitez pour votre panier AJAX."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid "Note:"
 msgstr "Note :"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:55
+#: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid ""
 "Because WooCommerce caches the cart widget markup, when changing this option"
 " you will need to add a product to the cart to see the full change. "
@@ -2837,19 +2707,19 @@ msgstr ""
 " pour voir le changement complet. Vous pouvez également utiliser l’outil "
 "« Vider les sessions » dans WooCommerce > État > Outils pour cela."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:58
+#: nectar/customizer/panels/post-types/woocommerce.php:137
 msgid "Hover Dropdown"
 msgstr "Menu déroulant au survol"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:59
+#: nectar/customizer/panels/post-types/woocommerce.php:138
 msgid "Click Extended Functionality"
 msgstr "Cliquer pour plus de fonctionnalités"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:68
+#: nectar/customizer/panels/post-types/woocommerce.php:147
 msgid "AJAX Product Template Add to Cart"
 msgstr "Ajout au panier via AJAX pour le modèle de produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:69
+#: nectar/customizer/panels/post-types/woocommerce.php:148
 msgid ""
 "Enabling this will allow products to be added to the cart without causing a "
 "page refresh on the single product template and in the quickview modal."
@@ -2858,41 +2728,41 @@ msgstr ""
 " actualiser la page sur le modèle de produit individuel et dans la fenêtre "
 "d’aperçu rapide."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:78
+#: nectar/customizer/panels/post-types/woocommerce.php:157
 msgid "Account Button In Nav"
 msgstr "Bouton de compte dans la navigation"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:87
+#: nectar/customizer/panels/post-types/woocommerce.php:166
 msgid "Main Shop Layout"
 msgstr "Mise en page principale de la boutique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:88
+#: nectar/customizer/panels/post-types/woocommerce.php:167
 msgid "Please select layout you would like to use on your main shop page."
 msgstr ""
 "Veuillez sélectionner la mise en page que vous souhaitez utiliser sur votre "
 "page principale de boutique."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:91
+#: nectar/customizer/panels/post-types/woocommerce.php:170
 msgid "No Sidebar"
 msgstr "Sans barre latérale"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:92
+#: nectar/customizer/panels/post-types/woocommerce.php:171
 msgid "Right Sidebar"
 msgstr "Barre latérale droite"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:93
+#: nectar/customizer/panels/post-types/woocommerce.php:172
 msgid "Left Sidebar"
 msgstr "Barre latérale gauche"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:102
+#: nectar/customizer/panels/post-types/woocommerce.php:181
 msgid "Full Width Layout"
 msgstr "Mise en page pleine largeur"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:114
+#: nectar/customizer/panels/post-types/woocommerce.php:193
 msgid "Add Filter Sidebar Toggle"
 msgstr "Ajouter le bouton de basculement de la barre latérale des filtres"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:115
+#: nectar/customizer/panels/post-types/woocommerce.php:194
 msgid ""
 "Enabling this will allow your sidebar widget area to be toggled from a "
 "button above your products on all product archives."
@@ -2901,11 +2771,11 @@ msgstr ""
 "widgets de la barre latérale à l’aide d’un bouton situé au-dessus de vos "
 "produits sur toutes les archives de produits."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:123
+#: nectar/customizer/panels/post-types/woocommerce.php:202
 msgid "Display Active Filters Next To Toggle"
 msgstr "Afficher les filtres actifs à côté du bouton de basculement"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:124
+#: nectar/customizer/panels/post-types/woocommerce.php:203
 msgid ""
 "Displays currently active filters next to the filter toggle button. Not "
 "compatible with third party plugins which update WooCommerce filters without"
@@ -2915,19 +2785,19 @@ msgstr ""
 "filtres. Non compatible avec les extensions tierces qui mettent à jour les "
 "filtres WooCommerce sans recharger la page."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:132
+#: nectar/customizer/panels/post-types/woocommerce.php:211
 msgid "Filter Sidebar Toggle Starting State"
 msgstr "État initial du basculement de la barre latérale de filtres"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:134
+#: nectar/customizer/panels/post-types/woocommerce.php:213
 msgid "Open"
 msgstr "Ouvert"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:135
+#: nectar/customizer/panels/post-types/woocommerce.php:214
 msgid "Closed"
 msgstr "Fermé"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:148
+#: nectar/customizer/panels/post-types/woocommerce.php:227
 msgid ""
 "Would you like to have your sidebar follow down as your scroll in a sticky "
 "manner?"
@@ -2935,11 +2805,11 @@ msgstr ""
 "Souhaitez-vous que votre barre latérale suive le défilement de manière "
 "fixe ?"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:168
+#: nectar/customizer/panels/post-types/woocommerce.php:247
 msgid "Product Style"
 msgstr "Style du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:169
+#: nectar/customizer/panels/post-types/woocommerce.php:248
 msgid ""
 "Please select the style you would like your products to display in (single "
 "product page styling will also vary slightly with each)"
@@ -2947,111 +2817,111 @@ msgstr ""
 "Veuillez sélectionner le style d’affichage souhaité pour vos produits (le "
 "style de la page produit unique variera également légèrement avec chacun)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:173
+#: nectar/customizer/panels/post-types/woocommerce.php:252
 msgid "Material Design"
 msgstr "Design Material"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:174
+#: nectar/customizer/panels/post-types/woocommerce.php:253
 msgid "Minimal Design"
 msgstr "Design Minimaliste"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:183
+#: nectar/customizer/panels/post-types/woocommerce.php:262
 msgid "Minimal Product Hover Layout"
 msgstr "Layout de survol minimal du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:185
+#: nectar/customizer/panels/post-types/woocommerce.php:264
 msgid "Price Hidden, Minimal Buttons"
 msgstr "Prix masqué, Boutons minimalistes"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:186
+#: nectar/customizer/panels/post-types/woocommerce.php:265
 msgid "Price Visible, Flex Buttons"
 msgstr "Prix visible, Boutons flexibles"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:195
+#: nectar/customizer/panels/post-types/woocommerce.php:274
 msgid "Minimal Product Hover Effect"
 msgstr "Effet de survol minimal du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:197
+#: nectar/customizer/panels/post-types/woocommerce.php:276
 msgid "Background Grow W/ Shadow"
 msgstr "Arrière-plan avec ombre portée en croissance"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:198
+#: nectar/customizer/panels/post-types/woocommerce.php:277
 msgid "Image Zoom"
 msgstr "Zoom d’image"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:207
+#: nectar/customizer/panels/post-types/woocommerce.php:286
 msgid "Minimal Product Text Alignment"
 msgstr "Alignement du texte du produit minimal"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:222
+#: nectar/customizer/panels/post-types/woocommerce.php:301
 msgid "Button BG Color"
 msgstr "Couleur de fond du bouton"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:231
+#: nectar/customizer/panels/post-types/woocommerce.php:310
 msgid "Button BG Color Hover"
 msgstr "Couleur de fond du bouton au survol"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:240
+#: nectar/customizer/panels/post-types/woocommerce.php:319
 msgid "Button Text Color"
 msgstr "Couleur du texte du bouton"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:250
+#: nectar/customizer/panels/post-types/woocommerce.php:329
 msgid "Button Border Color"
 msgstr "Couleur de bordure du bouton"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:258
+#: nectar/customizer/panels/post-types/woocommerce.php:337
 msgid "Product Gap"
 msgstr "Écart entre produits"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:270
+#: nectar/customizer/panels/post-types/woocommerce.php:349
 msgid "Product Border Radius"
 msgstr "Rayon de bordure du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:273
+#: nectar/customizer/panels/post-types/woocommerce.php:352
 msgid "0px"
 msgstr "0px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:277
+#: nectar/customizer/panels/post-types/woocommerce.php:356
 msgid "4px"
 msgstr "4px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:278
+#: nectar/customizer/panels/post-types/woocommerce.php:357
 msgid "5px"
 msgstr "5px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:279
+#: nectar/customizer/panels/post-types/woocommerce.php:358
 msgid "6px"
 msgstr "6px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:280
+#: nectar/customizer/panels/post-types/woocommerce.php:359
 msgid "7px"
 msgstr "7px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:281
+#: nectar/customizer/panels/post-types/woocommerce.php:360
 msgid "8px"
 msgstr "8px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:282
+#: nectar/customizer/panels/post-types/woocommerce.php:361
 msgid "9px"
 msgstr "9px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:283
+#: nectar/customizer/panels/post-types/woocommerce.php:362
 msgid "10px"
 msgstr "10px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:284
+#: nectar/customizer/panels/post-types/woocommerce.php:363
 msgid "15px"
 msgstr "15px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:285
+#: nectar/customizer/panels/post-types/woocommerce.php:364
 msgid "20px"
 msgstr "20px"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:292
+#: nectar/customizer/panels/post-types/woocommerce.php:371
 msgid "Enable WooCommerce Product Quick View"
 msgstr "Activer l’aperçu rapide des produits WooCommerce"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:293
+#: nectar/customizer/panels/post-types/woocommerce.php:372
 msgid ""
 "This will add a \"quick view\" button to your products which will load key "
 "single product page info without having to navigate to the page itself."
@@ -3060,11 +2930,11 @@ msgstr ""
 "informations essentielles de la page produit sans avoir à naviguer vers la "
 "page elle-même."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:301
+#: nectar/customizer/panels/post-types/woocommerce.php:380
 msgid "Show first gallery image on Product hover"
 msgstr "Afficher la première image de la galerie au survol du Produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:303
+#: nectar/customizer/panels/post-types/woocommerce.php:382
 msgid ""
 "Using this will cause your products to show the first gallery image (if "
 "supplied) on hover"
@@ -3072,39 +2942,39 @@ msgstr ""
 "Au survol, vos produits afficheront la première image de la galerie (si "
 "disponible)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:310
+#: nectar/customizer/panels/post-types/woocommerce.php:389
 msgid "Disable Product Hover Effect On Mobile"
 msgstr "Désactiver l’effet de survol du produit sur mobile"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:318
+#: nectar/customizer/panels/post-types/woocommerce.php:397
 msgid "WooCommerce Button Typography"
 msgstr "Typographie du bouton WooCommerce"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:322
+#: nectar/customizer/panels/post-types/woocommerce.php:401
 msgid "Label"
 msgstr "Libellé"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:330
+#: nectar/customizer/panels/post-types/woocommerce.php:409
 msgid "Quantity Button Style"
 msgstr "Style du bouton de quantité"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:331
+#: nectar/customizer/panels/post-types/woocommerce.php:410
 msgid "Please select style for your quantity buttons."
 msgstr "Veuillez sélectionner le style pour vos boutons de quantité."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:334
+#: nectar/customizer/panels/post-types/woocommerce.php:413
 msgid "Rounded Circles With Shadow"
 msgstr "Cercles arrondis avec ombre"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:335
+#: nectar/customizer/panels/post-types/woocommerce.php:414
 msgid "All Grouped Together"
 msgstr "Tous regroupés ensemble"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:343
+#: nectar/customizer/panels/post-types/woocommerce.php:422
 msgid "Archive Page Columns (Desktop)"
 msgstr "Colonnes de la page Archive (Desktop)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:344
+#: nectar/customizer/panels/post-types/woocommerce.php:423
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "desktop monitor ( > 1300px)"
@@ -3113,11 +2983,11 @@ msgstr ""
 "lorsqu’elles sont consultées sur un écran d’ordinateur de bureau ( > 1300 "
 "px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:360
+#: nectar/customizer/panels/post-types/woocommerce.php:439
 msgid "Archive Page Columns (Small Desktop)"
 msgstr "Colonnes de la page Archive (Petit écran de bureau)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:361
+#: nectar/customizer/panels/post-types/woocommerce.php:440
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "small desktop monitor (1000px - 1300px)"
@@ -3126,11 +2996,11 @@ msgstr ""
 "lorsqu’elles sont consultées sur un écran de bureau de petite taille (1000 "
 "px - 1300 px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:377
+#: nectar/customizer/panels/post-types/woocommerce.php:456
 msgid "Archive Page Columns (Tablet)"
 msgstr "Colonnes de la page Archive (Tablette)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:378
+#: nectar/customizer/panels/post-types/woocommerce.php:457
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "tablet (690px - 1024px)"
@@ -3138,11 +3008,11 @@ msgstr ""
 "Le nombre de colonnes à afficher sur les pages d’archives de produits "
 "lorsqu’elles sont consultées sur une tablette (690 px - 1024 px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:392
+#: nectar/customizer/panels/post-types/woocommerce.php:471
 msgid "Archive Page Columns (Phone)"
 msgstr "Colonnes de la page Archive (Mobile)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:393
+#: nectar/customizer/panels/post-types/woocommerce.php:472
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "phone ( < 690px)"
@@ -3150,110 +3020,110 @@ msgstr ""
 "Le nombre de colonnes à afficher sur les pages d’archives de produits "
 "lorsqu’elles sont consultées sur un téléphone (< 690 px)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:409
+#: nectar/customizer/panels/post-types/woocommerce.php:488
 msgid "Material Design Product Item BG Color"
 msgstr "Couleur d’arrière-plan de l’élément de produit Material Design"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:410
-#: nectar/customizer/panels/post-types/woocommerce.php:421
+#: nectar/customizer/panels/post-types/woocommerce.php:489
+#: nectar/customizer/panels/post-types/woocommerce.php:500
 msgid "Set this to match the BG color of your product images."
 msgstr ""
 "Définissez cette valeur pour qu’elle corresponde à la couleur d’arrière-plan"
 " de vos images de produit."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:420
+#: nectar/customizer/panels/post-types/woocommerce.php:499
 msgid "Minimal Design Product Item BG Color"
 msgstr "Couleur d’arrière-plan de l’élément produit au design minimaliste"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:431
+#: nectar/customizer/panels/post-types/woocommerce.php:510
 msgid "Product Archive Page BG Color"
 msgstr "Couleur d’arrière-plan de la page d’archive des produits"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:432
+#: nectar/customizer/panels/post-types/woocommerce.php:511
 msgid "Allows to you set the BG color for all product archive pages"
 msgstr ""
 "Vous permet de définir la couleur d’arrière-plan pour toutes les pages "
 "d’archives de produits"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:441
+#: nectar/customizer/panels/post-types/woocommerce.php:520
 msgid "Products Per Page"
 msgstr "Produits par page"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:442
+#: nectar/customizer/panels/post-types/woocommerce.php:521
 msgid "Please enter your desired your products per page (default is 12)"
 msgstr ""
 "Veuillez saisir le nombre de produits souhaités par page (12 par défaut)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:461
+#: nectar/customizer/panels/post-types/woocommerce.php:549
 msgid "General"
 msgstr "Général"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:474
+#: nectar/customizer/panels/post-types/woocommerce.php:562
 msgid "Single Product Layout"
 msgstr "Mise en page du produit unique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:475
+#: nectar/customizer/panels/post-types/woocommerce.php:563
 msgid ""
 "Please select layout you would like to use on your single product page."
 msgstr ""
 "Veuillez sélectionner la mise en page que vous souhaitez utiliser pour votre"
 " page de produit unique."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:488
+#: nectar/customizer/panels/post-types/woocommerce.php:576
 msgid "Single Product Gallery Type"
 msgstr "Type de galerie pour produit unique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:489
+#: nectar/customizer/panels/post-types/woocommerce.php:577
 msgid ""
 "Please select what gallery type you would like on your single product page"
 msgstr ""
 "Veuillez sélectionner le type de galerie que vous souhaitez sur votre page "
 "de produit unique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:492
+#: nectar/customizer/panels/post-types/woocommerce.php:580
 msgid "Default WooCommerce Gallery"
 msgstr "Galerie WooCommerce par défaut"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:493
+#: nectar/customizer/panels/post-types/woocommerce.php:581
 msgid "Bottom Thumbnails Slider"
 msgstr "Diaporama de vignettes en bas"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:494
+#: nectar/customizer/panels/post-types/woocommerce.php:582
 msgid "Left Thumbnails Slider"
 msgstr "Diaporama avec vignettes à gauche"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:495
+#: nectar/customizer/panels/post-types/woocommerce.php:583
 msgid "2 Column Images + Sticky Product Info"
 msgstr "2 colonnes d’images + informations produit fixes"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:502
+#: nectar/customizer/panels/post-types/woocommerce.php:590
 msgid "Custom Product Gallery Width"
 msgstr "Largeur de la galerie de produits personnalisée"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:511
+#: nectar/customizer/panels/post-types/woocommerce.php:599
 msgid "Product Gallery Width Percent"
 msgstr "Largeur de la galerie de produits en pourcentage"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:512
+#: nectar/customizer/panels/post-types/woocommerce.php:600
 msgid ""
 "Specify a custom width for your product gallery to be used on desktop views."
 msgstr ""
 "Spécifiez une largeur personnalisée pour votre galerie de produits à "
 "utiliser sur les affichages desktop."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:523
+#: nectar/customizer/panels/post-types/woocommerce.php:611
 msgid "Product Gallery Locked To Aspect Ratio"
 msgstr "Galerie de produits verrouillée sur le format d’image"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:533
+#: nectar/customizer/panels/post-types/woocommerce.php:621
 msgid "Aspect Ratio"
 msgstr "Rapport d’aspect"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:551
+#: nectar/customizer/panels/post-types/woocommerce.php:639
 msgid "Product Tab Position"
 msgstr "Position de l’onglet produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:552
+#: nectar/customizer/panels/post-types/woocommerce.php:640
 msgid ""
 "Please select what area you would like your tabs to display in on the single"
 " product page"
@@ -3261,31 +3131,31 @@ msgstr ""
 "Veuillez sélectionner la zone dans laquelle vous souhaitez afficher vos "
 "onglets sur la page produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:555
+#: nectar/customizer/panels/post-types/woocommerce.php:643
 msgid "In Side Area"
 msgstr "Dans la zone latérale"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:556
+#: nectar/customizer/panels/post-types/woocommerce.php:644
 msgid "Fullwidth Under Images"
 msgstr "Images pleine largeur"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:557
+#: nectar/customizer/panels/post-types/woocommerce.php:645
 msgid "Fullwidth Under Images Stacked (No Tabs)"
 msgstr "Pleine largeur sous les images empilées (sans onglets)"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:564
+#: nectar/customizer/panels/post-types/woocommerce.php:652
 msgid "Product Reviews Style"
 msgstr "Style des avis produits"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:565
+#: nectar/customizer/panels/post-types/woocommerce.php:653
 msgid "Determines how product reviews will be styled."
 msgstr "Détermine le style des avis sur les produits."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:576
+#: nectar/customizer/panels/post-types/woocommerce.php:664
 msgid "Related/Upsell Products Carousel"
 msgstr "Carrousel de Produits Associés/Vente Incitative"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:577
+#: nectar/customizer/panels/post-types/woocommerce.php:665
 msgid ""
 "Increases the max number of related/upsell products to 8 and will enable a "
 "carousel display."
@@ -3293,13 +3163,13 @@ msgstr ""
 "Augmente le nombre maximum de produits associés/ventes incitatives à 8 et "
 "active un affichage en carrousel."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:584
+#: nectar/customizer/panels/post-types/woocommerce.php:672
 msgid "Related/Upsell Products Carousel Max Products"
 msgstr ""
 "Nombre maximum de produits dans le carrousel de produits associés/ventes "
 "incitatives"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:590
+#: nectar/customizer/panels/post-types/woocommerce.php:678
 msgid ""
 "Choose the maximum number of related/upsell products to display per "
 "carousel."
@@ -3307,47 +3177,47 @@ msgstr ""
 "Choisissez le nombre maximum de produits associés/de vente incitative à "
 "afficher par carrousel."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:597
+#: nectar/customizer/panels/post-types/woocommerce.php:685
 msgid "Add to Cart Style"
 msgstr "Style du bouton \"Ajouter au panier\""
 
-#: nectar/customizer/panels/post-types/woocommerce.php:610
+#: nectar/customizer/panels/post-types/woocommerce.php:698
 msgid "Product Title Typography"
 msgstr "Typographie du titre du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:624
+#: nectar/customizer/panels/post-types/woocommerce.php:712
 msgid "Product Price Typography"
 msgstr "Typographie du prix du produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:639
+#: nectar/customizer/panels/post-types/woocommerce.php:727
 msgid "Product Tab Heading Typography"
 msgstr "Typographie du titre de l’onglet produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:653
+#: nectar/customizer/panels/post-types/woocommerce.php:741
 msgid "Product Variable Product Dropdown Style"
 msgstr "Style de la liste déroulante des produits variables"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:665
+#: nectar/customizer/panels/post-types/woocommerce.php:753
 msgid "Product Gallery BG Color"
 msgstr "Couleur de fond de la galerie produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:674
+#: nectar/customizer/panels/post-types/woocommerce.php:762
 msgid "Remove SKU From Product Page"
 msgstr "Supprimer le SKU de la page produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:683
+#: nectar/customizer/panels/post-types/woocommerce.php:771
 msgid "Remove Additional Information Tab From Product Page"
 msgstr "Supprimer l’onglet Informations supplémentaires de la page produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:694
+#: nectar/customizer/panels/post-types/woocommerce.php:784
 msgid "Single Product"
 msgstr "Produit unique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:707
+#: nectar/customizer/panels/post-types/woocommerce.php:797
 msgid "Archive Header Background Image"
 msgstr "Image d’arrière-plan de l’en-tête d’archive"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:708
+#: nectar/customizer/panels/post-types/woocommerce.php:798
 msgid ""
 "Upload an optional background that will be used as the default on all "
 "woocommerce archive pages."
@@ -3355,11 +3225,11 @@ msgstr ""
 "Téléversez une image d’arrière-plan facultative qui sera utilisée par défaut"
 " sur toutes les pages d’archives WooCommerce."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:715
+#: nectar/customizer/panels/post-types/woocommerce.php:805
 msgid "Product Category Header Sizing"
 msgstr "Taille de l’en-tête de catégorie de produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:716
+#: nectar/customizer/panels/post-types/woocommerce.php:806
 msgid ""
 "When a product category header image is supplied, this option will control "
 "the sizing of the header area."
@@ -3367,142 +3237,137 @@ msgstr ""
 "Lorsqu’une image d’en-tête de catégorie de produit est fournie, cette option"
 " contrôlera la taille de la zone d’en-tête."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:728
+#: nectar/customizer/panels/post-types/woocommerce.php:818
 msgid "Product Category Header Roundness"
 msgstr "Arrondi de l’en-tête de catégorie de produit"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:739
+#: nectar/customizer/panels/post-types/woocommerce.php:829
 msgid "Product Category Header Parallax Scrolling"
 msgstr "En-tête de catégorie de produit avec défilement parallaxe"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:747
+#: nectar/customizer/panels/post-types/woocommerce.php:837
 msgid "Product Category Header Auto Height"
 msgstr "En-tête de catégorie de produit à hauteur automatique"
 
-#: nectar/customizer/panels/post-types/woocommerce.php:748
+#: nectar/customizer/panels/post-types/woocommerce.php:838
 msgid ""
 "Will automatically adjust the height of your header depending on the "
 "content."
-msgstr "Ajustera automatiquement la hauteur de votre en-tête en fonction du contenu."
+msgstr ""
+"Ajustera automatiquement la hauteur de votre en-tête en fonction du contenu."
 
-#: nectar/customizer/panels/post-types/woocommerce.php:755
+#: nectar/customizer/panels/post-types/woocommerce.php:845
 msgid "Product Category Header Max Content Width"
 msgstr "Largeur maximale du contenu de l’en-tête de catégorie de produit"
 
-#: nectar/customizer/panels/typography.php:25
+#: nectar/customizer/panels/typography.php:38
 msgid "Typography"
 msgstr "Typographie"
 
-#: nectar/customizer/panels/typography.php:140
+#: nectar/customizer/panels/typography.php:161
 msgid "Logo Font"
 msgstr "Police du logo"
 
-#: nectar/customizer/panels/typography.php:163
+#: nectar/customizer/panels/typography.php:184
 msgid "Navigation Font"
 msgstr "Police de navigation"
 
-#: nectar/customizer/panels/typography.php:179
+#: nectar/customizer/panels/typography.php:200
 msgid "Navigation Dropdown Font"
 msgstr "Police du menu déroulant"
 
-#: nectar/customizer/panels/typography.php:190
+#: nectar/customizer/panels/typography.php:211
 msgid "Off Canvas Navigation"
 msgstr "Navigation Off Canvas"
 
-#: nectar/customizer/panels/typography.php:220
+#: nectar/customizer/panels/typography.php:241
 msgid "Off Canvas Navigation/Dropdown Description Text"
 msgstr "Description du menu Off Canvas/menu déroulant"
 
-#: nectar/customizer/panels/typography.php:231
+#: nectar/customizer/panels/typography.php:252
 msgid "Navigation Custom Text"
 msgstr "Texte personnalisé de navigation"
 
-#: nectar/customizer/panels/typography.php:232
+#: nectar/customizer/panels/typography.php:253
 msgid "Targets the content added via the \"Text To Display In Header\" field."
 msgstr ""
 "Cible le contenu ajouté via le champ « Texte à afficher dans l’en-tête »."
 
-#: nectar/customizer/panels/typography.php:242
+#: nectar/customizer/panels/typography.php:263
 msgid "Navigation"
 msgstr "Navigation"
 
-#: nectar/customizer/panels/typography.php:255
+#: nectar/customizer/panels/typography.php:276
 msgid "Page Heading Font"
 msgstr "Police des titres de page"
 
-#: nectar/customizer/panels/typography.php:278
+#: nectar/customizer/panels/typography.php:299
 msgid "Page Heading Subtitle Font"
 msgstr "Sous-titre de l’en-tête de page"
 
-#: nectar/customizer/panels/typography.php:302
+#: nectar/customizer/panels/typography.php:323
 msgid "Page Header"
 msgstr "En-tête de page"
 
-#: nectar/customizer/panels/typography.php:315
+#: nectar/customizer/panels/typography.php:336
 msgid "Blockquote Font"
 msgstr "Police de la citation"
 
-#: nectar/customizer/panels/typography.php:337
+#: nectar/customizer/panels/typography.php:358
 msgid "Blog Single Post Content"
 msgstr "Contenu de l’article de blog"
 
-#: nectar/customizer/panels/typography.php:361
+#: nectar/customizer/panels/typography.php:382
 msgid "WooCommerce Product Title Font"
 msgstr "Police du titre du produit WooCommerce"
 
-#: nectar/customizer/panels/typography.php:391
+#: nectar/customizer/panels/typography.php:412
 msgid "WooCommerce Product Secondary Font"
 msgstr "Police secondaire du produit WooCommerce"
 
-#: nectar/customizer/panels/typography.php:408
+#: nectar/customizer/panels/typography.php:440
 msgid "Content Elements"
 msgstr "Éléments de contenu"
 
-#: nectar/helpers/blog.php:360 nectar/helpers/blog.php:433
-#: nectar/helpers/pagination.php:137
+#: nectar/helpers/pagination.php:150
 msgid "Previous Post"
 msgstr "Article précédent"
 
-#: nectar/helpers/blog.php:398 nectar/helpers/blog.php:435
-#: nectar/helpers/pagination.php:137
+#: nectar/helpers/pagination.php:150
 msgid "Next Post"
 msgstr "Article suivant"
 
-#: nectar/helpers/enqueue-scripts.php:192 nectar/helpers/pagination.php:188
-#: nectar/helpers/woocommerce.php:607
+#: nectar/helpers/enqueue-scripts.php:206 nectar/helpers/pagination.php:201
+#: nectar/helpers/woocommerce.php:614
 msgid "Next"
 msgstr "Suivant"
 
-#: nectar/helpers/enqueue-scripts.php:193 nectar/helpers/pagination.php:187
-#: nectar/helpers/woocommerce.php:606
+#: nectar/helpers/enqueue-scripts.php:207 nectar/helpers/pagination.php:200
+#: nectar/helpers/woocommerce.php:613
 msgid "Previous"
 msgstr "Précédent"
 
-#: nectar/helpers/enqueue-scripts.php:194
-msgid "Close"
-msgstr "Fermer"
-
-#: nectar/helpers/nav-menus.php:1238
+#: nectar/helpers/nav-menus.php:1241
 msgid "Menu Item Style"
 msgstr "Style d’élément de menu"
 
-#: nectar/helpers/nav-menus.php:1240
+#: nectar/helpers/nav-menus.php:1243
 msgid "Standard"
 msgstr "Standard"
 
-#: nectar/helpers/nav-menus.php:1241
+#: nectar/helpers/nav-menus.php:1244
 msgid "Button Accent Color"
 msgstr "Couleur d’accentuation du bouton"
 
-#: nectar/helpers/nav-menus.php:1242
+#: nectar/helpers/nav-menus.php:1245
 msgid "Button Extra Color #1"
 msgstr "Couleur supplémentaire #1 du bouton"
 
-#: nectar/helpers/nav-menus.php:1243
+#: nectar/helpers/nav-menus.php:1246
 msgid "Button Bordered Accent Color"
 msgstr "Couleur d’accentuation du bouton avec bordure"
 
-#: nectar/helpers/nav-menus.php:1244
+#: nectar/helpers/nav-menus.php:1247
 msgid "Button Bordered Extra Color #1"
 msgstr "Bouton bordé couleur supplémentaire #1"
 
@@ -3545,45 +3410,45 @@ msgid "Yearly Archives"
 msgstr "Archives annuelles"
 
 #. translators: %s: the word "and" (deprecated separator)
-#: nectar/helpers/pagination.php:65
+#: nectar/helpers/pagination.php:73
 #, php-format
 msgid "Use commas instead of %s to separate excluded categories."
 msgstr ""
 "Utilisez des virgules au lieu de %s pour séparer les catégories exclues."
 
-#: nectar/helpers/pagination.php:177
+#: nectar/helpers/pagination.php:190
 msgid "Pagination Navigation"
 msgstr "Navigation de pagination"
 
-#: nectar/helpers/pagination.php:177
+#: nectar/helpers/pagination.php:190
 msgid "All items loaded"
 msgstr "Tous les éléments chargés"
 
-#: nectar/helpers/woocommerce.php:549 nectar/helpers/woocommerce.php:559
+#: nectar/helpers/woocommerce.php:556 nectar/helpers/woocommerce.php:566
 msgid "Filters"
 msgstr "Filtres"
 
-#: nectar/helpers/woocommerce.php:562
+#: nectar/helpers/woocommerce.php:569
 msgid "Close Filters"
 msgstr "Fermer les filtres"
 
-#: nectar/helpers/woocommerce.php:1144
+#: nectar/helpers/woocommerce.php:1151
 msgid "was successfully added to your cart."
 msgstr "a été ajouté à votre panier."
 
 #. translators: %1$s: number of reviews
-#: nectar/helpers/woocommerce.php:1211
+#: nectar/helpers/woocommerce.php:1218
 #, php-format
 msgid "Based on %1$s review"
 msgid_plural "Based on %1$s reviews"
 msgstr[0] "Basé sur %1$s avis"
 msgstr[1] "Basé sur %1$s avis"
 
-#: nectar/helpers/woocommerce.php:1220 nectar/helpers/woocommerce.php:1246
+#: nectar/helpers/woocommerce.php:1227 nectar/helpers/woocommerce.php:1253
 msgid "Write a Review"
 msgstr "Écrire un avis"
 
-#: nectar/hooks/actions.php:149
+#: nectar/hooks/actions.php:147
 msgid "Skip to main content"
 msgstr "Passer au contenu principal"
 
@@ -3592,16 +3457,16 @@ msgid "Category Thumbnail Image"
 msgstr "Image miniature de catégorie"
 
 #: nectar/meta/category-meta.php:25 nectar/meta/category-meta.php:36
-#: nectar/meta/category-meta.php:160
+#: nectar/meta/category-meta.php:164
 msgid "Upload"
 msgstr "Téléverser"
 
 #: nectar/meta/category-meta.php:26 nectar/meta/category-meta.php:37
-#: nectar/meta/category-meta.php:161
+#: nectar/meta/category-meta.php:165
 msgid "Remove Upload"
 msgstr "Supprimer le téléversement"
 
-#: nectar/meta/category-meta.php:31 nectar/meta/category-meta.php:150
+#: nectar/meta/category-meta.php:31 nectar/meta/category-meta.php:154
 msgid "Category Header Image"
 msgstr "Image d’en-tête de catégorie"
 
@@ -3613,11 +3478,11 @@ msgstr "Couleur de la catégorie"
 msgid "Category Text Color"
 msgstr "Couleur du texte de la catégorie"
 
-#: nectar/meta/category-meta.php:110
+#: nectar/meta/category-meta.php:114
 msgid "Category Header Content Align"
 msgstr "Alignement du contenu de l’en-tête de catégorie"
 
-#: nectar/meta/category-meta.php:130
+#: nectar/meta/category-meta.php:134
 msgid "Category Header Text Align"
 msgstr "Alignement du texte de l’en-tête de catégorie"
 
@@ -3637,15 +3502,15 @@ msgstr ""
 "qu’aucun des fichiers listés ci-dessous n’est présent dans le répertoire de "
 "votre thème (wp-content/themes/nectarblocks)."
 
-#: nectar/woo/quick-view.php:63 nectar/woo/quick-view.php:66
+#: nectar/woo/quick-view.php:66 nectar/woo/quick-view.php:69
 msgid "Quick View"
 msgstr "Aperçu rapide"
 
-#: nectar/woo/quick-view.php:82
+#: nectar/woo/quick-view.php:85
 msgid "Close Quick View"
 msgstr "Fermer l’aperçu rapide"
 
-#: nectar/woo/quick-view.php:209
+#: nectar/woo/quick-view.php:227
 msgid "More Information"
 msgstr "Plus d’informations"
 
@@ -3693,53 +3558,505 @@ msgstr "Aucun en-tête"
 msgid "Go to shop"
 msgstr "Aller à la boutique"
 
-#: build/customizer.js:7957
+#: build/customizer.js:1
 msgid "Search Theme Options"
 msgstr "Rechercher dans les options du thème"
 
-#: build/customizer.js:8255
+#: build/customizer.js:1
 msgid "Font Source"
 msgstr "Source de police"
 
-#: build/customizer.js:8268
+#: build/customizer.js:1
 msgid "Font Family"
 msgstr "Famille de police"
 
-#: build/customizer.js:8284
+#: build/customizer.js:1
 msgid "Font Weight"
 msgstr "Graisse de police"
 
-#: build/customizer.js:8297
+#: build/customizer.js:1
 msgid "Font Style"
 msgstr "Style de police"
 
-#: build/customizer.js:8309
+#: build/customizer.js:1
 msgid "Responsive Sizing"
 msgstr "Dimensionnement responsive"
 
-#: build/customizer.js:8326
+#: build/customizer.js:1
 msgid "Font Size"
 msgstr "Taille de police"
 
-#: build/customizer.js:8399
+#: build/customizer.js:1
 msgid "Line Height"
 msgstr "Hauteur de ligne"
 
-#: build/customizer.js:8439
+#: build/customizer.js:1
 msgid "Font Subset"
 msgstr "Sous-ensemble de police"
 
-#: build/customizer.js:8452
+#: build/customizer.js:1
 msgid "Transform"
 msgstr "Transformer"
 
-#: build/customizer.js:8462
+#: build/customizer.js:1
 msgid "Letter Spacing"
 msgstr "Espacement des lettres"
 
-#: build/customizer.js:8494
+#: build/customizer.js:1
 msgid "Save"
 msgstr "Enregistrer"
+
+#: includes/class-nectar-used-css.php:110
+msgid "Flushing..."
+msgstr "Vidage en cours…"
+
+#: includes/class-nectar-used-css.php:119
+msgid "Cache flushed."
+msgstr "Cache vidé."
+
+#: includes/class-nectar-used-css.php:120
+msgid "Error flushing cache."
+msgstr "Erreur lors de la purge du cache."
+
+#: includes/class-nectar-used-css.php:125
+msgid "Error."
+msgstr "Erreur."
+
+#: nectar/assets/functions/ajax-search/wp-search-suggest.php:95 search.php:119
+msgctxt "search result label: post type"
+msgid "Page"
+msgstr "Page"
+
+#: nectar/customizer/panels/general-settings.php:106
+msgid "Container Side Padding"
+msgstr "Marge latérale du conteneur"
+
+#: nectar/customizer/panels/general-settings.php:107
+msgid "Default is 90px. Tablet and Mobile values are optional."
+msgstr ""
+"La valeur par défaut est 90 px. Les valeurs pour tablette et mobile sont "
+"facultatives."
+
+#: nectar/customizer/panels/general-settings.php:121
+#: nectar/customizer/panels/general-settings.php:149
+#: nectar/customizer/panels/general-settings.php:411
+#: nectar/customizer/panels/general-settings.php:467
+#: nectar/customizer/panels/layout.php:1112
+#: nectar/customizer/panels/layout.php:1227
+#: nectar/customizer/panels/layout.php:1398
+#: nectar/customizer/panels/layout.php:1486
+#: nectar/customizer/panels/post-types/blog.php:166
+#: nectar/customizer/panels/post-types/blog.php:239
+#: nectar/customizer/panels/post-types/blog.php:326
+#: nectar/customizer/panels/post-types/blog.php:618
+#: nectar/customizer/panels/post-types/blog.php:631
+#: nectar/customizer/panels/post-types/blog.php:685
+#: nectar/customizer/panels/post-types/custom-post-types.php:95
+#: nectar/customizer/panels/post-types/woocommerce.php:288
+#: nectar/customizer/panels/post-types/woocommerce.php:351
+#: nectar/meta/category-meta.php:121 nectar/meta/category-meta.php:141
+msgctxt "dropdown option: use the default value"
+msgid "Default"
+msgstr "Par défaut"
+
+#: nectar/customizer/panels/general-settings.php:282
+msgid "Used CSS Optimization"
+msgstr "CSS utilisé optimisé"
+
+#: nectar/customizer/panels/general-settings.php:283
+msgid ""
+"Analyzes which theme CSS rules are actually used on each page and serves "
+"only the used CSS. Cache is built on first visit and regenerated when pages "
+"are saved or theme options change."
+msgstr ""
+"Analyse les règles CSS du thème réellement utilisées sur chaque page et ne "
+"sert que le CSS utilisé. Le cache est créé lors de la première visite et "
+"régénéré lorsque les pages sont enregistrées ou que les options du thème "
+"changent."
+
+#: nectar/customizer/panels/general-settings.php:290
+msgid "Flush Used CSS Cache"
+msgstr "Vider le cache CSS utilisé"
+
+#: nectar/customizer/panels/general-settings.php:305
+msgid ""
+"This is a font performance option which will allow your text to display in a"
+" default font before Google fonts have loaded."
+msgstr ""
+"Il s'agit d'une option de performance de police qui permettra à votre texte "
+"de s'afficher dans une police par défaut avant le chargement des polices "
+"Google."
+
+#: nectar/customizer/panels/general-settings.php:379
+msgid "Floating Labels"
+msgstr "Libellés flottants"
+
+#: nectar/customizer/panels/general-settings.php:380
+msgid ""
+"Animates form labels above the input when focused, replacing static "
+"placeholders."
+msgstr ""
+"Anime les étiquettes de formulaire au-dessus du champ lors de la mise au "
+"point, remplaçant les espaces réservés statiques."
+
+#: nectar/customizer/panels/general-settings.php:389
+msgid "Fancy Select Styling"
+msgstr "Style de sélection élégante"
+
+#: nectar/customizer/panels/general-settings.php:398
+msgid "Fancy Checkbox Styling"
+msgstr "Stylisation de case à cocher personnalisée"
+
+#: nectar/customizer/panels/general-settings.php:399
+msgid ""
+"This will add additional styling and functionality to your checkbox "
+"elements."
+msgstr ""
+"Cela ajoutera des styles et des fonctionnalités supplémentaires à vos "
+"éléments de case à cocher."
+
+#: nectar/customizer/panels/layout.php:69
+#: nectar/customizer/panels/post-types/woocommerce.php:49
+#: nectar/customizer/panels/post-types/woocommerce.php:68
+msgid "Theme Builder"
+msgstr "Constructeur de thème"
+
+#: nectar/customizer/panels/layout.php:71
+msgid "Header Builder Active"
+msgstr "En-tête Builder actif"
+
+#. translators: %s: Theme Builder link
+#: nectar/customizer/panels/layout.php:74
+#, php-format
+msgid ""
+"Your header is being managed by a custom template in the %s. This is a "
+"simplified options list showing only settings that remain relevant."
+msgstr ""
+"Votre en-tête est géré par un modèle personnalisé dans le %s. Il s'agit "
+"d'une liste d'options simplifiée affichant uniquement les paramètres qui "
+"restent pertinents."
+
+#: nectar/customizer/panels/layout.php:507
+#: nectar/customizer/panels/layout.php:1137
+#: nectar/customizer/panels/layout.php:1431
+#: nectar/customizer/panels/post-types/blog.php:185
+#: nectar/customizer/panels/post-types/blog.php:498
+#: nectar/customizer/panels/post-types/blog.php:510
+#: nectar/customizer/panels/post-types/blog.php:543
+#: nectar/customizer/panels/post-types/portfolio.php:148
+#: nectar/customizer/panels/post-types/portfolio.php:159
+msgctxt "dropdown option: no value selected"
+msgid "None"
+msgstr "Aucun"
+
+#: nectar/customizer/panels/layout.php:1088
+msgid "Background Blur"
+msgstr "Flou d'arrière-plan"
+
+#: nectar/customizer/panels/layout.php:1089
+msgid ""
+"Adds a blur effect to the background overlay when dropdowns are opened."
+msgstr ""
+"Ajoute un effet de flou à la superposition d'arrière-plan lorsque les menus "
+"déroulants sont ouverts."
+
+#: nectar/customizer/panels/layout.php:1215
+msgctxt "dropdown option: match all values"
+msgid "All"
+msgstr "Tous"
+
+#: nectar/customizer/panels/layout.php:1270
+msgid "Enable on All Viewports"
+msgstr "Activer sur tous les points de rupture"
+
+#: nectar/customizer/panels/layout.php:1297
+msgid "Separate Mobile Menu"
+msgstr "Menu mobile séparé"
+
+#: nectar/customizer/panels/layout.php:1307
+msgid "Desktop Width (%)"
+msgstr "Largeur bureau (%)"
+
+#: nectar/customizer/panels/layout.php:1319
+msgid "Offset"
+msgstr "Décalage"
+
+#: nectar/customizer/panels/layout.php:1330
+msgid "Roundness"
+msgstr "Arrondi"
+
+#: nectar/customizer/panels/layout.php:1342
+msgid "Icon Width"
+msgstr "Largeur de l'icône"
+
+#: nectar/customizer/panels/layout.php:1355
+msgid "Default Background Image"
+msgstr "Image d'arrière-plan par défaut"
+
+#: nectar/customizer/panels/layout.php:1363
+msgid "Dropdown Behavior"
+msgstr "Comportement du menu déroulant"
+
+#: nectar/customizer/panels/layout.php:1387
+msgid "Menu Label"
+msgstr "Libellé du menu"
+
+#: nectar/customizer/panels/layout.php:1394
+msgid "Button Position"
+msgstr "Position du bouton"
+
+#: nectar/customizer/panels/layout.php:1415
+msgid "Bottom Text"
+msgstr "Texte du bas"
+
+#: nectar/customizer/panels/layout.php:1423
+msgid "Overlay Strength"
+msgstr "Intensité de la superposition"
+
+#: nectar/customizer/panels/layout.php:1440
+msgid ""
+"This will apply a backdrop blur effect to the off canvas menu background."
+msgstr ""
+"Cela appliquera un effet de flou d'arrière-plan au fond du menu hors "
+"canevas."
+
+#: nectar/customizer/panels/layout.php:1448
+msgid "Mobile Nav Menu Items"
+msgstr "Éléments du menu de navigation mobile"
+
+#: nectar/customizer/panels/layout.php:1457
+msgid "Menu Item Icons"
+msgstr "Icônes des éléments de menu"
+
+#: nectar/customizer/panels/layout.php:1483
+msgid "Icon Style"
+msgstr "Style d'icône"
+
+#: nectar/customizer/panels/layout.php:1495
+msgid "Button Background Color"
+msgstr "Couleur d'arrière-plan du bouton"
+
+#: nectar/customizer/panels/layout.php:1504
+msgid "Button Color"
+msgstr "Couleur du bouton"
+
+#: nectar/customizer/panels/layout.php:1513
+msgid "Custom Font Size (Desktop)"
+msgstr "Taille de police personnalisée (ordinateur)"
+
+#: nectar/customizer/panels/layout.php:1521
+msgid "Custom Font Size (Mobile)"
+msgstr "Taille de police personnalisée (mobile)"
+
+#: nectar/customizer/panels/layout.php:1628
+msgctxt "dropdown option: custom value"
+msgid "Custom"
+msgstr "Personnalisé"
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:47
+msgid "Single"
+msgstr "Single"
+
+#. translators: %s: post type name.
+#: nectar/customizer/panels/post-types/custom-post-types.php:68
+#, php-format
+msgid "Adds navigation link(s) at the bottom of every single %s page."
+msgstr ""
+"Ajoute un ou plusieurs liens de navigation en bas de chaque page %s "
+"individuelle."
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:108
+msgid "Limit Post Navigation To Same Term"
+msgstr "Limiter la navigation des articles au même terme"
+
+#: nectar/customizer/panels/post-types/custom-post-types.php:109
+msgid ""
+"Only show next/prev links for posts sharing the current term. Requires the "
+"post type to have a taxonomy."
+msgstr ""
+"Afficher uniquement les liens suivant/précédent pour les articles partageant"
+" le terme actuel. Nécessite que le type de publication ait une taxonomie."
+
+#. translators: %s: Template label (e.g. "Single Product")
+#: nectar/customizer/panels/post-types/woocommerce.php:53
+#, php-format
+msgid "%s Template Active"
+msgstr "Modèle %s actif"
+
+#. translators: 1: Template label, 2: Theme Builder link
+#: nectar/customizer/panels/post-types/woocommerce.php:58
+#, php-format
+msgid ""
+"The %1$s layout is being managed by a Theme Builder template. These "
+"customizer options no longer apply. You can customize or disable the "
+"template in the %2$s."
+msgstr ""
+"La mise en page %1$s est gérée par un modèle Theme Builder. Ces options du "
+"personnaliseur ne s'appliquent plus. Vous pouvez personnaliser ou désactiver"
+" le modèle dans %2$s."
+
+#: nectar/customizer/panels/post-types/woocommerce.php:70
+msgid "WooCommerce Templates Active"
+msgstr "Modèles WooCommerce actifs"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:71
+msgid ""
+"One or more WooCommerce Theme Builder templates are active. Some options "
+"below may not apply to pages using these templates."
+msgstr ""
+"Un ou plusieurs modèles WooCommerce Theme Builder sont actifs. Certaines "
+"options ci-dessous peuvent ne pas s'appliquer aux pages utilisant ces "
+"modèles."
+
+#. translators: %s: Theme Builder link
+#: nectar/customizer/panels/post-types/woocommerce.php:74
+#, php-format
+msgid "Manage templates in the %s."
+msgstr "Gérez les modèles dans le %s."
+
+#: nectar/customizer/panels/typography.php:428
+msgid "Submit Buttons"
+msgstr "Boutons de soumission"
+
+#: nectar/helpers/blog.php:290
+msgid "Post"
+msgstr "Article"
+
+#. translators: %s: post type singular name.
+#: nectar/helpers/blog.php:292
+#, php-format
+msgid "Previous %s"
+msgstr "%s précédent"
+
+#. translators: %s: post type singular name.
+#: nectar/helpers/blog.php:294
+#, php-format
+msgid "Next %s"
+msgstr "%s suivant"
+
+#: nectar/helpers/enqueue-scripts.php:208
+msgctxt "button: close mobile menu"
+msgid "Close"
+msgstr "Fermer"
+
+#: nectar/helpers/page-header.php:619
+msgctxt "portfolio filter label: show all categories"
+msgid "All"
+msgstr "Tout"
+
+#: build/customizer.js:1
+msgid "Tablet"
+msgstr "Tablette"
+
+#: build/customizer.js:1
+msgid "Desktop"
+msgstr "Ordinateur de bureau"
+
+#: build/customizer.js:1
+msgid "auto"
+msgstr "auto"
+
+#~ msgid "Page"
+#~ msgstr "Page"
+
+#~ msgid "Default"
+#~ msgstr "Par défaut"
+
+#~ msgid "Fine-tune the rounded edges of your buttons."
+#~ msgstr "Affinez les bords arrondis de vos boutons."
+
+#~ msgid "Container Left/Right Padding"
+#~ msgstr "Padding gauche/droite du conteneur"
+
+#~ msgid ""
+#~ "The main content container will have 90px of padding set on left and right, "
+#~ "use this option if you'd like to modify that."
+#~ msgstr ""
+#~ "Le conteneur principal aura un padding de 90px défini à gauche et à droite, "
+#~ "utilisez cette option si vous souhaitez modifier cela."
+
+#~ msgid ""
+#~ "This is a font performance option which will your allow text to display in a"
+#~ " default font before Google fonts have loaded."
+#~ msgstr ""
+#~ "Il s’agit d’une option de performance de police qui permettra à votre texte "
+#~ "de s’afficher dans une police par défaut avant le chargement des polices "
+#~ "Google."
+
+#~ msgid "Enable Fancy Select Styling"
+#~ msgstr "Activer le style de sélection élégant"
+
+#~ msgid "None"
+#~ msgstr "Aucun"
+
+#~ msgid "All"
+#~ msgstr "Toutes"
+
+#~ msgid "Off Canvas Menu"
+#~ msgstr "Menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Style"
+#~ msgstr "Style du menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Separate Mobile Menu"
+#~ msgstr "Menu hors-écran Menu mobile distinct"
+
+#~ msgid "Off Canvas Menu Desktop Width (%)"
+#~ msgstr "Largeur du menu Off Canvas sur ordinateur (%)"
+
+#~ msgid "Off Canvas Menu Offset"
+#~ msgstr "Décalage du menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Roundness"
+#~ msgstr "Arrondi du menu hors-champ"
+
+#~ msgid "Off Canvas Menu Icon Width"
+#~ msgstr "Largeur de l’icône du menu hors canevas"
+
+#~ msgid "Default Off Canvas Background Image"
+#~ msgstr "Image d’arrière-plan par défaut du panneau hors canevas"
+
+#~ msgid "Off Canvas Menu Dropdown Behavior"
+#~ msgstr "Comportement du menu déroulant Off Canvas"
+
+#~ msgid "Off Canvas Menu Add Menu Label"
+#~ msgstr "Menu hors canevas Ajouter une étiquette de menu"
+
+#~ msgid "Off Canvas Menu Button Position"
+#~ msgstr "Position du bouton de menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Bottom Text"
+#~ msgstr "Texte du bas du menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Overlay Strength"
+#~ msgstr "Intensité de la superposition du menu Off Canvas"
+
+#~ msgid "Off Canvas Menu Mobile Nav Menu items"
+#~ msgstr "Menu hors-champ Éléments du menu de navigation mobile"
+
+#~ msgid "Off Canvas Menu Item Icons"
+#~ msgstr "Icônes des éléments du menu Off Canvas"
+
+#~ msgid "Off Canvas Icon Style"
+#~ msgstr "Style de l’icône hors canevas"
+
+#~ msgid "Off Canvas Navigation Menu Button BG Color"
+#~ msgstr "Couleur de fond du bouton du menu de navigation Off Canvas"
+
+#~ msgid "Off Canvas Navigation Menu Button Color"
+#~ msgstr "Couleur du bouton du menu de navigation Off Canvas"
+
+#~ msgid "Off Canvas Menu Custom Font Size (Desktop)"
+#~ msgstr "Taille de police personnalisée du menu Off Canvas (Desktop)"
+
+#~ msgid "Off Canvas Menu Custom Font Size (Mobile)"
+#~ msgstr "Taille de police personnalisée du menu Off Canvas (Mobile)"
+
+#~ msgid "Custom"
+#~ msgstr "Personnalisé"
+
+#~ msgid "Close"
+#~ msgstr "Fermer"
 
 #~ msgid "nectarblocks/woocommerce/cart/cart.php"
 #~ msgstr "nectarblocks/woocommerce/cart/cart.php"

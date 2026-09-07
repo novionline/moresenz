@@ -108,6 +108,77 @@ class Custom_Fonts_API implements API_Route {
     return new \WP_REST_Response($result, 200);
   }
 
+  /**
+   * Infer font weight from a filename by checking for numeric weights
+   * or common weight name keywords.
+   */
+  private function infer_weight_from_filename($filename) {
+    $name = pathinfo($filename, PATHINFO_FILENAME);
+    // Normalize separators to spaces for keyword matching
+    $normalized = str_replace(['-', '_', '.'], ' ', strtolower($name));
+
+    // Check for explicit numeric weights (e.g. "Roboto-600", "font_700")
+    if (preg_match('/\b(1[0-9]{2}|[2-9][0-9]{2})\b/', $normalized, $matches)) {
+      $weight = intval($matches[1]);
+      // Only accept standard CSS weight values (100-900 in increments of 100)
+      if ($weight >= 100 && $weight <= 900 && $weight % 100 === 0) {
+        return (string) $weight;
+      }
+    }
+
+    // Map of common weight name keywords to CSS weight values
+    $weight_map = [
+      'hairline' => '100',
+      'thin' => '100',
+      'extralight' => '200',
+      'ultralight' => '200',
+      'extra light' => '200',
+      'ultra light' => '200',
+      'light' => '300',
+      'regular' => '400',
+      'normal' => '400',
+      'medium' => '500',
+      'semibold' => '600',
+      'semi bold' => '600',
+      'demibold' => '600',
+      'demi bold' => '600',
+      'bold' => '700',
+      'extrabold' => '800',
+      'extra bold' => '800',
+      'ultrabold' => '800',
+      'ultra bold' => '800',
+      'black' => '900',
+      'heavy' => '900',
+    ];
+
+    // Check longest keywords first to avoid partial matches (e.g. "extrabold" before "bold")
+    uksort($weight_map, function($a, $b) {
+      return strlen($b) - strlen($a);
+    });
+
+    foreach ($weight_map as $keyword => $weight) {
+      if (strpos($normalized, $keyword) !== false) {
+        return $weight;
+      }
+    }
+
+    return '400';
+  }
+
+  /**
+   * Infer font style from a filename by checking for "italic".
+   */
+  private function infer_style_from_filename($filename) {
+    $name = pathinfo($filename, PATHINFO_FILENAME);
+    $normalized = strtolower($name);
+
+    if (strpos($normalized, 'italic') !== false) {
+      return 'italic';
+    }
+
+    return 'normal';
+  }
+
   function upload_custom_font($font_file, $original_filename, $font_slug) {
 
     // Check if the file is valid
@@ -147,14 +218,16 @@ class Custom_Fonts_API implements API_Route {
 
     // Update custom fonts
     $custom_fonts = Nectar_Custom_Fonts::get_options();
+    $inferred_weight = $this->infer_weight_from_filename($original_filename);
+    $inferred_style = $this->infer_style_from_filename($original_filename);
     $variation = [
       'file_name' => $new_file_name,
       'url' => $upload_dir['baseurl'] . '/nectar-blocks/custom-fonts/' . $new_file_name,
       'fontData' => [
-        'fontStyle' => 'normal',
-        'weight' => '400'
+        'fontStyle' => $inferred_style,
+        'weight' => $inferred_weight
       ]
-      ];
+    ];
     array_push($custom_fonts[$font_slug]['variations'], $variation);
 
     // $custom_fonts = array_values($custom_fonts);
