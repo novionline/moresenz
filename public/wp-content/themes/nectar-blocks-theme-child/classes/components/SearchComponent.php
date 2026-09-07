@@ -9,6 +9,11 @@ use NoviOnline\Core\Singleton;
  * is matched. Pages that only reference a block via "ref" will be found when the block's
  * content contains the search term.
  *
+ * Also forces the header to stay non-transparent on the search results page. The parent theme's
+ * transparent header filters read the global $post, which on a search page is the first result of
+ * the loop. When that first result is a page with a transparent header, the search header would
+ * incorrectly inherit transparency.
+ *
  * @package NoviOnline
  */
 class SearchComponent extends Singleton {
@@ -26,6 +31,29 @@ class SearchComponent extends Singleton {
 
         add_filter('posts_search', [$this, 'includeReusableBlockContentInSearch'], 10, 2);
         add_action('pre_get_posts', [$this, 'expandMainSearchPostTypes'], 11, 1);
+
+        //force a non-transparent header on the search results page regardless of the first result
+        //priority 100 ensures this runs after the parent theme's filters (registered at 10 and 60)
+        add_filter('nectar_activate_transparent_header', [$this, 'disableTransparentHeaderOnSearch'], 100);
+    }
+
+    /**
+     * Disable the transparent header on the search results page.
+     *
+     * The search loop sets the global $post to the first result, so the parent theme's
+     * transparent header logic can leak that result's per-page transparency onto the search header.
+     * We always want a regular (non-transparent) header on search results.
+     *
+     * @param bool $active whether the transparent header is currently active
+     * @return bool
+     */
+    public function disableTransparentHeaderOnSearch($active): bool {
+        //only override on the actual front-end search results query
+        if (is_search()) {
+            return false;
+        }
+
+        return (bool) $active;
     }
 
     /**
