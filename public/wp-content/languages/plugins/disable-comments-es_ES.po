@@ -2,14 +2,742 @@
 # This file is distributed under the same license as the Plugins - Disable Comments &#8211; Remove Comments &amp; Stop Spam [Multi-Site Support] - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-17 11:31:07+0000\n"
+"PO-Revision-Date: 2026-09-04 08:02:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: GlotPress/4.0.3\n"
+"X-Generator: GlotPress/4.1.0\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Disable Comments &#8211; Remove Comments &amp; Stop Spam [Multi-Site Support] - Stable (latest release)\n"
+
+#: views/settings.php:44
+msgctxt "Tab Name"
+msgid "Settings"
+msgstr "Ajustes"
+
+#: views/partials/_settings.php:366
+msgid "Check my theme"
+msgstr "Comprobar mi tema"
+
+#: views/partials/_settings.php:360
+msgid "If comments are off but the form is still showing on your site, this checks a real page and tells you what is putting it there."
+msgstr "Si los comentarios están desactivados pero el formulario sigue mostrándose en tu sitio, esto comprueba una página real y te indica qué lo está poniendo ahí."
+
+#: views/partials/_settings.php:357
+msgid "Still Seeing a Comment Form?"
+msgstr "¿Todavía ves el formulario de comentarios?"
+
+#: views/partials/_settings.php:345
+#: assets/js/disable-comments-settings-scripts.js:934
+msgid "Choose a settings file to preview what it would change."
+msgstr "Elige un archivo de ajustes para previsualizar lo que cambiaría."
+
+#: views/partials/_settings.php:339
+msgid "Apply import"
+msgstr "Aplicar importación"
+
+#: views/partials/_settings.php:335
+msgid "Preview import"
+msgstr "Previsualizar importación"
+
+#: views/partials/_settings.php:326
+#: assets/js/disable-comments-settings-scripts.js:933
+msgid "No file chosen"
+msgstr "Ningún archivo seleccionado"
+
+#: views/partials/_settings.php:325
+msgid "Choose file"
+msgstr "Elegir archivo"
+
+#: views/partials/_settings.php:322
+msgid "Import"
+msgstr "Importar"
+
+#: views/partials/_settings.php:316
+msgid "Download settings"
+msgstr "Descargar ajustes"
+
+#: views/partials/_settings.php:313
+msgid "Export"
+msgstr "Exportar"
+
+#: views/partials/_settings.php:300
+msgid "Download this configuration as a file, then import it on your next site instead of setting everything up again."
+msgstr "Descarga esta configuración como un archivo y luego impórtalo en tu próximo sitio en lugar de configurarlo todo de nuevo."
+
+#: views/partials/_settings.php:297
+msgid "Copy These Settings To Another Site"
+msgstr "Copiar estos ajustes a otro sitio"
+
+#: views/partials/_settings.php:287
+msgid "Reset counters"
+msgstr "Restablecer contadores"
+
+#: views/partials/_settings.php:283
+msgid "Comments blocked over XML-RPC are not counted: that method is removed from the server rather than rejected, so there is no request to observe."
+msgstr "Los comentarios bloqueados a través de XML-RPC no se cuentan: ese método se elimina del servidor en lugar de rechazarse, por lo que no hay solicitud que observar."
+
+#. translators: 1: number of blocked attempts, 2: date counting started.
+#: views/partials/_settings.php:264
+msgid "%1$s attempts blocked since %2$s."
+msgstr "%1$s intentos bloqueados desde %2$s."
+
+#: views/partials/_settings.php:255
+msgid "How much this plugin has actually turned away, broken down by where the attempt came from."
+msgstr "Cuánto ha rechazado realmente este plugin, desglosado por el origen del intento."
+
+#: views/partials/_settings.php:252
+msgid "Blocked Attempts"
+msgstr "Intentos bloqueados"
+
+#: views/partials/_settings.php:242
+msgid "Rules are applied per post, on top of the settings on the Disable Comments tab. An exception keeps comments open even where those settings would close them, and it also survives the age limit."
+msgstr "Las reglas se aplican por entrada, además de los ajustes de la pestaña Desactivar comentarios. Una excepción mantiene los comentarios abiertos incluso donde esos ajustes los cerrarían, y también sobrevive al límite de antigüedad."
+
+#: views/partials/_settings.php:236
+msgid "days (0 = no age limit)"
+msgstr "días (0 = sin límite de antigüedad)"
+
+#: views/partials/_settings.php:227
+msgid "Close comments on content older than"
+msgstr "Cerrar comentarios en contenido con más de"
+
+#. translators: %s: page template file name.
+#: views/partials/_settings.php:217
+msgid "%s (not in the active theme)"
+msgstr "%s (no está en el tema activo)"
+
+#: views/partials/_settings.php:193
+msgid "— No template rule —"
+msgstr "— Sin regla de plantilla —"
+
+#: views/partials/_settings.php:190
+msgid "Page template"
+msgstr "Plantilla de página"
+
+#: views/partials/_settings.php:177
+msgid "For content using this page template:"
+msgstr "Para el contenido que usa esta plantilla de página:"
+
+#: views/partials/_settings.php:128
+msgid "Terms"
+msgstr "Términos"
+
+#: views/partials/_settings.php:118
+msgid "— Select a taxonomy —"
+msgstr "— Seleccionar una taxonomía —"
+
+#: views/partials/_settings.php:115
+msgid "Taxonomy"
+msgstr "Taxonomía"
+
+#: views/partials/_settings.php:110 views/partials/_settings.php:185
+msgid "Keep comments open (exception)"
+msgstr "Mantener comentarios abiertos (excepción)"
+
+#: views/partials/_settings.php:102
+msgid "For posts in these terms:"
+msgstr "Para entradas en estos términos:"
+
+#: views/partials/_settings.php:77
+msgid "Add Conditional Rules"
+msgstr "Añadir reglas condicionales"
+
+#: views/partials/_settings.php:58
+msgid "Close or reopen comments on individual posts by category, page template or age, on top of the settings on the Disable Comments tab."
+msgstr "Cerrar o reabrir comentarios en entradas individuales por categoría, plantilla de página o antigüedad, además de los ajustes de la pestaña Desactivar comentarios."
+
+#: views/partials/_disable.php:366
+msgid "Reviews are stored as comments on the Products post type, so they follow the settings above: tick Products to turn reviews off. Allowing \"Product reviews\" under Enable Certain Comment Types keeps existing reviews readable while everything else stays hidden."
+msgstr "Las reseñas se almacenan como comentarios en el tipo de contenido Productos, por lo que siguen los ajustes anteriores: marca Productos para desactivar las reseñas. Permitir «Reseñas de productos» en Activar ciertos tipos de comentarios mantiene visibles las reseñas existentes mientras todo lo demás permanece oculto."
+
+#: views/partials/_disable.php:361
+msgid "Reviews already on your products stay visible, and apps can still read them over the REST API — but no new ones can be submitted, because the review form needs comments to be open on the product."
+msgstr "Las reseñas que ya tienes en tus productos permanecen visibles, y las aplicaciones aún pueden leerlas a través de la API REST, pero no se pueden enviar nuevas, porque el formulario de reseñas necesita que los comentarios estén abiertos en el producto."
+
+#: views/partials/_disable.php:354
+#: assets/js/disable-comments-settings-scripts.js:784
+msgid "Product reviews are currently enabled."
+msgstr "Las reseñas de productos están actualmente activadas."
+
+#: views/partials/_disable.php:352
+#: assets/js/disable-comments-settings-scripts.js:783
+msgid "Product reviews are currently disabled."
+msgstr "Las reseñas de productos están actualmente desactivadas."
+
+#: views/partials/_disable.php:350
+msgid "Product reviews are turned off in WooCommerce's own settings, so customers cannot leave one regardless of what is set here."
+msgstr "Las reseñas de productos están desactivadas en los ajustes propios de WooCommerce, por lo que los clientes no pueden dejar ninguna independientemente de lo que se establezca aquí."
+
+#: views/partials/_disable.php:341
+msgid "WooCommerce Product Reviews"
+msgstr "Reseñas de productos de WooCommerce"
+
+#: views/partials/_disable.php:319
+msgid "No separately closeable comment types were found on this site."
+msgstr "No se encontraron tipos de comentarios cerrables por separado en este sitio."
+
+#: views/partials/_disable.php:326
+msgid "This is the reverse of the setting above. A comment type closed here stops being accepted even where comments are otherwise open, and everything else on the same posts keeps working — so a WooCommerce store can close product reviews while other comments on products stay open. Existing comments of that type are not deleted; on a product page WooCommerce's Reviews tab is hidden while the type is closed. A type ticked in both lists counts as closed."
+msgstr "Esto es lo contrario del ajuste anterior. Un tipo de comentario cerrado aquí deja de ser aceptado incluso donde los comentarios están abiertos, y todo lo demás en las mismas entradas sigue funcionando, por lo que una tienda WooCommerce puede cerrar las reseñas de productos mientras otros comentarios en los productos permanecen abiertos. Los comentarios existentes de ese tipo no se eliminan; en una página de producto, la pestaña de reseñas de WooCommerce se oculta mientras el tipo está cerrado. Un tipo marcado en ambas listas cuenta como cerrado."
+
+#: views/partials/_disable.php:298
+msgid "Comment types that can be closed"
+msgstr "Tipos de comentarios que se pueden cerrar"
+
+#: views/partials/_disable.php:291
+msgid "Close Certain Comment Types"
+msgstr "Cerrar ciertos tipos de comentarios"
+
+#: views/partials/_disable.php:270
+msgid "Closed Comment Types Settings"
+msgstr "Ajustes de tipos de comentarios cerrados"
+
+#: views/partials/_delete.php:246
+msgid "Download a CSV backup first"
+msgstr "Descarga primero una copia de seguridad en CSV"
+
+#: views/partials/_delete.php:242
+msgid "Preview what will be deleted"
+msgstr "Previsualizar lo que se eliminará"
+
+#: views/partials/_delete.php:227
+msgid "Comment types you have allowed are left out of both: they cannot be deleted from here."
+msgstr "Los tipos de comentarios que has permitido se excluyen de ambos: no se pueden eliminar desde aquí."
+
+#: views/partials/_delete.php:225
+msgid "Counted whatever their status: approved, pending, spam and trash. The preview below counts only the ones the mode you picked would delete."
+msgstr "Se cuentan cualquiera que sea su estado: aprobados, pendientes, spam y papelera. La vista previa a continuación cuenta solo los que eliminaría el modo que has elegido."
+
+#: views/partials/_delete.php:218
+msgid "Comments on this site:"
+msgstr "Comentarios en este sitio:"
+
+#: views/partials/_delete.php:216
+msgid "Comments across this network:"
+msgstr "Comentarios en toda esta red:"
+
+#: includes/abilities.php:767
+msgid "What is blocking reviews: \"disable-comments\" for this plugin's settings, \"woocommerce\" for WooCommerce's own review switch, or an empty string when reviews are enabled. Tells an agent which setting to point the user at."
+msgstr "Qué está bloqueando las reseñas: «disable-comments» para los ajustes de este plugin, «woocommerce» para el interruptor de reseñas propio de WooCommerce, o una cadena vacía cuando las reseñas están activadas. Indica a un agente a qué ajuste debe dirigir al usuario."
+
+#: includes/abilities.php:763
+msgid "True when customers cannot leave a WooCommerce product review. Reviews are usually just comments on the \"product\" post type, so this is mostly the answer for reviews specifically, which \"disabled_post_types\" does not give you in a form a store owner would recognise. It can also be true on its own: \"review\" appearing in \"blocked_comment_types\" closes reviews while comments on products stay open, and WooCommerce's own review setting being off closes them regardless of this plugin. False whenever WooCommerce is not active. This describes the site, not the caller: a role exemption does not change it."
+msgstr "Verdadero cuando los clientes no pueden dejar una reseña de producto de WooCommerce. Las reseñas suelen ser solo comentarios en el tipo de contenido «product», por lo que esta es principalmente la respuesta para las reseñas específicamente, que «disabled_post_types» no te da en una forma que un propietario de tienda reconocería. También puede ser verdadero por sí solo: «review» que aparece en «blocked_comment_types» cierra las reseñas mientras los comentarios en los productos permanecen abiertos, y el ajuste de reseñas propio de WooCommerce desactivado las cierra independientemente de este plugin. Falso cuando WooCommerce no está activo. Esto describe el sitio, no el que llama: una exención por rol no lo cambia."
+
+#: includes/abilities.php:759
+msgid "True when WooCommerce is running on this site. The review fields below only mean anything while it is."
+msgstr "Verdadero cuando WooCommerce está funcionando en este sitio. Los campos de reseñas a continuación solo significan algo mientras lo esté."
+
+#: includes/abilities.php:755
+msgid "Comments close automatically on posts older than this many days. Zero means no age limit. A post kept open by an explicit exception rule stays open past this window."
+msgstr "Los comentarios se cierran automáticamente en entradas con más de este número de días. Cero significa sin límite de antigüedad. Una entrada mantenida abierta por una regla de excepción explícita permanece abierta más allá de este límite."
+
+#: includes/abilities.php:751
+msgid "How many taxonomy or template rules are configured. Zero while \"conditional_rules_enabled\" is false."
+msgstr "Cuántas reglas de taxonomía o plantilla están configuradas. Cero mientras «conditional_rules_enabled» es falso."
+
+#: includes/abilities.php:747
+msgid "True when per-post conditional rules are active. The post-type fields then describe only the starting point: individual posts may differ based on their taxonomy terms, page template or age. Do not infer a single post's comment status from \"disabled_post_types\" alone while this is true."
+msgstr "Verdadero cuando las reglas condicionales por entrada están activas. Los campos de tipos de contenido describen entonces solo el punto de partida: las entradas individuales pueden diferir según sus términos de taxonomía, plantilla de página o antigüedad. No infieras el estado de comentarios de una sola entrada solo de «disabled_post_types» mientras esto sea verdadero."
+
+#: includes/abilities.php:709
+msgid "The mirror image of \"allowed_comment_types\": comment types that are closed even where comments are open, such as \"review\" for a WooCommerce store that closes product reviews while other comments on products stay open. Creating one of these is rejected with a 403 on both the comment form and the REST API, so check this before submitting — the post-type fields and \"comments_disabled_everywhere\" will not tell you. Existing comments of these types are untouched and still readable. A type appearing here is never also listed in \"allowed_comment_types\"."
+msgstr "La imagen especular de «allowed_comment_types»: tipos de comentarios que están cerrados incluso donde los comentarios están abiertos, como «review» para una tienda WooCommerce que cierra las reseñas de productos mientras otros comentarios en los productos permanecen abiertos. Crear uno de estos es rechazado con un 403 tanto en el formulario de comentarios como en la API REST, así que comprueba esto antes de enviar, los campos de tipos de contenido y «comments_disabled_everywhere» no te lo dirán. Los comentarios existentes de estos tipos no se tocan y siguen siendo legibles. Un tipo que aparece aquí nunca aparece también en «allowed_comment_types»."
+
+#: includes/abilities.php:699
+msgid "True when no post type on this site is left accepting comments, including non-public ones the settings screen does not list. Stricter than a \"status\" of \"all\", which only means every post type the settings screen offers is switched off — a non-public post type that supports comments can still be open in that case. Comment types listed in \"allowed_comment_types\" are permitted regardless, so this is not absolute when that list is non-empty. False whenever a conditional \"enable\" rule exists, since such a rule reopens the posts it matches."
+msgstr "Verdadero cuando ningún tipo de contenido en este sitio queda aceptando comentarios, incluidos los no públicos que la pantalla de ajustes no lista. Más estricto que un «status» de «all», que solo significa que todos los tipos de contenido que ofrece la pantalla de ajustes están desactivados; un tipo de contenido no público que admite comentarios puede seguir abierto en ese caso. Los tipos de comentarios listados en «allowed_comment_types» están permitidos independientemente, por lo que esto no es absoluto cuando esa lista no está vacía. Falso siempre que exista una regla condicional de «enable», ya que esa regla reabre las entradas que coincide."
+
+#: includes/abilities.php:552
+msgid "Unknown mode. Use \"everywhere\", \"post_types\", \"comment_types\" or \"spam\"."
+msgstr "Modo desconocido. Usa «everywhere», «post_types», «comment_types» o «spam»."
+
+#: includes/abilities.php:477
+msgid "Unknown mode. Use \"everywhere\", \"post_types\" or \"off\"."
+msgstr "Modo desconocido. Usa «everywhere», «post_types» o «off»."
+
+#: includes/abilities.php:413
+msgid "How many comments the request matches. On a dry run this is what would be deleted."
+msgstr "Cuántos comentarios coincide la solicitud. En una ejecución de prueba, esto es lo que se eliminaría."
+
+#: includes/abilities.php:409
+msgid "How many comments were deleted. Zero on a dry run."
+msgstr "Cuántos comentarios se eliminaron. Cero en una ejecución de prueba."
+
+#: includes/abilities.php:405
+msgid "True when nothing was deleted and this is a count only."
+msgstr "Verdadero cuando no se eliminó nada y esto es solo un conteo."
+
+#: includes/abilities.php:388
+msgid "Must be true for a real deletion. Ignored when dry_run is true."
+msgstr "Debe ser verdadero para una eliminación real. Se ignora cuando dry_run es verdadero."
+
+#: includes/abilities.php:384
+msgid "When true, report how many comments match and delete nothing. Call this way first, every time."
+msgstr "Cuando es verdadero, informa de cuántos comentarios coinciden y no elimina nada. Llama así primero, cada vez."
+
+#: includes/abilities.php:380
+msgid "Comment type slugs, when mode is \"comment_types\". Types on the site's allowlist cannot be deleted this way."
+msgstr "Slugs de tipos de comentarios, cuando el modo es «comment_types». Los tipos en la lista permitida del sitio no se pueden eliminar de esta manera."
+
+#: includes/abilities.php:375
+msgid "Post type slugs, when mode is \"post_types\"."
+msgstr "Slugs de tipos de contenido, cuando el modo es «post_types»."
+
+#: includes/abilities.php:370
+msgid "What to delete: every comment, everything on given post types, everything of given comment types, or only spam."
+msgstr "Qué eliminar: todos los comentarios, todo en tipos de contenido dados, todo de tipos de comentarios dados, o solo spam."
+
+#: includes/abilities.php:346
+msgid "Slugs that were requested but are not registered on this site, so they were ignored. An empty list means everything requested was applied."
+msgstr "Slugs que se solicitaron pero no están registrados en este sitio, por lo que se ignoraron. Una lista vacía significa que todo lo solicitado se aplicó."
+
+#: includes/abilities.php:341
+msgid "Post type slugs with comments disabled after this call."
+msgstr "Slugs de tipos de contenido con comentarios desactivados después de esta llamada."
+
+#: includes/abilities.php:336
+msgid "The status string after this call."
+msgstr "La cadena de estado después de esta llamada."
+
+#: includes/abilities.php:332
+msgid "The post types that had comments disabled before the call. Together with \"previous_mode\" this is everything needed to undo it."
+msgstr "Los tipos de contenido que tenían comentarios desactivados antes de la llamada. Junto con «previous_mode», esto es todo lo necesario para deshacerlo."
+
+#: includes/abilities.php:327
+msgid "The mode this site was in before the call. Send it back with \"previous_disabled_post_types\" as \"post_types\" to restore exactly what was there."
+msgstr "El modo en el que estaba este sitio antes de la llamada. Envíalo de vuelta con «previous_disabled_post_types» como «post_types» para restaurar exactamente lo que había."
+
+#: includes/abilities.php:322
+msgid "The status string before this call, in the same vocabulary as disable-comments/get-status. This is a human-readable summary and is NOT a valid \"mode\" - to undo, use \"previous_mode\" and \"previous_disabled_post_types\" instead."
+msgstr "La cadena de estado antes de esta llamada, con el mismo vocabulario que disable-comments/get-status. Este es un resumen legible por humanos y NO es un «mode» válido; para deshacer, usa «previous_mode» y «previous_disabled_post_types» en su lugar."
+
+#: includes/abilities.php:318
+msgid "True when the stored configuration actually changed. False means the site was already in the requested state."
+msgstr "Verdadero cuando la configuración almacenada realmente cambió. Falso significa que el sitio ya estaba en el estado solicitado."
+
+#: includes/abilities.php:301
+msgid "Must be true. Guards against an unintended call changing the site configuration."
+msgstr "Debe ser verdadero. Protege contra una llamada no intencionada que cambie la configuración del sitio."
+
+#: includes/abilities.php:297
+msgid "Post type slugs to disable comments on. Only used when mode is \"post_types\". Slugs this site does not register are reported back in unknown_post_types and ignored."
+msgstr "Slugs de tipos de contenido en los que desactivar comentarios. Solo se usa cuando el modo es «post_types». Los slugs que este sitio no registra se informan en unknown_post_types y se ignoran."
+
+#: includes/abilities.php:292
+msgid "\"everywhere\" disables comments on every post type. \"post_types\" disables them only on the slugs given in post_types. \"off\" re-enables comments everywhere."
+msgstr "«everywhere» desactiva los comentarios en todos los tipos de contenido. «post_types» los desactiva solo en los slugs dados en post_types. «off» vuelve a activar los comentarios en todas partes."
+
+#: includes/abilities.php:250
+msgid "This changes the site and was not confirmed. Re-send the same call with confirm set to true."
+msgstr "Esto cambia el sitio y no fue confirmado. Vuelve a enviar la misma llamada con confirm establecido en verdadero."
+
+#: includes/abilities.php:218
+msgid "This site is part of a network where each site is configured from the network admin screen. Changing comment settings through this ability is not supported here - use the network admin screen or WP-CLI instead."
+msgstr "Este sitio es parte de una red donde cada sitio se configura desde la pantalla de administración de la red. Cambiar los ajustes de comentarios a través de esta capacidad no es compatible aquí; usa la pantalla de administración de la red o WP-CLI en su lugar."
+
+#: includes/abilities.php:119
+msgid "Permanently deletes comments from the database. This cannot be undone and there is no trash to recover from. Always call this with dry_run=true first to see how many comments match, show that number to the person you are helping, and only then call it again with dry_run=false and confirm=true. On a multisite network this only ever affects the site the request is made against, never other sites in the network."
+msgstr "Elimina permanentemente comentarios de la base de datos. Esto no se puede deshacer y no hay papelera para recuperarlos. Llama siempre a esto primero con dry_run=true para ver cuántos comentarios coinciden, muestra ese número a la persona a la que estás ayudando, y solo entonces vuelve a llamarlo con dry_run=false y confirm=true. En una red multisitio, esto solo afecta al sitio contra el que se hace la solicitud, nunca a otros sitios de la red."
+
+#: includes/abilities.php:118
+msgid "Delete comments"
+msgstr "Eliminar comentarios"
+
+#: includes/abilities.php:91
+msgid "Changes where comments are disabled on this site. Either turns comments off everywhere, or replaces the list of post types that have comments disabled. This writes the site configuration and takes effect immediately for every visitor. Call disable-comments/get-status first to see the current state, and pass confirm=true to proceed."
+msgstr "Cambia dónde están desactivados los comentarios en este sitio. O desactiva los comentarios en todas partes, o reemplaza la lista de tipos de contenido que tienen comentarios desactivados. Esto escribe la configuración del sitio y tiene efecto inmediato para cada visitante. Llama primero a disable-comments/get-status para ver el estado actual y pasa confirm=true para continuar."
+
+#: includes/abilities.php:90
+msgid "Set comment status"
+msgstr "Establecer estado de comentarios"
+
+#. translators: %s: name of the blocked request type.
+#: disable-comments.php:6059
+msgid "Blocked: %s"
+msgstr "Bloqueado: %s"
+
+#: disable-comments.php:6052
+msgid "Counting Blocked Attempts Since"
+msgstr "Contando intentos bloqueados desde"
+
+#: disable-comments.php:6041
+msgid "No age limit"
+msgstr "Sin límite de antigüedad"
+
+#. translators: %s: number of days.
+#: disable-comments.php:6038
+msgid "%s day"
+msgid_plural "%s days"
+msgstr[0] "%s día"
+msgstr[1] "%s días"
+
+#: disable-comments.php:6034
+msgid "Auto-close Comments After"
+msgstr "Cerrar comentarios automáticamente después de"
+
+#: disable-comments.php:6030
+msgid "Conditional Rules Configured"
+msgstr "Reglas condicionales configuradas"
+
+#: disable-comments.php:6024 views/partials/_settings.php:55
+msgid "Conditional Rules"
+msgstr "Reglas condicionales"
+
+#. translators: %s: sentence describing the global and post-type settings.
+#: disable-comments.php:5949
+msgid "%s. Conditional rules then close or reopen comments on individual posts"
+msgstr "%s. Las reglas condicionales entonces cierran o reabren comentarios en entradas individuales"
+
+#: disable-comments.php:4819
+msgid "Anonymous"
+msgstr "Anónimo"
+
+#: disable-comments.php:4634
+msgid "Spam comments"
+msgstr "Comentarios de spam"
+
+#: disable-comments.php:4580
+msgid "All comments"
+msgstr "Todos los comentarios"
+
+#: disable-comments.php:3859
+msgid "That file contains no settings this version recognises."
+msgstr "Ese archivo no contiene ajustes que esta versión reconozca."
+
+#. translators: 1: schema version in the file, 2: schema version this plugin
+#. understands.
+#: disable-comments.php:3835
+msgid "That file was written by a newer version of Disable Comments (format %1$d; this site understands %2$d). Update the plugin first."
+msgstr "Ese archivo fue escrito por una versión más reciente de Disable Comments (formato %1$d; este sitio entiende %2$d). Actualiza el plugin primero."
+
+#: disable-comments.php:3825
+msgid "That file does not contain Disable Comments settings."
+msgstr "Ese archivo no contiene ajustes de Disable Comments."
+
+#: disable-comments.php:3821
+msgid "That file is not valid JSON."
+msgstr "Ese archivo no es JSON válido."
+
+#: disable-comments.php:3655
+msgid "There is no published content with comments disabled to check yet. Disable comments on a post type that has published content, then run this again."
+msgstr "Aún no hay contenido publicado con comentarios desactivados para comprobar. Desactiva los comentarios en un tipo de contenido que tenga contenido publicado y luego vuelve a ejecutar esto."
+
+#. translators: %s: theme name.
+#: disable-comments.php:3490
+msgid "This plugin replaced the comments template successfully, but comment markup is still on the page — so %s is drawing part of the comment area outside comments_template(). That part has to be removed in the theme."
+msgstr "Este plugin reemplazó la plantilla de comentarios correctamente, pero el marcado de comentarios sigue en la página, por lo que %s está dibujando parte del área de comentarios fuera de comments_template(). Esa parte debe eliminarse en el tema."
+
+#. translators: 1: theme name, 2: resolved template path.
+#: disable-comments.php:3479
+msgid "%1$s calls comments_template(), but something is overriding the empty template this plugin substitutes. The template actually rendered was %2$s."
+msgstr "%1$s llama a comments_template(), pero algo está anulando la plantilla vacía que sustituye este plugin. La plantilla que realmente se renderizó fue %2$s."
+
+#. translators: 1: theme name, 2: template file path.
+#: disable-comments.php:3467
+msgid "%1$s never calls comments_template(), so this plugin has no way to replace what it renders. The comment markup is being output directly by the theme. Look in %2$s, or in the single-post template that draws the comment area."
+msgstr "%1$s nunca llama a comments_template(), por lo que este plugin no tiene forma de reemplazar lo que renderiza. El marcado de comentarios se está generando directamente por el tema. Busca en %2$s, o en la plantilla de entrada individual que dibuja el área de comentarios."
+
+#: disable-comments.php:3457
+msgid "Comments are still open on this page, so there is nothing for the theme to hide yet. Check the settings above before reading anything into this."
+msgstr "Los comentarios todavía están abiertos en esta página, por lo que el tema aún no tiene nada que ocultar. Revisa los ajustes anteriores antes de sacar conclusiones de esto."
+
+#: disable-comments.php:3450
+msgid "Comments are off on this page, but you have chosen to keep existing comments (or certain comment types) visible — so the comment area is still rendered on purpose. If you did not expect that, check \"Show Existing Comments\" and \"Enable Certain Comment Types\" in the settings."
+msgstr "Los comentarios están desactivados en esta página, pero has elegido mantener los comentarios existentes (o ciertos tipos de comentarios) visibles, por lo que el área de comentarios se sigue renderizando a propósito. Si no esperabas eso, revisa «Mostrar comentarios existentes» y «Activar ciertos tipos de comentarios» en los ajustes."
+
+#: disable-comments.php:3438
+msgid "Comments are off on this page and your theme is respecting that. Nothing to fix."
+msgstr "Los comentarios están desactivados en esta página y tu tema lo está respetando. No hay nada que arreglar."
+
+#: disable-comments.php:3431
+msgid "The page loaded, but this plugin could not report from inside it. That usually means a page cache served an older copy. Try again, or clear your cache first."
+msgstr "La página se cargó, pero este plugin no pudo informar desde su interior. Eso suele significar que una caché de página sirvió una copia antigua. Inténtalo de nuevo o vacía tu caché primero."
+
+#. translators: %d: HTTP status code.
+#: disable-comments.php:3345
+msgid "The front end returned HTTP %d, so there was nothing to check."
+msgstr "El front-end devolvió HTTP %d, por lo que no había nada que comprobar."
+
+#. translators: %s: error message from the HTTP request.
+#: disable-comments.php:3332
+msgid "Could not load the front end to check it (%s). Some hosts block a site from requesting its own pages; that is not a problem with your theme."
+msgstr "No se pudo cargar el front-end para comprobarlo (%s). Algunos servidores bloquean que un sitio solicite sus propias páginas; eso no es un problema con tu tema."
+
+#: disable-comments.php:3143
+msgid "No thanks, don't ask again"
+msgstr "No, gracias. No preguntes de nuevo"
+
+#: disable-comments.php:3140
+msgid "Leave a review"
+msgstr "Dejar una reseña"
+
+#: disable-comments.php:3132
+msgid "If it saved you some time, a quick review helps other people find it."
+msgstr "Si te ha ahorrado algo de tiempo, una reseña rápida ayuda a que otras personas lo encuentren."
+
+#. translators: %s: number of comments deleted.
+#: disable-comments.php:3128
+msgid "Disable Comments just cleared %s comment for you."
+msgid_plural "Disable Comments just cleared %s comments for you."
+msgstr[0] "Disable Comments acaba de eliminar %s comentario por ti."
+msgstr[1] "Disable Comments acaba de eliminar %s comentarios por ti."
+
+#: disable-comments.php:2084 disable-comments.php:2758
+msgid "Product reviews - WooCommerce (review)"
+msgstr "Reseñas de productos - WooCommerce (review)"
+
+#: disable-comments.php:1890
+msgid "Comment Type Closed"
+msgstr "Tipo de comentario cerrado"
+
+#: disable-comments.php:1889 disable-comments.php:1926
+msgid "Sorry, this kind of comment is no longer being accepted on this item."
+msgstr "Lo sentimos, este tipo de comentario ya no se acepta en este elemento."
+
+#: disable-comments.php:1357 disable-comments.php:2900
+#: disable-comments.php:3161 disable-comments.php:3645
+#: disable-comments.php:3648 disable-comments.php:4106
+#: disable-comments.php:4133 disable-comments.php:5400
+#: disable-comments.php:5421
+msgid "Insufficient permissions."
+msgstr "Permisos insuficientes."
+
+#: disable-comments.php:1353 disable-comments.php:2896
+#: disable-comments.php:3157 disable-comments.php:3636
+#: disable-comments.php:4095 disable-comments.php:4125
+#: disable-comments.php:5394 disable-comments.php:5415
+msgid "Invalid request."
+msgstr "Solicitud no válida."
+
+#: disable-comments.php:1252
+msgid "REST API comment requests"
+msgstr "Solicitudes de comentarios de la API REST"
+
+#: disable-comments.php:1251
+msgid "Trackbacks"
+msgstr "Trackbacks"
+
+#: disable-comments.php:1250
+msgid "Comment form submissions"
+msgstr "Envíos del formulario de comentarios"
+
+#: includes/abilities.php:815
+msgid "The Disable Comments plugin is not available on this site."
+msgstr "El plugin Disable Comments no está disponible en este sitio."
+
+#: includes/abilities.php:771
+msgid "Version of the Disable Comments plugin answering this request."
+msgstr "Versión del plugin Disable Comments que responde a esta solicitud."
+
+#: includes/abilities.php:743
+msgid "True when the user making this request is exempt by role, meaning comments remain open for them even though the site disables them. Treat the other fields as the site configuration, not as what this user sees."
+msgstr "Verdadero cuando el usuario que realiza esta solicitud está exento por su perfil, lo que significa que los comentarios permanecen abiertos para él aunque el sitio los desactive. Trata los demás campos como la configuración del sitio, no como lo que ve este usuario."
+
+#: includes/abilities.php:739
+msgid "True when the site exempts one or more user roles from comment disabling."
+msgstr "Verdadero cuando el sitio exime a uno o más perfiles de usuario de la desactivación de comentarios."
+
+#: includes/abilities.php:727
+msgid "True when a super admin has chosen to apply one set of settings to every site in the network."
+msgstr "Verdadero cuando un superadministrador ha optado por aplicar una misma configuración a todos los sitios de la red."
+
+#: includes/abilities.php:723
+msgid "True when the plugin is activated network-wide on a multisite install."
+msgstr "Verdadero cuando el plugin está activado para toda la red en una instalación multisitio."
+
+#: includes/abilities.php:719
+msgid "Post type slugs on this site that support comments and can be toggled."
+msgstr "Slugs de tipos de contenido en este sitio que admiten comentarios y se pueden alternar."
+
+#: includes/abilities.php:714
+msgid "Post type slugs that currently have comments disabled. When comments are disabled everywhere this lists every comment-capable post type, since the global setting also covers post types registered after the settings were saved."
+msgstr "Slugs de tipos de contenido que actualmente tienen los comentarios desactivados. Cuando los comentarios están desactivados en todas partes, esta lista muestra todos los tipos de contenido con capacidad para comentarios, ya que el ajuste global también cubre los tipos de contenido registrados después de guardar la configuración."
+
+#: includes/abilities.php:735
+msgid "True when the site blocks posting new comments over XML-RPC. Narrower than \"rest_api_comments_blocked\": only the \"wp.newComment\" method is removed, so reading and moderating comments over XML-RPC (\"wp.getComments\", \"wp.editComment\", \"wp.deleteComment\", \"wp.getCommentCount\" and similar) still work. Do not skip XML-RPC moderation because this is true. Independent of the post-type settings, like the REST setting."
+msgstr "Verdadero cuando el sitio bloquea la publicación de nuevos comentarios a través de XML-RPC. Más específico que «rest_api_comments_blocked»: solo se elimina el método «wp.newComment», por lo que la lectura y moderación de comentarios a través de XML-RPC («wp.getComments», «wp.editComment», «wp.deleteComment», «wp.getCommentCount» y similares) siguen funcionando. No omitas la moderación de XML-RPC porque esto sea verdadero. Es independiente de los ajustes del tipo de contenido, al igual que el ajuste de REST."
+
+#: includes/abilities.php:731
+msgid "True when the site blocks comment endpoints in the REST API, either through the dedicated REST setting or because comments are disabled everywhere. Non-allowlisted requests to /wp/v2/comments are rejected with a 403. This is not implied by the post-type fields — comments can be open on every post type while REST is blocked — so check it before reading or creating comments over REST. Types in \"allowed_comment_types\" are still permitted."
+msgstr "Verdadero cuando el sitio bloquea los endpoints de comentarios en la API REST, ya sea a través del ajuste dedicado de REST o porque los comentarios están desactivados en todas partes. Las solicitudes no permitidas a /wp/v2/comments se rechazan con un error 403. Esto no se deduce de los campos del tipo de contenido (los comentarios pueden estar abiertos en todos los tipos de contenido mientras que REST está bloqueado), por lo que debes comprobarlo antes de leer o crear comentarios a través de REST. Los tipos incluidos en «allowed_comment_types» siguen estando permitidos."
+
+#: includes/abilities.php:695
+msgid "Summary of where comments are disabled: \"all\" (everywhere), \"none\" (nowhere), \"posts\", \"pages\", \"posts,pages\", \"multiple\" (several specific types), or a single custom post type slug. If \"excluded_for_current_user\" is true, comments are still open for the requesting user regardless of this value."
+msgstr "Resumen de dónde están desactivados los comentarios: «all» (en todas partes), «none» (en ninguna parte), «posts», «pages», «posts,pages», «multiple» (varios tipos específicos) o un slug de tipo de contenido personalizado individual. Si «excluded_for_current_user» es verdadero, los comentarios siguen abiertos para el usuario solicitante independientemente de este valor."
+
+#: includes/abilities.php:59
+msgid "Reports where comments are currently disabled on this site: the overall status, which post types have comments turned off, and whether the setting applies across a multisite network. Use this to answer questions about whether comments are enabled before changing content or settings."
+msgstr "Informa sobre dónde están desactivados actualmente los comentarios en este sitio: el estado general, qué tipos de contenido tienen los comentarios desactivados y si el ajuste se aplica a toda una red multisitio. Utiliza esto para responder a preguntas sobre si los comentarios están activados antes de cambiar contenido o ajustes."
+
+#: includes/abilities.php:58
+msgid "Get comment status"
+msgstr "Obtener el estado de los comentarios"
+
+#: includes/abilities.php:39
+msgid "Abilities for inspecting how comments are disabled on this site."
+msgstr "Capacidades para inspeccionar cómo se desactivan los comentarios en este sitio."
+
+#: includes/abilities.php:704
+msgid "Comment types that remain enabled even where comments are disabled, such as \"note\" for WordPress 6.9+ editor notes. These are preserved in comment queries and permitted through the REST API, so they can still be read and created."
+msgstr "Tipos de comentarios que permanecen activados incluso cuando los comentarios están desactivados, como las «notas» para las notas del editor de WordPress 6.9+. Estos se conservan en las consultas de comentarios y se permiten a través de la API REST, por lo que aún se pueden leer y crear."
+
+#: views/partials/_sidebar.php:141
+msgid "How To Exclude Disable Comments Settings Based On User Roles"
+msgstr "Cómo excluir o desactivar los ajustes de comentarios según los perfiles de usuario"
+
+#: disable-comments.php:2809
+msgid "You do not have sufficient permissions to access this page."
+msgstr "No tienes permisos suficientes para acceder a esta página."
+
+#: views/partials/_disable.php:253
+msgid "Currently, we support WordPress 6.9+ block notes (note type). This option will allow block notes to function even when regular comments are disabled."
+msgstr "Actualmente, admitimos las notas en bloques (tipo de nota) de WordPress 6.9 y versiones posteriores. Esta opción permitirá que las notas en bloques sigan funcionando incluso cuando los comentarios normales estén desactivados."
+
+#: disable-comments.php:2368
+msgid "Comments are disabled."
+msgstr "Los comentarios están desactivados"
+
+#: disable-comments.php:2077
+msgid "Notes - WordPress 6.9+ (note)"
+msgstr "Notas - WordPress 6.9+ (nota)"
+
+#: views/partials/_disable.php:260
+msgid "Enabling specific comment types will allow these notes/comments to be added or displayed wherever they normally appear throughout your site, even when regular comments are disabled. These comment types will also be protected from deletion and will not appear in the \"Delete Comments\" interface."
+msgstr "Si activas determinados tipos de comentarios, estas notas o comentarios se podrán añadir o mostrar en cualquier lugar donde suelen aparecer en tu sitio web, incluso cuando los comentarios normales estén desactivados. Además, estos tipos de comentarios estarán protegidos contra la eliminación y no aparecerán en la interfaz «Eliminar comentarios»."
+
+#: views/partials/_disable.php:225
+msgid "Enable Certain Comment Types"
+msgstr "Habilitar ciertos tipos de comentarios"
+
+#: views/partials/_disable.php:204
+msgid "Allowed Comment Types Settings"
+msgstr "Ajustes de los tipos de comentarios permitidos"
+
+#: views/partials/_disable.php:193
+msgid "When enabled, existing approved comments will remain visible even when new comments are disabled. This allows you to stop spam while preserving your existing comment discussions."
+msgstr "Si se activa esta opción, los comentarios aprobados que ya existan seguirán siendo visibles aunque se desactiven los nuevos comentarios. Esto te permite evitar el spam sin perder los debates que ya hay en los comentarios."
+
+#: disable-comments.php:5998 views/partials/_disable.php:189
+msgid "Show Existing Comments"
+msgstr "Mostrar comentarios existentes"
+
+#: views/partials/_disable.php:172
+msgid "Existing Comments Display Settings"
+msgstr "Ajustes de visualización de los comentarios existentes"
+
+#: disable-comments.php:6014
+msgid "Excluded Roles"
+msgstr "Roles excluidos"
+
+#: disable-comments.php:6010
+msgid "Role-based Exclusions"
+msgstr "Exclusiones basadas en roles"
+
+#: disable-comments.php:6006
+msgid "Site-wide Settings"
+msgstr "Configuración general del sitio"
+
+#: disable-comments.php:6002
+msgid "Network Active"
+msgstr "Red Activa"
+
+#: disable-comments.php:5994
+msgid "REST API Comments"
+msgstr "Comentarios sobre la API REST"
+
+#: disable-comments.php:5990
+msgid "XML-RPC Comments"
+msgstr "Comentarios sobre XML-RPC"
+
+#: disable-comments.php:5987 disable-comments.php:6017
+msgid "None"
+msgstr "Ninguno"
+
+#: disable-comments.php:5984
+msgid "Disabled Post Types"
+msgstr "Tipos de entradas desactivados"
+
+#: disable-comments.php:5980
+msgid "Disabled Post Types Count"
+msgstr "Recuento de tipos de entradas desactivados"
+
+#: disable-comments.php:5972
+msgid "Total Comments"
+msgstr "Total de comentarios"
+
+#: disable-comments.php:5969 disable-comments.php:5977
+#: disable-comments.php:5999 disable-comments.php:6003
+msgid "No"
+msgstr "No"
+
+#: disable-comments.php:5968
+msgid "Plugin Configured"
+msgstr "Plugin configurado"
+
+#: disable-comments.php:5964
+msgid "Comment Status"
+msgstr "Estado de comentario"
+
+#: disable-comments.php:5958
+msgid "Not applicable"
+msgstr "No aplicable"
+
+#: disable-comments.php:5957 disable-comments.php:5991
+#: disable-comments.php:5995 disable-comments.php:6011
+#: disable-comments.php:6027
+msgid "Disabled"
+msgstr "Desactivado"
+
+#. translators: %s: disabled post types.
+#: disable-comments.php:5936
+msgid "Comments are disabled for: %s"
+msgstr "Los comentarios están desactivados para: %s"
+
+#: disable-comments.php:6068
+msgid "Complete overview of comment disable settings and configuration."
+msgstr "Descripción general completa de los ajustes y la configuración para desactivar los comentarios."
+
+#: disable-comments.php:5969 disable-comments.php:5977
+#: disable-comments.php:5999 disable-comments.php:6003
+msgid "Yes"
+msgstr "Sí"
+
+#: disable-comments.php:5956 disable-comments.php:5991
+#: disable-comments.php:5995 disable-comments.php:6011
+#: disable-comments.php:6026
+msgid "Enabled"
+msgstr "Activado"
+
+#: disable-comments.php:5932
+msgid "Comments are enabled everywhere"
+msgstr "Los comentarios están activados en todas partes"
+
+#: disable-comments.php:5931
+msgid "Comments are disabled for multiple specific content types"
+msgstr "Los comentarios están desactivados para varios tipos de contenido concretos"
+
+#: disable-comments.php:5930
+msgid "Comments are disabled for both posts and pages"
+msgstr "Los comentarios están desactivados tanto en las entradas como en las páginas"
+
+#: disable-comments.php:5929
+msgid "Comments are disabled only for pages"
+msgstr "Los comentarios están desactivados solo en las páginas"
+
+#: disable-comments.php:5928
+msgid "Comments are disabled only for blog posts"
+msgstr "Los comentarios están desactivados solo en las entradas del blog"
+
+#: disable-comments.php:5927
+msgid "Comments are disabled site-wide for all content types"
+msgstr "Los comentarios están desactivados en toda la web para todos los tipos de contenido"
+
+#: disable-comments.php:5976
+msgid "Global Disable Active"
+msgstr "Desactivación global activa"
 
 #: views/partials/_sites.php:67
 msgid "Sites pagination"
@@ -27,43 +755,43 @@ msgstr "Buscar sitios"
 msgid "Select or deselect all sites"
 msgstr "Seleccionar o deseleccionar todos los sitios"
 
-#: views/partials/_disable.php:466
+#: views/partials/_disable.php:571
 msgid "Toggle REST API comments. When enabled, this will prevent comments from being submitted through the REST API."
 msgstr "Activar o desactivar los comentarios de la API REST. Al activar esta opción, se impedirá que se envíen comentarios a través de la API REST."
 
-#: views/partials/_disable.php:463
+#: views/partials/_disable.php:568
 msgid "Toggle XML-RPC comments. When enabled, this will prevent comments from being submitted through XML-RPC."
 msgstr "Activar o desactivar comentarios XML-RPC. Al activar esta opción, se impedirá el envío de comentarios mediante XML-RPC."
 
-#: views/partials/_disable.php:333
+#: views/partials/_disable.php:438
 msgid "Avatar Display Settings"
 msgstr "Ajustes de visualización del avatar"
 
-#: views/partials/_disable.php:304
+#: views/partials/_disable.php:409
 msgid "Select user roles to exclude"
 msgstr "Seleccionar perfiles de usuario para excluir"
 
-#: views/partials/_disable.php:272
+#: views/partials/_disable.php:377
 msgid "Role-based Exclusion Settings"
 msgstr "Ajustes de exclusión basada en perfiles"
 
-#: views/partials/_disable.php:121
+#: views/partials/_disable.php:120
 msgid "Available post types"
 msgstr "Tipos de contenido disponibles"
 
-#: views/partials/_disable.php:100
+#: views/partials/_disable.php:99
 msgid "Select Specific Post Types"
 msgstr "Seleccionar tipos de contenido específicos"
 
-#: views/partials/_disable.php:72
+#: views/partials/_disable.php:71
 msgid "Global Comment Settings"
 msgstr "Ajustes globales de los comentarios"
 
-#: views/partials/_disable.php:8
+#: views/partials/_disable.php:7
 msgid "Site-wide Settings Control"
 msgstr "Control de ajustes de todo el sitio"
 
-#: views/partials/_disable.php:1
+#: views/settings.php:63
 msgid "Disable Comments Settings"
 msgstr "Desactivar los ajustes de comentarios"
 
@@ -71,7 +799,7 @@ msgstr "Desactivar los ajustes de comentarios"
 msgid "Delete Spam Comments"
 msgstr "Borrar los comentarios de spam"
 
-#: views/partials/_delete.php:149 views/partials/_disable.php:233
+#: views/partials/_delete.php:149 views/partials/_disable.php:232
 msgid "Available comment types"
 msgstr "Tipos de comentarios disponibles"
 
@@ -79,15 +807,15 @@ msgstr "Tipos de comentarios disponibles"
 msgid "List of available sites"
 msgstr "Lista de sitios disponibles"
 
-#: views/partials/_disable.php:478
+#: views/partials/_disable.php:583 views/partials/_settings.php:377
 msgid "Save all disable comments settings"
 msgstr "Guardar todos los ajustes de desactivación de comentarios"
 
-#: views/partials/_delete.php:217
+#: views/partials/_delete.php:252
 msgid "Are you sure you want to delete the selected comments? This action cannot be undone."
 msgstr "¿Seguro que quieres borrar los comentarios seleccionados? Esta acción no se puede deshacer."
 
-#: views/partials/_delete.php:216
+#: views/partials/_delete.php:251
 msgid "Permanently delete all selected comments"
 msgstr "Borrar permanentemente todos los comentarios seleccionados"
 
@@ -143,11 +871,11 @@ msgstr "Buscar por nombre de dominio…"
 msgid "0 selected"
 msgstr "0 seleccionados"
 
-#: views/partials/_disable.php:290
+#: views/partials/_disable.php:395
 msgid "Exclude Disable Comments Settings Based On User Roles"
 msgstr "Excluir los ajustes de desactivar comentarios basado en perfiles de usuario"
 
-#: views/partials/_disable.php:39
+#: views/partials/_disable.php:38
 msgid "Disable comments in the following sites:"
 msgstr "Desactivar comentarios en los siguientes sitios:"
 
@@ -155,59 +883,59 @@ msgstr "Desactivar comentarios en los siguientes sitios:"
 msgid "Delete comments in the following sites:"
 msgstr "Borrar comentarios en los siguientes sitios:"
 
-#: views/partials/_disable.php:24
+#: views/partials/_disable.php:23
 msgid "Enable Site Wise settings"
 msgstr "Activar los ajustes de todo el sitio."
 
-#: views/partials/_disable.php:323
+#: views/partials/_disable.php:428
 msgid "This will exclude all the above settings for the selected user roles."
 msgstr "Esto excluirá de todos los ajustes de arriba a los perfiles de usuario seleccionados."
 
-#: disable-comments.php:1114 disable-comments.php:1745
+#: disable-comments.php:2785 disable-comments.php:5849
 msgid "Logged out users"
 msgstr "Usuarios desconectados"
 
-#: includes/cli.php:189
+#: includes/cli.php:356
 msgid "Enabled Avatar on your entire site. "
 msgstr "Activado Avatar en todo el sitio."
 
-#: includes/cli.php:186
+#: includes/cli.php:353
 msgid "Disabled Avatar on your entire site. "
 msgstr "Desactivado Avatar en todo tu sitio."
 
-#: includes/cli.php:180
+#: includes/cli.php:347
 msgid "Enabled Comments via REST API. "
 msgstr "Activados los comentarios vias REST API."
 
-#: includes/cli.php:171
+#: includes/cli.php:338
 msgid "Enabled Comments via XML-RPC. "
 msgstr "Activados los comentarios vía XML-RPC."
 
-#: views/partials/_disable.php:52
+#: views/partials/_disable.php:51
 msgid "All the underneath settings (except Avatar settings) will be applied for these selected sub sites."
 msgstr "Todos los ajustes inferiores (excepto los ajustes del avatar) se aplicarán a estos subsitios seleccionados."
 
-#: views/partials/_disable.php:358
+#: views/partials/_disable.php:463
 msgid "This will change Avatar state from your entire site."
 msgstr "Esto cambiará el estado del avatar en todo tu sitio."
 
-#: views/partials/_disable.php:367
+#: views/partials/_disable.php:472
 msgid "Avatar settings:"
 msgstr "Ajustes del avatar:"
 
-#: views/partials/_disable.php:380
+#: views/partials/_disable.php:485
 msgid "Don't Change"
 msgstr "No cambiar"
 
-#: views/partials/_disable.php:393
+#: views/partials/_disable.php:498
 msgid "Enable Avatar"
 msgstr "Activar el avatar"
 
-#: views/partials/_disable.php:413
+#: views/partials/_disable.php:518
 msgid "This will change Avatar state from your entire network. If you want to change the Avatar setting specifically on your subsites by enabling site-wise settings, select \"Don't change\" from here."
 msgstr "Esto cambiará el estado del avatar en toda tu red. Si quieres cambiar los ajustes del avatar específicamente en tus subsitios, activando los ajustes por sitio, selecciona aquí «No cambiar»."
 
-#: views/partials/_disable.php:351 views/partials/_disable.php:406
+#: views/partials/_disable.php:456 views/partials/_disable.php:511
 msgid "Disable Avatar"
 msgstr "Desactivar el avatar"
 
@@ -223,7 +951,7 @@ msgstr "Borra permanentemente todos los comentarios de spam de tu web WordPress"
 msgid "This will permanently delete spam comments everywhere on your website."
 msgstr "Esto borrará permanentemente los comentarios de spam en toda tu web."
 
-#: disable-comments.php:1526
+#: disable-comments.php:5589
 msgid "All spam comments have been deleted."
 msgstr "Todos los comentarios de spam han sido borrados."
 
@@ -245,11 +973,11 @@ msgctxt "Tab Name"
 msgid "Disable Comments"
 msgstr "Desactivar comentarios"
 
-#: views/partials/_disable.php:65
+#: views/partials/_disable.php:64
 msgid "This site will be controlled by the network admin until you click the \"Save Changes\" button."
 msgstr "Este sitio estará controlado por el administrador de la red hasta que hagas clic en el botón de «Guardar los cambios»."
 
-#: views/partials/_disable.php:29
+#: views/partials/_disable.php:28
 msgid "If you enable Site Wise settings, you need to configure your \"Disable Comments\" settings individually on every website in the network."
 msgstr "Si activas los ajustes de todo el sitio, tendrás que configurar individualmente los ajustes de «Disable Comments» en cada sitio de la red."
 
@@ -257,43 +985,43 @@ msgstr "Si activas los ajustes de todo el sitio, tendrás que configurar individ
 msgid "Version"
 msgstr "Versión"
 
-#: views/partials/_disable.php:456
+#: views/partials/_disable.php:561
 msgid "Disable Comments via REST API"
 msgstr "Desactivar los comentarios a través de la API REST"
 
-#: views/partials/_disable.php:440
+#: views/partials/_disable.php:545
 msgid "Disable Comments via XML-RPC"
 msgstr "Desactivar los comentarios a través de XML-RPC"
 
-#: views/partials/_disable.php:423
+#: views/partials/_disable.php:528
 msgid "You can disable comments made on your website using WordPress specifications."
 msgstr "Puedes desactivar los comentarios hechos en tu web usando las especificaciones de WordPress."
 
-#: views/partials/_disable.php:420
+#: views/partials/_disable.php:525
 msgid "Disable Comments With API"
 msgstr "Desactivar los comentarios con la API"
 
-#: views/partials/_disable.php:167
+#: views/partials/_disable.php:166
 msgid "Disabling comments will also disable trackbacks and pingbacks. All comment-related fields will also be hidden from the edit/quick-edit screens of the affected posts. These settings cannot be overridden for individual posts. Comments will be visible on all other post types."
 msgstr "Al desactivar los comentarios, también desactivarás los trackbacks y pingbacks. Todos los campos relacionados con los comentarios también se ocultarán de las pantallas de edición/actualización de los mensajes afectados. Estos ajustes no se pueden sobrescribir en los mensajes individuales. Los comentarios serán visibles en todos los demás tipos de contenido."
 
-#: views/partials/_disable.php:114
+#: views/partials/_disable.php:113
 msgid "On Specific Post Types:"
 msgstr "En tipos de contenido específicos:"
 
-#: views/partials/_disable.php:94
+#: views/partials/_disable.php:93
 msgid "This will disable comments from every page and post on your website. Use this setting if you do not want to show comments anywhere."
 msgstr "Esto desactivará los comentarios en cada página y entrada de tu web. Usa este ajuste si no quieres mostrar comentarios en ningún lugar."
 
-#: views/partials/_disable.php:89
+#: views/partials/_disable.php:88
 msgid "Disable comments globally on your entire website"
 msgstr "Desactivar los comentarios a nivel global en toda tu web"
 
-#: views/partials/_disable.php:4
+#: views/partials/_disable.php:3
 msgid "Configure the settings below to disable comments globally or on specific types of posts."
 msgstr "Configura los siguientes parámetros para desactivar los comentarios a nivel global o en tipos de contenido específicos."
 
-#: views/partials/_sidebar.php:129
+#: views/partials/_sidebar.php:152
 msgid "Disable Comments For WordPress Pages"
 msgstr "Desactivar los comentarios en las páginas de WordPress"
 
@@ -329,21 +1057,23 @@ msgstr "Eliminar ciertos tipos de comentarios:"
 msgid "Permanently delete all comments on your WordPress website"
 msgstr "Borra permanentemente todos los comentarios de tu web WordPress"
 
-#: views/partials/_disable.php:469
+#: views/partials/_disable.php:574
 msgid "Turning on these settings will disable any comments made on your website via XML-RPC or REST API specifications."
 msgstr "Al activar estos ajustes, se desactivará cualquier comentario hecho en tu web a través de las especificaciones de XML-RPC o de la API REST."
 
-#: views/partials/_disable.php:22 views/partials/_disable.php:188
-#: views/partials/_disable.php:224 views/partials/_disable.php:288
-#: views/partials/_disable.php:349 views/partials/_disable.php:438
-#: views/partials/_disable.php:454
+#: views/partials/_disable.php:21 views/partials/_disable.php:187
+#: views/partials/_disable.php:223 views/partials/_disable.php:289
+#: views/partials/_disable.php:393 views/partials/_disable.php:454
+#: views/partials/_disable.php:543 views/partials/_disable.php:559
+#: views/partials/_settings.php:75
 msgid "Off"
 msgstr "Off"
 
-#: views/partials/_disable.php:21 views/partials/_disable.php:187
-#: views/partials/_disable.php:223 views/partials/_disable.php:287
-#: views/partials/_disable.php:348 views/partials/_disable.php:437
-#: views/partials/_disable.php:453
+#: views/partials/_disable.php:20 views/partials/_disable.php:186
+#: views/partials/_disable.php:222 views/partials/_disable.php:288
+#: views/partials/_disable.php:392 views/partials/_disable.php:453
+#: views/partials/_disable.php:542 views/partials/_disable.php:558
+#: views/partials/_settings.php:74
 msgid "On"
 msgstr "On"
 
@@ -353,19 +1083,24 @@ msgstr "Esto eliminará las entradas de comentarios existentes para los tipos de
 
 #: views/partials/_delete.php:54 views/partials/_delete.php:124
 #: views/partials/_delete.php:168 views/partials/_delete.php:194
-#: views/partials/_disable.php:93
+#: views/partials/_disable.php:92
 msgid "Warning:"
 msgstr "Advertencia:"
+
+#: views/partials/_settings.php:107 views/partials/_settings.php:182
+msgid "Disable comments"
+msgstr "Desactivar comentarios"
 
 #: views/partials/_delete.php:33
 msgid "These settings will permanently delete comments for your entire website, or for specific posts and comment types."
 msgstr "Estos ajustes eliminarán los comentarios permanentemente de toda la web, o de entradas y tipos de comentarios específicos."
 
 #: views/partials/_delete.php:25 views/partials/_delete.php:32
-#: views/partials/_disable.php:28 views/partials/_disable.php:50
-#: views/partials/_disable.php:63 views/partials/_disable.php:166
-#: views/partials/_disable.php:260 views/partials/_disable.php:322
-#: views/partials/_disable.php:357 views/partials/_disable.php:412
+#: views/partials/_disable.php:27 views/partials/_disable.php:49
+#: views/partials/_disable.php:62 views/partials/_disable.php:165
+#: views/partials/_disable.php:259 views/partials/_disable.php:325
+#: views/partials/_disable.php:427 views/partials/_disable.php:462
+#: views/partials/_disable.php:517 views/partials/_settings.php:241
 msgid "Note:"
 msgstr "Nota:"
 
@@ -457,42 +1192,42 @@ msgstr "Qué recopilamos."
 msgid "We can't detect any plugin information. This is most probably because you have not included the code in the plugin main file."
 msgstr "No podemos detectar ninguna información del plugin. Esto probablemente se deba a que no has incluido el código en el archivo principal del plugin."
 
-#: includes/cli.php:177
+#: includes/cli.php:344
 msgid "Disable Comments via REST API. "
 msgstr "Desactivar los comentarios a través de la API REST. "
 
-#: includes/cli.php:168
+#: includes/cli.php:335
 msgid "Disable Comments via XML-RPC. "
 msgstr "Desactivar los comentarios a través de XML-RPC. "
 
 #. translators: %s: post types to be disabled in network
-#: includes/cli.php:162
+#: includes/cli.php:329
 msgid "Custom post types: %s. "
 msgstr "Tipos de contenido personalizados: %s. "
 
 #. translators: %s: post types to be enabled
-#: includes/cli.php:151
+#: includes/cli.php:318
 msgid "Comments enabled for %s. "
 msgstr "Comentarios activados para %s. "
 
 #. translators: %s: post types to be disabled
-#: includes/cli.php:142 includes/cli.php:146
+#: includes/cli.php:309 includes/cli.php:313
 msgid "Comments disabled for %s. "
 msgstr "Comentarios desactivados para %s. "
 
-#: includes/cli.php:136
+#: includes/cli.php:303
 msgid "Comments is disabled everywhere. "
 msgstr "Los comentarios están desactivados en todas partes. "
 
-#: disable-comments.php:1310
+#: disable-comments.php:4210
 msgid "Saved"
 msgstr "Guardado"
 
-#: disable-comments.php:163
+#: disable-comments.php:318
 msgid "We collect non-sensitive diagnostic data and plugin usage information. Your site URL, WordPress & PHP version, plugins & themes and email address to send you the discount coupon. This data lets us make sure this plugin always stays compatible with the most popular plugins and themes. No spam, I promise."
 msgstr "Recopilamos datos de diagnóstico no confidenciales e información de uso del plugin. La URL de tu sitio, la versión de WordPress y PHP, los plugins y temas y la dirección de correo electrónico para enviarte el cupón de descuento. Estos datos nos permiten asegurarnos de que este plugin siempre sea compatible con los plugins y temas más populares. Sin spam, lo prometo."
 
-#: disable-comments.php:162
+#: disable-comments.php:317
 msgid "Want to help make Disable Comments even better?"
 msgstr "¿Quieres ayudar a que Disable Comments sea aún mejor?"
 
@@ -501,7 +1236,7 @@ msgstr "¿Quieres ayudar a que Disable Comments sea aún mejor?"
 msgid "Allows administrators to globally disable comments on their site. Comments can be disabled according to post type. You could bulk delete comments using Tools."
 msgstr "Permite a los administradores desactivar globalmente los comentarios en su sitio. Los comentarios pueden ser desactivados según el tipo de contenido. Puedes borrar comentarios en lote usando las herramientas."
 
-#: disable-comments.php:1087
+#: disable-comments.php:2754
 msgid "Default (no type)"
 msgstr "Por defecto (ningún tipo)"
 
@@ -509,17 +1244,13 @@ msgstr "Por defecto (ningún tipo)"
 msgid "Deleting comments by comment type will remove existing comment entries of the selected comment type(s) in the database and cannot be reverted without a database backup."
 msgstr "El borrado de comentarios por tipo de comentario eliminará las entradas de comentarios existentes de los tipos de comentario seleccionados en la base de datos y no se podrá deshacer sin una copia de seguridad de la base de datos."
 
-#: views/partials/_delete.php:202
-msgid "Total Comments:"
-msgstr "Comentarios totales:"
-
-#: disable-comments.php:1021 views/partials/_delete.php:9
-#: views/partials/_delete.php:218
-#: assets/js/disable-comments-settings-scripts.js:364
+#: disable-comments.php:2688 views/partials/_delete.php:9
+#: views/partials/_delete.php:253
+#: assets/js/disable-comments-settings-scripts.js:511
 msgid "Delete Comments"
 msgstr "Borrar comentarios"
 
-#: disable-comments.php:1004
+#: disable-comments.php:2671
 msgid "Tools"
 msgstr "Herramientas"
 
@@ -529,15 +1260,17 @@ msgid "https://wordpress.org/plugins/disable-comments/"
 msgstr "https://es.wordpress.org/plugins/disable-comments/"
 
 #. Plugin Name of the plugin
-#: disable-comments.php disable-comments.php:370 disable-comments.php:1895
+#: disable-comments.php disable-comments.php:1514 disable-comments.php:6067
+#: includes/abilities.php:38
 msgid "Disable Comments"
 msgstr "Disable Comments"
 
-#: disable-comments.php:1003 views/partials/_disable.php:3
+#: disable-comments.php:2670 views/partials/_disable.php:2
 msgid "Settings"
 msgstr "Ajustes"
 
-#: disable-comments.php:678 disable-comments.php:876 disable-comments.php:884
+#: disable-comments.php:2190 disable-comments.php:2546
+#: disable-comments.php:2554
 msgid "Comments are closed."
 msgstr "Los comentarios están cerrados."
 
@@ -546,34 +1279,34 @@ msgstr "Los comentarios están cerrados."
 msgid "WPDeveloper"
 msgstr "WPDeveloper"
 
-#: disable-comments.php:1012
+#: disable-comments.php:2679
 msgctxt "settings menu title"
 msgid "Disable Comments"
 msgstr "Desactivar los comentarios"
 
-#: views/partials/_delete.php:109 views/partials/_disable.php:151
+#: views/partials/_delete.php:109 views/partials/_disable.php:150
 msgid "Custom post types:"
 msgstr "Tipos de contenido personalizado:"
 
 #. translators: %s: WordPress version no.
-#: disable-comments.php:176
+#: disable-comments.php:331
 msgid "Disable Comments requires WordPress version %s or greater."
 msgstr "Disable Comments necesita la versión %s o superior de WordPress."
 
 #. translators: %s: disabled post types.
-#: disable-comments.php:832
+#: disable-comments.php:2502
 msgid "Note: The <em>Disable Comments</em> plugin is currently active, and comments are completely disabled on: %s. Many of the settings below will not be applicable for those post types."
 msgstr "Nota: El plugin <em>Disable Comments</em> está activo actualmente y los comentarios están completamente desactivados en: %s. Muchos de los siguientes ajustes no serán aplicables para esos tipos de contenido."
 
-#: views/partials/_delete.php:105 views/partials/_disable.php:146
+#: views/partials/_delete.php:105 views/partials/_disable.php:145
 msgid "Only the built-in post types appear above. If you want to disable comments on other custom post types on the entire network, you can supply a comma-separated list of post types below (use the slug that identifies the post type)."
 msgstr "Solo los tipos de contenido integrados aparecen en el listado anterior. Si quieres desactivar los comentarios en otros tipos de contenido personalizado de la toda la red, puedes facilitar a continuación una lista de tipos de contenido separados por comas (usa el slug que identifica el tipo de contenido)"
 
-#: views/partials/_disable.php:479
+#: views/partials/_disable.php:584 views/partials/_settings.php:378
 msgid "Save Changes"
 msgstr "Guardar los cambios"
 
-#: views/partials/_delete.php:359
+#: views/partials/_delete.php:396
 msgid "No comments are available for deletion."
 msgstr "No hay comentarios disponibles para el borrado."
 
@@ -581,22 +1314,21 @@ msgstr "No hay comentarios disponibles para el borrado."
 msgid "On Certain Post Types:"
 msgstr "En ciertos tipos de contenido:"
 
-#: views/partials/_delete.php:50 views/partials/_disable.php:85
+#: views/partials/_delete.php:50 views/partials/_disable.php:84
 msgid "Everywhere:"
 msgstr "En todas partes:"
 
 #. translators: %s: URL to Disabled Comment settings page.
-#: disable-comments.php:865
+#: disable-comments.php:2535
 msgid "The <strong>Disable Comments</strong> plugin is active, but isn't configured to do anything yet. Visit the <a href=\"%s\">configuration page</a> to choose which post types to disable comments on."
 msgstr "El plugin <strong>Disable Comments</strong> está activo, pero aún no está configurado para hacer nada. Visita la <a href=\"%s\">página de configuración</a> para elegir en qué tipos de contenido desactivar los comentarios."
 
 #. translators: %s: disabled post types.
-#: disable-comments.php:832
+#: disable-comments.php:2502
 msgid ", "
 msgstr ", "
 
-#: disable-comments.php:1407 disable-comments.php:1462
-#: disable-comments.php:1489
+#: disable-comments.php:5590
 msgid "All comments have been deleted"
 msgstr "Todos los comentarios han sido borrados"
 

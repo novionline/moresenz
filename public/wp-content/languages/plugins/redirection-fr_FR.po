@@ -2,159 +2,243 @@
 # This file is distributed under the same license as the Plugins - Redirection - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-06 10:50:35+0000\n"
+"PO-Revision-Date: 2026-09-01 15:00:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.3\n"
+"X-Generator: GlotPress/4.1.0\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Redirection - Stable (latest release)\n"
 
-#: redirection-admin.php:169
+#: includes/import-export/importer/class-yoast-seo.php:53
+msgid "Redirects created by Yoast SEO Premium."
+msgstr "Redirections créées par Yoast SEO Premium."
+
+#: includes/import-export/importer/class-wordpress-old-slugs.php:147
+msgid "WordPress post meta"
+msgstr "Métadonnées de publication WordPress"
+
+#: includes/import-export/importer/class-wordpress-old-slugs.php:146
+msgid "Redirects created by WordPress."
+msgstr "Redirections créées par WordPress."
+
+#: includes/import-export/importer/class-wordpress-old-slugs.php:145
+msgid "WordPress permalink redirect"
+msgstr "Redirection de permalien WordPress"
+
+#: includes/import-export/importer/class-slim-seo.php:51
+msgid "Redirects created by Slim SEO."
+msgstr "Redirections créées par Slim SEO."
+
+#: includes/import-export/importer/class-simple301.php:55
+msgid "Redirects created by Simple 301 Redirects."
+msgstr "Redirections créées par Simple 301 Redirects."
+
+#: includes/import-export/importer/class-seopress.php:170
+msgid "WordPress posts, terms, and SEOPress 404 entries"
+msgstr "Publications, termes et entrées 404 SEOPress de WordPress"
+
+#: includes/import-export/importer/class-seopress.php:169
+msgid "Redirects created by SEOPress."
+msgstr "Redirections créées par SEOPress."
+
+#: includes/import-export/importer/class-seo-redirection.php:81
+msgid "Redirects created by SEO Redirection."
+msgstr "Redirections créées par SEO Redirection."
+
+#: includes/import-export/importer/class-safe-redirect-manager.php:145
+msgid "WordPress posts and post meta"
+msgstr "Publications et métadonnées de publication WordPress"
+
+#: includes/import-export/importer/class-safe-redirect-manager.php:144
+msgid "Redirects created by Safe Redirect Manager."
+msgstr "Redirections créées par Safe Redirect Manager."
+
+#: includes/import-export/importer/class-rank-math.php:100
+msgid "Redirects created by Rank Math."
+msgstr "Redirections créées par Rank Math."
+
+#: includes/import-export/importer/class-quick-redirects.php:56
+#: includes/import-export/importer/class-simple301.php:56
+#: includes/import-export/importer/class-slim-seo.php:52
+#: includes/import-export/importer/class-yoast-seo.php:54
+msgid "Plugin settings"
+msgstr "Réglages de l’extension"
+
+#: includes/import-export/importer/class-quick-redirects.php:55
+msgid "Redirects created by Quick Page/Post Redirects."
+msgstr "Redirections créées par Quick Page/Post Redirects."
+
+#: includes/import-export/importer/class-pretty-links.php:64
+msgid "Redirects created by Pretty Links."
+msgstr "Redirections créées par Pretty Links."
+
+#: includes/import-export/importer/class-fake-redirection.php:101
+msgid "Redirects stored by Redirect Redirection."
+msgstr "Redirections stockées par Redirect Redirection."
+
+#: includes/import-export/importer/class-eps301-redirects.php:95
+msgid "Redirects stored by 301 Redirects."
+msgstr "Redirections stockées par 301 Redirects."
+
+#: includes/api/route/class-import.php:616
+msgid "Sorry, you are not allowed to do that."
+msgstr "Désolé, vous n’avez pas l’autorisation d’effectuer cette action."
+
+#: includes/plugin/class-admin.php:226 redirection-admin.php:169
 msgid "Please try clearing your cache and reloading the page."
 msgstr "Veuillez essayer de vider votre cache et rechargez la page."
 
-#: redirection-admin.php:166
+#: includes/plugin/class-admin.php:223 redirection-admin.php:166
 msgid "Redirection has detected that required files are missing or were not properly loaded. This likely means your cache needs clearing."
 msgstr "La redirection a détecté que des fichiers nécessaires sont manquants ou n’ont pas été chargés correctement. Cela signifie probablement que votre cache doit être vidé."
 
-#: redirection-admin.php:163
+#: includes/plugin/class-admin.php:220 redirection-admin.php:163
 msgid "Redirection Error: Incomplete Installation Detected"
 msgstr "Erreur de redirection : installation incomplète détectée"
 
 #. translators: %s: URL to common problems documentation
-#: redirection-admin.php:686
+#: includes/plugin/class-admin.php:711 redirection-admin.php:645
 msgid "Please see the <a href=\"%s\">list of common problems</a>."
 msgstr "Veuillez consulter la <a href=\"%s\">liste des problèmes courants</a>."
 
 #. translators: %s: redirection script filename
-#: redirection-admin.php:673
+#: includes/plugin/class-admin.php:698 redirection-admin.php:632
 msgid "Also check if your browser is able to load %s:"
 msgstr "Vérifiez également si votre navigateur est en mesure de charger %s :"
 
-#: models/fixer.php:137
+#: includes/core/class-fixer.php:145 models/fixer.php:139
 msgid "Too many regular expressions may impact site performance"
 msgstr "Un trop grand nombre d’expressions régulières peut impacter la performance du site"
 
-#: models/fixer.php:135
+#: includes/core/class-fixer.php:143 models/fixer.php:137
 msgid "Regular Expressions"
 msgstr "Expressions régulières"
 
-#: matches/language.php:35 build/redirection.js:66
+#: includes/compare/class-language.php:39 matches/language.php:35
+#: build/redirection.js:66
 msgid "URL and language"
 msgstr "URL et langue"
 
-#: database/database-status.php:245
+#: includes/database/class-status.php:247
 msgid "Insufficient database permissions detected. Please give your database user appropriate permissions."
 msgstr "Autorisations de base de données insuffisantes. Veuillez donner à l’utilisateur de votre base de données les droits appropriés."
 
 #. translators: 1: server PHP version. 2: required PHP version.
-#: redirection.php:33
+#: redirection.php:35
 msgid "Disabled! Detected PHP %1$s, need PHP %2$s+"
 msgstr "Désactivé ! Version PHP détectée : %s - nécessite PHP 5.4 au minimum"
 
 #. translators: 1: URL to plugin page, 2: current version, 3: target version
-#: redirection-admin.php:142
+#: includes/plugin/class-admin.php:154 redirection-admin.php:142
 msgid "Redirection's database needs to be updated - <a href=\"%1$1s\">click to update</a>."
 msgstr "La base de données de Redirection doit être mise à jour - <a href=\"%1$1s\">cliquer pour mettre à jour</a>."
 
-#: redirection-admin.php:721
+#: includes/plugin/class-admin.php:746 redirection-admin.php:680
 msgid "Please enable JavaScript"
 msgstr "Veuillez activer JavaScript"
 
-#: redirection-admin.php:295
+#: includes/plugin/class-admin.php:307 redirection-admin.php:295
 msgid "Please upgrade your database"
 msgstr "Veuillez mettre à niveau votre base de données"
 
-#: redirection-admin.php:279 build/redirection.js:21
+#: includes/plugin/class-admin.php:291 redirection-admin.php:279
+#: build/redirection.js:21
 msgid "Upgrade Database"
 msgstr "Mettre à niveau la base de données"
 
 #. translators: 1: URL to plugin page
-#: redirection-admin.php:139
+#: includes/plugin/class-admin.php:151 redirection-admin.php:139
 msgid "Please complete your <a href=\"%s\">Redirection setup</a> to activate the plugin."
 msgstr "Veuillez terminer <a href=\"%s\">la configuration de Redirection</a> pour activer l’extension."
 
 #. translators: version number
-#: api/api-plugin.php:243
+#: includes/api/route/class-plugin.php:272
 msgid "Your database does not need updating to %s."
 msgstr "Votre base de données n’a pas besoin d’être mise à niveau vers %s."
 
 #. translators: 1: table name
-#: database/schema/latest.php:124
+#: includes/database/schema/class-latest.php:129
 msgid "Table \"%s\" is missing"
 msgstr "La table « %s » est manquante"
 
 #. translators: displayed when installing the plugin
-#: database/schema/latest.php:15
+#: includes/database/schema/class-latest.php:20
 msgid "Create basic data"
 msgstr "Création des données de base"
 
 #. translators: displayed when installing the plugin
-#: database/schema/latest.php:13
+#: includes/database/schema/class-latest.php:18
 msgid "Install Redirection tables"
 msgstr "Installer les tables de Redirection"
 
 #. translators: 1: Site URL, 2: Home URL
-#: models/fixer.php:172
+#: includes/core/class-fixer.php:180 models/fixer.php:174
 msgid "Site and home URL are inconsistent. Please correct from your Settings > General page: %1$1s is not %2$2s"
 msgstr "L’URL du site et de l’accueil (home) sont inconsistantes. Veuillez les corriger dans la page Réglages > Général : %1$1s n’est pas %2$2s"
 
-#: actions/nothing.php:17 build/redirection.js:66
+#: actions/nothing.php:17 includes/action/class-nothing.php:19
+#: build/redirection.js:66
 msgid "Do nothing (ignore)"
 msgstr "Ne rien faire (ignorer)"
 
-#: matches/page.php:32 build/redirection.js:66
+#: includes/compare/class-page.php:34 matches/page.php:32
+#: build/redirection.js:66
 msgid "URL and WordPress page type"
 msgstr "URL et type de page WordPress"
 
-#: matches/ip.php:35 build/redirection.js:66
+#: includes/compare/class-ip.php:39 matches/ip.php:35 build/redirection.js:66
 msgid "URL and IP"
 msgstr "URL et IP"
 
-#: matches/user-role.php:35 build/redirection.js:66
+#: includes/compare/class-role.php:37 matches/user-role.php:35
+#: build/redirection.js:66
 msgid "URL and role/capability"
 msgstr "URL et rôle/capacité"
 
-#: matches/server.php:38 build/redirection.js:66
+#: includes/compare/class-server.php:42 matches/server.php:38
+#: build/redirection.js:66
 msgid "URL and server"
 msgstr "URL et serveur"
 
-#: models/fixer.php:176
+#: includes/core/class-fixer.php:184 models/fixer.php:178
 msgid "Site and home protocol"
 msgstr "Protocole du site et de l’accueil"
 
-#: models/fixer.php:169
+#: includes/core/class-fixer.php:177 models/fixer.php:171
 msgid "Site and home are consistent"
 msgstr "Le site et l’accueil sont cohérents"
 
-#: matches/http-header.php:58 build/redirection.js:66
+#: includes/compare/class-header.php:63 matches/http-header.php:58
+#: build/redirection.js:66
 msgid "URL and HTTP header"
-msgstr "URL et en-tête HTTP"
+msgstr "URL et entête HTTP"
 
-#: matches/custom-filter.php:40 build/redirection.js:66
+#: includes/compare/class-custom.php:41 matches/custom-filter.php:40
+#: build/redirection.js:66
 msgid "URL and custom filter"
 msgstr "URL et filtre personnalisé"
 
-#: matches/cookie.php:10 build/redirection.js:66
+#: includes/compare/class-cookie.php:13 matches/cookie.php:10
+#: build/redirection.js:66
 msgid "URL and cookie"
 msgstr "URL et cookie"
 
-#: redirection-admin.php:665
+#: includes/plugin/class-admin.php:690 redirection-admin.php:624
 msgid "Unable to load Redirection ☹️"
 msgstr "Impossible de charger Redirection ☹️"
 
-#: redirection-settings.php:23
+#: includes/core/functions.php:25 redirection-settings.php:23
 msgid "Trash"
 msgstr "Corbeille"
 
-#: redirection-admin.php:680
+#: includes/plugin/class-admin.php:705 redirection-admin.php:639
 msgid "Please note that Redirection requires the WordPress REST API to be enabled. If you have disabled this then you won't be able to use Redirection"
 msgstr "Veuillez noter que Redirection utilise l’API REST de WordPress. Si vous l’avez désactivée, vous ne serez pas en mesure d’utiliser Redirection."
 
 #. translators: URL
-#: redirection-admin.php:537
+#: includes/plugin/class-admin.php:562 redirection-admin.php:496
 msgid "You can find full documentation about using Redirection on the <a href=\"%s\" target=\"_blank\">redirection.me</a> support site."
 msgstr "Vous pouvez trouver une documentation complète à propos de l’utilisation de Redirection sur le site de support <a href=\"%s\" target=\"_blank\">redirection.me</a>."
 
@@ -164,92 +248,95 @@ msgid "https://redirection.me/"
 msgstr "https://redirection.me/"
 
 #. translators: 1: Expected WordPress version, 2: Actual WordPress version
-#: redirection-admin.php:650
+#: includes/plugin/class-admin.php:675 redirection-admin.php:609
 msgid "Redirection requires WordPress v%1$1s, you are using v%2$2s - please update your WordPress"
 msgstr "Redirection nécessite WordPress v%1$1s, vous utilisez v%2$2s - veuillez mettre à jour votre installation WordPress."
 
-#: models/importer/wordpress-old-slugs.php:83
-msgid "Default WordPress \"old slugs\""
-msgstr "« Anciens slugs » de WordPress par défaut"
-
-#: redirection-admin.php:696
+#: includes/plugin/class-admin.php:721 redirection-admin.php:655
 msgid "<code>Redirectioni10n</code> is not defined. This usually means another plugin is blocking Redirection from loading. Please disable all plugins and try again."
 msgstr "<code>Redirectioni10n</code> n’est pas défini. Cela signifie généralement qu’une autre extension bloque le chargement de Redirection. Veuillez désactiver toutes les extensions et réessayer."
 
-#: redirection-admin.php:667 build/redirection.js:21
+#: includes/plugin/class-admin.php:692 redirection-admin.php:626
+#: build/redirection.js:21
 msgid "If you are using a page caching plugin or service (CloudFlare, OVH, etc) then you can also try clearing that cache."
 msgstr "Si vous utilisez une extension ou un service de mise en cache de pages (CloudFlare, OVH, etc.), vous pouvez également essayer de vider ce cache."
 
-#: redirection-admin.php:653
+#: includes/plugin/class-admin.php:678 redirection-admin.php:612
 msgid "Unable to load Redirection"
 msgstr "Impossible de charger Redirection"
 
-#: models/fixer.php:126
+#: includes/core/class-fixer.php:134 models/fixer.php:128
 msgid "Post monitor group is valid"
 msgstr "Le groupe de surveillance d’articles est valide"
 
-#: models/fixer.php:126
+#: includes/core/class-fixer.php:134 models/fixer.php:128
 msgid "Post monitor group is invalid"
 msgstr "Le groupe de surveillance d’articles est non valide"
 
-#: models/fixer.php:124
+#: includes/core/class-fixer.php:132 models/fixer.php:126
 msgid "Post monitor group"
 msgstr "Groupe de surveillance d’article"
 
-#: models/fixer.php:120
+#: includes/core/class-fixer.php:128 models/fixer.php:122
 msgid "All redirects have a valid group"
 msgstr "Toutes les redirections ont un groupe valide"
 
-#: models/fixer.php:120
+#: includes/core/class-fixer.php:128 models/fixer.php:122
 msgid "Redirects with invalid groups detected"
 msgstr "Redirections avec des groupes non valides détectées"
 
-#: models/fixer.php:118
+#: includes/core/class-fixer.php:126 models/fixer.php:120
 msgid "Valid redirect group"
 msgstr "Groupe de redirection valide"
 
-#: models/fixer.php:114
+#: includes/core/class-fixer.php:122 models/fixer.php:116
 msgid "Valid groups detected"
 msgstr "Groupes valides détectés"
 
-#: models/fixer.php:114
+#: includes/core/class-fixer.php:122 models/fixer.php:116
 msgid "No valid groups, so you will not be able to create any redirects"
 msgstr "Aucun groupe valide, vous ne pourrez pas créer de redirections."
 
-#: models/fixer.php:112
+#: includes/core/class-fixer.php:120 models/fixer.php:114
 msgid "Valid groups"
 msgstr "Groupes valides"
 
-#: models/fixer.php:107
+#: includes/core/class-fixer.php:115
+#: includes/import-export/importer/class-eps301-redirects.php:96
+#: includes/import-export/importer/class-fake-redirection.php:102
+#: includes/import-export/importer/class-pretty-links.php:65
+#: includes/import-export/importer/class-rank-math.php:101
+#: includes/import-export/importer/class-seo-redirection.php:82
+#: models/fixer.php:109
 msgid "Database tables"
 msgstr "Tables de la base de données"
 
-#: models/fixer.php:156
+#: includes/core/class-fixer.php:164 models/fixer.php:158
 msgid "The following tables are missing:"
 msgstr "Les tables suivantes sont manquantes :"
 
-#: models/fixer.php:156
+#: includes/core/class-fixer.php:164 models/fixer.php:158
 msgid "All tables present"
 msgstr "Toutes les tables présentes"
 
-#: redirection-admin.php:692
+#: includes/plugin/class-admin.php:717 redirection-admin.php:651
 msgid "If you think Redirection is at fault then create an issue."
 msgstr "Si vous pensez que Redirection est en faute alors créez un rapport."
 
-#: redirection-admin.php:666
+#: includes/plugin/class-admin.php:691 redirection-admin.php:625
 msgid "This may be caused by another plugin - look at your browser's error console for more details."
 msgstr "Cela peut être causé par une autre extension – regardez la console d’erreur de votre navigateur pour plus de détails."
 
-#: redirection-admin.php:717
+#: includes/plugin/class-admin.php:742 redirection-admin.php:676
 msgid "Loading, please wait..."
 msgstr "Veuillez patienter pendant le chargement…"
 
-#: redirection-admin.php:702
+#: includes/plugin/class-admin.php:727 redirection-admin.php:661
 msgid "Create Issue"
 msgstr "Créer un rapport"
 
 #. translators: maximum number of log entries
-#: redirection-admin.php:376
+#: includes/plugin/class-admin.php:390 redirection-admin.php:380
 msgid "Log entries (%d max)"
 msgstr "Entrées du journal (100 max.)"
 
@@ -263,7 +350,7 @@ msgstr "John Godley"
 msgid "Manage all your 301 redirects and monitor 404 errors"
 msgstr "Gérez toutes vos redirections 301 et surveillez les erreurs 404."
 
-#: redirection-admin.php:538
+#: includes/plugin/class-admin.php:563 redirection-admin.php:497
 msgid "Redirection Support"
 msgstr "Support de Redirection"
 
@@ -272,46 +359,57 @@ msgstr "Support de Redirection"
 msgid "Redirection"
 msgstr "Redirection"
 
-#: redirection-admin.php:282
+#: includes/plugin/class-admin.php:294 redirection-admin.php:282
+#: build/redirection.js:66 build/redirection.js:94 build/redirection.js:97
 msgid "Settings"
 msgstr "Réglages"
 
-#: actions/error.php:59 build/redirection.js:66
+#: actions/error.php:65 includes/action/class-error.php:76
+#: build/redirection.js:66
 msgid "Error (404)"
 msgstr "Erreur (404)"
 
-#: actions/pass.php:75 build/redirection.js:66
+#: actions/pass.php:75 includes/action/class-pass.php:76
+#: build/redirection.js:66
 msgid "Pass-through"
 msgstr "Outrepasser"
 
-#: actions/random.php:48 build/redirection.js:66
+#: actions/random.php:48 includes/action/class-random.php:48
+#: build/redirection.js:66
 msgid "Redirect to random post"
 msgstr "Rediriger vers un article aléatoire"
 
-#: actions/url.php:52 build/redirection.js:66
+#: actions/url.php:52 includes/action/class-url.php:54 build/redirection.js:66
 msgid "Redirect to URL"
 msgstr "Redirection vers une URL"
 
-#: database/schema/latest.php:172
+#: includes/database/schema/class-latest.php:177
 msgid "Modified Posts"
 msgstr "Articles modifiés"
 
-#: database/schema/latest.php:167 models/group.php:286 build/redirection.js:107
+#: includes/api/route/class-plugin.php:200 includes/core/class-fixer.php:244
+#: includes/core/class-fixer.php:299
+#: includes/database/schema/class-latest.php:172
+#: includes/group/class-group.php:306 models/fixer.php:238 models/fixer.php:293
+#: models/group.php:304 build/redirection.js:103
 msgid "Redirections"
 msgstr "Redirections"
 
-#: matches/user-agent.php:45 build/redirection.js:66
+#: includes/compare/class-agent.php:50 matches/user-agent.php:45
+#: build/redirection.js:66
 msgid "URL and user agent"
 msgstr "URL et agent utilisateur"
 
-#: matches/url.php:24 build/redirection.js:66
+#: includes/compare/class-url.php:26 matches/url.php:24 build/redirection.js:66
 msgid "URL only"
 msgstr "URL uniquement"
 
-#: matches/referrer.php:45 build/redirection.js:66
+#: includes/compare/class-referrer.php:50 matches/referrer.php:45
+#: build/redirection.js:66
 msgid "URL and referrer"
 msgstr "URL et référent"
 
-#: matches/login.php:37 build/redirection.js:66
+#: includes/compare/class-login.php:39 matches/login.php:37
+#: build/redirection.js:66
 msgid "URL and login status"
 msgstr "URL et état de connexion"

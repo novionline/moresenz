@@ -2,14 +2,22 @@
 # This file is distributed under the same license as the Plugins - Yoast Duplicate Post - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-04-01 11:42:57+0000\n"
+"PO-Revision-Date: 2026-08-20 13:40:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: GlotPress/4.0.3\n"
+"X-Generator: GlotPress/4.1.0\n"
 "Language: fr\n"
 "Project-Id-Version: Plugins - Yoast Duplicate Post - Stable (latest release)\n"
+
+#: src/watchers/copied-post-watcher.php:76
+msgid "Edit the duplicate."
+msgstr "Modifier la copie."
+
+#: src/watchers/copied-post-watcher.php:60
+msgid "View trash."
+msgstr "Voir la corbeille."
 
 #. translators: %s: Number of posts skipped.
 #: src/watchers/bulk-actions-watcher.php:73
@@ -19,11 +27,11 @@ msgid_plural "%s items skipped due to insufficient permissions."
 msgstr[0] "%s élément ignoré en raison d’autorisations insuffisantes."
 msgstr[1] "%s éléments ignorés en raison d’autorisations insuffisantes."
 
-#: src/post-republisher.php:148
+#: src/post-republisher.php:155
 msgid "Permission denied"
-msgstr "Permission refusée"
+msgstr "Droit refusé"
 
-#: src/post-republisher.php:147
+#: src/post-republisher.php:154
 msgid "You are not allowed to republish this post."
 msgstr "Vous n’êtes pas autorisé à republier cet article."
 
@@ -102,7 +110,7 @@ msgstr "Ajouté"
 msgid "Removed"
 msgstr "Retiré"
 
-#: src/post-republisher.php:267
+#: src/post-republisher.php:277
 msgid "An error occurred while deleting the Rewrite & Republish copy."
 msgstr "Une erreur est survenue lors de la suppression de la copie de réécriture et republication."
 
@@ -113,30 +121,30 @@ msgstr "L’outil de référence pour cloner des publications avec la puissante 
 
 #. translators: 1: The page title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:291
+#: src/ui/classic-editor.php:293
 msgid "This rewritten page %1$s is now scheduled to replace the original page. It will be published on %2$s."
 msgstr "La page réécrite %1$s est planifiée pour remplacer la page originale. Elle sera publiée le %2$s."
 
 #. translators: 1: The post title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:278
+#: src/ui/classic-editor.php:280
 msgid "This rewritten post %1$s is now scheduled to replace the original post. It will be published on %2$s."
 msgstr "L’article réécrit %1$s est planifié pour remplacer l’article original. Il sera publié le %2$s."
 
-#: src/ui/classic-editor.php:252 js/dist/duplicate-post-strings.js:1
+#: src/ui/classic-editor.php:253 js/dist/duplicate-post-strings.js:1
 msgid "Schedule republish"
 msgstr "Planifier la republication"
 
 #. translators: %s: Date on which the post is to be republished.
-#: src/ui/classic-editor.php:229
+#: src/ui/classic-editor.php:230
 msgid "Republish on: %s"
 msgstr "Republier le : %s"
 
-#: src/ui/classic-editor.php:201
+#: src/ui/classic-editor.php:202
 msgid "Compare"
 msgstr "Comparer"
 
-#: src/ui/classic-editor.php:198
+#: src/ui/classic-editor.php:199
 msgid "Do you want to compare your changes with the original version before merging? Please save any changes first."
 msgstr "Souhaitez-vous comparer les modifications avec la version originale avant la fusion ? Veuillez d’abord enregistrer les modifications."
 
@@ -164,7 +172,7 @@ msgid "Warning: users will be able to copy, rewrite and republish all posts, eve
 msgstr "Avertissement : les comptes utilisateurs pourront copier, réécrire et republier toutes les publications, même celles des autres comptes."
 
 #: src/admin/options.php:281 src/ui/admin-bar.php:105 src/ui/admin-bar.php:125
-#: src/ui/bulk-actions.php:74 src/ui/classic-editor.php:173
+#: src/ui/bulk-actions.php:75 src/ui/classic-editor.php:174
 #: js/dist/duplicate-post-edit.js:2
 msgid "Rewrite & Republish"
 msgstr "Réécriture & republication"
@@ -190,15 +198,15 @@ msgstr "Votre publication originale a été remplacée avec cette version rééc
 
 #. translators: %1$s: scheduled date of the copy, %2$s: scheduled time of the
 #. copy.
-#: src/watchers/copied-post-watcher.php:66
+#: src/watchers/copied-post-watcher.php:90
 msgid "A duplicate of this post was made, which is scheduled to replace this post on %1$s at %2$s."
 msgstr "Une copie de cette publication a été créée, elle a été programmée pour remplacer cette publication le %1$s à %2$s."
 
-#: src/watchers/copied-post-watcher.php:58
+#: src/watchers/copied-post-watcher.php:82
 msgid "A duplicate of this post was made. Please note that any changes you make to this post will be replaced when the duplicated version is republished."
 msgstr "Une copie de cette publication a été faite. Veuillez noter que les modifications que vous ferez sur cette publication seront remplacées lorsque la version dupliquée est republiée."
 
-#: src/watchers/copied-post-watcher.php:50
+#: src/watchers/copied-post-watcher.php:63
 msgid "You can only make one Rewrite & Republish duplicate at a time, and a duplicate of this post already exists in the trash. Permanently delete it if you want to make a new duplicate."
 msgstr "Vous ne pouvez gérer des copies de réécriture & republication que une par une et une copie de cette publication existe déjà dans la corbeille. Veillez à la supprimer définitivement si vous souhaitez créer une nouvelle copie."
 
@@ -210,11 +218,11 @@ msgstr "Vous pouvez maintenant réécrire votre publication dans cette version d
 msgid "You can now start rewriting your post in this duplicate of the original post. If you click \"Republish\", your changes will be merged into the original post and you’ll be redirected there."
 msgstr "Vous pouvez maintenant réécrire votre publication dans cette version dupliquée de l’originale. Si vous cliquez sur « Republier », vos modifications seront fusionnées avec la publication originale et vous serez redirigés sur elle."
 
-#: src/post-republisher.php:405
+#: src/post-republisher.php:415
 msgid "An error occurred while republishing the post."
 msgstr "Une erreur est survenue lors de la republication de la publication."
 
-#: src/post-republisher.php:85 src/ui/classic-editor.php:224
+#: src/post-republisher.php:85 src/ui/classic-editor.php:225
 #: js/dist/duplicate-post-strings.js:1
 msgid "Republish"
 msgstr "Republier"
@@ -254,7 +262,7 @@ msgstr "Échec de l’aperçu des modifications, impossible de trouver la public
 msgid "No post has been supplied!"
 msgstr "Aucune publication n’a été fournie !"
 
-#: admin-functions.php:615
+#: admin-functions.php:626
 msgid "You aren't allowed to duplicate this post"
 msgstr "Vous n’avez pas l’autorisation de dupliquer cette publication"
 
@@ -379,7 +387,7 @@ msgstr "L’utilisateur actuel n’a pas les droits pour copier les publications
 msgid "you probably want this unchecked, unless you have very special requirements"
 msgstr "mieux vaut que vous laissiez cette case vide, à moins d’avoir des exigences particulières"
 
-#: admin-functions.php:779
+#: admin-functions.php:790
 msgid "Documentation"
 msgstr "Documentation"
 
@@ -503,7 +511,7 @@ msgstr "Droits"
 msgid "What to copy"
 msgstr "Que copier"
 
-#: admin-functions.php:621
+#: admin-functions.php:632
 msgid "Copy features for this post type are not enabled in options page"
 msgstr "Les fonctionnalités de copie pour ce type de publication ne sont pas activées dans la page d’options."
 
@@ -586,7 +594,7 @@ msgid "New Draft"
 msgstr "Nouveau brouillon"
 
 #: common-functions.php:80 src/ui/admin-bar.php:97 src/ui/admin-bar.php:115
-#: src/ui/classic-editor.php:144 js/dist/duplicate-post-edit.js:2
+#: src/ui/classic-editor.php:145 js/dist/duplicate-post-edit.js:2
 msgid "Copy to a new draft"
 msgstr "Copier dans un nouveau brouillon"
 

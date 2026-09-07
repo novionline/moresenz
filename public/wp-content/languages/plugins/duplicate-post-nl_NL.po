@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast Duplicate Post - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-10 20:40:25+0000\n"
+"PO-Revision-Date: 2026-06-22 12:21:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,14 @@ msgstr ""
 "X-Generator: GlotPress/4.0.3\n"
 "Language: nl\n"
 "Project-Id-Version: Plugins - Yoast Duplicate Post - Stable (latest release)\n"
+
+#: src/watchers/copied-post-watcher.php:76
+msgid "Edit the duplicate."
+msgstr "Bewerk het duplicaat."
+
+#: src/watchers/copied-post-watcher.php:60
+msgid "View trash."
+msgstr "Prullenbak bekijken."
 
 #. translators: %s: Number of posts skipped.
 #: src/watchers/bulk-actions-watcher.php:73
@@ -19,11 +27,11 @@ msgid_plural "%s items skipped due to insufficient permissions."
 msgstr[0] "%s item overgeslagen vanwege onvoldoende toestemmingen."
 msgstr[1] "%s items overgeslagen vanwege onvoldoende toestemmingen."
 
-#: src/post-republisher.php:148
+#: src/post-republisher.php:155
 msgid "Permission denied"
 msgstr "Toestemming geweigerd"
 
-#: src/post-republisher.php:147
+#: src/post-republisher.php:154
 msgid "You are not allowed to republish this post."
 msgstr "Je hebt geen toestemming om dit bericht opnieuw te publiceren."
 
@@ -102,7 +110,7 @@ msgstr "Toegevoegd"
 msgid "Removed"
 msgstr "Verwijderd"
 
-#: src/post-republisher.php:267
+#: src/post-republisher.php:277
 msgid "An error occurred while deleting the Rewrite & Republish copy."
 msgstr "Er is een fout ontstaan bij het verwijderen van de herschrijf & herpublicatie kopie."
 
@@ -113,30 +121,30 @@ msgstr "De go-to tool voor het klonen van berichten en pagina's, inclusief de kr
 
 #. translators: 1: The page title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:291
+#: src/ui/classic-editor.php:293
 msgid "This rewritten page %1$s is now scheduled to replace the original page. It will be published on %2$s."
 msgstr "Deze herschreven pagina %1$s is nu gepland om de originele pagina te vervangen. Het wordt gepubliceerd op %2$s."
 
 #. translators: 1: The post title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:278
+#: src/ui/classic-editor.php:280
 msgid "This rewritten post %1$s is now scheduled to replace the original post. It will be published on %2$s."
 msgstr "Dit herschreven bericht %1$s is nu gepland om het oorspronkelijke bericht te vervangen. Het wordt gepubliceerd op %2$s."
 
-#: src/ui/classic-editor.php:252 js/dist/duplicate-post-strings.js:1
+#: src/ui/classic-editor.php:253 js/dist/duplicate-post-strings.js:1
 msgid "Schedule republish"
 msgstr "Plan opnieuw publiceren"
 
 #. translators: %s: Date on which the post is to be republished.
-#: src/ui/classic-editor.php:229
+#: src/ui/classic-editor.php:230
 msgid "Republish on: %s"
 msgstr "Opnieuw publiceren op: %s"
 
-#: src/ui/classic-editor.php:201
+#: src/ui/classic-editor.php:202
 msgid "Compare"
 msgstr "Vergelijken"
 
-#: src/ui/classic-editor.php:198
+#: src/ui/classic-editor.php:199
 msgid "Do you want to compare your changes with the original version before merging? Please save any changes first."
 msgstr "Wil je je wijzigingen vergelijken met de originele versie voordat je gaat samenvoegen? Sla eventuele wijzigingen eerst op."
 
@@ -164,7 +172,7 @@ msgid "Warning: users will be able to copy, rewrite and republish all posts, eve
 msgstr "Waarschuwing: gebruikers kunnen alle berichten kopiëren, herschrijven en opnieuw publiceren, zelfs die van andere gebruikers."
 
 #: src/admin/options.php:281 src/ui/admin-bar.php:105 src/ui/admin-bar.php:125
-#: src/ui/bulk-actions.php:74 src/ui/classic-editor.php:173
+#: src/ui/bulk-actions.php:75 src/ui/classic-editor.php:174
 #: js/dist/duplicate-post-edit.js:2
 msgid "Rewrite & Republish"
 msgstr "Herschrijf & Opnieuw publiceren"
@@ -190,15 +198,15 @@ msgstr "Je oorspronkelijke bericht is vervangen door het herschreven bericht. Je
 
 #. translators: %1$s: scheduled date of the copy, %2$s: scheduled time of the
 #. copy.
-#: src/watchers/copied-post-watcher.php:66
+#: src/watchers/copied-post-watcher.php:90
 msgid "A duplicate of this post was made, which is scheduled to replace this post on %1$s at %2$s."
 msgstr "Er is een duplicaat van dit bericht gemaakt, dat volgens de planning dit bericht op zal vervangen %1$s bij %2$s."
 
-#: src/watchers/copied-post-watcher.php:58
+#: src/watchers/copied-post-watcher.php:82
 msgid "A duplicate of this post was made. Please note that any changes you make to this post will be replaced when the duplicated version is republished."
 msgstr "Er is een duplicaat van dit bericht gemaakt. Houd er rekening mee dat alle wijzigingen die je in dit bericht aanbrengt, zullen worden vervangen wanneer de gedupliceerde versie opnieuw wordt gepubliceerd."
 
-#: src/watchers/copied-post-watcher.php:50
+#: src/watchers/copied-post-watcher.php:63
 msgid "You can only make one Rewrite & Republish duplicate at a time, and a duplicate of this post already exists in the trash. Permanently delete it if you want to make a new duplicate."
 msgstr "Je kunt er maar één duplicaat van Rewrite & Republish tegelijk maken, en een duplicaat van dit bericht bestaat al in de prullenbak. Verwijder het definitief als je een nieuw duplicaat wil maken."
 
@@ -210,11 +218,11 @@ msgstr "Je kunt nu beginnen met het herschrijven van je bericht in dit duplicaat
 msgid "You can now start rewriting your post in this duplicate of the original post. If you click \"Republish\", your changes will be merged into the original post and you’ll be redirected there."
 msgstr "Je kunt nu beginnen met het herschrijven van je bericht in dit duplicaat van het oorspronkelijke bericht. Als je op \"Opnieuw publiceren\" klikt, worden je wijzigingen samengevoegd in het originele bericht en wordt je daarheen doorgestuurd."
 
-#: src/post-republisher.php:405
+#: src/post-republisher.php:415
 msgid "An error occurred while republishing the post."
 msgstr "Er is een fout opgetreden bij het opnieuw publiceren van het bericht."
 
-#: src/post-republisher.php:85 src/ui/classic-editor.php:224
+#: src/post-republisher.php:85 src/ui/classic-editor.php:225
 #: js/dist/duplicate-post-strings.js:1
 msgid "Republish"
 msgstr "Opnieuw publiceren"
@@ -254,7 +262,7 @@ msgstr "Overzicht van wijzigingen mislukt, kan bericht met ID %s niet vinden."
 msgid "No post has been supplied!"
 msgstr "Er is geen bericht geleverd!"
 
-#: admin-functions.php:615
+#: admin-functions.php:626
 msgid "You aren't allowed to duplicate this post"
 msgstr "Je mag dit bericht niet dupliceren"
 
@@ -379,7 +387,7 @@ msgstr "De huidige gebruiker heeft geen toestemming om berichten te kopiëren."
 msgid "you probably want this unchecked, unless you have very special requirements"
 msgstr "waarschijnlijk wil je dit uit hebben staan, tenzij je hele specifieke vereisten hebt"
 
-#: admin-functions.php:779
+#: admin-functions.php:790
 msgid "Documentation"
 msgstr "Documentatie"
 
@@ -503,7 +511,7 @@ msgstr "Rechten"
 msgid "What to copy"
 msgstr "Wat te kopiëren"
 
-#: admin-functions.php:621
+#: admin-functions.php:632
 msgid "Copy features for this post type are not enabled in options page"
 msgstr "Kopieeropties voor dit berichttype zijn niet aangezet op de opties pagina"
 
@@ -586,7 +594,7 @@ msgid "New Draft"
 msgstr "Nieuw concept"
 
 #: common-functions.php:80 src/ui/admin-bar.php:97 src/ui/admin-bar.php:115
-#: src/ui/classic-editor.php:144 js/dist/duplicate-post-edit.js:2
+#: src/ui/classic-editor.php:145 js/dist/duplicate-post-edit.js:2
 msgid "Copy to a new draft"
 msgstr "Kopieer naar nieuw concept"
 

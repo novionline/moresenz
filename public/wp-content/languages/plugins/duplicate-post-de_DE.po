@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast Duplicate Post - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2026-03-09 12:12:05+0000\n"
+"PO-Revision-Date: 2026-08-06 22:38:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Language: de\n"
 "Project-Id-Version: Plugins - Yoast Duplicate Post - Stable (latest release)\n"
 
-#: src/post-republisher.php:148
+#: src/post-republisher.php:155
 msgid "Permission denied"
 msgstr "Zugriff verweigert"
 
@@ -66,7 +66,7 @@ msgstr "Hinzugefügt"
 msgid "Removed"
 msgstr "Entfernt"
 
-#: src/post-republisher.php:267
+#: src/post-republisher.php:277
 msgid "An error occurred while deleting the Rewrite & Republish copy."
 msgstr "Beim Löschen der überarbeiteten Kopie ist ein Fehler aufgetreten."
 
@@ -77,30 +77,30 @@ msgstr "Das Tool zum Duplizieren von Beiträgen und Seiten, inklusive der leistu
 
 #. translators: 1: The page title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:291
+#: src/ui/classic-editor.php:293
 msgid "This rewritten page %1$s is now scheduled to replace the original page. It will be published on %2$s."
 msgstr "Die überarbeitete Seite %1$s ist nun so eingestellt, dass sie das Original ersetzt. Zeitpunkt der Veröffentlichung ist %2$s."
 
 #. translators: 1: The post title with a link to the frontend page, 2: The
 #. scheduled date and time.
-#: src/ui/classic-editor.php:278
+#: src/ui/classic-editor.php:280
 msgid "This rewritten post %1$s is now scheduled to replace the original post. It will be published on %2$s."
 msgstr "Der überarbeitete Beitrag %1$s ist nun so eingestellt, dass er das Original ersetzt. Zeitpunkt der Veröffentlichung ist %2$s."
 
-#: src/ui/classic-editor.php:252 js/dist/duplicate-post-strings.js:1
+#: src/ui/classic-editor.php:253 js/dist/duplicate-post-strings.js:1
 msgid "Schedule republish"
 msgstr "Wiederveröffentlichung planen"
 
 #. translators: %s: Date on which the post is to be republished.
-#: src/ui/classic-editor.php:229
+#: src/ui/classic-editor.php:230
 msgid "Republish on: %s"
 msgstr "Wiederveröffentlichen am: %s"
 
-#: src/ui/classic-editor.php:201
+#: src/ui/classic-editor.php:202
 msgid "Compare"
 msgstr "Vergleichen"
 
-#: src/ui/classic-editor.php:198
+#: src/ui/classic-editor.php:199
 msgid "Do you want to compare your changes with the original version before merging? Please save any changes first."
 msgstr "Möchtest du vor dem Zusammenführen deine Änderungen mit der ursprünglichen Version vergleichen? Bitte speichere deine Änderungen zunächst ab."
 
@@ -128,7 +128,7 @@ msgid "Warning: users will be able to copy, rewrite and republish all posts, eve
 msgstr "Warnung: Benutzer dürfen alle Beiträge kopieren, umschreiben und erneut veröffentlichen, auch die von anderen Benutzern."
 
 #: src/admin/options.php:281 src/ui/admin-bar.php:105 src/ui/admin-bar.php:125
-#: src/ui/bulk-actions.php:74 src/ui/classic-editor.php:173
+#: src/ui/bulk-actions.php:75 src/ui/classic-editor.php:174
 #: js/dist/duplicate-post-edit.js:2
 msgid "Rewrite & Republish"
 msgstr "Überarbeiten und wiederveröffentlichen"
@@ -154,15 +154,15 @@ msgstr "Der ursprüngliche Beitrag wurde ersetzt durch die überarbeiteten Fassu
 
 #. translators: %1$s: scheduled date of the copy, %2$s: scheduled time of the
 #. copy.
-#: src/watchers/copied-post-watcher.php:66
+#: src/watchers/copied-post-watcher.php:90
 msgid "A duplicate of this post was made, which is scheduled to replace this post on %1$s at %2$s."
 msgstr "Von diesem Beitrag wurde ein Duplikat erstellt, das diesen Beitrag am %1$s um %2$s ersetzen soll."
 
-#: src/watchers/copied-post-watcher.php:58
+#: src/watchers/copied-post-watcher.php:82
 msgid "A duplicate of this post was made. Please note that any changes you make to this post will be replaced when the duplicated version is republished."
 msgstr "Von diesem Beitrag wurde ein Duplikat erstellt. Bitte bedenke, dass jegliche Änderung, die du an diesem Beitrag machst, ersetzt wird, wenn die duplizierte Version veröffentlicht ist."
 
-#: src/watchers/copied-post-watcher.php:50
+#: src/watchers/copied-post-watcher.php:63
 msgid "You can only make one Rewrite & Republish duplicate at a time, and a duplicate of this post already exists in the trash. Permanently delete it if you want to make a new duplicate."
 msgstr "Du kannst nur ein Duplikat als „Überarbeiten und Wiederveröffentlichen“ zeitgleich erstellen. Ein Duplikat dieses Beitrags existiert bereits im Papierkorb. Entferne ihn endgültig, wenn du ein neues Duplikat erstellen willst."
 
@@ -174,11 +174,11 @@ msgstr "In dieser Kopie des ursprünglichen Beitrags kannst du nun beginnen, den
 msgid "You can now start rewriting your post in this duplicate of the original post. If you click \"Republish\", your changes will be merged into the original post and you’ll be redirected there."
 msgstr "Du kannst nun beginnen, deinen Beitrag in diesem Duplikat zu überarbeiten. Wenn du auf „Wiederveröffentlichen“ klickst, werden deine Änderungen mit dem Originalbeitrag zusammengeführt und du wirst dorthin geleitet."
 
-#: src/post-republisher.php:405
+#: src/post-republisher.php:415
 msgid "An error occurred while republishing the post."
 msgstr "Beim Wiederveröffentlichen des Beitrags ist ein Fehler aufgetreten."
 
-#: src/post-republisher.php:85 src/ui/classic-editor.php:224
+#: src/post-republisher.php:85 src/ui/classic-editor.php:225
 #: js/dist/duplicate-post-strings.js:1
 msgid "Republish"
 msgstr "Wiederveröffentlichen"
@@ -218,7 +218,7 @@ msgstr "Ansicht der Änderungsübersicht fehlgeschlagen, konnte den Beitrag mit 
 msgid "No post has been supplied!"
 msgstr "Es wurde kein Beitrag angegeben!"
 
-#: admin-functions.php:615
+#: admin-functions.php:626
 msgid "You aren't allowed to duplicate this post"
 msgstr "Du hast nicht die nötigen Rechte, um diesen Beitrag zu duplizieren"
 
@@ -312,7 +312,7 @@ msgstr "Original-Element anzeigen:"
 #. translators: Hidden accessibility text.
 #: src/admin/views/options.php:23
 msgid "Settings sections"
-msgstr "Einstellungen Abschnitte"
+msgstr "Einstellungsabschnitte"
 
 #. translators: Hidden accessibility text.
 #: duplicate-post.php:95
@@ -327,7 +327,7 @@ msgstr "„%s“ anzeigen"
 #. translators: Hidden accessibility text; %s: post title
 #: src/utils.php:117
 msgid "Preview &#8220;%s&#8221;"
-msgstr "Vorschau von &#8222;%s&#8220;"
+msgstr "Vorschau von „%s“ anzeigen"
 
 #. translators: Hidden accessibility text; %s: post title
 #: src/utils.php:105
@@ -343,7 +343,7 @@ msgstr "Der angemeldete Benutzer hat keine Berechtigung, Beiträge zu dupliziere
 msgid "you probably want this unchecked, unless you have very special requirements"
 msgstr "dies sollte wahrscheinlich deaktiviert sein, es sei denn, du hättest besondere Anforderungen"
 
-#: admin-functions.php:779
+#: admin-functions.php:790
 msgid "Documentation"
 msgstr "Dokumentation"
 
@@ -467,7 +467,7 @@ msgstr "Berechtigungen"
 msgid "What to copy"
 msgstr "Folgendes kopieren"
 
-#: admin-functions.php:621
+#: admin-functions.php:632
 msgid "Copy features for this post type are not enabled in options page"
 msgstr "Die Kopierfunktion für diesen Beitrags-Typ ist auf der Einstellungs-Seite nicht aktiviert."
 
@@ -550,7 +550,7 @@ msgid "New Draft"
 msgstr "Neuer Entwurf"
 
 #: common-functions.php:80 src/ui/admin-bar.php:97 src/ui/admin-bar.php:115
-#: src/ui/classic-editor.php:144 js/dist/duplicate-post-edit.js:2
+#: src/ui/classic-editor.php:145 js/dist/duplicate-post-edit.js:2
 msgid "Copy to a new draft"
 msgstr "Beitrag/Seite als Entwurf duplizieren"
 
