@@ -59,6 +59,20 @@ class AdminScripts extends Singleton {
                 true
             );
         }
+
+        $imagePriorityEditorJs = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'image-priority-editor.js');
+        if (!$imagePriorityEditorJs) {
+            $imagePriorityEditorJs = get_stylesheet_directory_uri() . '/js/chunk/image-priority-editor.js';
+        }
+        if ($imagePriorityEditorJs) {
+            wp_enqueue_script(
+                Theme::TEXT_DOMAIN . '_image_priority_editor',
+                $imagePriorityEditorJs,
+                ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-hooks', 'wp-compose', 'wp-i18n'],
+                false,
+                true
+            );
+        }
     }
 
     /**

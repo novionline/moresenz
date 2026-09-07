@@ -27,8 +27,25 @@ class BlockCustomizationComponent extends Singleton {
         //image block: fallback alt tag from attachment when none is configured
         add_filter('render_block', [$this, 'imageBlockFallbackAlt'], 10, 2);
 
+        //image block: LCP priority loading when block option is enabled
+        add_filter('render_block', [$this, 'imageBlockPriorityLoading'], 10, 2);
+
+        //strip decoding=async re-added by wp_filter_content_tags for LCP priority images
+        add_filter('wp_content_img_tag', [$this, 'stripDecodingForLcpPriorityImages'], 10, 1);
+
         //choose which hash is used per taxonomy (taxonomy slug + "-filters")
         add_filter('nectar_blocks_taxonomy_terms_link_hash', [$this, 'taxonomyTermsLinkHashByTaxonomy'], 10, 2);
+
+        //disable Nectar animated anchor scroll (init.js) in favour of native hash + scroll-padding-top
+        add_filter('nectar_animated_anchors', [$this, 'disableNectarAnimatedAnchors']);
+    }
+
+    /**
+     * Disable Nectar theme smooth hash scrolling for native browser behaviour
+     * @return string
+     */
+    public static function disableNectarAnimatedAnchors(): string {
+        return 'false';
     }
 
     /**
@@ -71,9 +88,9 @@ class BlockCustomizationComponent extends Singleton {
         $usedHashes[$hash]++;
         $finalId = $usedHashes[$hash] === 1 ? $hash : $hash . '-' . $usedHashes[$hash];
 
-        //invisible anchor above block so #hash scrolls here and filter terms are visible below
-        //scroll-margin-top via class so native hash scroll leaves room for fixed header (see child theme CSS)
-        $anchor = '<div id="' . esc_attr($finalId) . '" class="novi-taxonomy-terms-scroll-anchor" style="height:0;margin:0;padding:0;overflow:hidden;pointer-events:none" aria-hidden="true"></div>';
+        //invisible anchor before filters; align-self flex-start so flex-row parents (align-items:center)
+        //do not vertically center this 0-height item — otherwise filters sit under the sticky header
+        $anchor = '<div id="' . esc_attr($finalId) . '" class="novi-taxonomy-terms-scroll-anchor" style="height:0;width:0;margin:0;padding:0;overflow:hidden;pointer-events:none;align-self:flex-start;flex:0 0 auto" aria-hidden="true"></div>';
         $block_content = $anchor . $block_content;
 
         return preg_replace_callback('/href="([^"]+)"/', function ($m) use ($finalId) {
@@ -225,6 +242,103 @@ class BlockCustomizationComponent extends Singleton {
         }
 
         return $updated !== null ? $updated : $blockContent;
+    }
+
+    /**
+     * When priority loading is enabled on a Nectar image block, set loading=eager, fetchpriority=high,
+     * strip decoding, and tag the img so wp_content_img_tag can strip decoding re-added by WordPress.
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function imageBlockPriorityLoading($blockContent, array $block) {
+
+        if (($block['blockName'] ?? '') !== 'nectar-blocks/image') {
+            return $blockContent;
+        }
+
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        if (($block['attrs']['priorityLoading'] ?? false) !== true) {
+            return $blockContent;
+        }
+
+        $updated = preg_replace_callback(
+            '/<img\b[^>]*>/iu',
+            static function (array $m): string {
+                $tag = $m[0];
+
+                if (preg_match('/\bloading\s*=\s*"/iu', $tag)) {
+                    $tag = (string) preg_replace('/\bloading\s*=\s*"[^"]*"/iu', 'loading="eager"', $tag, 1);
+                } elseif (preg_match('/\bloading\s*=\s*\'/iu', $tag)) {
+                    $tag = (string) preg_replace('/\bloading\s*=\s*\'[^\']*\'/iu', 'loading="eager"', $tag, 1);
+                } elseif (preg_match('/\/\s*>\s*$/', $tag)) {
+                    $tag = (string) preg_replace('/\/\s*>\s*$/', ' loading="eager" />', $tag, 1);
+                } else {
+                    $tag = (string) preg_replace('/>$/', ' loading="eager">', $tag, 1);
+                }
+
+                if (preg_match('/\bfetchpriority\s*=\s*"/iu', $tag)) {
+                    $tag = (string) preg_replace('/\bfetchpriority\s*=\s*"[^"]*"/iu', 'fetchpriority="high"', $tag, 1);
+                } elseif (preg_match('/\bfetchpriority\s*=\s*\'/iu', $tag)) {
+                    $tag = (string) preg_replace('/\bfetchpriority\s*=\s*\'[^\']*\'/iu', 'fetchpriority="high"', $tag, 1);
+                } elseif (preg_match('/\/\s*>\s*$/', $tag)) {
+                    $tag = (string) preg_replace('/\/\s*>\s*$/', ' fetchpriority="high" />', $tag, 1);
+                } else {
+                    $tag = (string) preg_replace('/>$/', ' fetchpriority="high">', $tag, 1);
+                }
+
+                $tag = (string) preg_replace('/\bdecoding\s*=\s*(?:"[^"]*"|\'[^\']*\')/iu', '', $tag);
+
+                if (preg_match('/\bclass\s*=\s*"/iu', $tag)) {
+                    if (!preg_match('/\bclass\s*=\s*"[^"]*\bnovi-lcp-priority\b/iu', $tag)) {
+                        $tag = (string) preg_replace(
+                            '/\bclass\s*=\s*"([^"]*)"/iu',
+                            'class="$1 novi-lcp-priority"',
+                            $tag,
+                            1
+                        );
+                    }
+                } elseif (preg_match('/\bclass\s*=\s*\'/iu', $tag)) {
+                    if (!preg_match('/\bclass\s*=\s*\'[^\']*\bnovi-lcp-priority\b/iu', $tag)) {
+                        $tag = (string) preg_replace(
+                            '/\bclass\s*=\s*\'([^\']*)\'/iu',
+                            'class="$1 novi-lcp-priority"',
+                            $tag,
+                            1
+                        );
+                    }
+                } elseif (preg_match('/\/\s*>\s*$/', $tag)) {
+                    $tag = (string) preg_replace('/\/\s*>\s*$/', ' class="novi-lcp-priority" />', $tag, 1);
+                } else {
+                    $tag = (string) preg_replace('/>$/', ' class="novi-lcp-priority">', $tag, 1);
+                }
+
+                return $tag;
+            },
+            $blockContent,
+            1
+        );
+
+        return $updated !== null ? $updated : $blockContent;
+    }
+
+    /**
+     * Remove decoding=async from LCP priority images after wp_filter_content_tags runs.
+     *
+     * @param string $filteredImage
+     * @return string
+     */
+    public function stripDecodingForLcpPriorityImages(string $filteredImage): string {
+
+        if (!preg_match('/\bclass\s*=\s*["\'][^"\']*\bnovi-lcp-priority\b/iu', $filteredImage)) {
+            return $filteredImage;
+        }
+
+        return (string) preg_replace('/\s*\bdecoding\s*=\s*(?:"[^"]*"|\'[^\']*\')/iu', '', $filteredImage);
     }
 
     /**
