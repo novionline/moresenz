@@ -120,22 +120,25 @@ class AdminColorComponent extends Singleton
     }
 
     /**
-     * Set favicon instead of WP icon in admin for branding purposes.
+     * Set Novi logo instead of WP icon / site favicon in admin for branding purposes.
      *
      * @return void
      */
     public function setAdminBranding(): void
     {
-        //allow themes to override the favicon used as the admin bar logo
-        $favicon = apply_filters('novi_admin_bar_favicon_url', get_site_icon_url(32));
+        //default: Novi mark (no wordmark); themes can override or return '' for stock WP logo
+        $defaultLogo = defined('WCP_PLUGIN_URL')
+            ? WCP_PLUGIN_URL . '/icons/admin-bar-novi-logo.svg'
+            : '';
+        $favicon = apply_filters('novi_admin_bar_favicon_url', $defaultLogo);
         if (!$favicon) return;
         ?>
         <style>
             #wpadminbar > #wp-toolbar > #wp-admin-bar-root-default > #wp-admin-bar-wp-logo .ab-icon {
                 background-image: url(<?php echo esc_url($favicon); ?>) !important;
-                margin: 4px;
-                width: 24px;
-                height: 24px;
+                margin: 8px;
+                width: 16px;
+                height: 16px;
                 background-size: contain;
                 background-repeat: no-repeat;
             }
