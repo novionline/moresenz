@@ -191,7 +191,7 @@ function nectar_register_js() {
             'menu' => esc_html__('Menu', 'nectar-blocks-theme'),
             'next' => esc_html__('Next', 'nectar-blocks-theme'),
             'previous' => esc_html__('Previous', 'nectar-blocks-theme'),
-            'close' => esc_html__('Close', 'nectar-blocks-theme'),
+            'close' => esc_html_x('Close', 'button: close mobile menu', 'nectar-blocks-theme'),
         ]
     );
 

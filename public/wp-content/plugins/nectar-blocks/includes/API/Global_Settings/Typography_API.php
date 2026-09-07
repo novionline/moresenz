@@ -117,7 +117,7 @@ class Typography_API implements API_Route {
   }
 
   public function get_google_fonts() {
-    $fonts = wp_json_file_decode(NECTAR_BLOCKS_ROOT_DIR_PATH . '/assets/build/google-fonts/google-fonts-1747078311.json');
+    $fonts = wp_json_file_decode(NECTAR_BLOCKS_ROOT_DIR_PATH . '/assets/build/google-fonts/google-fonts.json');
     $response = new \WP_REST_Response($fonts, 200);
     return $response;
   }

@@ -6,6 +6,47 @@ Change Log:
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 
+= 4.1.0 ( 2026-05-25 ) =
+- Improvement: Added notice when images fail to optimize
+- Improvement: CDN generating long database queries resulting in broken images
+- Improvement: Prevented unnecessary settings save and notification when blurring an empty textarea
+- Improvement: UI and UX improvements
+- Fix: Configs created in Smush 4.0 not appearing in Hub "My Configs" list
+- Fix: Activity sidebar sticky position not working correctly on screens wider than 1800px
+- Fix: Optimization action not triggering when Next-Gen formats disabled via dashboard toast notification
+- Fix: Enabling Next-Gen server configuration on multisite triggering console errors
+- Fix: Smush overriding the WordPress dashboard footer
+- Fix: Free version not enforcing 5MB file size limit after downgrading from Pro
+- Fix: PHP warnings and errors
+
+= 4.0.3 ( 2026-04-28 ) =
+- Fix: Resolved issue where Super Smush was not working on main site and subsites.
+- Fix: Improved White Label behavior across plugin UI and status screens.
+- Fix: Prevented opt-in toast from reappearing when restarting Smush without a refresh.
+- Fix: Preload settings changes are now recorded in the Activity Log.
+- Improvement: Updated onboarding and Directory Smush welcome modal UI and copy.
+- Improvement: Minor visual refinements across header and main menu.
+
+= 4.0.2 ( 2026-04-21 ) =
+- Fix: Configs not applied correctly in certain situations.
+- Fix: Corrected settings reset behavior during uninstallation when data preservation is disabled.
+- Fix: Resolved a permissions issue affecting Super Compression access in Multisite environments.
+- Fix: Restored PNG to JPG conversion functionality for free version users.
+- Fix: Minor code improvements and stability refinements.
+
+= 4.0.1 ( 2026-04-15 ) =
+- Improvement: Informational notice when CDN propagation initiated
+- Fix: CDN failing to propagate on new sites
+
+= 4.0 ( 2026-04-14 ) =
+- New: Reimagined Smush interface for a seamless, clutter-free optimization experience
+- New: Comprehensive Activity Log to track real-time scans, optimizations, and configuration changes
+- Improvement: Transitioned to real-time Auto-save for all settings to provide a frictionless workflow
+- Fix: Minor code improvements and performance refinements
+
+= 3.24.0 ( 2026-02-23 ) =
+- Improvement: Stability improvements
+
 = 3.23.4 ( 2026-02-05 ) =
 - Fix: PHP error fixed
 
@@ -385,4 +426,4 @@ Change Log:
 
 
 
-1321545-1774353503-ai
+1321545-1779948382-au

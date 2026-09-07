@@ -195,7 +195,7 @@ class Avif_Controller extends Controller {
 	 * Triggered by the "Delete AVIF images" button in the avif tab.
 	 */
 	public function ajax_delete_all_avif_files() {
-		check_ajax_referer( 'save_wp_smush_options' );
+		check_ajax_referer( 'wp-smush-ajax' );
 
 		$capability = is_multisite() ? 'manage_network' : 'manage_options';
 

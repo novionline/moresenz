@@ -41,4 +41,65 @@ if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
         }
         return $saved;
     }
+
+    /**
+     * Customizer theme-mod string keys that hold user-facing text / URLs
+     * and should be exposed to WPML / Polylang String Translation.
+     */
+    function nectar_translatable_theme_mod_keys() {
+        return [
+            'header-text-widget',
+            'secondary-header-text',
+            'secondary-header-link',
+            'footer-copyright-text',
+            'header-search-ph-text',
+            'header-slide-out-widget-area-bottom-text',
+        ];
+    }
+
+    add_action( 'admin_init', 'nectar_register_translatable_theme_mods' );
+    add_action( 'customize_save_after', 'nectar_register_translatable_theme_mods' );
+    function nectar_register_translatable_theme_mods() {
+        // Read raw stored values directly to bypass the theme_mod_<key>
+        // translation filter — we must register the SOURCE string, not a
+        // value that has already been translated for the current language.
+        $mods = get_option( 'theme_mods_' . get_stylesheet() );
+        if ( ! is_array( $mods ) ) {
+            return;
+        }
+        $values = [];
+        foreach ( nectar_translatable_theme_mod_keys() as $key ) {
+            if ( isset( $mods[$key] ) && is_string( $mods[$key] ) && '' !== $mods[$key] ) {
+                $values[$key] = $mods[$key];
+            }
+        }
+        // WPML's wpml_register_single_string action writes to icl_strings on
+        // every call. Without this gate the theme would hit the database for
+        // these keys on every admin page load. customize_save_after picks up
+        // value changes naturally because the snapshot hash will differ.
+        $hash = md5( wp_json_encode( $values ) );
+        if ( get_transient( 'nectar_wpml_strings_hash' ) === $hash ) {
+            return;
+        }
+        foreach ( $values as $key => $value ) {
+            do_action( 'wpml_register_single_string', 'Nectar Options', $key, $value );
+        }
+        set_transient( 'nectar_wpml_strings_hash', $hash, DAY_IN_SECONDS );
+    }
+
+    add_action( 'after_setup_theme', 'nectar_add_theme_mod_translation_filters' );
+    function nectar_add_theme_mod_translation_filters() {
+        foreach ( nectar_translatable_theme_mod_keys() as $key ) {
+            add_filter( "theme_mod_{$key}", 'nectar_translate_theme_mod_value', 10, 1 );
+        }
+    }
+
+    function nectar_translate_theme_mod_value( $value ) {
+        if ( ! is_string( $value ) || '' === $value ) {
+            return $value;
+        }
+        $filter_name = current_filter();
+        $key = substr( $filter_name, strlen( 'theme_mod_' ) );
+        return apply_filters( 'wpml_translate_single_string', $value, 'Nectar Options', $key );
+    }
 }

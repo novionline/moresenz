@@ -97,6 +97,13 @@ module.exports = (function() { return this["wp"]["element"]; }());
 
 /***/ },
 
+/***/ 989
+(module) {
+
+module.exports = (function() { return this["wp"]["htmlEntities"]; }());
+
+/***/ },
+
 /***/ 75
 (module) {
 
@@ -1323,10 +1330,13 @@ const SynchronizationButton = ({
 
 
 
+// EXTERNAL MODULE: external {"this":["wp","htmlEntities"]}
+var external_this_wp_htmlEntities_ = __webpack_require__(989);
 ;// ./js/src/editors/common/components/translations-table/input/index.js
 /**
  * WordPress dependencies
  */
+
 
 
 
@@ -1342,11 +1352,12 @@ const SynchronizationButton = ({
 /**
  * Translation input component.
  *
- * @param {Object} props               The component props.
- * @param {Object} props.language      The language object.
- * @param {Object} props.source        The source post object.
- * @param {Object} props.translation   The translation post object.
- * @param {Object} props.tableDispatch The table dispatch function.
+ * @param {Object} props                   The component props.
+ * @param {Object} props.language          The language object.
+ * @param {Object} props.source            The source post object.
+ * @param {Object} props.translation       The translation post object.
+ * @param {Object} props.tableDispatch     The table dispatch function.
+ * @param {Map}    props.translationsTable The translations table object.
  * @return {React.Component} The translation input component.
  */
 
@@ -1354,7 +1365,8 @@ const TranslationInput = ({
   language,
   source,
   translation,
-  tableDispatch
+  tableDispatch,
+  translationsTable
 }) => {
   const [options, setOptions] = (0,external_this_wp_element_.useState)(translation ? [{
     value: translation.id,
@@ -1396,7 +1408,7 @@ const TranslationInput = ({
         lang: language
       });
       const newTranslations = {
-        ...source.translations
+        ...transformTranslationsTableToObject(translationsTable)
       };
       delete newTranslations[language.slug];
       (0,external_this_wp_data_.dispatch)(MODULE_CORE_EDITOR_KEY).editPost({
@@ -1415,7 +1427,7 @@ const TranslationInput = ({
     });
     (0,external_this_wp_data_.dispatch)(MODULE_CORE_EDITOR_KEY).editPost({
       translations: {
-        ...source.translations,
+        ...transformTranslationsTableToObject(translationsTable),
         [language.slug]: parseInt(nextValue, 10)
       }
     });
@@ -1459,8 +1471,7 @@ const TranslationInput = ({
     onChange: onInputChange,
     placeholder: (0,external_this_wp_i18n_.__)('Search for a post', 'polylang-pro'),
     onFilterValueChange: debounce(fetchUntranslatedPosts),
-    __next40pxDefaultSize: true,
-    __nextHasNoMarginBottom: true
+    __next40pxDefaultSize: true
   });
 };
 
@@ -1468,10 +1479,13 @@ const TranslationInput = ({
  * Gets the post title.
  *
  * @param {Object} post The post object.
- * @return {string|null} The post title, or null if the post has no title (?!).
+ * @return {string} The post title, or an empty string if the post has no title.
  */
 const getPostTitle = post => {
-  return post.title.rendered ?? post.title ?? null;
+  /**
+   * @member {{rendered: ?string, raw: ?string}|string} post.title
+   */
+  return (0,external_this_wp_htmlEntities_.decodeEntities)(post.title?.rendered ?? post.title?.raw ?? post.title ?? '');
 };
 
 /**
@@ -1490,6 +1504,23 @@ const getPostToRender = (options, nextValue) => {
     id: value.value,
     title: value.label
   };
+};
+
+/**
+ * Transforms the translations table to an object.
+ *
+ * @param {Map<Object, Object>} translationsTable The translations table.
+ * @return {Object<string, number>} The translations object.
+ */
+const transformTranslationsTableToObject = translationsTable => {
+  const translationsObject = {};
+  translationsTable.forEach((translationPost, lang) => {
+    if (!translationPost || !translationPost.id) {
+      return;
+    }
+    translationsObject[lang.slug] = translationPost.id;
+  });
+  return translationsObject;
 };
 /* harmony default export */ const input = (TranslationInput);
 ;// ./js/src/editors/common/components/translations-table/rows/index.js
@@ -1789,6 +1820,16 @@ const AddOrEditButton = ({
     disabled: !canCreate
   });
 };
+
+/**
+ * Post Editor Translations Table component.
+ *
+ * @param {Object}   props                   The component props.
+ * @param {Object}   props.currentPost       The current post.
+ * @param {Map}      props.translationsTable The translations table, contains language object as key and post object as value.
+ * @param {Function} props.tableDispatch     The translations table dispatch function.
+ * @return {React.Component} The Post Editor Translations Table component.
+ */
 const PostEditorTranslationsTable = ({
   currentPost,
   translationsTable,
@@ -1831,7 +1872,8 @@ const PostEditorTranslationsTable = ({
             language: language,
             source: currentPost,
             translation: translation,
-            tableDispatch: tableDispatch
+            tableDispatch: tableDispatch,
+            translationsTable: translationsTable
           })
         })]
       })
@@ -2931,21 +2973,28 @@ const SiteEditorMetabox = () => {
       return {};
     }
     const results = {};
-    new Map(Object.entries(currentPost.translations)).forEach((translationId, lang) => {
-      if ('wp_template_part' === currentPost.type) {
+    if ('wp_template_part' !== currentPost.type) {
+      const translatedPosts = select(metaboxes_site_editor_coreDataStore).getEntityRecords('postType', currentPost.type, {
+        include: Object.values(currentPost.translations),
+        status: 'any',
+        context: 'view',
+        per_page: Object.values(currentPost.translations).length,
+        lang: '' // Disables language filter middleware.
+      });
+      translatedPosts?.forEach(post => {
+        results[post.lang] = post;
+      });
+    } else {
+      // Template parts cannot be fetched all at once.
+      new Map(Object.entries(currentPost.translations)).forEach((translationId, lang) => {
         const postsData = select(metaboxes_site_editor_coreDataStore).getEntityRecords('postType', 'wp_template_part', {
           wp_id: translationId
         });
         if (postsData && postsData.length > 0) {
           results[lang] = postsData[0];
         }
-        return;
-      }
-      const postData = select(metaboxes_site_editor_coreDataStore).getEntityRecord('postType', currentPost.type, translationId);
-      if (postData) {
-        results[lang] = postData;
-      }
-    });
+      });
+    }
     return results;
   }, [currentPost]);
   useEffect(() => {
@@ -3314,24 +3363,25 @@ const PostEditorMetabox = () => {
       }
     }
     const results = {};
-    new Map(Object.entries(currentPost.translations)).forEach((translationId, lang) => {
-      const translationData = getTranslationData(lang, translationsTable);
+    const translatedPosts = select(external_this_wp_coreData_.store).getEntityRecords('postType', currentPost.type, {
+      include: Object.values(currentPost.translations),
+      context: 'view',
+      status: 'any',
+      per_page: Object.values(currentPost.translations).length,
+      lang: '' // Disables language filter middleware.
+    });
+    translatedPosts?.forEach(post => {
+      const translationData = getTranslationData(post.lang, translationsTable);
 
       /*
        * Preserve the optimistic placeholder (id: 0) until the server returns the real translation ID,
        * then let the real entity record be fetched.
        */
-      if (translationData && translationData.id === translationId) {
-        results[lang] = translationData;
+      if (translationData && translationData.id === post.id) {
+        results[post.lang] = translationData;
         return;
       }
-      const postData = select(external_this_wp_coreData_.store).getEntityRecord('postType', currentPost.type, translationId, {
-        context: 'view'
-      } // Use 'view' context so translators can read posts they cannot edit.
-      );
-      if (postData) {
-        results[lang] = postData;
-      }
+      results[post.lang] = post;
     });
     return results;
   }, [currentPost, translationsTable]);

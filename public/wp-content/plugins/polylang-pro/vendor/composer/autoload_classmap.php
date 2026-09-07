@@ -318,6 +318,7 @@ return array(
     'WP_Syntex\\Polylang\\REST\\Request' => $vendorDir . '/wpsyntex/polylang/src/modules/REST/Request.php',
     'WP_Syntex\\Polylang\\REST\\V1\\Languages' => $vendorDir . '/wpsyntex/polylang/src/modules/REST/V1/Languages.php',
     'WP_Syntex\\Polylang\\REST\\V1\\Settings' => $vendorDir . '/wpsyntex/polylang/src/modules/REST/V1/Settings.php',
+    'WP_Syntex\\Polylang\\Script\\Loader_Paths_Finder' => $vendorDir . '/wpsyntex/polylang/bin/Loader_Paths_Finder.php',
     'WP_Syntex\\Polylang_Pro\\Editors\\Filter_Preload_Paths' => $baseDir . '/src/modules/Editors/Filter_Preload_Paths.php',
     'WP_Syntex\\Polylang_Pro\\Editors\\Screens\\Abstract_Screen' => $baseDir . '/src/modules/Editors/Screens/Abstract_Screen.php',
     'WP_Syntex\\Polylang_Pro\\Editors\\Screens\\Post' => $baseDir . '/src/modules/Editors/Screens/Post.php',

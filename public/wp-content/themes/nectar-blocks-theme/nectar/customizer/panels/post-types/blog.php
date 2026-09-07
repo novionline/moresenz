@@ -163,7 +163,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
         'type' => 'select',
         'title' => esc_html__('Blog Content Width', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           '1000px' => esc_html__('1000px', 'nectar-blocks-theme'),
           '900px' => esc_html__('900px', 'nectar-blocks-theme'),
           '800px' => esc_html__('800px', 'nectar-blocks-theme'),
@@ -182,7 +182,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
       'options' => [
         'default' => esc_html__('Post Author Archives', 'nectar-blocks-theme'),
         'website_url' => esc_html__('Post Author Website URL ', 'nectar-blocks-theme'),
-        'none' => esc_html__('None', 'nectar-blocks-theme'),
+        'none' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme'),
       ],
       'default' => 'default'
     ],
@@ -236,7 +236,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
       'hint' => ['content' => '<strong>' . esc_html__('Default:', 'nectar-blocks-theme') . '</strong> ' . esc_html__('the next post link will be the next', 'nectar-blocks-theme') . ' <i>' . esc_html__('oldest', 'nectar-blocks-theme') . '</i> ' . esc_html__('post.', 'nectar-blocks-theme') . '<br/> <strong>' . esc_html__('Reverse Order:', 'nectar-blocks-theme') . '</strong> ' . esc_html__('the next post link will be the next', 'nectar-blocks-theme') . ' <i>' . esc_html__('newest', 'nectar-blocks-theme') . '</i> ' . esc_html__('post.', 'nectar-blocks-theme'), 'title' => ''],
       'required' => [[ 'blog_next_post_link', '=', '1' ]],
       'options' => [
-        "default" => esc_html__("Default", 'nectar-blocks-theme'),
+        "default" => esc_html_x("Default", 'dropdown option: use the default value', 'nectar-blocks-theme'),
         "reverse" => esc_html__("Reverse Order", 'nectar-blocks-theme')
       ],
       'default' => 'default'
@@ -323,7 +323,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
       'title' => esc_html__('Author Style in Comments', 'nectar-blocks-theme'),
       'desc' => '',
       'options' => [
-        "default" => esc_html__("Default", 'nectar-blocks-theme'),
+        "default" => esc_html_x("Default", 'dropdown option: use the default value', 'nectar-blocks-theme'),
         "author_badge" => esc_html__("\"Author\" Badge Next to Name", 'nectar-blocks-theme'),
       ],
       'default' => 'default'
@@ -495,7 +495,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
         'title' => esc_html__('Blog Header Scroll Effect', 'nectar-blocks-theme'),
         'desc' => esc_html__('Globally define a scroll effect for your blog header.', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('None', 'nectar-blocks-theme'),
+          'default' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme'),
           'parallax' => esc_html__('Parallax', 'nectar-blocks-theme')
         ],
         'default' => 'parallax'
@@ -507,7 +507,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
        'desc' => '',
        'required' => [[ 'blog_header_type', '=', 'image_under'  ]],
        'options' => [
-         "none" => esc_html__("None", 'nectar-blocks-theme'),
+         "none" => esc_html_x("None", 'dropdown option: no value selected', 'nectar-blocks-theme'),
          "fade_in" => esc_html__("Fade In Staggered", 'nectar-blocks-theme'),
        ],
        'default' => 'none'
@@ -540,7 +540,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
       'options' => [
         "default" => esc_html__("Display All", 'nectar-blocks-theme'),
         "parent_only" => esc_html__("Parent Categories Only", 'nectar-blocks-theme'),
-        "none" => esc_html__("None", 'nectar-blocks-theme'),
+        "none" => esc_html_x("None", 'dropdown option: no value selected', 'nectar-blocks-theme'),
       ],
       'default' => 'default'
     ]
@@ -615,7 +615,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
         'type' => 'select',
         'title' => esc_html__('Blog Archive Text Alignment', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'left' => esc_html__('Left', 'nectar-blocks-theme'),
           'center' => esc_html__('Center', 'nectar-blocks-theme'),
           'right' => esc_html__('Right', 'nectar-blocks-theme'),
@@ -628,7 +628,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
         'type' => 'select',
         'title' => esc_html__('Blog Archive Format', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'minimal' => esc_html__('Minimal', 'nectar-blocks-theme'),
         ],
         'default' => 'minimal'
@@ -682,7 +682,7 @@ class NectarBlocks_Customizer_Post_Types_Blog {
          'subtitle' => esc_html__('Please select your pagination type here.', 'nectar-blocks-theme'),
          'desc' => '',
          'options' => [
-           'default' => esc_html__('Default', 'nectar-blocks-theme'),
+           'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
            // 'infinite_scroll' => esc_html__('Infinite Scroll', 'nectar-blocks-theme')
          ],
          'default' => 'default'

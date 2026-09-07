@@ -3,10 +3,9 @@
 namespace Smush\Core\Media_Library;
 
 use Smush\Core\Array_Utils;
+use Smush\Core\Background\Mutex;
 use Smush\Core\Controller;
 use Smush\Core\Helper;
-use Smush\Core\Modules\Background\Mutex;
-use Smush\Core\Modules\Bulk\Background_Bulk_Smush;
 use Smush\Core\Settings;
 
 class Media_Library_Last_Process extends Controller {
@@ -31,7 +30,7 @@ class Media_Library_Last_Process extends Controller {
 
 	public static function get_instance() {
 		if ( empty( self::$instance ) ) {
-			self::$instance = new self();
+			self::$instance = new Media_Library_Last_Process_Pro();
 		}
 
 		return self::$instance;
@@ -52,17 +51,11 @@ class Media_Library_Last_Process extends Controller {
 		$this->register_action( $scan_background_process->action_name( 'dead' ), array( $this, 'record_process_end_time' ), 5 );
 
 		$this->register_action( 'wp_smush_after_smush_file', array( $this, 'record_last_processed_attachment_elapsed_time' ), 5 );
-
-		// Background Bulk Smush.
-		$this->register_action( 'wp_smush_bulk_smush_dead', array( $this, 'record_process_end_time' ), 5 );
-
-		$bulk_smush_background_process = Background_Bulk_Smush::get_instance()->get_background_process();
-		$this->register_action( $bulk_smush_background_process->action_name( 'cron' ), array( $this, 'check_bulk_smush_process' ), 5 );
 		$this->register_action( 'wp_ajax_bulk_smush_get_status', array( $this, 'check_bulk_smush_process_stuck_on_ajax_get_status' ), 5 );
 	}
 
 	public function should_run() {
-		return Background_Bulk_Smush::get_instance()->should_use_background();
+		return true;
 	}
 
 	public function should_track() {
@@ -257,11 +250,13 @@ class Media_Library_Last_Process extends Controller {
 	}
 
 	private function set_process_item( $item, $value ) {
-		( new Mutex( self::$process_key ) )->execute( function () use ( $item, $value ) {
-			$process_option          = $this->get_process_option();
-			$process_option[ $item ] = $value;
-			$this->update_process_option( $process_option );
-		} );
+		( new Mutex( self::$process_key ) )->execute(
+			function () use ( $item, $value ) {
+				$process_option          = $this->get_process_option();
+				$process_option[ $item ] = $value;
+				$this->update_process_option( $process_option );
+			}
+		);
 	}
 
 	private function get_process_option() {

@@ -54,7 +54,7 @@ class Modal {
         '<span>'
           . esc_html__( 'Menu Item Options', 'nectar-blocks' ) .
         '</span>',
-        'saving' => esc_html__( 'Saving...', 'nectar-blocks' ),
+        'saving' => esc_html__( 'Saving', 'nectar-blocks' ) . '...',
         'error' => esc_html__( 'Error Saving', 'nectar-blocks' ),
         'success' => esc_html__( 'Saved Successfully', 'nectar-blocks' ),
       ];
@@ -320,7 +320,7 @@ class Modal {
           <form class="menu-options-form"></form>
         </div>
         <div class="bottom-controls">
-          <a href="#" class="close-modal">' . esc_html__('Close', 'nectar-blocks') . '</a>
+          <a href="#" class="close-modal">' . esc_html_x('Close', 'button: close modal dialog', 'nectar-blocks') . '</a>
           <a href="#" class="save">
             <span class="inner">
               <span class="default">' . esc_html__('Save Changes', 'nectar-blocks') . '</span>

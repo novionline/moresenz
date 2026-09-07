@@ -243,6 +243,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	public function pre_init() {
 		require_once plugin_dir_path( __FILE__ ) . '/includes/settings/class-plugin-settings.php';
 		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gf-field-recaptcha.php';
+		require_once plugin_dir_path( __FILE__ ) . '/includes/class-gf-field-recaptcha-checkbox.php';
 		require_once plugin_dir_path( __FILE__ ) . '/includes/class-recaptcha-api.php';
 		require_once plugin_dir_path( __FILE__ ) . '/includes/class-token-verifier.php';
 
@@ -302,14 +303,16 @@ class GF_RECAPTCHA extends GFAddOn {
 		add_action( 'gform_preview_init', array( $this, 'maybe_enqueue_recaptcha_script' ) );
 
 		// Add Recaptcha field to the form output.
-		add_filter( 'gform_form_tag', array( $this, 'add_recaptcha_input' ), 50, 2  );
+		add_filter( 'gform_pre_render', array( $this, 'maybe_adjust_form_fields' ), 1 );
+		add_filter( 'gform_form_tag', array( $this, 'add_recaptcha_input' ), 50, 2 );
+		add_filter( 'gform_pre_validation', array( $this, 'maybe_adjust_form_fields' ), 1 );
+		add_filter( 'gform_validation', array( $this, 'validate_submission' ), 19 );
+		add_filter( 'gform_entry_is_spam', array( $this, 'check_for_spam_entry' ), 50, 3 );
 
 		// Register a custom metabox for the entry details page.
 		add_filter( 'gform_entry_detail_meta_boxes', array( $this, 'register_meta_box' ), 10, 3 );
 
-		add_filter( 'gform_entry_is_spam', array( $this, 'check_for_spam_entry' ), 50, 3 );
-		add_filter( 'gform_validation', array( $this, 'validate_submission' ), 19 );
-
+		add_filter( 'gform_field_sidebar_messages', array( $this, 'filter_captcha_sidebar_message' ), 10, 2 );
 		add_filter( 'gform_field_content', array( $this, 'update_captcha_field_settings_link' ), 10, 2 );
 		add_filter( 'gform_incomplete_submission_pre_save', array( $this, 'add_recaptcha_v3_input_to_draft' ), 10, 3 );
 
@@ -358,6 +361,31 @@ class GF_RECAPTCHA extends GFAddOn {
 		add_action( 'wp_ajax_disconnect_recaptcha', array( $this, 'ajax_disconnect_recaptcha' ) );
 		add_action( 'wp_ajax_get_enterprise_site_keys', array( $this, 'ajax_get_enterprise_site_keys' ) );
 		add_action( 'wp_ajax_save_recaptcha_enterprise_data', array( $this, 'ajax_save_recaptcha_enterprise_data' ) );
+	}
+
+	/**
+	 * Enqueues the add-on scripts.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param array|string $form    The current form.
+	 * @param bool         $is_ajax Indicates if Ajax is enabled for the form.
+	 *
+	 * @return void
+	 */
+	public function enqueue_scripts( $form = '', $is_ajax = false ) {
+		parent::enqueue_scripts( $form, $is_ajax );
+
+		if ( empty( $form ) || $this->is_form_editor() || GFCommon::is_entry_detail() || ! $this->has_enterprise_checkbox_key() || ! $this->requires_recaptcha_script() ) {
+			return;
+		}
+
+		$fields = GFAPI::get_fields_by_type( $form, array( 'recaptcha_checkbox' ) );
+		if ( empty( $fields ) ) {
+			return;
+		}
+
+		$this->enqueue_enterprise_recaptcha_script();
 	}
 
 	/**
@@ -582,6 +610,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * Setting to display the reCAPTCHA Enterprise fields.
 	 *
 	 * @since 1.7.0
+	 * @since 2.2.0 Updated to include the key type in the option label.
 	 *
 	 * @return false|void
 	 */
@@ -657,22 +686,34 @@ class GF_RECAPTCHA extends GFAddOn {
 				$html  = '<div class="gform-settings-field__header"><label for="recaptcha-site-keys" class="gform-settings-label">' . esc_html__( 'Enterprise Site Key', 'gravityformsrecaptcha' ) . '</label></div>';
 				$html .= '<select name="recaptcha-site-keys">';
 				$html .= '<option value="">' . esc_html__( 'Select a site key', 'gravityformsrecaptcha' ) . '</option>';
-				if ( rgar( $site_keys, 'keys' ) ) {
-					foreach ( rgar( $site_keys, 'keys' ) as $site_key ) {
-						$current_site_key_name = basename( $site_key['name'] );
-						if ( $current_site_key === $current_site_key_name ) {
+
+				$keys = rgar( $site_keys, 'keys' );
+				if ( ! empty( $keys ) ) {
+					$supported_types = $this->get_supported_enterprise_int_types();
+
+					foreach ( $keys as $site_key ) {
+						$type = rgars( $site_key, 'webSettings/integrationType' );
+						if ( ! array_key_exists( $type, $supported_types ) ) {
+							continue;
+						}
+
+						$key = basename( $site_key['name'] );
+
+						if ( $current_site_key === $key ) {
 							$is_site_key_selected = 'selected';
 						} else {
 							$is_site_key_selected = '';
 						}
 						$html .= sprintf(
-							'<option value="%1$s" data-site-key-display-name="%2$s" %3$s>%2$s</option>',
-							esc_attr( basename( $site_key['name'] ) ),
-							esc_attr( $site_key['displayName'] ),
-							$is_site_key_selected
+							'<option value="%1$s" data-site-key-display-name="%2$s" data-site-key-type="%4$s" %3$s>%2$s</option>',
+							esc_attr( $key ),
+							esc_attr( sprintf( '%s (%s)', $site_key['displayName'], $supported_types[ $type ] ) ),
+							$is_site_key_selected,
+							$type
 						);
 					}
 				}
+
 				$html .= '</select>';
 				echo '<div id="recaptcha-site-keys">' . $html . '</div>';
 			}
@@ -783,7 +824,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	}
 
 	/**
-	 * Add the recaptcha input to the form.
+	 * Add the input to the form for the score type reCAPTCHA key.
 	 *
 	 * @since 1.1
 	 *
@@ -882,12 +923,13 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * @since 1.0
 	 * @since 1.7.0 Separate methods for initialize enterprise and classic APIs.
 	 * @since 1.8.0 Added the optional $refresh_token param.
+	 * @since 2.2.0  Changed to public.
 	 *
 	 * @param bool $refresh_token Indicates if the auth token should be refreshed.
 	 *
 	 * @return bool
 	 */
-	private function initialize_api( $refresh_token = true ) {
+	public function initialize_api( $refresh_token = true ) {
 		static $result = null;
 
 		if ( is_bool( $result ) ) {
@@ -1093,7 +1135,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * @see GF_RECAPTCHA::init()
 	 */
 	public function maybe_enqueue_recaptcha_script() {
-		if ( ! $this->requires_recaptcha_script() ) {
+		if ( ! $this->requires_recaptcha_script() || ( $this->has_enterprise_checkbox_key() && ! $this->is_plugin_settings( $this->get_slug() ) ) ) {
 			return;
 		}
 
@@ -1134,21 +1176,15 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * Enqueues our frontend script that handles executing the external script and hiding the badge.
 	 *
 	 * @since 1.8.0
+	 * @since Removed the legacy script used by old GF versions.
 	 *
 	 * @return void
 	 */
 	private function enqueue_frontend_script() {
-		$frontend_script_name = version_compare( GFForms::$version, '2.9.0-dev-1', '<' ) ? 'frontend-legacy' : 'frontend';
-		$deps                 = array( "{$this->asset_prefix}recaptcha" );
-
-		if ( $frontend_script_name === 'frontend-legacy' ) {
-			$deps[] = 'jquery';
-		}
-
 		wp_enqueue_script(
-			$this->asset_prefix . $frontend_script_name,
-			$this->get_script_url( $frontend_script_name ),
-			$deps,
+			$this->asset_prefix . 'frontend',
+			$this->get_script_url( 'frontend' ),
+			array( "{$this->asset_prefix}recaptcha" ),
 			$this->_version,
 			$this->get_enqueue_script_args()
 		);
@@ -1176,13 +1212,22 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * submission.
 	 *
 	 * @since 1.8.0
+	 * @since 2.2.0 Updated to support checkbox type keys.
 	 */
 	private function enqueue_enterprise_recaptcha_script() {
-		$script_url = add_query_arg(
-			'render',
-			$this->plugin_settings->get_recaptcha_key( 'site_key_v3_enterprise' ),
-			'https://www.google.com/recaptcha/enterprise.js'
-		);
+		$type = $this->plugin_settings->get_recaptcha_key( 'site_key_type_v3_enterprise' );
+		$key  = $this->plugin_settings->get_recaptcha_key( 'site_key_v3_enterprise' );
+
+		if ( $type === 'CHECKBOX' ) {
+			$query_args = array(
+				'render' => 'explicit',
+				'onload' => 'gravityformsrecaptchaRenderCheckboxes',
+			);
+		} else {
+			$query_args = array( 'render' => $key );
+        }
+
+		$script_url = add_query_arg( $query_args, 'https://www.google.com/recaptcha/enterprise.js' );
 
 		wp_enqueue_script(
 			"{$this->asset_prefix}recaptcha",
@@ -1193,8 +1238,9 @@ class GF_RECAPTCHA extends GFAddOn {
 		);
 
 		$strings                    = $this->localize_script_common_strings();
-		$strings['site_key']        = $this->plugin_settings->get_recaptcha_key( 'site_key_v3_enterprise' );
+		$strings['site_key']        = $key;
 		$strings['connection_type'] = 'enterprise';
+		$strings['key_type']        = $type;
 		$strings['ajaxurl']         = admin_url( 'admin-ajax.php' );
 
 		wp_localize_script(
@@ -1407,7 +1453,13 @@ class GF_RECAPTCHA extends GFAddOn {
 		$this->log_debug( __METHOD__ . '(): Is submission considered spam? ' . ( $is_spam ? 'Yes.' : 'No.' ) );
 
 		if ( $is_spam ) {
-			GFCommon::set_spam_filter( absint( rgar( $form, 'id' ) ), $this->get_short_title(), '' );
+			// translators: %1$s: The reCAPTCHA score for the entry. %2$s: The threshold at the time the entry was marked as spam.
+			$reason = sprintf(
+				esc_html__( 'Score of %1$s is less than or equal to the threshold of %2$s.', 'gravityformsrecaptcha' ),
+				$this->get_score_from_entry( $entry ),
+				$this->get_spam_score_threshold( $form )
+			);
+			GFCommon::set_spam_filter( absint( rgar( $form, 'id' ) ), $this->get_short_title(), $reason );
 		}
 
 		return $is_spam;
@@ -1490,16 +1542,25 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * The score that determines whether the entry is spam.
 	 *
 	 * @since 1.0
+	 * @since 2.2.2 Added static caching.
 	 *
 	 * @return float
 	 */
 	private function get_spam_score_threshold( $form ) {
+		static $thresholds = array();
+
+		$form_id = absint( rgar( $form, 'id' ) );
+
+		if ( isset( $thresholds[ $form_id ] ) ) {
+			return $thresholds[ $form_id ];
+		}
+
 		$threshold = (float) $this->get_plugin_setting( 'score_threshold_v3' );
 		if ( empty( $threshold ) ) {
 			$threshold = 0.5;
 		}
 
-		$gform_recaptcha_spam_score_threshold_args = array( 'gform_recaptcha_spam_score_threshold', rgar( $form, 'id' ) );
+		$gform_recaptcha_spam_score_threshold_args = array( 'gform_recaptcha_spam_score_threshold', $form_id );
 		if ( gf_has_filter( $gform_recaptcha_spam_score_threshold_args ) ) {
 			$this->log_debug( __METHOD__ . '(): Executing functions hooked to gform_recaptcha_spam_score_threshold.' );
 			/**
@@ -1515,6 +1576,7 @@ class GF_RECAPTCHA extends GFAddOn {
 		}
 
 		$this->log_debug( __METHOD__ . '(): ' . $threshold );
+		$thresholds[ $form_id ] = $threshold;
 
 		return $threshold;
 	}
@@ -1554,12 +1616,17 @@ class GF_RECAPTCHA extends GFAddOn {
 	 *
 	 * @since 1.0
 	 * @since 2.1 Updated to skip validation if the form is already invalid, it's not the first or last page, or the honeypot failed validation.
+	 * @since 2.2.0 Updated to return early when using a checkbox type key.
 	 *
 	 * @param array $result The validation result, including the form.
 	 *
 	 * @return array
 	 */
 	public function validate_submission( $result ) {
+		if ( $this->has_enterprise_checkbox_key() ) {
+			return $result;
+		}
+
 		$form_id     = absint( rgars( $result, 'form/id' ) );
 		$source_page = (int) GFFormDisplay::get_source_page( $form_id );
 		$this->log_debug( __METHOD__ . sprintf( '(): Validating form (#%d; Page #%d) submission.', $form_id, $source_page ) );
@@ -1873,9 +1940,10 @@ class GF_RECAPTCHA extends GFAddOn {
 	/**
 	 * Get the Enterprise site keys with Ajax.
 	 *
-	 * @param string|null $project The Google Project ID.
-	 *
 	 * @since 1.7.0
+	 * @since 2.2.0 Updated to include the key type in the option label.
+	 *
+	 * @param string|null $project The Google Project ID.
 	 *
 	 * @return false|void
 	 */
@@ -1903,12 +1971,19 @@ class GF_RECAPTCHA extends GFAddOn {
 			wp_send_json_error( new WP_Error( 'google_recaptcha_error', wp_strip_all_tags( __( 'There was an error retrieving reCAPTHCA site keys.', 'gravityformsrecaptcha' ) ) ) );
 		}
 
-		$data = array();
+		$data            = array();
+		$supported_types = $this->get_supported_enterprise_int_types();
 
 		foreach ( $site_keys['keys'] as $site_key ) {
+			$type = rgars( $site_key, 'webSettings/integrationType' );
+			if ( ! array_key_exists( $type, $supported_types ) ) {
+				continue;
+			}
+
 			$data[] = array(
 				'value'       => basename( $site_key['name'] ),
-				'displayName' => $site_key['displayName'],
+				'displayName' => sprintf( '%s (%s)', $site_key['displayName'], $supported_types[ $type ] ),
+                'type'        => $type,
 			);
 		}
 
@@ -1919,6 +1994,7 @@ class GF_RECAPTCHA extends GFAddOn {
 	 * Update the plugin settings with the selected enterprise data.
 	 *
 	 * @since 1.7.0
+	 * @since 2.2.0 Updated to save the key type.
 	 *
 	 * @return void
 	 */
@@ -1926,15 +2002,21 @@ class GF_RECAPTCHA extends GFAddOn {
 
 		$this->verify_ajax_nonce();
 
+		if ( ! $this->current_user_can_any( $this->_capabilities_settings_page ) ) {
+			$this->log_debug( __METHOD__ . '(): Permissions for form settings not met.' );
+			wp_send_json_error( new WP_Error( 'google_recaptcha_error', wp_strip_all_tags( __( 'User does not have required permissions to setup reCAPTCHA.', 'gravityformsrecaptcha' ) ) ) );
+		}
+
 		$this->log_debug( __METHOD__ . '(): Saving reCAPTCHA Enterprise settings.' );
 		$updated_settings = array();
 
-		$updated_settings['project_number']         = sanitize_text_field( rgpost( 'project_number' ) );
-		$updated_settings['project_id']             = sanitize_text_field( rgpost( 'project_id' ) );
-		$updated_settings['site_key_v3_enterprise'] = sanitize_text_field( rgpost( 'site_key_v3_enterprise' ) );
-		$updated_settings['site_key_display_name']  = sanitize_text_field( rgpost( 'site_key_display_name' ) );
-		$updated_settings['score_threshold_v3']     = sanitize_text_field( rgpost( 'score_threshold_v3' ) );
-		$updated_settings['disable_badge_v3']       = rgpost( 'disable_badge_v3' ) === '1' ? '1' : '0';
+		$updated_settings['project_number']              = sanitize_text_field( rgpost( 'project_number' ) );
+		$updated_settings['project_id']                  = sanitize_text_field( rgpost( 'project_id' ) );
+		$updated_settings['site_key_v3_enterprise']      = sanitize_text_field( rgpost( 'site_key_v3_enterprise' ) );
+		$updated_settings['site_key_type_v3_enterprise'] = sanitize_text_field( rgpost( 'site_key_type_v3_enterprise' ) );
+		$updated_settings['site_key_display_name']       = sanitize_text_field( rgpost( 'site_key_display_name' ) );
+		$updated_settings['score_threshold_v3']          = sanitize_text_field( rgpost( 'score_threshold_v3' ) );
+		$updated_settings['disable_badge_v3']            = rgpost( 'disable_badge_v3' ) === '1' ? '1' : '0';
 
 		$this->update_plugin_settings( $updated_settings );
 
@@ -1996,5 +2078,133 @@ class GF_RECAPTCHA extends GFAddOn {
 		$this->add_note( $entry_id, $note );
 		$this->log_debug( __METHOD__ . sprintf( '(): Google notified that entry #%d (assessment ID: %s) was marked as %s.%s', $entry_id, $assessment_id, $action, ( $response ? ' Response: ' . print_r( $response, true ) : '' ) ) );
 	}
+
+	/**
+	 * Returns the Enterprise integration types the add-on supports, including their display labels.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @return array
+	 */
+	public function get_supported_enterprise_int_types() {
+		return array(
+			'SCORE'    => __( 'Score', 'gravityformsrecaptcha' ),
+			'CHECKBOX' => __( 'Checkbox', 'gravityformsrecaptcha' ),
+		);
+	}
+
+	/**
+	 * Determines if the add-on is configured to use an Enterprise checkbox key.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @return bool
+	 */
+	public function has_enterprise_checkbox_key() {
+		static $result = null;
+
+		if ( is_bool( $result ) ) {
+			return $result;
+		}
+
+		$result = false;
+
+		if ( $this->get_connection_type() !== 'enterprise' ) {
+			return false;
+		}
+
+		if ( ! $this->enterprise_keys_configured() ) {
+			return false;
+		}
+
+		$key_type = $this->plugin_settings->get_recaptcha_key( 'site_key_type_v3_enterprise' );
+		if ( $key_type === 'CHECKBOX' ) {
+			$result = true;
+		}
+
+		return $result;
+	}
+
+	/**
+	 * Moves or removes the reCAPTCHA fields (if needed) before the form is displayed or validated.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param array $form The form being rendered or validated.
+	 *
+	 * @return array
+	 */
+	public function maybe_adjust_form_fields( $form ) {
+		if ( ! GFCommon::form_has_fields( $form ) ) {
+			return $form;
+		}
+
+		$is_convo_form   = function_exists( 'is_conversational_form' ) && is_conversational_form( $form );
+		$remove_checkbox = ! $this->has_enterprise_checkbox_key();
+		$remove_v2       = $this->get_connection_type() !== 'v2';
+		$checkbox_field  = null;
+
+		foreach ( $form['fields'] as $key => $field ) {
+			if ( $field->type === 'recaptcha_checkbox' ) {
+				if ( $remove_checkbox || $is_convo_form ) {
+					$checkbox_field = $field;
+					unset( $form['fields'][ $key ] );
+				}
+
+				continue;
+			}
+
+			if ( $remove_v2 && $field->type === 'captcha' && ( empty( $field->captchaType ) || $field->captchaType === 'captcha' ) ) {
+				unset( $form['fields'][ $key ] );
+			}
+		}
+
+		// Ensure the checkbox field is the last field on a convo form.
+		if ( ! $remove_checkbox && $is_convo_form && $checkbox_field ) {
+			$form['fields'] = array_values( $form['fields'] );
+			$last_index     = count( $form['fields'] ) - 1;
+
+			if ( $last_index && isset( $form['fields'][ $last_index ] ) && $form['fields'][ $last_index ]->type === 'submit' ) {
+				array_splice( $form['fields'], $last_index, 0, array( $checkbox_field ) );
+			} else {
+				$form['fields'][] = $checkbox_field;
+			}
+		}
+
+		$form['fields'] = array_values( $form['fields'] );
+
+		return $form;
+	}
+
+	/**
+	 * Updates the settings page link in the sidebar message to link to the add-on settings page instead of the core settings page.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @param array     $message The message to be displayed in the form editor sidebar.
+	 * @param \GF_Field $field   The field the sidebar message belongs to.
+	 *
+	 * @return array
+	 */
+	public function filter_captcha_sidebar_message( $message, $field ) {
+		if ( $field->type !== 'captcha' || empty( $message['content'] ) ) {
+			return $message;
+		}
+
+		$message['content'] = str_replace( 'subview=recaptcha', 'subview=gravityformsrecaptcha', $message['content'] );
+
+		return $message;
+	}
+
+	/**
+	 * Returns the capability for the add-on settings page.
+	 *
+	 * @since 2.2.0
+	 *
+	 * @return string
+	 */
+	public function get_capabilities_settings_page() {
+		return $this->_capabilities_settings_page;
+    }
 
 }

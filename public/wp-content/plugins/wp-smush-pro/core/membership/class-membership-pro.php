@@ -95,4 +95,24 @@ class Membership_Pro extends Membership {
 
 		$this->is_pro = isset( $valid ) && 'valid' === $valid;
 	}
+
+	public function has_access_to_hub() {
+		if ( $this->is_pro() ) {
+			return true;
+		}
+
+		return parent::has_access_to_hub();
+	}
+
+	public function can_use_current_compression_level() {
+		if ( $this->is_pro() ) {
+			return true;
+		}
+
+		return parent::can_use_current_compression_level();
+	}
+
+	public function get_member_value( $value = true, $alt = null ) {
+		return $this->is_pro() ? $value : $alt;
+	}
 }

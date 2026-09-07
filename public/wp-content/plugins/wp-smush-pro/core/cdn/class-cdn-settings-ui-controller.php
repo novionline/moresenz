@@ -21,6 +21,7 @@ class CDN_Settings_Ui_Controller extends Controller {
 		$this->register_action( 'smush_setting_column_right_inside', array( $this, 'settings_notice' ), 20 );
 	}
 
+
 	/**
 	 * Add settings to settings array.
 	 *

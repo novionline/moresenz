@@ -68,7 +68,7 @@ class PLL_DOM_Document extends DOMDocument {
 		 * Hack to enforce that the string will be processed with the right encoding by DOMDocument.
 		 * The added processing instruction is then removed by contains_not_allowed_node().
 		 */
-		$html = '<?xml encoding="' . $encoding . '">' . $html;
+		$html = '<?xml encoding="' . $encoding . '" ?>' . $html;
 
 		$flags = ! empty( $flags ) ? $flags : LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD;
 
@@ -141,7 +141,7 @@ class PLL_DOM_Document extends DOMDocument {
 	 * @return bool
 	 */
 	public function contains_not_allowed_node() {
-		foreach ( $this->childNodes as $node ) {
+		foreach ( iterator_to_array( $this->childNodes ) as $node ) {
 			if ( ! $node instanceof DOMNode ) {
 				return true;
 			}
@@ -161,9 +161,14 @@ class PLL_DOM_Document extends DOMDocument {
 			}
 
 			if ( XML_PI_NODE === $node->nodeType ) {
-				$this->removeChild( $node ); // Remove our hacky <?xml node.
+				/* Remove our <?xml ?> node. */
+				$this->removeChild( $node );
+			} elseif ( XML_COMMENT_NODE === $node->nodeType && str_starts_with( (string) $node->nodeValue, '?xml' ) ) {
+				/* libxml 2.15.1+ converts our <?xml ?> node into a comment. */
+				$this->removeChild( $node );
 			}
 		}
+
 		return false;
 	}
 

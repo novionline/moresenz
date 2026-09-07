@@ -113,13 +113,10 @@ if ( ! function_exists( 'nectar_ssl_check' ) ) {
 
 if ( ! function_exists( 'nectar_option_isset' ) ) {
     function nectar_option_isset( $option ) {
-
-        if( isset($option) && ! empty($option) ) {
-            return true;
+        if ( class_exists( 'Nectar\Shared\Helpers' ) ) {
+            return \Nectar\Shared\Helpers::option_isset( $option );
         }
-
-        return false;
-
+        return isset( $option ) && ! empty( $option );
     }
 }
 

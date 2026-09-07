@@ -33,13 +33,16 @@ abstract class Abstract_Object extends Abstract_Translatable_Object {
 	/**
 	 * Returns the object translations.
 	 *
+	 * Cast to `stdClass` to ensure `json_encode` always returns a JSON object `{}`
+	 * rather than a JSON array `[]` when there are no translations.
+	 *
 	 * @since 2.2
 	 *
 	 * @param array $object Post or Term array.
-	 * @return array
+	 * @return object
 	 */
 	public function get_translations( $object ) {
-		return $this->model->{$this->get_type()}->get_translations( $this->get_rest_id( $object ) );
+		return (object) $this->model->{$this->get_type()}->get_translations( $this->get_rest_id( $object ) );
 	}
 
 	/**

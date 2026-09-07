@@ -145,7 +145,7 @@ class NectarBlocks_Customizer_Post_Types_Portfolio {
         'title' => esc_html__('Header Scroll Effect', 'nectar-blocks-theme'),
         'desc' => esc_html__('Globally define a scroll effect for your blog header.', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('None', 'nectar-blocks-theme'),
+          'default' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme'),
           'parallax' => esc_html__('Parallax', 'nectar-blocks-theme')
         ],
         'default' => 'parallax'
@@ -156,7 +156,7 @@ class NectarBlocks_Customizer_Post_Types_Portfolio {
         'title' => esc_html__('Portfolio Header Load In Animation', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
-          "none" => esc_html__("None", 'nectar-blocks-theme'),
+          "none" => esc_html_x("None", 'dropdown option: no value selected', 'nectar-blocks-theme'),
           "fade_in" => esc_html__("Fade In Staggered", 'nectar-blocks-theme'),
         ],
         'default' => 'none'

@@ -723,7 +723,7 @@ class Blocks {
     wp_localize_script('nectar-editor-global', 'nectar_i18n', $nectar_i18n_vars);
 
     $nectar_security = [
-      'token' => Nectar_Blocks_Options::get_options()['token']
+      'token' => Nectar_Blocks_Options::get_options()['token'] ?? '',
     ];
     wp_localize_script('nectar-editor-global', 'nectar_security', $nectar_security);
  }
@@ -820,7 +820,6 @@ class Blocks {
       'd' => true,
       'fill' => true,
       'stroke' => true,
-      'stroke-width' => true,
       'stroke-width' => true,
       'stroke-linecap' => true,
       'stroke-linejoin' => true,

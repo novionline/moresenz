@@ -57,15 +57,18 @@ class PLL_Sync_Post_REST {
 	}
 
 	/**
-	 * Returns the object synchronizations
+	 * Returns the object synchronizations.
+	 *
+	 * Cast to `stdClass` to ensure `json_encode` always returns a JSON object `{}`
+	 * rather than a JSON array `[]` when there are no synchronizations.
 	 *
 	 * @since 2.4
 	 *
 	 * @param array $object Array of post properties.
-	 * @return array
+	 * @return object
 	 */
 	public function get_synchronizations( $object ) {
-		return array_fill_keys( array_keys( $this->sync_model->get( $object['id'] ) ), true );
+		return (object) array_fill_keys( array_keys( $this->sync_model->get( $object['id'] ) ), true );
 	}
 
 	/**

@@ -2,10 +2,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
-"Report-Msgid-Bugs-To: admin@nectarblocks.com\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: \n"
-"Last-Translator: NectarBlocks <admin@nectarblocks.com>\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/nectar-blocks-theme\n"
+"POT-Creation-Date: 2026-05-13T05:14:51+00:00\n"
+"PO-Revision-Date: 2026-05-13 05:19+0000\n"
+"Last-Translator: Nectarblocks <admin@nectarblocks.com>\n"
 "Language-Team: \n"
 "Language: ko_KR\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Domain: nectar-blocks-theme\n"
-"X-Generator: Poedit 3.4.4\n"
+"X-Generator: WP-CLI 2.12.0\n"
 
 #. Theme Name of the theme
 #: style.css
@@ -32,8 +32,8 @@ msgid ""
 "Nectarblocks is a lightweight and modern WordPress theme designed for "
 "seamless compatibility with the Nectarblocks page builder plugin."
 msgstr ""
-"Nectarblocks는 Nectarblocks 페이지 빌더 플러그인과 완벽하게 호환되도록 설계된 가벼우면서 현대적인 워드프레스 "
-"테마입니다."
+"Nectarblocks는 Nectarblocks 페이지 빌더 플러그인과 완벽한 호환성을 제공하도록 설계된 가볍고 현대적인 "
+"WordPress 테마입니다."
 
 #. Author of the theme
 #: style.css
@@ -46,15 +46,15 @@ msgstr "404"
 
 #: 404.php:50
 msgid "Page Not Found"
-msgstr "페이지를 찾을 수 없습니다."
+msgstr "페이지를 찾을 수 없습니다"
 
 #: 404.php:53
 msgid "Back Home"
-msgstr "집으로 돌아오다"
+msgstr "홈으로 돌아가기"
 
 #: comments.php:20
 msgid "Join the discussion"
-msgstr "토론에 참여하세요."
+msgstr "토론에 참여하기"
 
 #: comments.php:20
 #: includes/partials/single-post/post-header-no-img-regular.php:103
@@ -68,7 +68,7 @@ msgstr "댓글 없음"
 #: includes/partials/single-post/post-header-no-img-regular.php:103
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "One Comment"
-msgstr "한 댓글"
+msgstr "댓글 1개"
 
 #: comments.php:20
 #: includes/partials/single-post/post-header-no-img-regular.php:103
@@ -76,65 +76,71 @@ msgstr "한 댓글"
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 #: nectar/helpers/page-header.php:542 nectar/helpers/page-header.php:557
 msgid "% Comments"
-msgstr "% 주석"
+msgstr "% 댓글"
 
 #: comments.php:53
-msgid "My comment is.."
-msgstr "내 댓글은.."
+msgid "My comment is"
+msgstr "내 댓글"
 
 #: comments.php:59
 msgid "Leave a Reply"
 msgstr "댓글 남기기"
 
-#: comments.php:60
-msgid "Leave a Reply to %s"
-msgstr "댓글을 남기세요 %s"
-
+#. translators: %s: comment author name
 #: comments.php:61
-msgid "Cancel Reply"
-msgstr "답장 취소"
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr "%s에게 댓글 남기기"
 
 #: comments.php:62
+msgid "Cancel Reply"
+msgstr "답글 취소"
+
+#: comments.php:63
 msgid "Submit Comment"
-msgstr "의견 제출"
+msgstr "댓글 작성"
 
-#: comments.php:68
+#. translators: %s: login URL
+#: comments.php:70
+#, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
-msgstr "댓글을 남기려면 <a href=\"%s\">로그인</a>해야 합니다."
+msgstr "댓글을 달기 위해서는 <a href=\"%s\">로그인</a>해야합니다."
 
-#: comments.php:74
+#. translators: 1: user profile URL, 2: user display name, 3: logout URL
+#: comments.php:77
+#, php-format
 msgid ""
 "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of "
 "this account\">Log out?</a>"
 msgstr ""
-"<a href=\"%1$s\">%2$s</a>으로 로그인되었습니다. <a href=\"%3$s\" title=\"이 계정에서 "
-"로그아웃\">로그아웃?</a>"
+"<a href=\"%1$s\">%2$s</a>로 로그인됨. <a href=\"%3$s\" title=\"이 계정에서 "
+"로그아웃\">로그아웃하시겠습니까?</a>"
 
-#: comments.php:92
+#: comments.php:95
 msgid "Name"
 msgstr "이름"
 
-#: comments.php:98
+#: comments.php:101
 msgid "Email"
 msgstr "이메일"
 
-#: comments.php:105
+#: comments.php:108
 msgid "Website"
 msgstr "웹사이트"
 
-#: comments.php:110
+#: comments.php:113
 msgid ""
 "Save my name, email, and website in this browser for the next time I "
 "comment."
-msgstr "다음에 댓글을 남길 때를 위해 내 이름, 이메일, 웹사이트를 이 브라우저에 저장합니다."
+msgstr "다음 번 댓글 작성을 위해 이 브라우저에 이름, 이메일, 그리고 웹사이트를 저장합니다."
 
-#: css/custom.php:5863
+#: css/custom.php:5883
 #: includes/partials/single-post/author-bio-ascend-skin.php:35
 msgid "Author"
-msgstr "저자"
+msgstr "작성자"
 
 #: includes/header-search.php:38 includes/header-search.php:44
-#: searchform.php:15
+#: searchform.php:14 searchform.php:15
 msgid "Search"
 msgstr "검색"
 
@@ -146,78 +152,82 @@ msgstr "검색 닫기"
 msgid "Back to top"
 msgstr "맨 위로"
 
-#: includes/partials/footer/off-canvas-navigation.php:74
-msgid "Back"
-msgstr "뒤로"
-
-#: includes/partials/footer/off-canvas-navigation.php:91
+#: includes/partials/footer/off-canvas-navigation.php:53
 msgid "Close Menu"
 msgstr "메뉴 닫기"
 
+#: includes/partials/footer/off-canvas-navigation.php:78
+msgid "Back"
+msgstr "뒤로"
+
 #: includes/partials/header/header-menu.php:106
-#: includes/partials/header/header-menu.php:153 nectar/helpers/header.php:1341
+#: includes/partials/header/header-menu.php:153 nectar/helpers/header.php:1361
 msgid "Navigation Menu"
-msgstr "내비게이션 메뉴"
+msgstr "탐색 메뉴"
 
 #: includes/partials/header/header-menu.php:108
 #: includes/partials/header/header-menu.php:110
 #: includes/partials/header/header-menu.php:155
 #: includes/partials/header/header-menu.php:158
-#: nectar/helpers/enqueue-scripts.php:191 nectar/helpers/header.php:1332
-#: nectar/helpers/header.php:1336 nectar/helpers/header.php:1382
-#: nectar/helpers/header.php:1386
+#: nectar/helpers/enqueue-scripts.php:191 nectar/helpers/header.php:1352
+#: nectar/helpers/header.php:1356 nectar/helpers/header.php:1402
+#: nectar/helpers/header.php:1406
 msgid "Menu"
 msgstr "메뉴"
 
-#: includes/partials/header/header-menu.php:128 nectar/helpers/header.php:1396
+#: includes/partials/header/header-menu.php:128 nectar/helpers/header.php:1416
 msgid "search"
 msgstr "검색"
 
-#: includes/partials/header/header-menu.php:134 nectar/helpers/header.php:1400
+#: includes/partials/header/header-menu.php:134 nectar/helpers/header.php:1420
 msgid "account"
 msgstr "계정"
 
 #: includes/partials/header/woo-slide-in-cart.php:49
 #: nectar/helpers/woocommerce.php:736
 msgid "Cart"
-msgstr "카트"
+msgstr "장바구니"
 
 #: includes/partials/header/woo-slide-in-cart.php:49
 msgid "Close Cart"
 msgstr "장바구니 닫기"
 
-#: includes/partials/single-post/author-bio-ascend-skin.php:35
-msgid "About"
-msgstr "대하여"
-
-#: includes/partials/single-post/author-bio.php:51
-msgid "More posts by"
-msgstr "더 많은 게시물 by"
-
 #: includes/partials/single-portfolio/post-content.php:20
 #: includes/partials/single-post/post-content.php:71
 msgid "Read More"
-msgstr "더 읽기"
+msgstr "더 보기"
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:56
+#: includes/partials/single-portfolio/post-meta-fields.php:42
+msgid "View Project"
+msgstr "프로젝트 보기"
+
+#: includes/partials/single-post/author-bio-ascend-skin.php:35
+msgid "About"
+msgstr "정보"
+
+#: includes/partials/single-post/author-bio.php:51
+msgid "More posts by"
+msgstr "작성자의 다른 글 더 보기"
+
+#. translators: %s: category name
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:57
+#, php-format
 msgid "View all posts in %s"
-msgstr "모든 게시물 보기"
+msgstr "%s의 모든 글 보기"
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:77
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:84
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:78
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:85
 #: includes/partials/single-post/post-header-no-img-regular.php:87
 #: includes/partials/single-post/post-header-no-img-regular.php:93
 #: includes/partials/single-post/post-meta-fields.php:46
 #: nectar/helpers/page-header.php:498 nectar/helpers/page-header.php:532
 msgid "F jS, Y"
-msgstr "F jS, Y -> Y년 M월 D일"
+msgstr "Y년 n월 j일"
 
 #: includes/partials/single-post/post-header-no-img-regular.php:79
 #: nectar/helpers/page-header.php:519
 msgid "By"
-msgstr ""
-"By\n"
-"으로"
+msgstr "작성자"
 
 #: includes/partials/single-post/post-header-no-img-regular.php:107
 #: includes/partials/single-post/post-meta-fields.php:55
@@ -228,7 +238,7 @@ msgstr "분 읽기"
 #: includes/partials/single-post/post-header-no-img-regular.php:117
 #: includes/partials/single-post/post-meta-bar-ascend-skin.php:41
 msgid "One Comment "
-msgstr "한 댓글"
+msgstr "댓글 1개"
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:91 search.php:81
 msgid "Blog Post"
@@ -240,22 +250,20 @@ msgstr "페이지"
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:99
 msgid "Portfolio Item"
-msgstr "포트폴리오 항목"
+msgstr "포트폴리오 아이템"
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:116
 #: search.php:137
 msgid "Product"
-msgstr "제품"
+msgstr "상품"
 
 #: nectar/customizer/nectar-blocks-customizer.php:391
 msgid "To"
-msgstr ""
-"To\n"
-"한국어: ~에"
+msgstr "끝"
 
 #: nectar/customizer/nectar-blocks-customizer.php:392
 msgid "From"
-msgstr "에서"
+msgstr "시작"
 
 #: nectar/customizer/panels/accent-colors.php:125
 #: nectar/customizer/panels/general-settings.php:312
@@ -264,11 +272,11 @@ msgstr "성능"
 
 #: nectar/customizer/panels/before-panels.php:25
 msgid "Nectarblocks Options"
-msgstr "넥터블록 옵션"
+msgstr "Nectarblocks 옵션"
 
 #: nectar/customizer/panels/core.php:25
 msgid "WordPress / Plugin Options"
-msgstr "워드프레스 / 플러그인 옵션"
+msgstr "WordPress / 플러그인 옵션"
 
 #: nectar/customizer/panels/general-settings.php:37
 msgid "General Settings"
@@ -276,28 +284,28 @@ msgstr "일반 설정"
 
 #: nectar/customizer/panels/general-settings.php:65
 msgid "Theme Background Color"
-msgstr "테마 배경 색"
+msgstr "테마 배경색"
 
 #: nectar/customizer/panels/general-settings.php:76
 msgid "Theme Accent Color"
-msgstr "테마 강조 색"
+msgstr "테마 강조 색상"
 
 #: nectar/customizer/panels/general-settings.php:77
 msgid "learn more about color schemes in the"
-msgstr "더 많은 정보를 얻으려면 색 구성에 대해 배워보세요."
+msgstr "색상 구성표에 대해 더 자세히 알아보기"
 
 #: nectar/customizer/panels/general-settings.php:77
 msgid "documentation"
-msgstr "문서화"
+msgstr "문서"
 
 #: nectar/customizer/panels/general-settings.php:85
 msgid "Theme Accent Text Color"
-msgstr "테마 악센트 텍스트 색상"
+msgstr "테마 강조 텍스트 색상"
 
 #: nectar/customizer/panels/general-settings.php:86
 msgid ""
 "Used for text overlaying the accent color on buttons and notifications."
-msgstr "버튼과 알림에 대비 색상으로 텍스트 오버레이에 사용됩니다."
+msgstr "버튼과 알림의 강조색 위에 표시되는 텍스트에 사용됩니다."
 
 #: nectar/customizer/panels/general-settings.php:95
 msgid "Button Styling"
@@ -305,7 +313,7 @@ msgstr "버튼 스타일링"
 
 #: nectar/customizer/panels/general-settings.php:96
 msgid "This will effect the overall styling of buttons"
-msgstr "이것은 버튼의 전반적인 스타일링에 영향을 미칠 것입니다."
+msgstr "버튼의 전반적인 스타일에 영향을 미칩니다"
 
 #: nectar/customizer/panels/general-settings.php:98
 #: nectar/customizer/panels/general-settings.php:127
@@ -313,8 +321,8 @@ msgstr "이것은 버튼의 전반적인 스타일링에 영향을 미칠 것입
 #: nectar/customizer/panels/general-settings.php:437
 #: nectar/customizer/panels/layout.php:754
 #: nectar/customizer/panels/layout.php:866
-#: nectar/customizer/panels/layout.php:1003
-#: nectar/customizer/panels/layout.php:1081
+#: nectar/customizer/panels/layout.php:1038
+#: nectar/customizer/panels/layout.php:1117
 #: nectar/customizer/panels/post-types/blog.php:166
 #: nectar/customizer/panels/post-types/blog.php:239
 #: nectar/customizer/panels/post-types/blog.php:326
@@ -325,19 +333,31 @@ msgstr "이것은 버튼의 전반적인 스타일링에 영향을 미칠 것입
 #: nectar/customizer/panels/post-types/woocommerce.php:272
 #: nectar/meta/category-meta.php:117 nectar/meta/category-meta.php:137
 msgid "Default"
-msgstr "기본 설정"
+msgstr "기본값"
 
 #: nectar/customizer/panels/general-settings.php:99
 msgid "Slightly Rounded"
 msgstr "약간 둥근"
 
+#: nectar/customizer/panels/general-settings.php:100
+msgid "Slightly Rounded Shadow"
+msgstr "약간 둥근 그림자"
+
 #: nectar/customizer/panels/general-settings.php:101
 msgid "Rounded"
-msgstr "둥근"
+msgstr "둥근 모양"
+
+#: nectar/customizer/panels/general-settings.php:102
+msgid "Rounded Shadow"
+msgstr "둥근 그림자"
+
+#: nectar/customizer/panels/general-settings.php:103
+msgid "Rounded Reveal"
+msgstr "둥근 나타내기"
 
 #: nectar/customizer/panels/general-settings.php:110
 msgid "Button Roundness"
-msgstr "버튼 둥근 정도"
+msgstr "버튼 둥글기"
 
 #: nectar/customizer/panels/general-settings.php:116
 msgid "Fine-tune the rounded edges of your buttons."
@@ -345,7 +365,7 @@ msgstr "버튼의 둥근 모서리를 미세 조정하세요."
 
 #: nectar/customizer/panels/general-settings.php:124
 msgid "Animated Underline Type"
-msgstr "애니메이션된 밑줄 타입"
+msgstr "애니메이션 밑줄 유형"
 
 #: nectar/customizer/panels/general-settings.php:125
 msgid ""
@@ -353,24 +373,24 @@ msgid ""
 "hovering over. This option allows you to globally fine-tune the styling of "
 "that line."
 msgstr ""
-"Nectar Blocks의 다양한 요소는 마우스를 올리면 애니메이션으로 밑줄이 표시됩니다. 이 옵션을 사용하면 해당 줄의 스타일을 "
-"전역적으로 세밀"
+"Nectar Blocks의 다양한 요소들은 마우스를 올렸을 때 밑줄 애니메이션이 표시됩니다. 이 옵션을 통해 해당 밑줄의 스타일을 "
+"전역적으로 세부 조정할 수 있습니다."
 
 #: nectar/customizer/panels/general-settings.php:128
 msgid "Left to Right Simple"
-msgstr "왼쪽에서 오른쪽으로 간단합니다."
+msgstr "왼쪽에서 오른쪽 단순"
 
 #: nectar/customizer/panels/general-settings.php:129
 msgid "Left to Right Fancy"
-msgstr "왼쪽에서 오른쪽으로 팬시"
+msgstr "왼쪽에서 오른쪽으로 화려하게"
 
 #: nectar/customizer/panels/general-settings.php:136
 msgid "Animated Underline Thickness"
-msgstr "애니메이션된 밑줄 두께"
+msgstr "애니메이션 밑줄 두께"
 
 #: nectar/customizer/panels/general-settings.php:166
 msgid "Theme Font Color"
-msgstr "테마 글꼴 색"
+msgstr "테마 폰트 색상"
 
 #: nectar/customizer/panels/general-settings.php:179
 #: nectar/customizer/panels/post-types/blog.php:144
@@ -385,7 +405,15 @@ msgstr "부드러운 스크롤링"
 msgid ""
 "Toggle whether or not to enable smooth scrolling for browsers which support "
 "it."
-msgstr "부드러운 스크롤링을 지원하는 브라우저에 대해 활성화 여부를 전환하십시오."
+msgstr "브라우저에서 지원하는 경우 부드러운 스크롤링 기능을 활성화할지 여부를 전환합니다."
+
+#: nectar/customizer/panels/general-settings.php:200
+msgid "Smooth Scroll Strength"
+msgstr "스크롤 부드러움 강도"
+
+#: nectar/customizer/panels/general-settings.php:201
+msgid "Controls the intensity of the smooth scrolling effect."
+msgstr "부드러운 스크롤 효과의 강도를 조절합니다."
 
 #: nectar/customizer/panels/general-settings.php:213
 msgid "Meta Viewport Functionality"
@@ -395,27 +423,28 @@ msgstr "메타 뷰포트 기능"
 msgid ""
 "Determines whether browser zooming/scaling is enabled or disabled. Enabling "
 "this will improve accessibility for users with low vision."
-msgstr "브라우저 줌/스케일링이 활성화되었는지 비활성화되었는지 확인합니다. 이를 활성화하면 시각 장애가 있는 사용자들에 대한 접"
+msgstr ""
+"브라우저 확대/축소 기능의 활성화 여부를 결정합니다. 이 기능을 활성화하면 시력이 좋지 않은 사용자를 위한 접근성이 향상됩니다."
 
 #: nectar/customizer/panels/general-settings.php:224
 msgid "Max Website Container Width"
-msgstr "웹사이트 컨테이너 최대 너비"
+msgstr "웹사이트 최대 컨테이너 너비"
 
 #: nectar/customizer/panels/general-settings.php:225
 msgid ""
 "Your container will scale to a maximum width of 1425px, use this option if "
 "you'd like to increase that value."
-msgstr "컨테이너는 최대 너비 1425px까지 확장됩니다. 이 값을 더 늘리고 싶다면 이 옵션을 사용하세요."
+msgstr "컨테이너의 최대 너비가 1425px까지 확장됩니다. 이 값을 늘리고 싶다면 이 옵션을 사용하세요."
 
 #: nectar/customizer/panels/general-settings.php:236
 msgid "Container Left/Right Padding"
-msgstr "컨테이너 왼쪽/오른쪽 안쪽 여백"
+msgstr "컨테이너 좌/우 패딩"
 
 #: nectar/customizer/panels/general-settings.php:237
 msgid ""
 "The main content container will have 90px of padding set on left and right, "
 "use this option if you'd like to modify that."
-msgstr "주요 콘텐츠 컨테이너는 왼쪽과 오른쪽에 90px의 패딩이 설정됩니다. 이 옵션을 사용하여 수정하고 싶다면 사용하세요."
+msgstr "메인 콘텐츠 컨테이너의 좌우 패딩이 90px로 설정됩니다. 이 값을 수정하고 싶으시다면 이 옵션을 사용하세요."
 
 #: nectar/customizer/panels/general-settings.php:251
 #: nectar/customizer/panels/post-types/blog.php:696
@@ -424,27 +453,27 @@ msgstr "기능"
 
 #: nectar/customizer/panels/general-settings.php:264
 msgid "Delay Javascript Execution"
-msgstr "자바스크립트 실행을 지연하세요."
+msgstr "Javascript 실행 지연"
 
 #: nectar/customizer/panels/general-settings.php:265
 msgid ""
 "Prevents theme javascript from running until the user makes an interaction "
 "such as scrolling, tapping etc."
-msgstr "사용자가 스크롤하거나 탭하는 등 상호 작용을 할 때까지 테마 자바스크립트가 실행되지 않도록 합니다."
+msgstr "스크롤, 탭 등 사용자의 상호작용이 있을 때까지 테마의 자바스크립트 실행을 중단합니다."
 
 #: nectar/customizer/panels/general-settings.php:272
 msgid "Devices to Activate \"Delay Javascript\" Logic"
-msgstr "\"지연 Javascript\" 로직을 활성화하는 장치"
+msgstr "\"Delay Javascript\" 로직을 활성화할 디바이스"
 
 #: nectar/customizer/panels/general-settings.php:273
 msgid ""
 "If you are using a performance plugin that caches your pages, this will need"
 " to be set to \"All Devices\" in order to take effect."
-msgstr "페이지를 캐시하는 성능 플러그인을 사용 중이라면, 이를 적용하려면 \"모든 기기\"로 설정해야 합니다."
+msgstr "페이지를 캐시하는 성능 플러그인을 사용하는 경우, 효과가 적용되려면 \"모든 기기\"로 설정해야 합니다."
 
 #: nectar/customizer/panels/general-settings.php:276
 msgid "All Devices"
-msgstr "모든 장치"
+msgstr "모든 디바이스"
 
 #: nectar/customizer/panels/general-settings.php:277
 msgid "Mobile"
@@ -452,36 +481,34 @@ msgstr "모바일"
 
 #: nectar/customizer/panels/general-settings.php:284
 msgid "Move jQuery to Footer"
-msgstr "jQuery를 푸터로 이동하기"
+msgstr "jQuery를 바닥글로 이동"
 
 #: nectar/customizer/panels/general-settings.php:285
 msgid ""
 "Attempts to move jQuery to the footer to make it non render-blocking. Note "
 "that this can break third party plugins/scripts which require JavaScript to "
 "be loaded in the head."
-msgstr ""
-"jQuery를 푸터로 이동하여 렌더링 차단을 방지하려는 시도입니다. 헤드에 로드된 JavaScript를 필요로 하는 서드 파티 "
-"플러그인/스크립"
+msgstr "jQuery를 렌더 차단 없이 로드하기 위해 바닥글로 이동을 시도합니다. 이는 JavaScript가 &lt;head&gt;에 로드되어야 하는 서드파티 플러그인/스크립트가 작동하지 않을 수 있으니 주의하세요."
 
 #: nectar/customizer/panels/general-settings.php:293
 msgid "Font Display Swap"
-msgstr "폰트 디스플레이 스왑"
+msgstr "글꼴 디스플레이 스왑"
 
 #: nectar/customizer/panels/general-settings.php:294
 msgid ""
 "This is a font performance option which will your allow text to display in a"
 " default font before Google fonts have loaded."
-msgstr "이것은 구글 폰트가 로드되기 전에 기본 폰트로 텍스트를 표시할 수 있게 해주는 폰트 성능 옵션입니다."
+msgstr "이것은 Google 폰트가 로드되기 전에 텍스트를 기본 폰트로 표시할 수 있게 하는 폰트 성능 옵션입니다."
 
 #: nectar/customizer/panels/general-settings.php:302
 msgid "Remove WordPress Emoji Script/CSS"
-msgstr "워드프레스 이모지 스크립트/CSS 제거하기"
+msgstr "WordPress 이모지 스크립트/CSS 제거"
 
 #: nectar/customizer/panels/general-settings.php:303
 msgid ""
 "Removes the WordPress Emoji assets which automatically convert emoticons to "
 "WP specific emojis."
-msgstr "워드프레스 이모지 자산을 제거하여 이모티콘을 자동으로 WP 특정 이모지로 변환하지 않습니다."
+msgstr "WordPress 이모지 자산을 제거하여 이모티콘이 WordPress 전용 이모지로 자동 변환되는 것을 방지합니다."
 
 #: nectar/customizer/panels/general-settings.php:324
 msgid "Accent Color"
@@ -489,7 +516,7 @@ msgstr "강조 색상"
 
 #: nectar/customizer/panels/general-settings.php:325
 msgid "Change this color to alter the accent color globally for your site."
-msgstr "이 색상을 변경하여 사이트 전역에서 강조 색상을 조정하세요."
+msgstr "사이트 전체의 강조색을 변경하려면 이 색상을 수정하세요."
 
 #: nectar/customizer/panels/general-settings.php:333
 msgid "Accent Color #2"
@@ -497,145 +524,201 @@ msgstr "강조 색상 #2"
 
 #: nectar/customizer/panels/general-settings.php:343
 msgid "Color Scheme"
-msgstr "색 구성"
+msgstr "색상 구성표"
 
 #: nectar/customizer/panels/general-settings.php:355
 msgid "Overall Form Style"
-msgstr "전반적인 형식 스타일"
+msgstr "전체 폼 스타일"
 
 #: nectar/customizer/panels/general-settings.php:356
 msgid "Sets the style of all form elements used."
-msgstr "모든 사용된 폼 요소의 스타일을 설정합니다."
+msgstr "사용된 모든 폼 요소의 스타일을 설정합니다."
 
 #: nectar/customizer/panels/general-settings.php:357
 msgid ""
 "If you're trying to get third party forms to display without any styling "
 "from NectarBlocks, simply select the"
-msgstr "만약 NectarBlocks에서 스타일링 없이 서드 파티 폼을 표시하려고 한다면, 단순히 선택하세요."
+msgstr "NectarBlocks의 스타일 적용 없이 타사 폼을 표시하려면 다음을 선택하세요"
 
 #: nectar/customizer/panels/general-settings.php:357
 #: nectar/customizer/panels/general-settings.php:359
 #: nectar/customizer/panels/layout.php:713 build/customizer.js:1
 msgid "Inherit"
-msgstr "상속하다"
+msgstr "상속"
 
 #: nectar/customizer/panels/general-settings.php:357
 msgid "option."
-msgstr "옵션."
+msgstr "옵션"
 
 #: nectar/customizer/panels/general-settings.php:360
 #: nectar/customizer/panels/post-types/blog.php:632
 msgid "Minimal"
-msgstr "최소한"
+msgstr "미니멀"
 
 #: nectar/customizer/panels/general-settings.php:368
 msgid "Enable Fancy Select Styling"
-msgstr "화려한 선택 스타일링을 활성화하세요."
+msgstr "Fancy Select 스타일링 활성화"
 
 #: nectar/customizer/panels/general-settings.php:369
 msgid ""
 "This will add additional styling and functionality to your select (dropdown)"
 " elements."
-msgstr "이것은 선택(드롭다운) 요소에 추가적인 스타일링과 기능을 추가할 것입니다."
+msgstr "select(드롭다운) 요소에 추가적인 스타일과 기능이 적용됩니다."
 
 #: nectar/customizer/panels/general-settings.php:377
 msgid "Form Submit Button Style"
-msgstr "양식 제출 버튼 스타일"
+msgstr "Form 제출 버튼 스타일"
 
 #: nectar/customizer/panels/general-settings.php:378
 msgid ""
 "Select your desired style which will be used for submit buttons throughout "
 "your site"
-msgstr "사이트 전체에서 제출 버튼에 사용될 원하는 스타일을 선택하세요."
+msgstr "사이트 전체에서 사용될 제출 버튼의 스타일을 선택하세요"
 
 #: nectar/customizer/panels/general-settings.php:382
 msgid "Nectar Btn"
-msgstr "넥터 버튼"
+msgstr "넥타 버튼"
 
 #: nectar/customizer/panels/general-settings.php:383
 msgid "Nectar Btn See Through"
-msgstr "넥터 버튼 투명하기"
+msgstr "투명 버튼"
 
 #: nectar/customizer/panels/general-settings.php:390
 msgid "Form Submit Button Padding"
-msgstr "양식 제출 버튼 간격"
+msgstr "Form Submit 버튼 패딩"
 
 #: nectar/customizer/panels/general-settings.php:391
 msgid "Fine-tune form submit button padding."
-msgstr "폼 제출 버튼의 간격을 조정하세요."
+msgstr "폼 제출 버튼의 패딩을 미세 조정합니다."
 
 #: nectar/customizer/panels/general-settings.php:398
 #: nectar/customizer/panels/general-settings.php:427
 msgid "Padding Top/Bottom"
-msgstr "위/아래 여백"
+msgstr "상하 여백"
 
 #: nectar/customizer/panels/general-settings.php:399
 #: nectar/customizer/panels/general-settings.php:428
 msgid "Padding Left/Right"
-msgstr "왼쪽/오른쪽 여백"
+msgstr "좌/우 패딩"
 
 #: nectar/customizer/panels/general-settings.php:406
 msgid "Form Input Field Text Size"
-msgstr "양식 입력 필드 텍스트 크기"
+msgstr "폼 입력 필드 텍스트 크기"
 
 #: nectar/customizer/panels/general-settings.php:407
 msgid "Alters the font size for form input field/textarea elements."
-msgstr "폼 입력 필드/텍스트 영역 요소의 글꼴 크기를 변경합니다."
+msgstr "form input field/textarea 요소의 글꼴 크기를 변경합니다."
 
 #: nectar/customizer/panels/general-settings.php:418
 msgid "Form Input Field Padding"
-msgstr "입력 필드 패딩"
+msgstr "Form Input Field 패딩"
 
 #: nectar/customizer/panels/general-settings.php:419
 msgid "Fine-tune form input fields/textarea element padding."
-msgstr "입력 필드/텍스트 영역 패딩을 세밀하게 조정하십시오."
+msgstr "form input field/textarea 요소의 패딩을 미세 조정합니다."
 
 #: nectar/customizer/panels/general-settings.php:435
 msgid "Form Input Border Width"
-msgstr "입력 양식 테두리 너비"
+msgstr "Form Input 테두리 두께"
 
 #: nectar/customizer/panels/general-settings.php:438
 #: nectar/customizer/panels/post-types/woocommerce.php:274
 msgid "1px"
-msgstr "1픽셀"
+msgstr "1px"
 
 #: nectar/customizer/panels/general-settings.php:439
 #: nectar/customizer/panels/post-types/woocommerce.php:275
 msgid "2px"
-msgstr "2픽셀"
+msgstr "2px"
 
 #: nectar/customizer/panels/general-settings.php:440
 #: nectar/customizer/panels/post-types/woocommerce.php:276
 msgid "3px"
-msgstr "3픽셀"
+msgstr "3px"
 
 #: nectar/customizer/panels/general-settings.php:448
 msgid "Form Input BG Color"
-msgstr "입력 양식 배경색"
+msgstr "Form Input 배경색"
 
 #: nectar/customizer/panels/general-settings.php:456
 msgid "Form Input Text Color"
-msgstr "양식 입력 텍스트 색깔"
+msgstr "폼 입력 텍스트 색상"
 
 #: nectar/customizer/panels/general-settings.php:464
 msgid "Form Input Border Color"
-msgstr "양식 입력 테두리 색"
+msgstr "Form Input 테두리 색상"
 
 #: nectar/customizer/panels/general-settings.php:472
 msgid "Form Input Border Hover Color"
-msgstr "입력 양식 테두리 호버 색상"
+msgstr "Form Input 테두리 호버 색상"
 
 #: nectar/customizer/panels/general-settings.php:480
 msgid "Form Input Border Focus Color"
-msgstr "폼 입력 경계 포커스 색"
+msgstr "Form Input 테두리 포커스 색상"
 
 #: nectar/customizer/panels/general-settings.php:490
 msgid "Form Styling"
-msgstr "양식 스타일링"
+msgstr "폼 스타일링"
+
+#: nectar/customizer/panels/general-settings.php:502
+#: nectar/customizer/panels/general-settings.php:543
+msgid "Page Transitions"
+msgstr "페이지 전환"
+
+#: nectar/customizer/panels/general-settings.php:503
+msgid ""
+"Enhance your site with the modern \"View Transitions API\" as a progressive "
+"enhancement. This cutting-edge web technology enables smoother page "
+"transitions. See"
+msgstr ""
+"프로그레시브 향상 기능으로 최신 \"View Transitions API\"를 통해 사이트를 개선하세요. 이 최첨단 웹 기술로 더 "
+"부드러운 페이지 전환이 가능합니다. 보기"
+
+#: nectar/customizer/panels/general-settings.php:503
+msgid "which browsers support it."
+msgstr "지원되는 브라우저 정보."
+
+#: nectar/customizer/panels/general-settings.php:509
+msgid "Transition Effect"
+msgstr "전환 효과"
+
+#: nectar/customizer/panels/general-settings.php:513
+msgid "Cross Fade"
+msgstr "크로스 페이드"
+
+#: nectar/customizer/panels/general-settings.php:514
+msgid "Fade"
+msgstr "페이드"
+
+#: nectar/customizer/panels/general-settings.php:515
+msgid "Gradient Fade"
+msgstr "그라데이션 페이드"
+
+#: nectar/customizer/panels/general-settings.php:516
+msgid "Push Reveal"
+msgstr "푸시 리빌"
+
+#: nectar/customizer/panels/general-settings.php:523
+msgid "Transition BG Color"
+msgstr "전환 배경색"
+
+#: nectar/customizer/panels/general-settings.php:527
+msgid "Some effects will show this color during the transition."
+msgstr "전환 효과가 진행되는 동안 이 색상이 표시됩니다."
+
+#: nectar/customizer/panels/general-settings.php:533
+msgid "Enable on Mobile"
+msgstr "모바일에서 활성화"
+
+#: nectar/customizer/panels/general-settings.php:534
+msgid ""
+"Some mobile devices may struggle to handle page transitions, especially when"
+" heavy block animations are involved."
+msgstr "특히 무거운 블록 애니메이션이 포함된 경우, 일부 모바일 기기에서 페이지 전환이 원활하지 않을 수 있습니다."
 
 #: nectar/customizer/panels/general-wordpress-settings.php:25
 msgid "General WordPress Pages"
-msgstr "일반 워드프레스 페이지"
+msgstr "WordPress 일반 페이지"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:49
 #: nectar/customizer/panels/layout.php:25
@@ -644,11 +727,11 @@ msgstr "레이아웃"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:50
 msgid "The layout for your search results."
-msgstr "검색 결과의 레이아웃."
+msgstr "검색 결과의 레이아웃입니다."
 
 #: nectar/customizer/panels/general-wordpress-settings.php:52
 msgid "Grid & Sidebar"
-msgstr "그리드 및 사이드바"
+msgstr "Grid & 사이드바"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:53
 msgid "Grid No Sidebar"
@@ -656,7 +739,7 @@ msgstr "사이드바 없는 그리드"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:54
 msgid "List & Sidebar"
-msgstr "목록 및 사이드바"
+msgstr "목록 & 사이드바"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:55
 msgid "List No Sidebar"
@@ -668,11 +751,11 @@ msgstr "헤더 배경색"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:71
 msgid "Header Font Color"
-msgstr "헤더 글꼴 색"
+msgstr "헤더 폰트 색상"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:72
 msgid "Default is #000000"
-msgstr "기본값은 #000000입니다."
+msgstr "기본값은 #000000입니다"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:79
 msgid "Header Background Image"
@@ -681,7 +764,7 @@ msgstr "헤더 배경 이미지"
 #: nectar/customizer/panels/general-wordpress-settings.php:80
 msgid ""
 "Upload an optional background that will be used on your search results page"
-msgstr "검색 결과 페이지에 사용할 선택적 배경을 업로드하세요."
+msgstr "검색 결과 페이지에 사용될 선택적 배경 이미지를 업로드하세요"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:88
 msgid "Search Results Template"
@@ -689,11 +772,11 @@ msgstr "검색 결과 템플릿"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:100
 msgid "Background Color"
-msgstr "배경 색"
+msgstr "배경 색상"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:105
 msgid "Font Color"
-msgstr "글꼴 색"
+msgstr "글자 색상"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:110
 msgid "Background Image"
@@ -701,30 +784,30 @@ msgstr "배경 이미지"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:111
 msgid "Upload an optional background that will be used on the 404 page"
-msgstr "404 페이지에 사용될 선택적 배경을 업로드하세요."
+msgstr "404 페이지에 사용될 선택적 배경 이미지 업로드"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:116
 msgid "Background Overlay Color"
-msgstr "배경 오버레이 색"
+msgstr "배경 오버레이 색상"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:117
 msgid ""
 "If you would like a color to overlay your background image, select it here."
-msgstr "배경 이미지에 오버레이할 색상을 선택하려면 여기를 클릭하세요."
+msgstr "배경 이미지 위에 색상을 오버레이하려면 여기에서 선택하세요."
 
 #: nectar/customizer/panels/general-wordpress-settings.php:122
 msgid "Add Button To Direct User Home"
-msgstr "사용자를 홈페이지로 이동시키는 버튼 추가하기"
+msgstr "사용자를 홈으로 이동시키는 버튼 추가"
 
 #: nectar/customizer/panels/general-wordpress-settings.php:123
 msgid ""
 "This will add a button onto your 404 template which links back to your home "
 "page."
-msgstr "이것은 404 템플릿에 홈페이지로 돌아가는 버튼을 추가합니다."
+msgstr "404 템플릿에 홈페이지로 연결되는 버튼이 추가됩니다."
 
 #: nectar/customizer/panels/general-wordpress-settings.php:131
 msgid "404 Not Found Template"
-msgstr "404 Not Found 템플릿"
+msgstr "404 페이지 템플릿"
 
 #: nectar/customizer/panels/kirki-testing.php:6
 msgid "Style"
@@ -740,7 +823,7 @@ msgstr "이미지 로고"
 
 #: nectar/customizer/panels/layout.php:69
 msgid "If left unchecked, your site name will be used instead."
-msgstr "확인되지 않은 채로 두면, 귀하의 사이트 이름이 대신 사용됩니다."
+msgstr "체크하지 않으면 사이트 이름이 대신 사용됩니다."
 
 #: nectar/customizer/panels/layout.php:76
 msgid "Logo Upload"
@@ -748,7 +831,7 @@ msgstr "로고 업로드"
 
 #: nectar/customizer/panels/layout.php:77
 msgid "Upload your logo here and enter the height of it below."
-msgstr "로고를 여기에 업로드하고 아래에 높이를 입력하세요."
+msgstr "로고를 여기에 업로드하고 아래에 로고의 높이를 입력하세요."
 
 #: nectar/customizer/panels/layout.php:77
 msgid ""
@@ -772,7 +855,7 @@ msgstr "모바일 전용 로고 업로드"
 msgid ""
 "An optional field that allows you to display a separate logo that will be "
 "shown on mobile devices only."
-msgstr "모바일 기기에서만 표시되는 별도 로고를 표시할 수 있는 선택 사항 필드입니다."
+msgstr "모바일 기기에서만 표시될 별도의 로고를 설정할 수 있는 선택적 필드입니다."
 
 #: nectar/customizer/panels/layout.php:121
 msgid "Header Padding"
@@ -780,31 +863,33 @@ msgstr "헤더 패딩"
 
 #: nectar/customizer/panels/layout.php:133
 msgid "Menu Item Gap"
-msgstr "메뉴 항목 갭"
+msgstr "메뉴 아이템 간격"
 
 #: nectar/customizer/panels/layout.php:144
 msgid "Background Opacity"
-msgstr "배경 불투명도"
+msgstr "배경 투명도"
 
 #: nectar/customizer/panels/layout.php:150
 msgid ""
 "If you are trying to have your header navigation completely see through "
 "before scrolling, setting this very low is not how to achieve it. The fully "
 "transparent style as shown on many of the demos is the option titled"
-msgstr "헤더 네비게이션을 스크롤하기 전에 완전히 투명하게 만들려고 한다면, 매우 낮게 설정하는 것은 그것을 달성하는 방법이"
+msgstr ""
+"스크롤하기 전에 헤더 내비게이션을 완전히 투명하게 만들려는 경우, 이 값을 매우 낮게 설정하는 것은 올바른 방법이 아닙니다. 데모에서 "
+"보여지는 것과 같은 완전 투명 스타일은 다음과 같은 제목의 옵션을 통해 설정할 수 있습니다"
 
 #: nectar/customizer/panels/layout.php:150
 msgid "Use Transparent Header When Applicable"
-msgstr "해당되는 경우에 투명 헤더를 사용하세요."
+msgstr "해당되는 경우 투명 헤더 사용"
 
 #: nectar/customizer/panels/layout.php:150
 msgid ""
 "which is available in the Header Navigation ~ Transparent Header Effect tab."
-msgstr "헤더 내비게이션에 있는 투명 헤더 효과 탭에서 사용할 수 있습니다."
+msgstr "Header Navigation ~ Transparent Header Effect 탭에서 사용할 수 있습니다."
 
 #: nectar/customizer/panels/layout.php:157
 msgid "Box Shadow"
-msgstr "박스 그림자"
+msgstr "박스 쉐도우"
 
 #: nectar/customizer/panels/layout.php:160
 #: nectar/customizer/panels/layout.php:607
@@ -816,14 +901,15 @@ msgstr "작은"
 #: nectar/customizer/panels/layout.php:609
 #: nectar/customizer/panels/layout.php:778
 msgid "Large"
-msgstr "큰"
+msgstr "큰 크기"
 
 #: nectar/customizer/panels/layout.php:162
 msgid "Large With Bottom Line"
-msgstr "큰 바닥 라인"
+msgstr "하단 라인이 있는 큰 크기"
 
 #: nectar/customizer/panels/layout.php:163
 #: nectar/customizer/panels/layout.php:779
+#: nectar/customizer/panels/layout.php:1071
 #: nectar/customizer/panels/post-types/blog.php:185
 #: nectar/customizer/panels/post-types/blog.php:498
 #: nectar/customizer/panels/post-types/blog.php:510
@@ -831,19 +917,19 @@ msgstr "큰 바닥 라인"
 #: nectar/customizer/panels/post-types/portfolio.php:148
 #: nectar/customizer/panels/post-types/portfolio.php:159
 msgid "None"
-msgstr "아무것도 없습니다."
+msgstr "없음"
 
 #: nectar/customizer/panels/layout.php:171
 msgid "Blur Background"
-msgstr "배경 흐리게하기"
+msgstr "배경 블러"
 
 #: nectar/customizer/panels/layout.php:180
 msgid "Blur Background Functionality"
-msgstr "배경을 흐리게 하는 기능"
+msgstr "배경 블러 기능"
 
 #: nectar/customizer/panels/layout.php:185
 msgid "Active when \"Transparent header effect\" is not"
-msgstr "\"투명 헤더 효과\"가 아닐 때 활성화됩니다."
+msgstr "\"Transparent header effect\"가 활성화되지 않았을 때 적용"
 
 #: nectar/customizer/panels/layout.php:186
 msgid "Active in all header states"
@@ -851,49 +937,49 @@ msgstr "모든 헤더 상태에서 활성화"
 
 #: nectar/customizer/panels/layout.php:210
 msgid "Border"
-msgstr "경계"
+msgstr "테두리"
 
 #: nectar/customizer/panels/layout.php:218
 msgid "Header Border Color"
-msgstr "헤더 테두리 색"
+msgstr "헤더 테두리 색상"
 
 #: nectar/customizer/panels/layout.php:228
 msgid "Remove Desktop Stickiness"
-msgstr "데스크톱 스티키 제거"
+msgstr "데스크톱 고정 해제"
 
 #: nectar/customizer/panels/layout.php:237
 msgid "Logo & General Styling"
-msgstr "로고 및 일반적인 스타일링"
+msgstr "로고 & 일반 스타일링"
 
 #: nectar/customizer/panels/layout.php:250
 msgid "Header Layout"
 msgstr "헤더 레이아웃"
 
 #: nectar/customizer/panels/layout.php:253
-#: nectar/customizer/panels/layout.php:1144
+#: nectar/customizer/panels/layout.php:1180
 msgid "Default Layout"
 msgstr "기본 레이아웃"
 
 #: nectar/customizer/panels/layout.php:254
-#: nectar/customizer/panels/layout.php:1145
+#: nectar/customizer/panels/layout.php:1181
 msgid "Centered Menu"
-msgstr "가운데 정렬된 메뉴"
+msgstr "중앙 정렬 메뉴"
 
 #: nectar/customizer/panels/layout.php:255
 msgid "Centered Menu Alt"
-msgstr "가운데 정렬된 메뉴 Alt"
+msgstr "중앙 정렬 메뉴 대체"
 
 #: nectar/customizer/panels/layout.php:256
 msgid "Menu Bottom Bar"
-msgstr "하단 메뉴바"
+msgstr "메뉴 하단 바"
 
 #: nectar/customizer/panels/layout.php:257
 msgid "Centered Logo Menu Alt"
-msgstr "로고가 가운데 정렬된 메뉴 대체문구"
+msgstr "가운데 정렬 로고 메뉴 대체"
 
 #: nectar/customizer/panels/layout.php:258
 msgid "Menu Left Aligned"
-msgstr "메뉴 왼쪽 정렬"
+msgstr "왼쪽 정렬 메뉴"
 
 #: nectar/customizer/panels/layout.php:259
 msgid "Left Header"
@@ -907,33 +993,33 @@ msgstr "왼쪽 헤더 드롭다운 기능"
 msgid ""
 "Please select the functionality for how dropdowns will behave in the left "
 "header navigation."
-msgstr "왼쪽 헤더 네비게이션에서 드롭다운이 작동하는 방식을 선택해주세요."
+msgstr "왼쪽 헤더 내비게이션에서 드롭다운 메뉴가 작동하는 방식을 선택해 주세요."
 
 #: nectar/customizer/panels/layout.php:273
-#: nectar/customizer/panels/layout.php:972
+#: nectar/customizer/panels/layout.php:1007
 msgid "Dropdown Parent Link Toggles Submenu"
-msgstr "드롭다운 부모 링크가 하위 메뉴를 토글합니다."
+msgstr "드롭다운 상위 링크가 하위 메뉴를 토글합니다"
 
 #: nectar/customizer/panels/layout.php:274
-#: nectar/customizer/panels/layout.php:973
+#: nectar/customizer/panels/layout.php:1008
 msgid "Separate Dropdown Parent Link From Dropdown Toggle"
-msgstr "드롭다운 토글에서 드롭다운 부모 링크를 분리합니다."
+msgstr "드롭다운 토글과 드롭다운 부모 링크 분리"
 
 #: nectar/customizer/panels/layout.php:282
 msgid "Menu Bottom Bar Separator"
-msgstr "하단 바 분리자"
+msgstr "메뉴 하단 바 구분선"
 
 #: nectar/customizer/panels/layout.php:283
 msgid "Add a line to separate the top/bottom of your header."
-msgstr "헤더의 상하부를 구분하는 선을 추가하세요."
+msgstr "헤더의 상단/하단을 구분하는 선을 추가합니다."
 
 #: nectar/customizer/panels/layout.php:293
 msgid "Menu Bottom Bar Alignment"
-msgstr "하단 바 메뉴 정렬"
+msgstr "메뉴 하단 바 정렬"
 
 #: nectar/customizer/panels/layout.php:294
 msgid "Please select how you would like your header content to align."
-msgstr "헤더 콘텐츠를 어떻게 정렬하고 싶으신가요?"
+msgstr "헤더 콘텐츠의 정렬 방식을 선택해 주세요."
 
 #: nectar/customizer/panels/layout.php:297
 #: nectar/customizer/panels/post-types/blog.php:405
@@ -944,7 +1030,7 @@ msgid "Center"
 msgstr "중앙"
 
 #: nectar/customizer/panels/layout.php:298
-#: nectar/customizer/panels/layout.php:1004
+#: nectar/customizer/panels/layout.php:1039
 #: nectar/customizer/panels/post-types/blog.php:404
 #: nectar/customizer/panels/post-types/blog.php:619
 #: nectar/customizer/panels/post-types/woocommerce.php:210
@@ -960,9 +1046,9 @@ msgstr "왼쪽 상단 중앙 하단"
 msgid "Full Width Header"
 msgstr "전체 너비 헤더"
 
-#: nectar/customizer/panels/layout.php:1175
-msgid "Full Width Left/Right Padding"
-msgstr "전체 너비 왼쪽/오른쪽 여백"
+#: nectar/customizer/panels/layout.php:316
+msgid "Full Width Left/Right Padding (px)"
+msgstr "전체 너비 좌/우 여백 (px)"
 
 #: nectar/customizer/panels/layout.php:332
 msgid "Header Size"
@@ -970,11 +1056,11 @@ msgstr "헤더 크기"
 
 #: nectar/customizer/panels/layout.php:335
 msgid "Default (Expanded to screen edges)"
-msgstr "기본값 (화면 가장자리로 확장됨)"
+msgstr "기본값 (화면 가장자리까지 확장)"
 
 #: nectar/customizer/panels/layout.php:336
 msgid "Contained"
-msgstr "포함된"
+msgstr "포함됨"
 
 #: nectar/customizer/panels/layout.php:349
 #: nectar/customizer/panels/post-types/portfolio.php:134
@@ -991,12 +1077,12 @@ msgid ""
 "phone number, store address etc. The positioning of this content will be "
 "determined by the header layout that you are using."
 msgstr ""
-"헤더 내비게이션에 표시할 작은 텍스트를 입력하세요. 예: 전화번호, 상점 주소 등. 이 내용의 위치는 사용 중인 헤더 레이아웃에 따라 "
-"결정"
+"헤더 내비게이션에 표시할 간단한 텍스트를 입력하세요. 예: 전화번호, 매장 주소 등. 이 콘텐츠의 위치는 사용 중인 헤더 레이아웃에 따라"
+" 결정됩니다."
 
 #: nectar/customizer/panels/layout.php:370
 msgid "Layout & Content Related"
-msgstr "레이아웃 및 콘텐츠 관련"
+msgstr "레이아웃 & 콘텐츠 관련"
 
 #: nectar/customizer/panels/layout.php:383
 #: nectar/customizer/panels/layout.php:426
@@ -1007,15 +1093,15 @@ msgstr "보조 헤더 바"
 msgid ""
 "Please select if you would like an additional header bar above the main "
 "navigation."
-msgstr "메인 네비게이션 위에 추가 헤더 바를 원하시는 경우 선택해주세요."
+msgstr "메인 네비게이션 위에 추가 헤더 바를 표시할지 선택해 주세요."
 
 #: nectar/customizer/panels/layout.php:387
 msgid "Standard Header"
-msgstr "표준 헤더"
+msgstr "기본 헤더"
 
 #: nectar/customizer/panels/layout.php:388
 msgid "Header With Secondary Navigation Bar"
-msgstr "보조 네비게이션 바가 있는 헤더"
+msgstr "보조 내비게이션 바가 있는 헤더"
 
 #: nectar/customizer/panels/layout.php:395
 msgid "Secondary Header Text"
@@ -1023,7 +1109,7 @@ msgstr "보조 헤더 텍스트"
 
 #: nectar/customizer/panels/layout.php:397
 msgid "Add the text that you would like to appear in the secondary header."
-msgstr "보조 헤더에 나타나길 원하는 텍스트를 추가하세요."
+msgstr "보조 헤더에 표시할 텍스트를 추가하세요."
 
 #: nectar/customizer/panels/layout.php:403
 msgid "Secondary Header Link URL"
@@ -1031,86 +1117,104 @@ msgstr "보조 헤더 링크 URL"
 
 #: nectar/customizer/panels/layout.php:405
 msgid "Please enter an optional URL for the secondary header text here."
-msgstr "부가 헤더 텍스트에 대한 선택적 URL을 입력해주세요."
+msgstr "보조 헤더 텍스트의 URL을 선택적으로 여기에 입력하세요."
 
 #: nectar/customizer/panels/layout.php:412
 msgid "Secondary Header Mobile Functionality"
-msgstr "모바일 기능을 위한 보조 헤더"
+msgstr "모바일 보조 헤더 기능"
 
 #: nectar/customizer/panels/layout.php:413
 msgid ""
 "Please select how you would like the secondary header bar to display on "
 "mobile devices."
-msgstr "모바일 기기에서 보조 헤더 바를 어떻게 표시할지 선택해주세요."
+msgstr "모바일 기기에서 보조 헤더 바를 어떻게 표시할지 선택해 주세요."
 
 #: nectar/customizer/panels/layout.php:413
 msgid ""
 "The option to \"Display Items Above Mobile Header\" will be skipped when "
 "using the \"Header Permanent Transparent\" option in the Header Navigation >"
 " Transparent Effect tab."
-msgstr "\"헤더 네비게이션 > 투명 효과\" 탭에서 \"헤더 영구 투명\" 옵션을 사용할 때 \"모바일 헤더 위에 항목 표"
+msgstr ""
+"\"Header Permanent Transparent\" 옵션을 Header Navigation > Transparent Effect "
+"탭에서 사용하는 경우 \"Display Items Above Mobile Header\" 옵션은 건너뜁니다."
 
 #: nectar/customizer/panels/layout.php:416
 msgid "Add Items Into Mobile Navigation Menu"
-msgstr "모바일 네비게이션 메뉴에 항목 추가하기"
+msgstr "모바일 내비게이션 메뉴에 항목 추가"
 
 #: nectar/customizer/panels/layout.php:417
 msgid "Display Items Above Mobile Header"
 msgstr "모바일 헤더 위에 항목 표시"
 
+#: nectar/customizer/panels/layout.php:442
+msgid "Archive: "
+msgstr "아카이브:"
+
+#: nectar/customizer/panels/layout.php:445
+msgid "Single: "
+msgstr "단일:"
+
 #: nectar/customizer/panels/layout.php:453
 msgid "Transparent Header"
-msgstr "투명한 헤더"
+msgstr "투명 헤더"
 
 #: nectar/customizer/panels/layout.php:454
 msgid ""
 "Causes your header to be completely transparent before the user scrolls. "
 "This will be triggered automatically when using a post header, or you can "
 "manually trigger it per page."
-msgstr "사용자가 스크롤하기 전에 헤더가 완전히 투명해지도록 합니다. 이것은 게시물 헤더를 사용할 때 자동으로 트리거되거"
+msgstr "사용자가 스크롤하기 전에 헤더를 완전히 투명하게 만듭니다. 글 머리글을 사용할 때 자동으로 적용되며, 페이지별로 수동으로 설정할 수도 있습니다."
+
+#: nectar/customizer/panels/layout.php:462
+msgid "Automatically Enable On"
+msgstr "자동 활성화"
 
 #: nectar/customizer/panels/layout.php:470
 msgid "Transparent Light Logo"
-msgstr "투명한 빛 로고"
+msgstr "투명 라이트 로고"
+
+#: nectar/customizer/panels/layout.php:471
+msgid "This will be used when the header is transparent state is active."
+msgstr "헤더가 투명 상태일 때 사용됩니다."
 
 #: nectar/customizer/panels/layout.php:487
 msgid "Transparent Light Mobile Logo"
-msgstr "투명한 빛 모바일 로고"
+msgstr "투명한 라이트 모바일 로고"
 
 #: nectar/customizer/panels/layout.php:488
 msgid ""
 "A separate header starting logo that will be shown on mobile devices only."
-msgstr "모바일 기기에서만 표시되는 별도의 헤더 시작 로고."
+msgstr "모바일 기기에서만 표시되는 별도의 헤더 로고입니다."
 
 #: nectar/customizer/panels/layout.php:496
 msgid "Transparent Dark Logo"
-msgstr "투명한 다크 로고"
+msgstr "투명 배경 다크 로고"
 
 #: nectar/customizer/panels/layout.php:497
 msgid ""
 "This will be used when the header transparent effect is active and the dark "
 "color is selected."
-msgstr "헤더 투명 효과가 활성화되고 어두운 색상이 선택된 경우에 사용될 것입니다."
+msgstr "헤더 투명 효과가 활성화되어 있고 어두운 색상이 선택된 경우에 사용됩니다."
 
 #: nectar/customizer/panels/layout.php:511
 msgid "Transparent Dark Mobile Logo"
-msgstr "투명 다크 모바일 로고"
+msgstr "모바일 투명 다크 로고"
 
 #: nectar/customizer/panels/layout.php:512
 msgid ""
 "A separate header starting dark logo that will be shown on mobile devices "
 "only."
-msgstr "모바일 기기에서만 표시되는 어두운 로고가 있는 별도 헤더 시작"
+msgstr "모바일 기기에서만 표시될 어두운 색상의 별도 헤더 로고입니다."
 
 #: nectar/customizer/panels/layout.php:519
 msgid "Transparent Light Text Color"
-msgstr "투명 빛 텍스트 색상"
+msgstr "투명한 밝은 텍스트 색상"
 
 #: nectar/customizer/panels/layout.php:520
 msgid ""
 "Please select the color you desire for your header text before the user "
 "scrolls"
-msgstr "사용자가 스크롤하기 전에 헤더 텍스트에 원하는 색상을 선택해주세요."
+msgstr "스크롤하기 전 헤더 텍스트의 색상을 선택하세요"
 
 #: nectar/customizer/panels/layout.php:529
 msgid "Transparent Dark Text Color"
@@ -1120,23 +1224,32 @@ msgstr "투명한 어두운 텍스트 색상"
 msgid ""
 "Please select the color you desire for your header text when the dark header"
 " is active."
-msgstr "어두운 헤더가 활성화되었을 때 원하는 헤더 텍스트 색상을 선택해주세요."
+msgstr "어두운 헤더가 활성화되었을 때 헤더 텍스트에 적용할 색상을 선택해주세요."
 
 #: nectar/customizer/panels/layout.php:541
 msgid "Header Starting Text Opacity"
-msgstr "헤더 시작 텍스트 불투명도"
+msgstr "헤더 시작 텍스트 투명도"
 
 #: nectar/customizer/panels/layout.php:544
 msgid "Default (Dimmed)"
-msgstr "기본값 (흐림)"
+msgstr "기본 (흐림)"
 
 #: nectar/customizer/panels/layout.php:545
 msgid "Full Opacity"
-msgstr "완전 불투명함"
+msgstr "완전 불투명도"
 
 #: nectar/customizer/panels/layout.php:552
 msgid "Header Permanent Transparent"
 msgstr "헤더 영구 투명"
+
+#: nectar/customizer/panels/layout.php:553
+msgid ""
+"Turning this on will allow your header to remain transparent even after "
+"scrolling down. This option will override all colors. When using an image "
+"logo, it must have a transparent background (PNG or SVG)."
+msgstr ""
+"스크롤을 내린 후에도 헤더를 투명하게 유지하려면 이 옵션을 켜세요. 이 옵션은 모든 색상 설정을 무시합니다. 이미지 로고를 사용할 경우,"
+" 반드시 투명한 배경(PNG 또는 SVG)이 있어야 합니다."
 
 #: nectar/customizer/panels/layout.php:566
 msgid "Add Shadow Behind Transparent Header"
@@ -1146,7 +1259,7 @@ msgstr "투명 헤더 뒤에 그림자 추가"
 msgid ""
 "Add a subtle shadow behind your transparent header to help with the "
 "visibility of your navigation items."
-msgstr "투명 헤더 뒤에 미묘한 그림자를 추가하여 내비게이션 항목의 가시성을 돕습니다."
+msgstr "투명한 헤더 뒤에 미묘한 그림자를 추가하여 네비게이션 항목의 가시성을 향상시킵니다."
 
 #: nectar/customizer/panels/layout.php:577
 msgid "Transparent Header Effect"
@@ -1164,7 +1277,7 @@ msgstr "색상 변경"
 #: nectar/customizer/panels/layout.php:701
 #: nectar/customizer/panels/layout/footer.php:146
 msgid "Animated Underline"
-msgstr "애니메이션된 밑줄"
+msgstr "애니메이션 밑줄"
 
 #: nectar/customizer/panels/layout.php:595
 msgid "Button Background"
@@ -1176,12 +1289,12 @@ msgstr "버튼 배경 크기"
 
 #: nectar/customizer/panels/layout.php:604
 msgid "Alters the button background size releative to link tett."
-msgstr "링크 텍스트에 상대적으로 버튼 배경 크기를 변경합니다."
+msgstr "버튼 배경 크기를 링크 텍스트에 맞게 조정합니다."
 
 #: nectar/customizer/panels/layout.php:608
-#: nectar/customizer/panels/layout.php:1034
+#: nectar/customizer/panels/layout.php:1069
 msgid "Medium"
-msgstr "중간"
+msgstr "보통"
 
 #: nectar/customizer/panels/layout.php:617
 msgid "Button Background Animation"
@@ -1189,7 +1302,7 @@ msgstr "버튼 배경 애니메이션"
 
 #: nectar/customizer/panels/layout.php:618
 msgid "Alters the button background entrance animation."
-msgstr "버튼 배경 입구 애니메이션을 변경합니다."
+msgstr "버튼 배경의 진입 애니메이션을 변경합니다."
 
 #: nectar/customizer/panels/layout.php:621
 #: nectar/customizer/panels/layout.php:756
@@ -1198,46 +1311,46 @@ msgstr "페이드 인"
 
 #: nectar/customizer/panels/layout.php:622
 msgid "Grow In"
-msgstr "성장하다"
+msgstr "성장하기"
 
 #: nectar/customizer/panels/layout.php:631
 #: nectar/customizer/panels/layout.php:646
 msgid "Header Hide Until Needed"
-msgstr "필요할 때까지 헤더 숨기기"
+msgstr "필요할 때까지 머리글 숨기기"
 
 #: nectar/customizer/panels/layout.php:632
 msgid ""
 "Do you want the header to be hidden after scrolling until needed? i.e. the "
 "user scrolls back up towards the top"
-msgstr "사용자가 다시 맨 위쪽으로 스크롤할 때 헤더를 숨기길 원하시나요?"
+msgstr "스크롤 시 헤더를 숨기고 필요할 때만 표시하시겠습니까? 즉, 사용자가 다시 위로 스크롤할 때 표시됩니다"
 
 #: nectar/customizer/panels/layout.php:641
 msgid "Header Resize On Scroll"
-msgstr "스크롤 시 헤더 크기 조절"
+msgstr "스크롤 시 헤더 크기 조정"
 
 #: nectar/customizer/panels/layout.php:642
 msgid "Do you want the header to shrink a little when you scroll?"
-msgstr "스크롤할 때 헤더가 조금 작아지길 원하시나요?"
+msgstr "스크롤할 때 헤더가 약간 축소되기를 원하시나요?"
 
 #: nectar/customizer/panels/layout.php:646
 msgid "This will only be active when the"
-msgstr "이것은 활성화될 때에만 작동합니다."
+msgstr "이는 다음의 경우에만 활성화됩니다:"
 
 #: nectar/customizer/panels/layout.php:646
 msgid "effect is turned off"
-msgstr "효과가 꺼져 있습니다."
+msgstr "효과가 꺼졌습니다"
 
 #: nectar/customizer/panels/layout.php:651
 msgid "Header Logo Shrink Number (in px)"
-msgstr "헤더 로고 축소 숫자 (px 단위)"
+msgstr "헤더 로고 축소 크기 (px 단위)"
 
 #: nectar/customizer/panels/layout.php:660
 msgid "Condense Header On Scroll"
-msgstr "스크롤 시 헤더 압축하기"
+msgstr "스크롤 시 헤더 축소"
 
 #: nectar/customizer/panels/layout.php:661
 msgid "This option is specific to \"Menu Bottom Bar\" Header Format."
-msgstr "이 옵션은 \"하단 메뉴 바\" 헤더 형식에만 해당됩니다."
+msgstr "이 옵션은 \"메뉴 하단 바\" 머리글 형식에만 적용됩니다."
 
 #: nectar/customizer/panels/layout.php:661
 msgid "When Menu Is Center Aligned"
@@ -1247,15 +1360,17 @@ msgstr "메뉴가 가운데 정렬되었을 때"
 msgid ""
 "Adds the logo/header buttons into the bottom nav bar when scrolling. Uses "
 "the \"Mobile Only Logo\" if supplied."
-msgstr "스크롤할 때 로고/헤더 버튼을 하단 내비게이션 바에 추가합니다. 제공된 경우 \"모바일 전용 로고\"를 사용합니다."
+msgstr ""
+"스크롤 시 로고/헤더 버튼을 하단 내비게이션 바에 추가합니다. \"Mobile Only Logo\"가 제공된 경우 해당 로고를 "
+"사용합니다."
 
 #: nectar/customizer/panels/layout.php:661
 msgid "When Menu Is left Aligned"
-msgstr "메뉴가 왼쪽 정렬되어 있을 때"
+msgstr "메뉴가 왼쪽 정렬일 때"
 
 #: nectar/customizer/panels/layout.php:661
 msgid "Keeps bottom bar sticky when scrolling."
-msgstr "스크롤할 때 하단 바를 고정합니다."
+msgstr "스크롤 시 하단 바를 고정 상태로 유지합니다."
 
 #: nectar/customizer/panels/layout.php:671
 msgid "Animation Effects"
@@ -1279,11 +1394,11 @@ msgstr "드롭다운 화살표"
 
 #: nectar/customizer/panels/layout.php:714
 msgid "Show Arrow"
-msgstr "화살표 보이기"
+msgstr "화살표 표시"
 
 #: nectar/customizer/panels/layout.php:715
 msgid "Don't Show Arrow"
-msgstr "화살표를 보여주지 마세요."
+msgstr "화살표 숨기기"
 
 #: nectar/customizer/panels/layout.php:723
 msgid "Display Descriptions"
@@ -1293,7 +1408,16 @@ msgstr "설명 표시"
 msgid ""
 "This will display the \"Description\" field specified for dropdown menu "
 "items in Appearance > Menus."
-msgstr "이것은 외관 > 메뉴에서 드롭다운 메뉴 항목에 지정된 \"설명\" 필드를 표시합니다."
+msgstr "Appearance > Menus에서 드롭다운 메뉴 항목에 대해 지정된 \"설명\" 필드를 표시합니다."
+
+#: nectar/customizer/panels/layout.php:731
+msgid "Add Background Overlay"
+msgstr "배경 오버레이 추가"
+
+#: nectar/customizer/panels/layout.php:732
+msgid ""
+"Adds an overlay that appears when a dropdown is opened to improve focus."
+msgstr "드롭다운이 열릴 때 포커스를 개선하기 위한 오버레이를 추가합니다."
 
 #: nectar/customizer/panels/layout.php:740
 msgid "Dropdown Positioning"
@@ -1305,7 +1429,7 @@ msgstr "헤더 내비게이션 바 하단"
 
 #: nectar/customizer/panels/layout.php:744
 msgid "Bottom of Menu Item Label"
-msgstr "메뉴 항목 레이블 하단"
+msgstr "메뉴 항목 하단 레이블"
 
 #: nectar/customizer/panels/layout.php:751
 msgid "Dropdown Animation"
@@ -1313,15 +1437,15 @@ msgstr "드롭다운 애니메이션"
 
 #: nectar/customizer/panels/layout.php:755
 msgid "Fade In Up"
-msgstr "페이드 인 업"
+msgstr "위로 페이드인"
 
 #: nectar/customizer/panels/layout.php:763
 msgid "Dropdown Roundness"
-msgstr "드롭다운 둥근 모서리"
+msgstr "드롭다운 모서리 둥글기"
 
 #: nectar/customizer/panels/layout.php:774
 msgid "Dropdown Box Shadow"
-msgstr "드롭다운 상자 그림자"
+msgstr "드롭다운 박스 그림자"
 
 #: nectar/customizer/panels/layout.php:809
 msgid "Dropdowns"
@@ -1339,7 +1463,7 @@ msgstr "검색에서 AJAX 비활성화"
 msgid ""
 "This will turn off the autocomplete suggestions from appearing when typing "
 "in the search box."
-msgstr "이것은 검색 상자에 입력할 때 자동 완성 제안을 나타나지 않도록 설정합니다."
+msgstr "검색창에 입력할 때 자동완성 제안이 나타나지 않도록 설정합니다."
 
 #: nectar/customizer/panels/layout.php:838
 msgid "AJAX search styling"
@@ -1347,23 +1471,23 @@ msgstr "AJAX 검색 스타일링"
 
 #: nectar/customizer/panels/layout.php:839
 msgid "Select how to display the search results as the user types."
-msgstr "사용자가 입력하는 대로 검색 결과를 표시하는 방법을 선택하세요."
+msgstr "사용자가 입력하는 동안 검색 결과를 표시하는 방법을 선택하세요."
 
 #: nectar/customizer/panels/layout.php:843
 msgid "Simple List"
-msgstr "간단한 목록"
+msgstr "단순 목록"
 
 #: nectar/customizer/panels/layout.php:844
 msgid "Extended List"
-msgstr "확장된 목록"
+msgstr "확장 목록"
 
 #: nectar/customizer/panels/layout.php:851
 msgid "Limit Search To Post Type"
-msgstr "포스트 유형으로 검색 제한"
+msgstr "글 유형으로 검색 제한"
 
 #: nectar/customizer/panels/layout.php:854 nectar/helpers/page-header.php:619
 msgid "All"
-msgstr "모든"
+msgstr "모두"
 
 #: nectar/customizer/panels/layout.php:855
 msgid "Products"
@@ -1371,7 +1495,7 @@ msgstr "제품"
 
 #: nectar/customizer/panels/layout.php:856
 msgid "Posts"
-msgstr "게시물"
+msgstr "글"
 
 #: nectar/customizer/panels/layout.php:863
 msgid "Header Search Typography"
@@ -1379,21 +1503,21 @@ msgstr "헤더 검색 타이포그래피"
 
 #: nectar/customizer/panels/layout.php:867
 msgid "Inherit Navigation Typography"
-msgstr "내비게이션 타이포그래피 상속하기"
+msgstr "내비게이션 타이포그래피 상속"
 
 #: nectar/customizer/panels/layout.php:874
 msgid "Search Font Size"
-msgstr "글꼴 크기 검색"
+msgstr "폰트 크기 검색"
 
 #: nectar/customizer/panels/layout.php:885
 msgid "Search Placeholder Text"
-msgstr "검색 자리 텍스트"
+msgstr "검색어를 입력하세요"
 
 #: nectar/customizer/panels/layout.php:886
 msgid ""
 "Define custom text to show to the user when opening the search, before they "
 "start typing."
-msgstr "사용자가 검색을 열 때, 타이핑을 시작하기 전에 사용자에게 표시할 사용자 정의 텍스트를 정의하세요."
+msgstr "검색을 시작하기 전에 사용자에게 표시할 안내 텍스트를 설정합니다."
 
 #: nectar/customizer/panels/layout.php:895
 msgid "Header Search"
@@ -1408,7 +1532,9 @@ msgid ""
 "This will add an off canvas menu button on all viewports to your header "
 "navigation. When this is disabled, the off canvas menu will only be visible "
 "on mobile devices."
-msgstr "이것은 모든 뷰포트에 헤더 내비게이션에 오프 캔버스 메뉴 버튼을 추가합니다. 이 기능이 비활성화되면 오프 캔버스 메"
+msgstr ""
+"이것은 모든 화면 크기에서 헤더 내비게이션에 오프 캔버스 메뉴 버튼을 추가합니다. 이 기능을 비활성화하면 오프 캔버스 메뉴는 모바일 "
+"기기에서만 표시됩니다."
 
 #: nectar/customizer/panels/layout.php:919
 msgid "Off Canvas Menu Style"
@@ -1418,7 +1544,7 @@ msgstr "오프 캔버스 메뉴 스타일"
 msgid ""
 "The \"Slide Out From Right Hover Triggered\" style will force the \"Full "
 "Width Header\" option regardless of your selection."
-msgstr "\"오른쪽에서 슬라이드 아웃 호버 트리거\" 스타일은 당신의 선택과 관계없이 \"전체 너비 헤더\" 옵션을 강제합니다."
+msgstr "\"오른쪽에서 슬라이드 아웃 호버 트리거\" 스타일은 선택 여부와 관계없이 \"전체 너비 머리글\" 옵션을 강제로 적용합니다."
 
 #: nectar/customizer/panels/layout.php:923
 msgid "Slide Out From Side"
@@ -1426,316 +1552,381 @@ msgstr "측면에서 슬라이드 아웃"
 
 #: nectar/customizer/panels/layout.php:924
 msgid "Slide Out From Side Hover Triggered"
-msgstr "슬라이드 아웃은 측면 호버로 트리거됩니다."
+msgstr "측면에서 슬라이드 아웃 호버 트리거"
 
 #: nectar/customizer/panels/layout.php:925
 msgid "Fullscreen Cover Slide + Blur BG"
-msgstr "전체 화면 커버 슬라이드 + 배경 흐림"
+msgstr "전체화면 커버 슬라이드 + 배경 블러"
 
 #: nectar/customizer/panels/layout.php:926
 msgid "Fullscreen Cover Fade"
-msgstr "전체 화면 커버 페이드"
+msgstr "전체화면 커버 페이드"
 
 #: nectar/customizer/panels/layout.php:928
 msgid "Fullscreen Cover Split"
-msgstr "전체 화면 커버 분할"
+msgstr "전체화면 커버 분할"
 
 #: nectar/customizer/panels/layout.php:929
 msgid "Simple Dropdown"
-msgstr "간단한 드롭다운"
+msgstr "단순 드롭다운"
 
 #: nectar/customizer/panels/layout.php:937
 msgid "Off Canvas Menu Separate Mobile Menu"
-msgstr "오프 캔버스 메뉴와 별도의 모바일 메뉴"
+msgstr "오프 캔버스 메뉴 별도 모바일 메뉴"
 
 #: nectar/customizer/panels/layout.php:938
 msgid ""
 "This will cause your off canvas to only display navigation menu items "
 "assigned to the \"Off Canvas Navigation Menu\" location when viewing on a "
 "mobile device."
-msgstr "이것은 모바일 기기에서 볼 때 \"오프 캔버스 내비게이션 메뉴\" 위치에 할당된 내비게이션 메뉴 항목만 표시되도록 할 것입니다."
+msgstr "이렇게 하면 모바일 기기에서 볼 때 오프 캔버스에 \"오프 캔버스 탐색 메뉴\" 위치에 할당된 탐색 메뉴 항목만 표시됩니다."
 
-#: nectar/customizer/panels/layout.php:960
+#: nectar/customizer/panels/layout.php:947
+msgid "Off Canvas Menu Desktop Width (%)"
+msgstr "오프 캔버스 메뉴 데스크톱 너비 (%)"
+
+#: nectar/customizer/panels/layout.php:959
+msgid "Off Canvas Menu Offset"
+msgstr "오프 캔버스 메뉴 오프셋"
+
+#: nectar/customizer/panels/layout.php:970
+msgid "Off Canvas Menu Roundness"
+msgstr "오프 캔버스 메뉴 둥글기"
+
+#: nectar/customizer/panels/layout.php:982
+msgid "Off Canvas Menu Icon Width"
+msgstr "오프 캔버스 메뉴 아이콘 너비"
+
+#: nectar/customizer/panels/layout.php:995
 msgid "Default Off Canvas Background Image"
 msgstr "기본 오프 캔버스 배경 이미지"
 
-#: nectar/customizer/panels/layout.php:961
+#: nectar/customizer/panels/layout.php:996
 msgid ""
 "Choose the default image to be shown in your Off Canvas Menu. You can also "
 "supply a unique item for each menu item in"
-msgstr "오프 캔버스 메뉴에 표시할 기본 이미지를 선택하세요. 또한 각 메뉴 항목에 대해 고유한 항목을 제공할 수도 있습니다."
+msgstr "Off Canvas 메뉴에 표시할 기본 이미지를 선택하세요. 각 메뉴 항목에 고유한 항목을 제공할 수도 있습니다"
 
-#: nectar/customizer/panels/layout.php:961
+#: nectar/customizer/panels/layout.php:996
 msgid "Appearance > Menus."
-msgstr "외모 > 메뉴."
+msgstr "외모 > 메뉴"
 
-#: nectar/customizer/panels/layout.php:968
+#: nectar/customizer/panels/layout.php:1003
 msgid "Off Canvas Menu Dropdown Behavior"
 msgstr "오프 캔버스 메뉴 드롭다운 동작"
 
-#: nectar/customizer/panels/layout.php:969
+#: nectar/customizer/panels/layout.php:1004
 msgid ""
 "Please select the functionality for how dropdowns will behave in your off "
 "canvas menu."
-msgstr "오프 캔버스 메뉴에서 드롭다운이 작동하는 방식을 선택해주세요."
+msgstr "오프 캔버스 메뉴에서 드롭다운이 작동하는 방식을 선택하세요."
 
-#: nectar/customizer/panels/layout.php:992
+#: nectar/customizer/panels/layout.php:1027
 msgid "Off Canvas Menu Add Menu Label"
-msgstr "오프 캔버스 메뉴에 메뉴 레이블 추가"
+msgstr "오프 캔버스 메뉴 추가 메뉴 레이블"
 
-#: nectar/customizer/panels/layout.php:999
+#: nectar/customizer/panels/layout.php:1034
 msgid "Off Canvas Menu Button Position"
 msgstr "오프 캔버스 메뉴 버튼 위치"
 
-#: nectar/customizer/panels/layout.php:1020
+#: nectar/customizer/panels/layout.php:1055
 msgid "Off Canvas Menu Bottom Text"
 msgstr "오프 캔버스 메뉴 하단 텍스트"
 
-#: nectar/customizer/panels/layout.php:1021
+#: nectar/customizer/panels/layout.php:1056
 msgid ""
 "This will add some text fixed at the bottom of your off canvas menu - useful"
 " for copyright or quick contact info etc."
-msgstr "이것은 오프 캔버스 메뉴 하단에 고정된 텍스트를 추가할 것입니다 - 저작권 정보나 빠른 연락처 정보 등에 유용합니다."
+msgstr "오프 캔버스 메뉴 하단에 고정된 텍스트를 추가합니다 - 저작권이나 빠른 연락처 정보 등을 표시하는 데 유용합니다."
 
-#: nectar/customizer/panels/layout.php:1028
+#: nectar/customizer/panels/layout.php:1063
 msgid "Off Canvas Menu Overlay Strength"
 msgstr "오프 캔버스 메뉴 오버레이 강도"
 
-#: nectar/customizer/panels/layout.php:1029
+#: nectar/customizer/panels/layout.php:1064
 msgid "Not all off canvas menu styles utilize this option."
-msgstr "오프 캔버스 메뉴 스타일 중 일부는 이 옵션을 활용하지 않습니다."
+msgstr "모든 오프 캔버스 메뉴 스타일이 이 옵션을 사용하는 것은 아닙니다."
 
-#: nectar/customizer/panels/layout.php:1032
+#: nectar/customizer/panels/layout.php:1067
 msgid "Solid"
-msgstr "고체"
+msgstr "단색"
 
-#: nectar/customizer/panels/layout.php:1033
-#: nectar/customizer/panels/layout.php:1219
+#: nectar/customizer/panels/layout.php:1068
+#: nectar/customizer/panels/layout.php:1255
 msgid "Dark"
-msgstr "어둠"
+msgstr "다크"
 
-#: nectar/customizer/panels/layout.php:1035
-#: nectar/customizer/panels/layout.php:1218
+#: nectar/customizer/panels/layout.php:1070
+#: nectar/customizer/panels/layout.php:1254
 msgid "Light"
-msgstr "빛"
+msgstr "라이트"
 
-#: nectar/customizer/panels/layout.php:1043
+#: nectar/customizer/panels/layout.php:1079
 msgid "Off Canvas Menu Mobile Nav Menu items"
-msgstr "모바일 네비게이션 메뉴의 오프 캔버스 메뉴 아이템"
+msgstr "오프 캔버스 메뉴 모바일 내비게이션 메뉴 아이템"
 
-#: nectar/customizer/panels/layout.php:1044
+#: nectar/customizer/panels/layout.php:1080
 msgid ""
 "This will cause your off canvas menu to inherit any navigation items "
 "assigned in your \"Top Navigation\" menu location when viewing on a mobile "
 "device."
-msgstr "모바일 기기에서 보는 경우 오프 캔버스 메뉴가 \"상단 탐색\" 메뉴 위치에 할당된 모든 탐색 항목을 상속받게 됩니다."
+msgstr "모바일 기기에서 볼 때 \"Top Navigation\" 메뉴 위치에 할당된 모든 네비게이션 항목이 오프 캔버스 메뉴에 상속됩니다."
 
-#: nectar/customizer/panels/layout.php:1078
+#: nectar/customizer/panels/layout.php:1088
+msgid "Off Canvas Menu Item Icons"
+msgstr "오프 캔버스 메뉴 항목 아이콘"
+
+#: nectar/customizer/panels/layout.php:1089
+msgid ""
+"This will control what type of icons (if any) to display in your off canvas "
+"menu. Icons are defined by you on an individual menu item basis in "
+"Appearance > Menus."
+msgstr ""
+"오프 캔버스 메뉴에 표시할 아이콘 유형(있는 경우)을 제어합니다. 아이콘은 Appearance > Menus에서 개별 메뉴 항목별로 "
+"정의할 수 있습니다."
+
+#: nectar/customizer/panels/layout.php:1092
+msgid "Display No Icons"
+msgstr "아이콘 표시 안 함"
+
+#: nectar/customizer/panels/layout.php:1093
+msgid "Display Font/Emoji Icons Only"
+msgstr "폰트/이모지 아이콘만 표시"
+
+#: nectar/customizer/panels/layout.php:1094
+msgid "Display Image Icons Only"
+msgstr "이미지 아이콘만 표시"
+
+#: nectar/customizer/panels/layout.php:1095
+msgid "Display All Icons"
+msgstr "모든 아이콘 표시"
+
+#: nectar/customizer/panels/layout.php:1114
 msgid "Off Canvas Icon Style"
 msgstr "오프 캔버스 아이콘 스타일"
 
-#: nectar/customizer/panels/layout.php:1082
+#: nectar/customizer/panels/layout.php:1118
 msgid "Circular"
 msgstr "원형"
 
-#: nectar/customizer/panels/layout.php:1090
+#: nectar/customizer/panels/layout.php:1126
 msgid "Off Canvas Navigation Menu Button BG Color"
 msgstr "오프 캔버스 내비게이션 메뉴 버튼 배경색"
 
-#: nectar/customizer/panels/layout.php:1093
+#: nectar/customizer/panels/layout.php:1129
 msgid ""
 "Optionally define a background color for your off canvas navigation button "
 "within the header."
-msgstr "헤더 내부의 오프 캔버스 내비게이션 버튼에 대한 배경색을 선택적으로 정의하세요."
+msgstr "헤더 내의 오프 캔버스 내비게이션 버튼에 대한 배경색을 선택적으로 설정할 수 있습니다."
 
-#: nectar/customizer/panels/layout.php:1099
+#: nectar/customizer/panels/layout.php:1135
 msgid "Off Canvas Navigation Menu Button Color"
 msgstr "오프 캔버스 내비게이션 메뉴 버튼 색상"
 
-#: nectar/customizer/panels/layout.php:1108
+#: nectar/customizer/panels/layout.php:1144
 msgid "Off Canvas Menu Custom Font Size (Desktop)"
 msgstr "오프 캔버스 메뉴 사용자 정의 글꼴 크기 (데스크톱)"
 
-#: nectar/customizer/panels/layout.php:1109
+#: nectar/customizer/panels/layout.php:1145
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on desktop displays. All unit types are accepted."
 msgstr ""
-"데스크톱 화면에서 볼 때 오프 캔버스 네비게이션 메뉴 항목에 사용할 사용자 정의 글꼴 크기를 선택적으로 지정할 수 있습니다. 모든"
+"데스크톱 화면에서 볼 때 off canvas 내비게이션 메뉴 항목에 사용할 사용자 지정 글꼴 크기를 선택적으로 지정할 수 있습니다. 모든"
+" 단위 유형이 허용됩니다."
 
-#: nectar/customizer/panels/layout.php:1116
+#: nectar/customizer/panels/layout.php:1152
 msgid "Off Canvas Menu Custom Font Size (Mobile)"
 msgstr "오프 캔버스 메뉴 사용자 정의 글꼴 크기 (모바일)"
 
-#: nectar/customizer/panels/layout.php:1117
+#: nectar/customizer/panels/layout.php:1153
 msgid ""
 "Optionally specify a custom font size to use for your off canvas navigation "
 "menu items when viewed on mobile displays. All unit types are accepted."
 msgstr ""
-"모바일 디스플레이에서 볼 때 오프 캔버스 네비게이션 메뉴 항목에 사용할 사용자 정의 글꼴 크기를 선택적으로 지정할 수 있습니다"
+"모바일 디스플레이에서 볼 때 off canvas 내비게이션 메뉴 항목에 사용할 사용자 지정 글꼴 크기를 선택적으로 지정할 수 있습니다. "
+"모든 단위 유형이 허용됩니다."
 
-#: nectar/customizer/panels/layout.php:1127
+#: nectar/customizer/panels/layout.php:1163
 msgid "Header Off Canvas Menu"
-msgstr "헤더 오프 캔버스 메뉴"
+msgstr "머리글 오프캔버스 메뉴"
 
-#: nectar/customizer/panels/layout.php:1141
+#: nectar/customizer/panels/layout.php:1177
 msgid "Mobile Header Layout"
 msgstr "모바일 헤더 레이아웃"
 
-#: nectar/customizer/panels/layout.php:1153
+#: nectar/customizer/panels/layout.php:1189
 msgid "Header Sticky On Mobile"
 msgstr "모바일에서 헤더 고정"
 
-#: nectar/customizer/panels/layout.php:1161
+#: nectar/customizer/panels/layout.php:1197
 msgid "Header Mobile Breakpoint"
-msgstr "헤더 모바일 브레이크포인트"
+msgstr "모바일 헤더 중단점"
 
-#: nectar/customizer/panels/layout.php:1162
+#: nectar/customizer/panels/layout.php:1198
 msgid ""
 "Define at what window size (in px) the header navigation menu will collapse "
 "into the mobile menu style - larger values are useful when you have a "
 "navigation with many items which wouldn't fit on one line when viewed on "
 "small desktops/laptops."
-msgstr "헤더 내비게이션 메뉴가 모바일 메뉴 스타일로 축소되는 창 크기(픽셀 단위)를 정의하십시오 - 더 큰 값"
+msgstr ""
+"헤더 내비게이션 메뉴가 모바일 메뉴 스타일로 전환되는 창 크기(px)를 설정합니다 - 작은 데스크톱/노트북에서 볼 때 한 줄에 들어가지 "
+"않는 많은 메뉴 항목이 있는 경우 더 큰 값이 유용합니다."
 
-#: nectar/customizer/panels/layout.php:1201
+#: nectar/customizer/panels/layout.php:1211
+msgid "Full Width Left/Right Padding"
+msgstr "전체 너비 좌/우 패딩"
+
+#: nectar/customizer/panels/layout.php:1223
+msgid "Header Top/Bottom Padding"
+msgstr "헤더 상/하 여백"
+
+#: nectar/customizer/panels/layout.php:1237
 msgid "Mobile Menu"
 msgstr "모바일 메뉴"
 
-#: nectar/customizer/panels/layout.php:1214
-#: nectar/customizer/panels/layout.php:1538
+#: nectar/customizer/panels/layout.php:1250
+#: nectar/customizer/panels/layout.php:1601
 msgid "Header Color Scheme"
 msgstr "헤더 색상 구성"
 
-#: nectar/customizer/panels/layout.php:1215
+#: nectar/customizer/panels/layout.php:1251
 msgid ""
 "Please select your header color scheme here. Color pickers below will only "
 "be used when using \"Custom\" for the color scheme."
-msgstr "헤더 색상 스킴을 선택해주세요. 아래의 컬러 피커는 \"커스텀\"을 선택했을 때에만 사용됩니다."
+msgstr "헤더 색상 구성표를 여기에서 선택하세요. 아래의 색상 선택기는 색상 구성표에서 \"사용자 정의\"를 선택한 경우에만 사용됩니다."
 
-#: nectar/customizer/panels/layout.php:1220
+#: nectar/customizer/panels/layout.php:1256
 msgid "Custom"
-msgstr "커스텀"
+msgstr "사용자 정의"
 
-#: nectar/customizer/panels/layout.php:1228
+#: nectar/customizer/panels/layout.php:1264
 msgid "Header Background"
 msgstr "헤더 배경"
 
-#: nectar/customizer/panels/layout.php:1239
+#: nectar/customizer/panels/layout.php:1275
 msgid "Header Font"
-msgstr "헤더 글꼴"
+msgstr "헤더 폰트"
 
-#: nectar/customizer/panels/layout.php:1240
-#: nectar/customizer/panels/layout.php:1331
-#: nectar/customizer/panels/layout.php:1358
-#: nectar/customizer/panels/layout.php:1381
-#: nectar/customizer/panels/layout.php:1416
-#: nectar/customizer/panels/layout.php:1440
-#: nectar/customizer/panels/layout.php:1512
+#: nectar/customizer/panels/layout.php:1276
+#: nectar/customizer/panels/layout.php:1367
+#: nectar/customizer/panels/layout.php:1394
+#: nectar/customizer/panels/layout.php:1417
+#: nectar/customizer/panels/layout.php:1452
+#: nectar/customizer/panels/layout.php:1476
+#: nectar/customizer/panels/layout.php:1548
 msgid "Default State"
 msgstr "기본 상태"
 
-#: nectar/customizer/panels/layout.php:1252
-#: nectar/customizer/panels/layout.php:1343
-#: nectar/customizer/panels/layout.php:1369
-#: nectar/customizer/panels/layout.php:1393
-#: nectar/customizer/panels/layout.php:1428
-#: nectar/customizer/panels/layout.php:1452
-#: nectar/customizer/panels/layout.php:1524
+#: nectar/customizer/panels/layout.php:1288
+#: nectar/customizer/panels/layout.php:1379
+#: nectar/customizer/panels/layout.php:1405
+#: nectar/customizer/panels/layout.php:1429
+#: nectar/customizer/panels/layout.php:1464
+#: nectar/customizer/panels/layout.php:1488
+#: nectar/customizer/panels/layout.php:1560
 msgid "Hover State"
 msgstr "호버 상태"
 
-#: nectar/customizer/panels/layout.php:1263
+#: nectar/customizer/panels/layout.php:1299
 msgid "Header Button Effect"
 msgstr "헤더 버튼 효과"
 
-#: nectar/customizer/panels/layout.php:1267
+#: nectar/customizer/panels/layout.php:1303
 msgid "BG Default State"
-msgstr "BG 기본 상태"
+msgstr "배경 기본 상태"
 
-#: nectar/customizer/panels/layout.php:1276
+#: nectar/customizer/panels/layout.php:1312
 msgid "BG Active State"
 msgstr "BG 활성 상태"
 
-#: nectar/customizer/panels/layout.php:1289
+#: nectar/customizer/panels/layout.php:1325
 msgid "Text Active State"
 msgstr "텍스트 활성 상태"
 
-#: nectar/customizer/panels/layout.php:1298
+#: nectar/customizer/panels/layout.php:1334
 msgid "Header Menu Item Icons"
-msgstr "헤더 메뉴 항목 아이콘"
+msgstr "헤더 메뉴 아이템 아이콘"
 
-#: nectar/customizer/panels/layout.php:1319
+#: nectar/customizer/panels/layout.php:1355
 msgid "Secondary Header Background"
 msgstr "보조 헤더 배경"
 
-#: nectar/customizer/panels/layout.php:1330
+#: nectar/customizer/panels/layout.php:1366
 msgid "Secondary Header Font"
-msgstr "보조 헤더 글꼴"
+msgstr "보조 헤더 폰트"
 
-#: nectar/customizer/panels/layout.php:1355
+#: nectar/customizer/panels/layout.php:1391
 msgid "Dropdown Background"
 msgstr "드롭다운 배경"
 
-#: nectar/customizer/panels/layout.php:1380
+#: nectar/customizer/panels/layout.php:1416
 msgid "Dropdown Font"
 msgstr "드롭다운 글꼴"
 
-#: nectar/customizer/panels/layout.php:1404
+#: nectar/customizer/panels/layout.php:1440
 msgid "Dropdown Menu Item Icons"
-msgstr "드롭다운 메뉴 항목 아이콘"
+msgstr "드롭다운 메뉴 아이템 아이콘"
 
-#: nectar/customizer/panels/layout.php:1415
+#: nectar/customizer/panels/layout.php:1451
 msgid "Dropdown Description Font"
 msgstr "드롭다운 설명 글꼴"
 
-#: nectar/customizer/panels/layout.php:1439
+#: nectar/customizer/panels/layout.php:1475
 msgid "Mega Menu Heading Font"
-msgstr "메가 메뉴 제목 글꼴"
+msgstr "메가 메뉴 제목 폰트"
 
-#: nectar/customizer/panels/layout.php:1463
+#: nectar/customizer/panels/layout.php:1499
 msgid "Header Separators"
 msgstr "헤더 구분선"
 
-#: nectar/customizer/panels/layout.php:1475
-msgid "Off Canvas Navigation Background"
-msgstr "오프 캔버스 네비게이션 배경"
+#: nectar/customizer/panels/layout.php:1511
+msgid "Off Canvas Navigation BG"
+msgstr "오프 캔버스 내비게이션 배경"
 
-#: nectar/customizer/panels/layout.php:1488
-msgid "Off Canvas Navigation Background 2"
+#: nectar/customizer/panels/layout.php:1524
+msgid "Off Canvas Navigation BG 2"
 msgstr "오프 캔버스 내비게이션 배경 2"
 
-#: nectar/customizer/panels/layout.php:1489
+#: nectar/customizer/panels/layout.php:1525
 msgid "Used for gradient"
-msgstr "그라데이션에 사용됩니다."
+msgstr "그라데이션에 사용됨"
 
-#: nectar/customizer/panels/layout.php:1500
+#: nectar/customizer/panels/layout.php:1536
 msgid "Off Canvas Navigation Headers"
 msgstr "오프 캔버스 내비게이션 헤더"
 
-#: nectar/customizer/panels/layout.php:1511
+#: nectar/customizer/panels/layout.php:1547
 msgid "Off Canvas Navigation Text"
 msgstr "오프 캔버스 내비게이션 텍스트"
 
+#: nectar/customizer/panels/layout.php:1572
+msgid "Off Canvas Navigation Close BG"
+msgstr "오프 캔버스 내비게이션 닫기 배경"
+
+#: nectar/customizer/panels/layout.php:1585
+msgid "Off Canvas Navigation Close"
+msgstr "오프 캔버스 내비게이션 닫기"
+
 #: nectar/customizer/panels/layout/footer.php:31
 msgid "Main Footer Area"
-msgstr "하단 푸터 영역"
+msgstr "메인 바닥글 영역"
 
 #: nectar/customizer/panels/layout/footer.php:32
 msgid "Do you want use the main footer that contains all the widgets areas?"
-msgstr "모든 위젯 영역을 포함하는 주 푸터를 사용하시겠습니까?"
+msgstr "모든 위젯 영역이 포함된 메인 바닥글을 사용하시겠습니까?"
 
 #: nectar/customizer/panels/layout/footer.php:44
 msgid "Footer Columns"
-msgstr "푸터 열"
+msgstr "바닥글 열"
 
 #: nectar/customizer/panels/layout/footer.php:45
 msgid "Please select the number of columns you would like for your footer."
-msgstr "푸터에 원하는 열의 수를 선택해주세요."
+msgstr "바닥글에 표시할 열의 개수를 선택해 주세요."
 
 #: nectar/customizer/panels/layout/footer.php:48
 msgid "1 Column"
-msgstr "1 열"
+msgstr "1열"
 
 #: nectar/customizer/panels/layout/footer.php:49
 msgid "2 Columns"
@@ -1743,7 +1934,7 @@ msgstr "2열"
 
 #: nectar/customizer/panels/layout/footer.php:50
 msgid "3 Columns"
-msgstr "3 열"
+msgstr "3열"
 
 #: nectar/customizer/panels/layout/footer.php:51
 msgid "4 Columns"
@@ -1751,74 +1942,74 @@ msgstr "4열"
 
 #: nectar/customizer/panels/layout/footer.php:52
 msgid "4 Columns Alt"
-msgstr "4개의 열 Alt"
+msgstr "4열 대체"
 
 #: nectar/customizer/panels/layout/footer.php:60
 msgid "Custom Footer Color Scheme"
-msgstr "커스텀 푸터 색상 구성"
+msgstr "사용자 정의 바닥글 색 구성표"
 
 #: nectar/customizer/panels/layout/footer.php:69
 msgid "Footer Background Color"
-msgstr "푸터 배경색"
+msgstr "바닥글 배경색"
 
 #: nectar/customizer/panels/layout/footer.php:83
 msgid "Footer Font Color"
-msgstr "푸터 글꼴 색"
+msgstr "바닥글 폰트 색상"
 
 #: nectar/customizer/panels/layout/footer.php:96
 msgid "2nd Footer Font Color"
-msgstr "2번째 푸터 글꼴 색"
+msgstr "2번째 바닥글 글꼴 색상"
 
 #: nectar/customizer/panels/layout/footer.php:110
 msgid "Copyright Background Color"
-msgstr "저작권 배경 색"
+msgstr "저작권 배경색"
 
 #: nectar/customizer/panels/layout/footer.php:123
 msgid "Footer Copyright Font Color"
-msgstr "하단 저작권 글꼴 색"
+msgstr "바닥글 저작권 글꼴 색상"
 
 #: nectar/customizer/panels/layout/footer.php:133
 msgid "Footer Full Width"
-msgstr "푸터 전체 너비"
+msgstr "바닥글 전체 너비"
 
 #: nectar/customizer/panels/layout/footer.php:134
 msgid "This to cause your footer content to display full width."
-msgstr "이를 통해 귀하의 푸터 콘텐츠가 전체 너비로 표시되도록 설정합니다."
+msgstr "바닥글 콘텐츠가 전체 너비로 표시되도록 합니다."
 
 #: nectar/customizer/panels/layout/footer.php:142
 msgid "Footer Link Hover Effect"
-msgstr "푸터 링크 호버 효과"
+msgstr "바닥글 링크 호버 효과"
 
 #: nectar/customizer/panels/layout/footer.php:143
 msgid ""
 "Please select the hover effect you would like for links in your footer "
 "copyright area."
-msgstr "푸터 저작권 영역의 링크에 원하는 호버 효과를 선택해주세요."
+msgstr "바닥글 저작권 영역의 링크에 적용할 호버 효과를 선택하세요."
 
 #: nectar/customizer/panels/layout/footer.php:145
 msgid "Opacity/Color Change"
-msgstr "불투명도/색상 변경"
+msgstr "투명도/색상 변경"
 
 #: nectar/customizer/panels/layout/footer.php:154
 msgid "Disable Footer Copyright Area"
-msgstr "푸터 저작권 영역 비활성화"
+msgstr "바닥글 저작권 영역 비활성화"
 
 #: nectar/customizer/panels/layout/footer.php:155
 msgid "This will hide the copyright bar in your footer"
-msgstr "이것은 귀하의 푸터에서 저작권 표시줄을 숨깁니다."
+msgstr "바닥글의 저작권 표시줄이 숨겨집니다."
 
 #: nectar/customizer/panels/layout/footer.php:163
 msgid "Footer Copyright Layout"
-msgstr "푸터 저작권 레이아웃"
+msgstr "바닥글 저작권 레이아웃"
 
 #: nectar/customizer/panels/layout/footer.php:164
 msgid ""
 "Please select the layout you would like for your footer copyright area."
-msgstr "푸터 저작권 영역에 원하는 레이아웃을 선택해주세요."
+msgstr "바닥글 저작권 영역에 사용할 레이아웃을 선택해 주세요."
 
 #: nectar/customizer/panels/layout/footer.php:166
 msgid "Determined by Footer Columns"
-msgstr "푸터 열에 따라 결정됩니다."
+msgstr "바닥글 열에 따라 결정됨"
 
 #: nectar/customizer/panels/layout/footer.php:167
 msgid "Centered"
@@ -1826,15 +2017,15 @@ msgstr "가운데 정렬"
 
 #: nectar/customizer/panels/layout/footer.php:175
 msgid "Footer Copyright Section Text"
-msgstr "푸터 저작권 섹션 텍스트"
+msgstr "바닥글 저작권 섹션 텍스트"
 
 #: nectar/customizer/panels/layout/footer.php:176
 msgid "Please enter the copyright section text. e.g. All Rights Reserved"
-msgstr "저작권 섹션 텍스트를 입력해주세요. 예: 모든 권리 보유"
+msgstr "저작권 섹션 텍스트를 입력해 주세요. 예: All Rights Reserved"
 
 #: nectar/customizer/panels/layout/footer.php:183
 msgid "Disable Automatic Copyright"
-msgstr "자동 저작권 비활성화"
+msgstr "자동 저작권 표시 비활성화"
 
 #: nectar/customizer/panels/layout/footer.php:184
 msgid ""
@@ -1842,31 +2033,31 @@ msgid ""
 "the additional text you add above in the Footer Copyright Section Text input"
 " - This option allows you to remove that."
 msgstr ""
-"기본적으로 저작권 섹션에는 \"© {YEAR} {SITENAME}\"이라고 표시됩니다. 추가로 입력한 푸터 저작권 섹션 텍스트 위에 "
-"추가한 텍스트가 나"
+"기본적으로 저작권 섹션에는 위의 바닥글 저작권 섹션 텍스트 입력란에 추가한 텍스트 앞에 \"© {YEAR} {SITENAME}\"이 "
+"표시됩니다 - 이 옵션을 사용하면 해당 내용을 제거할 수 있습니다."
 
 #: nectar/customizer/panels/layout/footer.php:191
 msgid "Footer Background Image"
-msgstr "푸터 배경 이미지"
+msgstr "바닥글 배경 이미지"
 
 #: nectar/customizer/panels/layout/footer.php:192
 msgid ""
 "Upload an image that will be used as the background image on your footer. "
-msgstr "푸터에 배경 이미지로 사용할 이미지를 업로드하세요."
+msgstr "바닥글의 배경 이미지로 사용될 이미지를 업로드하세요."
 
 #: nectar/customizer/panels/layout/footer.php:199
 msgid "Footer Background Overlay"
-msgstr "푸터 배경 오버레이"
+msgstr "바닥글 배경 오버레이"
 
 #: nectar/customizer/panels/layout/footer.php:200
 msgid ""
 "Adjust the overlay opacity here - the overlay colors pulls from your defined"
 " footer background color."
-msgstr "여기서 오버레이 불투명도를 조절하세요 - 오버레이 색상은 정의된 푸터 배경 색상에서 가져옵니다."
+msgstr "오버레이 투명도를 여기서 조정하세요 - 오버레이 색상은 설정된 바닥글 배경색에서 가져옵니다."
 
 #: nectar/customizer/panels/layout/footer.php:215
 msgid "Footer"
-msgstr "푸터"
+msgstr "바닥글"
 
 #: nectar/customizer/panels/post-types/blog.php:29
 msgid "Blog"
@@ -1878,23 +2069,23 @@ msgstr "블로그 레이아웃"
 
 #: nectar/customizer/panels/post-types/blog.php:69
 msgid "Standard Blog W/ Sidebar"
-msgstr "사이드바가 있는 표준 블로그"
+msgstr "사이드바가 있는 기본 블로그"
 
 #: nectar/customizer/panels/post-types/blog.php:70
 msgid "Standard Blog No Sidebar"
-msgstr "사이드바 없는 표준 블로그"
+msgstr "사이드바 없는 기본 블로그"
 
 #: nectar/customizer/panels/post-types/blog.php:71
 msgid "Masonry Blog W/ Sidebar"
-msgstr "사이드바가 있는 메이슨리 블로그"
+msgstr "사이드바가 있는 매스너리 블로그"
 
 #: nectar/customizer/panels/post-types/blog.php:72
 msgid "Masonry Blog No Sidebar"
-msgstr "사이드바 없는 메이슨리 블로그"
+msgstr "사이드바 없는 매스너리 블로그"
 
 #: nectar/customizer/panels/post-types/blog.php:73
 msgid "Masonry Blog Fullwidth"
-msgstr "풀폭 메이슨리 블로그"
+msgstr "매스너리 블로그 전체폭"
 
 #: nectar/customizer/panels/post-types/blog.php:82
 msgid "Blog Spacing"
@@ -1903,23 +2094,23 @@ msgstr "블로그 간격"
 #: nectar/customizer/panels/post-types/blog.php:116
 #: nectar/customizer/panels/post-types/woocommerce.php:147
 msgid "Enable Sticky Sidebar"
-msgstr "스티키 사이드바 활성화하기"
+msgstr "사이드바 고정 활성화"
 
 #: nectar/customizer/panels/post-types/blog.php:124
 msgid "Post Excerpt"
-msgstr "게시물 요약"
+msgstr "글 발췌"
 
 #: nectar/customizer/panels/post-types/blog.php:133
 msgid "Excerpt Length"
-msgstr "단락 길이"
+msgstr "발췌 길이"
 
 #: nectar/customizer/panels/post-types/blog.php:134
 msgid "How many words would you like to display for your post excerpts?"
-msgstr "게시물 요약에 표시할 단어 수를 몇 개로 설정하시겠습니까?"
+msgstr "글 발췌문에 몇 단어를 표시하시겠습니까?"
 
 #: nectar/customizer/panels/post-types/blog.php:157
 msgid "Hide Sidebar on Single Post"
-msgstr "단일 포스트에서 사이드바 숨기기"
+msgstr "단일 글에서 사이드바 숨기기"
 
 #: nectar/customizer/panels/post-types/blog.php:164
 msgid "Blog Content Width"
@@ -1927,145 +2118,145 @@ msgstr "블로그 콘텐츠 너비"
 
 #: nectar/customizer/panels/post-types/blog.php:167
 msgid "1000px"
-msgstr "1000픽셀"
+msgstr "1000px"
 
 #: nectar/customizer/panels/post-types/blog.php:168
 msgid "900px"
-msgstr "900픽셀"
+msgstr "900px"
 
 #: nectar/customizer/panels/post-types/blog.php:169
 msgid "800px"
-msgstr "800픽셀"
+msgstr "800px"
 
 #: nectar/customizer/panels/post-types/blog.php:170
 msgid "700px"
-msgstr "700픽셀"
+msgstr "700px"
 
 #: nectar/customizer/panels/post-types/blog.php:179
 msgid "Author Link"
-msgstr "저자 링크"
+msgstr "작성자 링크"
 
 #: nectar/customizer/panels/post-types/blog.php:183
 msgid "Post Author Archives"
-msgstr "게시물 작성자 아카이브"
+msgstr "글 작성자 아카이브"
 
 #: nectar/customizer/panels/post-types/blog.php:184
 msgid "Post Author Website URL "
-msgstr "게시자 웹사이트 URL"
+msgstr "글 작성자 웹사이트 URL"
 
 #: nectar/customizer/panels/post-types/blog.php:192
 msgid "Author Bio"
-msgstr "저자 소개"
+msgstr "작성자 소개"
 
 #: nectar/customizer/panels/post-types/blog.php:193
 msgid "Display the author's bio at the bottom of posts?"
-msgstr "포스트 하단에 저자 소개를 표시하시겠습니까?"
+msgstr "글 하단에 작성자 소개를 표시하시겠습니까?"
 
 #: nectar/customizer/panels/post-types/blog.php:201
 msgid "Post Navigation Links"
-msgstr "게시물 탐색 링크"
+msgstr "글 탐색 링크"
 
 #: nectar/customizer/panels/post-types/blog.php:202
 msgid ""
 "Using this will add navigation link(s) at the bottom of every single post "
 "page."
-msgstr "이를 사용하면 모든 개별 게시물 페이지 하단에 탐색 링크가 추가됩니다."
+msgstr "이것을 사용하면 모든 개별 글 페이지 하단에 내비게이션 링크가 추가됩니다."
 
 #: nectar/customizer/panels/post-types/blog.php:210
 msgid "Post Navigation Style"
-msgstr "포스트 내비게이션 스타일"
+msgstr "글 탐색 스타일"
 
 #: nectar/customizer/panels/post-types/blog.php:214
 msgid "Fullwidth Next Link Only"
-msgstr "다음 링크만 전체 너비"
+msgstr "전체 너비 다음 링크만"
 
 #: nectar/customizer/panels/post-types/blog.php:215
 msgid "Fullwidth Next & Prev Links"
-msgstr "다음 및 이전 링크 전체 너비"
+msgstr "전체 너비 이전 & 다음 링크"
 
 #: nectar/customizer/panels/post-types/blog.php:216
 msgid "Contained Next & Prev Links"
-msgstr "다음 및 이전 링크가 포함되어 있습니다."
+msgstr "이전 및 다음 링크 포함"
 
 #: nectar/customizer/panels/post-types/blog.php:217
 msgid "Parallax Contained Next Link Only"
-msgstr "패럴랙스가 포함된 다음 링크만"
+msgstr "패럴랙스 컨테이너 다음 링크만"
 
 #: nectar/customizer/panels/post-types/blog.php:224
 msgid "Limit Post Navigation To Same Category"
-msgstr "동일한 카테고리로 게시물 탐색 제한"
+msgstr "같은 카테고리 내에서만 글 탐색 제한"
 
 #: nectar/customizer/panels/post-types/blog.php:225
 msgid ""
 "This will ensure that the next/prev links will only show posts that are set "
 "in the same category of the post being viewed."
-msgstr "다음/이전 링크가 본문을 보고 있는 포스트와 동일한 카테고리로 설정된 포스트만 표시되도록 보장합니다."
+msgstr "이렇게 하면 다음/이전 링크가 현재 보고 있는 글과 동일한 카테고리로 설정된 글만 표시합니다."
 
 #: nectar/customizer/panels/post-types/blog.php:234
 msgid "Post Navigation Ordering"
-msgstr "포스트 내비게이션 순서 설정"
+msgstr "글 탐색 순서"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "Default:"
-msgstr "기본 설정:"
+msgstr "기본값:"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "the next post link will be the next"
-msgstr "다음 게시물 링크는 다음이 될 것입니다."
+msgstr "다음 글 링크가 다음이 됩니다"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "oldest"
-msgstr "가장 오래된"
+msgstr "오래된 순"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "post."
-msgstr "게시물."
+msgstr "글"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "Reverse Order:"
-msgstr "역순으로:"
+msgstr "역순:"
 
 #: nectar/customizer/panels/post-types/blog.php:236
 msgid "newest"
-msgstr "최신 것"
+msgstr "최신"
 
 #: nectar/customizer/panels/post-types/blog.php:240
 msgid "Reverse Order"
-msgstr "순서를 반대로"
+msgstr "역순"
 
 #: nectar/customizer/panels/post-types/blog.php:247
 #: nectar/customizer/panels/post-types/blog.php:298
 #: nectar/helpers/blog.php:463 nectar/helpers/blog.php:468
 msgid "Related Posts"
-msgstr "관련 게시물"
+msgstr "관련 글"
 
 #: nectar/customizer/panels/post-types/blog.php:248
 msgid "Adds related posts after the post content on single post pages."
-msgstr "개별 게시물 페이지에서 게시물 콘텐츠 뒤에 관련 게시물을 추가합니다."
+msgstr "단일 글 페이지에서 글 콘텐츠 아래에 관련 글을 추가합니다."
 
 #: nectar/customizer/panels/post-types/blog.php:255
 msgid "Related Posts Functionality"
-msgstr "관련 게시물 기능"
+msgstr "관련 글 기능"
 
 #: nectar/customizer/panels/post-types/blog.php:259
 msgid "Recent in same category"
-msgstr "동일한 카테고리의 최근 것"
+msgstr "같은 카테고리의 최근 글"
 
 #: nectar/customizer/panels/post-types/blog.php:260
 msgid "Random in same category"
-msgstr "동일한 카테고리에서 무작위로"
+msgstr "같은 카테고리에서 무작위로"
 
 #: nectar/customizer/panels/post-types/blog.php:261
 msgid "Random in any category"
-msgstr "어떤 카테고리든 무작위로"
+msgstr "모든 카테고리에서 무작위로"
 
 #: nectar/customizer/panels/post-types/blog.php:271
 msgid "Related Posts Style"
-msgstr "관련 게시물 스타일"
+msgstr "관련 글 스타일"
 
 #: nectar/customizer/panels/post-types/blog.php:275
 msgid "Material"
-msgstr "자료"
+msgstr "머티리얼"
 
 #: nectar/customizer/panels/post-types/blog.php:276
 #: nectar/customizer/panels/post-types/woocommerce.php:172
@@ -2074,30 +2265,30 @@ msgstr "클래식"
 
 #: nectar/customizer/panels/post-types/blog.php:284
 msgid "Display Excerpt In Related Posts"
-msgstr "관련 게시물에서 요약 내용 표시"
+msgstr "관련 글에 발췌문 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:294
 msgid "Related Posts Title Text"
-msgstr "관련 게시물 제목 텍스트"
+msgstr "관련 글 제목 텍스트"
 
 #: nectar/customizer/panels/post-types/blog.php:299
 #: nectar/helpers/blog.php:472
 msgid "Similar Posts"
-msgstr "유사한 게시물"
+msgstr "관련 글"
 
 #: nectar/customizer/panels/post-types/blog.php:300
 #: nectar/helpers/blog.php:476
 msgid "You May Also Like"
-msgstr "당신도 좋아할지도 모릅니다."
+msgstr "추천 콘텐츠"
 
 #: nectar/customizer/panels/post-types/blog.php:301
 #: nectar/helpers/blog.php:479
 msgid "Recommended For You"
-msgstr "당신을 위한 추천"
+msgstr "추천 콘텐츠"
 
 #: nectar/customizer/panels/post-types/blog.php:302
 msgid "None (Hidden)"
-msgstr "숨겨진 것이 없습니다."
+msgstr "없음 (숨김)"
 
 #: nectar/customizer/panels/post-types/blog.php:309
 msgid "Blog Section Title Typography"
@@ -2105,11 +2296,11 @@ msgstr "블로그 섹션 제목 타이포그래피"
 
 #: nectar/customizer/panels/post-types/blog.php:323
 msgid "Author Style in Comments"
-msgstr "댓글에서의 작가 스타일"
+msgstr "댓글의 작성자 스타일"
 
 #: nectar/customizer/panels/post-types/blog.php:327
 msgid "\"Author\" Badge Next to Name"
-msgstr "이름 옆에 \"저자\" 배지"
+msgstr "이름 옆에 \"작성자\" 배지"
 
 #: nectar/customizer/panels/post-types/blog.php:334
 msgid "Display Tags"
@@ -2117,12 +2308,12 @@ msgstr "태그 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:335
 msgid "Display tags at the bottom of posts?"
-msgstr "포스트 하단에 태그를 표시하시겠습니까?"
+msgstr "글 하단에 태그를 표시하시겠습니까?"
 
 #: nectar/customizer/panels/post-types/blog.php:345
 #: nectar/customizer/panels/post-types/portfolio.php:210
 msgid "Single Post"
-msgstr "단일 게시물"
+msgstr "단일 글"
 
 #: nectar/customizer/panels/post-types/blog.php:357
 msgid "Blog Header Type"
@@ -2134,11 +2325,11 @@ msgstr "가변 높이"
 
 #: nectar/customizer/panels/post-types/blog.php:361
 msgid "Featured Media Under Heading"
-msgstr "제목 아래 특집 미디어"
+msgstr "제목 아래 대표 미디어"
 
 #: nectar/customizer/panels/post-types/blog.php:369
 msgid "Blog Header Image Sizing"
-msgstr "블로그 헤더 이미지 크기 설정"
+msgstr "블로그 헤더 이미지 크기 조정"
 
 #: nectar/customizer/panels/post-types/blog.php:374
 #: nectar/customizer/panels/post-types/portfolio.php:121
@@ -2148,7 +2339,7 @@ msgstr "슬림 (2.5:1)"
 #: nectar/customizer/panels/post-types/blog.php:375
 #: nectar/customizer/panels/post-types/portfolio.php:122
 msgid "Narrow (2:1)"
-msgstr "좁다 (2:1)"
+msgstr "좁음 (2:1)"
 
 #: nectar/customizer/panels/post-types/blog.php:376
 #: nectar/customizer/panels/post-types/portfolio.php:123
@@ -2158,7 +2349,7 @@ msgstr "일반 (16:9)"
 #: nectar/customizer/panels/post-types/blog.php:377
 #: nectar/customizer/panels/post-types/portfolio.php:124
 msgid "Tall (3:2)"
-msgstr "키가 큰 (3:2)"
+msgstr "세로형 (3:2)"
 
 #: nectar/customizer/panels/post-types/blog.php:378
 #: nectar/customizer/panels/post-types/portfolio.php:125
@@ -2167,7 +2358,7 @@ msgstr "정사각형 (1:1)"
 
 #: nectar/customizer/panels/post-types/blog.php:387
 msgid "Blog Header Roundness"
-msgstr "블로그 헤더 둥근 모서리"
+msgstr "블로그 헤더 둥글기"
 
 #: nectar/customizer/panels/post-types/blog.php:399
 msgid "Blog Header Alignment"
@@ -2183,29 +2374,25 @@ msgstr "작은 이미지 인라인"
 
 #: nectar/customizer/panels/post-types/blog.php:419
 msgid "Large Image Multiline "
-msgstr "큰 이미지 멀티라인"
+msgstr "대형 이미지 여러 줄"
 
 #: nectar/customizer/panels/post-types/blog.php:428
 msgid "Blog Header Display Excerpt"
-msgstr "블로그 헤더에 요약 표시"
+msgstr "블로그 헤더 발췌문 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:436
 #: nectar/customizer/panels/post-types/blog.php:460
 msgid "Blog Header Overlay Color"
-msgstr "블로그 헤더 오버레이 색상"
+msgstr "블로그 헤더 오버레이 컬러"
 
 #: nectar/customizer/panels/post-types/blog.php:447
 #: nectar/customizer/panels/post-types/blog.php:472
 msgid "Blog Header Overlay Opacity"
-msgstr "블로그 헤더 오버레이 불투명도"
+msgstr "블로그 헤더 오버레이 투명도"
 
 #: nectar/customizer/panels/post-types/blog.php:485
 msgid "Blog Header Text Color"
 msgstr "블로그 헤더 텍스트 색상"
-
-#: build/customizer.js:1
-msgid "Responsive Sizing"
-msgstr "반응형 크기 조절"
 
 #: nectar/customizer/panels/post-types/blog.php:495
 msgid "Blog Header Scroll Effect"
@@ -2214,7 +2401,7 @@ msgstr "블로그 헤더 스크롤 효과"
 #: nectar/customizer/panels/post-types/blog.php:496
 #: nectar/customizer/panels/post-types/portfolio.php:146
 msgid "Globally define a scroll effect for your blog header."
-msgstr "블로그 헤더에 대한 스크롤 효과를 전역적으로 정의하세요."
+msgstr "블로그 헤더에 대한 스크롤 효과를 전역적으로 정의합니다."
 
 #: nectar/customizer/panels/post-types/blog.php:499
 #: nectar/customizer/panels/post-types/portfolio.php:149
@@ -2228,27 +2415,27 @@ msgstr "블로그 헤더 로드 인 애니메이션"
 #: nectar/customizer/panels/post-types/blog.php:511
 #: nectar/customizer/panels/post-types/portfolio.php:160
 msgid "Fade In Staggered"
-msgstr "스태거드로 서서히 나타나기"
+msgstr "순차적 페이드인"
 
 #: nectar/customizer/panels/post-types/blog.php:519
 msgid "Hide Featured Media"
-msgstr "주요 미디어 숨기기"
+msgstr "특성 미디어 숨기기"
 
 #: nectar/customizer/panels/post-types/blog.php:520
 msgid ""
 "Using this will remove the featured media (determined by the selected post "
 "format) from appearing in the top of your single blog posts."
-msgstr "이를 사용하면 선택한 포스트 형식에 따라 특집 미디어가 블로그 게시물 상단에 나타나지 않습니다."
+msgstr "이 옵션을 사용하면 개별 블로그 글 상단에 표시되는 대표 미디어(선택한 글 형식에 따라 결정됨)가 나타나지 않습니다."
 
 #: nectar/customizer/panels/post-types/blog.php:528
 msgid "Single Post Header Inherits Featured Image"
-msgstr "단일 게시물 헤더가 특성 이미지를 상속합니다."
+msgstr "단일 글 머리글이 대표 이미지를 상속합니다"
 
 #: nectar/customizer/panels/post-types/blog.php:529
 msgid ""
 "Using this will cause the default background of your post header to use your"
 " featured image when no other post header image is supplied."
-msgstr "이를 사용하면 다른 포스트 헤더 이미지가 제공되지 않을 때 포스트 헤더의 기본 배경에 특성 이미지를 사용합니다."
+msgstr "이미지가 지정되지 않은 글 머리글에 대표 이미지를 기본 배경으로 사용하도록 설정합니다."
 
 #: nectar/customizer/panels/post-types/blog.php:538
 msgid "Blog Header Category Display"
@@ -2260,11 +2447,11 @@ msgstr "모두 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:542
 msgid "Parent Categories Only"
-msgstr "부모 카테고리만"
+msgstr "상위 카테고리만"
 
 #: nectar/customizer/panels/post-types/blog.php:553
 msgid "Single Post Header"
-msgstr "단일 게시물 헤더"
+msgstr "단일 글 머리글"
 
 #: nectar/customizer/panels/post-types/blog.php:565
 msgid "Blog Archive Header Type"
@@ -2276,7 +2463,7 @@ msgstr "이미지 배경"
 
 #: nectar/customizer/panels/post-types/blog.php:568
 msgid "Color Background"
-msgstr "배경 색"
+msgstr "배경 색상"
 
 #: nectar/customizer/panels/post-types/blog.php:576
 msgid "Blog Archive Header BG Color"
@@ -2294,7 +2481,7 @@ msgstr "블로그 아카이브 헤더 배경 이미지"
 msgid ""
 "Upload an optional background that will be used as the default on all blog "
 "archive pages."
-msgstr "블로그 아카이브 페이지의 기본 배경으로 사용될 선택적 배경을 업로드하세요."
+msgstr "모든 블로그 아카이브 페이지에서 기본값으로 사용될 배경을 선택적으로 업로드하세요."
 
 #: nectar/customizer/panels/post-types/blog.php:604
 msgid "Blog Archive Background Color Layout"
@@ -2302,11 +2489,11 @@ msgstr "블로그 아카이브 배경색 레이아웃"
 
 #: nectar/customizer/panels/post-types/blog.php:607
 msgid "Default (Solid)"
-msgstr "기본 (솔리드)"
+msgstr "기본 (단색)"
 
 #: nectar/customizer/panels/post-types/blog.php:608
 msgid "Gradient"
-msgstr "그라데이션"
+msgstr "그래디언트"
 
 #: nectar/customizer/panels/post-types/blog.php:616
 msgid "Blog Archive Text Alignment"
@@ -2316,7 +2503,7 @@ msgstr "블로그 아카이브 텍스트 정렬"
 #: nectar/customizer/panels/post-types/woocommerce.php:212
 #: nectar/meta/category-meta.php:120 nectar/meta/category-meta.php:140
 msgid "Right"
-msgstr "예"
+msgstr "오른쪽"
 
 #: nectar/customizer/panels/post-types/blog.php:629
 msgid "Blog Archive Format"
@@ -2324,7 +2511,7 @@ msgstr "블로그 아카이브 형식"
 
 #: nectar/customizer/panels/post-types/blog.php:640
 msgid "Blog Archive Author Gravatar"
-msgstr "블로그 아카이브 작성자 그라바타"
+msgstr "블로그 아카이브 작성자 Gravatar"
 
 #: nectar/customizer/panels/post-types/blog.php:650
 #: nectar/customizer/panels/post-types/woocommerce.php:769
@@ -2333,67 +2520,67 @@ msgstr "아카이브 헤더"
 
 #: nectar/customizer/panels/post-types/blog.php:670
 msgid "Post Date Functionality"
-msgstr "게시 날짜 기능"
+msgstr "글 날짜 기능"
 
 #: nectar/customizer/panels/post-types/blog.php:673
 msgid "Show Published Date"
-msgstr "게시 날짜 표시"
+msgstr "발행일 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:674
 msgid "Show Last Edited Date"
-msgstr "최종 편집 날짜 표시"
+msgstr "마지막 수정 날짜 표시"
 
 #: nectar/customizer/panels/post-types/blog.php:681
 msgid "Pagination Type"
-msgstr "페이징 유형"
+msgstr "페이지네이션 유형"
 
 #: nectar/customizer/panels/post-types/blog.php:682
 msgid "Please select your pagination type here."
-msgstr "페이지네이션 유형을 여기에서 선택해주세요."
+msgstr "여기에서 페이지네이션 유형을 선택하세요."
 
 #: nectar/customizer/panels/post-types/blog.php:709
 msgid "Single Post Template"
-msgstr "단일 게시물 템플릿"
+msgstr "단일 글 템플릿"
 
 #: nectar/customizer/panels/post-types/blog.php:711
 msgid ""
 "Use the following options to control what meta information will be shown on "
 "your single post template."
-msgstr "단일 포스트 템플릿에 표시될 메타 정보를 제어하는 데 다음 옵션을 사용하십시오."
+msgstr "단일 글 템플릿에서 표시할 메타 정보를 다음 옵션으로 제어하세요."
 
 #: nectar/customizer/panels/post-types/blog.php:716
 msgid "Remove Single Post Date"
-msgstr "단일 게시물 날짜 제거"
+msgstr "단일 글 날짜 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:724
 msgid "Remove Single Post Author"
-msgstr "개별 게시물 작성자 제거"
+msgstr "단일 글 작성자 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:732
 msgid "Remove Single Post Comment Number"
-msgstr "개별 게시물 댓글 번호 제거"
+msgstr "단일 글 댓글 수 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:740
 msgid "Remove Single Estimated Reading Time"
-msgstr "단일 예상 독서 시간 제거"
+msgstr "단일 예상 읽기 시간 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:749
 msgid "Blog Archive (Post Grid/List) Template"
-msgstr "블로그 아카이브 (포스트 그리드/리스트) 템플릿"
+msgstr "블로그 아카이브(글 그리드/목록) 템플릿"
 
 #: nectar/customizer/panels/post-types/blog.php:751
 msgid ""
 "Use the following options to control what meta information will be shown on "
 "your posts in the main post query."
-msgstr "다음 옵션을 사용하여 메타 정보를 제어하여 메인 게시물 쿼리에서 표시될 내용을 결정할 수 있습니다."
+msgstr "메인 글 쿼리에서 글에 표시될 메타 정보를 제어하려면 다음 옵션을 사용하세요."
 
 #: nectar/customizer/panels/post-types/blog.php:756
 msgid "Remove Post Date"
-msgstr "게시 날짜 제거"
+msgstr "글 날짜 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:764
 msgid "Remove Post Author"
-msgstr "게시물 작성자 제거"
+msgstr "글 작성자 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:772
 msgid "Remove Categories"
@@ -2401,35 +2588,86 @@ msgstr "카테고리 제거"
 
 #: nectar/customizer/panels/post-types/blog.php:783
 msgid "Post Meta"
-msgstr "포스트 메타"
+msgstr "글 메타"
+
+#: nectar/customizer/panels/post-types/portfolio.php:28
+msgid "Portfolio"
+msgstr "포트폴리오"
+
+#: nectar/customizer/panels/post-types/portfolio.php:58
+msgid "Portfolio Spacing"
+msgstr "Portfolio 간격"
+
+#: nectar/customizer/panels/post-types/portfolio.php:73
+#: nectar/customizer/panels/post-types/portfolio.php:191
+msgid "Display Description"
+msgstr "설명 표시"
+
+#: nectar/customizer/panels/post-types/portfolio.php:81
+msgid "Description Length"
+msgstr "설명 길이"
+
+#: nectar/customizer/panels/post-types/portfolio.php:92
+#: nectar/customizer/panels/post-types/portfolio.php:199
+msgid "Display Categories"
+msgstr "카테고리 표시"
+
+#: nectar/customizer/panels/post-types/portfolio.php:104
+#: nectar/helpers/page-header.php:859
+msgid "Archives"
+msgstr "아카이브"
+
+#: nectar/customizer/panels/post-types/portfolio.php:116
+msgid "Header Image Sizing"
+msgstr "헤더 이미지 크기 조정"
+
+#: nectar/customizer/panels/post-types/portfolio.php:145
+msgid "Header Scroll Effect"
+msgstr "헤더 스크롤 효과"
+
+#: nectar/customizer/panels/post-types/portfolio.php:156
+msgid "Portfolio Header Load In Animation"
+msgstr "포트폴리오 헤더 로드 인 애니메이션"
+
+#: nectar/customizer/panels/post-types/portfolio.php:167
+msgid "Display Client"
+msgstr "클라이언트 표시"
+
+#: nectar/customizer/panels/post-types/portfolio.php:175
+msgid "Display Date"
+msgstr "날짜 표시"
+
+#: nectar/customizer/panels/post-types/portfolio.php:183
+msgid "Display Project Link"
+msgstr "프로젝트 링크 표시"
 
 #: nectar/customizer/panels/post-types/post-types.php:25
 msgid "Post Types"
-msgstr "게시물 유형"
+msgstr "글 유형"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:26
 msgid "Woocommerce"
-msgstr "우커머스"
+msgstr "WooCommerce"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:45
 msgid "WooCommerce Cart In Nav"
-msgstr "내비게이션에 WooCommerce 장바구니"
+msgstr "네비게이션의 WooCommerce 장바구니"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:46
 msgid "This will add a cart item to your main navigation."
-msgstr "이것은 장바구니 항목을 주요 내비게이션에 추가합니다."
+msgstr "메인 네비게이션에 장바구니 아이템이 추가됩니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:54
 msgid "Cart In Nav Style"
-msgstr "내비게이션 스타일에서 카트"
+msgstr "장바구니 내비게이션 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:55
 msgid "Please select the style you would like for your AJAX cart."
-msgstr "AJAX 카트에 원하는 스타일을 선택해주세요."
+msgstr "AJAX cart에 적용할 스타일을 선택해주세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:55
 msgid "Note:"
-msgstr "주의:"
+msgstr "참고:"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:55
 msgid ""
@@ -2438,12 +2676,13 @@ msgid ""
 "Alternatively, you can also use the \"Clear sessions\" tool within "
 "WooCommerce > Status > Tools for this."
 msgstr ""
-"WooCommerce가 장바구니 위젯 마크업을 캐시하기 때문에 이 옵션을 변경할 때 전체 변경 사항을 보려면 장바구니에 제품을 추가해야 "
-"합니다."
+"WooCommerce가 cart widget 마크업을 캐시하기 때문에, 이 옵션을 변경할 때는 변경사항을 완전히 확인하기 위해 상품을 "
+"장바구니에 추가해야 합니다. 또는 WooCommerce > Status > Tools에 있는 \"Clear sessions\" 도구를 "
+"사용할 수도 있습니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:58
 msgid "Hover Dropdown"
-msgstr "드롭다운 호버"
+msgstr "호버 드롭다운"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:59
 msgid "Click Extended Functionality"
@@ -2451,21 +2690,25 @@ msgstr "확장 기능 클릭"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:68
 msgid "AJAX Product Template Add to Cart"
-msgstr "AJAX 제품 템플릿 장바구니에 추가"
+msgstr "AJAX 상품 템플릿 장바구니 담기"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:69
 msgid ""
 "Enabling this will allow products to be added to the cart without causing a "
 "page refresh on the single product template and in the quickview modal."
-msgstr "이를 활성화하면 제품을 단일 제품 템플릿 및 빠른보기 모달에서 페이지 새로 고침 없이 장바구니에 추가할 수 있습니다."
+msgstr "단일 상품 템플릿과 퀵뷰 모달에서 페이지 새로고침 없이 상품을 장바구니에 추가할 수 있도록 합니다."
+
+#: nectar/customizer/panels/post-types/woocommerce.php:78
+msgid "Account Button In Nav"
+msgstr "네비게이션의 계정 버튼"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:87
 msgid "Main Shop Layout"
-msgstr "주요 상점 레이아웃"
+msgstr "메인 상점 레이아웃"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:88
 msgid "Please select layout you would like to use on your main shop page."
-msgstr "메인 상점 페이지에 사용하고 싶은 레이아웃을 선택해주세요."
+msgstr "메인 상점 페이지에서 사용할 레이아웃을 선택해주세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:91
 msgid "No Sidebar"
@@ -2473,25 +2716,29 @@ msgstr "사이드바 없음"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:92
 msgid "Right Sidebar"
-msgstr "오른쪽 사이드바"
+msgstr "우측 사이드바"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:93
 msgid "Left Sidebar"
 msgstr "왼쪽 사이드바"
 
+#: nectar/customizer/panels/post-types/woocommerce.php:102
+msgid "Full Width Layout"
+msgstr "전체 너비 레이아웃"
+
 #: nectar/customizer/panels/post-types/woocommerce.php:114
 msgid "Add Filter Sidebar Toggle"
-msgstr "필터 사이드바 토글 추가"
+msgstr "Filter 사이드바 토글 추가"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:115
 msgid ""
 "Enabling this will allow your sidebar widget area to be toggled from a "
 "button above your products on all product archives."
-msgstr "이를 활성화하면 모든 제품 목록에서 제품 위에 있는 버튼을 통해 사이드바 위젯 영역을 토글할 수 있습니다."
+msgstr "제품 아카이브의 모든 제품 위에 있는 버튼을 통해 사이드바 위젯 영역을 토글할 수 있도록 활성화합니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:123
 msgid "Display Active Filters Next To Toggle"
-msgstr "토글 옆에 활성 필터 표시"
+msgstr "토글 옆에 활성화된 필터 표시"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:124
 msgid ""
@@ -2499,52 +2746,52 @@ msgid ""
 "compatible with third party plugins which update WooCommerce filters without"
 " reloading the page."
 msgstr ""
-"필터 토글 버튼 옆에 현재 활성화된 필터를 표시합니다. 페이지를 다시로드하지 않고 WooCommerce 필터를 업데이트하는 서드 파티 "
-"플러그인과 호환되지 않"
+"필터 토글 버튼 옆에 현재 활성화된 필터를 표시합니다. 페이지를 새로고침하지 않고 WooCommerce 필터를 업데이트하는 서드파티 "
+"플러그인과는 호환되지 않습니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:132
 msgid "Filter Sidebar Toggle Starting State"
-msgstr "필터 사이드바 토글 시작 상태"
+msgstr "Filter 사이드바 토글 초기 상태"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:134
 msgid "Open"
-msgstr "열다"
+msgstr "열기"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:135
 msgid "Closed"
-msgstr "폐쇄됨"
+msgstr "닫음"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:148
 msgid ""
 "Would you like to have your sidebar follow down as your scroll in a sticky "
 "manner?"
-msgstr "스크롤할 때 사이드바가 따라 내려가도록 고정된 방식으로 설정하시겠습니까?"
+msgstr "스크롤할 때 사이드바가 따라오도록 고정 효과를 적용하시겠습니까?"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:168
 msgid "Product Style"
-msgstr "제품 스타일"
+msgstr "상품 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:169
 msgid ""
 "Please select the style you would like your products to display in (single "
 "product page styling will also vary slightly with each)"
-msgstr "제품이 표시될 스타일을 선택해주세요 (단일 제품 페이지 스타일링은 각각 약간 다를 수 있습니다)"
+msgstr "제품을 표시할 스타일을 선택하세요 (단일 제품 페이지 스타일도 각각 약간씩 다르게 표시됩니다)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:173
 msgid "Material Design"
-msgstr "재료 디자인"
+msgstr "머티리얼 디자인"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:174
 msgid "Minimal Design"
-msgstr "최소 디자인"
+msgstr "미니멀 디자인"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:183
 msgid "Minimal Product Hover Layout"
-msgstr "최소한의 제품 호버 레이아웃"
+msgstr "최소형 상품 호버 레이아웃"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:185
 msgid "Price Hidden, Minimal Buttons"
-msgstr "가격 숨김, 최소한의 버튼"
+msgstr "가격 숨김, 최소 버튼"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:186
 msgid "Price Visible, Flex Buttons"
@@ -2552,23 +2799,43 @@ msgstr "가격 표시, 유연한 버튼"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:195
 msgid "Minimal Product Hover Effect"
-msgstr "최소한의 제품 호버 효과"
+msgstr "미니멀 상품 호버 효과"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:197
 msgid "Background Grow W/ Shadow"
-msgstr "그림자와 함께 자라세요."
+msgstr "배경 확장 및 그림자 효과"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:198
 msgid "Image Zoom"
-msgstr "이미지 확대"
+msgstr "이미지 줌"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:207
 msgid "Minimal Product Text Alignment"
-msgstr "최소 제품 텍스트 정렬"
+msgstr "최소형 상품 텍스트 정렬"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:222
+msgid "Button BG Color"
+msgstr "버튼 배경색"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:231
+msgid "Button BG Color Hover"
+msgstr "버튼 배경색 호버"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:240
+msgid "Button Text Color"
+msgstr "버튼 텍스트 색상"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:250
+msgid "Button Border Color"
+msgstr "버튼 테두리 색상"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:258
+msgid "Product Gap"
+msgstr "제품 간격"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:270
 msgid "Product Border Radius"
-msgstr "제품 테두리 반지름"
+msgstr "제품 테두리 반경"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:273
 msgid "0px"
@@ -2576,39 +2843,39 @@ msgstr "0px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:277
 msgid "4px"
-msgstr "4픽셀"
+msgstr "4px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:278
 msgid "5px"
-msgstr "5픽셀"
+msgstr "5px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:279
 msgid "6px"
-msgstr "6픽셀"
+msgstr "6px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:280
 msgid "7px"
-msgstr "7픽셀"
+msgstr "7px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:281
 msgid "8px"
-msgstr "8픽셀"
+msgstr "8px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:282
 msgid "9px"
-msgstr "9픽셀"
+msgstr "9px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:283
 msgid "10px"
-msgstr "10픽셀"
+msgstr "10px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:284
 msgid "15px"
-msgstr "15px를 번역하면 \"15픽셀\"입니다."
+msgstr "15px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:285
 msgid "20px"
-msgstr "20픽셀"
+msgstr "20px"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:292
 msgid "Enable WooCommerce Product Quick View"
@@ -2618,21 +2885,29 @@ msgstr "WooCommerce 제품 빠른 보기 활성화"
 msgid ""
 "This will add a \"quick view\" button to your products which will load key "
 "single product page info without having to navigate to the page itself."
-msgstr "이것은 제품에 \"빠른 보기\" 버튼을 추가하여 페이지 자체로 이동하지 않고 중요한 단일 제품 페이지 정보를 로드할 것입니다."
+msgstr "제품에 \"빠른 보기\" 버튼이 추가되어 제품 상세 페이지로 이동하지 않고도 주요 제품 정보를 불러올 수 있습니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:301
 msgid "Show first gallery image on Product hover"
-msgstr "제품을 호버할 때 첫 번째 갤러리 이미지를 보여주세요."
+msgstr "제품에 마우스를 올렸을 때 첫 번째 갤러리 이미지 표시"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:303
 msgid ""
 "Using this will cause your products to show the first gallery image (if "
 "supplied) on hover"
-msgstr "이를 사용하면 제품이 호버될 때 첫 번째 갤러리 이미지(제공된 경우)가 표시됩니다."
+msgstr "마우스를 올리면 제품의 첫 번째 갤러리 이미지(있는 경우)가 표시됩니다"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:310
 msgid "Disable Product Hover Effect On Mobile"
 msgstr "모바일에서 제품 호버 효과 비활성화"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:318
+msgid "WooCommerce Button Typography"
+msgstr "WooCommerce 버튼 타이포그래피"
+
+#: nectar/customizer/panels/post-types/woocommerce.php:322
+msgid "Label"
+msgstr "라벨"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:330
 msgid "Quantity Button Style"
@@ -2640,106 +2915,106 @@ msgstr "수량 버튼 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:331
 msgid "Please select style for your quantity buttons."
-msgstr "수량 버튼의 스타일을 선택해주세요."
+msgstr "수량 버튼의 스타일을 선택하세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:334
 msgid "Rounded Circles With Shadow"
-msgstr "그림자가 있는 둥근 원"
+msgstr "그림자가 있는 둥근 원형"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:335
 msgid "All Grouped Together"
-msgstr "모두 함께 그룹화된"
+msgstr "모두 함께 그룹화됨"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:343
 msgid "Archive Page Columns (Desktop)"
-msgstr "아카이브 페이지 열 (데스크톱)"
+msgstr "아카이브 페이지 컬럼 (데스크톱)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:344
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "desktop monitor ( > 1300px)"
-msgstr "데스크톱 모니터(> 1300px)에서 볼 때 제품 아카이브 페이지에 표시할 열 번호"
+msgstr "데스크톱 모니터에서 제품 아카이브 페이지를 볼 때 표시될 열 개수 ( > 1300px)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:360
 msgid "Archive Page Columns (Small Desktop)"
-msgstr "아카이브 페이지 열 (작은 데스크톱)"
+msgstr "아카이브 페이지 컬럼 (작은 데스크톱)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:361
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "small desktop monitor (1000px - 1300px)"
-msgstr "작은 데스크톱 모니터(1000px - 1300px)에서 볼 때 제품 아카이브 페이지에 표시할 열 번호"
+msgstr "작은 데스크톱 모니터(1000px - 1300px)에서 제품 아카이브 페이지에 표시될 열 개수"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:377
 msgid "Archive Page Columns (Tablet)"
-msgstr "아카이브 페이지 열 (태블릿)"
+msgstr "아카이브 페이지 컬럼 (태블릿)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:378
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "tablet (690px - 1024px)"
-msgstr "태블릿(690px - 1024px)에서 볼 때 제품 아카이브 페이지에 표시할 열 번호"
+msgstr "태블릿(690px - 1024px)에서 제품 아카이브 페이지에 표시될 열 개수"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:392
 msgid "Archive Page Columns (Phone)"
-msgstr "아카이브 페이지 열 (휴대전화)"
+msgstr "아카이브 페이지 컬럼 (모바일)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:393
 msgid ""
 "The column number to be displayed on product archive pages when viewed on a "
 "phone ( < 690px)"
-msgstr "폰에서 볼 때( < 690px) 제품 아카이브 페이지에 표시할 열 번호"
+msgstr "휴대폰에서 제품 아카이브 페이지를 볼 때 표시될 열 개수 (< 690px)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:409
 msgid "Material Design Product Item BG Color"
-msgstr "재료 디자인 제품 항목 배경색"
+msgstr "Material Design 제품 아이템 배경색"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:410
 #: nectar/customizer/panels/post-types/woocommerce.php:421
 msgid "Set this to match the BG color of your product images."
-msgstr "제품 이미지의 배경색과 일치하도록 설정하십시오."
+msgstr "제품 이미지의 배경색과 일치하도록 설정하세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:420
 msgid "Minimal Design Product Item BG Color"
-msgstr "최소 디자인 제품 항목 배경 색"
+msgstr "미니멀 디자인 상품 아이템 배경색"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:431
 msgid "Product Archive Page BG Color"
-msgstr "제품 아카이브 페이지 배경색"
+msgstr "Product Archive 페이지 배경색"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:432
 msgid "Allows to you set the BG color for all product archive pages"
-msgstr "모든 제품 아카이브 페이지의 배경색을 설정할 수 있습니다."
+msgstr "모든 제품 아카이브 페이지의 배경색을 설정할 수 있습니다"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:441
 msgid "Products Per Page"
-msgstr "페이지 당 제품"
+msgstr "페이지당 상품 수"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:442
 msgid "Please enter your desired your products per page (default is 12)"
-msgstr "원하는 제품을 페이지 당 입력해주세요 (기본값은 12입니다)"
+msgstr "페이지당 표시할 상품 수를 입력하세요 (기본값: 12)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:461
 msgid "General"
-msgstr "일반적인"
+msgstr "일반"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:474
 msgid "Single Product Layout"
-msgstr "단일 제품 레이아웃"
+msgstr "단일 상품 레이아웃"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:475
 msgid ""
 "Please select layout you would like to use on your single product page."
-msgstr "단일 제품 페이지에 사용하고 싶은 레이아웃을 선택해주세요."
+msgstr "단일 상품 페이지에 사용할 레이아웃을 선택해 주세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:488
 msgid "Single Product Gallery Type"
-msgstr "단일 제품 갤러리 유형"
+msgstr "단일 상품 갤러리 유형"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:489
 msgid ""
 "Please select what gallery type you would like on your single product page"
-msgstr "제품 페이지에 원하는 갤러리 유형을 선택해주세요."
+msgstr "단일 상품 페이지에 표시할 갤러리 유형을 선택해 주세요"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:492
 msgid "Default WooCommerce Gallery"
@@ -2749,40 +3024,44 @@ msgstr "기본 WooCommerce 갤러리"
 msgid "Bottom Thumbnails Slider"
 msgstr "하단 썸네일 슬라이더"
 
+#: nectar/customizer/panels/post-types/woocommerce.php:494
+msgid "Left Thumbnails Slider"
+msgstr "왼쪽 썸네일 슬라이더"
+
 #: nectar/customizer/panels/post-types/woocommerce.php:495
 msgid "2 Column Images + Sticky Product Info"
-msgstr "2열 이미지 + 고정 제품 정보"
+msgstr "2열 이미지 + 고정 상품 정보"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:502
 msgid "Custom Product Gallery Width"
-msgstr "커스텀 제품 갤러리 너비"
+msgstr "커스텀 상품 갤러리 너비"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:511
 msgid "Product Gallery Width Percent"
-msgstr "제품 갤러리 너비 퍼센트"
+msgstr "제품 갤러리 너비 백분율"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:512
 msgid ""
 "Specify a custom width for your product gallery to be used on desktop views."
-msgstr "데스크톱 화면에서 사용할 상품 갤러리의 사용자 정의 너비를 지정하십시오."
+msgstr "데스크톱 화면에서 사용할 제품 갤러리의 사용자 지정 너비를 지정하세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:523
 msgid "Product Gallery Locked To Aspect Ratio"
-msgstr "제품 갤러리가 종횡비에 잠겨 있습니다."
+msgstr "제품 갤러리 종횡비 고정"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:533
 msgid "Aspect Ratio"
-msgstr "비율 종횡비"
+msgstr "화면 비율"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:551
 msgid "Product Tab Position"
-msgstr "제품 탭 위치"
+msgstr "Product Tab 위치"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:552
 msgid ""
 "Please select what area you would like your tabs to display in on the single"
 " product page"
-msgstr "단일 제품 페이지에서 탭이 표시될 영역을 선택해주세요."
+msgstr "상품 상세 페이지에서 탭이 표시될 영역을 선택해 주세요"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:555
 msgid "In Side Area"
@@ -2794,7 +3073,7 @@ msgstr "이미지 아래 전체 너비"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:557
 msgid "Fullwidth Under Images Stacked (No Tabs)"
-msgstr "이미지 아래에 전체 너비로 쌓인 (탭 없음)"
+msgstr "전체 너비 이미지 아래 스택형 (탭 없음)"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:564
 msgid "Product Reviews Style"
@@ -2802,47 +3081,47 @@ msgstr "제품 리뷰 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:565
 msgid "Determines how product reviews will be styled."
-msgstr "제품 리뷰가 어떻게 스타일링될지 결정합니다."
+msgstr "제품 리뷰의 스타일 방식을 결정합니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:576
 msgid "Related/Upsell Products Carousel"
-msgstr "관련 상품/업셀 상품 캐러셀"
+msgstr "관련/추천 상품 캐러셀"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:577
 msgid ""
 "Increases the max number of related/upsell products to 8 and will enable a "
 "carousel display."
-msgstr "관련 제품 및 업셀 제품의 최대 수를 8개로 늘리고 캐러셀 표시를 활성화합니다."
+msgstr "관련/추천 상품의 최대 개수를 8개로 늘리고 캐러셀 디스플레이를 활성화합니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:584
 msgid "Related/Upsell Products Carousel Max Products"
-msgstr "관련/업셀 제품 캐러셀 최대 제품"
+msgstr "관련/추천 상품 캐러셀 최대 상품 수"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:590
 msgid ""
 "Choose the maximum number of related/upsell products to display per "
 "carousel."
-msgstr "캐러셀 당 표시할 관련/업셀 제품의 최대 수를 선택하세요."
+msgstr "캐러셀당 표시할 관련/추천 상품의 최대 개수를 선택하세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:597
 msgid "Add to Cart Style"
-msgstr "장바구니에 추가하는 스타일"
+msgstr "장바구니 담기 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:610
 msgid "Product Title Typography"
-msgstr "제품 제목 타이포그래피"
+msgstr "상품 제목 타이포그래피"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:624
 msgid "Product Price Typography"
-msgstr "제품 가격 타이포그래피"
+msgstr "상품 가격 타이포그래피"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:639
 msgid "Product Tab Heading Typography"
-msgstr "제품 탭 제목 타이포그래피"
+msgstr "Product Tab 제목 타이포그래피"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:653
 msgid "Product Variable Product Dropdown Style"
-msgstr "제품 변수 제품 드롭다운 스타일"
+msgstr "상품 가변형 상품 드롭다운 스타일"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:665
 msgid "Product Gallery BG Color"
@@ -2850,39 +3129,39 @@ msgstr "제품 갤러리 배경색"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:674
 msgid "Remove SKU From Product Page"
-msgstr "제품 페이지에서 SKU 제거하기"
+msgstr "제품 페이지에서 SKU 제거"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:683
 msgid "Remove Additional Information Tab From Product Page"
-msgstr "제품 페이지에서 추가 정보 탭 제거하기"
+msgstr "제품 페이지에서 추가 정보 탭 제거"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:694
 msgid "Single Product"
-msgstr "단일 제품"
+msgstr "단일 상품"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:707
 msgid "Archive Header Background Image"
-msgstr "아카이브 헤더 배경 이미지"
+msgstr "Archive 헤더 배경 이미지"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:708
 msgid ""
 "Upload an optional background that will be used as the default on all "
 "woocommerce archive pages."
-msgstr "모든 WooCommerce 아카이브 페이지의 기본 배경으로 사용될 선택적 배경을 업로드하세요."
+msgstr "WooCommerce archive 페이지의 기본값으로 사용될 배경을 선택적으로 업로드하세요."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:715
 msgid "Product Category Header Sizing"
-msgstr "제품 카테고리 헤더 크기 설정"
+msgstr "Product Category 헤더 크기 조정"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:716
 msgid ""
 "When a product category header image is supplied, this option will control "
 "the sizing of the header area."
-msgstr "제품 카테고리 헤더 이미지가 제공되면이 옵션은 헤더 영역의 크기 조절을 제어합니다."
+msgstr "제품 카테고리 헤더 이미지가 제공되면, 이 옵션으로 헤더 영역의 크기를 제어할 수 있습니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:728
 msgid "Product Category Header Roundness"
-msgstr "제품 카테고리 헤더 라운드 처리"
+msgstr "Product Category 헤더 둥글기"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:739
 msgid "Product Category Header Parallax Scrolling"
@@ -2890,29 +3169,29 @@ msgstr "제품 카테고리 헤더 패럴랙스 스크롤링"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:747
 msgid "Product Category Header Auto Height"
-msgstr "제품 카테고리 헤더 자동 높이"
+msgstr "Product Category 헤더 자동 높이"
 
 #: nectar/customizer/panels/post-types/woocommerce.php:748
 msgid ""
 "Will automatically adjust the height of your header depending on the "
 "content."
-msgstr "콘텐츠에 따라 헤더의 높이를 자동으로 조절합니다."
+msgstr "콘텐츠에 따라 헤더의 높이가 자동으로 조정됩니다."
 
 #: nectar/customizer/panels/post-types/woocommerce.php:755
 msgid "Product Category Header Max Content Width"
-msgstr "제품 카테고리 헤더 최대 콘텐츠 너비"
+msgstr "Product Category 헤더 최대 콘텐츠 너비"
 
 #: nectar/customizer/panels/typography.php:25
 msgid "Typography"
-msgstr "타이포그래피"
+msgstr "서체"
 
 #: nectar/customizer/panels/typography.php:140
 msgid "Logo Font"
-msgstr "로고 글꼴"
+msgstr "로고 폰트"
 
 #: nectar/customizer/panels/typography.php:163
 msgid "Navigation Font"
-msgstr "내비게이션 글꼴"
+msgstr "내비게이션 폰트"
 
 #: nectar/customizer/panels/typography.php:179
 msgid "Navigation Dropdown Font"
@@ -2920,15 +3199,23 @@ msgstr "내비게이션 드롭다운 폰트"
 
 #: nectar/customizer/panels/typography.php:190
 msgid "Off Canvas Navigation"
-msgstr "오프 캔버스 네비게이션"
+msgstr "오프 캔버스 내비게이션"
 
 #: nectar/customizer/panels/typography.php:220
 msgid "Off Canvas Navigation/Dropdown Description Text"
 msgstr "오프 캔버스 내비게이션/드롭다운 설명 텍스트"
 
+#: nectar/customizer/panels/typography.php:231
+msgid "Navigation Custom Text"
+msgstr "네비게이션 커스텀 텍스트"
+
+#: nectar/customizer/panels/typography.php:232
+msgid "Targets the content added via the \"Text To Display In Header\" field."
+msgstr "\"헤더에 표시할 텍스트\" 필드를 통해 추가된 콘텐츠를 대상으로 합니다."
+
 #: nectar/customizer/panels/typography.php:242
 msgid "Navigation"
-msgstr "내비게이션"
+msgstr "탐색"
 
 #: nectar/customizer/panels/typography.php:255
 msgid "Page Heading Font"
@@ -2936,7 +3223,7 @@ msgstr "페이지 제목 글꼴"
 
 #: nectar/customizer/panels/typography.php:278
 msgid "Page Heading Subtitle Font"
-msgstr "페이지 제목 부제목 글꼴"
+msgstr "페이지 제목 부제목 폰트"
 
 #: nectar/customizer/panels/typography.php:302
 msgid "Page Header"
@@ -2944,71 +3231,71 @@ msgstr "페이지 헤더"
 
 #: nectar/customizer/panels/typography.php:315
 msgid "Blockquote Font"
-msgstr "인용구 글꼴"
+msgstr "인용문 글꼴"
 
 #: nectar/customizer/panels/typography.php:337
 msgid "Blog Single Post Content"
-msgstr "블로그 단일 게시물 내용"
+msgstr "블로그 단일 글 콘텐츠"
 
 #: nectar/customizer/panels/typography.php:361
 msgid "WooCommerce Product Title Font"
-msgstr "우커머스 제품 제목 글꼴"
+msgstr "WooCommerce 상품 제목 폰트"
 
 #: nectar/customizer/panels/typography.php:391
 msgid "WooCommerce Product Secondary Font"
-msgstr "우커머스 제품 보조 글꼴"
+msgstr "WooCommerce 상품 보조 글꼴"
 
 #: nectar/customizer/panels/typography.php:408
 msgid "Content Elements"
 msgstr "콘텐츠 요소"
 
 #: nectar/helpers/blog.php:360 nectar/helpers/blog.php:433
-#: nectar/helpers/pagination.php:136
+#: nectar/helpers/pagination.php:137
 msgid "Previous Post"
-msgstr "이전 게시물"
+msgstr "이전 글"
 
 #: nectar/helpers/blog.php:398 nectar/helpers/blog.php:435
-#: nectar/helpers/pagination.php:136
+#: nectar/helpers/pagination.php:137
 msgid "Next Post"
-msgstr "다음 게시물"
+msgstr "다음 글"
 
-#: nectar/helpers/enqueue-scripts.php:192 nectar/helpers/pagination.php:187
+#: nectar/helpers/enqueue-scripts.php:192 nectar/helpers/pagination.php:188
 #: nectar/helpers/woocommerce.php:607
 msgid "Next"
 msgstr "다음"
 
-#: nectar/helpers/enqueue-scripts.php:193 nectar/helpers/pagination.php:186
+#: nectar/helpers/enqueue-scripts.php:193 nectar/helpers/pagination.php:187
 #: nectar/helpers/woocommerce.php:606
 msgid "Previous"
 msgstr "이전"
 
 #: nectar/helpers/enqueue-scripts.php:194
 msgid "Close"
-msgstr "가까이 해주세요."
-
-#: nectar/helpers/nav-menus.php:1236
-msgid "Menu Item Style"
-msgstr "메뉴 항목 스타일"
+msgstr "닫기"
 
 #: nectar/helpers/nav-menus.php:1238
+msgid "Menu Item Style"
+msgstr "메뉴 아이템 스타일"
+
+#: nectar/helpers/nav-menus.php:1240
 msgid "Standard"
 msgstr "표준"
 
-#: nectar/helpers/nav-menus.php:1239
+#: nectar/helpers/nav-menus.php:1241
 msgid "Button Accent Color"
-msgstr "버튼 강조 색"
+msgstr "버튼 강조 색상"
 
-#: nectar/helpers/nav-menus.php:1240
+#: nectar/helpers/nav-menus.php:1242
 msgid "Button Extra Color #1"
 msgstr "버튼 추가 색상 #1"
 
-#: nectar/helpers/nav-menus.php:1241
+#: nectar/helpers/nav-menus.php:1243
 msgid "Button Bordered Accent Color"
-msgstr "버튼 테두리 강조 색"
+msgstr "강조색 테두리 버튼"
 
-#: nectar/helpers/nav-menus.php:1242
+#: nectar/helpers/nav-menus.php:1244
 msgid "Button Bordered Extra Color #1"
-msgstr "버튼 테두리 추가 색상 #1"
+msgstr "테두리 버튼 추가 색상 #1"
 
 #: nectar/helpers/page-header.php:617
 msgid "Sort Portfolio"
@@ -3016,7 +3303,7 @@ msgstr "포트폴리오 정렬"
 
 #: nectar/helpers/page-header.php:831
 msgid "All Posts By"
-msgstr "모든 게시물 작성자"
+msgstr "작성자별 글"
 
 #: nectar/helpers/page-header.php:836
 msgid "Category"
@@ -3028,42 +3315,39 @@ msgstr "태그"
 
 #: nectar/helpers/page-header.php:848
 msgid "Daily Archives"
-msgstr "매일 아카이브"
+msgstr "일간 아카이브"
 
 #: nectar/helpers/page-header.php:851
 msgctxt "monthly archives date format"
 msgid "F Y"
-msgstr "월간 아카이브 날짜 형식"
+msgstr "Y년 m월"
 
 #: nectar/helpers/page-header.php:852
 msgid "Monthly Archives"
-msgstr "매월 아카이브"
+msgstr "월간 아카이브"
 
 #: nectar/helpers/page-header.php:855
 msgctxt "yearly archives date format"
 msgid "Y"
-msgstr "연간 아카이브 날짜 형식"
+msgstr "Y년"
 
 #: nectar/helpers/page-header.php:856
 msgid "Yearly Archives"
 msgstr "연간 아카이브"
 
-#: nectar/customizer/panels/post-types/portfolio.php:104
-#: nectar/helpers/page-header.php:859
-msgid "Archives"
-msgstr "기록 보관소"
-
-#: nectar/helpers/pagination.php:64
+#. translators: %s: the word "and" (deprecated separator)
+#: nectar/helpers/pagination.php:65
+#, php-format
 msgid "Use commas instead of %s to separate excluded categories."
-msgstr "제외된 카테고리를 구분하는 데 %s 대신 쉼표를 사용하세요."
+msgstr "제외된 카테고리를 구분할 때 %s 대신 쉼표를 사용하세요."
 
-#: nectar/helpers/pagination.php:176
+#: nectar/helpers/pagination.php:177
 msgid "Pagination Navigation"
-msgstr "페이지 네비게이션"
+msgstr "페이지네이션 내비게이션"
 
-#: nectar/helpers/pagination.php:176
+#: nectar/helpers/pagination.php:177
 msgid "All items loaded"
-msgstr "모든 항목이 로드되었습니다."
+msgstr "모든 항목이 로드됨"
 
 #: nectar/helpers/woocommerce.php:549 nectar/helpers/woocommerce.php:559
 msgid "Filters"
@@ -3077,19 +3361,20 @@ msgstr "필터 닫기"
 msgid "was successfully added to your cart."
 msgstr "장바구니에 성공적으로 추가되었습니다."
 
-#: nectar/helpers/woocommerce.php:1210
+#. translators: %1$s: number of reviews
+#: nectar/helpers/woocommerce.php:1211
+#, php-format
 msgid "Based on %1$s review"
 msgid_plural "Based on %1$s reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1$s개의 리뷰 기준"
 
-#: nectar/helpers/woocommerce.php:1219 nectar/helpers/woocommerce.php:1245
+#: nectar/helpers/woocommerce.php:1220 nectar/helpers/woocommerce.php:1246
 msgid "Write a Review"
-msgstr "리뷰를 작성해주세요."
+msgstr "리뷰 작성하기"
 
 #: nectar/hooks/actions.php:149
 msgid "Skip to main content"
-msgstr "주요 콘텐츠로 건너뛰기"
+msgstr "메인 콘텐츠로 바로가기"
 
 #: nectar/meta/category-meta.php:19
 msgid "Category Thumbnail Image"
@@ -3125,7 +3410,7 @@ msgstr "카테고리 헤더 콘텐츠 정렬"
 msgid "Category Header Text Align"
 msgstr "카테고리 헤더 텍스트 정렬"
 
-#: nectar/woo/admin-notices.php:10
+#: nectar/woo/admin-notices.php:11
 msgid ""
 "There are some outdated WooCommerce template files in your nectarblocks "
 "theme directory that are likely lingering around from a previous version of "
@@ -3134,32 +3419,21 @@ msgid ""
 "listed below are present in your theme directory (wp-"
 "content/themes/nectarblocks)."
 msgstr ""
-"이전 버전의 테마에서 남아 있는 nectarblocks 테마 디렉토리에 오래된 WooCommerce 템플릿 파일이 있을 수 있습니다. "
-"NectarBlocks에는 더 이상 nectarblocks/"
-
-#: nectar/woo/admin-notices.php:12
-msgid "nectarblocks/woocommerce/cart/cart.php"
-msgstr "넥타블록스/워드프레스/카트/카트.php"
-
-#: nectar/woo/admin-notices.php:13
-msgid "nectarblocks/woocommerce/cart/cart-shipping.php"
-msgstr "넥타블록스/우커머스/카트/카트-배송.php"
-
-#: nectar/woo/admin-notices.php:14
-msgid "nectarblocks/woocommerce/cart/cart-totals.php"
-msgstr "넥타블록스/우커머스/카트/카트-총계.php"
-
-#: nectar/woo/admin-notices.php:15
-msgid "nectarblocks/woocommerce/cart/shipping-calculator.php"
-msgstr "넥타블록스/우커머스/카트/배송비 계산기.php"
+"NectarBlocks 테마 디렉토리에 이전 버전의 테마에서 남아있는 것으로 보이는 오래된 WooCommerce 템플릿 파일들이 "
+"있습니다. NectarBlocks는 더 이상 nectarblocks/woocommerce/cart 디렉토리에 다음 파일들을 포함하지 "
+"않습니다. 테마 디렉토리(wp-content/themes/nectarblocks)에 아래 나열된 파일들이 없는지 확인해 주시기 바랍니다."
 
 #: nectar/woo/quick-view.php:63 nectar/woo/quick-view.php:66
 msgid "Quick View"
 msgstr "빠른 보기"
 
+#: nectar/woo/quick-view.php:82
+msgid "Close Quick View"
+msgstr "빠른 보기 닫기"
+
 #: nectar/woo/quick-view.php:209
 msgid "More Information"
-msgstr "더 많은 정보"
+msgstr "추가 정보"
 
 #. Template Name of the theme
 msgid "Sidebar - Left"
@@ -3171,35 +3445,31 @@ msgstr "사이드바"
 
 #: search.php:41
 msgid "Results For"
-msgstr "결과들을 위한"
+msgstr "검색 결과"
 
 #: search.php:44
 msgid "results found"
-msgstr "결과를 찾았습니다."
+msgstr "개의 결과 찾음"
 
 #: search.php:167
 msgid "Sorry, no results were found."
-msgstr "죄송합니다, 결과를 찾을 수 없습니다."
+msgstr "죄송합니다. 검색 결과가 없습니다."
 
 #: search.php:168
 msgid "Please try again with different keywords."
-msgstr "다른 키워드로 다시 시도해주세요."
-
-#: searchform.php:14
-msgid "Search..."
-msgstr "검색해주세요."
+msgstr "다른 키워드로 다시 시도해 주세요."
 
 #: searchform.php:14
 msgid "Search for:"
-msgstr "검색하십시오."
+msgstr "검색:"
 
 #. Template Name of the theme
 msgid "No Footer"
-msgstr "푸터 없음"
+msgstr "바닥글 없음"
 
 #. Template Name of the theme
 msgid "No Header & Footer"
-msgstr "헤더 및 푸터 없음"
+msgstr "헤더 & 바닥글 없음"
 
 #. Template Name of the theme
 msgid "No Header"
@@ -3207,41 +3477,19 @@ msgstr "헤더 없음"
 
 #: woocommerce/cart/mini-cart.php:173
 msgid "Go to shop"
-msgstr "가게에 가세요."
+msgstr "쇼핑몰로 이동"
 
 #: build/customizer.js:1
-msgid "Search Theme Options.."
-msgstr "테마 옵션 검색하기.."
-
-#: build/customizer.js:1
-msgid "Min"
-msgstr "죄송합니다, \"Min\"은 문맥이 없어서 번역할 수 없습니다. 더 많은 정보를 제공해 주시면 도와드릴 수 있습니다."
-
-#: build/customizer.js:1
-msgid "Max"
-msgstr "최대"
-
-#: build/customizer.js:1
-msgid "Select a font"
-msgstr "폰트를 선택하세요."
-
-#: build/customizer.js:1
-msgid "Font Preview"
-msgstr "폰트 미리보기"
-
-#: build/customizer.js:1
-msgid ""
-"The quick brown fox jumps over the lazy dog and feels as if he were in the "
-"seventh heaven of typography."
-msgstr "빠른 갈색 여우가 게으른 개를 뛰어넘고 있는 동안, 그는 타이포그래피의 일곱 번째 천국에 있는 듯한 기분이 듭니다."
+msgid "Search Theme Options"
+msgstr "테마 옵션 검색"
 
 #: build/customizer.js:1
 msgid "Font Source"
-msgstr "글꼴 소스"
+msgstr "폰트 소스"
 
 #: build/customizer.js:1
 msgid "Font Family"
-msgstr "글꼴 패밀리"
+msgstr "글꼴 집합"
 
 #: build/customizer.js:1
 msgid "Font Weight"
@@ -3252,12 +3500,16 @@ msgid "Font Style"
 msgstr "글꼴 스타일"
 
 #: build/customizer.js:1
+msgid "Responsive Sizing"
+msgstr "반응형 사이징"
+
+#: build/customizer.js:1
 msgid "Font Size"
-msgstr "글꼴 크기"
+msgstr "글자 크기"
 
 #: build/customizer.js:1
 msgid "Line Height"
-msgstr "줄 간격"
+msgstr "줄 높이"
 
 #: build/customizer.js:1
 msgid "Font Subset"
@@ -3265,333 +3517,27 @@ msgstr "폰트 서브셋"
 
 #: build/customizer.js:1
 msgid "Transform"
-msgstr "변형"
+msgstr "텍스트 변환"
 
 #: build/customizer.js:1
 msgid "Letter Spacing"
-msgstr "글자 간격"
+msgstr "자간"
 
 #: build/customizer.js:1
 msgid "Save"
 msgstr "저장"
 
-#: nectar/customizer/panels/general-settings.php:100
-msgid "Slightly Rounded Shadow"
-msgstr "약간 둥근 그림자"
+#~ msgid "nectarblocks/woocommerce/cart/cart.php"
+#~ msgstr "nectarblocks/woocommerce/cart/cart.php"
 
-#: nectar/customizer/panels/general-settings.php:102
-msgid "Rounded Shadow"
-msgstr "둥근 그림자"
+#~ msgid "nectarblocks/woocommerce/cart/cart-shipping.php"
+#~ msgstr "nectarblocks/woocommerce/cart/cart-shipping.php"
 
-#: nectar/customizer/panels/general-settings.php:103
-msgid "Rounded Reveal"
-msgstr "둥근 모서리 공개"
+#~ msgid "nectarblocks/woocommerce/cart/cart-totals.php"
+#~ msgstr "nectarblocks/woocommerce/cart/cart-totals.php"
 
-#: nectar/customizer/panels/general-settings.php:200
-msgid "Smooth Scroll Strength"
-msgstr "부드러운 스크롤 강도"
+#~ msgid "nectarblocks/woocommerce/cart/shipping-calculator.php"
+#~ msgstr "nectarblocks/woocommerce/cart/shipping-calculator.php"
 
-#: nectar/customizer/panels/general-settings.php:201
-msgid "Controls the intensity of the smooth scrolling effect."
-msgstr "부드러운 스크롤 효과의 강도를 조절합니다."
-
-#: nectar/customizer/panels/layout.php:471
-msgid "This will be used when the header is transparent state is active."
-msgstr "이것은 헤더가 투명 상태일 때 사용될 것입니다."
-
-#: nectar/customizer/panels/layout.php:553
-msgid ""
-"Turning this on will allow your header to remain transparent even after "
-"scrolling down. This option will override all colors. When using an image "
-"logo, it must have a transparent background (PNG or SVG)."
-msgstr ""
-"이 기능을 켜면 헤더가 스크롤해도 투명 상태로 유지됩니다. 이 옵션은 모든 색상을 덮어씁니다. 이미지 로고를 사용할 때는 투명 배경이 "
-"있어야 합니다 (PNG 또는 SVG)."
-
-#: nectar/customizer/panels/layout.php:731
-msgid "Add Background Overlay"
-msgstr "배경 오버레이 추가"
-
-#: nectar/customizer/panels/layout.php:732
-msgid ""
-"Adds an overlay that appears when a dropdown is opened to improve focus."
-msgstr "드롭다운이 열릴 때 나타나는 오버레이를 추가하여 초점을 향상시킵니다."
-
-#: nectar/customizer/panels/layout.php:1052
-msgid "Off Canvas Menu Item Icons"
-msgstr "오프 캔버스 메뉴 항목 아이콘"
-
-#: nectar/customizer/panels/layout.php:1053
-msgid ""
-"This will control what type of icons (if any) to display in your off canvas "
-"menu. Icons are defined by you on an individual menu item basis in "
-"Appearance > Menus."
-msgstr ""
-"이것은 오프 캔버스 메뉴에 표시할 아이콘(있는 경우)의 종류를 제어합니다. 아이콘은 외관 > 메뉴에서 각 메뉴 항목별로 사용자가 "
-"정의합니다."
-
-#: nectar/customizer/panels/layout.php:1056
-msgid "Display No Icons"
-msgstr "아이콘 표시 안 함"
-
-#: nectar/customizer/panels/layout.php:1057
-msgid "Display Font/Emoji Icons Only"
-msgstr "표시 글꼴/이모티콘 아이콘만"
-
-#: nectar/customizer/panels/layout.php:1058
-msgid "Display Image Icons Only"
-msgstr "이미지 아이콘만 표시하기"
-
-#: nectar/customizer/panels/layout.php:1059
-msgid "Display All Icons"
-msgstr "모든 아이콘 표시"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:78
-msgid "Account Button In Nav"
-msgstr "내비게이션에 계정 버튼"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:102
-msgid "Full Width Layout"
-msgstr "전체 폭 레이아웃"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:222
-msgid "Button BG Color"
-msgstr "버튼 배경 색"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:231
-msgid "Button BG Color Hover"
-msgstr "버튼 배경색 호버"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:240
-msgid "Button Text Color"
-msgstr "버튼 텍스트 색"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:250
-msgid "Button Border Color"
-msgstr "버튼 테두리 색"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:258
-msgid "Product Gap"
-msgstr "제품 갭"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:318
-msgid "WooCommerce Button Typography"
-msgstr "우커머스 버튼 타이포그래피"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:322
-msgid "Label"
-msgstr "라벨"
-
-#: nectar/customizer/panels/post-types/woocommerce.php:494
-msgid "Left Thumbnails Slider"
-msgstr "왼쪽 썸네일 슬라이더"
-
-#: includes/partials/single-portfolio/post-meta-fields.php:42
-msgid "View Project"
-msgstr "프로젝트 보기"
-
-#: nectar/customizer/panels/general-settings.php:502
-#: nectar/customizer/panels/general-settings.php:543
-msgid "Page Transitions"
-msgstr "페이지 전환"
-
-#: nectar/customizer/panels/general-settings.php:503
-msgid ""
-"Enhance your site with the modern \"View Transitions API\" as a progressive "
-"enhancement. This cutting-edge web technology enables smoother page "
-"transitions. See"
-msgstr ""
-"최신 \"View Transitions API\"를 사용하여 사이트를 점진적으로 향상시키세요. 이 최첨단 웹 기술은 부드러운 페이지 "
-"전환을 가능하게 합니다. 보기"
-
-#: nectar/customizer/panels/general-settings.php:503
-msgid "which browsers support it."
-msgstr "어떤 브라우저가 이를 지원하나요?"
-
-#: nectar/customizer/panels/general-settings.php:509
-msgid "Transition Effect"
-msgstr "전환 효과"
-
-#: nectar/customizer/panels/general-settings.php:513
-msgid "Cross Fade"
-msgstr "크로스 페이드"
-
-#: nectar/customizer/panels/general-settings.php:514
-msgid "Fade"
-msgstr "페이드"
-
-#: nectar/customizer/panels/general-settings.php:515
-msgid "Gradient Fade"
-msgstr "그라디언트 페이드"
-
-#: nectar/customizer/panels/general-settings.php:516
-msgid "Push Reveal"
-msgstr "푸시 리빌"
-
-#: nectar/customizer/panels/general-settings.php:523
-msgid "Transition BG Color"
-msgstr "배경색 전환"
-
-#: nectar/customizer/panels/general-settings.php:527
-msgid "Some effects will show this color during the transition."
-msgstr "일부 효과는 전환 중에 이 색상을 표시합니다."
-
-#: nectar/customizer/panels/general-settings.php:533
-msgid "Enable on Mobile"
-msgstr "모바일에서 활성화"
-
-#: nectar/customizer/panels/general-settings.php:534
-msgid ""
-"Some mobile devices may struggle to handle page transitions, especially when"
-" heavy block animations are involved."
-msgstr "일부 모바일 기기는 특히 무거운 블록 애니메이션이 포함된 경우 페이지 전환을 처리하는 데 어려움을 겪을 수 있습니다."
-
-#: nectar/customizer/panels/layout.php:316
-msgid "Full Width Left/Right Padding (px)"
-msgstr "전체 너비 왼쪽/오른쪽 패딩 (px)"
-
-#: nectar/customizer/panels/layout.php:442
-msgid "Archive: "
-msgstr "아카이브:"
-
-#: nectar/customizer/panels/layout.php:445
-msgid "Single: "
-msgstr "싱글:"
-
-#: nectar/customizer/panels/layout.php:462
-msgid "Automatically Enable On"
-msgstr "자동으로 활성화"
-
-#: nectar/customizer/panels/layout.php:947
-msgid "Off Canvas Menu Icon Width"
-msgstr "오프 캔버스 메뉴 아이콘 너비"
-
-#: nectar/customizer/panels/layout.php:1187
-msgid "Header Top/Bottom Padding"
-msgstr "헤더 상/하단 여백"
-
-#: nectar/customizer/panels/post-types/portfolio.php:28
-msgid "Portfolio"
-msgstr "포트폴리오"
-
-#: nectar/customizer/panels/post-types/portfolio.php:58
-msgid "Portfolio Spacing"
-msgstr "포트폴리오 간격"
-
-#: nectar/customizer/panels/post-types/portfolio.php:73
-#: nectar/customizer/panels/post-types/portfolio.php:191
-msgid "Display Description"
-msgstr "디스플레이 설명"
-
-#: nectar/customizer/panels/post-types/portfolio.php:81
-msgid "Description Length"
-msgstr "설명 길이"
-
-#: nectar/customizer/panels/post-types/portfolio.php:92
-#: nectar/customizer/panels/post-types/portfolio.php:199
-msgid "Display Categories"
-msgstr "카테고리 표시"
-
-#: nectar/customizer/panels/post-types/portfolio.php:116
-msgid "Header Image Sizing"
-msgstr "헤더 이미지 크기 조정"
-
-#: nectar/customizer/panels/post-types/portfolio.php:145
-msgid "Header Scroll Effect"
-msgstr "헤더 스크롤 효과"
-
-#: nectar/customizer/panels/post-types/portfolio.php:156
-msgid "Portfolio Header Load In Animation"
-msgstr "포트폴리오 헤더 로드 인 애니메이션"
-
-#: nectar/customizer/panels/post-types/portfolio.php:167
-msgid "Display Client"
-msgstr "클라이언트 표시"
-
-#: nectar/customizer/panels/post-types/portfolio.php:175
-msgid "Display Date"
-msgstr "날짜 표시"
-
-#: nectar/customizer/panels/post-types/portfolio.php:183
-msgid "Display Project Link"
-msgstr "프로젝트 링크 표시"
-
-#: nectar/customizer/panels/typography.php:231
-msgid "Navigation Custom Text"
-msgstr "탐색 사용자 지정 텍스트"
-
-#: nectar/customizer/panels/typography.php:232
-msgid "Targets the content added via the \"Text To Display In Header\" field."
-msgstr "\"헤더에 표시할 텍스트\" 필드를 통해 추가된 콘텐츠를 대상으로 합니다."
-
-#: nectar/woo/quick-view.php:82
-msgid "Close Quick View"
-msgstr "빠른 보기 닫기"
-
-#~ msgid "Start Typing..."
-#~ msgstr "타이핑을 시작하세요…"
-
-#~ msgid "Press enter to begin your search"
-#~ msgstr "검색을 시작하려면 엔터 키를 누르세요."
-
-#~ msgid "Hit enter to search or ESC to close"
-#~ msgstr "엔터 키를 눌러 검색하거나 ESC를 눌러 닫으세요."
-
-#~ msgid "Tags:"
-#~ msgstr "태그:"
-
-#~ msgid "Slightly Rounded W/ Shadow"
-#~ msgstr "약간 둥근 형태에 그림자"
-
-#~ msgid "Rounded W/ Shadow"
-#~ msgstr "그림자가 있는 둥근 모양"
-
-#~ msgid ""
-#~ "This will be used when the header is transparent before the user scrolls."
-#~ msgstr "이것은 사용자가 스크롤하기 전에 헤더가 투명할 때 사용될 것입니다."
-
-#~ msgid ""
-#~ "Turning this on will allow your header to remain transparent even after "
-#~ "scrolling down. This option will override all colors."
-#~ msgstr "이 기능을 켜면 헤더가 스크롤 다운 후에도 투명 상태로 유지됩니다. 이 옵션은 모든 색상을 무시합니다."
-
-#~ msgid "Remove Search Helper Text"
-#~ msgstr "검색 도우미 텍스트 제거"
-
-#~ msgid "Blog Header Sizing"
-#~ msgstr "블로그 헤더 크기 설정"
-
-#~ msgid ""
-#~ "Using a responsive sizing option will override the post height set on "
-#~ "individual posts."
-#~ msgstr "반응형 크기 조정 옵션을 사용하면 개별 게시물에 설정된 게시물 높이가 무시됩니다."
-
-#~ msgid "Height Set Per Post"
-#~ msgstr "게시물 당 높이 설정"
-
-#~ msgid "Full Width"
-#~ msgstr "전체 너비"
-
-#~ msgid "Left Thumbnails + Sticky Product Info"
-#~ msgstr "왼쪽 섬네일 + 고정 제품 정보"
-
-#~ msgid "Product Category Description"
-#~ msgstr "제품 카테고리 설명"
-
-#~ msgid "Determines the display of category descriptions."
-#~ msgstr "카테고리 설명의 표시를 결정합니다."
-
-#~ msgid "Show"
-#~ msgstr "표시"
-
-#~ msgid "Hide"
-#~ msgstr "숨다"
-
-#~ msgid "Desktop"
-#~ msgstr "데스크탑"
-
-#~ msgid "Tablet"
-#~ msgstr "태블릿"
-
-#~ msgid "Unknown Color"
-#~ msgstr "알 수 없는 색"
+#~ msgid "Search..."
+#~ msgstr "검색..."

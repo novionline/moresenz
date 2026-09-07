@@ -1,0 +1,32 @@
+{
+  "name": "nectar/shared-php",
+  "description": "Shared PHP utilities for Nectar Blocks plugin and theme",
+  "type": "library",
+  "license": "Unlicensed",
+  "scripts": {
+    "test": "pest"
+  },
+  "config": {
+    "platform": { "php": "8.2" },
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Nectar\\Shared\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  },
+  "require-dev": {
+    "pestphp/pest": "^3.0"
+  }
+}

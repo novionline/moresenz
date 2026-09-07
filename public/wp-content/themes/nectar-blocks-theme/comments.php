@@ -50,13 +50,14 @@ $comments_open_attr = (comments_open() || have_comments()) ? 'true' : 'false';
 
 $required_text = null;
 $form_style = (! empty($nectar_options['form-style'])) ? $nectar_options['form-style'] : 'default';
-$comment_label = ($form_style === 'minimal') ? '<label for="comment">' . esc_html__('My comment is..', 'nectar-blocks-theme') . '</label>' : null;
+$comment_label = ($form_style === 'minimal') ? '<label for="comment">' . esc_html__( 'My comment is', 'nectar-blocks-theme' ) . '...</label>' : null;
 $consent = empty( $commenter['comment_author_email'] ) ? '' : ' checked="checked"';
 
 $args = [
   'id_form' => 'commentform',
   'id_submit' => 'submit',
   'title_reply' => __( 'Leave a Reply', 'nectar-blocks-theme' ),
+  /* translators: %s: comment author name */
   'title_reply_to' => __( 'Leave a Reply to %s', 'nectar-blocks-theme' ),
   'cancel_reply_link' => __( 'Cancel Reply', 'nectar-blocks-theme' ),
   'label_submit' => __( 'Submit Comment', 'nectar-blocks-theme' ),
@@ -65,12 +66,14 @@ $args = [
 
   'must_log_in' => '<p class="must-log-in">' .
     sprintf(
+        /* translators: %s: login URL */
         __( 'You must be <a href="%s">logged in</a> to post a comment.', 'nectar-blocks-theme' ),
         wp_login_url( apply_filters( 'the_permalink', esc_url(get_permalink()) ) )
     ) . '</p>',
 
   'logged_in_as' => '<p class="logged-in-as">' .
     sprintf(
+        /* translators: 1: user profile URL, 2: user display name, 3: logout URL */
         __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>', 'nectar-blocks-theme' ),
         esc_url(admin_url( 'profile.php' )),
         $user_identity,

@@ -1207,6 +1207,7 @@ if( ! function_exists('nectar_single_product_review_with_average') ) {
         if( $count && wc_review_ratings_enabled() && 'off_canvas' === $woo_review_style && function_exists('wc_get_rating_html') ) {
 
             $average = $product->get_average_rating();
+            /* translators: %1$s: number of reviews */
             $reviews_title = sprintf( esc_html( _n( 'Based on %1$s review', 'Based on %1$s reviews', $count, 'nectar-blocks-theme' ) ), esc_html( $count ) );
 
             $nectar_title = '<div class="nectar-average-count-wrap">';

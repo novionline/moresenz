@@ -21,7 +21,16 @@ function seedprod_lite_themetemplate_datatable() {
 		if ( ! empty( absint( $_GET['current_page'] ) ) ) {
 			$current_page = absint( $_GET['current_page'] );
 		}
+
+		// Allow per_page to be set via GET parameter, default to 10
 		$per_page = 10;
+		if ( isset( $_GET['per_page'] ) && absint( $_GET['per_page'] ) > 0 ) {
+			$per_page = absint( $_GET['per_page'] );
+			// Limit maximum per_page to 500 for performance
+			if ( $per_page > 500 ) {
+				$per_page = 500;
+			}
+		}
 
 		$filter = null;
 		if ( ! empty( $_GET['filter'] ) ) {
@@ -124,6 +133,7 @@ function seedprod_lite_themetemplate_datatable() {
 			$type              = get_post_meta( $v->ID, '_seedprod_page_template_type', true );
 			$conditions_return = '';
 			$conditions        = get_post_meta( $v->ID, '_seedprod_theme_template_condition', true );
+			$type              = seedprod_lite_resolve_effective_template_type( $type, $conditions );
 			if ( ! empty( $conditions ) ) {
 				$conditions     = json_decode( $conditions );
 				$conditions_map = seedprod_lite_conditions_map();
@@ -179,7 +189,7 @@ function seedprod_lite_themetemplate_datatable() {
 		$response = array(
 			'rows'               => $data,
 			'totalitems'         => $totalitems,
-			'totathemetemplates' => ceil( $totalitems / 10 ),
+			'totathemetemplates' => ceil( $totalitems / $per_page ),
 			'currentpage'        => $current_page,
 			'views'              => $views,
 		);

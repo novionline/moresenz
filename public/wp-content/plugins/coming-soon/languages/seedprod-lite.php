@@ -171,6 +171,7 @@ $generated_i18n_strings = array(
 
 	// Reference: src/views/TemplateChooser-Pro.vue
 	// Reference: src/views/TemplateChooser-Lite.vue
+	// Reference: src/views/Setup.vue
 	__( 'Search templates...', 'coming-soon' ),
 
 	// Reference: src/views/TemplateChooser-Pro.vue
@@ -827,6 +828,33 @@ $generated_i18n_strings = array(
 	__( 'Redo', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
+	__( 'Click to edit', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Browse templates', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Enter template name...', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Save (Enter)', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Cancel (Esc)', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Untitled', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'Loading templates...', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'No templates found matching your search.', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
+	__( 'No templates available.', 'coming-soon' ),
+
+	// Reference: src/views/Setup.vue
 	__( 'Hide Sidebar', 'coming-soon' ),
 
 	// Reference: src/views/Setup.vue
@@ -1404,6 +1432,34 @@ $generated_i18n_strings = array(
 	// Reference: src/views/Layoutnav.vue
 	__( 'Paste Block', 'coming-soon' ),
 
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Save as Template Part', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Enter a name for this template part:', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Save Template Part', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Failed to extract section HTML. Please try saving the page first, then try again.', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Template part saved successfully!', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'Failed to save template part.', 'coming-soon' ),
+
+	// Reference: src/views/Layoutnav.vue
+	// Reference: src/components/Section.vue
+	__( 'An error occurred while saving.', 'coming-soon' ),
+
 	// Reference: src/views/InlineHelpView.vue
 	__( 'SeedProd Logo', 'coming-soon' ),
 
@@ -1558,6 +1614,7 @@ $generated_i18n_strings = array(
 	// Reference: src/views/GlobalCSS.vue
 	// Reference: src/components/StarRatingOptions.vue
 	// Reference: src/components/SocialSharingOptions.vue
+	// Reference: src/components/SectionOptions.vue
 	// Reference: src/components/OptinFormOptions.vue
 	// Reference: src/components/HotspotOptions.vue
 	__( 'Label', 'coming-soon' ),
@@ -6328,6 +6385,9 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/StarRatingOptions.vue
 	__( 'Empty Star Color', 'coming-soon' ),
 
+	// Reference: src/components/SpacingSectionControl.vue
+	__( 'Padding adds space inside the background. Margin adds space outside it.', 'coming-soon' ),
+
 	// Reference: src/components/SpacerOptions.vue
 	__( 'Spacer', 'coming-soon' ),
 
@@ -6752,6 +6812,15 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/PostsOptions.vue
 	// Reference: src/components/BorderSectionControl.vue
 	__( 'Border', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Section Label', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Section Label (optional)', 'coming-soon' ),
+
+	// Reference: src/components/SectionOptions.vue
+	__( 'Add a custom label to identify this section in the Layout Navigator', 'coming-soon' ),
 
 	// Reference: src/components/SectionOptions.vue
 	__( 'Background Video', 'coming-soon' ),
@@ -7900,6 +7969,22 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/OpenAIControl.vue
 	__( 'Credits:', 'coming-soon' ),
 
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image edit failed — please try again or pick a different source image.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image edit failed — please try again.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Image generation failed — please try again.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Variations failed — please try again or pick a different source image.', 'coming-soon' ),
+
+	// Reference: src/components/OpenAIImageControl.vue
+	__( 'Variations failed — please try again.', 'coming-soon' ),
+
 	// Reference: src/components/OpenAIControl.vue
 	__( 'Generate AI Text', 'coming-soon' ),
 
@@ -8648,6 +8733,12 @@ page plugin.', 'coming-soon' ),
 	// Reference: src/components/AnimationEffectControl.vue
 	// Reference: src/components/AnimatedHeadlineOptions.vue
 	__( 'Level', 'coming-soon' ),
+
+	// Reference: src/components/IconFeatureOptions.vue
+	// Reference: src/components/ContentToggleOptions.vue
+	// Reference: src/components/BeforeAfterToggleOptions.vue
+	// Reference: src/components/AlignControl.vue
+	__( 'Align', 'coming-soon' ),
 
 	// Reference: src/components/Icon-Pro.vue
 	__( 'Select an Icon', 'coming-soon' ),
@@ -9470,11 +9561,6 @@ page plugin.', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'Section Content', 'coming-soon' ),
-
-	// Reference: src/components/ContentToggleOptions.vue
-	// Reference: src/components/BeforeAfterToggleOptions.vue
-	// Reference: src/components/AlignControl.vue
-	__( 'Align', 'coming-soon' ),
 
 	// Reference: src/components/ContentToggleOptions.vue
 	__( 'First Background Color', 'coming-soon' ),

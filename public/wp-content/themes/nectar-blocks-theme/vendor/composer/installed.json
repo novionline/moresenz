@@ -20,6 +20,47 @@
             "type": "library",
             "installation-source": "dist",
             "install-path": "../kirki-framework/kirki"
+        },
+        {
+            "name": "nectar/shared-php",
+            "version": "dev-feature/php-wp-version-requirements",
+            "version_normalized": "dev-feature/php-wp-version-requirements",
+            "dist": {
+                "type": "path",
+                "url": "../packages/nectar-php",
+                "reference": "58bdd15f26caea67f90362c83c8fca8f5200daaf"
+            },
+            "require": {
+                "php": ">=8.0"
+            },
+            "require-dev": {
+                "pestphp/pest": "^3.0"
+            },
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Nectar\\Shared\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "pest"
+                ]
+            },
+            "license": [
+                "Unlicensed"
+            ],
+            "description": "Shared PHP utilities for Nectar Blocks plugin and theme",
+            "transport-options": {
+                "relative": true
+            },
+            "install-path": "../nectar/shared-php"
         }
     ],
     "dev": false,

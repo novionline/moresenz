@@ -665,11 +665,11 @@ if ( ! function_exists( 'nectar_logo_output' ) ) {
 
             $dark_default_class = ( empty( $nectar_options['header-starting-logo-dark']['id'] ) && empty( $nectar_options['header-starting-logo-dark']['url'] ) ) ? ' dark-version' : '';
 
-            echo '<img class="stnd skip-lazy' . $dark_default_class . '" width="' . nectar_logo_dimensions('width', $nectar_options['logo']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['logo']) . '" alt="' . esc_html( $nectar_logo_text ) . '" src="' . nectar_options_img( $nectar_options['logo'] ) . '" />';
+            echo '<img class="stnd skip-lazy' . esc_attr( $dark_default_class ) . '" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['logo']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['logo']) ) . '" alt="' . esc_attr( $nectar_logo_text ) . '" src="' . esc_url( nectar_options_img( $nectar_options['logo'] ) ) . '" />';
 
              // Mobile only logo.
             if ( $using_mobile_logo === 'true' ) {
-                 echo '<img class="mobile-only-logo skip-lazy" alt="' . esc_html( $nectar_logo_text ) . '" width="' . nectar_logo_dimensions('width', $nectar_options['mobile-logo']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['mobile-logo']) . '" src="' . nectar_options_img( $nectar_options['mobile-logo'] ) . '" />';
+                 echo '<img class="mobile-only-logo skip-lazy" alt="' . esc_attr( $nectar_logo_text ) . '" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['mobile-logo']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['mobile-logo']) ) . '" src="' . esc_url( nectar_options_img( $nectar_options['mobile-logo'] ) ) . '" />';
             }
 
              // Starting logo.
@@ -677,18 +677,18 @@ if ( ! function_exists( 'nectar_logo_output' ) ) {
 
                 // Starting mobile only.
                 if( $nectar_options['use-logo'] === '1' && ! empty( $nectar_options['header-starting-mobile-only-logo'] ) && ! empty( $nectar_options['header-starting-mobile-only-logo']['url'] ) ) {
-                    echo '<img class="starting-logo mobile-only-logo skip-lazy" width="' . nectar_logo_dimensions('width', $nectar_options['header-starting-mobile-only-logo']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['header-starting-mobile-only-logo']) . '"  alt="' . esc_html( $nectar_logo_text ) . '" src="' . nectar_options_img( $nectar_options['header-starting-mobile-only-logo'] ) . '" />';
+                    echo '<img class="starting-logo mobile-only-logo skip-lazy" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['header-starting-mobile-only-logo']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['header-starting-mobile-only-logo']) ) . '"  alt="' . esc_attr( $nectar_logo_text ) . '" src="' . esc_url( nectar_options_img( $nectar_options['header-starting-mobile-only-logo'] ) ) . '" />';
                 }
                 if( $nectar_options['use-logo'] === '1' && ! empty( $nectar_options['header-starting-mobile-only-logo-dark'] ) && ! empty( $nectar_options['header-starting-mobile-only-logo-dark']['url'] ) ) {
-                    echo '<img class="starting-logo dark-version mobile-only-logo skip-lazy" width="' . nectar_logo_dimensions('width', $nectar_options['header-starting-mobile-only-logo-dark']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['header-starting-mobile-only-logo-dark']) . '" alt="' . esc_html( $nectar_logo_text ) . '" src="' . nectar_options_img( $nectar_options['header-starting-mobile-only-logo-dark'] ) . '" />';
+                    echo '<img class="starting-logo dark-version mobile-only-logo skip-lazy" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['header-starting-mobile-only-logo-dark']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['header-starting-mobile-only-logo-dark']) ) . '" alt="' . esc_attr( $nectar_logo_text ) . '" src="' . esc_url( nectar_options_img( $nectar_options['header-starting-mobile-only-logo-dark'] ) ) . '" />';
                 }
 
                 if ( ! empty( $nectar_options['header-starting-logo']['id'] ) || ! empty( $nectar_options['header-starting-logo']['url'] ) ) {
-                    echo '<img class="starting-logo skip-lazy" width="' . nectar_logo_dimensions('width', $nectar_options['header-starting-logo']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['header-starting-logo']) . '" alt="' . esc_html( $nectar_logo_text ) . '" src="' . nectar_options_img( $nectar_options['header-starting-logo'] ) . '" />';
+                    echo '<img class="starting-logo skip-lazy" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['header-starting-logo']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['header-starting-logo']) ) . '" alt="' . esc_attr( $nectar_logo_text ) . '" src="' . esc_url( nectar_options_img( $nectar_options['header-starting-logo'] ) ) . '" />';
                 }
 
                 if ( ! empty( $nectar_options['header-starting-logo-dark']['id'] ) || ! empty( $nectar_options['header-starting-logo-dark']['url'] ) ) {
-                    echo '<img class="starting-logo dark-version skip-lazy" width="' . nectar_logo_dimensions('width', $nectar_options['header-starting-logo-dark']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['header-starting-logo-dark']) . '" alt="' . esc_html( $nectar_logo_text ) . '" src="' . nectar_options_img( $nectar_options['header-starting-logo-dark'] ) . '" />';
+                    echo '<img class="starting-logo dark-version skip-lazy" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['header-starting-logo-dark']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['header-starting-logo-dark']) ) . '" alt="' . esc_attr( $nectar_logo_text ) . '" src="' . esc_url( nectar_options_img( $nectar_options['header-starting-logo-dark'] ) ) . '" />';
                 }
             }
 
@@ -708,7 +708,7 @@ if ( ! function_exists( 'nectar_logo_spacing' ) ) {
         echo '<div class="logo-spacing" data-using-image="' . esc_attr($logo_class) . '">';
         if ( ! empty( $nectar_options['use-logo'] ) ) {
 
-             echo '<img class="hidden-logo" alt="' . get_bloginfo( 'name' ) . '" width="' . nectar_logo_dimensions('width', $nectar_options['logo']) . '" height="' . nectar_logo_dimensions('height', $nectar_options['logo']) . '" src="' . nectar_options_img( $nectar_options['logo'] ) . '" />';
+             echo '<img class="hidden-logo" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" width="' . esc_attr( nectar_logo_dimensions('width', $nectar_options['logo']) ) . '" height="' . esc_attr( nectar_logo_dimensions('height', $nectar_options['logo']) ) . '" src="' . esc_url( nectar_options_img( $nectar_options['logo'] ) ) . '" />';
 
         } else {
             echo get_bloginfo( 'name' ); }

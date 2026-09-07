@@ -8,6 +8,7 @@ use Smush\Core\Media\Media_Item_Optimization;
 use Smush\Core\Media\Media_Item_Size;
 use Smush\Core\Media\Media_Item_Stats;
 use Smush\Core\Settings;
+use Smush\Core\Smush\Smusher_Options_Provider;
 use Smush\Core\File_System;
 
 class Avif_Optimization extends Media_Item_Optimization {
@@ -62,7 +63,8 @@ class Avif_Optimization extends Media_Item_Optimization {
 		$this->avif_helper = new Avif_Helper();
 		$this->media_item  = $media_item;
 		$this->settings    = Settings::get_instance();
-		$this->converter   = new Avif_Converter();
+		$smusher_options   = ( new Smusher_Options_Provider() )->get_options();
+		$this->converter   = new Avif_Converter( $smusher_options );
 		$this->array_utils = new Array_Utils();
 		$this->fs          = new File_System();
 	}
@@ -243,13 +245,10 @@ class Avif_Optimization extends Media_Item_Optimization {
 	}
 
 	public function optimize() {
-		$files_data        = array_map( function ( $size ) {
-			return array(
-				'url'  => $size->get_file_url(),
-				'path' => $size->get_file_path(),
-			);
+		$file_paths        = array_map( function ( $size ) {
+			return $size->get_file_path();
 		}, $this->get_sizes_to_convert() );
-		$responses         = $this->converter->smush( $files_data );
+		$responses         = $this->converter->smush( $file_paths );
 		$success_responses = array_filter( $responses );
 		if ( count( $success_responses ) !== count( $responses ) ) {
 			return false;

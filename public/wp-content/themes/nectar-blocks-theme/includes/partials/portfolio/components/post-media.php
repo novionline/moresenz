@@ -41,9 +41,9 @@ if (isset($portfolio_video['source']['id'])) {
   }
 }
 $videoType = 'video/mp4';
-if (str_ends_with($video_url, '.webm')) {
+if (substr($video_url, -5) === '.webm') {
     $videoType = 'video/webm';
-} elseif (str_ends_with($video_url, '.ogg')) {
+} elseif (substr($video_url, -4) === '.ogg') {
     $videoType = 'video/ogg';
 }
 if ( ! empty( $video_url ) ) {

@@ -2,8 +2,8 @@
 
 namespace Nectar\Update;
 
-use Nectar\Global_Settings\{Nectar_Blocks_Options};
-use Nectar\Utilities\Log;
+use Nectar\Global_Settings\Nectar_Blocks_Options;
+use Nectar\Shared\RemoteVersionCheck;
 
 /**
  * Nectar Blocks Updater.
@@ -63,53 +63,14 @@ class NectarBlocksUpdater {
    * @since 0.1.1
    */
   public function get_current_version() {
-    $remote = get_transient( self::UPDATE_KEY );
     $nb_options = Nectar_Blocks_Options::get_options();
     $token = $nb_options['token'] ?? '';
-    if ($token === '') {
-      return false;
-    }
-
-    if ( 'error' === $remote ) {
-      return false;
-    }
-
-    if ( false === $remote || ! $this->cache_allowed ) {
-      $remote = wp_safe_remote_post( self::UPDATE_URL, [
-        'method' => 'POST',
-        'timeout' => 10,
-        'headers' => [
-            'Content-Type' => 'application/json',
-        ],
-        'body' => json_encode( [
-          'token' => $token
-        ])
-      ]);
-
-      Log::info(json_encode($remote));
-
-      if (
-        is_wp_error( $remote )
-        || 200 !== wp_remote_retrieve_response_code( $remote )
-        || empty( wp_remote_retrieve_body( $remote ) )
-      ) {
-        Log::error('Unable to connect to update api.');
-        set_transient( self::UPDATE_KEY, 'error', MINUTE_IN_SECONDS * 10 );
-        return false;
-      }
-
-      $json_data = json_decode( wp_remote_retrieve_body( $remote ) );
-      if ($json_data->status === 'failure') {
-        Log::error('Server response was unsuccessful.');
-        set_transient( self::UPDATE_KEY, 'error', MINUTE_IN_SECONDS * 10 );
-        return false;
-      }
-
-      set_transient( self::UPDATE_KEY, $json_data->data, 4 * HOUR_IN_SECONDS );
-      return $json_data->data;
-    }
-
-    return $remote;
+    return RemoteVersionCheck::fetch(
+        self::UPDATE_URL,
+        $token,
+        self::UPDATE_KEY,
+        $this->cache_allowed
+    );
   }
 
   /**
@@ -117,7 +78,7 @@ class NectarBlocksUpdater {
    * variant of that, on the plugins page.
    * @since 0.1.1
    */
-  function info( $res, $action, $args ) {
+  public function info( $res, $action, $args ) {
 
     // do nothing if you're not getting plugin information right now
     if( 'plugin_information' !== $action ) {
@@ -212,16 +173,13 @@ class NectarBlocksUpdater {
     return $transient;
   }
 
-  public function purge( $upgrader, $options ){
-
+  public function purge( $upgrader, $options ) {
     if (
       $this->cache_allowed
-      && 'update' === $options['action']
-      && 'plugin' === $options['type']
+      && isset( $options['action'] ) && 'update' === $options['action']
+      && isset( $options['type'] ) && 'plugin' === $options['type']
     ) {
-      // just clean the cache when new plugin version is installed
-      delete_transient( self::UPDATE_KEY );
+      RemoteVersionCheck::purge( self::UPDATE_KEY );
     }
-
   }
 }

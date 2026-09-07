@@ -17,6 +17,7 @@ use Gravity_Forms\Gravity_SMTP\Connectors\Oauth\Microsoft_Oauth_Handler;
 use Gravity_Forms\Gravity_SMTP\Connectors\Oauth\Zoho_Oauth_Handler;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Amazon;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Brevo;
+use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Cloudflare;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Elastic_Email;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Emailit;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Generic;
@@ -25,6 +26,7 @@ use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Mailchimp;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Mailersend;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Mailgun;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Mailjet;
+use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Mailtrap;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Microsoft;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_PHPMail;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Postmark;
@@ -32,6 +34,7 @@ use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Resend;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Sendgrid;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_SMTP2GO;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Sparkpost;
+use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_SMTPCom;
 use Gravity_Forms\Gravity_SMTP\Connectors\Types\Connector_Zoho;
 use Gravity_Forms\Gravity_SMTP\Data_Store\Const_Data_Store;
 use Gravity_Forms\Gravity_SMTP\Data_Store\Data_Store_Router;
@@ -45,6 +48,7 @@ use Gravity_Forms\Gravity_SMTP\Models\Event_Model;
 use Gravity_Forms\Gravity_SMTP\Models\Hydrators\Hydrator_Factory;
 use Gravity_Forms\Gravity_SMTP\Models\Log_Details_Model;
 use Gravity_Forms\Gravity_SMTP\Models\Notifications_Model;
+use Gravity_Forms\Gravity_SMTP\Users\Roles;
 use Gravity_Forms\Gravity_SMTP\Utils\Booliesh;
 use Gravity_Forms\Gravity_Tools\Logging\DB_Logging_Provider;
 use Gravity_Forms\Gravity_Tools\Providers\Config_Collection_Service_Provider;
@@ -85,6 +89,7 @@ class Connector_Service_Provider extends Config_Service_Provider {
 
 	const CONNECTOR_AMAZON_SES    = 'Amazon';
 	const CONNECTOR_BREVO         = 'Brevo';
+	const CONNECTOR_CLOUDFLARE    = 'Cloudflare';
 	const CONNECTOR_ELASTIC_EMAIL = 'Elastic_Email';
 	const CONNECTOR_EMAILIT       = 'Emailit';
 	const CONNECTOR_GENERIC       = 'Generic';
@@ -93,11 +98,13 @@ class Connector_Service_Provider extends Config_Service_Provider {
 	const CONNECTOR_MAILERSEND    = 'MailerSend';
 	const CONNECTOR_MAILGUN       = 'Mailgun';
 	const CONNECTOR_MAILJET       = 'Mailjet';
+	const CONNECTOR_MAILTRAP      = 'Mailtrap';
 	const CONNECTOR_MICROSOFT     = 'Microsoft';
 	const CONNECTOR_PHPMAIL       = 'Phpmail';
 	const CONNECTOR_POSTMARK      = 'Postmark';
 	const CONNECTOR_RESEND        = 'Resend';
 	const CONNECTOR_SENDGRID      = 'Sendgrid';
+	const CONNECTOR_SMTPCOM       = 'SMTPCom';
 	const CONNECTOR_SMTP2GO       = 'SMTP2GO';
 	const CONNECTOR_SPARKPOST     = 'Sparkpost';
 	const CONNECTOR_ZOHO          = 'Zoho';
@@ -105,6 +112,7 @@ class Connector_Service_Provider extends Config_Service_Provider {
 	protected $connectors = array(
 		self::CONNECTOR_AMAZON_SES    => Connector_Amazon::class,
 		self::CONNECTOR_BREVO         => Connector_Brevo::class,
+		self::CONNECTOR_CLOUDFLARE    => Connector_Cloudflare::class,
 		self::CONNECTOR_ELASTIC_EMAIL => Connector_Elastic_Email::class,
 		self::CONNECTOR_EMAILIT       => Connector_Emailit::class,
 		self::CONNECTOR_GENERIC       => Connector_Generic::class,
@@ -113,11 +121,13 @@ class Connector_Service_Provider extends Config_Service_Provider {
 		self::CONNECTOR_MAILERSEND    => Connector_Mailersend::class,
 		self::CONNECTOR_MAILGUN       => Connector_Mailgun::class,
 		self::CONNECTOR_MAILJET       => Connector_Mailjet::class,
+		self::CONNECTOR_MAILTRAP      => Connector_Mailtrap::class,
 		self::CONNECTOR_MICROSOFT     => Connector_Microsoft::class,
 		self::CONNECTOR_PHPMAIL       => Connector_PHPMail::class,
 		self::CONNECTOR_POSTMARK      => Connector_Postmark::class,
 		self::CONNECTOR_RESEND        => Connector_Resend::class,
 		self::CONNECTOR_SENDGRID      => Connector_Sendgrid::class,
+		self::CONNECTOR_SMTPCOM       => Connector_SMTPCom::class,
 		self::CONNECTOR_SMTP2GO       => Connector_SMTP2GO::class,
 		self::CONNECTOR_SPARKPOST     => Connector_Sparkpost::class,
 		self::CONNECTOR_ZOHO          => Connector_Zoho::class,
@@ -288,6 +298,12 @@ class Connector_Service_Provider extends Config_Service_Provider {
 
 		// @todo - replace this with some AJAX action via JS
 		add_action( 'admin_post_smtp_disconnect_google', function () use ( $container ) {
+			check_admin_referer( 'gsmtp_disconnect_google' );
+			// Bail if current user does not have the permissions to be here.
+			if ( ! current_user_can( Roles::EDIT_INTEGRATIONS ) ) {
+				return;
+			}
+
 			$configured_key = sprintf( 'gsmtp_connector_configured_%s', 'google' );
 
 			delete_transient( $configured_key );
@@ -346,6 +362,13 @@ class Connector_Service_Provider extends Config_Service_Provider {
 		} );
 
 		add_action( 'admin_post_smtp_disconnect_microsoft', function () use ( $container ) {
+			check_admin_referer( 'gsmtp_disconnect_microsoft' );
+
+			// Bail if current user does not have the permissions to be here.
+			if ( ! current_user_can( Roles::EDIT_INTEGRATIONS ) ) {
+				return;
+			}
+
 			$configured_key = sprintf( 'gsmtp_connector_configured_%s', 'microsoft' );
 
 			delete_transient( $configured_key );
@@ -404,6 +427,13 @@ class Connector_Service_Provider extends Config_Service_Provider {
 		} );
 
 		add_action( 'admin_post_smtp_disconnect_zoho', function () use ( $container ) {
+			check_admin_referer( 'gsmtp_disconnect_zoho' );
+
+			// Bail if current user does not have the permissions to be here.
+			if ( ! current_user_can( Roles::EDIT_INTEGRATIONS ) ) {
+				return;
+			}
+
 			$configured_key = sprintf( 'gsmtp_connector_configured_%s', 'zoho' );
 
 			delete_transient( $configured_key );
@@ -501,17 +531,21 @@ class Connector_Service_Provider extends Config_Service_Provider {
 			$order = array(
 				'amazon-ses',
 				'brevo',
+				'cloudflare',
 				'elastic_email',
 				'emailit',
 				'generic',
 				'google-gmail',
 				'mailchimp',
 				'mailersend',
-				'mailgun',
-				'microsoft',
+			'mailgun',
+			'mailjet',
+			'mailtrap',
+			'microsoft',
 				'phpmail',
 				'postmark',
 				'sendgrid',
+				'smtpcom',
 				'smtp2go',
 				'sparkpost',
 				'zoho-mail',

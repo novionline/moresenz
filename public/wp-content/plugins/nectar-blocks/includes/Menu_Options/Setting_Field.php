@@ -221,7 +221,7 @@ class Setting_Field {
       echo '<select id="' . $this->field_id . '" name="' . $this->field_id . '">';
 
       $selected = ( 'none' === $this->field_value() ) ? ' selected' : '';
-      echo '<option value="none"' . $selected . '>' . esc_html__('None', 'nectar-blocks') . '</option>';
+      echo '<option value="none"' . $selected . '>' . esc_html_x('None', 'widget location option: no selection', 'nectar-blocks') . '</option>';
       foreach( $widget_locations as $location ) {
 
         if( isset($location['id']) && isset($location['name']) ) {

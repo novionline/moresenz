@@ -59,10 +59,10 @@ if( ! class_exists('Nectar_Woo_Quickview') ) {
         }
 
         if ( $product_style !== 'minimal' ) {
-          echo '<a class="nectar_quick_view no-ajaxy ' . $button_class . '" data-product-id="' . $post->ID . '"> ' . $button_icon . '
+          echo '<a class="nectar_quick_view no-ajaxy ' . esc_attr( $button_class ) . '" data-product-id="' . esc_attr( (int) $post->ID ) . '"> ' . $button_icon . '
 	    <span>' . esc_html__('Quick View', 'nectar-blocks-theme') . '</span></a>';
         } else {
-          echo '<a class="nectar_quick_view no-ajaxy ' . $button_class . '" data-product-id="' . $post->ID . '"> ' . $button_icon . '
+          echo '<a class="nectar_quick_view no-ajaxy ' . esc_attr( $button_class ) . '" data-product-id="' . esc_attr( (int) $post->ID ) . '"> ' . $button_icon . '
 	      <span class="nectar-text-reveal-button"><span class="nectar-text-reveal-button__text" data-text="' . esc_attr( esc_html__('Quick View', 'nectar-blocks-theme')) . '">' . esc_html__('Quick View', 'nectar-blocks-theme') . '</span></span></a>';
         }
 

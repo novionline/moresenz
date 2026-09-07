@@ -10,8 +10,8 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
+ * @see     https://woocommerce.com/document/template-structure/
+ * @package WooCommerce\Templates
  * @version 3.6.0
  */
 
@@ -19,18 +19,19 @@ defined( 'ABSPATH' ) || exit;
 
 global $product;
 
-    /**
-     * woocommerce_before_single_product hook
-     *
-     * @hooked wc_print_notices - 10
-     */
-     do_action( 'woocommerce_before_single_product' );
+/**
+ * Hook: woocommerce_before_single_product.
+ *
+ * @hooked woocommerce_output_all_notices - 10
+ */
+do_action( 'woocommerce_before_single_product' );
 
-     if ( post_password_required() ) {
-        echo get_the_password_form();
-        return;
-     }
+if ( post_password_required() ) {
+	echo get_the_password_form(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	return;
+}
 
+// Nectar customization preserved from override.
 $nectar_options = get_nectar_theme_options();
 $product_style = (! empty($nectar_options['product_style'])) ? $nectar_options['product_style'] : 'classic';
 $product_gallery_style = (! empty($nectar_options['single_product_gallery_type'])) ? $nectar_options['single_product_gallery_type'] : 'default';
@@ -53,7 +54,7 @@ if( 'left_thumb_sticky_fullwidth' === $product_gallery_style) {
 
     <?php
         /**
-         * woocommerce_before_single_product_summary hook.
+         * Hook: woocommerce_before_single_product_summary.
          *
          * @hooked woocommerce_show_product_sale_flash - 10
          * @hooked woocommerce_show_product_images - 20
@@ -65,7 +66,7 @@ if( 'left_thumb_sticky_fullwidth' === $product_gallery_style) {
 
         <?php
             /**
-             * woocommerce_single_product_summary hook.
+             * Hook: woocommerce_single_product_summary.
              *
              * @hooked woocommerce_template_single_title - 5
              * @hooked woocommerce_template_single_rating - 10
@@ -83,7 +84,7 @@ if( 'left_thumb_sticky_fullwidth' === $product_gallery_style) {
 
     <?php
         /**
-         * woocommerce_after_single_product_summary hook.
+         * Hook: woocommerce_after_single_product_summary.
          *
          * @hooked woocommerce_output_product_data_tabs - 10
          * @hooked woocommerce_upsell_display - 15

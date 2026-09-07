@@ -82,6 +82,36 @@ function seedprod_lite_v2_get_upload_error_message( $error_code ) {
 }
 
 /**
+ * Validate that a URL is safe for theme/template import.
+ *
+ * Enforces HTTPS and rejects path traversal. Does not restrict domains
+ * because admins may import from any URL (Dropbox, Google Drive, etc.).
+ * Private-IP SSRF is handled by wp_safe_remote_get() at the call site.
+ *
+ * @param string $url The URL to validate.
+ * @return boolean True if the URL passes safety checks.
+ */
+function seedprod_lite_v2_is_allowed_import_url( $url ) {
+	$parsed = wp_parse_url( $url );
+
+	if ( empty( $parsed['host'] ) || empty( $parsed['scheme'] ) ) {
+		return false;
+	}
+
+	// Enforce HTTPS (allow HTTP only in local dev).
+	if ( 'https' !== strtolower( $parsed['scheme'] ) && ! defined( 'SEEDPROD_LOCAL_JS' ) ) {
+		return false;
+	}
+
+	// Block path traversal sequences.
+	if ( ! empty( $parsed['path'] ) && false !== strpos( $parsed['path'], '..' ) ) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
  * Validate ZIP file upload.
  *
  * @param string $file_key The $_FILES array key.
@@ -146,7 +176,7 @@ function seedprod_lite_v2_setup_directories( $folder_name ) {
 	}
 
 	// Create fresh directory.
-	mkdir( $target_dir, 0755 );
+	wp_mkdir_p( $target_dir );
 
 	return array(
 		'path'       => $path,
@@ -510,7 +540,7 @@ function seedprod_lite_v2_export_theme_files() {
 
 	// Create export folder if it doesn't exist (don't delete - prevents race condition with concurrent exports).
 	if ( ! is_dir( $export_path ) ) {
-		mkdir( $export_path, 0755 );
+		wp_mkdir_p( $export_path );
 	}
 
 	// Clean up old files (older than 1 hour) to prevent disk bloat.
@@ -665,8 +695,9 @@ function seedprod_lite_v2_import_theme_files() {
 		}
 
 		// Create import directory
-		mkdir( $targetdir, 0755 );
+		wp_mkdir_p( $targetdir );
 
+		// phpcs:ignore Generic.PHP.ForbiddenFunctions.Found -- move_uploaded_file is required for handling HTTP file uploads securely.
 		if ( move_uploaded_file( $source, $targetzip ) ) {
 			// Extract ZIP file
 			$extract_result = seedprod_lite_v2_extract_zip( $targetzip, $targetdir, true );
@@ -696,7 +727,7 @@ function seedprod_lite_v2_import_theme_files() {
 
 			// Process the import
 			// Process the theme import
-			seedprod_lite_v2_theme_import_json( $data );
+			$warnings = seedprod_lite_v2_theme_import_json( $data );
 
 			// Remove the json file for security
 			wp_delete_file( $theme_json_data );
@@ -704,7 +735,7 @@ function seedprod_lite_v2_import_theme_files() {
 			// Clean up import directory
 			seedprod_lite_v2_recursive_rmdir( $targetdir );
 
-			wp_send_json( true );
+			wp_send_json_success( array( 'warnings' => is_array( $warnings ) ? $warnings : array() ) );
 		} else {
 			$message = __( 'There was a problem with the upload. Please try again.', 'coming-soon' );
 			wp_send_json_error( $message );
@@ -720,8 +751,9 @@ function seedprod_lite_v2_import_theme_files() {
  * Downloads and imports a theme from a remote URL
  */
 function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
-	// Track if this is a direct AJAX call or internal call
-	$is_direct_ajax = ( $theme_url === null );
+	// Track if this is a direct AJAX call or internal call. AJAX hook callbacks
+	// receive an empty string (not null) for unset args, so check with empty().
+	$is_direct_ajax = empty( $theme_url );
 
 	// Helper function to handle errors for both AJAX and internal calls
 	$handle_error = function ( $message, $code = 'error' ) use ( $is_direct_ajax ) {
@@ -754,8 +786,8 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 	// Initialize filesystem
 	seedprod_lite_v2_init_filesystem();
 
-	// Get the source URL
-	$source = isset( $_REQUEST['seedprod_theme_url'] ) ? wp_kses_post( wp_unslash( $_REQUEST['seedprod_theme_url'] ) ) : '';
+	// esc_url_raw() preserves query-string ampersands for signed CDN URLs.
+	$source = isset( $_REQUEST['seedprod_theme_url'] ) ? esc_url_raw( wp_unslash( $_REQUEST['seedprod_theme_url'] ) ) : '';
 	if ( ! empty( $theme_url ) ) {
 		$source = $theme_url;
 	}
@@ -764,8 +796,13 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 		return $handle_error( __( 'No URL provided', 'coming-soon' ), 'no_url' );
 	}
 
-	// Download the file from URL
-	$file_import_url_json = wp_remote_get(
+	// Enforce HTTPS and reject path traversal to reduce SSRF surface.
+	if ( ! seedprod_lite_v2_is_allowed_import_url( $source ) ) {
+		return $handle_error( __( 'Invalid import URL. Please enter a valid HTTPS URL.', 'coming-soon' ), 'invalid_url' );
+	}
+
+	// Download the file from URL.
+	$file_import_url_json = wp_safe_remote_get(
 		$source,
 		array(
 			'sslverify' => false,
@@ -777,10 +814,18 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 		return $handle_error( $file_import_url_json->get_error_message(), $file_import_url_json->get_error_code() );
 	}
 
-	// Check if it's a ZIP file
-	$content_type = wp_remote_retrieve_header( $file_import_url_json, 'content-type' );
-	if ( ! preg_match( '/zip/', $content_type ) ) {
-		return $handle_error( __( 'The file is not a valid ZIP archive.', 'coming-soon' ), 'invalid_zip' );
+	// ZipArchive::open() in seedprod_lite_v2_validate_import_zip() below is the
+	// real ZIP check; Content-Type isn't reliable across CDNs.
+	$response_code = (int) wp_remote_retrieve_response_code( $file_import_url_json );
+	if ( 200 !== $response_code ) {
+		return $handle_error(
+			sprintf(
+				/* translators: %d: HTTP status code returned by the import URL */
+				__( 'The import URL returned HTTP %d.', 'coming-soon' ),
+				$response_code
+			),
+			'http_error'
+		);
 	}
 
 	$body = wp_remote_retrieve_body( $file_import_url_json );
@@ -820,7 +865,7 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 	}
 
 	// Create import directory
-	mkdir( $targetdir, 0755 );
+	wp_mkdir_p( $targetdir );
 
 	// Save the ZIP file
 	if ( ! file_put_contents( $targetzip, $body ) ) { // phpcs:ignore
@@ -865,7 +910,8 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 
 	// Process the import
 	// Process the theme import
-	seedprod_lite_v2_theme_import_json( $data );
+	$warnings = seedprod_lite_v2_theme_import_json( $data );
+	$warnings = is_array( $warnings ) ? $warnings : array();
 
 	// Remove the json file for security
 	wp_delete_file( $theme_json_path );
@@ -875,10 +921,13 @@ function seedprod_lite_v2_import_theme_by_url( $theme_url = null ) {
 
 	// Only send JSON if this is a direct AJAX call, not an internal call
 	if ( $is_direct_ajax ) {
-		wp_send_json( true );
+		wp_send_json_success( array( 'warnings' => $warnings ) );
 	} else {
 		// Return success for internal calls
-		return true;
+		return array(
+			'success'  => true,
+			'warnings' => $warnings,
+		);
 	}
 }
 
@@ -982,6 +1031,7 @@ function seedprod_lite_v2_export_landing_pages() {
 		$shortcode_exports = $export_result['shortcode_exports'];
 
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during processing: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1021,7 +1071,7 @@ function seedprod_lite_v2_export_landing_pages() {
 
 	// Create directory if it doesn't exist (don't delete - prevents race condition with concurrent exports).
 	if ( ! is_dir( $targetdir ) ) {
-		if ( ! mkdir( $targetdir, 0755, true ) ) {
+		if ( ! wp_mkdir_p( $targetdir ) ) {
 			wp_send_json_error( __( 'Failed to create export directory.', 'coming-soon' ) );
 		}
 	}
@@ -1069,6 +1119,7 @@ function seedprod_lite_v2_export_landing_pages() {
 			}
 		}
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during image processing: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1082,6 +1133,7 @@ function seedprod_lite_v2_export_landing_pages() {
 			wp_send_json_error( __( 'Export completed but file data not generated.', 'coming-soon' ) );
 		}
 	} catch ( Exception $e ) {
+		/* translators: %s: Error message from the exception */
 		wp_send_json_error( sprintf( __( 'Export failed during ZIP creation: %s', 'coming-soon' ), $e->getMessage() ) );
 	}
 
@@ -1129,8 +1181,9 @@ function seedprod_lite_v2_import_landing_pages() {
 		}
 
 		// Create import directory
-		mkdir( $targetdir, 0755 );
+		wp_mkdir_p( $targetdir );
 
+		// phpcs:ignore Generic.PHP.ForbiddenFunctions.Found -- move_uploaded_file is required for handling HTTP file uploads securely.
 		if ( move_uploaded_file( $source, $targetzip ) ) {
 			// Validate zip contents
 			$validation_result = seedprod_lite_v2_validate_import_zip( $targetzip, false );
@@ -1169,7 +1222,10 @@ function seedprod_lite_v2_import_landing_pages() {
 
 			// Process the import
 			// Process the landing page import
-			seedprod_lite_v2_landing_import_json( $data );
+			$import_result = seedprod_lite_v2_landing_import_json( $data );
+			$warnings      = isset( $import_result['warnings'] ) && is_array( $import_result['warnings'] )
+				? $import_result['warnings']
+				: array();
 
 			// Remove the json file for security
 			wp_delete_file( $theme_json_path );
@@ -1177,7 +1233,7 @@ function seedprod_lite_v2_import_landing_pages() {
 			// Clean up import directory
 			seedprod_lite_v2_recursive_rmdir( $targetdir );
 
-			wp_send_json( true );
+			wp_send_json_success( array( 'warnings' => $warnings ) );
 		} else {
 			$message = __( 'There was a problem with the upload. Please try again.', 'coming-soon' );
 			wp_send_json_error( $message );

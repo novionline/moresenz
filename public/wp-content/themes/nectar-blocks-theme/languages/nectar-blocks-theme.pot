@@ -1,15 +1,15 @@
-# Copyright (C) 2025 NectarBlocks
+# Copyright (C) 2026 NectarBlocks
 # This file is distributed under the Custom license.
 msgid ""
 msgstr ""
-"Project-Id-Version: Nectarblocks 2.0.1\n"
+"Project-Id-Version: Nectarblocks 2.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/theme/nectar-blocks-theme\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-05-16T17:43:40+00:00\n"
+"POT-Creation-Date: 2026-05-21T05:09:22+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: nectar-blocks-theme\n"
@@ -77,59 +77,63 @@ msgid "% Comments"
 msgstr ""
 
 #: comments.php:53
-msgid "My comment is.."
+msgid "My comment is"
 msgstr ""
 
 #: comments.php:59
 msgid "Leave a Reply"
 msgstr ""
 
-#: comments.php:60
+#. translators: %s: comment author name
+#: comments.php:61
 #, php-format
 msgid "Leave a Reply to %s"
 msgstr ""
 
-#: comments.php:61
+#: comments.php:62
 msgid "Cancel Reply"
 msgstr ""
 
-#: comments.php:62
+#: comments.php:63
 msgid "Submit Comment"
 msgstr ""
 
-#: comments.php:68
+#. translators: %s: login URL
+#: comments.php:70
 #, php-format
 msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
 msgstr ""
 
-#: comments.php:74
+#. translators: 1: user profile URL, 2: user display name, 3: logout URL
+#: comments.php:77
 #, php-format
 msgid "Logged in as <a href=\"%1$s\">%2$s</a>. <a href=\"%3$s\" title=\"Log out of this account\">Log out?</a>"
 msgstr ""
 
-#: comments.php:92
+#: comments.php:95
 msgid "Name"
 msgstr ""
 
-#: comments.php:98
+#: comments.php:101
 msgid "Email"
 msgstr ""
 
-#: comments.php:105
+#: comments.php:108
 msgid "Website"
 msgstr ""
 
-#: comments.php:110
+#: comments.php:113
 msgid "Save my name, email, and website in this browser for the next time I comment."
 msgstr ""
 
-#: css/custom.php:5863
+#: css/custom.php:5883
 #: includes/partials/single-post/author-bio-ascend-skin.php:35
 msgid "Author"
 msgstr ""
 
 #: includes/header-search.php:38
 #: includes/header-search.php:44
+#: searchform.php:14
 #: searchform.php:15
 msgid "Search"
 msgstr ""
@@ -142,17 +146,17 @@ msgstr ""
 msgid "Back to top"
 msgstr ""
 
-#: includes/partials/footer/off-canvas-navigation.php:74
-msgid "Back"
+#: includes/partials/footer/off-canvas-navigation.php:53
+msgid "Close Menu"
 msgstr ""
 
-#: includes/partials/footer/off-canvas-navigation.php:91
-msgid "Close Menu"
+#: includes/partials/footer/off-canvas-navigation.php:78
+msgid "Back"
 msgstr ""
 
 #: includes/partials/header/header-menu.php:106
 #: includes/partials/header/header-menu.php:153
-#: nectar/helpers/header.php:1341
+#: nectar/helpers/header.php:1361
 msgid "Navigation Menu"
 msgstr ""
 
@@ -161,20 +165,20 @@ msgstr ""
 #: includes/partials/header/header-menu.php:155
 #: includes/partials/header/header-menu.php:158
 #: nectar/helpers/enqueue-scripts.php:191
-#: nectar/helpers/header.php:1332
-#: nectar/helpers/header.php:1336
-#: nectar/helpers/header.php:1382
-#: nectar/helpers/header.php:1386
+#: nectar/helpers/header.php:1352
+#: nectar/helpers/header.php:1356
+#: nectar/helpers/header.php:1402
+#: nectar/helpers/header.php:1406
 msgid "Menu"
 msgstr ""
 
 #: includes/partials/header/header-menu.php:128
-#: nectar/helpers/header.php:1396
+#: nectar/helpers/header.php:1416
 msgid "search"
 msgstr ""
 
 #: includes/partials/header/header-menu.php:134
-#: nectar/helpers/header.php:1400
+#: nectar/helpers/header.php:1420
 msgid "account"
 msgstr ""
 
@@ -204,13 +208,14 @@ msgstr ""
 msgid "More posts by"
 msgstr ""
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:56
+#. translators: %s: category name
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:57
 #, php-format
 msgid "View all posts in %s"
 msgstr ""
 
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:77
-#: includes/partials/single-post/post-header-no-img-fullscreen.php:84
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:78
+#: includes/partials/single-post/post-header-no-img-fullscreen.php:85
 #: includes/partials/single-post/post-header-no-img-regular.php:87
 #: includes/partials/single-post/post-header-no-img-regular.php:93
 #: includes/partials/single-post/post-meta-fields.php:46
@@ -242,6 +247,7 @@ msgstr ""
 
 #: nectar/assets/functions/ajax-search/wp-search-suggest.php:95
 #: search.php:119
+msgctxt "search result label: post type"
 msgid "Page"
 msgstr ""
 
@@ -317,8 +323,8 @@ msgstr ""
 #: nectar/customizer/panels/general-settings.php:437
 #: nectar/customizer/panels/layout.php:754
 #: nectar/customizer/panels/layout.php:866
-#: nectar/customizer/panels/layout.php:1003
-#: nectar/customizer/panels/layout.php:1081
+#: nectar/customizer/panels/layout.php:1038
+#: nectar/customizer/panels/layout.php:1117
 #: nectar/customizer/panels/post-types/blog.php:166
 #: nectar/customizer/panels/post-types/blog.php:239
 #: nectar/customizer/panels/post-types/blog.php:326
@@ -329,6 +335,7 @@ msgstr ""
 #: nectar/customizer/panels/post-types/woocommerce.php:272
 #: nectar/meta/category-meta.php:117
 #: nectar/meta/category-meta.php:137
+msgctxt "dropdown option: use the default value"
 msgid "Default"
 msgstr ""
 
@@ -513,7 +520,7 @@ msgstr ""
 #: nectar/customizer/panels/general-settings.php:357
 #: nectar/customizer/panels/general-settings.php:359
 #: nectar/customizer/panels/layout.php:713
-#: build/customizer.js:12370
+#: build/customizer.js:7843
 msgid "Inherit"
 msgstr ""
 
@@ -855,12 +862,14 @@ msgstr ""
 
 #: nectar/customizer/panels/layout.php:163
 #: nectar/customizer/panels/layout.php:779
+#: nectar/customizer/panels/layout.php:1071
 #: nectar/customizer/panels/post-types/blog.php:185
 #: nectar/customizer/panels/post-types/blog.php:498
 #: nectar/customizer/panels/post-types/blog.php:510
 #: nectar/customizer/panels/post-types/blog.php:543
 #: nectar/customizer/panels/post-types/portfolio.php:148
 #: nectar/customizer/panels/post-types/portfolio.php:159
+msgctxt "dropdown option: no value selected"
 msgid "None"
 msgstr ""
 
@@ -901,12 +910,12 @@ msgid "Header Layout"
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:253
-#: nectar/customizer/panels/layout.php:1144
+#: nectar/customizer/panels/layout.php:1180
 msgid "Default Layout"
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:254
-#: nectar/customizer/panels/layout.php:1145
+#: nectar/customizer/panels/layout.php:1181
 msgid "Centered Menu"
 msgstr ""
 
@@ -939,12 +948,12 @@ msgid "Please select the functionality for how dropdowns will behave in the left
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:273
-#: nectar/customizer/panels/layout.php:972
+#: nectar/customizer/panels/layout.php:1007
 msgid "Dropdown Parent Link Toggles Submenu"
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:274
-#: nectar/customizer/panels/layout.php:973
+#: nectar/customizer/panels/layout.php:1008
 msgid "Separate Dropdown Parent Link From Dropdown Toggle"
 msgstr ""
 
@@ -974,7 +983,7 @@ msgid "Center"
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:298
-#: nectar/customizer/panels/layout.php:1004
+#: nectar/customizer/panels/layout.php:1039
 #: nectar/customizer/panels/post-types/blog.php:404
 #: nectar/customizer/panels/post-types/blog.php:619
 #: nectar/customizer/panels/post-types/woocommerce.php:210
@@ -1204,7 +1213,7 @@ msgid "Alters the button background size releative to link tett."
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:608
-#: nectar/customizer/panels/layout.php:1034
+#: nectar/customizer/panels/layout.php:1069
 msgid "Medium"
 msgstr ""
 
@@ -1387,7 +1396,7 @@ msgid "Limit Search To Post Type"
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:854
-#: nectar/helpers/page-header.php:619
+msgctxt "dropdown option: match all values"
 msgid "All"
 msgstr ""
 
@@ -1472,278 +1481,299 @@ msgid "This will cause your off canvas to only display navigation menu items ass
 msgstr ""
 
 #: nectar/customizer/panels/layout.php:947
+msgid "Off Canvas Menu Desktop Width (%)"
+msgstr ""
+
+#: nectar/customizer/panels/layout.php:959
+msgid "Off Canvas Menu Offset"
+msgstr ""
+
+#: nectar/customizer/panels/layout.php:970
+msgid "Off Canvas Menu Roundness"
+msgstr ""
+
+#: nectar/customizer/panels/layout.php:982
 msgid "Off Canvas Menu Icon Width"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:960
+#: nectar/customizer/panels/layout.php:995
 msgid "Default Off Canvas Background Image"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:961
+#: nectar/customizer/panels/layout.php:996
 msgid "Choose the default image to be shown in your Off Canvas Menu. You can also supply a unique item for each menu item in"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:961
+#: nectar/customizer/panels/layout.php:996
 msgid "Appearance > Menus."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:968
+#: nectar/customizer/panels/layout.php:1003
 msgid "Off Canvas Menu Dropdown Behavior"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:969
+#: nectar/customizer/panels/layout.php:1004
 msgid "Please select the functionality for how dropdowns will behave in your off canvas menu."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:992
+#: nectar/customizer/panels/layout.php:1027
 msgid "Off Canvas Menu Add Menu Label"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:999
+#: nectar/customizer/panels/layout.php:1034
 msgid "Off Canvas Menu Button Position"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1020
+#: nectar/customizer/panels/layout.php:1055
 msgid "Off Canvas Menu Bottom Text"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1021
+#: nectar/customizer/panels/layout.php:1056
 msgid "This will add some text fixed at the bottom of your off canvas menu - useful for copyright or quick contact info etc."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1028
+#: nectar/customizer/panels/layout.php:1063
 msgid "Off Canvas Menu Overlay Strength"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1029
+#: nectar/customizer/panels/layout.php:1064
 msgid "Not all off canvas menu styles utilize this option."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1032
+#: nectar/customizer/panels/layout.php:1067
 msgid "Solid"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1033
-#: nectar/customizer/panels/layout.php:1219
+#: nectar/customizer/panels/layout.php:1068
+#: nectar/customizer/panels/layout.php:1255
 msgid "Dark"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1035
-#: nectar/customizer/panels/layout.php:1218
+#: nectar/customizer/panels/layout.php:1070
+#: nectar/customizer/panels/layout.php:1254
 msgid "Light"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1043
+#: nectar/customizer/panels/layout.php:1079
 msgid "Off Canvas Menu Mobile Nav Menu items"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1044
+#: nectar/customizer/panels/layout.php:1080
 msgid "This will cause your off canvas menu to inherit any navigation items assigned in your \"Top Navigation\" menu location when viewing on a mobile device."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1052
+#: nectar/customizer/panels/layout.php:1088
 msgid "Off Canvas Menu Item Icons"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1053
+#: nectar/customizer/panels/layout.php:1089
 msgid "This will control what type of icons (if any) to display in your off canvas menu. Icons are defined by you on an individual menu item basis in Appearance > Menus."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1056
+#: nectar/customizer/panels/layout.php:1092
 msgid "Display No Icons"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1057
+#: nectar/customizer/panels/layout.php:1093
 msgid "Display Font/Emoji Icons Only"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1058
+#: nectar/customizer/panels/layout.php:1094
 msgid "Display Image Icons Only"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1059
+#: nectar/customizer/panels/layout.php:1095
 msgid "Display All Icons"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1078
+#: nectar/customizer/panels/layout.php:1114
 msgid "Off Canvas Icon Style"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1082
+#: nectar/customizer/panels/layout.php:1118
 msgid "Circular"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1090
+#: nectar/customizer/panels/layout.php:1126
 msgid "Off Canvas Navigation Menu Button BG Color"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1093
+#: nectar/customizer/panels/layout.php:1129
 msgid "Optionally define a background color for your off canvas navigation button within the header."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1099
+#: nectar/customizer/panels/layout.php:1135
 msgid "Off Canvas Navigation Menu Button Color"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1108
+#: nectar/customizer/panels/layout.php:1144
 msgid "Off Canvas Menu Custom Font Size (Desktop)"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1109
+#: nectar/customizer/panels/layout.php:1145
 msgid "Optionally specify a custom font size to use for your off canvas navigation menu items when viewed on desktop displays. All unit types are accepted."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1116
+#: nectar/customizer/panels/layout.php:1152
 msgid "Off Canvas Menu Custom Font Size (Mobile)"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1117
+#: nectar/customizer/panels/layout.php:1153
 msgid "Optionally specify a custom font size to use for your off canvas navigation menu items when viewed on mobile displays. All unit types are accepted."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1127
+#: nectar/customizer/panels/layout.php:1163
 msgid "Header Off Canvas Menu"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1141
+#: nectar/customizer/panels/layout.php:1177
 msgid "Mobile Header Layout"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1153
+#: nectar/customizer/panels/layout.php:1189
 msgid "Header Sticky On Mobile"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1161
+#: nectar/customizer/panels/layout.php:1197
 msgid "Header Mobile Breakpoint"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1162
+#: nectar/customizer/panels/layout.php:1198
 msgid "Define at what window size (in px) the header navigation menu will collapse into the mobile menu style - larger values are useful when you have a navigation with many items which wouldn't fit on one line when viewed on small desktops/laptops."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1175
+#: nectar/customizer/panels/layout.php:1211
 msgid "Full Width Left/Right Padding"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1187
+#: nectar/customizer/panels/layout.php:1223
 msgid "Header Top/Bottom Padding"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1201
+#: nectar/customizer/panels/layout.php:1237
 msgid "Mobile Menu"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1214
-#: nectar/customizer/panels/layout.php:1538
+#: nectar/customizer/panels/layout.php:1250
+#: nectar/customizer/panels/layout.php:1601
 msgid "Header Color Scheme"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1215
+#: nectar/customizer/panels/layout.php:1251
 msgid "Please select your header color scheme here. Color pickers below will only be used when using \"Custom\" for the color scheme."
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1220
+#: nectar/customizer/panels/layout.php:1256
+msgctxt "dropdown option: custom value"
 msgid "Custom"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1228
+#: nectar/customizer/panels/layout.php:1264
 msgid "Header Background"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1239
+#: nectar/customizer/panels/layout.php:1275
 msgid "Header Font"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1240
-#: nectar/customizer/panels/layout.php:1331
-#: nectar/customizer/panels/layout.php:1358
-#: nectar/customizer/panels/layout.php:1381
-#: nectar/customizer/panels/layout.php:1416
-#: nectar/customizer/panels/layout.php:1440
-#: nectar/customizer/panels/layout.php:1512
+#: nectar/customizer/panels/layout.php:1276
+#: nectar/customizer/panels/layout.php:1367
+#: nectar/customizer/panels/layout.php:1394
+#: nectar/customizer/panels/layout.php:1417
+#: nectar/customizer/panels/layout.php:1452
+#: nectar/customizer/panels/layout.php:1476
+#: nectar/customizer/panels/layout.php:1548
 msgid "Default State"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1252
-#: nectar/customizer/panels/layout.php:1343
-#: nectar/customizer/panels/layout.php:1369
-#: nectar/customizer/panels/layout.php:1393
-#: nectar/customizer/panels/layout.php:1428
-#: nectar/customizer/panels/layout.php:1452
-#: nectar/customizer/panels/layout.php:1524
+#: nectar/customizer/panels/layout.php:1288
+#: nectar/customizer/panels/layout.php:1379
+#: nectar/customizer/panels/layout.php:1405
+#: nectar/customizer/panels/layout.php:1429
+#: nectar/customizer/panels/layout.php:1464
+#: nectar/customizer/panels/layout.php:1488
+#: nectar/customizer/panels/layout.php:1560
 msgid "Hover State"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1263
+#: nectar/customizer/panels/layout.php:1299
 msgid "Header Button Effect"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1267
+#: nectar/customizer/panels/layout.php:1303
 msgid "BG Default State"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1276
+#: nectar/customizer/panels/layout.php:1312
 msgid "BG Active State"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1289
+#: nectar/customizer/panels/layout.php:1325
 msgid "Text Active State"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1298
+#: nectar/customizer/panels/layout.php:1334
 msgid "Header Menu Item Icons"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1319
+#: nectar/customizer/panels/layout.php:1355
 msgid "Secondary Header Background"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1330
+#: nectar/customizer/panels/layout.php:1366
 msgid "Secondary Header Font"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1355
+#: nectar/customizer/panels/layout.php:1391
 msgid "Dropdown Background"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1380
+#: nectar/customizer/panels/layout.php:1416
 msgid "Dropdown Font"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1404
+#: nectar/customizer/panels/layout.php:1440
 msgid "Dropdown Menu Item Icons"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1415
+#: nectar/customizer/panels/layout.php:1451
 msgid "Dropdown Description Font"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1439
+#: nectar/customizer/panels/layout.php:1475
 msgid "Mega Menu Heading Font"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1463
+#: nectar/customizer/panels/layout.php:1499
 msgid "Header Separators"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1475
-msgid "Off Canvas Navigation Background"
+#: nectar/customizer/panels/layout.php:1511
+msgid "Off Canvas Navigation BG"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1488
-msgid "Off Canvas Navigation Background 2"
+#: nectar/customizer/panels/layout.php:1524
+msgid "Off Canvas Navigation BG 2"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1489
+#: nectar/customizer/panels/layout.php:1525
 msgid "Used for gradient"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1500
+#: nectar/customizer/panels/layout.php:1536
 msgid "Off Canvas Navigation Headers"
 msgstr ""
 
-#: nectar/customizer/panels/layout.php:1511
+#: nectar/customizer/panels/layout.php:1547
 msgid "Off Canvas Navigation Text"
+msgstr ""
+
+#: nectar/customizer/panels/layout.php:1572
+msgid "Off Canvas Navigation Close BG"
+msgstr ""
+
+#: nectar/customizer/panels/layout.php:1585
+msgid "Off Canvas Navigation Close"
 msgstr ""
 
 #: nectar/customizer/panels/layout/footer.php:31
@@ -3019,58 +3049,64 @@ msgstr ""
 
 #: nectar/helpers/blog.php:360
 #: nectar/helpers/blog.php:433
-#: nectar/helpers/pagination.php:136
+#: nectar/helpers/pagination.php:150
 msgid "Previous Post"
 msgstr ""
 
 #: nectar/helpers/blog.php:398
 #: nectar/helpers/blog.php:435
-#: nectar/helpers/pagination.php:136
+#: nectar/helpers/pagination.php:150
 msgid "Next Post"
 msgstr ""
 
 #: nectar/helpers/enqueue-scripts.php:192
-#: nectar/helpers/pagination.php:187
+#: nectar/helpers/pagination.php:201
 #: nectar/helpers/woocommerce.php:607
 msgid "Next"
 msgstr ""
 
 #: nectar/helpers/enqueue-scripts.php:193
-#: nectar/helpers/pagination.php:186
+#: nectar/helpers/pagination.php:200
 #: nectar/helpers/woocommerce.php:606
 msgid "Previous"
 msgstr ""
 
 #: nectar/helpers/enqueue-scripts.php:194
+msgctxt "button: close mobile menu"
 msgid "Close"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1236
+#: nectar/helpers/nav-menus.php:1238
 msgid "Menu Item Style"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1238
+#: nectar/helpers/nav-menus.php:1240
 msgid "Standard"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1239
+#: nectar/helpers/nav-menus.php:1241
 msgid "Button Accent Color"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1240
+#: nectar/helpers/nav-menus.php:1242
 msgid "Button Extra Color #1"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1241
+#: nectar/helpers/nav-menus.php:1243
 msgid "Button Bordered Accent Color"
 msgstr ""
 
-#: nectar/helpers/nav-menus.php:1242
+#: nectar/helpers/nav-menus.php:1244
 msgid "Button Bordered Extra Color #1"
 msgstr ""
 
 #: nectar/helpers/page-header.php:617
 msgid "Sort Portfolio"
+msgstr ""
+
+#: nectar/helpers/page-header.php:619
+msgctxt "portfolio filter label: show all categories"
+msgid "All"
 msgstr ""
 
 #: nectar/helpers/page-header.php:831
@@ -3107,16 +3143,17 @@ msgstr ""
 msgid "Yearly Archives"
 msgstr ""
 
-#: nectar/helpers/pagination.php:64
+#. translators: %s: the word "and" (deprecated separator)
+#: nectar/helpers/pagination.php:73
 #, php-format
 msgid "Use commas instead of %s to separate excluded categories."
 msgstr ""
 
-#: nectar/helpers/pagination.php:176
+#: nectar/helpers/pagination.php:190
 msgid "Pagination Navigation"
 msgstr ""
 
-#: nectar/helpers/pagination.php:176
+#: nectar/helpers/pagination.php:190
 msgid "All items loaded"
 msgstr ""
 
@@ -3133,15 +3170,16 @@ msgstr ""
 msgid "was successfully added to your cart."
 msgstr ""
 
-#: nectar/helpers/woocommerce.php:1210
+#. translators: %1$s: number of reviews
+#: nectar/helpers/woocommerce.php:1211
 #, php-format
 msgid "Based on %1$s review"
 msgid_plural "Based on %1$s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: nectar/helpers/woocommerce.php:1219
-#: nectar/helpers/woocommerce.php:1245
+#: nectar/helpers/woocommerce.php:1220
+#: nectar/helpers/woocommerce.php:1246
 msgid "Write a Review"
 msgstr ""
 
@@ -3186,24 +3224,8 @@ msgstr ""
 msgid "Category Header Text Align"
 msgstr ""
 
-#: nectar/woo/admin-notices.php:10
+#: nectar/woo/admin-notices.php:11
 msgid "There are some outdated WooCommerce template files in your nectarblocks theme directory that are likely lingering around from a previous version of the theme. NectarBlocks no longer includes any of the following files in the nectarblocks/woocommerce/cart directory. Please ensure none of the files listed below are present in your theme directory (wp-content/themes/nectarblocks)."
-msgstr ""
-
-#: nectar/woo/admin-notices.php:12
-msgid "nectarblocks/woocommerce/cart/cart.php"
-msgstr ""
-
-#: nectar/woo/admin-notices.php:13
-msgid "nectarblocks/woocommerce/cart/cart-shipping.php"
-msgstr ""
-
-#: nectar/woo/admin-notices.php:14
-msgid "nectarblocks/woocommerce/cart/cart-totals.php"
-msgstr ""
-
-#: nectar/woo/admin-notices.php:15
-msgid "nectarblocks/woocommerce/cart/shipping-calculator.php"
 msgstr ""
 
 #: nectar/woo/quick-view.php:63
@@ -3244,10 +3266,6 @@ msgid "Please try again with different keywords."
 msgstr ""
 
 #: searchform.php:14
-msgid "Search..."
-msgstr ""
-
-#: searchform.php:14
 msgid "Search for:"
 msgstr ""
 
@@ -3267,70 +3285,50 @@ msgstr ""
 msgid "Go to shop"
 msgstr ""
 
-#: build/customizer.js:12483
-msgid "Search Theme Options.."
+#: build/customizer.js:7957
+msgid "Search Theme Options"
 msgstr ""
 
-#: build/customizer.js:12720
-msgid "Min"
-msgstr ""
-
-#: build/customizer.js:12735
-msgid "Max"
-msgstr ""
-
-#: build/customizer.js:12861
-msgid "Select a font"
-msgstr ""
-
-#: build/customizer.js:13040
-msgid "Font Preview"
-msgstr ""
-
-#: build/customizer.js:13047
-msgid "The quick brown fox jumps over the lazy dog and feels as if he were in the seventh heaven of typography."
-msgstr ""
-
-#: build/customizer.js:13577
+#: build/customizer.js:8255
 msgid "Font Source"
 msgstr ""
 
-#: build/customizer.js:13590
+#: build/customizer.js:8268
 msgid "Font Family"
 msgstr ""
 
-#: build/customizer.js:13606
+#: build/customizer.js:8284
 msgid "Font Weight"
 msgstr ""
 
-#: build/customizer.js:13619
+#: build/customizer.js:8297
 msgid "Font Style"
 msgstr ""
 
-#: build/customizer.js:13631
+#: build/customizer.js:8309
 msgid "Responsive Sizing"
 msgstr ""
 
-#: build/customizer.js:13648
+#: build/customizer.js:8326
 msgid "Font Size"
 msgstr ""
 
-#: build/customizer.js:13721
+#: build/customizer.js:8399
 msgid "Line Height"
 msgstr ""
 
-#: build/customizer.js:13761
+#: build/customizer.js:8439
 msgid "Font Subset"
 msgstr ""
 
-#: build/customizer.js:13774
+#: build/customizer.js:8452
 msgid "Transform"
 msgstr ""
 
-#: build/customizer.js:13784
+#: build/customizer.js:8462
 msgid "Letter Spacing"
 msgstr ""
 
-#: build/customizer.js:13816
+#: build/customizer.js:8494
 msgid "Save"
 msgstr ""

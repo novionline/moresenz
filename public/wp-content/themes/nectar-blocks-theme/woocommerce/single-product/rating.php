@@ -35,6 +35,7 @@ if ( $rating_count > 0 ) : ?>
         <?php echo wc_get_rating_html( $average, $rating_count ); // WPCS: XSS ok. ?>
         <?php if ( comments_open() ) : ?>
             <?php //phpcs:disable ?>
+            <?php /* translators: %s is the review count (wrapped in a <span>) */ ?>
             <a href="#reviews" class="woocommerce-review-link" rel="nofollow"><?php printf( _n( '%s customer review', '%s customer reviews', $review_count, 'woocommerce' ), '<span class="count">' . esc_html( $review_count ) . '</span>' ); ?></a>
             <?php // phpcs:enable ?>
         <?php endif ?>

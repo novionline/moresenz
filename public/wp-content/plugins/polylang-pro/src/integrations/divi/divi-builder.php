@@ -10,6 +10,14 @@
  */
 class PLL_Divi_Builder {
 	/**
+	 * Whether the current post is being saved.
+	 * Helps prevent infinite recursion when saving the post while Divi 5 calls `use_block_editor_for_post` in @see{ET_Builder_Block_Editor_Integration::convert_divi_blocks_before_save}.
+	 *
+	 * @var bool
+	 */
+	private $is_saving_current_post = false;
+
+	/**
 	 * Constructor.
 	 *
 	 * @since 2.3
@@ -61,12 +69,19 @@ class PLL_Divi_Builder {
 	public function persist_draft_in_database( $is_block_editor ) {
 		global $post;
 
+		if ( $this->is_saving_current_post ) {
+			return $is_block_editor;
+		}
+
 		if ( empty( $post ) ) {
 			return $is_block_editor;
 		}
 
-		if ( ( new PLL_Toggle_User_Meta( PLL_Duplicate_Action::META_NAME ) )->is_active() ) {
+		$current_screen = get_current_screen();
+		if ( $current_screen && $current_screen->is_block_editor() && ( new PLL_Toggle_User_Meta( PLL_Duplicate_Action::META_NAME ) )->is_active() ) {
+			$this->is_saving_current_post = true;
 			wp_update_post( $post );
+			$this->is_saving_current_post = false;
 		}
 
 		return $is_block_editor;

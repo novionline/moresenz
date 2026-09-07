@@ -113,6 +113,9 @@ abstract class Abstract_Object implements Translatable_Entity_Interface {
 		}
 
 		$translations = PLL()->model->{$this->get_type()}->get_translations( $this->get_id() );
+
+		$this->mark_subfields_as_updated( $field, array_values( $translations ) );
+
 		foreach ( $translations as $lang => $tr_id ) {
 			if ( $this->get_id() === $tr_id ) {
 				continue;
@@ -151,6 +154,39 @@ abstract class Abstract_Object implements Translatable_Entity_Interface {
 		}
 
 		return $value;
+	}
+
+	/**
+	 * Recursively pre-marks all subfields of a container field as updated for all translation IDs.
+	 *
+	 * When ACF saves a container field, its `update_value()` hook calls `acf_update_value()`
+	 * for each subfield individually, re-triggering our hook.
+	 * This causes redundant sync operations and corrupts the ACF value store for translations that have not yet been
+	 * processed by our main loop, shifting their `original_value` indexes.
+	 *
+	 * Pre-marking all subfield keys prevents these cascade calls from executing.
+	 *
+	 * @since 3.8.2
+	 *
+	 * @param array $field      The field definition.
+	 * @param int[] $object_ids All object IDs in the translation group.
+	 * @return void
+	 */
+	private function mark_subfields_as_updated( array $field, array $object_ids ): void {
+		$sub_fields = $field['sub_fields'] ?? array();
+
+		// Merge layouts' subfields into the main subfields array.
+		foreach ( $field['layouts'] ?? array() as $layout ) {
+			$sub_fields = array_merge( $sub_fields, $layout['sub_fields'] ?? array() );
+		}
+
+		// Process all gathered subfields and recurse.
+		foreach ( $sub_fields as $sub_field ) {
+			foreach ( $object_ids as $any_id ) {
+				self::$updated[] = $this->get_storage_key( $any_id, $sub_field['key'] );
+			}
+			$this->mark_subfields_as_updated( $sub_field, $object_ids );
+		}
 	}
 
 	/**

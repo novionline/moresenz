@@ -404,7 +404,7 @@ if ( ! function_exists( 'nectar_page_header' ) ) {
                 // BG markup.
                 if( ! empty($bg) && $bg !== 'none' ) { ?>
                     <div class="page-header-bg-image-wrap" id="nectar-page-header-p-wrap"<?php if(! empty($page_header_bg_attrs) ) { echo ' ' . $page_header_bg_attrs; } ?> data-parallax-speed="fast">
-                        <div class="page-header-bg-image<?php if(! empty($page_header_classes)) { echo ' ' . esc_attr($page_header_classes); } ?>" style="background-image: url(<?php echo esc_attr( nectar_options_img($bg) ); ?>);"></div>
+                        <div class="page-header-bg-image<?php if(! empty($page_header_classes)) { echo ' ' . esc_attr($page_header_classes); } ?>" style="background-image: url(<?php echo esc_url( nectar_options_img($bg) ); ?>);"></div>
                     </div> <?php }
 
                 // Overlay Markup.
@@ -616,7 +616,7 @@ if ( ! function_exists( 'nectar_page_header' ) ) {
                         <div class="<?php echo esc_attr( $filters_id ); ?>" instance="0">
                             <a href="#" data-sortable-label="<?php echo (! empty($nectar_options['portfolio-sortable-text'])) ? wp_kses_post( $nectar_options['portfolio-sortable-text'] ) : 'Sort Portfolio'; ?>" id="sort-portfolio"><span><?php echo (! empty($nectar_options['portfolio-sortable-text'])) ? wp_kses_post( $nectar_options['portfolio-sortable-text'] ) : esc_html__('Sort Portfolio', 'nectar-blocks-theme'); ?></span> <i class="icon-angle-down"></i></a>
                             <ul>
-                                <li><a href="#" data-filter="*"><?php echo esc_html__('All', 'nectar-blocks-theme'); ?></a></li>
+                                <li><a href="#" data-filter="*"><?php echo esc_html_x('All', 'portfolio filter label: show all categories', 'nectar-blocks-theme'); ?></a></li>
                                 <?php wp_list_categories([
                                     'title_li' => '',
                                     'taxonomy' => 'project-type',

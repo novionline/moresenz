@@ -526,7 +526,7 @@ class Post_Data_API implements API_Route {
 
       if (! empty($meta_field_options)) {
         $all_meta[] = [
-          /* translators: the Meta Field name */
+          /* translators: %s is the post type singular name (e.g. "Post", "Page") */
           'label' => sprintf(esc_html__('Meta Fields: %s', 'nectar-blocks'), $post_type_obj->labels->singular_name),
           'options' => $meta_field_options,
         ];

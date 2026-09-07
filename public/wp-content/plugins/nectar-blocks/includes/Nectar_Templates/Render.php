@@ -303,8 +303,9 @@ class Render {
       'nectar_hook_global_section_after_footer'
     ];
     if (
-      is_page_template( 'template-no-footer.php' ||
-      is_page_template( 'template-no-header-footer.php' )) && in_array( $hook, $footer_hooks )
+      ( is_page_template( 'template-no-footer.php' ) ||
+        is_page_template( 'template-no-header-footer.php' ) ) &&
+      in_array( $hook, $footer_hooks )
     ) {
       return true;
     }

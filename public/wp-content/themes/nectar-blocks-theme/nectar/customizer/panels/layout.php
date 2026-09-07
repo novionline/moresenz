@@ -160,7 +160,7 @@ class NectarBlocks_Customizer_Layout {
           'small' => esc_html__('Small', 'nectar-blocks-theme'),
           'large' => esc_html__('Large', 'nectar-blocks-theme'),
           'large-line' => esc_html__('Large With Bottom Line', 'nectar-blocks-theme'),
-          'none' => esc_html__('None', 'nectar-blocks-theme')
+          'none' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme')
         ],
         'default' => 'large'
       ],
@@ -197,7 +197,7 @@ class NectarBlocks_Customizer_Layout {
       //   // . ' <a target="_blank" href="http://themenectar.com/docs/salient/header-button-links/">' . esc_html('button styling.', 'nectar-blocks-theme') .'</a>'
       //   'desc' => '',
       //   'options' => array(
-      //     'default' => esc_html__('Default', 'nectar-blocks-theme'),
+      //     'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
       //     'hover_scale' => esc_html__('Scale on Hover', 'nectar-blocks-theme'),
       //     'shadow_hover_scale' => esc_html__('Button Shadow and Scale on Hover', 'nectar-blocks-theme')
       //   ),
@@ -751,7 +751,7 @@ class NectarBlocks_Customizer_Layout {
         'title' => esc_html__('Dropdown Animation', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'fade-in-up' => esc_html__('Fade In Up', 'nectar-blocks-theme'),
           'fade-in' => esc_html__('Fade In', 'nectar-blocks-theme')
         ],
@@ -776,7 +776,7 @@ class NectarBlocks_Customizer_Layout {
         'options' => [
           'small' => esc_html__('Small', 'nectar-blocks-theme'),
           'large' => esc_html__('Large', 'nectar-blocks-theme'),
-          'none' => esc_html__('None', 'nectar-blocks-theme')
+          'none' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme')
         ],
         'default' => 'large'
       ],
@@ -851,7 +851,7 @@ class NectarBlocks_Customizer_Layout {
         'title' => esc_html__('Limit Search To Post Type', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
-          'any' => esc_html__('All', 'nectar-blocks-theme'),
+          'any' => esc_html_x('All', 'dropdown option: match all values', 'nectar-blocks-theme'),
           'product' => esc_html__('Products', 'nectar-blocks-theme'),
           'post' => esc_html__('Posts', 'nectar-blocks-theme'),
         ],
@@ -863,7 +863,7 @@ class NectarBlocks_Customizer_Layout {
         'title' => esc_html__('Header Search Typography', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'header_nav' => esc_html__('Inherit Navigation Typography', 'nectar-blocks-theme')
         ],
         'default' => 'default'
@@ -1035,7 +1035,7 @@ class NectarBlocks_Customizer_Layout {
        'desc' => '',
        'required' => [  ['header_format', '!=', 'centered-logo-between-menu'], ['header_format', '!=', 'centered-menu-under-logo'], ['header-slide-out-widget-area-style', '!=', 'simple'] ],
        'options' => [
-         'default' => esc_html__('Default', 'nectar-blocks-theme'),
+         'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
          'left' => esc_html__('Left', 'nectar-blocks-theme'),
        ],
        'default' => 'default',
@@ -1068,7 +1068,7 @@ class NectarBlocks_Customizer_Layout {
           'dark' => esc_html__('Dark', 'nectar-blocks-theme'),
           'medium' => esc_html__('Medium', 'nectar-blocks-theme'),
           'light' => esc_html__('Light', 'nectar-blocks-theme'),
-          'none' => esc_html__('None', 'nectar-blocks-theme')
+          'none' => esc_html_x('None', 'dropdown option: no value selected', 'nectar-blocks-theme')
         ],
         'default' => 'dark',
         'required' => [  ['header-slide-out-widget-area-style', '!=', 'simple'] ]
@@ -1114,7 +1114,7 @@ class NectarBlocks_Customizer_Layout {
         'title' => esc_html__('Off Canvas Icon Style', 'nectar-blocks-theme'),
         'desc' => '',
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'circular' => esc_html__('Circular', 'nectar-blocks-theme')
         ],
         'default' => 'default',
@@ -1253,7 +1253,7 @@ class NectarBlocks_Customizer_Layout {
         'options' => [
           'light' => esc_html__('Light', 'nectar-blocks-theme'),
           'dark' => esc_html__('Dark', 'nectar-blocks-theme'),
-          'custom' => esc_html__('Custom', 'nectar-blocks-theme')
+          'custom' => esc_html_x('Custom', 'dropdown option: custom value', 'nectar-blocks-theme')
         ],
         'default' => 'light'
       ],

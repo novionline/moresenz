@@ -16,7 +16,7 @@
      $term_meta = get_option( "taxonomy_$t_id" );
      ob_start(); ?>
      <tr class="form-field">
-         <th scope="row" valign="top"><label for="term_meta[category_thumbnail_image]"><?php _e( 'Category Thumbnail Image', 'nectar-blocks-theme' ); ?></label></th>
+         <th scope="row" valign="top"><label for="term_meta[category_thumbnail_image]"><?php esc_html_e( 'Category Thumbnail Image', 'nectar-blocks-theme' ); ?></label></th>
          <td>
              <input type="hidden" id="category_thumbnail_image" name="term_meta[category_thumbnail_image]" value="<?php echo isset( $term_meta['category_thumbnail_image'] ) ? esc_attr( $term_meta['category_thumbnail_image'] ) : ''; ?>" />
              <input type="hidden" class="category_thumbnail_image-id" name="term_meta[category_thumbnail_image-id]" value="<?php echo isset( $term_meta['category_thumbnail_image-id'] ) ? esc_attr( $term_meta['category_thumbnail_image-id'] ) : ''; ?>" />
@@ -28,7 +28,7 @@
      </tr>
 
      <tr class="form-field">
-         <th scope="row" valign="top"><label for="term_meta[category_image]"><?php _e( 'Category Header Image', 'nectar-blocks-theme' ); ?></label></th>
+         <th scope="row" valign="top"><label for="term_meta[category_image]"><?php esc_html_e( 'Category Header Image', 'nectar-blocks-theme' ); ?></label></th>
          <td>
              <input type="hidden" id="category_image" name="term_meta[category_image]" value="<?php echo isset( $term_meta['category_image'] ) ? esc_attr( $term_meta['category_image'] ) : ''; ?>" />
              <img class="nectar-media-preview" id="screenshot-category_image" src="<?php echo isset( $term_meta['category_image'] ) ? esc_attr( $term_meta['category_image'] ) : ''; ?>" />
@@ -39,7 +39,7 @@
      </tr>
 
      <tr class="form-field">
-         <th scope="row" valign="top"><label for="term_meta[category_color]"><?php _e( 'Category Color', 'nectar-blocks-theme' ); ?></label></th>
+         <th scope="row" valign="top"><label for="term_meta[category_color]"><?php esc_html_e( 'Category Color', 'nectar-blocks-theme' ); ?></label></th>
          <td>
             <?php wp_enqueue_style('wp-color-picker'); ?>
             <input type="text" id="term_meta[category_color]" name="term_meta[category_color]" value="<?php echo isset( $term_meta['category_color'] ) ? esc_attr( $term_meta['category_color'] ) : ''; ?>" class="nectar-term-colorpicker" style="width: 70px;" data-default-color=""/>
@@ -47,7 +47,7 @@
      </tr>
 
      <tr class="form-field">
-         <th scope="row" valign="top"><label for="term_meta[category_text_color]"><?php _e( 'Category Text Color', 'nectar-blocks-theme' ); ?></label></th>
+         <th scope="row" valign="top"><label for="term_meta[category_text_color]"><?php esc_html_e( 'Category Text Color', 'nectar-blocks-theme' ); ?></label></th>
          <td>
              <?php wp_enqueue_style('wp-color-picker'); ?>
              <input type="text" id="term_meta[category_text_color]" name="term_meta[category_text_color]" value="<?php echo isset( $term_meta['category_text_color'] ) ? esc_attr( $term_meta['category_text_color'] ) : ''; ?>" class="nectar-term-colorpicker" style="width: 70px;" data-default-color=""/>
@@ -107,14 +107,14 @@
      <table class="form-table">
 
      <tr class="form-field">
-      <th scope="row" valign="top"><label for="term_meta[product_category_header_content_align]"><?php _e( 'Category Header Content Align', 'nectar-blocks-theme' ); ?></label></th>
+      <th scope="row" valign="top"><label for="term_meta[product_category_header_content_align]"><?php esc_html_e( 'Category Header Content Align', 'nectar-blocks-theme' ); ?></label></th>
       <td>
         <select id="product_category_header_content_align" name="term_meta[product_category_header_content_align]">
             <?php
             $select_product_cat_content_align = ( isset($term_meta['product_category_header_content_align']) ) ? esc_attr($term_meta['product_category_header_content_align']) : 'default';
 
             $product_cat_content_align_options = [
-              'default' => esc_attr__( 'Default', 'nectar-blocks-theme' ),
+              'default' => esc_attr_x( 'Default', 'dropdown option: use the default value', 'nectar-blocks-theme' ),
               'left' => esc_attr__( 'Left', 'nectar-blocks-theme' ),
               'center' => esc_attr__( 'Center', 'nectar-blocks-theme' ),
               'right' => esc_attr__( 'Right', 'nectar-blocks-theme' )
@@ -127,14 +127,14 @@
       </tr>
 
       <tr class="form-field">
-       <th scope="row" valign="top"><label for="term_meta[product_category_header_text_align]"><?php _e( 'Category Header Text Align', 'nectar-blocks-theme' ); ?></label></th>
+       <th scope="row" valign="top"><label for="term_meta[product_category_header_text_align]"><?php esc_html_e( 'Category Header Text Align', 'nectar-blocks-theme' ); ?></label></th>
        <td>
          <select id="product_category_header_text_align" name="term_meta[product_category_header_text_align]">
              <?php
              $select_product_cat_content_align = ( isset($term_meta['product_category_header_text_align']) ) ? esc_attr($term_meta['product_category_header_text_align']) : 'default';
 
              $product_cat_content_align_options = [
-               'default' => esc_attr__( 'Default', 'nectar-blocks-theme' ),
+               'default' => esc_attr_x( 'Default', 'dropdown option: use the default value', 'nectar-blocks-theme' ),
                'left' => esc_attr__( 'Left', 'nectar-blocks-theme' ),
                'center' => esc_attr__( 'Center', 'nectar-blocks-theme' ),
                'right' => esc_attr__( 'Right', 'nectar-blocks-theme' )
@@ -147,7 +147,7 @@
        </tr>
 
          <tr class="form-field">
-             <th scope="row" valign="top"><label for="term_meta[product_category_image]"><?php _e( 'Category Header Image', 'nectar-blocks-theme' ); ?></label></th>
+             <th scope="row" valign="top"><label for="term_meta[product_category_image]"><?php esc_html_e( 'Category Header Image', 'nectar-blocks-theme' ); ?></label></th>
              <td>
          <?php
           if( ! isset($term_meta['product_category_image']) ) {

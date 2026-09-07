@@ -116,7 +116,7 @@ $using_excerpt = ( $search_results_layout === 'list-no-sidebar' || $search_resul
                                             echo '<a href="' . esc_url( get_permalink() ) . '">' . get_the_post_thumbnail( $post->ID, 'nectar_4_3_aspect_medium', [ 'title' => '' ] ) . '</a>';
                                         }
                                         ?>
-                                        <h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <span><?php echo esc_html__( 'Page', 'nectar-blocks-theme' ); ?></span></h2>
+                                        <h2 class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a> <span><?php echo esc_html_x( 'Page', 'search result label: post type', 'nectar-blocks-theme' ); ?></span></h2>
                                         <?php
                                         if ( true === $using_excerpt ) {
                                             the_excerpt(); }

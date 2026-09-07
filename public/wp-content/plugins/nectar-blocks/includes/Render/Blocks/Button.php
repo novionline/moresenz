@@ -4,7 +4,7 @@ namespace Nectar\Render\Blocks;
 
 use Nectar\Render\BlockControls\AnimationControl;
 
-class Button implements BlockBase {
+class Button extends BlockBase {
   public function get_conditional_js(): array {
     $animationJS = AnimationControl::get_conditional_js($this->attributes);
 

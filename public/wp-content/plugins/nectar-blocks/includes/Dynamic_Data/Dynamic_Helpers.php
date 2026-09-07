@@ -19,40 +19,40 @@ class Dynamic_Helpers {
       // Post Group
       'post-title' => [
         'title' => __( 'Post Title', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-url' => [
         'title' => __( 'Post URL', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
         'type' => 'link',
       ],
       'post-id' => [
         'title' => __( 'Post ID', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-slug' => [
         'title' => __( 'Post Slug', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-excerpt' => [
         'title' => __( 'Post Excerpt', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-date' => [
         'title' => __( 'Post Date', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-modified' => [
         'title' => __( 'Post Modified', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-type' => [
         'title' => __( 'Post Type', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
       'post-status' => [
         'title' => __( 'Post Status', 'nectar-blocks' ),
-        'group' => __( 'Post', 'nectar-blocks' ),
+        'group' => _x( 'Post', 'dynamic data group label', 'nectar-blocks' ),
       ],
 
       // Author Group

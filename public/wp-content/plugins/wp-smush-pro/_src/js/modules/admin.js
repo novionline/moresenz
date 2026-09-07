@@ -519,22 +519,6 @@ jQuery(function ($) {
 	$('.sui-mobile-nav').on('change', (e) => {
 		window.location.assign($(e.currentTarget).val());
 	});
-
-	/**
-	 * Handle re-check api status button click (Settings)
-	 *
-	 * @since 3.2.0.2
-	 */
-	$('#update-api-status').on('click', function (e) {
-		e.preventDefault();
-
-		//$(this).prop('disabled', true);
-		$(this).addClass('sui-button-onload');
-
-		$.post(ajaxurl, { action: 'recheck_api_status' }, function () {
-			location.reload();
-		});
-	});
 	
 	/**
 	 * Handle clear LCP data button click (Settings)
@@ -612,7 +596,7 @@ jQuery(function ($) {
 
 	/** Resmush: Media Library **/
 	$('body').on('click', '.wp-smush-action.wp-smush-resmush', function (e) {
-		process_smush_action(e, $(this), 'smush_resmush_image', 'smushing');
+		process_smush_action(e, $(this), 'optimize_attachment', 'smushing');
 	});
 
 	/** Restore: NextGen Gallery **/

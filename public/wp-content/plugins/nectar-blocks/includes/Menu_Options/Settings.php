@@ -78,7 +78,7 @@ class Settings {
           'description' => esc_html__('Choose a style for your menu item.', 'nectar-blocks'),
           'max_depth' => '0',
           'options' => [
-              'default' => esc_html__('Default', 'nectar-blocks'),
+              'default' => esc_html_x('Default', 'menu item link button style option', 'nectar-blocks'),
               'regular' => esc_html__('Solid Background', 'nectar-blocks'),
               'border' => esc_html__('Bordered', 'nectar-blocks')
           ],
@@ -94,7 +94,7 @@ class Settings {
             'description' => esc_html__('Optionally set a link hover animation.', 'nectar-blocks'),
             'max_depth' => '0',
             'options' => [
-                'default' => esc_html__('Default', 'nectar-blocks'),
+                'default' => esc_html_x('Default', 'menu item link text hover option', 'nectar-blocks'),
                 'text-reveal' => esc_html__('Reveal', 'nectar-blocks'),
                 'text-reveal-wave' => esc_html__('Wave', 'nectar-blocks'),
               ]
@@ -302,7 +302,13 @@ class Settings {
           'type' => 'text',
           'category' => 'menu-icon',
           'label' => esc_html__('Menu Icon Text (Emoji)', 'nectar-blocks'),
-          'description' => esc_html__('Add in a symbol or emoji to display as the icon next to your menu title.', 'nectar-blocks') . '<br/><br/><strong>' . esc_html__('To add an Emoji:', 'nectar-blocks') . '</strong><br/><br/>' . esc_html__('Windows: On your keyboard, press and hold the Windows button and either the period (.) or semicolon (;)', 'nectar-blocks') . '<br/><br/>' . esc_html__('Mac: On your keyboard, press Command + Control + Space', 'nectar-blocks'),
+          'description' => wp_kses_post( sprintf(
+            /* translators: %1$s is "<br><br>", %2$s is "<strong>", %3$s is "</strong>" — HTML formatting for the description */
+            __('Add in a symbol or emoji to display as the icon next to your menu title.%1$s%2$sTo add an Emoji:%3$s%1$sWindows: On your keyboard, press and hold the Windows button and either the period (.) or semicolon (;)%1$sMac: On your keyboard, press Command + Control + Space', 'nectar-blocks'),
+              '<br/><br/>',
+              '<strong>',
+              '</strong>'
+          ) ),
           'default_value' => '',
           'max_depth' => '-1',
         ],

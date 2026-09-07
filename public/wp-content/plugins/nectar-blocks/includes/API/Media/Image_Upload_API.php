@@ -50,7 +50,7 @@ class Image_Upload_API implements API_Route {
     if ( ! $data ) {
       $response = [
         'success' => false,
-        'msg' => __( 'There was an error with image data.'),
+        'msg' => __( 'There was an error with image data.', 'nectar-blocks' ),
       ];
 
       wp_send_json( $response );

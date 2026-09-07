@@ -58,56 +58,17 @@ class NectarThemeUpdater {
    * @since 0.1.6
    */
   public function get_current_version() {
-    if ( ! class_exists('Nectar\Global_Settings\Nectar_Blocks_Options') ) {
-      error_log('Nectar Theme Updater: Unable to find Nectar_Blocks_Options');
+    if ( ! class_exists( 'Nectar\Global_Settings\Nectar_Blocks_Options' ) ) {
       return false;
     }
-
-    $remote = get_transient( self::UPDATE_KEY );
-    $nb_options = Nectar\Global_Settings\Nectar_Blocks_Options::get_options();
+    $nb_options = \Nectar\Global_Settings\Nectar_Blocks_Options::get_options();
     $token = $nb_options['token'] ?? '';
-    if ($token === '') {
-      return false;
-    }
-
-    if ( 'error' === $remote ) {
-      return false;
-    }
-
-    if ( false === $remote || ! $this->cache_allowed ) {
-      $remote = wp_safe_remote_post( self::UPDATE_URL, [
-        'method' => 'POST',
-        'timeout' => 10,
-        'headers' => [
-            'Content-Type' => 'application/json',
-        ],
-        'body' => json_encode( [
-          'token' => $token
-        ])
-      ]);
-
-      if (
-        is_wp_error( $remote )
-        || 200 !== wp_remote_retrieve_response_code( $remote )
-        || empty( wp_remote_retrieve_body( $remote ) )
-      ) {
-        error_log('Nectar Theme Updater: Unable to connect to update api.');
-        set_transient( self::UPDATE_KEY, 'error', MINUTE_IN_SECONDS * 10 );
-        return false;
-      }
-
-      $json_data = json_decode( wp_remote_retrieve_body( $remote ) );
-      if ($json_data->status === 'failure') {
-        error_log('Nectar Theme Updater: Server response was unsuccessful.');
-        set_transient( self::UPDATE_KEY, 'error', MINUTE_IN_SECONDS * 10 );
-        return false;
-      }
-
-      set_transient( self::UPDATE_KEY, $json_data->data, 4 * HOUR_IN_SECONDS );
-      return $json_data->data;
-    }
-
-    return $remote;
+    return \Nectar\Shared\RemoteVersionCheck::fetch(
+        self::UPDATE_URL,
+        $token,
+        self::UPDATE_KEY,
+        $this->cache_allowed
+    );
   }
 
   public function update( $transient ) {
@@ -152,16 +113,14 @@ class NectarThemeUpdater {
     return $transient;
   }
 
-  public function purge( $upgrader, $options ){
+  public function purge( $upgrader, $options ) {
     if (
       $this->cache_allowed
-      && 'update' === $options['action']
-      && 'theme' === $options['type']
+      && isset( $options['action'] ) && 'update' === $options['action']
+      && isset( $options['type'] ) && 'theme' === $options['type']
     ) {
-      // just clean the cache when new theme version is installed
-      delete_transient( self::UPDATE_KEY );
+      \Nectar\Shared\RemoteVersionCheck::purge( self::UPDATE_KEY );
     }
-
   }
 
   public static function get_instance() {

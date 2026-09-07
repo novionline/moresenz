@@ -92,7 +92,7 @@ function nectar_autocomplete_suggestions() {
 
         } elseif ( get_post_type( $post->ID ) == 'page' ) {
 
-            $suggestion['post_type'] = esc_html__( 'Page', 'nectar-blocks-theme' );
+            $suggestion['post_type'] = esc_html_x( 'Page', 'search result label: post type', 'nectar-blocks-theme' );
 
         } elseif ( get_post_type( $post->ID ) == 'portfolio' ) {
 
@@ -121,7 +121,16 @@ function nectar_autocomplete_suggestions() {
         endforeach;
 
     // JSON encode and echo.
-    echo htmlentities( sanitize_text_field($_GET['callback']), ENT_QUOTES, 'UTF-8' ) . '(' . wp_json_encode( $suggestions ) . ')';
+    // Strictly validate the JSONP callback as a JS identifier before output.
+    // The output context is JavaScript, not HTML, so HTML-escaping is not
+    // sufficient. Reject anything that is not a plain JS identifier.
+    $callback = isset( $_GET['callback'] ) ? (string) wp_unslash( $_GET['callback'] ) : '';
+    if ( strlen( $callback ) > 64 || ! preg_match( '/^[A-Za-z_$][A-Za-z0-9_$.]*$/', $callback ) ) {
+        wp_send_json_error( [ 'error' => 'Invalid callback' ], 400 );
+        exit;
+    }
+
+    echo $callback . '(' . wp_json_encode( $suggestions ) . ');';
 
     exit;
 }

@@ -7,7 +7,6 @@ use Gravity_Forms\Gravity_SMTP\Apps\Endpoints\Get_Dashboard_Data_Endpoint;
 use Gravity_Forms\Gravity_SMTP\Connectors\Connector_Service_Provider;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Save_Plugin_Settings_Endpoint;
 use Gravity_Forms\Gravity_SMTP\Gravity_SMTP;
-use Gravity_Forms\Gravity_SMTP\Tracking\Tracking_Service_Provider;
 use Gravity_Forms\Gravity_SMTP\Utils\Booliesh;
 use Gravity_Forms\Gravity_Tools\Config;
 
@@ -177,7 +176,7 @@ class Alerts_Config extends Config {
 								'label'        => esc_html__( 'Test Webhook', 'gravitysmtp' ),
 								'icon'         => 'play',
 								'iconPosition' => 'leading',
-								'iconPrefix'   => 'gravitysmtp-admin-icon',
+								'iconPrefix'   => 'gravity-admin-icon',
 								'size'         => 'size-height-m',
 								'type'         => 'white',
 							),
@@ -250,7 +249,7 @@ class Alerts_Config extends Config {
 								'label'        => esc_html__( 'Test Connection', 'gravitysmtp' ),
 								'icon'         => 'play',
 								'iconPosition' => 'leading',
-								'iconPrefix'   => 'gravitysmtp-admin-icon',
+								'iconPrefix'   => 'gravity-admin-icon',
 								'size'         => 'size-height-m',
 								'type'         => 'white',
 							),

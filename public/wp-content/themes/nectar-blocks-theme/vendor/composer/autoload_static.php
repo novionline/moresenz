@@ -4,8 +4,22 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInite597d117ab7949c96c574526d407f604
+class ComposerStaticInit3dce53a8367a913ca057c842173edd3c
 {
+    public static $prefixLengthsPsr4 = array (
+        'N' =>
+        array (
+            'Nectar\\Shared\\' => 14,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Nectar\\Shared\\' =>
+        array (
+            0 => __DIR__ . '/..' . '/nectar/shared-php/src',
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -13,7 +27,9 @@ class ComposerStaticInite597d117ab7949c96c574526d407f604
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInite597d117ab7949c96c574526d407f604::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3dce53a8367a913ca057c842173edd3c::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3dce53a8367a913ca057c842173edd3c::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3dce53a8367a913ca057c842173edd3c::$classMap;
 
         }, null, ClassLoader::class);
     }

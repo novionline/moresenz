@@ -172,7 +172,7 @@ class TaxonomyTerms {
           $all_link_classes[] = $this->block_class_name . '__term--active';
         }
 
-        $all_link_text = __('All', 'nectar-blocks');
+        $all_link_text = _x('All', 'link: show all taxonomy terms', 'nectar-blocks');
         if (! empty($hover_effect_class)) {
           $all_link_text = '<span class="text"><span class="text__inner" data-text="' . esc_attr($all_link_text) . '">' . $all_link_text . '</span></span>';
         }

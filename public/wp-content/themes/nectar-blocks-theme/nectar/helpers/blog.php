@@ -339,9 +339,9 @@ function nectar_blog_social_sharing() {
 
                              // page header
                              if( true === $global_lazy_load ) {
-                                 echo '<div class="post-bg-img" data-nectar-img-src="' . esc_html($bg) . '"></div>';
+                                 echo '<div class="post-bg-img" data-nectar-img-src="' . esc_url($bg) . '"></div>';
                              } else {
-                                 echo '<div class="post-bg-img" style="background-image: url(' . esc_html($bg) . ');"></div>';
+                                 echo '<div class="post-bg-img" style="background-image: url(' . esc_url($bg) . ');"></div>';
                              }
 
                          } elseif ( has_post_thumbnail( $previous_post_id ) ) {
@@ -375,10 +375,10 @@ function nectar_blog_social_sharing() {
                          if ( ! empty( $bg ) ) {
                              // page header
                              if( true === $global_lazy_load ) {
-                                 echo '<div class="post-bg-img" data-nectar-img-src="' . esc_html($bg) . '"></div>';
+                                 echo '<div class="post-bg-img" data-nectar-img-src="' . esc_url($bg) . '"></div>';
                              }
                              else {
-                                 echo '<div class="post-bg-img" style="background-image: url(' . esc_html($bg) . ');"></div>';
+                                 echo '<div class="post-bg-img" style="background-image: url(' . esc_url($bg) . ');"></div>';
                              }
 
                          } elseif ( has_post_thumbnail( $next_post_id ) ) {
@@ -635,7 +635,7 @@ function nectar_blog_social_sharing() {
                                 echo '</span>';
                                 ?>
 
-                                <a class="entire-meta-link" href="<?php the_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>"></a>
+                                <a class="entire-meta-link" href="<?php the_permalink(); ?>" aria-label="<?php echo esc_attr( get_the_title() ); ?>"></a>
 
                                 <div class="article-content-wrap">
                                     <div class="post-header">
@@ -658,7 +658,7 @@ function nectar_blog_social_sharing() {
 
                                     <?php
                                     if ( function_exists( 'get_avatar' ) && $related_post_style === 'material' ) {
-                                        echo '<div class="grav-wrap">' . get_avatar( get_the_author_meta( 'email' ), 70, null, get_the_author() ) . '<div class="text"> <a href="' . get_author_posts_url( $post->post_author ) . '">' . get_the_author() . '</a><span>' . get_the_date() . '</span></div></div>';
+                                        echo '<div class="grav-wrap">' . get_avatar( get_the_author_meta( 'email' ), 70, null, get_the_author() ) . '<div class="text"> <a href="' . esc_url( get_author_posts_url( $post->post_author ) ) . '">' . esc_html( get_the_author() ) . '</a><span>' . esc_html( get_the_date() ) . '</span></div></div>';
                                     }
 
                                     ?>
@@ -667,7 +667,7 @@ function nectar_blog_social_sharing() {
                                 <?php if ( $related_post_style != 'material' ) { ?>
 
                                     <div class="post-meta">
-                                        <span class="meta-author"> <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"> <i class="icon-default-style icon-nectar-blocks-m-user"></i> <?php the_author(); ?></a> </span>
+                                        <span class="meta-author"> <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"> <i class="icon-default-style icon-nectar-blocks-m-user"></i> <?php the_author(); ?></a> </span>
 
                                         <?php if ( comments_open() ) { ?>
                                             <span class="meta-comment-count">  <a href="<?php comments_link(); ?>">

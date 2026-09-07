@@ -95,7 +95,7 @@ if ( ! defined( 'ABSPATH' ) ) {
          'title' => esc_html__('Button Styling', 'nectar-blocks-theme'),
          'subtitle' => esc_html__('This will effect the overall styling of buttons', 'nectar-blocks-theme'),
          'options' => [
-           "default" => esc_html__("Default", 'nectar-blocks-theme'),
+           "default" => esc_html_x("Default", 'dropdown option: use the default value', 'nectar-blocks-theme'),
            "slightly_rounded" => esc_html__("Slightly Rounded", 'nectar-blocks-theme'),
            "slightly_rounded_shadow" => esc_html__("Slightly Rounded Shadow", 'nectar-blocks-theme'),
            "rounded" => esc_html__("Rounded", 'nectar-blocks-theme'),
@@ -124,7 +124,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           'title' => esc_html__('Animated Underline Type', 'nectar-blocks-theme'),
           'subtitle' => esc_html__('Various elements in Nectar Blocks display an animated underline when hovering over. This option allows you to globally fine-tune the styling of that line.', 'nectar-blocks-theme'),
           'options' => [
-            'default' => esc_html__('Default', 'nectar-blocks-theme'),
+            'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
             'ltr' => esc_html__('Left to Right Simple', 'nectar-blocks-theme'),
             'ltr-fancy' => esc_html__('Left to Right Fancy', 'nectar-blocks-theme'),
           ],
@@ -378,7 +378,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           'subtitle' => esc_html__('Select your desired style which will be used for submit buttons throughout your site', 'nectar-blocks-theme'),
           'desc' => '',
           'options' => [
-            'default' => esc_html__('Default', 'nectar-blocks-theme'),
+            'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
             'regular' => esc_html__('Nectar Btn', 'nectar-blocks-theme'),
             'see-through' => esc_html__('Nectar Btn See Through', 'nectar-blocks-theme')
           ],
@@ -434,7 +434,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         'type' => 'select',
         'title' => esc_html__('Form Input Border Width', 'nectar-blocks-theme'),
         'options' => [
-          "default" => esc_html__("Default", 'nectar-blocks-theme'),
+          "default" => esc_html_x("Default", 'dropdown option: use the default value', 'nectar-blocks-theme'),
           "1px" => esc_html__("1px", 'nectar-blocks-theme'),
           "2px" => esc_html__("2px", 'nectar-blocks-theme'),
           "3px" => esc_html__("3px", 'nectar-blocks-theme'),

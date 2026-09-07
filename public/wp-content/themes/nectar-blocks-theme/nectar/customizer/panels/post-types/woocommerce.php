@@ -206,7 +206,7 @@ class NectarBlocks_Customizer_Post_Types_WooCommerce {
         'required' => [ ['product_style', '=', 'minimal'] ],
         'title' => esc_html__('Minimal Product Text Alignment', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           'left' => esc_html__('Left', 'nectar-blocks-theme'),
           'center' => esc_html__('Center', 'nectar-blocks-theme'),
           'right' => esc_html__('Right', 'nectar-blocks-theme'),
@@ -269,7 +269,7 @@ class NectarBlocks_Customizer_Post_Types_WooCommerce {
         'type' => 'select',
         'title' => esc_html__('Product Border Radius', 'nectar-blocks-theme'),
         'options' => [
-          'default' => esc_html__('Default', 'nectar-blocks-theme'),
+          'default' => esc_html_x('Default', 'dropdown option: use the default value', 'nectar-blocks-theme'),
           '0px' => esc_html__('0px', 'nectar-blocks-theme'),
           '1px' => esc_html__('1px', 'nectar-blocks-theme'),
           '2px' => esc_html__('2px', 'nectar-blocks-theme'),

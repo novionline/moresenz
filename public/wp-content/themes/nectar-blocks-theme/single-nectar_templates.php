@@ -13,27 +13,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $nectar_template_meta = get_post_meta( get_the_ID(), '_nectar_template_part_options', true );
 if ( isset( $nectar_template_meta['templatePart'] ) && ! empty( $nectar_template_meta['templatePart'] ) ) {
-    $location = esc_attr( $nectar_template_meta['templatePart'] );
-    $located_template = explode( '__', $location )[1];
+    // Sanitize the templatePart meta value before using it for routing decisions.
+    // Valid values follow the pattern nectar_template_single__{post_type},
+    // nectar_template_archive__{post_type}, nectar_template__404, or
+    // nectar_template__ocm (see Nectar_Templates::get_template_parts()).
+    // TODO: tighten templatePart allowlist by validating against the registered
+    // list returned by Nectar_Templates::get_template_parts().
+    $location = sanitize_key( $nectar_template_meta['templatePart'] );
 
-    if ( strpos( $location, 'archive' ) !== false ) {
+    $location_parts = explode( '__', $location );
+    $located_template = isset( $location_parts[1] ) ? sanitize_key( $location_parts[1] ) : '';
+
+    if ( '' !== $location && strpos( $location, 'archive' ) !== false ) {
       $archive_link = get_post_type_archive_link( $located_template );
-      wp_redirect( $archive_link );
-      exit;
-    } else if ( strpos( $location, 'single' ) !== false ) {
-      // get the permalink for the first post found in the cpt located_template
-      $args = [
-        'post_type' => $located_template,
-        'posts_per_page' => 1,
-      ];
-      $query = new WP_Query( $args );
-      $single_link = get_permalink( $query->posts[0]->ID );
-      if ( $single_link ) {
-        wp_redirect( $single_link );
+      if ( $archive_link ) {
+        wp_safe_redirect( $archive_link );
         exit;
       }
-    } else if ( strpos( $location, '404' ) !== false ) {
-      wp_redirect( home_url( '/404-template' ) );
+    } else if ( '' !== $location && strpos( $location, 'single' ) !== false ) {
+      // get the permalink for the first post found in the cpt located_template
+      if ( '' !== $located_template && post_type_exists( $located_template ) ) {
+        $args = [
+          'post_type' => $located_template,
+          'posts_per_page' => 1,
+        ];
+        $query = new WP_Query( $args );
+        // Guard against empty results to avoid a null dereference on PHP 8.
+        if ( ! empty( $query->posts ) ) {
+          $single_link = get_permalink( $query->posts[0]->ID );
+          if ( $single_link ) {
+            wp_safe_redirect( $single_link );
+            exit;
+          }
+        }
+      }
+    } else if ( '' !== $location && strpos( $location, '404' ) !== false ) {
+      wp_safe_redirect( home_url( '/404-template' ) );
       exit;
     }
 }

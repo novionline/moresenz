@@ -53,6 +53,7 @@ if ( empty( $bg ) && empty( $bg_color ) && $inherit_and_has_featured_img !== tru
                             if ( ! empty( $categories ) ) {
                                 $output = null;
                                 foreach ( $categories as $category ) {
+                                    /* translators: %s: category name */
                                     $output .= '<a class="' . esc_attr( $category->slug ) . '" href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'nectar-blocks-theme' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>';
                                 }
                                 echo apply_filters('nectar_blog_page_header_categories', trim( $output ));

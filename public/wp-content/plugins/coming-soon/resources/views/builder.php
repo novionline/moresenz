@@ -19,6 +19,10 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		return;
 	}
 
+	if ( ! is_array( $object_to_hydrate ) ) {
+		$object_to_hydrate = array();
+	}
+
 	/**
 	 * Custom merge function that preserves existing values but ensures all default keys exist
 	 *
@@ -27,7 +31,7 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 	 * @param integer $depth    Depth.
 	 * @return array
 	 */
-	function merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
+	function seedprod_lite_merge_preserve_existing( $defaults, $settings, $depth = 0 ) {
 		// Guard clauses for safety.
 		if ( ! is_array( $defaults ) ) {
 			return $settings;
@@ -54,7 +58,7 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 
 			// If both values are arrays, merge recursively.
 			if ( isset( $result[ $key ] ) && is_array( $result[ $key ] ) && is_array( $value ) ) {
-				$result[ $key ] = merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
+				$result[ $key ] = seedprod_lite_merge_preserve_existing( $result[ $key ], $value, $depth + 1 );
 			} else {
 				// If the value is not an array, preserve the setting value.
 				$result[ $key ] = $value;
@@ -64,15 +68,23 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 		return $result;
 	}
 
-	function apply_defaults( &$element, $defaults ) {
+	function seedprod_lite_apply_defaults( &$element, $defaults ) {
 		$type                = $element['type'] ?? '';
 		$element_defaults    = $defaults[ $type ] ?? array();
-		$element['settings'] = merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
+		$element['settings'] = seedprod_lite_merge_preserve_existing( $element_defaults, $element['settings'] ?? array() );
 	}
 
-	if ( isset( $object_to_hydrate['document'] ) ) {
-		$document_defaults                         = $defaults['document'] ?? array();
-		$object_to_hydrate['document']['settings'] = array_replace_recursive( $document_defaults, $object_to_hydrate['document']['settings'] ?? array() );
+	$document_defaults = $defaults['document'] ?? array();
+	$existing_document = ( isset( $object_to_hydrate['document'] ) && is_array( $object_to_hydrate['document'] ) )
+		? $object_to_hydrate['document']
+		: array();
+	$object_to_hydrate['document']             = $existing_document;
+	$object_to_hydrate['document']['settings'] = array_replace_recursive(
+		$document_defaults,
+		( isset( $existing_document['settings'] ) && is_array( $existing_document['settings'] ) ) ? $existing_document['settings'] : array()
+	);
+	if ( ! isset( $object_to_hydrate['document']['sections'] ) || ! is_array( $object_to_hydrate['document']['sections'] ) ) {
+		$object_to_hydrate['document']['sections'] = array();
 	}
 
 	// Iterate over document sections and apply defaults.
@@ -85,28 +97,28 @@ function seedprod_lite_rehydrate_settings( &$object_to_hydrate, $seedprod_lite_b
 			if ( isset( $section['type'] ) && 'section' === $section['type'] ) {
 
 				// Apply section defaults.
-				apply_defaults( $section, $defaults );
+				seedprod_lite_apply_defaults( $section, $defaults );
 
 				// Iterate over rows in the section.
 				if ( isset( $section['rows'] ) && is_array( $section['rows'] ) ) {
 					foreach ( $section['rows'] as &$row ) {
 						if ( isset( $row['type'] ) && 'row' === $row['type'] ) {
 							// Apply row defaults.
-							apply_defaults( $row, $defaults );
+							seedprod_lite_apply_defaults( $row, $defaults );
 
 							// Iterate over cols in the row.
 							if ( isset( $row['cols'] ) && is_array( $row['cols'] ) ) {
 								foreach ( $row['cols'] as &$col ) {
 									if ( isset( $col['type'] ) && 'col' === $col['type'] ) {
 										// Apply col defaults.
-										apply_defaults( $col, $defaults );
+										seedprod_lite_apply_defaults( $col, $defaults );
 
 										// Iterate over blocks in the col.
 										if ( isset( $col['blocks'] ) && is_array( $col['blocks'] ) ) {
 											foreach ( $col['blocks'] as &$block ) {
 												if ( isset( $block['type'] ) ) {
 													// Apply block defaults.
-													apply_defaults( $block, $defaults );
+													seedprod_lite_apply_defaults( $block, $defaults );
 												}
 											}
 										}
@@ -227,6 +239,17 @@ if ( empty( $seedprod_is_theme_template ) ) {
 	}
 }
 
+$effective_template_type = isset( $settings['page_type'] ) ? $settings['page_type'] : '';
+if ( ! empty( $seedprod_is_theme_template ) ) {
+	$effective_template_type = seedprod_lite_resolve_effective_template_type(
+		$effective_template_type,
+		get_post_meta( $lpage_id, '_seedprod_theme_template_condition', true )
+	);
+}
+if ( 'post' === $effective_template_type && ! empty( $lpage->post_type ) ) {
+	$effective_template_type = $lpage->post_type;
+}
+
 // Check for landing page types.
 $is_landing_page    = true;
 $landing_page_types = array( 'cs', 'mm', 'p404', 'loginp', 'lp' );
@@ -246,7 +269,7 @@ if ( ! empty( $seedprod_settings ) ) {
 
 
 // Get global css settings.
-$global_css_settings = array();
+$global_css_settings = array( 'settings' => array() );
 $global_css_page_id  = get_option( 'seedprod_global_css_page_id' );
 
 
@@ -375,7 +398,7 @@ $get_array_keys = array_keys( $user_personalization_preferences_schema );
  * @param array $array_to_check Array of keys.
  * @return boolean
  */
-function array_keys_exists( array $keys, array $array_to_check ) {
+function seedprod_lite_array_keys_exists( array $keys, array $array_to_check ) {
 	$diff = array_diff_key( array_flip( $keys ), $array_to_check );
 	return count( $diff ) === 0;
 }
@@ -386,7 +409,7 @@ $decoded_personalization_preferences = json_decode( $user_personalization_prefer
 // Update user meta with new settings.
 if ( is_array( $decoded_personalization_preferences ) && null !== $decoded_personalization_preferences ) {
 	// Determine whether to update or not.
-	if ( ! array_keys_exists( $get_array_keys, $decoded_personalization_preferences ) ) {
+	if ( ! seedprod_lite_array_keys_exists( $get_array_keys, $decoded_personalization_preferences ) ) {
 		// Update user meta with new settings.
 		update_user_meta( $sp_current_user->ID, 'seedprod_personalization_preferences', wp_json_encode( $user_personalization_preferences_schema ), $user_personalization_preferences );
 		// Get updated settings.
@@ -686,6 +709,7 @@ $seedprod_data = array(
 	'seedprod_template_parts'             => $seedprod_template_parts,
 	'seedprod_selected_template_parts'    => $seedprod_selected_template_parts,
 	'page_type'                           => isset( $settings['page_type'] ) ? $settings['page_type'] : '',
+	'effective_template_type'             => $effective_template_type,
 	'current_user_name'                   => $current_user_name,
 	'current_user_email_hash'             => $current_user_email_hash,
 	'current_user_email'                  => $current_user_email,
@@ -718,6 +742,7 @@ $seedprod_data = array(
 	'is_theme_template'                   => $seedprod_is_theme_template,
 	'personalization_preferences'         => $user_personalization_preferences,
 	'wplocale'                            => $wp_getlocale,
+	'template_type_labels'                => seedprod_lite_get_template_type_labels(),
 );
 
 	$seedprod_data['envira'] = array(

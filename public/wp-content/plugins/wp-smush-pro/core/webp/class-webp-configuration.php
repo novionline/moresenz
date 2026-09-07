@@ -99,7 +99,7 @@ class Webp_Configuration implements Next_Gen_Configuration_Interface {
 			$this->direct_conversion->disable();
 			$this->server_configuration->enable();
 			if ( ! $this->should_show_wizard() ) {
-				$this->toggle_wizard();
+				$this->show_wizard();
 			}
 		}
 
@@ -155,13 +155,23 @@ class Webp_Configuration implements Next_Gen_Configuration_Interface {
 		update_site_option( self::$hide_wizard_option_key, ! $is_hidden );
 	}
 
+	public function show_wizard() {
+		update_site_option( self::$hide_wizard_option_key, false );
+	}
+
+	public function hide_wizard() {
+		update_site_option( self::$hide_wizard_option_key, true );
+	}
+
 	public function should_show_wizard() {
 		if ( ! $this->is_activated() || $this->is_configured() ) {
 			return false;
 		}
 
-		$hide_wizard = get_site_option( self::$hide_wizard_option_key );
-		return ! $hide_wizard;
+		return true;
+
+		// $hide_wizard = get_site_option( self::$hide_wizard_option_key );
+		// return ! $hide_wizard;
 	}
 
 	public function delete_all_next_gen_files() {

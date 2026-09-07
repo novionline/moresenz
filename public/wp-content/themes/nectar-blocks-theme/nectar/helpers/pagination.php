@@ -48,19 +48,28 @@ if( ! function_exists('be_get_adjacent_post') ) {
 
         $join = '';
         $posts_in_ex_cats_sql = '';
+        $cat_array = [];
         if ( $in_same_cat || ! empty( $excluded_categories ) ) {
             $join = " INNER JOIN $wpdb->term_relationships AS tr ON p.ID = tr.object_id INNER JOIN $wpdb->term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id";
 
             if ( $in_same_cat ) {
                 $cat_array = wp_get_object_terms($post->ID, $taxonomy, ['fields' => 'ids']);
-                $join .= " AND tt.taxonomy = '$taxonomy' AND tt.term_id IN (" . implode(',', $cat_array) . ")";
+                $cat_array = is_array( $cat_array ) ? array_map( 'intval', $cat_array ) : [];
+                if ( ! empty( $cat_array ) ) {
+                    $cat_placeholders = implode( ',', array_fill( 0, count( $cat_array ), '%d' ) );
+                    $join .= $wpdb->prepare(
+                        " AND tt.taxonomy = %s AND tt.term_id IN ($cat_placeholders)",
+                        array_merge( [ $taxonomy ], $cat_array )
+                    );
+                }
             }
 
-            $posts_in_ex_cats_sql = "AND tt.taxonomy = '$taxonomy'";
+            $posts_in_ex_cats_sql = $wpdb->prepare( 'AND tt.taxonomy = %s', $taxonomy );
             if ( ! empty( $excluded_categories ) ) {
                 if ( ! is_array( $excluded_categories ) ) {
                     // back-compat, $excluded_categories used to be IDs separated by " and "
                     if ( strpos( $excluded_categories, ' and ' ) !== false ) {
+                        /* translators: %s: the word "and" (deprecated separator) */
                         _deprecated_argument( __FUNCTION__, '3.3', sprintf( __( 'Use commas instead of %s to separate excluded categories.', 'nectar-blocks-theme' ), "'and'" ) );
                         $excluded_categories = explode( ' and ', $excluded_categories );
                     } else {
@@ -76,7 +85,12 @@ if( ! function_exists('be_get_adjacent_post') ) {
                 }
 
                 if ( ! empty($excluded_categories) ) {
-                    $posts_in_ex_cats_sql = " AND tt.taxonomy = '$taxonomy' AND tt.term_id NOT IN (" . implode(',', $excluded_categories) . ")";
+                    $excluded_categories = array_values( $excluded_categories );
+                    $ex_placeholders = implode( ',', array_fill( 0, count( $excluded_categories ), '%d' ) );
+                    $posts_in_ex_cats_sql = $wpdb->prepare(
+                        " AND tt.taxonomy = %s AND tt.term_id NOT IN ($ex_placeholders)",
+                        array_merge( [ $taxonomy ], $excluded_categories )
+                    );
                 }
             }
         }

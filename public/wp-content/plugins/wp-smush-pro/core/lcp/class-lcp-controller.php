@@ -34,9 +34,7 @@ class LCP_Controller extends Controller {
 		$this->register_action( 'wp_ajax_smush_handle_lcp_data', array( $this, 'ajax_handle_lcp_data' ) );
 		$this->register_action( 'wp_ajax_nopriv_smush_handle_lcp_data', array( $this, 'ajax_handle_lcp_data' ) );
 		$this->register_action( 'wp_smush_transformed_page_markup', array( $this, 'preload_lcp_images' ), 10, 2 );
-		$this->register_action( 'edit_post', array( $this, 'clear_post_lcp_data' ) );
 		$this->register_action( 'after_switch_theme', array( $this, 'mark_all_lcp_data_as_dirty' ) );
-		$this->register_action( 'wp_ajax_clear_all_lcp_data', array( $this, 'ajax_mark_all_lcp_data_as_dirty' ) );
 		$this->register_filter( 'wp_smush_content_transforms', array( $this, 'register_lcp_transform' ), self::$lcp_transform_priority );
 		$this->register_filter( 'wp_get_loading_optimization_attributes', array( $this, 'remove_fetchpriority_attribute' ) );
 	}
@@ -49,8 +47,8 @@ class LCP_Controller extends Controller {
 
 	public function should_run() {
 		return parent::should_run() &&
-				$this->settings->is_lcp_preload_enabled() &&
-				! $this->lcp_helper->should_skip_preload();
+		       $this->settings->is_lcp_preload_enabled() &&
+		       ! $this->lcp_helper->should_skip_preload();
 	}
 
 	public function maybe_enqueue_detector_script() {
@@ -159,27 +157,8 @@ class LCP_Controller extends Controller {
 		return $replace;
 	}
 
-	public function clear_post_lcp_data( $post_id ) {
-		$data_store = new LCP_Data_Store_Post_Meta();
-		$data_store->set_post_id( $post_id );
-		$data_store->delete_all();
-
-		$data_store_home = new LCP_Data_Store_Home();
-		$data_store_home->delete_all();
-	}
-
 	public function mark_all_lcp_data_as_dirty() {
 		$this->lcp_helper->increment_lcp_data_version();
-	}
-
-	public function ajax_mark_all_lcp_data_as_dirty() {
-		if ( ! check_ajax_referer( 'wp-smush-ajax', '_ajax_nonce', false ) ) {
-			wp_send_json_error( array(
-				'error_msg' => esc_html__( 'Nonce verification failed.', 'wp-smushit' ),
-			) );
-		}
-
-		$this->mark_all_lcp_data_as_dirty();
 	}
 
 	/**

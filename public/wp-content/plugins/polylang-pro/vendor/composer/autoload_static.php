@@ -339,6 +339,7 @@ class ComposerStaticInitdaca4db56c8b0ec113324cf7a6b8bdc7
         'WP_Syntex\\Polylang\\REST\\Request' => __DIR__ . '/..' . '/wpsyntex/polylang/src/modules/REST/Request.php',
         'WP_Syntex\\Polylang\\REST\\V1\\Languages' => __DIR__ . '/..' . '/wpsyntex/polylang/src/modules/REST/V1/Languages.php',
         'WP_Syntex\\Polylang\\REST\\V1\\Settings' => __DIR__ . '/..' . '/wpsyntex/polylang/src/modules/REST/V1/Settings.php',
+        'WP_Syntex\\Polylang\\Script\\Loader_Paths_Finder' => __DIR__ . '/..' . '/wpsyntex/polylang/bin/Loader_Paths_Finder.php',
         'WP_Syntex\\Polylang_Pro\\Editors\\Filter_Preload_Paths' => __DIR__ . '/../..' . '/src/modules/Editors/Filter_Preload_Paths.php',
         'WP_Syntex\\Polylang_Pro\\Editors\\Screens\\Abstract_Screen' => __DIR__ . '/../..' . '/src/modules/Editors/Screens/Abstract_Screen.php',
         'WP_Syntex\\Polylang_Pro\\Editors\\Screens\\Post' => __DIR__ . '/../..' . '/src/modules/Editors/Screens/Post.php',

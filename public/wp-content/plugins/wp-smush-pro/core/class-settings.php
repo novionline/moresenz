@@ -10,6 +10,7 @@ namespace Smush\Core;
 
 use Smush\Core\CDN\CDN_Helper;
 use Smush\Core\LCP\LCP_Helper;
+use Smush\Core\Membership\Membership;
 use Smush\Core\Next_Gen\Next_Gen_Manager;
 use Smush\Core\Stats\Global_Stats;
 use WP_Smush;
@@ -30,11 +31,12 @@ class Settings {
 	protected static $settings_option_id = 'wp-smush-settings';
 	private static $next_gen_cdn_key = 'webp';
 	private static $level_lossless = 0;
-	private static $level_super_lossy = 1;
-	private static $level_ultra_lossy = 2;
+	protected static $level_super_lossy = 1;
+	protected static $level_ultra_lossy = 2;
 	private static $none_cdn_mode = 0;
 	private static $webp_cdn_mode = 1;
 	private static $avif_cdn_mode = 2;
+	protected static $dir_settings_option_id = 'wp-smush-dir-settings';
 
 	/**
 	 * Plugin instance.
@@ -70,7 +72,6 @@ class Settings {
 			'lossy'                  => 0,   // works with CDN.
 			'strip_exif'             => true,    // works with CDN.
 			'resize'                 => false,
-			'detection'              => false,
 			'original'               => true,
 			'backup'                 => true,
 			'no_scale'               => false,
@@ -118,7 +119,7 @@ class Settings {
 	 *
 	 * @var array $basic_features
 	 */
-	public static $basic_features = array( 'bulk', 'auto', 'strip_exif', 'resize', 'original', 'directory_smush', 'gutenberg', 'js_builder', 'gform', 'lazy_load', 'lossy' );
+	public static $basic_features = array( 'bulk', 'auto', 'strip_exif', 'resize', 'original', 'directory_smush', 'gutenberg', 'js_builder', 'gform', 'lazy_load', 'lossy', 'png_to_jpg' );
 
 	/**
 	 * List of fields in bulk smush form.
@@ -134,7 +135,7 @@ class Settings {
 	 *
 	 * Upsell fields.
 	 */
-	private $upsell_fields = array( 'background_email','png_to_jpg' );
+	private $upsell_fields = array( 'background_email' );
 
 	/**
 	 * List of fields in integration form.
@@ -179,7 +180,7 @@ class Settings {
 	 *
 	 * @var array
 	 */
-	private $settings_fields = array( 'detection', 'accessible_colors', 'usage', 'keep_data', 'api_auth', 'disable_streams' );
+	private $settings_fields = array( 'accessible_colors', 'usage', 'keep_data', 'api_auth', 'disable_streams' );
 
 	/**
 	 * List of fields in lazy loading form.
@@ -213,11 +214,22 @@ class Settings {
 	 * @return Settings
 	 */
 	public static function get_instance() {
-		if ( ! self::$instance ) {
-			self::$instance = new self();
+		if ( empty( self::$instance ) ) {
+			$pro_file = __DIR__ . '/class-settings-pro.php';
+			if ( ! class_exists( '\\Smush\\Core\\Settings_Pro' ) && file_exists( $pro_file ) ) {
+				require_once $pro_file;
+			}
+			if ( class_exists( '\\Smush\\Core\\Settings_Pro' ) ) {
+			self::$instance = new Settings_Pro();
+			} else {
+				self::$instance = new self();
 		}
-
+		}
 		return self::$instance;
+	}
+
+	public function __call( $method_name, $arguments ) {
+		_deprecated_function( esc_html( $method_name ), '3.24.0' );
 	}
 
 	/**
@@ -287,17 +299,13 @@ class Settings {
 	 * @return string
 	 */
 	public static function get_setting_data( $id, $type = '' ) {
-		$s3_plugin_url = esc_url( 'https://wordpress.org/plugins/amazon-s3-and-cloudfront/' );
-		$bg_optimization = WP_Smush::get_instance()->core()->mod->bg_optimization;
-		if ( $bg_optimization->can_use_background() ) {
-			$bg_email_desc = esc_html__( 'Be notified via email about the bulk smush status when the process has completed.', 'wp-smushit' );
-		} else {
-			$bg_email_desc = sprintf(
+		$s3_plugin_url  = esc_url( 'https://wordpress.org/plugins/amazon-s3-and-cloudfront/' );
+		$mail_recipient = get_option( 'admin_email' );
+		$bg_email_desc  = sprintf(
 			/* translators: %s Email address */
 				esc_html__( "Be notified via email about the bulk smush status when the process has completed. You'll receive an email at %s.", 'wp-smushit' ),
-				'<strong>' . $bg_optimization->get_mail_recipient() . '</strong>'
+			'<strong>' . $mail_recipient . '</strong>'
 			);
-		}
 		$settings = array(
 			'background_email'  => array(
 				'label'       => esc_html__( 'Enable email notification', 'wp-smushit' ),
@@ -337,11 +345,6 @@ class Settings {
 				'label'       => esc_html__( 'Disable scaled images', 'wp-smushit' ),
 				'short_label' => esc_html__( 'Disable Scaled Images', 'wp-smushit' ),
 				'desc'        => esc_html__( 'When enabled, WordPress won’t create scaled versions of large images; only your original upload is kept.', 'wp-smushit' ),
-			),
-			'detection'         => array(
-				'label'       => esc_html__( 'Detect and show incorrectly sized images', 'wp-smushit' ),
-				'short_label' => esc_html__( 'Image Resize Detection', 'wp-smushit' ),
-				'desc'        => esc_html__( 'This will add functionality to your website that highlights images that are either too large or too small for their containers.', 'wp-smushit' ),
 			),
 			'original'          => array(
 				'label'       => esc_html__( 'Optimize original images', 'wp-smushit' ),
@@ -464,12 +467,15 @@ class Settings {
 	}
 
 	public function can_access_pro_field( $field ) {
-		if ( WP_Smush::is_pro() ) {
-			return true;
-		}
+		return false;
+	}
 
-		$bg_optimization = WP_Smush::get_instance()->core()->mod->bg_optimization;
-		return 'background_email' === $field && $bg_optimization->can_use_background();
+	public function should_enforce_bulk_limit() {
+		return true;
+	}
+
+	public function get_api_key() {
+		return '';
 	}
 
 	/**
@@ -707,6 +713,10 @@ class Settings {
 	public function get( $setting = '' ) {
 		$settings = $this->get_site_settings();
 
+		if ( 'lossy' === $setting && isset( $settings['lossy'] ) ) {
+			return $this->sanitize_lossy_level( $settings['lossy'] );
+		}
+
 		if ( ! empty( $setting ) ) {
 			return isset( $settings[ $setting ] ) ? $settings[ $setting ] : false;
 		}
@@ -830,16 +840,27 @@ class Settings {
 		delete_site_option( self::$subsite_controls_option_id );
 		delete_site_option( 'wp-smush-webp_hide_wizard' );
 		delete_site_option( 'wp-smush-preset_configs' );
+
+		// Reset rating notification flags.
+		$this->delete_setting( 'wp-smush-rating-status' );
+
 		$this->delete_setting( 'wp-smush-image_sizes' );
 		$this->delete_setting( 'wp-smush-resize_sizes' );
 		$this->delete_setting( 'wp-smush-cdn_status' );
 		$this->delete_setting( 'wp-smush-lazy_load' );
 		$this->delete_setting( 'wp-smush-cdn-advanced-settings' );
 		$this->delete_setting( 'wp-smush-hide-tutorials' );
+		$this->delete_setting( self::$dir_settings_option_id );
 		delete_option( 'wp-smush-png2jpg-rewrite-rules-flushed' );
 		delete_option( 'wp_smush_scan_slice_size' );
 
 		LCP_Helper::delete_all_lcp_data();
+
+		// Delete activity log notifications.
+		delete_option( 'wp_smush_notifications' );
+
+		// Delete dismissed notices.
+		delete_option( 'wp-smush-dismissed-notices' );
 
 		// We used update_option for skip-smush-setup,
 		// so let's reset it with delete_option instead of delete_site_option for MU site.
@@ -1009,7 +1030,6 @@ class Settings {
 
 			if ( 'general' === $tab ) {
 				$new_settings['usage']            = (bool) filter_input( INPUT_POST, 'usage', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE );
-				$new_settings['detection']        = (bool) filter_input( INPUT_POST, 'detection', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE );
 				$new_settings['image_dimensions'] = (bool) filter_input( INPUT_POST, 'image_dimensions', FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE );
 			}
 			if ( 'permissions' === $tab ) {
@@ -1286,53 +1306,7 @@ class Settings {
 	 * @since 3.2.0
 	 */
 	public function init_lazy_load_defaults() {
-		$defaults = array(
-			'format'            => array(
-				'jpeg'        => true,
-				'png'         => true,
-				'webp'        => true,
-				'gif'         => true,
-				'svg'         => true,
-				'iframe'      => true,
-				'embed_video' => false,
-			),
-			'output'            => array(
-				'content'    => true,
-				'widgets'    => true,
-				'thumbnails' => true,
-				'gravatars'  => true,
-			),
-			'animation'         => array(
-				'selected'    => 'fadein', // Accepts: fadein, spinner, placeholder, false.
-				'fadein'      => array(
-					'duration' => 400,
-					'delay'    => 0,
-				),
-				'spinner'     => array(
-					'selected' => 1,
-					'custom'   => array(),
-				),
-				'placeholder' => array(
-					'selected' => 1,
-					'custom'   => array(),
-					'color'    => '#F3F3F3',
-				),
-			),
-			'include'           => array(
-				'frontpage' => true,
-				'home'      => true,
-				'page'      => true,
-				'single'    => true,
-				'archive'   => true,
-				'category'  => true,
-				'tag'       => true,
-			),
-			'exclude-pages'     => array(),
-			'exclude-classes'   => array(),
-			'footer'            => true,
-			'native'            => false,
-			'noscript_fallback' => false,
-		);
+		$defaults = $this->get_lazy_load_defaults();
 
 		$this->set_setting( 'wp-smush-lazy_load', $defaults );
 	}
@@ -1460,30 +1434,55 @@ class Settings {
 		return self::get_instance()->get( 'image_dimensions' );
 	}
 
-	public function is_module_active( $module ) {
-		$pro_modules = array(
+	protected function get_placeholder_modules() {
+		return array(
 			'cdn',
-			'png_to_jpg',
 			'webp_mod',
 			'avif_mod',
 			's3',
+			'nextgen',
 			'ultra',
 			'preload_images',
 			'auto_resizing',
 			'image_dimensions',
 		);
+	}
 
-		$module_active = self::get_instance()->get( $module );
-		if ( in_array( $module, $pro_modules, true ) ) {
-			$module_active = $module_active && WP_Smush::is_pro();
+	public function is_module_active( $module ) {
+		$advanced_modules = $this->get_placeholder_modules();
+
+		if ( in_array( $module, $advanced_modules, true ) ) {
+			return false;
 		}
 
-		return $module_active;
+		return self::get_instance()->get( $module );
 	}
 
 	public function get_lossy_level_setting() {
 		$current_level = self::get_instance()->get( 'lossy' );
 		return $this->sanitize_lossy_level( $current_level );
+	}
+
+	public function update_dir_settings( $settings ) {
+		$this->set_setting( self::$dir_settings_option_id, $settings );
+	}
+
+	public function get_dir_lossy_level_setting() {
+		$dir_settings = $this->get_setting( self::$dir_settings_option_id, array() );
+		if ( isset( $dir_settings['dir_lossy'] ) ) {
+			return $this->sanitize_lossy_level( $dir_settings['dir_lossy'] );
+		}
+		// Fallback to global lossy setting
+		return $this->get_lossy_level_setting();
+	}
+
+	public function get_dir_strip_exif_setting() {
+		$dir_settings = $this->get_setting( self::$dir_settings_option_id, array() );
+		if ( isset( $dir_settings['dir_strip_exif'] ) ) {
+			return (bool) $dir_settings['dir_strip_exif'];
+		}
+		// Fallback to global strip_exif setting
+		return (bool) $this->get( 'strip_exif' );
 	}
 
 	public function sanitize_lossy_level( $lossy_level ) {
@@ -1501,8 +1500,8 @@ class Settings {
 	}
 
 	public function get_highest_lossy_level() {
-		if ( WP_Smush::is_pro() ) {
-			return self::$level_ultra_lossy;
+		if ( is_multisite() && ! Membership::get_instance()->has_access_to_hub() ) {
+			return self::$level_lossless;
 		}
 		return self::$level_super_lossy;
 	}
@@ -1636,6 +1635,20 @@ class Settings {
 	}
 
 	/**
+	 * // TODO: [WPMUDEV SMUSH UI] there is another method above that does the same thing. Merge the two methods.
+	 */
+	public function is_auto_smush_enabled() {
+		$auto_smush = $this->get( 'auto' );
+
+		// Keep the auto smush on by default.
+		if ( ! isset( $auto_smush ) ) {
+			$auto_smush = 1;
+		}
+
+		return $auto_smush;
+	}
+
+	/**
 	 * Get the maximum content width for images.
 	 *
 	 * @return int
@@ -1702,6 +1715,13 @@ class Settings {
 	 */
 	public static function get_level_lossless() {
 		return self::$level_lossless;
+	}
+
+	/**
+	 * Mark the current setting as level lossless.
+	 */
+	public static function set_lossless_level() {
+		return self::get_instance()->set( 'lossy', self::get_level_lossless() );
 	}
 
 
@@ -1774,4 +1794,70 @@ class Settings {
 		return self::$webp_cdn_mode;
 	}
 
+	/**
+	 * @return array
+	 */
+	public function get_lazy_load_defaults() {
+		$defaults = array(
+			'format'            => array(
+				'jpeg'        => true,
+				'png'         => true,
+				'webp'        => true,
+				'gif'         => true,
+				'svg'         => true,
+				'iframe'      => true,
+				'embed_video' => false,
+			),
+			'output'            => array(
+				'content'    => true,
+				'widgets'    => true,
+				'thumbnails' => true,
+				'gravatars'  => true,
+			),
+			'animation'         => array(
+				'selected'    => 'fadein', // Accepts: fadein, spinner, placeholder, false.
+				'fadein'      => array(
+					'duration' => 400,
+					'delay'    => 0,
+				),
+				'spinner'     => array(
+					'selected' => 1,
+					'custom'   => array(),
+				),
+				'placeholder' => array(
+					'selected' => 1,
+					'custom'   => array(),
+					'color'    => '#F3F3F3',
+				),
+			),
+			'include'           => array(
+				'frontpage' => true,
+				'home'      => true,
+				'page'      => true,
+				'single'    => true,
+				'archive'   => true,
+				'category'  => true,
+				'tag'       => true,
+			),
+			'exclude-pages'     => array(),
+			'exclude-classes'   => array(),
+			'footer'            => true,
+			'native'            => false,
+			'noscript_fallback' => false,
+		);
+		return $defaults;
+	}
+
+	/**
+	 * Get the maximum file size (in bytes) that can be optimized.
+	 *
+	 * @return mixed
+	 */
+	public function get_file_size_limit() {
+		$file_size_limit = 5 * 1024 * 1024; // 5 MB
+		if ( defined( 'WP_SMUSH_MAX_BYTES' ) && WP_SMUSH_MAX_BYTES > 0 ) {
+			$file_size_limit = min( $file_size_limit, WP_SMUSH_MAX_BYTES );
+		}
+		return $file_size_limit;
+	}
 }

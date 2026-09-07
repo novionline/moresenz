@@ -6,6 +6,7 @@ use Smush\Core\Array_Utils;
 use Smush\Core\Server_Utils;
 use Smush\Core\Settings;
 use Smush\Core\Threads\Thread_Safe_Options;
+use Smush\Core\Urls_Exclusions;
 use Smush\Core\WP_Query_Utils;
 
 class LCP_Helper {
@@ -178,53 +179,7 @@ class LCP_Helper {
 	 * @return bool True if the current request URI is excluded, false otherwise.
 	 */
 	public function is_excluded_uri() {
-		$pattern = $this->get_excluded_uri_pattern();
-		if ( empty( $pattern ) ) {
-			return false;
-		}
-
-		$request_uri = $this->server_utils->get_request_uri();
-		$request_uri = wp_parse_url( $request_uri, PHP_URL_PATH );
-		return (bool) preg_match( "#{$pattern}#i", $request_uri );
-	}
-
-	/**
-	 * Generate a regex pattern from excluded page URLs.
-	 *
-	 * @return string Regex pattern without delimiters or flags.
-	 */
-	private function get_excluded_uri_pattern() {
-		$excluded_page_urls = $this->get_excluded_pages();
-
-		if ( empty( $excluded_page_urls ) ) {
-			return '';
-		}
-
-		$patterns = array_map( array( $this, 'build_url_pattern' ), $excluded_page_urls );
-
-		return implode( '|', array_filter( $patterns ) );
-	}
-
-	/**
-	 * Build regex pattern for a single URL.
-	 *
-	 * @param string $url The URL to convert to regex pattern.
-	 * @return string Regex pattern for the URL.
-	 */
-	private function build_url_pattern( $url ) {
-		$url = trim( $url );
-
-		if ( empty( $url ) ) {
-			return '';
-		}
-
-		if ( '/' === $url ) {
-			return $this->is_subsite()
-				? '^' . preg_quote( get_blog_details( get_current_blog_id() )->path, '#' ) . '$'
-				: '^/$';
-		}
-
-		return $url;
+		return ( new Urls_Exclusions() )->is_excluded_uri( $this->server_utils->get_request_uri(), $this->get_excluded_pages() );
 	}
 
 	/**
@@ -233,6 +188,7 @@ class LCP_Helper {
 	 * @return bool True if the current site is a subsite, false otherwise.
 	 */
 	public function is_subsite() {
+		_deprecated_function( __METHOD__, '4.0' );
 		return is_multisite() && ! is_main_site();
 	}
 
@@ -241,8 +197,14 @@ class LCP_Helper {
 	 *
 	 * @return array Preload options.
 	 */
-	private function get_preload_options() {
+	public function get_preload_options() {
 		$setting = $this->settings->get_setting( 'wp-smush-preload' );
+		$setting = $this->array_utils->ensure_array( $setting );
+		$setting = array_merge( array(
+			'exclude-pages'     => array(),
+			'lcp_fetchpriority' => false,
+		), $setting );
+
 		return $this->array_utils->ensure_array( $setting );
 	}
 

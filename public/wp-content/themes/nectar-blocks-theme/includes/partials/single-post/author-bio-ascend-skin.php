@@ -32,7 +32,7 @@ $next_post_button = ( ! empty( $nectar_options['blog_next_post_link'] ) && $nect
         echo get_avatar( get_the_author_meta( 'email' ), $grav_size, null, get_the_author() ); }
     ?>
     <div id="author-info">
-      <h3 class="<?php echo apply_filters( 'nectar_author_info_class', 'nectar-author-info-title' ); ?>"><span><?php if ( $theme_skin === 'ascend' ) { echo '<i>' . esc_html__( 'Author', 'nectar-blocks-theme' ) . '</i>'; } else { _e( 'About', 'nectar-blocks-theme' ); } ?></span> <?php the_author(); ?></h3>
+      <h3 class="<?php echo apply_filters( 'nectar_author_info_class', 'nectar-author-info-title' ); ?>"><span><?php if ( $theme_skin === 'ascend' ) { echo '<i>' . esc_html__( 'Author', 'nectar-blocks-theme' ) . '</i>'; } else { esc_html_e( 'About', 'nectar-blocks-theme' ); } ?></span> <?php the_author(); ?></h3>
       <p><?php the_author_meta( 'description' ); ?></p>
     </div>
     <div class="clear"></div>

@@ -3,7 +3,7 @@
         'name' => 'wpsyntex/polylang-pro',
         'pretty_version' => '3.8.x-dev',
         'version' => '3.8.9999999.9999999-dev',
-        'reference' => '9d8436f9960bbf65679817e42fc9a76a4760e641',
+        'reference' => 'd6f93ffc32aef8a022ef9cb04b0b0f6da53ddca7',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'wpsyntex/polylang' => array(
             'pretty_version' => '3.8.x-dev',
             'version' => '3.8.9999999.9999999-dev',
-            'reference' => 'e6964fb795ad5b430219977a75f2e4ca9d55fb52',
+            'reference' => 'f49678e965b3e40c72dedeaf2a6ba3e2467c064b',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../wpsyntex/polylang',
             'aliases' => array(),
@@ -22,7 +22,7 @@
         'wpsyntex/polylang-pro' => array(
             'pretty_version' => '3.8.x-dev',
             'version' => '3.8.9999999.9999999-dev',
-            'reference' => '9d8436f9960bbf65679817e42fc9a76a4760e641',
+            'reference' => 'd6f93ffc32aef8a022ef9cb04b0b0f6da53ddca7',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

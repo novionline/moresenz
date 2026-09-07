@@ -1235,7 +1235,7 @@ if ( ! function_exists( 'nectar_nav_button_style' ) ) {
 
       <p class="description description-wide">
             <label for="<?php echo esc_attr( $name ) . '-' . esc_attr( $item_id ); ?>">
-                <?php echo __( 'Menu Item Style', 'nectar-blocks-theme' ); ?> <br />
+                <?php esc_html_e( 'Menu Item Style', 'nectar-blocks-theme' ); ?> <br />
                 <select id="<?php echo esc_attr( $name ) . '-' . esc_attr( $item_id ); ?>" class="widefat edit-menu-item-target" name="<?php echo esc_attr( $name ) . '[' . esc_attr( $item_id ) . ']'; ?>">
                     <option value="" <?php selected( $value, '' ); ?>><?php echo esc_html__( 'Standard', 'nectar-blocks-theme' ); ?> </option>
                     <option value="button_solid_color" <?php selected( $value, 'button_solid_color' ); ?>><?php echo esc_html__( 'Button Accent Color', 'nectar-blocks-theme' ); ?> </option>

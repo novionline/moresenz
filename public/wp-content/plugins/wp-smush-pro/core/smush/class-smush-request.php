@@ -5,9 +5,6 @@ namespace Smush\Core\Smush;
 use Smush\Core\Array_Utils;
 use Smush\Core\File_System;
 use Smush\Core\File_Utils;
-use Smush\Core\Helper;
-use Smush\Core\Settings;
-use WP_Smush;
 
 /**
  * Calls the API and returns the response.
@@ -34,10 +31,6 @@ abstract class Smush_Request {
 	 */
 	private $array_utils;
 	/**
-	 * @var Settings|null
-	 */
-	private $settings;
-	/**
 	 * @var File_Utils
 	 */
 	private $file_utils;
@@ -53,14 +46,18 @@ abstract class Smush_Request {
 	 * @var array
 	 */
 	private $extra_headers;
+	/**
+	 * @var Smusher_Options
+	 */
+	private $options;
 
-	public function __construct( $streaming_enabled = true, $extra_headers = array() ) {
-		$this->streaming_enabled = $streaming_enabled;
+	public function __construct( $options ) {
+		$this->options           = $options;
+		$this->streaming_enabled = $options->is_streaming_enabled();
+		$this->extra_headers     = $options->get_extra_headers();
 		$this->array_utils       = new Array_Utils();
 		$this->file_utils        = new File_Utils();
 		$this->fs                = new File_System();
-		$this->settings          = Settings::get_instance();
-		$this->extra_headers     = $extra_headers;
 		$this->user_agent        = WP_SMUSH_UA;
 		$this->timeout           = WP_SMUSH_TIMEOUT;
 	}
@@ -88,7 +85,7 @@ abstract class Smush_Request {
 	}
 
 	public function get_url() {
-		return defined( 'WP_SMUSH_API_HTTP' ) ? WP_SMUSH_API_HTTP : WP_SMUSH_API;
+		return $this->options->get_api_url();
 	}
 
 	/**
@@ -98,7 +95,7 @@ abstract class Smush_Request {
 		$headers = array_merge(
 			array(
 				'accept' => 'application/json', // The API returns JSON.
-				'exif'   => $this->settings->get( 'strip_exif' ) ? 'false' : 'true',
+				'exif'   => $this->options->strip_exif() ? 'false' : 'true',
 			),
 			$this->get_extra_headers()
 		);
@@ -111,11 +108,11 @@ abstract class Smush_Request {
 
 		$headers['content-type'] = 'application/binary';
 
-		$headers['lossy'] = $this->settings->get_lossy_level_setting();
+		$headers['lossy'] = $this->options->get_lossy_level();
 
 		// Check if premium member, add API key.
-		$api_key = Helper::get_wpmudev_apikey();
-		if ( ! empty( $api_key ) && WP_Smush::is_pro() ) {
+		$api_key = $this->options->get_api_key();
+		if ( ! empty( $api_key ) ) {
 			$headers['apikey'] = $api_key;
 
 			$is_large_file = $this->file_utils->is_large_file( $file_path );
@@ -160,7 +157,7 @@ abstract class Smush_Request {
 		return $this;
 	}
 
-	public function do_request( $file_data, $size_key ) {
+	public function do_request( $file_path, $size_key ) {
 		return false;
 	}
 
@@ -169,12 +166,16 @@ abstract class Smush_Request {
 		return $this;
 	}
 
+	public function is_streaming_enabled() {
+		return $this->streaming_enabled;
+	}
+
 	/**
-	 * @param $files_data array
+	 * @param $file_paths array
 	 *
 	 * @return mixed
 	 */
-	abstract public function do_requests( $files_data );
+	abstract public function do_requests( $file_paths );
 
 	abstract public function is_supported();
 }
