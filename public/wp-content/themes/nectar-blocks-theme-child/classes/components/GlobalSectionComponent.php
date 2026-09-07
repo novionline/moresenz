@@ -74,7 +74,8 @@ class GlobalSectionComponent extends Singleton {
             'posts_per_page' => -1,
         ]);
 
-        $posts = [];
+        //collect entries with sort metadata so we can order by visual hook position
+        $entries = [];
 
         while ($query->have_posts()) {
             $query->the_post();
@@ -97,20 +98,66 @@ class GlobalSectionComponent extends Singleton {
 
                 // Respect Nectar's include/exclude conditions.
                 if ($render->verify_conditional_display($sectionId)) {
-                    $posts[$sectionId] = clone $query->post; // keyed by ID → unique
+                    $priority = isset($location['priority']) ? (int)$location['priority'] : 10;
+                    $entries[$sectionId] = [
+                        'post' => clone $query->post, // keyed by ID → unique
+                        'hookIndex' => $this->getHookOrderIndex($hook),
+                        'priority' => $priority,
+                    ];
                     break; // one passing location is enough
                 }
             }
         }
         wp_reset_postdata();
 
-        //add global sections used in navigation mega-menus
+        //add global sections used in navigation mega-menus (rendered in the header → top)
         $megaMenuSections = $this->getMegaMenuGlobalSections();
         foreach ($megaMenuSections as $sectionId => $post) {
-            $posts[$sectionId] = $post;
+            $entries[$sectionId] = [
+                'post' => $post,
+                'hookIndex' => -1,
+                'priority' => 10,
+            ];
         }
 
-        return $this->visiblePosts = array_values($posts);
+        //order by hook position (top → bottom), then priority within the same hook
+        uasort($entries, static function (array $a, array $b): int {
+            return [$a['hookIndex'], $a['priority']] <=> [$b['hookIndex'], $b['priority']];
+        });
+
+        return $this->visiblePosts = array_values(array_map(static fn(array $entry) => $entry['post'], $entries));
+    }
+
+    /**
+     * Maps a Nectar global section location hook to its vertical position on the page
+     * (lower index = higher up). Unknown hooks sort to the end.
+     *
+     * @param string $hook
+     * @return int
+     */
+    private function getHookOrderIndex(string $hook): int {
+
+        //top → bottom order mirroring Nectar's Global_Sections::get_locations()
+        $hookOrder = [
+            'nectar_hook_before_secondary_header',
+            'nectar_hook_global_section_after_header_navigation',
+            'nectar_hook_before_content_global_section',
+            'nectar_hook_global_section_after_content',
+            'nectar_hook_sidebar_top',
+            'nectar_hook_sidebar_bottom',
+            'nectar_before_blog_loop_start',
+            'nectar_before_blog_loop_end',
+            'nectar_hook_ocm_before_menu',
+            'nectar_hook_ocm_after_menu',
+            'nectar_hook_ocm_bottom_meta',
+            'nectar_hook_global_section_footer',
+            'nectar_hook_global_section_parallax_footer',
+            'nectar_hook_global_section_after_footer',
+        ];
+
+        $index = array_search($hook, $hookOrder, true);
+
+        return $index === false ? count($hookOrder) : $index;
     }
 
     /**
