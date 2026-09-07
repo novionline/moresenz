@@ -13,6 +13,11 @@ use WPMUDEV_Dashboard;
 
 class CDN_Helper {
 	/**
+	 * CDN API version included in the base URL.
+	 */
+	const CDN_VERSION = '2.0';
+
+	/**
 	 * Static instance
 	 *
 	 * @var self
@@ -314,9 +319,15 @@ class CDN_Helper {
 		$status  = $this->get_cdn_status();
 		$site_id = absint( $status->site_id );
 
-		return trailingslashit( "https://{$status->endpoint_url}/{$site_id}" );
+		return trailingslashit( "https://{$status->endpoint_url}/" . self::CDN_VERSION . "/{$site_id}" );
 	}
 
+	/**
+	 * Returns the CDN status string including 'disabled' state.
+	 * Handles disabled checks here; delegates active-state logic to CDN_Status.
+	 *
+	 * @return string 'disabled' | 'activating' | 'overcap' | 'upgrade' | 'enabled'
+	 */
 	public function get_cdn_status_string() {
 		if ( ! $this->settings->is_cdn_active() ) {
 			return 'disabled';
@@ -327,22 +338,7 @@ class CDN_Helper {
 			return 'disabled';
 		}
 
-		if ( isset( $cdn->cdn_enabling ) && $cdn->cdn_enabling ) {
-			return 'activating';
-		}
-
-		$plan      = isset( $cdn->bandwidth_plan ) ? $cdn->bandwidth_plan : 10;
-		$bandwidth = isset( $cdn->bandwidth ) ? $cdn->bandwidth : 0;
-
-		$percentage = round( 100 * $bandwidth / 1024 / 1024 / 1024 / $plan );
-
-		if ( $percentage > 100 || 100 === (int) $percentage ) {
-			return 'overcap';
-		} elseif ( 90 <= (int) $percentage ) {
-			return 'upgrade';
-		}
-
-		return 'enabled';
+		return CDN_Status::from_setting( $cdn )->get_status_string();
 	}
 
 	/**

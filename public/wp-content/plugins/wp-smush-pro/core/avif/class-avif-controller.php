@@ -72,9 +72,8 @@ class Avif_Controller extends Controller {
 		$this->register_action( 'wp_smush_png_jpg_converted', array( $this, 'delete_avif_versions_of_pngs' ), 10, 4 );
 		$this->register_action( 'delete_attachment', array( $this, 'delete_avif_versions_before_delete' ) );
 		$this->register_filter( 'wp_smush_global_optimization_stats', array( $this, 'add_avif_global_stats' ) );
-		$this->register_action( 'wp_smush_settings_updated', array( $this, 'maybe_mark_global_stats_as_outdated' ), 10, 2 );
+		$this->register_filter( 'wp_smush_global_stats_digest_keys', array( $this, 'add_digest_keys' ) );
 		$this->register_action( 'wp_enqueue_scripts', array( $this, 'maybe_enqueue_fallback_js' ) );
-		$this->register_action( 'wp_ajax_smush_avif_toggle', array( $this, 'ajax_avif_toggle' ) );
 		$this->register_action( 'wp_ajax_smush_avif_delete_all', array( $this, 'ajax_delete_all_avif_files' ) );
 	}
 
@@ -156,12 +155,10 @@ class Avif_Controller extends Controller {
 		return $stats;
 	}
 
-	public function maybe_mark_global_stats_as_outdated( $old_settings, $settings ) {
-		$old_avif_status = ! empty( $old_settings['avif_mod'] );
-		$new_avif_status = ! empty( $settings['avif_mod'] );
-		if ( $old_avif_status !== $new_avif_status ) {
-			$this->global_stats->mark_as_outdated();
-		}
+	public function add_digest_keys( $keys ) {
+		$keys[] = 'avif_mod';
+
+		return $keys;
 	}
 
 	public function add_avif_configuration( $modules ) {
@@ -170,26 +167,6 @@ class Avif_Controller extends Controller {
 		return $modules;
 	}
 
-	public function ajax_avif_toggle() {
-		check_ajax_referer( 'save_wp_smush_options' );
-
-		$capability = is_multisite() ? 'manage_network' : 'manage_options';
-		if ( ! Helper::is_user_allowed( $capability ) ) {
-			wp_send_json_error(
-				array(
-					'message' => __( "You don't have permission to do this.", 'wp-smushit' ),
-				),
-				403
-			);
-		}
-
-		$param       = isset( $_POST['param'] ) ? sanitize_text_field( wp_unslash( $_POST['param'] ) ) : '';
-		$enable_avif = 'true' === $param;
-
-		$this->configuration->toggle_module( $enable_avif );
-
-		wp_send_json_success();
-	}
 	/**
 	 * Delete all avif images.
 	 * Triggered by the "Delete AVIF images" button in the avif tab.

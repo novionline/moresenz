@@ -12,7 +12,6 @@ use Smush\Core\LCP\LCP_Controller;
 use Smush\Core\Membership\Membership_Controller;
 use Smush\Core\Modules\CDN;
 use Smush\Core\Next_Gen\Next_Gen_Controller;
-use Smush\Core\Configs_Controller_Pro;
 use Smush\Core\Png2Jpg\Png2Jpg_Controller;
 use Smush\Core\Resize\Auto_Resizing_Controller;
 use Smush\Core\S3\S3_Controller;
@@ -73,9 +72,6 @@ class Modules_Pro extends Modules {
 
 		$membership_controller = new Membership_Controller();
 		$membership_controller->init();
-
-		$configs_controller = new Configs_Controller_Pro();
-		$configs_controller->init();
 	}
 
 	protected function get_smush_module() {

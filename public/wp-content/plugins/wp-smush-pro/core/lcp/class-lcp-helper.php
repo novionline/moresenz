@@ -5,7 +5,7 @@ namespace Smush\Core\LCP;
 use Smush\Core\Array_Utils;
 use Smush\Core\Server_Utils;
 use Smush\Core\Settings;
-use Smush\Core\Threads\Thread_Safe_Options;
+use Smush\Core\Threads\JSON_Record;
 use Smush\Core\Urls_Exclusions;
 use Smush\Core\WP_Query_Utils;
 
@@ -33,11 +33,17 @@ class LCP_Helper {
 	 */
 	private $array_utils;
 
+	/**
+	 * @var JSON_Record
+	 */
+	private $lcp_details;
+
 	public function __construct() {
 		$this->wp_query_utils = new WP_Query_Utils();
 		$this->server_utils   = new Server_Utils();
 		$this->array_utils    = new Array_Utils();
 		$this->settings       = Settings::get_instance();
+		$this->lcp_details    = new JSON_Record( self::$lcp_details_option_id );
 	}
 
 	/**
@@ -99,13 +105,11 @@ class LCP_Helper {
 	}
 
 	public function get_current_lcp_data_version() {
-		$thread_safe_options = new Thread_Safe_Options();
-		return (int) $thread_safe_options->get_value( self::$lcp_details_option_id, 'version', self::$default_version );
+		return (int) $this->lcp_details->get_value( 'version', self::$default_version );
 	}
 
 	public function increment_lcp_data_version() {
-		$thread_safe_options = new Thread_Safe_Options();
-		$thread_safe_options->increment_values( self::$lcp_details_option_id, array( 'version' ) );
+		$this->lcp_details->increment_values( array( 'version' ) );
 	}
 
 	public function set_server_utils( $server_utils ) {

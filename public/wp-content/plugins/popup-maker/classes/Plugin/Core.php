@@ -185,26 +185,34 @@ final class Core extends \PopupMaker\Plugin\Container {
 		);
 
 		$this->set(
-			'connect',
-			/**
-			 * Get plugin connect.
-			 *
-			 * @return Connect
-			 */
-			function ( $container ) {
-				return new \PopupMaker\Services\Connect( $container );
-			}
-		);
-
-		$this->set(
 			'license',
 			/**
-			 * Get plugin license.
+			 * Get the legacy Pro license compatibility service.
+			 *
+			 * Retained only for active Pro versions older than 1.2.0, including
+			 * activation of an invalid or deactivated license. This is a thin,
+			 * temporary bridge for Pro 1.1.0 and older; Pro 1.2.0+ does not use it.
+			 *
+			 * @deprecated 1.23.0 Temporary Pro 1.1.0 compatibility. Scheduled for removal in Core 1.25.0.
 			 *
 			 * @return License
 			 */
 			function ( $container ) {
 				return new \PopupMaker\Services\License( $container );
+			}
+		);
+
+		$this->set(
+			'addon_catalog',
+			function () {
+				return new \PopupMaker\Services\AddonCatalog();
+			}
+		);
+
+		$this->set(
+			'addon_lifecycle',
+			function ( $container ) {
+				return new \PopupMaker\Services\AddonLifecycle( $container->get( 'addon_catalog' ) );
 			}
 		);
 
@@ -217,18 +225,6 @@ final class Core extends \PopupMaker\Plugin\Container {
 			 */
 			function ( $container ) {
 				return new \PopupMaker\Services\Logging( $container );
-			}
-		);
-
-		$this->set(
-			'upgrader',
-			/**
-			 * Get plugin upgrader.
-			 *
-			 * @return Upgrader
-			 */
-			function ( $container ) {
-				return new \PopupMaker\Services\Upgrader( $container );
 			}
 		);
 
@@ -316,6 +312,18 @@ final class Core extends \PopupMaker\Plugin\Container {
 			}
 		);
 
+		$this->set(
+			'notifications',
+			/**
+			 * Get notifications orchestrator service.
+			 *
+			 * @return \PopupMaker\Services\Notifications\Manager
+			 */
+			function ( $container ) {
+				return new \PopupMaker\Services\Notifications\Manager( $container );
+			}
+		);
+
 		do_action( 'popup_maker/register_services', $this );
 	}
 
@@ -325,7 +333,9 @@ final class Core extends \PopupMaker\Plugin\Container {
 	 * @return void
 	 */
 	protected function init_services() {
-		$license = $this->get( 'license' );
+		// Resolve the legacy service for its guarded, deferred bootstrap.
+		// This runs only after all active plugins, including Pro, have loaded.
+		$this->get( 'license' );
 
 		// Initialize link click tracking.
 		$link_click_tracking = $this->get( 'link_click_tracking' );
@@ -334,6 +344,17 @@ final class Core extends \PopupMaker\Plugin\Container {
 		// Initialize form conversion tracking.
 		$form_conversion_tracking = $this->get( 'form_conversion_tracking' );
 		$form_conversion_tracking->init();
+
+		/*
+		 * Defer notifications orchestrator init until WordPress's `init`
+		 * action. Core loads on plugins_loaded@11, but addons (Pro, Pro+,
+		 * integrations) load at priority 12+ and need a window to register
+		 * their own providers via the `popup_maker/notification_providers`
+		 * filter before the Manager resolves the provider list.
+		 */
+		add_action( 'init', function () {
+			$this->get( 'notifications' )->init();
+		}, 5 );
 	}
 
 	/**
@@ -454,10 +475,36 @@ final class Core extends \PopupMaker\Plugin\Container {
 	/**
 	 * Check if license is active.
 	 *
+	 * @deprecated 1.23.0 Temporary Pro 1.1.0 compatibility. Scheduled for removal in Core 1.25.0.
+	 *
 	 * @return boolean
 	 */
 	public function is_license_active() {
-		return $this->get( 'license' )->is_license_active();
+		return $this->should_run_legacy_license_compatibility()
+			&& $this->get( 'license' )->is_license_active();
+	}
+
+	/**
+	 * Check whether Core should expose its legacy Pro license compatibility.
+	 *
+	 * This is a thin, temporary stopgap solely to keep active Pro 1.1.0 and older
+	 * working with Core 1.23.x while users can activate, deactivate, or recover a
+	 * license. Pro 1.2.0+ does not use any Core license-management behavior.
+	 *
+	 * @since 1.23.0
+	 *
+	 * @deprecated 1.23.0 Temporary Pro 1.1.0 compatibility. Scheduled for removal in Core 1.25.0.
+	 *
+	 * @return bool
+	 */
+	public function should_run_legacy_license_compatibility() {
+		if ( ! $this->is_pro_active() ) {
+			return false;
+		}
+
+		$pro_version = $this->get_pro_version();
+
+		return '' !== $pro_version && version_compare( $pro_version, '1.2.0', '<' );
 	}
 
 	/**

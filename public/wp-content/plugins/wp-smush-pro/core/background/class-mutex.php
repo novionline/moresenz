@@ -33,9 +33,14 @@ class Mutex {
 		if ( $this->is_supported() ) {
 			$acquired = $this->acquire_lock();
 			if ( $acquired || ! $this->break_on_timeout() ) {
-				call_user_func( $operation );
+				try {
+					call_user_func( $operation );
+				} finally {
+					if ( $acquired ) {
+						$this->release_lock();
+					}
+				}
 			}
-			$this->release_lock();
 		} else {
 			call_user_func( $operation );
 		}
@@ -95,7 +100,7 @@ class Mutex {
 	 * @param int $timeout
 	 */
 	public function set_timeout( $timeout ) {
-		$this->timeout = $timeout;
+		$this->timeout = max( 0, (int) $timeout );
 
 		return $this;
 	}
@@ -123,11 +128,18 @@ class Mutex {
 	private function get_actual_mysql_version() {
 		if ( ! $this->mysql_version ) {
 			global $wpdb;
-			/**
-			 * MariaDB version prefix 5.5.5- is not stripped when using $wpdb->db_version() to get the DB version:
-			 * https://github.com/php/php-src/issues/7972
+
+			$mysql_version = $wpdb->get_var( 'SELECT VERSION()' );
+
+			/*
+			 * Some MariaDB servers report a compatibility prefix such as
+			 * 5.5.5-10.11.6-MariaDB. Compare the actual MariaDB version.
 			 */
-			$this->mysql_version = $wpdb->get_var( 'SELECT VERSION()' );
+			$this->mysql_version = preg_replace(
+				'/^5\.5\.5-/',
+				'',
+				(string) $mysql_version
+			);
 		}
 		return $this->mysql_version;
 	}

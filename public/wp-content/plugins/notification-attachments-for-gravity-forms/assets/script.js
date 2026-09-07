@@ -10,6 +10,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 (function($) {
 	'use strict';
 
+	// Scoped to our own container: '.details' on its own is generic enough to match another
+	// element on the notification screen, which would append attachments to the wrong list.
+	var LIST_SELECTOR = '#gf_kgm_notification_attachment_li .details';
+
 	// Initialize when DOM is ready
 	$(document).ready(function() {
 		// Event listener for "Add Attachment" button (WordPress best practice: no inline onClick)
@@ -29,35 +33,43 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 	 * Open WordPress media library to select attachments
 	 */
 	function kgm_add_attachment() {
-		var mediaframes = wp.media.frames.items = wp.media({
-			'multiple': true
-		});
+		var mediaTitle = (typeof gf_kgm_i18n !== 'undefined' && gf_kgm_i18n.mediaTitle)
+			? gf_kgm_i18n.mediaTitle
+			: 'Select Notification Attachments';
+		var mediaButton = (typeof gf_kgm_i18n !== 'undefined' && gf_kgm_i18n.mediaButton)
+			? gf_kgm_i18n.mediaButton
+			: 'Attach';
+
+		var mediaframes = wp.media.frames.items = wp.media( {
+			title:    mediaTitle,
+			button:   { text: mediaButton },
+			multiple: true
+		} );
 		mediaframes.on('select', function() {
-			var attachment = mediaframes.state().get('selection').toJSON();			
-			for(var i = 0; i < mediaframes.state().get('selection').length; i++)
-			{
+			var attachment = mediaframes.state().get('selection').toJSON();
+			var currentIDS = $('#attachment_ids').val();
+
+			for ( var i = 0; i < attachment.length; i++ ) {
 				// Validate attachment ID is a number to prevent XSS
-				var attachmentId = parseInt(attachment[i].id, 10);
-				if (isNaN(attachmentId) || attachmentId <= 0) {
+				var attachmentId = parseInt( attachment[i].id, 10 );
+				if ( isNaN( attachmentId ) || attachmentId <= 0 ) {
 					continue; // Skip invalid attachment IDs
 				}
 
-				var currentIDS = $('#attachment_ids').val();
-
-				if (currentIDS == '') {
-					currentIDS = currentIDS + attachmentId;				   
+				if ( '' === currentIDS ) {
+					currentIDS = String(attachmentId);
 				} else {
 					currentIDS = currentIDS + ',' + attachmentId;
 				}
 
 				// Get image URL safely
 				var url_image = '';
-				if (attachment[i].sizes) {
-					if (attachment[i].sizes.thumbnail !== undefined) {
-						url_image = attachment[i].sizes.thumbnail.url; 
-					} else if (attachment[i].sizes.medium !== undefined) {
+				if ( attachment[i].sizes ) {
+					if ( attachment[i].sizes.thumbnail !== undefined ) {
+						url_image = attachment[i].sizes.thumbnail.url;
+					} else if ( attachment[i].sizes.medium !== undefined ) {
 						url_image = attachment[i].sizes.medium.url;
-					} else if (attachment[i].sizes.full !== undefined) {
+					} else if ( attachment[i].sizes.full !== undefined ) {
 						url_image = attachment[i].sizes.full.url;
 					}
 				} else {
@@ -69,16 +81,31 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 				
 				var $img = $('<img>')
 					.attr('src', url_image)
+					.attr('alt', '')
 					.css('max-width', '150px');
-				
+
 				var $title = $('<span>').text(attachment[i].title || '');
-				
+
 				var $mime = $('<b>').text('[' + (attachment[i].mime || '') + ']');
-				
-				// Use class for event delegation instead of inline event handler
-				var $removeBtn = $('<div>')
-					.addClass('remove dashicons dashicons-dismiss gf-kgm-remove-attachment');
-				
+
+				// Accessible button with aria-label including attachment title (localized via wp_localize_script)
+				var titleText = attachment[i].title || '';
+				var removeLabel = (typeof gf_kgm_i18n !== 'undefined' && gf_kgm_i18n.removeAttachment)
+					? gf_kgm_i18n.removeAttachment.replace('%s', titleText)
+					: 'Remove ' + titleText;
+
+				var $removeBtn = $('<button>')
+					.attr('type', 'button')
+					.attr('aria-label', removeLabel)
+					.addClass('remove gf-kgm-remove-attachment')
+					.css({ background: 'none', border: 'none', padding: 0, cursor: 'pointer' });
+
+				var $icon = $('<span>')
+					.addClass('dashicons dashicons-dismiss')
+					.attr('aria-hidden', 'true');
+
+				$removeBtn.append($icon);
+
 				// Build the structure safely
 				$li.append($img);
 				$li.append($('<br>'));
@@ -87,9 +114,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 				$li.append($mime);
 				$li.append($removeBtn);
 				
-				$('#attachment_ids').val(currentIDS);
-				$('.details').append($li);
-			}				
+				$(LIST_SELECTOR).append($li);
+			}
+
+			// Write back once after the loop (avoids N redundant DOM writes)
+			$('#attachment_ids').val(currentIDS);
 		});
 		mediaframes.open();
 	}
@@ -104,16 +133,16 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 		// Rebuild attachment IDs list safely
 		var attachmentIds = [];
-		$('.details li').each(function(){
-			var attachmentId = parseInt($(this).data('id'), 10);
+		$(LIST_SELECTOR + ' li').each( function() {
+			var attachmentId = parseInt( $( this ).data( 'id' ), 10 );
 			// Only add valid numeric IDs to prevent XSS
-			if (!isNaN(attachmentId) && attachmentId > 0) {
-				attachmentIds.push(attachmentId);
+			if ( ! isNaN( attachmentId ) && attachmentId > 0 ) {
+				attachmentIds.push( attachmentId );
 			}
-		});
-		
+		} );
+
 		// Join valid IDs with comma
-		var currentIDS = attachmentIds.join(',');
+		var currentIDS = attachmentIds.join( ',' );
 		$('#attachment_ids').val(currentIDS);
 	}
 

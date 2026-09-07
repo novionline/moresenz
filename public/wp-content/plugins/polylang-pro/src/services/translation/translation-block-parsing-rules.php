@@ -70,6 +70,9 @@ class PLL_Translation_Block_Parsing_Rules {
 			'label' => true,
 			'title' => true,
 		),
+		'core/playlist'                     => array(
+			'caption' => true,
+		),
 		'core/post-excerpt'                 => array(
 			'moreText' => true,
 		),
@@ -100,6 +103,9 @@ class PLL_Translation_Block_Parsing_Rules {
 			'buttonText'  => true,
 		),
 		'core/social-link'                  => array(
+			'label' => true,
+		),
+		'core/tab-panel'                    => array(
 			'label' => true,
 		),
 		'core/widget-group'                 => array(
@@ -176,6 +182,9 @@ class PLL_Translation_Block_Parsing_Rules {
 		'core/subhead'           => array(
 			'//p',
 		),
+		'core/tab-list'          => array(
+			'//button',
+		),
 		'core/table'             => array(
 			'//th',
 			'//td',
@@ -210,6 +219,8 @@ class PLL_Translation_Block_Parsing_Rules {
 		'core/separator',
 		'core/shortcode',
 		'core/spacer',
+		'core/tab-panels',
+		'core/tabs',
 	);
 
 	/**

@@ -58,6 +58,7 @@ class PLL_Pro {
 
 		// Prolylang Pro is equivalent to Polylang for plugin dependencies.
 		add_filter( 'wp_plugin_dependencies_slug', array( $this, 'convert_plugin_dependency' ) );
+		add_filter( 'plugins_api_result', array( $this, 'convert_plugin_dependency_in_api_response' ), 10, 2 );
 
 		// Loads the modules.
 		$this->load_modules( $polylang );
@@ -113,12 +114,72 @@ class PLL_Pro {
 	 * This allows plugins requiring Polylang to work with Polylang Pro too.
 	 *
 	 * @since 3.7
+	 * @since 3.8.8 Also converts the Polylang Pro slug.
 	 *
 	 * @param string $slug The plugin slug.
 	 * @return string
 	 */
 	public function convert_plugin_dependency( $slug ): string {
-		return 'polylang' === $slug ? dirname( POLYLANG_BASENAME ) : (string) $slug;
+		return in_array( (string) $slug, array( 'polylang', 'polylang-pro' ), true ) ? dirname( POLYLANG_BASENAME ) : (string) $slug;
+	}
+
+	/**
+	 * Filters the API response to convert the Polylang plugin slug to Polylang Pro in plugin dependencies.
+	 *
+	 * This prevents the "Install now" button from the "Add Plugins" screen to be disabled for plugins requiring Polylang.
+	 *
+	 * @since 3.8.8
+	 *
+	 * @param object|WP_Error $response Response object or `WP_Error`.
+	 * @param string          $action The type of information being requested from the Plugin Installation API.
+	 * @return object|WP_Error
+	 */
+	public function convert_plugin_dependency_in_api_response( $response, $action ) {
+		if ( ! $response instanceof stdclass ) {
+			return $response;
+		}
+
+		if ( 'query_plugins' === $action && ! empty( $response->plugins ) && is_array( $response->plugins ) ) {
+			foreach ( $response->plugins as $i => $plugin ) {
+				if ( ! is_array( $plugin ) || empty( $plugin['requires_plugins'] ) || ! is_array( $plugin['requires_plugins'] ) ) {
+					continue;
+				}
+
+				/** @phpstan-var stdClass&object{plugins: list<array{requires_plugins: list<string>}>} $response */
+				$response->plugins[ $i ]['requires_plugins'] = $this->replace_requires_plugins( $plugin['requires_plugins'] );
+			}
+
+			return $response;
+		}
+
+		if ( 'plugin_information' === $action && ! empty( $response->requires_plugins ) && is_array( $response->requires_plugins ) ) {
+			/** @phpstan-var stdClass&object{requires_plugins: list<string>} $response */
+			$response->requires_plugins = $this->replace_requires_plugins( $response->requires_plugins );
+		}
+
+		return $response;
+	}
+
+	/**
+	 * Replaces Polylang dependency slugs with the installed plugin directory slug.
+	 *
+	 * @since 3.8.8
+	 *
+	 * @param mixed[] $requires_plugins Plugin dependency slugs.
+	 * @return string[] Updated or unchanged dependency slugs.
+	 */
+	private function replace_requires_plugins( array $requires_plugins ): array {
+		$requires_plugins = array_values( array_filter( $requires_plugins, 'is_string' ) );
+		$search_for       = array( 'polylang', 'polylang-pro' );
+
+		if ( empty( array_intersect( $search_for, $requires_plugins ) ) ) {
+			return $requires_plugins;
+		}
+
+		return array_merge(
+			array_diff( $requires_plugins, $search_for ),
+			array( dirname( POLYLANG_BASENAME ) )
+		);
 	}
 
 	/**

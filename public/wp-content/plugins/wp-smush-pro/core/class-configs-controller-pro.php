@@ -4,9 +4,10 @@ namespace Smush\Core;
 
 use Smush\Core\Membership\Membership;
 
-class Configs_Controller_Pro extends Controller {
+class Configs_Controller_Pro extends Configs_Controller {
 
 	public function __construct() {
+		parent::__construct();
 		$this->register_action( 'wp_ajax_smush_hub_sync_config', array( $this, 'hub_sync_config' ) );
 	}
 

@@ -1,4 +1,8 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 		// Load WooCommerce default styles if WooCommerce is active.
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) && function_exists( 'WC' ) ) {
 	wp_enqueue_style(
@@ -97,8 +101,7 @@ if ( ! empty( $settings ) && isset( $settings->no_conflict_mode ) ) {
 	$lpage_uuid       = get_post_meta( $post->ID, '_seedprod_page_uuid', true );
 }
 
-// remove vue comment bug.
-$content = str_replace( 'function(e,n,r,i){return fn(t,e,n,r,i,!0)}', '', $content );
+$content = seedprod_lite_strip_vue_render_helpers( $content );
 
 $plugin_url = SEEDPROD_PLUGIN_URL;
 
@@ -437,9 +440,8 @@ if ( ! empty( $settings ) ) {
 	<?php
 	if ( true === $include_masonarylayout_sdk ) {
 		?>
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/masonry.pkgd.js" defer></script> 
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/imagesloaded.pkgd.min.js" defer></script> 
-		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/isotope.pkgd.js" defer></script> 
+		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/imagesloaded.pkgd.min.js" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
+		<script src="<?php echo esc_url( $plugin_url ); ?>public/js/isotope.pkgd.js" defer></script> <?php // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript ?>
 
 
 		<?php

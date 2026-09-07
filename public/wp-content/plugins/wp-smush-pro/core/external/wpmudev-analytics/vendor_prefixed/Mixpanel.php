@@ -139,7 +139,7 @@ class Mixpanel extends Base_MixpanelBase
     {
         parent::__construct($options);
         $this->people = new Producers_MixpanelPeople($token, $options);
-        $this->_events = new Producers_MixpanelEvents($token, $options);	   	    	 	 	 		 		 	
+        $this->_events = new Producers_MixpanelEvents($token, $options);
         $this->group = new Producers_MixpanelGroups($token, $options);
     }
     /**

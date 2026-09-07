@@ -50,6 +50,7 @@ class S3_Controller extends Controller {
 		$this->register_action( 'smush_setting_column_right_inside', array( $this, 's3_setup_message' ), 15 );
 		$this->register_action( 'wp_smush_header_notices', array( $this, 'show_s3_support_required_notice' ) );
 		$this->register_filter( 'wp_smush_should_fetch_external_image_dimensions', array( $this, 'allow_fetch_image_dimensions_from_s3' ), 10, 2 );
+		$this->register_action( 'wp_ajax_dismiss_s3support_alert', array( $this, 'dismiss_s3support_alert' ) );
 	}
 
 	public function maybe_initialize() {
@@ -544,5 +545,19 @@ class S3_Controller extends Controller {
 		}
 
 		return $allow_fetch;
+	}
+
+	/**
+	 * Hide S3 support alert by setting a flag.
+	 */
+	public function dismiss_s3support_alert() {
+		check_ajax_referer( 'wp-smush-ajax' );
+		// Check capability.
+		if ( ! Helper::is_user_allowed( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Unauthorized', 'wp-smushit' ), 403 );
+		}
+		// Just set a flag.
+		update_site_option( 'wp-smush-hide_s3support_alert', 1 );
+		wp_send_json_success();
 	}
 }

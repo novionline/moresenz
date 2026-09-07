@@ -31,6 +31,7 @@ class Assets extends Controller {
 	 * Initialize the assets controller.
 	 */
 	public function init() {
+		add_action( 'init', [ $this, 'register_scripts' ], 1 );
 		add_action( 'wp_enqueue_scripts', [ $this, 'register_scripts' ], 1 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'register_scripts' ], 1 );
 		add_action( 'enqueue_block_editor_assets', [ $this, 'register_scripts' ], 1 );
@@ -57,7 +58,12 @@ class Assets extends Controller {
 		}
 
 		$packages = [
-			'admin-bar'        => [
+			'addons-page'          => [
+				'bundled' => false,
+				'handle'  => 'popup-maker-addons-page',
+				'styles'  => true,
+			],
+			'admin-bar'           => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-admin-bar',
 				'styles'   => true,
@@ -73,12 +79,17 @@ class Assets extends Controller {
 					],
 				],
 			],
-			'admin-marketing'  => [
+			'admin-marketing'     => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-admin-marketing',
 				'styles'  => true,
 			],
-			'block-editor'     => [
+			'admin-notifications' => [
+				'bundled' => false,
+				'handle'  => 'popup-maker-admin-notifications',
+				'styles'  => true,
+			],
+			'block-editor'        => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-block-editor',
 				'styles'   => true,
@@ -87,6 +98,8 @@ class Assets extends Controller {
 				'vars'     => [
 					'cta_types'                  => $this->container->get( 'cta_types' )->get_as_array(),
 					'popups'                     => pum_get_all_popups(),
+					'homeUrl'                    => home_url(),
+					'previewNonce'               => wp_create_nonce( 'popup-preview' ),
 					'popupTriggerExcludedBlocks' => apply_filters(
 						'pum_block_editor_popup_trigger_excluded_blocks',
 						[
@@ -97,7 +110,7 @@ class Assets extends Controller {
 					),
 				],
 			],
-			'block-library'    => [
+			'block-library'       => [
 				'bundled'      => false,
 				'handle'       => 'popup-maker-block-library',
 				'styles'       => true,
@@ -105,11 +118,12 @@ class Assets extends Controller {
 				'varsName'     => 'popupMakerBlockLibrary',
 				'vars'         => function () {
 					return [
-						'homeUrl' => home_url(),
+						'homeUrl'    => home_url(),
+						'paramNames' => \PopupMaker\get_param_names(),
 					];
 				},
 			],
-			'components'       => [
+			'components'          => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-components',
 				'styles'   => true,
@@ -120,7 +134,7 @@ class Assets extends Controller {
 					];
 				},
 			],
-			'core-data'        => [
+			'core-data'           => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-core-data',
 				'styles'   => false,
@@ -129,13 +143,26 @@ class Assets extends Controller {
 				],
 				'varsName' => 'popupMakerCoreData',
 				'vars'     => function () {
+					$settings = \pum_get_options();
+
+					// Never expose raw license keys in page JS. This covers the Pro key
+					// (popup_maker_pro_license_key) and legacy addon keys (*_license_key).
+					// The license UIs have their own masked source of truth.
+					if ( is_array( $settings ) ) {
+						foreach ( array_keys( $settings ) as $setting_key ) {
+							if ( is_string( $setting_key ) && '_license_key' === substr( $setting_key, -12 ) ) {
+								unset( $settings[ $setting_key ] );
+							}
+						}
+					}
+
 					return [
 						// TODO Migrate to use plugin('options')->get_all();
-						'currentSettings' => \pum_get_options(),
+						'currentSettings' => $settings,
 					];
 				},
 			],
-			'cta-admin'        => [
+			'cta-admin'           => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-cta-admin',
 				'styles'   => true,
@@ -146,7 +173,7 @@ class Assets extends Controller {
 					];
 				},
 			],
-			'cta-editor'       => [
+			'cta-editor'          => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-cta-editor',
 				'styles'   => true,
@@ -158,68 +185,73 @@ class Assets extends Controller {
 				},
 					// 'head'     => true,
 			],
-			'dashboard'        => [
+			'dashboard'           => [
 				'bundled'  => false,
 				'handle'   => 'popup-maker-dashboard',
 				'styles'   => true,
 				'varsName' => 'popupMakerDashboard',
 				'vars'     => [],
 			],
-			'data'             => [
+			'data'                => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-data',
 				'styles'  => false,
 				// 'varsName' => 'popupMakerData',
 				// 'vars'     => [],
 			],
-			'fields'           => [
+			'fields'              => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-fields',
 				'styles'  => false,
 				// 'varsName' => 'popupMakerFields',
 				// 'vars'     => [],
 			],
-			'i18n'             => [
+			'i18n'                => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-i18n',
 				'styles'  => false,
 				// 'varsName' => 'popupMakerI18n',
 				// 'vars'     => [],
 			],
-			'icons'            => [
+			'icons'               => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-icons',
 				'styles'  => true,
 				// 'varsName' => 'popupMakerIcons',
 				// 'vars'     => [],
 			],
-			'layout'           => [
+			'layout'              => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-layout',
 				'styles'  => true,
 				// 'varsName' => 'popupMakerLayout',
 				// 'vars'     => [],
 			],
-			'popup-admin'      => [
+			'popup-admin'         => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-popup-admin',
 				'styles'  => true,
 			],
-			'registry'         => [
+			'registry'            => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-registry',
 				'styles'  => false,
 				// 'varsName' => 'popupMakerRegistry',
 				// 'vars'     => [],
 			],
-			'use-query-params' => [
+			'skeleton'            => [
+				'bundled' => false,
+				'handle'  => 'popup-maker-skeleton',
+				'styles'  => true,
+			],
+			'use-query-params'    => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-use-query-params',
 				'styles'  => false,
 				// 'varsName' => 'popupMakerUseQueryParams',
 				// 'vars'     => [],
 			],
-			'utils'            => [
+			'utils'               => [
 				'bundled' => false,
 				'handle'  => 'popup-maker-utils',
 				'styles'  => false,
@@ -279,12 +311,13 @@ class Assets extends Controller {
 				);
 
 			if ( 'block-editor' === $package ) {
-				if ( is_admin() && 'widgets' !== $screen->id ) {
+				if ( is_admin() && ( ! $screen || 'widgets' !== $screen->id ) ) {
 					$js_deps = array_merge( $js_deps, [ 'wp-edit-post' ] );
 				}
 			}
 
-				$footer = $package_data['head'] ?? true;
+				// 'head' => true means load in the head, i.e. NOT in the footer.
+				$footer = ! ( $package_data['head'] ?? false );
 
 			if ( $bundled ) {
 				pum_register_script( $handle, $js_file, $js_deps, $meta['version'], $footer );
@@ -293,7 +326,9 @@ class Assets extends Controller {
 				wp_register_script( $handle, $js_file, $js_deps, $meta['version'], $footer );
 			}
 
-			if ( isset( $package_data['styles'] ) && $package_data['styles'] ) {
+				$css_path = $this->container->get_path( "$path/$package{$rtl}.css" );
+
+			if ( isset( $package_data['styles'] ) && $package_data['styles'] && file_exists( $css_path ) ) {
 				$css_file = $this->container->get_url( "$path/$package{$rtl}.css" );
 				$css_deps = [ 'wp-components', 'wp-block-editor', 'dashicons' ];
 
@@ -305,7 +340,9 @@ class Assets extends Controller {
 				}
 			}
 
-			if ( isset( $package_data['block_styles'] ) && $package_data['block_styles'] ) {
+				$block_css_path = $this->container->get_path( "$path/$package-style{$rtl}.css" );
+
+			if ( isset( $package_data['block_styles'] ) && $package_data['block_styles'] && file_exists( $block_css_path ) ) {
 				$block_css_file = $this->container->get_url( "$path/$package-style{$rtl}.css" );
 				$block_css_deps = [ 'wp-block-editor' ];
 
@@ -374,8 +411,109 @@ class Assets extends Controller {
 				'adminUrl'    => admin_url(),
 				'wpVersion'   => $wp_version,
 				'permissions' => $permissions,
+				'layoutVars'  => $this->get_layout_vars(),
 			]
 		);
+	}
+
+	/**
+	 * Vars consumed by `@popup-maker/layout` admin pages.
+	 *
+	 * @return array<string,mixed>
+	 */
+	private function get_layout_vars() {
+		$vars = apply_filters(
+			'popup_maker/layout_vars',
+			[
+				'navTabs'            => [],
+				'supportMenuItems'   => [],
+				'showSupport'        => true,
+			]
+		);
+
+		if ( ! is_array( $vars ) ) {
+			$vars = [
+				'navTabs'          => [],
+				'supportMenuItems' => [],
+				'showSupport'      => true,
+			];
+		}
+
+		if ( isset( $vars['navTabs'] ) ) {
+			$vars['navTabs'] = $this->sanitize_layout_nav_tabs( $vars['navTabs'] );
+		}
+
+		if ( isset( $vars['supportMenuItems'] ) ) {
+			$vars['supportMenuItems'] = $this->sanitize_layout_support_menu_items( $vars['supportMenuItems'] );
+		}
+
+		if ( isset( $vars['showSupport'] ) ) {
+			$vars['showSupport'] = (bool) $vars['showSupport'];
+		}
+
+		return $vars;
+	}
+
+	/**
+	 * Sanitize nav tab definitions before localizing to JS.
+	 *
+	 * @param mixed $tabs Shell tab list.
+	 * @return array<int,array<string,string>>
+	 */
+	private function sanitize_layout_nav_tabs( $tabs ) {
+		$sanitized = [];
+
+		foreach ( (array) $tabs as $tab ) {
+			if ( ! is_array( $tab ) || empty( $tab['id'] ) || empty( $tab['href'] ) ) {
+				continue;
+			}
+
+			$sanitized[] = [
+				'id'    => sanitize_key( $tab['id'] ),
+				'title' => sanitize_text_field( $tab['title'] ?? '' ),
+				'href'  => esc_url_raw( $tab['href'] ),
+			];
+		}
+
+		return $sanitized;
+	}
+
+	/**
+	 * Sanitize support menu items before localizing to JS.
+	 *
+	 * @param mixed $items Support menu item list.
+	 * @return array<int,array<string,string>>
+	 */
+	private function sanitize_layout_support_menu_items( $items ) {
+		$sanitized = [];
+
+		foreach ( (array) $items as $item ) {
+			if ( ! is_array( $item ) || empty( $item['id'] ) || empty( $item['label'] ) ) {
+				continue;
+			}
+
+			$sanitized_item = [
+				'id'    => sanitize_key( $item['id'] ),
+				'label' => sanitize_text_field( $item['label'] ),
+				'group' => sanitize_key( $item['group'] ?? 'primary' ),
+			];
+
+			if ( ! empty( $item['href'] ) ) {
+				$sanitized_item['href'] = esc_url_raw( $item['href'] );
+			}
+
+			if ( ! empty( $item['target'] ) ) {
+				$sanitized_item['target'] = sanitize_text_field( $item['target'] );
+			}
+
+			if ( ! empty( $item['icon'] ) ) {
+				$sanitized_item['icon'] = sanitize_key( $item['icon'] );
+			}
+
+			$sanitized[] = $sanitized_item;
+		}
+
+		return $sanitized;
 	}
 
 	/**

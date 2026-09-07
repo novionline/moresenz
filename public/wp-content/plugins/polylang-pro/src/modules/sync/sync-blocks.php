@@ -261,6 +261,20 @@ class PLL_Sync_Blocks {
 				}
 				break;
 
+			case 'core/playlist-track':
+				if ( empty( $block['attrs']['id'] ) || empty( $block['attrs']['title'] ) ) {
+					break;
+				}
+
+				$tr_track = get_post(
+					$this->ids->translate( (int) $block['attrs']['id'], 'attachment', $this->target_language, $this->target_post )
+				);
+
+				if ( $tr_track instanceof WP_Post ) {
+					$block['attrs']['title'] = $tr_track->post_title;
+				}
+				break;
+
 			case 'core/media-text':
 				if ( isset( $block['attrs']['mediaLink'] ) ) {
 					$block['attrs']['mediaLink'] = preg_replace(

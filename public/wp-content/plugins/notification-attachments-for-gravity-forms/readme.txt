@@ -5,7 +5,7 @@ Tags: gravity forms notification attachments
 Requires at least: 5.0
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 0.6.3
+Stable tag: 0.6.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,11 @@ Plugin use default Gravity Forms send hook.
 
 
 == Changelog ==
+
+= 0.6.4 =
+* Compatible with Gravity Forms 3.0.
+* The "Gravity Forms is not active" notice is now shown only to users who can manage plugins, and links to the plugins screen.
+* Internal reliability and hardening improvements.
 
 = 0.6.3 =
 * Update compatibility versions (PHP/WP).
@@ -115,6 +120,9 @@ Plugin use default Gravity Forms send hook.
 
 == Upgrade Notice ==
 
+= 0.6.4 =
+Compatible with Gravity Forms 3.0.
+
 = 0.6.3 =
 Update compatibility versions (PHP/WP).
 
@@ -168,5 +176,3 @@ Compatibility WordPress 5.7
 
 = 0.1 =
 Initial release.
-
-`<?php code(); // goes in backticks ?>`

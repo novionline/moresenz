@@ -99,7 +99,7 @@ foreach ( $posts as $post ) {
             break;
     }
 
-    $img  = '<img src="' . esc_attr( $imageSrc ) . '" alt="' . esc_html( $imageAlt ) . '"';
+    $img  = '<img src="' . esc_attr( $imageSrc ) . '" alt="' . esc_attr( $imageAlt ) . '"';
     $img .= ' class="' . "wp-image-{$post->ID}" . '"/>';
 
     $li  = '<li class="blocks-gallery-item">';

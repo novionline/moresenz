@@ -5,9 +5,9 @@ Plugin URI: https://wppopupmaker.com/?utm_campaign=readme&utm_medium=referral&ut
 Donate link:
 Tags:  marketing, popup, popups, optin, conversion
 Requires at least: 6.7
-Tested up to: 6.9.4
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.22.0
+Stable tag: 1.24.0
 License: GPLv2 or later
 License URI:  http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -251,6 +251,9 @@ Using "conditions", you can specify where the popup will be shown. Check out [ou
 = Why aren't my popups opening/working? =
 There are several common causes for this, check [this guide for help](https://wppopupmaker.com/docs/problem-solving/troubleshooting-your-first-popup/?utm_campaign=readme&utm_medium=referral&utm_source=readme-faqs&utm_content=popup-wont-open) resolving it.
 
+= Where do I report security bugs found in this plugin? =
+Please report security bugs found in the source code of the Popup Maker plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/5fbfef60-ab55-429d-9ed1-88abf0efa9bd). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Screenshots ==
 
 1. Example popup using our built-in Ninja Forms integration
@@ -271,6 +274,70 @@ For the latest updates and release information:
 * Join our [community](https://wppopupmaker.com/community/) for important release announcements and discussions
 * Visit our [changelog](https://wppopupmaker.com/changelog/) for detailed version history
 * View our [complete development changelog](https://github.com/PopupMaker/Popup-Maker/blob/master/CHANGELOG.md)
+
+= 1.24.0 - 2026-08-03 =
+
+**Security**
+
+-   Security and resilience hardening based on continuous AI scanning.
+-   Hardened Subscribers page pagination URL escaping to prevent cross-site scripting (XSS).
+
+**Features**
+
+-   Added the free [Popup Maker Debug Tools Chrome extension](https://chromewebstore.google.com/detail/popup-maker-debug-tools/hhkgmkibaalfkkndobkckdopemgioago) for testing and troubleshooting popups—even while logged out of WordPress.
+-   Added an "Open Popup" click action to the Beaver Builder Button module, so you can open any popup on click without writing custom code. The chosen popup is automatically loaded on the page even if its display conditions wouldn't otherwise match.
+
+**Improvements**
+
+-   Reorganized the Popup Maker admin menu into clearer creation, audience, performance, and administration groups. The Subscribers page now remains hidden until subscriber storage has been initialized.
+-   Improved Calls to Action management with instant-opening editors, loading placeholders, draft-first creation that avoids abandoned records, and more reliable saving and sorting.
+-   Improved compatibility with popular post duplication plugins so cloned popups start with fresh analytics stats and other popup-specific identity data.
+-   Corrected the plural of "Call to Action" to "Calls to Action" across the admin. Thanks @swinggraphics.
+-   Added a `popup_maker/overlay_zindex` filter to control the popup overlay's stacking order, so sites can lower it below the WordPress admin bar (or other elements) when needed.
+
+**Fixes**
+
+-   Fixed pending upgrade notices causing a fatal error on logged-in front-end pages by removing reliance on admin-only form helpers. Closes #1253.
+-   Fixed generic WordPress editors and page builders receiving 404 responses for Popup and Popup Theme REST collections by exposing standard `wp/v2` aliases while preserving Popup Maker's versioned API.
+-   Fixed Gravity Forms inside popups no longer submitting via AJAX (regression since 1.21.0), which broke text confirmations and Form Submission triggers after submit.
+-   Improved keyboard focus when closing popups: focus returns to the previously focused element, or to the top of the document when there wasn't one (auto-open popups) or it no longer exists. Thanks @swinggraphics.
+-   Fixed Click Open "Extra Selectors" starting with a number (e.g. `.2026-selector`) being rejected as invalid. Selectors are now validated against jQuery's engine, which handles the actual matching.
+-   Fixed a bug where a popup could unexpectedly lose its triggers, conditions, and display settings — leaving only its theme — after saving, a plugin update, or when another plugin or page builder saved the popup. Saves that would erase an existing popup's settings are now prevented and report an error instead of silently discarding your configuration.
+-   Fixed CTA Button blocks losing button content during transforms, clearing links while CTA data loaded, and reporting validation errors for blocks saved by previous versions.
+-   Fixed non-AJAX form submissions being attributed to the wrong popup—or no popup—and improved Newsletter and Beaver Builder conversion tracking reliability.
+-   Fixed temporary license API failures causing fatal errors or replacing known license status, and prevented manually entered keys from being lost when add-on-provided license constants appeared or disappeared.
+-   Fixed disabled or unpublished Calls to Action continuing to render or process clicks.
+-   Fixed Popup Category and Tag filters not retaining their selected values and interfering with popup bulk actions.
+-   Fixed bundled translations not loading correctly and plural translations receiving incorrect arguments.
+-   Fixed the Easy Modal v2 importer crashing because its bundled files were loaded from outdated paths.
+-   Fixed “Previous Opens” showing incorrectly after resetting popup analytics.
+
+= 1.23.0 - 2026-06-28 =
+
+**Security**
+
+-   Tightened the permission checks required & improved validation for pro activation.
+-   Additional hardening based on continuous AI scanning.
+
+**Features**
+
+-   Added a "Preview Popup" option to the block editor's Preview menu, matching the classic editor. It opens the popup on the front end in a dedicated tab; clicking it again reuses that same tab, and saving the popup automatically refreshes the open preview so you always see your latest changes.
+-   Added "Disable URL tracking parameters" privacy setting. When enabled, popup links no longer get `?pid=` appended — link clicks are tracked via browser beacons instead (less reliable but non-invasive to URLs).
+
+**Improvements**
+
+-   The popup editor now remembers the last-open settings tab per popup instead of sharing a single tab across all popups, so each popup reopens to the tab you last used.
+
+**Fixes**
+
+-   Fixed the "Preview" button in the classic editor not opening popups — a regression introduced in 1.22.0. You can once again preview popups directly from the editor without having to save and view the live page, now reliably regardless of how quickly the page finishes loading. Thanks to @marklchaves for the fix.
+-   Fixed missing styles for Popup Maker blocks on the front end in some installs — blocks now render with the correct styling without a console warning about a missing stylesheet.
+-   Fixed "Disable popup open tracking" privacy setting now disables link tracking parameters appended and click beacon tracking.
+-   Fixed PHP bug in `pum_get_asset_group_meta()` where `(array) file_exists()` always evaluated as truthy, causing fatal errors when build artifacts were missing.
+-   Fixed condition dropdowns (such as "Categories", "Tags", and other taxonomy selectors) showing duplicate entries and hiding some terms when you had more than ten — every term is now listed once and reachable as you scroll.
+-   Fixed popups taller than the browser window having their top cut off above the screen, which made the start of the content and the close button impossible to reach. Tall popups now keep their top edge in view.
+-   Fixed an invalid "Extra Selectors" value on a Click Open trigger breaking all popup triggers on the page. A malformed selector is now skipped (with a console notice) instead of stopping every trigger from working.
+-   Fixed ACF (Advanced Custom Fields) shortcodes not displaying their values inside popups since ACF 6.3.4, which stopped resolving `[acf]` shortcodes on non-public content. ACF shortcodes now render in popup content again.
 
 = 1.22.0 - 2026-03-31 =
 

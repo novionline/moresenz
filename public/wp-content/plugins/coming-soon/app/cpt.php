@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Reguster seedprod custom post type.
@@ -24,6 +27,15 @@ function seedprod_lite_post_type() {
 	);
 
 	register_post_type( 'seedprod', $args );
+
+	register_post_meta(
+		'seedprod',
+		'_seedprod_theme_template_condition',
+		array(
+			'single'            => true,
+			'sanitize_callback' => 'seedprod_lite_normalize_conditions_json',
+		)
+	);
 }
 $sedprod_pt = post_type_exists( 'seedprod' );
 if ( false === $sedprod_pt ) {

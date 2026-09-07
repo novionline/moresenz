@@ -22,25 +22,28 @@ class PLL_Sync_Block_Parsing_Rules {
 	 * @var array
 	 */
 	private $parsing_rules_attributes = array(
-		'core/audio'      => array(
+		'core/audio'          => array(
 			'attachment' => array( 'id' => true ),
 		),
-		'core/video'      => array(
+		'core/video'          => array(
 			'attachment' => array( 'id' => true ),
 		),
-		'core/image'      => array(
+		'core/image'          => array(
 			'attachment' => array( 'id' => true ),
 		),
-		'core/cover'      => array(
+		'core/cover'          => array(
 			'attachment' => array( 'id' => true ),
 		),
-		'core/gallery'    => array(
+		'core/gallery'        => array(
 			'attachment' => array( 'ids' => true ),
 		),
-		'core/media-text' => array(
+		'core/media-text'     => array(
 			'attachment' => array( 'mediaId' => true ),
 		),
-		'core/block'      => array(
+		'core/playlist-track' => array(
+			'attachment' => array( 'id' => true ),
+		),
+		'core/block'          => array(
 			'wp_block' => array( 'ref' => true ),
 		),
 	);

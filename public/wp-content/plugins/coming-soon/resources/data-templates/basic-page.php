@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 $seedprod_recovery = '
 {
@@ -1355,6 +1358,8 @@ $seedprod_lite_block_templates = '
       "icon":"fas fa-angle-double-down",
       "color":"",
       "fontSize":"48",
+      "fontSize_tablet":"",
+      "fontSize_mobile":"",
       "align":"center",
       "align_mobile":"center",
       "align_tablet":"center",
@@ -1855,6 +1860,8 @@ $seedprod_lite_block_templates = '
     "textColor": "",
     "headerColor": "",
     "iconFontSize":"38",
+    "iconFontSize_tablet":"",
+    "iconFontSize_mobile":"",
     "headerTxt": "My Feature or Benefit",
     "layout": "image",
     "txt": "Description",
@@ -2226,6 +2233,8 @@ $seedprod_lite_block_templates = '
     "headerColor": "",
     "textColor": "",
     "iconFontSize":"38",
+    "iconFontSize_tablet":"",
+    "iconFontSize_mobile":"",
     "iconGap":"20",
     "headerTxt": "My Feature or Benefit",
     "layout": "icon",
@@ -4599,7 +4608,11 @@ $seedprod_lite_block_templates = '
     "teaserVideoPlayIcon": "fas fa-play",
     "iconOpacity": "5",
     "iconFontSize": "100",
+    "iconFontSize_tablet": "",
+    "iconFontSize_mobile": "",
     "teaserVideoIconFontSize": "80",
+    "teaserVideoIconFontSize_tablet": "",
+    "teaserVideoIconFontSize_mobile": "",
     "overlayPlayIconColor": "",
     "teaserVideoPlayIconColor": "#E53935",
     "hideTeaserVideoPlayIcon": false,
@@ -5580,6 +5593,8 @@ $seedprod_lite_block_templates = '
     "fieldborderRight": "1",
     "fieldborderSync": true,
     "buttonFontSize": "",
+    "buttonFontSize_tablet": "",
+    "buttonFontSize_mobile": "",
     "beforeIcon":"",
     "afterIcon":"",
     "shadow": "",
@@ -9148,6 +9163,8 @@ $seedprod_lite_block_templates = '
     "zoomButtonPositionRight": "1",
     "zoomButtonPositionTop": "1",
     "zoomButtonFontSize": "16",
+    "zoomButtonFontSize_tablet": "",
+    "zoomButtonFontSize_mobile": "",
     "zoomButtonColor": "",
     "zoomButtonBackgroundColor": "",
     "zoomButtonBorderRadius": "",

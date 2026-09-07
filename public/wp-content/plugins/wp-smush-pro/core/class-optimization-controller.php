@@ -41,12 +41,14 @@ class Optimization_Controller extends Controller {
 		$this->optimizer        = Optimizer::get_instance();
 
 		$this->register_action( 'wp_smush_image_sizes_changed', array( $this, 'mark_global_stats_as_outdated' ) );
-		$this->register_action( 'wp_smush_settings_updated', array(
-			$this,
-			'maybe_mark_global_stats_as_outdated',
-		), 10, 2 );
 
 		$this->register_action( 'wp_ajax_optimize_attachment', array( $this, 'optimize_attachment' ) );
+		$client_side_media_processing_filter_priority = 100;
+		$this->register_filter(
+			'wp_client_side_media_processing_enabled',
+			array( $this, 'disable_client_side_media_processing' ),
+			$client_side_media_processing_filter_priority
+		);
 		$this->register_action( 'wp_async_wp_generate_attachment_metadata', array(
 			$this,
 			'auto_optimize_attachment_async',
@@ -68,17 +70,12 @@ class Optimization_Controller extends Controller {
 		return self::$instance;
 	}
 
-	public function mark_global_stats_as_outdated() {
-		$this->global_stats->mark_as_outdated();
+	public function disable_client_side_media_processing( $_enabled ) {
+		return false;
 	}
 
-	public function maybe_mark_global_stats_as_outdated( $old_settings, $settings ) {
-		$old_original            = ! empty( $old_settings['original'] );
-		$new_original            = ! empty( $settings['original'] );
-		$original_status_changed = $old_original !== $new_original;
-		if ( $original_status_changed ) {
-			$this->mark_global_stats_as_outdated();
-		}
+	public function mark_global_stats_as_outdated() {
+		$this->global_stats->mark_as_outdated();
 	}
 
 	public function optimize_attachment() {
@@ -136,17 +133,14 @@ class Optimization_Controller extends Controller {
 	}
 
 	public function maybe_auto_optimize_attachment_sync( $meta, $id ) {
-		// We need to check if this call originated from Gutenberg and allow only media.
-		if ( Helper::is_non_rest_media() ) {
-			// If not - return image metadata.
+		if ( defined( 'WP_SMUSH_ASYNC' ) && WP_SMUSH_ASYNC ) {
 			return $meta;
 		}
 
-		$upload_attachment    = filter_input( INPUT_POST, 'action', FILTER_SANITIZE_SPECIAL_CHARS );
-		$is_upload_attachment = 'upload-attachment' === $upload_attachment || isset( $_POST['post_id'] );
-
-		// Our async task runs when action is upload-attachment and post_id found. So do not run on these conditions.
-		if ( $is_upload_attachment && defined( 'WP_SMUSH_ASYNC' ) && WP_SMUSH_ASYNC ) {
+		// We need to check if this call originated from Gutenberg and allow only media.
+		$is_rest_non_media_request = Helper::is_non_rest_media();
+		if ( $is_rest_non_media_request ) {
+			// If not - return image metadata.
 			return $meta;
 		}
 

@@ -62,13 +62,10 @@ class Webp_Controller extends Controller {
 			'add_webp_optimization',
 		), self::$webp_optimization_order, 2 );
 		$this->register_filter( 'wp_smush_global_optimization_stats', array( $this, 'add_webp_global_stats' ) );
+		$this->register_filter( 'wp_smush_global_stats_digest_keys', array( $this, 'add_digest_keys' ) );
 		$this->register_action( 'wp_smush_before_restore_backup', array(
 			$this,
 			'delete_webp_versions_on_restore',
-		), 10, 2 );
-		$this->register_action( 'wp_smush_settings_updated', array(
-			$this,
-			'maybe_mark_global_stats_as_outdated',
 		), 10, 2 );
 		$this->register_filter( 'wp_smush_content_transforms', array(
 			$this,
@@ -81,7 +78,6 @@ class Webp_Controller extends Controller {
 		), self::$webp_configuration_order );
 
 		/** Ajax actions */
-		$this->register_action( 'wp_ajax_smush_webp_toggle', array( $this, 'ajax_webp_toggle' ) );
 		$this->register_action( 'wp_ajax_webp_switch_method', array( $this, 'ajax_switch_webp_method' ) );
 		$this->register_action( 'wp_ajax_smush_webp_get_status', array(
 			$this,
@@ -155,12 +151,10 @@ class Webp_Controller extends Controller {
 		return $stats;
 	}
 
-	public function maybe_mark_global_stats_as_outdated( $old_settings, $settings ) {
-		$old_webp_status = ! empty( $old_settings['webp_mod'] );
-		$new_webp_status = ! empty( $settings['webp_mod'] );
-		if ( $old_webp_status !== $new_webp_status ) {
-			$this->global_stats->mark_as_outdated();
-		}
+	public function add_digest_keys( $keys ) {
+		$keys[] = 'webp_mod';
+
+		return $keys;
 	}
 
 	public function ajax_switch_webp_method() {
@@ -183,27 +177,6 @@ class Webp_Controller extends Controller {
 
 		$webp_method = wp_unslash( $_POST['method'] );
 		$this->configuration->switch_method( $webp_method );
-
-		wp_send_json_success();
-	}
-
-	public function ajax_webp_toggle() {
-		check_ajax_referer( 'save_wp_smush_options' );
-
-		$capability = is_multisite() ? 'manage_network' : 'manage_options';
-		if ( ! Helper::is_user_allowed( $capability ) ) {
-			wp_send_json_error(
-				array(
-					'message' => __( "You don't have permission to do this.", 'wp-smushit' ),
-				),
-				403
-			);
-		}
-
-		$param       = isset( $_POST['param'] ) ? sanitize_text_field( wp_unslash( $_POST['param'] ) ) : '';
-		$enable_webp = 'true' === $param;
-
-		$this->configuration->toggle_module( $enable_webp );
 
 		wp_send_json_success();
 	}

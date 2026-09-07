@@ -153,6 +153,33 @@ class CDN_Status {
 		return trailingslashit( "https://{$this->endpoint_url}/{$this->site_id}" );
 	}
 
+	/**
+	 * Derived status string based on CDN state and bandwidth usage.
+	 * Returns: 'activating' | 'overcap' | 'upgrade' | 'enabled'
+	 *
+	 * Note: does NOT handle 'disabled' — that is CDN_Helper's concern.
+	 *
+	 * @return string
+	 */
+	public function get_status_string() {
+		if ( $this->cdn_enabling ) {
+			return 'activating';
+		}
+
+		$plan       = $this->bandwidth_plan ?: 10;
+		$percentage = round( 100 * $this->bandwidth / 1024 / 1024 / 1024 / $plan );
+
+		if ( $percentage >= 100 ) {
+			return 'overcap';
+		}
+
+		if ( $percentage >= 90 ) {
+			return 'upgrade';
+		}
+
+		return $this->cdn_enabled ? 'enabled' : 'disabled';
+	}
+
 	// -------------------------------------------------------------------------
 	// React serialisation
 	// -------------------------------------------------------------------------

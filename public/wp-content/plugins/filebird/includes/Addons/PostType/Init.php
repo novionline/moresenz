@@ -44,7 +44,59 @@ class Init {
             add_filter( 'manage_edit-' . $post_type . '_sortable_columns', array( $this, 'register_post_modified_sortable' ) );
             add_filter( 'manage_' . $post_type . '_posts_columns', array( $this, 'manager_accounts_columns' ), 10, 1 );
             add_action( 'manage_' . $post_type . '_posts_custom_column', array( $this, 'manager_accounts_show_columns' ), 10, 2 );
+            add_action( 'save_post_' . $post_type, array( $this, 'auto_assign_folder' ), 10, 2 );
         }
+    }
+
+    public function auto_assign_folder( $post_id, $post ) {
+        if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+            return;
+        }
+
+        $post_type = $post->post_type;
+        if ( ! $this->isPostTypeAvailable( $post_type ) ) {
+            return;
+        }
+
+        if ( ! $this->isRefererFromFolderTree( $post_type ) ) {
+            return;
+        }
+
+        $taxonomy = $this->getTaxonomyName( $post_type );
+
+        // Already in a folder → don't overwrite (e.g. on update or after the user moved it).
+        $existing = wp_get_object_terms( $post_id, $taxonomy, array( 'fields' => 'ids' ) );
+        if ( is_wp_error( $existing ) || ! empty( $existing ) ) {
+            return;
+        }
+
+        $config = $this->load_config( $post_type, get_current_user_id() );
+        $folder = intval( $config->getSetting( 'FOLDER_STARTUP' ) );
+
+        // Only assign when the user is browsing a real folder (skip All Folders / Uncategorized).
+        if ( $folder <= 0 || ! MainModel::isFolderExist( $folder, $taxonomy ) ) {
+            return;
+        }
+
+        wp_set_object_terms( $post_id, array( $folder ), $taxonomy, false );
+    }
+
+    private function isRefererFromFolderTree( $post_type ) {
+        $referer = wp_get_referer();
+        if ( empty( $referer ) ) {
+            return false;
+        }
+
+        $path = wp_parse_url( $referer, PHP_URL_PATH );
+        if ( empty( $path ) || 'edit.php' !== basename( $path ) ) {
+            return false;
+        }
+
+        parse_str( (string) wp_parse_url( $referer, PHP_URL_QUERY ), $query );
+        // edit.php with no post_type defaults to "post".
+        $referer_post_type = isset( $query['post_type'] ) ? sanitize_key( $query['post_type'] ) : 'post';
+
+        return $referer_post_type === $post_type;
     }
 
     // TODO: Get default folder from user meta maybe the folder is deleted or not exist

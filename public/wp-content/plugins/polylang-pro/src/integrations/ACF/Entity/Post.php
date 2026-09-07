@@ -6,6 +6,7 @@
 namespace WP_Syntex\Polylang_Pro\Integrations\ACF\Entity;
 
 use WP_Post;
+use WP_Syntex\Polylang\Capabilities\Capabilities;
 use PLL_Admin_Links;
 use PLL_Sync_Post_Model;
 use PLL_Language;
@@ -180,6 +181,8 @@ class Post extends Abstract_Object {
 		if ( ! $language instanceof PLL_Language ) {
 			wp_die( 0 );
 		}
+
+		Capabilities::get_user()->can_translate_or_die( $language );
 
 		$response = ( new self( $post_id ) )->on_lang_choice(
 			$language,

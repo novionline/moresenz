@@ -72,7 +72,6 @@ class Product_Analytics_Controller {
 		add_action( 'wp_smush_settings_updated', array( $this, 'intercept_settings_update' ), 10, 2 );
 		add_action( 'wp_smush_settings_deleted', array( $this, 'intercept_reset' ) );
 		add_action( 'wp_smush_settings_updated', array( $this, 'track_integrations_saved' ), 10, 2 );
-		add_action( 'wp_smush_settings_updated', array( $this, 'track_resizing_setting_update' ), 10, 2 );
 
 		add_action( 'wp_ajax_smush_track_deactivate', array( $this, 'ajax_track_deactivation_survey' ) );
 		add_action( 'wp_ajax_smush_analytics_track_event', array( $this, 'ajax_handle_track_request' ) );
@@ -234,7 +233,18 @@ class Product_Analytics_Controller {
 	}
 
 	private function track_lazy_load_feature_toggle( $setting_value ) {
+		$this->track_lazy_load_feature_updated_on_toggle( $setting_value );
 		return $this->track_feature_toggle( $setting_value, 'Lazy Load' );
+	}
+
+	private function track_lazy_load_feature_updated_on_toggle( $activate ) {
+		$this->track_lazy_load_updated(
+			array(
+				'update_type'       => $activate ? 'activate' : 'deactivate',
+				'modified_settings' => 'na',
+			),
+			$this->settings->get_setting( 'wp-smush-lazy_load', array() )
+		);
 	}
 
 	protected function track_feature_toggle( $active, $feature ) {
@@ -672,15 +682,25 @@ class Product_Analytics_Controller {
 			return 'deactivate_hub';
 		}
 
-		$is_dashboard_request = wp_doing_ajax() &&
-		                        ! empty( $_REQUEST['action'] ) &&
-		                        'wdp-project-deactivate' === wp_unslash( $_REQUEST['action'] );
-
-		if ( $is_dashboard_request ) {
+		if ( $this->is_dashboard_deactivation() ) {
 			return 'deactivate_dashboard';
 		}
 
 		return 'deactivate_pluginlist';
+	}
+
+	private function is_dashboard_deactivation() {
+		// WPMU DEV Dashboard < 5.0 deactivated plugins via a dedicated AJAX action.
+		$is_ajax_request = wp_doing_ajax() &&
+		                   ! empty( $_REQUEST['action'] ) &&
+		                   'wdp-project-deactivate' === wp_unslash( $_REQUEST['action'] );
+		if ( $is_ajax_request ) {
+			return true;
+		}
+
+		// WPMU DEV Dashboard >= 5.0 uses the standard plugins.php deactivate link,
+		// so it can only be identified by the referring Dashboard page.
+		return 0 === strpos( $this->get_referer_page(), 'wpmudev' );
 	}
 
 	private function get_active_plugins() {
@@ -961,40 +981,6 @@ class Product_Analytics_Controller {
 				'modified_settings' => $modified_settings,
 			),
 			$settings
-		);
-	}
-
-	public function track_resizing_setting_update( $old_settings, $settings ) {
-		if ( empty( $settings['usage'] ) ) {
-			return;
-		}
-
-		$changed_settings = $this->remove_unchanged_settings( $old_settings, $settings );
-		if ( 'Lazy Load' !== $this->identify_referrer() ) {
-			return;
-		}
-
-		$modified_settings = 'na';
-
-		if ( ! empty( $changed_settings ) ) {
-			$modified_settings_map = array(
-				'auto_resizing'    => 'auto_resizing',
-				'image_dimensions' => 'image_dimensions',
-			);
-
-			$modified_settings = array_intersect_key( $modified_settings_map, $changed_settings );
-			$modified_settings = ! empty( $modified_settings ) ? array_values( $modified_settings ) : 'na';
-		}
-
-		$properties = array(
-			'update_type'             => 'modify',
-			'modified_settings'       => $modified_settings,
-			'auto_resizing_status'    => $settings['auto_resizing'] ? 'Enabled' : 'Disabled',
-			'image_dimensions_status' => $settings['image_dimensions'] ? 'Enabled' : 'Disabled',
-		);
-		$this->track_lazy_load_updated(
-			$properties,
-			$this->settings->get_setting( 'wp-smush-lazy_load' )
 		);
 	}
 

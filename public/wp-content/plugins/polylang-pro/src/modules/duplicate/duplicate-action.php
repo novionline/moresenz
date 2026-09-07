@@ -94,7 +94,7 @@ class PLL_Duplicate_Action {
 			return $is_block_editor;
 		}
 
-		if ( ! current_user_can( 'read_post', $data['from_post'] ) ) {
+		if ( ! current_user_can( 'read_post', $data['from_post']->ID ) ) {
 			wp_die(
 				esc_html__( 'Sorry, you are not allowed to read this item.', 'polylang-pro' ),
 				403

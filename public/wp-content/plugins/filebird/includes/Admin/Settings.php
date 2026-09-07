@@ -112,9 +112,9 @@ class Settings {
 		if ( '' !== $filebird_activation_error ) {
 			$filebird_activation_error = apply_filters( 'filebird_activation_error', $filebird_activation_error );
 			if ( 'no-purchase' == $filebird_activation_error ) {
-				$filebird_activation_error = __( 'It seems you don\'t have any valid FileBird license. Please <a rel="noreferrer noopener" href="https://ninjateam.org/support" target="_blank"><strong>contact support</strong></a> to get help or <a rel="noreferrer noopener" href="https://1.envato.market/Get-FileBird" target="_blank"><strong>purchase a FileBird license</strong></a>', 'filebird' );
+				$filebird_activation_error = __( 'It seems you don\'t have any valid FileBird license. Please <a rel="noreferrer noopener" href="https://ninjateam.org/support" target="_blank"><strong>contact support</strong></a> to get help or <a rel="noreferrer noopener" href="https://ninjateam.org/wordpress-media-library-folders/" target="_blank"><strong>purchase a FileBird license</strong></a>', 'filebird' );
 			} elseif ( 'code-is-used' == $filebird_activation_error ) {
-				$filebird_activation_error = sprintf( __( 'This license was used with <i>%s</i>, please <a rel="noreferrer noopener" href="https://1.envato.market/Get-FileBird" target="_blank"><strong>purchase another license</strong></a>, or <a rel="noreferrer noopener" href="https://ninjateam.org/support" target="_blank"><strong>contact support</strong></a>', 'filebird' ), esc_html( $filebird_activation_old_domain ) );
+				$filebird_activation_error = sprintf( __( 'This license was used with <i>%s</i>, please <a rel="noreferrer noopener" href="https://ninjateam.org/wordpress-media-library-folders/" target="_blank"><strong>purchase another license</strong></a>, or <a rel="noreferrer noopener" href="https://ninjateam.org/support" target="_blank"><strong>contact support</strong></a>', 'filebird' ), esc_html( $filebird_activation_old_domain ) );
 			}
 			$notice = '<div style="margin-bottom: 1rem !important;" class="njt-warning-notice filebird-notice notice notice-warning is-dismissible wp-md:fb-max-w-[1060px] fb-m-auto"><p>' . $filebird_activation_error . '</p><button type="button" class="notice-dismiss" onClick="jQuery(\'.njt-warning-notice\').remove()"><span class="screen-reader-text">' . __( 'Dismiss this notice.', 'filebird' ) . '</span></button></div>';
 		}

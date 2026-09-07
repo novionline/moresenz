@@ -132,7 +132,7 @@ class Lazy_Load_Transform implements Transform {
 	private function update_iframe_element_attributes_for_lazy_load( $iframe_element ) {
 		$this->remove_native_lazy_loading_attribute( $iframe_element );
 		$this->update_element_attributes_for_lazy_load( $iframe_element, array( 'src' ) );
-		$iframe_element->add_attribute( new Element_Attribute( 'data-load-mode', '1' ) );
+		$iframe_element->add_attribute( new Element_Attribute( 'data-load-mode', '0' ) );
 	}
 
 	private function update_element_attributes_for_lazy_load( $element, $replace_attributes ) {
@@ -383,23 +383,38 @@ class Lazy_Load_Transform implements Transform {
 	}
 
 	private function maybe_lazy_load_background( $element ) {
-		$background_property  = $element->get_background_css_property();
-		$background_image_url = $background_property && ! empty( $background_property->get_single_image_url()->get_absolute_url() )
-			? $background_property->get_single_image_url()->get_absolute_url()
-			: '';
-		$background_extension = $background_property && ! empty( $background_property->get_single_image_url()->get_ext() )
-			? $background_property->get_single_image_url()->get_ext()
-			: '';
+		$background_property = $element->get_background_css_property();
+		if ( ! $background_property ) {
+			return;
+		}
 
-		$original_markup = $element->get_markup();
+		$image_urls = $background_property->get_image_urls();
+		if ( empty( $image_urls ) ) {
+			return;
+		}
+
+		// Element-level checks (cheap, run first).
 		if (
-			! $background_image_url
-			|| ! $this->helper->is_image_extension_supported( $background_extension, $background_image_url )
-			|| $this->is_element_excluded( $element )
-			|| $this->is_image_element_skipped_through_filter( $background_image_url, $original_markup )
+			$this->is_element_excluded( $element )
 			|| $this->helper->is_native_lazy_loading_enabled()
 		) {
 			return;
+		}
+
+		// Per-URL checks: if any URL has an unsupported extension or is excluded
+		// via the filter, skip the entire property (covers multi-URL image-set() values).
+		$original_markup = $element->get_markup();
+		foreach ( $image_urls as $image_url ) {
+			$absolute_url = $image_url->get_absolute_url();
+			$extension    = $image_url->get_ext();
+
+			if (
+				! $absolute_url
+				|| ! $this->helper->is_image_extension_supported( $extension, $absolute_url )
+				|| $this->is_image_element_skipped_through_filter( $absolute_url, $original_markup )
+			) {
+				return;
+			}
 		}
 
 		$data_attribute_name = 'data-' . str_replace( 'background', 'bg', $background_property->get_property() );  // data-bg|data-bg-image.

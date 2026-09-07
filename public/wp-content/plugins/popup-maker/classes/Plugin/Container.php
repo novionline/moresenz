@@ -65,10 +65,13 @@ class Container extends \PopupMaker\Base\Container {
 	public function register_controllers( $controllers = [] ) {
 		foreach ( $controllers as $name => $controller ) {
 			if ( $controller instanceof \PopupMaker\Interfaces\Controller ) {
-				if ( $controller->controller_enabled() ) {
-					$controller->init();
-				}
 				$this->controllers->set( $name, $controller );
+			}
+		}
+
+		foreach ( $controllers as $name => $controller ) {
+			if ( $controller instanceof \PopupMaker\Interfaces\Controller && $controller->controller_enabled() ) {
+				$controller->init();
 			}
 		}
 	}
@@ -90,9 +93,15 @@ class Container extends \PopupMaker\Base\Container {
 	 * @return Controller|null
 	 */
 	public function get_controller( $name ) {
+		if ( ! $this->controllers->offsetExists( $name ) ) {
+			return null;
+		}
+
 		$controller = $this->controllers->get( $name );
 
-		if ( $controller instanceof Controller ) {
+		// Match the registration check so controllers that implement the interface
+		// without extending Base\Controller remain retrievable.
+		if ( $controller instanceof \PopupMaker\Interfaces\Controller ) {
 			return $controller;
 		}
 

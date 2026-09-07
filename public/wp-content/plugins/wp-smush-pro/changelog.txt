@@ -6,6 +6,67 @@ Change Log:
 ----------------------------------------------------------------------
 ----------------------------------------------------------------------
 
+= 4.3.2 ( 2026-08-19 ) =
+- Improvement: Accessibility option in Smush
+- Improvement: Improved transparent PNG detection accuracy
+- Improvement: Improved savings calculation in the optimization complete modal
+- Improvement: Updated Preload card description copy
+- Improvement: Security improvements
+- Improvement: Removed unused scripts
+- Fix: Image sets without a URL not being lazy loaded
+- Fix: Image sets without a URL not served correctly through the CDN
+- Fix: Network activation status not updating without a page reload or button press
+- Fix: Async processing mistakenly turned off on some sites
+- Fix: Network-scoped option writable by a subsite administrator (reported by Jakub Herman)
+
+= 4.3.1 ( 2026-08-11 ) =
+- Fix: Wizard not showing the correct image count
+
+= 4.3.0 ( 2026-08-03 ) =
+- New: CDN 2.0 with multiple performance improvements and bug fixes
+- New: CDN domain migrated from smushcdn.com to assetcdn.net
+- New: Failed images list now displayed on the Directory Smush page
+- Improvement: Implemented missing notices throughout the Smush interface
+- Improvement: Added notice for API update status
+- Improvement: Added Elementor Image Optimizer to the conflict notice
+- Improvement: "Download all" and "Delete all" options now only shown when multiple Configs are selected
+- Improvement: Security improvements
+- Improvement: Minor UI/UX improvements
+- Improvement: Optimization toast now shown on all pages after optimization completes
+- Fix: Image size not updated after editing an image in the media library
+- Fix: Individual Ignore button not working for skipped images in Bulk Smush
+- Fix: Image optimization not applied to large PNG images above 2560px with Super or Ultra Smush settings
+- Fix: Prevented saving corrupted images to avoid broken image issues
+- Fix: Images with URL parameters not served correctly when URL is changed
+- Fix: Images now correctly convert to AVIF when re-enabling WebP after a downgrade and upgrade
+- Fix: Activity Log now records all post types when "All Post Types" toggle is used
+- Fix: Background overlay for RTL deactivation survey
+- Fix: Layout shift when closing popup
+- Fix: Lazy load auto-resizing for new CDN base URL format
+
+= 4.2.0 ( 2026-07-01 ) =
+- New: Full RTL language support across all Smush pages, modals, and UI components
+- Improvement: Improved bulk smush process reliability using atomic operations instead of MySQL locks
+- Improvement: Bulk smush health checks now run via Ajax for faster stall detection
+- Improvement: Visual feedback shown when the optimization process has stalled
+- Improvement: Updated Lazy Load exclusions UI/UX
+- Improvement: Missing feature notices implemented throughout the plugin
+- Improvement: Tooltips now displayed even when a feature is disabled
+- Improvement: Rescan only required when setting changes create new savings opportunities
+- Improvement: Translation improvements and fixes
+- Improvement: Removed unused code
+- Fix: Lazy load iframe causing issues with the browser back button
+- Fix: Smush failing to detect existing Hub connection when WPMU DEV Dashboard plugin is installed first
+- Fix: Site title missing in Bulk Smush completed email notifications
+- Fix: Progress bar infinite loop
+- Fix: Scan stuck at 0% and bulk smush freezing issues
+
+= 4.1.2 ( 2026-06-22 ) =
+- Improvement: UX improvements
+
+= 4.1.1 ( 2026-06-11 ) =
+- Improvement: Stability improvements and minor bug fixes
+
 = 4.1.0 ( 2026-05-25 ) =
 - Improvement: Added notice when images fail to optimize
 - Improvement: CDN generating long database queries resulting in broken images
@@ -426,4 +487,4 @@ Change Log:
 
 
 
-1321545-1779948382-au
+1321545-1788770228-au

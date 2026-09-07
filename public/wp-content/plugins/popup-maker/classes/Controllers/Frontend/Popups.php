@@ -133,6 +133,28 @@ class Popups extends Controller {
 	}
 
 	/**
+	 * Get the loaded popups shaped as a WP_Query.
+	 *
+	 * Back-compat helper for the legacy PUM_Site_Popups::get_loaded_popups() API,
+	 * which returned a WP_Query rather than a plain array.
+	 *
+	 * @return \WP_Query
+	 */
+	public function get_loaded_popups_query() {
+		$popups = array_values( $this->get_loaded_popups() );
+
+		$query              = new \WP_Query();
+		$query->posts       = $popups;
+		$query->post_count  = count( $popups );
+		$query->found_posts = $query->post_count;
+		$query->post        = null;
+
+		$query->rewind_posts();
+
+		return $query;
+	}
+
+	/**
 	 * Preloads popup, if enabled.
 	 *
 	 * @param int|Popup $popup_id The popup's ID.
@@ -229,7 +251,22 @@ class Popups extends Controller {
 
 		foreach ( $popups as $popup ) {
 			set_current_popup( $popup );
+
+			/**
+			 * Fires immediately before a popup is rendered in the footer.
+			 *
+			 * @param Popup $popup Popup being rendered.
+			 */
+			do_action( 'popup_maker/frontend/before_render_popup', $popup );
+
 			pum_template_part( 'popup' );
+
+			/**
+			 * Fires immediately after a popup is rendered in the footer.
+			 *
+			 * @param Popup $popup Popup that was rendered.
+			 */
+			do_action( 'popup_maker/frontend/after_render_popup', $popup );
 		}
 
 		set_current_popup( null );

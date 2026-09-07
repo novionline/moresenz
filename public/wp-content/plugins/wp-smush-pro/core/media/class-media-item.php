@@ -828,13 +828,13 @@ class Media_Item extends Smush_File {
 			$errors->add(
 				'file_not_found',
 				/* translators: %s: The missing file name */
-				sprintf( esc_html__( 'Skipped (%s), File not found.', 'wp-smushit' ), basename( $original_file ) )
+				sprintf( esc_html__( 'Skipped (%s). File not found.', 'wp-smushit' ), basename( $original_file ) )
 			);
 		} elseif ( ! $this->files_exist() ) {
 			$errors->add(
 				'file_not_found',
 				/* translators: %s: The missing file name */
-				sprintf( esc_html__( 'Skipped (%s), File not found.', 'wp-smushit' ), $this->get_missing_file_name() )
+				sprintf( esc_html__( 'Skipped (%s). File not found.', 'wp-smushit' ), $this->get_missing_file_name() )
 			);
 		}
 
@@ -842,7 +842,7 @@ class Media_Item extends Smush_File {
 			$errors->add(
 				'size_limit',
 				/* translators: 1: Exceeded size limit file name, 2: Image size limit */
-				sprintf( esc_html__( 'Skipped (%1$s), file size limit of %2$s exceeded', 'wp-smushit' ), $this->get_file_name_exceeding_limit(), $this->get_human_size_limit() )
+				sprintf( esc_html__( 'Skipped (%1$s). File size limit of %2$s exceeded', 'wp-smushit' ), $this->get_file_name_exceeding_limit(), $this->get_human_size_limit() )
 			);
 		}
 
@@ -978,18 +978,28 @@ class Media_Item extends Smush_File {
 	}
 
 	private function make_attachment_meta() {
-		$sizes = array();
-		foreach ( $this->get_sizes() as $size_key => $size ) {
+		$wp_metadata    = $this->get_wp_metadata();
+		$original_sizes = isset( $wp_metadata['sizes'] ) ? $wp_metadata['sizes'] : array();
+		$sizes          = $original_sizes;
+		foreach ( $original_sizes as $size_key => $size_data ) {
 			if ( $size_key === self::$size_key_full || $size_key === self::$size_key_scaled ) {
 				continue;
 			}
 
-			$sizes[ $size_key ] = array(
-				'file'      => $size->get_file_name(),
-				'width'     => $size->get_width(),
-				'height'    => $size->get_height(),
-				'mime-type' => $size->get_mime_type(),
-				'filesize'  => $size->get_filesize(),
+			$size = $this->get_size( $size_key );
+			if ( ! $size ) {
+				continue;
+			}
+
+			$sizes[ $size_key ] = array_merge(
+				$size_data,
+				array(
+					'file'      => $size->get_file_name(),
+					'width'     => $size->get_width(),
+					'height'    => $size->get_height(),
+					'mime-type' => $size->get_mime_type(),
+					'filesize'  => $size->get_filesize(),
+				)
 			);
 		}
 
@@ -1008,7 +1018,7 @@ class Media_Item extends Smush_File {
 			$new_meta['original_image'] = $this->get_full_size()->get_file_name();
 		}
 
-		return array_merge( $this->get_wp_metadata(), $new_meta );
+		return array_merge( $wp_metadata, $new_meta );
 	}
 
 	private function arrays_same( $array1, $array2 ) {

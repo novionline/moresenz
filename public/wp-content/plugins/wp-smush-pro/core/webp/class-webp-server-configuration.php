@@ -261,7 +261,7 @@ class Webp_Server_Configuration {
 	}
 
 	public function apply_apache_rewrite_rules() {
-		$cannot_write_message = __( 'Automatic updation of .htaccess rules failed. Please ensure the file permissions on your .htaccess file are set to 644, or switch to manual mode to add the rules yourself.', 'wp-smushit' );
+		$cannot_write_message = __( 'Automatic update of .htaccess rules failed. Please ensure the file permissions on your .htaccess file are set to 644, or switch to manual mode to add the rules yourself.', 'wp-smushit' );
 		$last_error           = __( 'The rules have been applied, but the images are still not being served in WebP format. We recommend that you contact your hosting provider to learn more about the cause of this problem.', 'wp-smushit' );
 
 		$locations = $this->apache->get_htaccess_locations();

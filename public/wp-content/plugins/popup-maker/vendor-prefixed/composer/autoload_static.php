@@ -4,7 +4,7 @@
 
 namespace PopupMaker\Vendor\Composer\Autoload;
 
-class ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b
+class ComposerStaticInit6383157378f62d92a88185eaa66e9b0e
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -59,12 +59,15 @@ class ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b
         'PopupMaker\\Controllers\\Admin' => __DIR__ . '/../..' . '/classes/Controllers/Admin.php',
         'PopupMaker\\Controllers\\Admin\\CallToActions' => __DIR__ . '/../..' . '/classes/Controllers/Admin/CallToActions.php',
         'PopupMaker\\Controllers\\Admin\\Toolbar' => __DIR__ . '/../..' . '/classes/Controllers/Admin/Toolbar.php',
+        'PopupMaker\\Controllers\\Admin\\ToolbarNotifications' => __DIR__ . '/../..' . '/classes/Controllers/Admin/ToolbarNotifications.php',
         'PopupMaker\\Controllers\\Admin\\WP\\PluginsPage' => __DIR__ . '/../..' . '/classes/Controllers/Admin/WP/PluginsPage.php',
         'PopupMaker\\Controllers\\Assets' => __DIR__ . '/../..' . '/classes/Controllers/Assets.php',
         'PopupMaker\\Controllers\\CallToActions' => __DIR__ . '/../..' . '/classes/Controllers/CallToActions.php',
         'PopupMaker\\Controllers\\Compatibility' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility.php',
         'PopupMaker\\Controllers\\Compatibility\\Backcompat\\Filters' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility/Backcompat/Filters.php',
         'PopupMaker\\Controllers\\Compatibility\\Builder\\Divi' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility/Builder/Divi.php',
+        'PopupMaker\\Controllers\\Compatibility\\Plugin\\ACF' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility/Plugin/ACF.php',
+        'PopupMaker\\Controllers\\Compatibility\\Plugin\\PostDuplication' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility/Plugin/PostDuplication.php',
         'PopupMaker\\Controllers\\Compatibility\\SEO\\Yoast' => __DIR__ . '/../..' . '/classes/Controllers/Compatibility/SEO/Yoast.php',
         'PopupMaker\\Controllers\\Debug' => __DIR__ . '/../..' . '/classes/Controllers/Debug.php',
         'PopupMaker\\Controllers\\Frontend' => __DIR__ . '/../..' . '/classes/Controllers/Frontend.php',
@@ -76,9 +79,6 @@ class ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b
         'PopupMaker\\Controllers\\WP\\Blocks' => __DIR__ . '/../..' . '/classes/Controllers/WP/Blocks.php',
         'PopupMaker\\Controllers\\WP\\Dashboard' => __DIR__ . '/../..' . '/classes/Controllers/WP/Dashboard.php',
         'PopupMaker\\Controllers\\WP\\I18n' => __DIR__ . '/../..' . '/classes/Controllers/WP/I18n.php',
-        'PopupMaker\\Installers\\Install_Skin' => __DIR__ . '/../..' . '/classes/Installers/Install_Skin.php',
-        'PopupMaker\\Installers\\PluginSilentUpgrader' => __DIR__ . '/../..' . '/classes/Installers/PluginSilentUpgrader.php',
-        'PopupMaker\\Installers\\PluginSilentUpgraderSkin' => __DIR__ . '/../..' . '/classes/Installers/PluginSilentUpgraderSkin.php',
         'PopupMaker\\Integration\\QueryMonitor\\Collector\\CacheFunc' => __DIR__ . '/../..' . '/classes/Integration/QueryMonitor/Collector/CacheFunc.php',
         'PopupMaker\\Integration\\QueryMonitor\\Output\\Html\\CacheFunc' => __DIR__ . '/../..' . '/classes/Integration/QueryMonitor/Output/Html/CacheFunc.php',
         'PopupMaker\\Interfaces\\CallToAction' => __DIR__ . '/../..' . '/classes/Interfaces/CallToAction.php',
@@ -90,21 +90,26 @@ class ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b
         'PopupMaker\\Plugin\\Controller' => __DIR__ . '/../..' . '/classes/Plugin/Controller.php',
         'PopupMaker\\Plugin\\Core' => __DIR__ . '/../..' . '/classes/Plugin/Core.php',
         'PopupMaker\\Plugin\\Extension' => __DIR__ . '/../..' . '/classes/Plugin/Extension.php',
-        'PopupMaker\\RestAPI\\Connect' => __DIR__ . '/../..' . '/classes/RestAPI/Connect.php',
+        'PopupMaker\\RestAPI\\Addons' => __DIR__ . '/../..' . '/classes/RestAPI/Addons.php',
         'PopupMaker\\RestAPI\\License' => __DIR__ . '/../..' . '/classes/RestAPI/License.php',
+        'PopupMaker\\RestAPI\\Notifications' => __DIR__ . '/../..' . '/classes/RestAPI/Notifications.php',
         'PopupMaker\\RestAPI\\ObjectSearch' => __DIR__ . '/../..' . '/classes/RestAPI/ObjectSearch.php',
+        'PopupMaker\\Services\\AddonCatalog' => __DIR__ . '/../..' . '/classes/Services/AddonCatalog.php',
+        'PopupMaker\\Services\\AddonLifecycle' => __DIR__ . '/../..' . '/classes/Services/AddonLifecycle.php',
         'PopupMaker\\Services\\Collector\\CallToActionTypes' => __DIR__ . '/../..' . '/classes/Services/Collector/CallToActionTypes.php',
-        'PopupMaker\\Services\\Connect' => __DIR__ . '/../..' . '/classes/Services/Connect.php',
         'PopupMaker\\Services\\FormConversionTracking' => __DIR__ . '/../..' . '/classes/Services/FormConversionTracking.php',
         'PopupMaker\\Services\\Globals' => __DIR__ . '/../..' . '/classes/Services/Globals.php',
         'PopupMaker\\Services\\License' => __DIR__ . '/../..' . '/classes/Services/License.php',
         'PopupMaker\\Services\\LinkClickTracking' => __DIR__ . '/../..' . '/classes/Services/LinkClickTracking.php',
         'PopupMaker\\Services\\Logging' => __DIR__ . '/../..' . '/classes/Services/Logging.php',
+        'PopupMaker\\Services\\Notifications\\FeatureAnnouncements' => __DIR__ . '/../..' . '/classes/Services/Notifications/FeatureAnnouncements.php',
+        'PopupMaker\\Services\\Notifications\\Manager' => __DIR__ . '/../..' . '/classes/Services/Notifications/Manager.php',
+        'PopupMaker\\Services\\Notifications\\Provider' => __DIR__ . '/../..' . '/classes/Services/Notifications/Provider.php',
+        'PopupMaker\\Services\\Notifications\\WhatsNew' => __DIR__ . '/../..' . '/classes/Services/Notifications/WhatsNew.php',
         'PopupMaker\\Services\\Options' => __DIR__ . '/../..' . '/classes/Services/Options.php',
         'PopupMaker\\Services\\Repository\\CallToActions' => __DIR__ . '/../..' . '/classes/Services/Repository/CallToActions.php',
         'PopupMaker\\Services\\Repository\\Popups' => __DIR__ . '/../..' . '/classes/Services/Repository/Popups.php',
         'PopupMaker\\Services\\UpgradeStream' => __DIR__ . '/../..' . '/classes/Services/UpgradeStream.php',
-        'PopupMaker\\Services\\Upgrader' => __DIR__ . '/../..' . '/classes/Services/Upgrader.php',
         'PopupMaker\\Vendor\\CodeAtlantic\\Autoloader\\Autoloader' => __DIR__ . '/..' . '/code-atlantic/wp-autoloader/src/Autoloader.php',
         'PopupMaker\\Vendor\\CodeAtlantic\\PrerequisiteChecks\\Prerequisites' => __DIR__ . '/..' . '/code-atlantic/prerequisite-checks/src/Prerequisites.php',
         'PopupMaker\\Vendor\\Pimple\\Container' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Container.php',
@@ -133,10 +138,10 @@ class ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit80d49d3b2089f90498e44c680c02ce4b::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6383157378f62d92a88185eaa66e9b0e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6383157378f62d92a88185eaa66e9b0e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit6383157378f62d92a88185eaa66e9b0e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit6383157378f62d92a88185eaa66e9b0e::$classMap;
 
         }, null, ClassLoader::class);
     }

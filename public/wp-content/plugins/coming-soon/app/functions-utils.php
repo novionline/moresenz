@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  *  Get IP
@@ -1614,7 +1617,7 @@ function seedprod_lite_get_api_key() {
 	}
 
 	if ( empty( $seedprod_api_key ) ) {
-		$seedprod_api_key = get_option( 'seedprod_api_key ' );
+		$seedprod_api_key = get_option( 'seedprod_api_key' );
 	}
 
 	return $seedprod_api_key;
@@ -2149,6 +2152,89 @@ function seedprod_lite_get_expire_times() {
 	);
 }
 
+/**
+ * Strip stringified Vue render-helper source from rendered SeedProd HTML.
+ *
+ * Vue 2 can serialize its `$createElement`/`_c` render helper into saved block
+ * markup, which then renders as literal text such as
+ * `function(e,n,r,i){return In(t,e,n,r,i,!0)}`. The inner helper name is a
+ * minified symbol that changes whenever the builder bundle is rebuilt, so it is
+ * matched by shape rather than by a hard-coded name (a previous fix hard-coded
+ * the name and silently stopped working when the minifier renamed it). Covers
+ * both the `!0` (`$createElement`) and `!1` (`_c`) variants.
+ *
+ * @param string $html The HTML to clean.
+ * @return string The HTML with any render-helper source removed.
+ */
+function seedprod_lite_strip_vue_render_helpers( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+
+	// The pattern can only match strings containing `function`; skip the regex otherwise.
+	if ( false === strpos( $html, 'function' ) ) {
+		return $html;
+	}
+
+	// Match Vue's render-helper delegation specifically: the inner call repeats the
+	// four outer args verbatim (backreferences \1-\4) after a context arg, so generic
+	// minified wrapper/currying functions are not stripped.
+	$cleaned = preg_replace(
+		'/function\s*\(\s*([\w$]+)\s*,\s*([\w$]+)\s*,\s*([\w$]+)\s*,\s*([\w$]+)\s*\)\s*\{\s*return\s+[\w$]+\(\s*[\w$]+\s*,\s*\1\s*,\s*\2\s*,\s*\3\s*,\s*\4\s*,\s*!\s*[01]\s*\)\s*;?\s*\}/',
+		'',
+		$html
+	);
+
+	// preg_replace returns null on PCRE failure; never lose the original markup.
+	return null === $cleaned ? $html : $cleaned;
+}
+
+/**
+ * Convert seedprod-jscode comment wrappers to live <script> tags and remove any
+ * remaining HTML comments from rendered SeedProd markup.
+ *
+ * The builder serializes Vue's rendered DOM with `comments: true`, so genuine
+ * template comments (e.g. `<!-- Background Video -->`) and conditional placeholder
+ * comments survive into the saved HTML. The legacy clean-up removed only the
+ * `<!--`/`-->` delimiters, which left each comment's inner text behind as visible
+ * front-end content. This removes whole comments instead, while still un-commenting
+ * the `<!--<seedprod-jscode>…-->` wrappers the builder relies on to ship inline
+ * scripts. User-authored comments are escaped to `<!!--`/`--!>` by CustomHTML.vue,
+ * so they contain no literal `<!--`/`-->` pair and are not matched here.
+ *
+ * @param string $html The HTML to clean.
+ * @return string The cleaned HTML.
+ */
+function seedprod_lite_uncomment_jscode_and_strip_comments( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+
+	// Un-comment the seedprod-jscode wrappers so they ship as live <script> tags.
+	$cleaned = preg_replace(
+		'/<!--\s*<seedprod-jscode>([\s\S]*?)<\/seedprod-jscode>\s*-->/',
+		'<script>$1</script>',
+		$html
+	);
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	// Rename any bare seedprod-jscode tag that was not wrapped in a comment.
+	$cleaned = preg_replace( '/seedprod-jscode/', 'script', $html );
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	// Remove any remaining genuine HTML comments so their inner text never leaks.
+	$cleaned = preg_replace( '/<!--[\s\S]*?-->/', '', $html );
+	if ( null !== $cleaned ) {
+		$html = $cleaned;
+	}
+
+	return $html;
+}
+
 
 
 /**
@@ -2319,3 +2405,90 @@ function seedprod_lite_wprocket_disable_minify() {
 
 
 
+
+/**
+ * Wrap baked-in SeedProd inline block scripts in a wait-for-function guard.
+ *
+ * Several blocks store an inline `jQuery(function(){ FN(args); })` (or a
+ * `jQuery(document).ready(...)`) call in page HTML, while FN is defined in the
+ * footer sp-scripts bundle. Async/deferred JS optimizers (Rocket Loader, "delay
+ * JS") can run that bundle after jQuery ready fires, throwing a ReferenceError.
+ * Rewriting each call into a guarded poll waits for the function instead of
+ * throwing. Only the known footer-bundle helpers are rewritten, so unrelated
+ * inline scripts (e.g. Vue mounts) are left untouched.
+ *
+ * @param string $html Rendered page HTML.
+ * @return string HTML with guarded inline block scripts.
+ */
+function seedprod_lite_guard_inline_block_scripts( $html ) {
+	if ( false === strpos( $html, 'jQuery(' ) ) {
+		return $html;
+	}
+
+	$names = implode(
+		'|',
+		array(
+			'image_dynamic_tags',
+			'beforeafterslider',
+			'countdown',
+			'postcomments',
+			'initDropdowns',
+			'hotspotTooltips',
+			'seedprod_animatedheadline',
+			'seedprod_rotateheadline',
+			'seedprod_tabbedlayout',
+			'seedprod_add_basic_lightbox',
+			'seedprod_add_gallery_lightbox',
+			'seedprod_add_gallery_js',
+			'seedprod_add_content_toggle_js',
+			'seedprod_particlessectionjs',
+			// Match either prefix: the frontend exposes seedprod_lite_ and/or
+			// seedprod_lite_ variants, and the literal-free form survives the
+			// Lite build rename. Keep both prefixes.
+			'seedprod_(?:pro|lite)_generate_toc',
+			'seedprod_(?:pro|lite)_video_pop_up_trigger_video',
+			'seedprod_(?:pro|lite)_init_background_video',
+			'seedprod_edd_add_submit_class',
+			'seedprod_twittertweetbutton',
+			'seedprod_twitterembedtimeline',
+		)
+	);
+
+	$guard = function ( $fn_name, $body ) {
+		return '<script>jQuery(function(){var n=0;(function r(){if(typeof ' . $fn_name . '==="function"){' . $body . '}else if(n++<100){setTimeout(r,50);}})();});</script>';
+	};
+
+	// Match both jQuery ready wrappers and capture the call. The body may itself
+	// contain '<' (e.g. the video popup's iframe markup), so it is bounded by
+	// "not </script>" rather than "no <" to stay inside a single <script>.
+	$pattern = '~<script>\s*jQuery\(\s*(?:function\s*\(\s*\)|document\)\.ready\(\s*function\s*\(\s*\))\s*\{\s*(' . $names . ')(\((?:(?!</script>)[\s\S])*)\}\s*\)\s*;?\s*</script>~';
+
+	$out = preg_replace_callback(
+		$pattern,
+		function ( $m ) use ( $guard ) {
+			return $guard( $m[1], $m[1] . $m[2] );
+		},
+		$html
+	);
+
+	$out = null === $out ? $html : $out;
+
+	// The counter block registers a scroll/resize handler whose body calls the
+	// bundle's jQuery.fn.isInViewport and counter() helpers when it fires, so
+	// the whole registration waits on the bundle instead. Older saves emit the
+	// handler bare, newer ones wrap it in jQuery(function(){}); both start at
+	// jQuery(window).on("resize and carry the #sp-counter-number- marker.
+	$counter_pattern = '~<script>\s*((?:jQuery\(\s*function\s*\(\s*\)\s*\{\s*)?jQuery\(window\)\.on\(\s*"resize[^"]*"(?:(?!</script>)[\s\S])*#sp-counter-number-(?:(?!</script>)[\s\S])*)</script>~';
+
+	$guarded = preg_replace_callback(
+		$counter_pattern,
+		function ( $m ) use ( $guard ) {
+			return $guard( 'jQuery.fn.isInViewport', $m[1] );
+		},
+		$out
+	);
+
+	return null === $guarded ? $out : $guarded;
+}
+add_filter( 'seedprod_lpage_content', 'seedprod_lite_guard_inline_block_scripts' );
+add_filter( 'seedprod_the_code', 'seedprod_lite_guard_inline_block_scripts' );

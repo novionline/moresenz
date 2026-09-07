@@ -84,10 +84,10 @@ class CDN_Controller extends Controller {
 				), $code );
 			} else {
 				$this->settings->set_setting( 'wp-smush-cdn_status', $new_status );
-				wp_send_json_success( $new_status );
+				wp_send_json_success( $this->cdn_settings_to_react_props( $new_status ) );
 			}
 		} else {
-			wp_send_json_success( $status );
+			wp_send_json_success( $this->cdn_settings_to_react_props( $status ) );
 		}
 	}
 
@@ -165,9 +165,7 @@ class CDN_Controller extends Controller {
 			) );
 		}
 
-		$status_dto = CDN_Status::from_setting( $this->cdn_helper->get_cdn_status_setting() );
-
-		wp_send_json_success( $status_dto->to_react_props() );
+		wp_send_json_success( $this->get_cdn_status_react_props() );
 	}
 
 	public function register_cdn_transform( $transforms ) {
@@ -232,6 +230,29 @@ class CDN_Controller extends Controller {
 	}
 
 	/**
+	 * Builds the full CDN status props for React, including the 'disabled' state.
+	 * CDN_Status::to_react_props() cannot determine 'disabled' on its own.
+	 *
+	 * @return array
+	 */
+	private function get_cdn_status_react_props() {
+		return $this->cdn_settings_to_react_props( $this->cdn_helper->get_cdn_status_setting() );
+	}
+
+	/**
+	 * Convert CDN status to React props.
+	 * @param mixed $cdn_status
+	 * @return array
+	 */
+	private function cdn_settings_to_react_props( $cdn_status ) {
+		$cdn_status_dto        = CDN_Status::from_setting( $cdn_status );
+		$props                 = $cdn_status_dto ? $cdn_status_dto->to_react_props() : array();
+		$props['statusString'] = $this->cdn_helper->get_cdn_status_string();
+
+		return $props;
+	}
+
+	/**
 	 * Localize CDN settings for React.
 	 *
 	 * @param array $localize Current localize data.
@@ -244,9 +265,7 @@ class CDN_Controller extends Controller {
 		}
 
 		$localize['cdnSettings'] = CDN_Settings_DTO::to_react_props( $this->cdn_helper->get_cdn_options() );
-
-		$cdn_status_dto          = CDN_Status::from_setting( $this->cdn_helper->get_cdn_status_setting() );
-		$localize['cdnStatus']   = $cdn_status_dto ? $cdn_status_dto->to_react_props() : array();
+		$localize['cdnStatus']   = $this->get_cdn_status_react_props();
 
 		return $localize;
 	}

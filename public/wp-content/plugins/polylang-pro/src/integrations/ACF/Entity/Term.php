@@ -6,6 +6,7 @@
 namespace WP_Syntex\Polylang_Pro\Integrations\ACF\Entity;
 
 use PLL_Language;
+use WP_Syntex\Polylang\Capabilities\Capabilities;
 use WP_Term;
 
 /**
@@ -115,6 +116,8 @@ class Term extends Abstract_Object {
 		if ( ! $language instanceof PLL_Language ) {
 			wp_die( 0 );
 		}
+
+		Capabilities::get_user()->can_translate_or_die( $language );
 
 		$response = ( new self( $term_id ) )->on_lang_choice(
 			$language,

@@ -155,6 +155,7 @@ class PLL_Collect_Linked_Posts {
 			case 'core/cover':
 			case 'core/file':
 			case 'core/image':
+			case 'core/playlist-track':
 			case 'core/video':
 				if ( ! empty( $block['attrs']['id'] ) ) {
 					$post_ids[] = $block['attrs']['id'];

@@ -1,25 +1,26 @@
 <?php
-/*
-Send Functions
-Plugin: Notification Attachments for Gravity Forms
-Since: 0.1
-Author: KGM Servizi
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
-*/
+/**
+ * Send functions.
+ *
+ * @package Notification_Attachments_For_Gravity_Forms
+ * @since   0.1
+ */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
 
 /**
- * Add attachments to Gravity Forms notification email
- * Validates attachment IDs and file paths to prevent security issues
- * 
- * @param array $notification Notification settings array
- * @param array $form         Form settings array
- * @param array $lead         Entry/lead data array
- * @return array Modified notification array with attachments added
+ * Add attachments to Gravity Forms notification email.
+ *
+ * Validates attachment IDs and file paths to prevent security issues.
+ *
+ * @since   0.1
+ * @package Notification_Attachments_For_Gravity_Forms
+ * @param   array $notification Notification settings array.
+ * @param   array $form         Form settings array.
+ * @param   array $lead         Entry/lead data array.
+ * @return  array Modified notification array with attachments added.
  */
 function gf_kgm_notification_attachment_send( $notification, $form, $lead ) {
 	$attachment_id_raw = rgar( $notification, 'attachment_id' );
@@ -40,30 +41,50 @@ function gf_kgm_notification_attachment_send( $notification, $form, $lead ) {
 	
 	$attachment_ids = explode( ',', $attachment_id_raw );
 	$wp_upload_dir  = wp_upload_dir();
-	
+
 	// Ensure attachments array exists and is an array
 	// Merge with existing attachments if any (for compatibility with other plugins)
 	if ( ! isset( $notification['attachments'] ) || ! is_array( $notification['attachments'] ) ) {
 		$notification['attachments'] = array();
 	}
-	
+
+	// Resolve upload base directory once outside the loop (static value per request)
+	$upload_basedir = realpath( $wp_upload_dir['basedir'] );
+	if ( false === $upload_basedir ) {
+		return $notification; // Cannot resolve upload directory
+	}
+
 	if ( ! empty( $attachment_ids ) ) {
+		// Batch-prime the post and postmeta cache to avoid N+1 queries inside the loop.
+		// This single query populates WP's in-memory object cache so that subsequent
+		// get_post_type() and get_attached_file() calls read from RAM, not the database.
+		$sanitized_ids = array_filter( array_map( 'absint', $attachment_ids ) );
+		if ( ! empty( $sanitized_ids ) ) {
+			get_posts( array(
+				'post__in'               => $sanitized_ids,
+				'post_type'              => 'attachment',
+				'posts_per_page'         => -1,
+				'update_post_meta_cache' => true,
+				'update_post_term_cache' => false,
+			) );
+		}
+
 		foreach ( $attachment_ids as $attachment_id ) {
 			// Validate and sanitize attachment ID
 			$attachment_id = absint( trim( $attachment_id ) );
 			if ( empty( $attachment_id ) ) {
 				continue; // Skip invalid attachment IDs
 			}
-			
+
 			// Verify attachment exists and is actually an attachment
 			if ( get_post_type( $attachment_id ) !== 'attachment' ) {
 				continue; // Skip if not a valid attachment
 			}
-			
+
 			// Get attachment file path using WordPress function (handles CDN and custom configurations)
 			// This is more reliable than converting URL to path manually
 			$path = get_attached_file( $attachment_id );
-			
+
 			// Fallback: if get_attached_file fails, try URL conversion method
 			if ( empty( $path ) ) {
 				$attachment_url = wp_get_attachment_url( $attachment_id );
@@ -73,33 +94,28 @@ function gf_kgm_notification_attachment_send( $notification, $form, $lead ) {
 					$path = str_replace( $wp_upload_dir['baseurl'], $wp_upload_dir['basedir'], $attachment_url );
 				}
 			}
-			
-			// Apply filter (allows customization but should be used carefully)
+
+			// Apply filter (privileged hook — allows customization of attachment path).
+			// WARNING: The returned value is subject to upload-directory containment checks below.
+			// Any path outside the uploads directory will be rejected. Use responsibly.
 			$path = apply_filters( 'gf_kgm_notification_attachment_path', $path, $attachment_id, $form, $lead );
-			
+
 			// Validate path after filter
 			if ( empty( $path ) ) {
 				continue; // Skip if path is empty after filter
 			}
-			
-			// Security check: verify path is within upload directory to prevent path traversal
-			$upload_basedir = realpath( $wp_upload_dir['basedir'] );
-			
-			// Check if upload directory path is valid
-			if ( $upload_basedir === false ) {
-				continue; // Skip if upload directory cannot be resolved
-			}
-			
+
 			$file_path = realpath( $path );
 			
 			// Check if file path is valid and within upload directory
-			if ( $file_path === false ) {
+			if ( false === $file_path ) {
 				continue; // Skip if path cannot be resolved
 			}
 			
-			// Prevent path traversal attacks by ensuring file is within upload directory
-			// Use strict comparison and check that upload_basedir is not empty
-			if ( empty( $upload_basedir ) || strpos( $file_path, $upload_basedir ) !== 0 ) {
+			// Prevent path traversal attacks by ensuring file is within upload directory.
+			// Append DIRECTORY_SEPARATOR to basedir to prevent sibling-directory bypass
+			// (e.g. /uploads-evil/ matching /uploads prefix).
+			if ( empty( $upload_basedir ) || 0 !== strpos( $file_path, $upload_basedir . DIRECTORY_SEPARATOR ) ) {
 				continue; // Skip if path is outside upload directory
 			}
 			

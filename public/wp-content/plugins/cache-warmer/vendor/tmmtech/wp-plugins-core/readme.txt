@@ -1,5 +1,17 @@
 == Changelog ==
 
+= 0.1.54 2026-07-03 =
+
+#### Bugfixes
+
+* Fix `_load_textdomain_just_in_time` was called incorrectly notice: load the `tmm-wp-plugins-core` translations on the `init` hook instead of during `plugins_loaded` (required since WP 6.7).
+
+= 0.1.53 2025-07-01 =
+
+#### Bugfixes
+
+* Fix a bug with unknown option name being called too early (before 'init') for 'options' class by deleting a translation.
+
 = 0.1.52 2024-09-13 =
 
 #### Enhancements

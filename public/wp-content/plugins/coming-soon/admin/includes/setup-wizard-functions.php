@@ -218,10 +218,8 @@ function seedprod_lite_v2_complete_setup_wizard() {
 			// Reinsert settings because wp_insert screws up json (following old working logic).
 			if ( ! is_wp_error( $id ) && ! empty( $encoded_settings ) ) {
 				global $wpdb;
-				$tablename = $wpdb->prefix . 'posts';
-				$sql = "UPDATE $tablename SET post_content_filtered = %s WHERE id = %d";
-				$safe_sql = $wpdb->prepare( $sql, $encoded_settings, $id );
-				$wpdb->query( $safe_sql );
+				$wpdb->query( $wpdb->prepare( "UPDATE {$wpdb->posts} SET post_content_filtered = %s WHERE id = %d", $encoded_settings, $id ) );
+				clean_post_cache( $id );
 			}
 
 			// Update pointer - record page IDs for each type.
@@ -310,6 +308,11 @@ function seedprod_lite_v2_complete_setup_wizard() {
 								$needs_install = true;
 							}
 							break;
+						case 'vibe-ai':
+							if ( ! isset( $all_plugins['vibe-ai/vibe-ai.php'] ) ) {
+								$needs_install = true;
+							}
+							break;
 					}
 
 					if ( $needs_install ) {
@@ -367,6 +370,10 @@ function seedprod_lite_v2_install_addon_setup() {
 		'optinmonster' => array(
 			'slug' => 'optinmonster/optin-monster-wp-api.php',
 			'url'  => 'https://downloads.wordpress.org/plugin/optinmonster.zip',
+		),
+		'vibe-ai'      => array(
+			'slug' => 'vibe-ai/vibe-ai.php',
+			'url'  => 'https://downloads.wordpress.org/plugin/vibe-ai.zip',
 		),
 	);
 

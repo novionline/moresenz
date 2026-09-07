@@ -3,9 +3,9 @@ Contributors: seedprod, smub
 Donate link: http://www.seedprod.com
 Tags: maintenance mode, coming soon page, landing page, website builder, page builder
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 5.6
-Stable tag: 6.20.1
+Stable tag: 6.20.9
 Text Domain: coming-soon
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -224,6 +224,36 @@ This is always a WordPress caching issue. Go to the caching plugin's settings pa
 == Upgrade Notice ==
 
 == Changelog ==
+
+= 6.20.9 =
+
+* Fixed - The Back to WordPress option works again for pages edited with SeedProd.
+* Fixed - The Comment Form block no longer prints hardcoded comment policy text.
+* Fixed - Pro opens the subscriber table instead of a "coming soon" placeholder.
+* Fixed - The two buttons in the SeedProd-managed page notice no longer sit flush together.
+
+= 6.20.8 =
+
+* Added - Per-device font size controls on more blocks in the builder.
+* Fixed - PHP 8 fatal error when saving certain pages.
+* Fixed - reCAPTCHA now executes on optin forms inside theme templates.
+* Fixed - Importing a landing page now includes its Global CSS instead of silently dropping it.
+* Fixed - Deleting a saved template from the template chooser works again.
+* Fixed - Template previews no longer show a raw placeholder in the fallback text.
+* Fixed - WP-CLI imports now report failures instead of exiting successfully.
+* Tweak - Hardened the import path and removed unused import/export code.
+* Tweak - Removed Pro theme builder files from the Lite build.
+
+= 6.20.6 =
+
+* Added - Manage with AI page: connect Claude, ChatGPT, or any AI assistant to manage your site with the free WPVibe plugin.
+* Added - WPVibe in Recommended Plugins with one-click install.
+* Fixed - Setup wizard completion now installs plugins selected in the wizard reliably.
+* Fixed - License update checks no longer clear a valid license.
+* Fixed - Import shows a clearer message when a ZIP of the wrong type is uploaded.
+* Fixed - PHP warnings when bypass settings were missing keys.
+* Tweak - Security hardening: output escaping, ABSPATH guards, and text domain corrections.
+* Tweak - Removed an unused bundled script library.
 
 = 6.12.2 =
 [Changelog &raquo;](https://www.seedprod.com/docs/changelog/)

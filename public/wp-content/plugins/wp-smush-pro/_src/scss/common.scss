@@ -612,7 +612,7 @@ div.wp-smush-info.notice {
 }
 
 #adminmenu #toplevel_page_smush .wp-submenu a[href*="smush_new-submenu_upsell"] {
-	background: #571EE7 !important;
+	background: var(--wpmudev-accent-pro, #571EE7) !important;
 	color: #fff !important;
 	display: flex !important;
 	align-items: center;
@@ -667,7 +667,9 @@ div.wp-smush-info.notice {
 		min-width: 80px;
 		padding: 5px 14px;
 		letter-spacing: -0.25px;
-		font-size:13px
+		font-size:13px;
+		min-height: 28px;
+		border-radius: 4px;
 	}
 
 	.smush-dismiss-notice-button {
