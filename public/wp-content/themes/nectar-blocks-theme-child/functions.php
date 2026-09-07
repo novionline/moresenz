@@ -102,6 +102,7 @@ class Theme extends Singleton {
         OffCanvasNavMenuItemStyleComponent::getInstance();
         SearchComponent::getInstance();
         OwnerRoleComponent::getInstance();
+        CustomCssCapabilityComponent::getInstance();
 
         //handle Polylang customization
         if (class_exists('\Polylang')) {
