@@ -44,17 +44,6 @@ class BlockCustomizationComponent extends Singleton {
 
         //choose which hash is used per taxonomy (taxonomy slug + "-filters")
         add_filter('nectar_blocks_taxonomy_terms_link_hash', [$this, 'taxonomyTermsLinkHashByTaxonomy'], 10, 2);
-
-        //disable Nectar animated anchor scroll (init.js) in favour of native hash + scroll-padding-top
-        add_filter('nectar_animated_anchors', [$this, 'disableNectarAnimatedAnchors']);
-    }
-
-    /**
-     * Disable Nectar theme smooth hash scrolling for native browser behaviour
-     * @return string
-     */
-    public static function disableNectarAnimatedAnchors(): string {
-        return 'false';
     }
 
     /**
