@@ -15,7 +15,8 @@ class FrontendScripts extends Singleton {
      * FrontendScripts constructor.
      */
     protected function __construct() {
-        add_action('wp_enqueue_scripts', [$this, 'initFrontendScripts']);
+        //priority 1000: after nectar used css dequeue (999) so child styles are not stripped
+        add_action('wp_enqueue_scripts', [$this, 'initFrontendScripts'], 1000);
     }
 
     /**

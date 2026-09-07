@@ -16,10 +16,11 @@ require_once('autoload.php');
 
 /**
  * Init child theme CSS and fonts
+ * priority 1000: after nectar used css dequeue (999) so child styles are not stripped
  */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('nectarblocks-child-style', get_stylesheet_directory_uri() . '/style.css', '', '1.0.0');
-}, 100);
+}, 1000);
 
 /**
  * Class Theme
