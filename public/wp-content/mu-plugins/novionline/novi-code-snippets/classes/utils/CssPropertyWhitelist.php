@@ -106,7 +106,7 @@ class CssPropertyWhitelist
             'text-decoration-skip-ink', 'text-decoration-style', 'text-decoration-thickness', 'text-emphasis',
             'text-emphasis-color', 'text-emphasis-position', 'text-emphasis-style', 'text-indent',
             'text-justify', 'text-orientation', 'text-overflow', 'text-rendering', 'text-shadow',
-            'text-transform', 'text-underline-offset', 'text-underline-position', 'top', 'touch-action',
+            'text-transform', 'text-underline-offset', 'text-underline-position', 'text-wrap', 'top', 'touch-action',
             'transform', 'transform-box', 'transform-origin', 'transform-style', 'transition', 'transition-delay',
             'transition-duration', 'transition-property', 'transition-timing-function', 'translate', 'unicode-bidi',
             'user-select', 'vertical-align', 'visibility', 'white-space', 'widows', 'width', 'will-change',

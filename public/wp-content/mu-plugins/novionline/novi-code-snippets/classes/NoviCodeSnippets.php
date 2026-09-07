@@ -12,6 +12,10 @@ class NoviCodeSnippets extends Singleton
 {
     const TEXT_DOMAIN = 'novi-code-snippets';
 
+    const VERSION = '1.0.1';
+
+    const VERSION_OPTION = 'ncs_plugin_version';
+
     protected function __construct()
     {
         if (!defined('NCS_PLUGIN_PATH')) {
@@ -31,6 +35,8 @@ class NoviCodeSnippets extends Singleton
     {
         //always register CPT so front-end can query snippets; UI gated inside components
         CodeSnippetsPostType::getInstance();
+        SnippetAssetServeComponent::getInstance();
+        SnippetCacheHooksComponent::getInstance();
         SnippetsOutputComponent::getInstance();
         $userCanManage = Capability::userCanManageSnippets();
         if ($userCanManage) {
@@ -38,6 +44,7 @@ class NoviCodeSnippets extends Singleton
             CodeEditorComponent::getInstance();
             SnippetValidationComponent::getInstance();
             SnippetRevisionsComponent::getInstance();
+            SnippetCacheAdminComponent::getInstance();
         }
     }
 

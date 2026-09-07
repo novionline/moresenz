@@ -23,6 +23,10 @@ class SnippetValidator
 
     const META_MINIFIED = 'snippet_code_minified';
 
+    const META_CACHE_CSS_FILE = 'snippet_cache_css_file';
+
+    const META_CACHE_JS_FILE = 'snippet_cache_js_file';
+
     /**
      * Validate snippet code with CSS or JS parser; invalid code throws
      * @param string $code

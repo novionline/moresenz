@@ -51,11 +51,23 @@ class SnippetValidationComponent extends Singleton
                 try {
                     $minified = $type === 'css' ? Minify::css($code) : Minify::js($code);
                     update_post_meta($postId, SnippetValidator::META_MINIFIED, $minified);
+                    $post = get_post($postId);
+                    if ($post) {
+                        if ($type === 'css') {
+                            SnippetAssetCache::writeForPost($post, 'css', $minified);
+                            SnippetAssetCache::deleteForPost($postId, 'js');
+                        } else {
+                            SnippetAssetCache::writeForPost($post, 'js', $minified);
+                            SnippetAssetCache::deleteForPost($postId, 'css');
+                        }
+                    }
                 } catch (\Throwable $e) {
                     delete_post_meta($postId, SnippetValidator::META_MINIFIED);
+                    SnippetAssetCache::deleteForPost($postId);
                 }
             } else {
                 delete_post_meta($postId, SnippetValidator::META_MINIFIED);
+                SnippetAssetCache::deleteForPost($postId);
             }
         } else {
             update_post_meta($postId, SnippetValidator::META_VALIDATION_ERROR, [
@@ -64,6 +76,7 @@ class SnippetValidationComponent extends Singleton
                 'column' => $result['column']
             ]);
             delete_post_meta($postId, SnippetValidator::META_MINIFIED);
+            SnippetAssetCache::deleteForPost($postId);
         }
     }
 

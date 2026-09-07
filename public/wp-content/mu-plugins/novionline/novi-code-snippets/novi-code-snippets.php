@@ -3,8 +3,8 @@
 /**
  * Plugin Name:     Novi Code Snippets
  * Plugin URI:      https://novionline.nl
- * Description:     Private CPT for CSS/JS code snippets; output in head (CSS) and footer (JS). Novi admins only.
- * Version:         1.0.0
+ * Description:     Private CPT for CSS/JS code snippets; output via WordPress enqueue (Autoptimize-compatible). Novi admins only.
+ * Version:         1.0.1
  * Author:          Novi Online
  * Author URI:      https://novionline.nl
  * Text Domain:     novi-code-snippets
