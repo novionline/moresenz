@@ -2,6 +2,7 @@
 
 namespace NoviOnline;
 
+use NoviOnline\Core\Gutenberg;
 use NoviOnline\Core\Singleton;
 
 /**
@@ -9,6 +10,8 @@ use NoviOnline\Core\Singleton;
  * @package NoviOnline
  */
 class GravityFormsComponent extends Singleton {
+
+    private const GRAVITY_FORM_BLOCK = 'gravityforms/form';
 
     /**
      * GravityFormsComponent constructor.
@@ -37,11 +40,13 @@ class GravityFormsComponent extends Singleton {
         //ensure Gravity Forms assets are enqueued for forms in global sections
         if (!is_admin()) {
             add_action('wp_enqueue_scripts', [$this, 'ensureGlobalSectionFormsEnqueued'], 10);
+            add_action('wp_enqueue_scripts', [$this, 'maybeConditionallyDequeueRecaptcha'], 100);
         }
     }
 
     /**
-     * Filter GF input[type=submit] to button element
+     * Restyle GF submit control as Nectar button with icon
+     * Supports GF 3.x <button> markup and legacy <input type="submit">
      * @param string $buttonInput
      * @param array $form
      * @return string
@@ -49,33 +54,50 @@ class GravityFormsComponent extends Singleton {
     public static function filterSubmitButton(string $buttonInput, array $form): string {
         $buttonText = !empty($form['button']['text']) ? $form['button']['text'] : __("Submit", Theme::TEXT_DOMAIN);
 
-        //save attribute string to $button_match[1]
-        preg_match("/<input([^\/>]*)(\s\/)*>/", $buttonInput, $buttonMatches);
+        //skip if already wrapped by this filter
+        if (strpos($buttonInput, 'novi-button--form-submit') !== false) {
+            return $buttonInput;
+        }
 
-        if (count($buttonMatches) > 0) {
+        $buttonAttributeString = '';
 
-            //remove value attribute
+        //GF 3.x+ outputs a <button> element by default
+        if (preg_match('/<button([^>]*)>/i', $buttonInput, $buttonMatches)) {
+            $buttonAttributeString = $buttonMatches[1];
+        } elseif (preg_match("/<input([^\/>]*)(\s\/)*>/", $buttonInput, $buttonMatches)) {
+            //legacy GF <input type="submit"> markup
             $buttonAttributeString = str_replace("value='" . $buttonText . "' ", "", $buttonMatches[1]);
+            $buttonAttributeString = str_replace('value="' . $buttonText . '" ', '', $buttonAttributeString);
+        } else {
+            return $buttonInput;
+        }
 
-            //add primary class to button
-            $buttonAttributeString = str_replace("class='gform_button", "class='gform_button nectar__link nectar-blocks-button__inner nectar-font-label", $buttonAttributeString);
-            $buttonAttributeString = str_replace("class='gform-button", "class='gform-button nectar__link nectar-blocks-button__inner nectar-font-label", $buttonAttributeString);
+        $buttonAttributeString = trim($buttonAttributeString);
 
-            //create new button HTML
-            ob_start(); ?>
+        //add nectar button classes (single- and double-quoted class attrs)
+        $buttonAttributeString = str_replace("class='gform_button", "class='gform_button nectar__link nectar-blocks-button__inner nectar-font-label", $buttonAttributeString);
+        $buttonAttributeString = str_replace("class='gform-button", "class='gform-button nectar__link nectar-blocks-button__inner nectar-font-label", $buttonAttributeString);
+        $buttonAttributeString = str_replace('class="gform_button', 'class="gform_button nectar__link nectar-blocks-button__inner nectar-font-label', $buttonAttributeString);
+        $buttonAttributeString = str_replace('class="gform-button', 'class="gform-button nectar__link nectar-blocks-button__inner nectar-font-label', $buttonAttributeString);
+
+        //create new button HTML
+        ob_start(); ?>
 
             <div class="wp-block-nectar-blocks-button nectar-blocks-button nectar-font-label novi-button novi-button--form-submit novi-button--arrow-right">
                 <button <?php echo $buttonAttributeString; ?>>
                     <span class="nectar-blocks-button__text">
-                        <?php echo $buttonText; ?>
+                        <?php echo esc_html($buttonText); ?>
                     </span>
+                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/04/moresenz-icon-swiper-navigation-next.svg"
+                        role="presentation"
+                        alt=""
+                        height="300"
+                        width="300"
+                        class="nectar-component__icon__img"/>
                 </button>
             </div>
 
             <?php return ob_get_clean();
-        }
-
-        return $buttonInput;
     }
 
     /**
@@ -211,49 +233,74 @@ class GravityFormsComponent extends Singleton {
     }
 
     /**
+     * Collect Gravity Forms embedded as blocks on the current page.
+     *
+     * Uses Gutenberg::getUsedBlocksByName() to scan global $post and $otherPosts,
+     * including nested inner blocks and reusable core/block patterns.
+     *
+     * @return array<int, array>
+     */
+    private function collectFormsFromUsedBlocks(): array {
+        $foundForms = [];
+        $formBlocks = Gutenberg::getUsedBlocksByName(self::GRAVITY_FORM_BLOCK, true, true);
+
+        foreach ($formBlocks as $block) {
+            if (!is_array($block) || empty($block['attrs']['formId'])) {
+                continue;
+            }
+
+            $formId = (int) $block['attrs']['formId'];
+            $attributes = $block['attrs'];
+            $attributes['ajax'] = isset($attributes['ajax']) ? (bool) $attributes['ajax'] : false;
+
+            if (!isset($foundForms[$formId])) {
+                $foundForms[$formId] = $attributes;
+            }
+        }
+
+        return $foundForms;
+    }
+
+    /**
+     * Check whether the current page contains at least one active Gravity Form.
+     *
+     * @return bool
+     */
+    private function pageHasGravityForm(): bool {
+        if (!class_exists('GFAPI')) {
+            return false;
+        }
+
+        foreach ($this->collectFormsFromUsedBlocks() as $formId => $attributes) {
+            $form = \GFAPI::get_form((int) $formId);
+
+            if ($form && $form['is_active'] && !$form['is_trash']) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Ensure Gravity Forms assets are enqueued for forms in global sections.
-     * 
+     *
      * Gravity Forms only enqueues assets when it detects forms in $wp_query->posts.
      * This method ensures forms in global sections (like footers) also get their assets enqueued.
-     * 
+     *
      * @return void
      */
     public function ensureGlobalSectionFormsEnqueued(): void {
-        //check if Gravity Forms is available
         if (!class_exists('GFFormDisplay') || !class_exists('GFAPI')) {
             return;
         }
 
-        //get visible global sections
-        $globalSectionComponent = GlobalSectionComponent::getInstance();
-        $visibleSections = $globalSectionComponent->getVisibleGlobalSectionPosts();
+        $foundForms = $this->collectFormsFromUsedBlocks();
 
-        if (empty($visibleSections)) {
+        if (empty($foundForms)) {
             return;
         }
 
-        $foundForms = [];
-
-        //parse each section for forms
-        foreach ($visibleSections as $section) {
-            $sectionContent = $section->post_content ?? '';
-            if (empty($sectionContent)) {
-                continue;
-            }
-
-            $sectionForms = [];
-            $sectionBlocks = [];
-            \GFFormDisplay::parse_forms($sectionContent, $sectionForms, $sectionBlocks);
-
-            //merge found forms, deduplicating by form ID
-            foreach ($sectionForms as $formId => $attributes) {
-                if (!isset($foundForms[$formId])) {
-                    $foundForms[$formId] = $attributes;
-                }
-            }
-        }
-
-        //enqueue assets for each found form
         foreach ($foundForms as $formId => $attributes) {
             $formId = (int) $formId;
             $form = \GFAPI::get_form($formId);
@@ -267,6 +314,47 @@ class GravityFormsComponent extends Singleton {
             $form['styles'] = \GFFormDisplay::get_form_styles($attributes);
 
             \GFFormDisplay::enqueue_form_scripts($form, $ajax, $form['theme']);
+        }
+    }
+
+    /**
+     * Dequeue reCAPTCHA scripts on pages without Gravity Forms.
+     *
+     * The GF reCAPTCHA add-on enqueues site-wide for v3 behavioral scoring;
+     * we only need it when a form is actually present on the page.
+     *
+     * @return void
+     */
+    public function maybeConditionallyDequeueRecaptcha(): void {
+        if (is_admin()) {
+            return;
+        }
+
+        if (function_exists('rgget') && rgget('gf_page') === 'preview') {
+            return;
+        }
+
+        if (is_preview()) {
+            return;
+        }
+
+        if (apply_filters('novi_force_enqueue_recaptcha', false)) {
+            return;
+        }
+
+        if ($this->pageHasGravityForm()) {
+            return;
+        }
+
+        $recaptchaHandles = [
+            'gforms_recaptcha_recaptcha',
+            'gforms_recaptcha_frontend',
+            'gforms_recaptcha_frontend-legacy',
+        ];
+
+        foreach ($recaptchaHandles as $handle) {
+            wp_dequeue_script($handle);
+            wp_deregister_script($handle);
         }
     }
 }
