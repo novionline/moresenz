@@ -10,9 +10,13 @@ use NoviOnline\Core\Singleton;
 class PaginationComponent extends Singleton {
 
     protected function __construct() {
-        //prevent /page/1/ links in pagination (canonical is the archive URL).
+        // Prevent /page/1/ links in pagination (canonical is the archive URL).
         add_filter('paginate_links', [$this, 'filterPaginateLinksNoPageOne'], 20, 1);
         add_filter('get_pagenum_link', [$this, 'filterGetPagenumLinkNoPageOne'], 20, 2);
+
+        //WCAG: name icon-only prev/next links (WP 7+ applies paginate_links to URLs only)
+        add_filter('paginate_links_output', [$this, 'filterPaginateLinksOutputAriaLabels'], 25, 1);
+        add_filter('nectar_blocks_post_grid_pagination', [$this, 'filterPaginateLinksOutputAriaLabels'], 25, 1);
     }
 
     /**
@@ -32,6 +36,22 @@ class PaginationComponent extends Singleton {
         }
 
         return $this->rewriteValue($output);
+    }
+
+    /**
+     * Add translatable aria-labels to icon-only prev/next pagination links.
+     *
+     * Hooks `paginate_links_output` (full HTML in WP 7+) and NB post-grid markup.
+     *
+     * @param mixed $output Pagination HTML
+     * @return mixed
+     */
+    public function filterPaginateLinksOutputAriaLabels($output) {
+        if (!is_string($output) || $output === '') {
+            return $output;
+        }
+
+        return $this->addPrevNextAriaLabels($output);
     }
 
     /**
@@ -62,6 +82,48 @@ class PaginationComponent extends Singleton {
     }
 
     /**
+     * Inject aria-label on .prev / .next anchors when missing.
+     *
+     * @param string $html
+     * @return string
+     */
+    private function addPrevNextAriaLabels(string $html): string {
+        if (!str_contains($html, 'page-numbers') && !str_contains($html, 'prev') && !str_contains($html, 'next')) {
+            return $html;
+        }
+
+        $prevLabel = esc_attr__('Previous page', Theme::TEXT_DOMAIN);
+        $nextLabel = esc_attr__('Next page', Theme::TEXT_DOMAIN);
+
+        return (string) preg_replace_callback(
+            '/<a\b([^>]*)>/iu',
+            static function (array $match) use ($prevLabel, $nextLabel): string {
+                $attrs = $match[1];
+
+                if (!preg_match('/\bclass\s*=\s*(["\'])([^"\']*)\1/iu', $attrs, $classMatch)) {
+                    return $match[0];
+                }
+
+                $classes = preg_split('/\s+/', trim($classMatch[2])) ?: [];
+                $isPrev = in_array('prev', $classes, true);
+                $isNext = in_array('next', $classes, true);
+
+                if (!$isPrev && !$isNext) {
+                    return $match[0];
+                }
+
+                if (preg_match('/\baria-label\s*=/iu', $attrs)) {
+                    return $match[0];
+                }
+
+                $label = $isPrev ? $prevLabel : $nextLabel;
+                return '<a' . $attrs . ' aria-label="' . $label . '">';
+            },
+            $html
+        );
+    }
+
+    /**
      * Rewrite href targets within pagination HTML.
      *
      * @param string $html
@@ -89,17 +151,17 @@ class PaginationComponent extends Singleton {
      * @return string
      */
     private function normalizePaginationPageOneUrl(string $url): string {
-        //remove explicit first page in pretty permalinks.
+        // Remove explicit first page in pretty permalinks.
         // /something/page/1/      -> /something/
         // /something/page/1/?x=1  -> /something/?x=1
         $fixed = (string) preg_replace('~/(?:page)/1/?(?=\\?|#|$)~', '/', $url);
 
-        //remove explicit paged=1 in query strings (keep other params).
+        // Remove explicit paged=1 in query strings (keep other params).
         // ?paged=1&x=1  -> ?x=1
         // ?x=1&paged=1  -> ?x=1
         $fixed = (string) preg_replace('~([?&])paged=1(&)?~', '$1', $fixed);
 
-        //cleanup leftover separators.
+        // Cleanup leftover separators.
         $fixed = str_replace(['?&', '&&'], ['?', '&'], $fixed);
         $fixed = (string) preg_replace('~\\?(#|$)~', '$1', $fixed);
         $fixed = (string) preg_replace('~&(#|$)~', '$1', $fixed);
