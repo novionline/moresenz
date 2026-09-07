@@ -45,7 +45,7 @@ class GravityFormsComponent extends Singleton {
     }
 
     /**
-     * Restyle GF submit control as Nectar button with icon
+     * Restyle GF submit control as Nectar button (text only — match production)
      * Supports GF 3.x <button> markup and legacy <input type="submit">
      * @param string $buttonInput
      * @param array $form
@@ -80,20 +80,14 @@ class GravityFormsComponent extends Singleton {
         $buttonAttributeString = str_replace('class="gform_button', 'class="gform_button nectar__link nectar-blocks-button__inner nectar-font-label', $buttonAttributeString);
         $buttonAttributeString = str_replace('class="gform-button', 'class="gform-button nectar__link nectar-blocks-button__inner nectar-font-label', $buttonAttributeString);
 
-        //create new button HTML
+        //create new button HTML (no trailing icon — production MoreSenz is text-only)
         ob_start(); ?>
 
-            <div class="wp-block-nectar-blocks-button nectar-blocks-button nectar-font-label novi-button novi-button--form-submit novi-button--arrow-right">
+            <div class="wp-block-nectar-blocks-button nectar-blocks-button nectar-font-label novi-button novi-button--form-submit">
                 <button <?php echo $buttonAttributeString; ?>>
                     <span class="nectar-blocks-button__text">
                         <?php echo esc_html($buttonText); ?>
                     </span>
-                    <img loading="lazy" decoding="async" src="/wp-content/uploads/2026/04/moresenz-icon-swiper-navigation-next.svg"
-                        role="presentation"
-                        alt=""
-                        height="300"
-                        width="300"
-                        class="nectar-component__icon__img"/>
                 </button>
             </div>
 
