@@ -60,6 +60,14 @@ class OwnerRoleComponent extends Singleton {
      */
     protected function __construct() {
 
+        //allow owners to use admin bar light
+        add_filter('novi_admin_bar_light_allowed_roles', static function (array $roles): array {
+            if (!in_array(self::ROLE_OWNER, $roles, true)) {
+                $roles[] = self::ROLE_OWNER;
+            }
+            return $roles;
+        });
+
         //Register the owner role
         add_action('admin_init', [$this, 'checkAndPossiblyUpdateOwnerRole']);
 
