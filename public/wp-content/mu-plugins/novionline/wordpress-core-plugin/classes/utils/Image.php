@@ -23,15 +23,24 @@ class Image
     }
 
     /**
-     * Get alt for given attachment ID
-     * @param $attachmentId
+     * Get alt for given attachment ID (meta → title → filename-style cleanup).
+     * Returns a plain string; callers that inject into HTML must esc_attr().
+     * @param int|string $attachmentId
      * @return string
      */
-    public static function altFromId($attachmentId): string
+    public static function altFromId(int|string $attachmentId): string
     {
-        if (!$attachmentId) return '';
+        if (!$attachmentId) {
+            return '';
+        }
         $alt = get_post_meta($attachmentId, '_wp_attachment_image_alt', true);
-        return !empty($alt) ? $alt : get_the_title($attachmentId);
+        if (!$alt) {
+            $alt = get_the_title($attachmentId);
+        }
+        if ($alt) {
+            $alt = ucfirst(str_replace(['-', '_'], ' ', $alt));
+        }
+        return (string) $alt;
     }
 
     /**

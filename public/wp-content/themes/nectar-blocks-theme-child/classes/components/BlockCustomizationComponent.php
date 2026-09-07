@@ -27,6 +27,9 @@ class BlockCustomizationComponent extends Singleton {
         //image block: fallback alt tag from attachment when none is configured
         add_filter('render_block', [$this, 'imageBlockFallbackAlt'], 10, 2);
 
+        //attachment images (e.g. post-grid featured): fill empty alt from Image::altFromId
+        add_filter('wp_get_attachment_image_attributes', [$this, 'attachmentImageFallbackAlt'], 10, 3);
+
         //image block: LCP priority loading when block option is enabled
         add_filter('render_block', [$this, 'imageBlockPriorityLoading'], 10, 2);
 
@@ -196,10 +199,10 @@ class BlockCustomizationComponent extends Singleton {
         $fallbackAlt = Image::altFromId($attachmentId);
         if ($fallbackAlt === '') {
             //Image::altFromId falls back to attachment title; some attachments might have an empty title.
-            //as a final fallback, use the block-configured title if available
-            $fallbackAlt = isset($imageAttrs['title']) ? trim((string) $imageAttrs['title']) : '';
-            if ($fallbackAlt !== '') {
-                $fallbackAlt = esc_attr(ucfirst(str_replace(['-', '_'], ' ', $fallbackAlt)));
+            //as a final fallback, use the block-configured title with the same cleanup
+            $titleFallback = isset($imageAttrs['title']) ? trim((string) $imageAttrs['title']) : '';
+            if ($titleFallback !== '') {
+                $fallbackAlt = ucfirst(str_replace(['-', '_'], ' ', $titleFallback));
             }
         }
 
@@ -210,21 +213,24 @@ class BlockCustomizationComponent extends Singleton {
             return $blockContent;
         }
 
+        //esc for HTML injection (Image::altFromId returns a plain cleaned string)
+        $fallbackAltEscaped = esc_attr($fallbackAlt);
+
         $updated = preg_replace_callback(
             '/<img\b[^>]*>/iu',
-            static function (array $m) use ($fallbackAlt): string {
+            static function (array $m) use ($fallbackAltEscaped): string {
                 $tag = $m[0];
                 if (preg_match('/\balt\s*=\s*"/iu', $tag)) {
-                    return (string) preg_replace('/\balt\s*=\s*"[^"]*"/iu', 'alt="' . $fallbackAlt . '"', $tag, 1);
+                    return (string) preg_replace('/\balt\s*=\s*"[^"]*"/iu', 'alt="' . $fallbackAltEscaped . '"', $tag, 1);
                 }
                 if (preg_match('/\balt\s*=\s*\'/iu', $tag)) {
-                    return (string) preg_replace('/\balt\s*=\s*\'[^\']*\'/iu', 'alt="' . $fallbackAlt . '"', $tag, 1);
+                    return (string) preg_replace('/\balt\s*=\s*\'[^\']*\'/iu', 'alt="' . $fallbackAltEscaped . '"', $tag, 1);
                 }
                 if (preg_match('/\/\s*>\s*$/', $tag)) {
-                    return (string) preg_replace('/\/\s*>\s*$/', ' alt="' . $fallbackAlt . '" />', $tag, 1);
+                    return (string) preg_replace('/\/\s*>\s*$/', ' alt="' . $fallbackAltEscaped . '" />', $tag, 1);
                 }
 
-                return (string) preg_replace('/>$/', ' alt="' . $fallbackAlt . '">', $tag, 1);
+                return (string) preg_replace('/>$/', ' alt="' . $fallbackAltEscaped . '">', $tag, 1);
             },
             $blockContent,
             1
@@ -242,6 +248,30 @@ class BlockCustomizationComponent extends Singleton {
         }
 
         return $updated !== null ? $updated : $blockContent;
+    }
+
+    /**
+     * Fill empty attachment image alt from Image::altFromId (post-grid thumbs and other wp_get_attachment_image paths).
+     * Core esc_attr's attributes after this filter; pass a plain cleaned string.
+     *
+     * @param array $attr
+     * @param \WP_Post|int $attachment
+     * @param string|int[] $size
+     * @return array
+     */
+    public function attachmentImageFallbackAlt(array $attr, $attachment, $size): array {
+        $current = isset($attr['alt']) ? trim((string) $attr['alt']) : '';
+        if ($current !== '') {
+            return $attr;
+        }
+
+        $id = is_object($attachment) ? (int) $attachment->ID : (int) $attachment;
+        $fallback = Image::altFromId($id);
+        if ($fallback !== '') {
+            $attr['alt'] = $fallback;
+        }
+
+        return $attr;
     }
 
     /**

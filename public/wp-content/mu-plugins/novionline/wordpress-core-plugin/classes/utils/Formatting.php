@@ -120,4 +120,108 @@ class Formatting
 
         return $str;
     }
+
+    /**
+     * Get the site's combined date and time format from WordPress settings
+     * @return string
+     */
+    public static function getDateTimeFormat(): string
+    {
+        return trim(get_option('date_format') . ' ' . get_option('time_format'));
+    }
+
+    /**
+     * Parse a local datetime string in the WordPress timezone
+     * @param string $value
+     * @return int|null
+     */
+    public static function parseLocalDateTime(string $value): ?int
+    {
+        $value = trim($value);
+        if ($value === '') {
+            return null;
+        }
+
+        $timezone = wp_timezone();
+        $datetime = \DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $value, $timezone);
+        if ($datetime === false) {
+            $datetime = \DateTimeImmutable::createFromFormat('Y-m-d H:i', $value, $timezone);
+        }
+        if ($datetime === false) {
+            return null;
+        }
+
+        return $datetime->getTimestamp();
+    }
+
+    /**
+     * Format a timestamp or datetime string using WordPress date/time settings and timezone
+     * @param int|string $value
+     * @param string|null $format
+     * @return string
+     */
+    public static function i18nDate(int|string $value, ?string $format = null): string
+    {
+        if ($format === null) {
+            $format = self::getDateTimeFormat();
+        }
+
+        if (is_int($value)) {
+            $timestamp = $value;
+        } elseif (is_numeric($value)) {
+            $timestamp = (int)$value;
+        } else {
+            $timestamp = self::parseLocalDateTime((string)$value);
+        }
+
+        if ($timestamp === null) {
+            return is_string($value) ? $value : '';
+        }
+
+        return wp_date($format, $timestamp);
+    }
+
+    /**
+     * Format a timestamp as date and time with a connector word between both parts
+     * @param int|string $value
+     * @param string $timeConnector
+     * @return string
+     */
+    public static function i18nDateTime(int|string $value, string $timeConnector = 'at'): string
+    {
+        $dateFormat = get_option('date_format');
+        $timeFormat = get_option('time_format');
+
+        if (is_int($value)) {
+            $timestamp = $value;
+        } elseif (is_numeric($value)) {
+            $timestamp = (int)$value;
+        } else {
+            $timestamp = self::parseLocalDateTime((string)$value);
+        }
+
+        if ($timestamp === null) {
+            return is_string($value) ? $value : '';
+        }
+
+        if ($timeFormat === '' || !self::timestampHasTime($timestamp)) {
+            return wp_date($dateFormat, $timestamp);
+        }
+
+        return wp_date($dateFormat, $timestamp)
+            . ' ' . $timeConnector . ' '
+            . wp_date($timeFormat, $timestamp);
+    }
+
+    /**
+     * Check whether a timestamp has a meaningful time component
+     * @param int $timestamp
+     * @return bool
+     */
+    private static function timestampHasTime(int $timestamp): bool
+    {
+        $datetime = (new \DateTimeImmutable('@' . $timestamp))->setTimezone(wp_timezone());
+
+        return $datetime->format('His') !== '000000';
+    }
 }
