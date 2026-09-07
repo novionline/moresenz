@@ -1,0 +1,30 @@
+//off-canvas nav item styles (novi-ofn-*)
+//nb 3.3 used-css applies accent (--nectar-ocm-text-hover) with !important on
+//.current-menu-item; homepage hash links inherit current-menu-item and go brown.
+//beat that rule so large/regular links stay white (button keeps dark text).
+
+body.material #slide-out-widget-area.slide-out-from-right .off-canvas-menu-container {
+    .current-menu-item.novi-ofn-style--large > a,
+    .current-menu-item.novi-ofn-style--regular > a,
+    li.novi-ofn-style--large > a,
+    li.novi-ofn-style--regular > a {
+        color: #fff !important;
+    }
+
+    li.novi-ofn-style--white-button > a {
+        color: var(--dark, #000) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    body.material #slide-out-widget-area.slide-out-from-right .off-canvas-menu-container {
+        li.novi-ofn-style--large > a:hover,
+        li.novi-ofn-style--regular > a:hover {
+            color: var(--nectar-accent-color, #9a8a73) !important;
+        }
+
+        li.novi-ofn-style--white-button > a:hover {
+            color: var(--dark, #000) !important;
+        }
+    }
+}

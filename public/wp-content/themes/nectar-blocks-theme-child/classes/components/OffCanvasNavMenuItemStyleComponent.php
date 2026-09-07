@@ -2,6 +2,7 @@
 
 namespace NoviOnline;
 
+use NoviOnline\Core\Enqueue;
 use NoviOnline\Core\Singleton;
 
 /**
@@ -20,6 +21,30 @@ class OffCanvasNavMenuItemStyleComponent extends Singleton {
         add_action('acf/init', [$this, 'registerAcfField']);
         add_filter('nav_menu_css_class', [$this, 'addOffCanvasNavItemStyleClass'], 10, 4);
         add_filter('nav_menu_link_attributes', [$this, 'addOffCanvasNavLinkStyleClass'], 10, 4);
+        //priority 1000: after nectar used-css dequeue (999) so ofn colors are not stripped
+        add_action('wp_enqueue_scripts', [$this, 'enqueueOffCanvasNavStyles'], 1000);
+    }
+
+    /**
+     * Enqueue off-canvas nav item color/style overrides.
+     */
+    public function enqueueOffCanvasNavStyles(): void {
+
+        if (is_admin()) {
+            return;
+        }
+
+        $css = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'novi-off-canvas-nav.css');
+        if (!$css) {
+            return;
+        }
+
+        wp_enqueue_style(
+            Theme::TEXT_DOMAIN . '_off_canvas_nav',
+            $css,
+            [],
+            false
+        );
     }
 
     /**
