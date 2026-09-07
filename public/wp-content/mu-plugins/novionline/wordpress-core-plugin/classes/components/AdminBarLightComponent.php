@@ -30,60 +30,76 @@ class AdminBarLightComponent extends Singleton
         //bail if user is not logged in
         if (!is_user_logged_in()) return;
 
-        //bail if current WP user is not allowed to use the light admin bar
+        //defer bootstrap until init so themes can register allowed roles on after_setup_theme
+        add_action('init', [$this, 'bootstrap'], 20);
+    }
+
+    /**
+     * Boots admin bar light after themes have had a chance to customize allowed roles.
+     *
+     * @return void
+     */
+    public function bootstrap(): void
+    {
+        static $bootstrapped = false;
+        if ($bootstrapped) return;
+        $bootstrapped = true;
+
         $currentUserId = get_current_user_id();
         if (!$currentUserId || !$this->userIsAllowedToUseAdminBar($currentUserId)) return;
 
         //admin hooks - register profile field and saving hooks
-        if (is_admin()) add_action('admin_init', [$this, 'addUseLightAdminBarSetting']);
+        if (is_admin()) {
+            add_action('admin_init', [$this, 'addUseLightAdminBarSetting']);
+            return;
+        }
 
         //front-end hooks
-        if (!is_admin() && is_admin_bar_showing()) {
+        if (!is_admin_bar_showing()) return;
 
-            //handle toggle query param
-            add_action('template_redirect', [$this, 'handleToggleQueryParam'], 0);
+        //handle toggle query param
+        add_action('template_redirect', [$this, 'handleToggleQueryParam'], 0);
 
-            //check if user had admin bar enabled
-            $hasAdminBarLightEnabled = $this->userHasLightAdminBarEnabled($currentUserId);
+        //check if user had admin bar enabled
+        $hasAdminBarLightEnabled = $this->userHasLightAdminBarEnabled($currentUserId);
 
-            //handle default admin bar enabled
-            if (!$hasAdminBarLightEnabled) {
+        //handle default admin bar enabled
+        if (!$hasAdminBarLightEnabled) {
 
-                //add toggle link to the default admin bar
-                add_action('admin_bar_menu', [$this, 'addLightAdminBarToggle'], 100);
+            //add toggle link to the default admin bar
+            add_action('admin_bar_menu', [$this, 'addLightAdminBarToggle'], 100);
 
-                //enqueue front-end assets
-                add_action('wp_enqueue_scripts', [$this, 'initFrontendScriptsAdminBar']);
-            }
+            //enqueue front-end assets
+            add_action('wp_enqueue_scripts', [$this, 'initFrontendScriptsAdminBar']);
+        }
 
-            //handle light admin bar enabled
-            if ($hasAdminBarLightEnabled) {
+        //handle light admin bar enabled
+        if ($hasAdminBarLightEnabled) {
 
-                //enqueue front-end assets
-                add_action('wp_enqueue_scripts', [$this, 'initFrontendScriptsAdminBarLight']);
+            //enqueue front-end assets
+            add_action('wp_enqueue_scripts', [$this, 'initFrontendScriptsAdminBarLight']);
 
-                //inject NB global color variables for the light admin bar
-                add_action('wp_head', [$this, 'printColorVariables'], 100);
+            //inject NB global color variables for the light admin bar
+            add_action('wp_head', [$this, 'printColorVariables'], 100);
 
-                //add query var for potential usage in theme
-                set_query_var('novi_has_light_admin_bar', true);
+            //add query var for potential usage in theme
+            set_query_var('novi_has_light_admin_bar', true);
 
-                //add a CSS class to the HTML tag via theme filter
-                add_filter('novi_html_classes', static function (array $classes): array {
-                    if (!in_array('novi-has-light-admin-bar', $classes, true)) $classes[] = 'novi-has-light-admin-bar';
-                    return $classes;
+            //add a CSS class to the HTML tag via theme filter
+            add_filter('novi_html_classes', static function (array $classes): array {
+                if (!in_array('novi-has-light-admin-bar', $classes, true)) $classes[] = 'novi-has-light-admin-bar';
+                return $classes;
+            });
+
+            //disable the default admin bar
+            add_filter('show_admin_bar', '__return_false');
+
+            //render the light admin bar at the footer, in the admin user's preferred locale
+            add_action('wp_footer', static function (): void {
+                self::withUserLocale(static function (): void {
+                    Partial::render('components/admin-bar-light', [], true, WCP_PARTIAL_PATH);
                 });
-
-                //disable the default admin bar
-                add_filter('show_admin_bar', '__return_false');
-
-                //render the light admin bar at the footer, in the admin user's preferred locale
-                add_action('wp_footer', static function (): void {
-                    self::withUserLocale(static function (): void {
-                        Partial::render('components/admin-bar-light', [], true, WCP_PARTIAL_PATH);
-                    });
-                });
-            }
+            });
         }
     }
 
@@ -617,6 +633,31 @@ class AdminBarLightComponent extends Singleton
         }
 
         $items[] = (object) ['heading' => __('Actions', Core::TEXT_DOMAIN)];
+
+        if (current_user_can('customize')) {
+            $returnUrl = home_url('/');
+            if (!empty($_SERVER['REQUEST_URI'])) {
+                $returnUrl = home_url(wp_unslash($_SERVER['REQUEST_URI']));
+            }
+
+            $items[] = (object) [
+                'href' => add_query_arg('return', $returnUrl, admin_url('customize.php')),
+                'label' => __('Customizer', Core::TEXT_DOMAIN),
+                'icon' => 'icon-settings',
+            ];
+        }
+
+        if (
+            post_type_exists('novi-code-snippets')
+            && class_exists('\NoviOnline\CodeSnippets\Capability')
+            && \NoviOnline\CodeSnippets\Capability::userCanManageSnippets()
+        ) {
+            $items[] = (object) [
+                'href' => admin_url('edit.php?post_type=novi-code-snippets'),
+                'label' => __('Code snippets', Core::TEXT_DOMAIN),
+                'icon' => 'icon-code',
+            ];
+        }
 
         $items[] = (object) [
             'href' => add_query_arg(self::QUERY_PARAM_ENABLE_LIGHT_ADMIN_BAR, 'false'),

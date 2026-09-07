@@ -20,6 +20,7 @@ use NoviOnline\Core\AdminBarLightComponent;
 use NoviOnline\Core\AdminColorComponent;
 use NoviOnline\Core\AcfComponent;
 use NoviOnline\Core\Enqueue;
+use NoviOnline\Core\NectarTemplatesOtherPostsComponent;
 use NoviOnline\Core\PreviewNotificationComponent;
 use NoviOnline\Core\Singleton;
 
@@ -93,6 +94,9 @@ class Core extends Singleton
     {
         PreviewNotificationComponent::getInstance();
         AcfComponent::getInstance();
+
+        //prime active NB theme builder templates into $otherPosts (soft-dep on NectarBlocks)
+        NectarTemplatesOtherPostsComponent::getInstance();
 
         //apply Novi purple admin theme color overrides
         $adminColorEnabled = apply_filters('novi_admin_color_feature_enabled', true);
