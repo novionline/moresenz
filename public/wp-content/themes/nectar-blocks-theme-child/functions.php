@@ -103,6 +103,8 @@ class Theme extends Singleton {
         SearchComponent::getInstance();
         OwnerRoleComponent::getInstance();
         CustomCssCapabilityComponent::getInstance();
+        RandomizeOrderComponent::getInstance();
+        NoviSectionBgComponent::getInstance();
 
         //handle Polylang customization
         if (class_exists('\Polylang')) {

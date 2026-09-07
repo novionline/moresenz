@@ -33,6 +33,12 @@ class BlockCustomizationComponent extends Singleton {
         //image block: LCP priority loading when block option is enabled
         add_filter('render_block', [$this, 'imageBlockPriorityLoading'], 10, 2);
 
+        //video-player: defer muted preview fetch until near viewport (NB already lazy-loads the main source)
+        add_filter('render_block', [$this, 'videoPlayerLazyPreview'], 10, 2);
+
+        //omit nectar buttons with empty href when hideWithoutHref is enabled
+        add_filter('render_block', [$this, 'hideButtonWithoutHref'], 10, 2);
+
         //strip decoding=async re-added by wp_filter_content_tags for LCP priority images
         add_filter('wp_content_img_tag', [$this, 'stripDecodingForLcpPriorityImages'], 10, 1);
 
@@ -369,6 +375,137 @@ class BlockCustomizationComponent extends Singleton {
         }
 
         return (string) preg_replace('/\s*\bdecoding\s*=\s*(?:"[^"]*"|\'[^\']*\')/iu', '', $filteredImage);
+    }
+
+    /**
+     * Defer NectarBlocks video-player preview loops until near the viewport.
+     *
+     * Only runs when the block's Lazy Load setting is enabled. The main video already
+     * uses data-nectar-lazy-src in that case; the muted preview still ships with src +
+     * preload="auto", so browsers fetch several MB on first paint even below the fold.
+     * Rewrite preview markup to the same lazy-src contract NB frontend hydrates via
+     * IntersectionObserver (rootMargin ~200px).
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function videoPlayerLazyPreview($blockContent, array $block) {
+
+        if (($block['blockName'] ?? '') !== 'nectar-blocks/video-player') {
+            return $blockContent;
+        }
+
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        //only when the block's Lazy Load setting is enabled (main source already uses data-nectar-lazy-src)
+        if (($block['attrs']['lazyLoad'] ?? false) !== true) {
+            return $blockContent;
+        }
+
+        if (strpos($blockContent, 'nectar-blocks-video-player__preview-video') === false) {
+            return $blockContent;
+        }
+
+        $updated = preg_replace_callback(
+            '/<video\b([^>]*\bnectar-blocks-video-player__preview-video\b[^>]*)>(.*?)<\/video>/is',
+            static function (array $match): string {
+                $attrs = $match[1];
+                $inner = $match[2];
+
+                //preload=none until NB hydrates data-nectar-lazy-src near the viewport
+                if (preg_match('/\bpreload\s*=\s*(["\'])[^"\']*\1/iu', $attrs)) {
+                    $attrs = (string) preg_replace('/\bpreload\s*=\s*(["\'])[^"\']*\1/iu', 'preload="none"', $attrs, 1);
+                } else {
+                    $attrs .= ' preload="none"';
+                }
+
+                $inner = (string) preg_replace_callback(
+                    '/<source\b([^>]*)>/iu',
+                    static function (array $sourceMatch): string {
+                        $sourceAttrs = $sourceMatch[1];
+
+                        //already lazy
+                        if (preg_match('/\bdata-nectar-lazy-src\s*=/iu', $sourceAttrs)) {
+                            //drop a real src if both are present so nothing fetches early
+                            $sourceAttrs = (string) preg_replace('/\s*\bsrc\s*=\s*(["\'])[^"\']*\1/iu', '', $sourceAttrs);
+                            return '<source' . $sourceAttrs . '>';
+                        }
+
+                        if (!preg_match('/\bsrc\s*=\s*(["\'])([^"\']+)\1/iu', $sourceAttrs, $srcMatch)) {
+                            return $sourceMatch[0];
+                        }
+
+                        $url = $srcMatch[2];
+                        $sourceAttrs = (string) preg_replace('/\s*\bsrc\s*=\s*(["\'])[^"\']*\1/iu', '', $sourceAttrs, 1);
+                        $sourceAttrs = ' data-nectar-lazy-src="' . esc_attr($url) . '"' . $sourceAttrs;
+
+                        return '<source' . $sourceAttrs . '>';
+                    },
+                    $inner
+                );
+
+                return '<video' . $attrs . '>' . $inner . '</video>';
+            },
+            $blockContent
+        );
+
+        return is_string($updated) ? $updated : $blockContent;
+    }
+
+    /**
+     * Omit nectar button blocks from the frontend when hideWithoutHref is enabled and the link URL is empty.
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function hideButtonWithoutHref($blockContent, array $block) {
+
+        if (($block['blockName'] ?? '') !== 'nectar-blocks/button') {
+            return $blockContent;
+        }
+
+        if (($block['attrs']['hideWithoutHref'] ?? false) !== true) {
+            return $blockContent;
+        }
+
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        if (self::isEmptyRenderedLinkHref($blockContent)) {
+            return '';
+        }
+
+        return $blockContent;
+    }
+
+    /**
+     * Determine whether rendered block markup contains an empty or unresolved link href.
+     *
+     * @param string $blockContent
+     * @return bool
+     */
+    private static function isEmptyRenderedLinkHref(string $blockContent): bool {
+
+        if (!preg_match('/<a\b[^>]*\bhref=(["\'])(.*?)\1/is', $blockContent, $match)) {
+            return true;
+        }
+
+        $href = trim(html_entity_decode($match[2], ENT_QUOTES, 'UTF-8'));
+
+        if ($href === '' || $href === '#') {
+            return true;
+        }
+
+        if (str_contains($href, 'nb_dynamic')) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

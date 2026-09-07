@@ -73,6 +73,34 @@ class AdminScripts extends Singleton {
                 true
             );
         }
+
+        $buttonHideWithoutHrefEditorJs = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'button-hide-without-href-editor.js');
+        if (!$buttonHideWithoutHrefEditorJs) {
+            $buttonHideWithoutHrefEditorJs = get_stylesheet_directory_uri() . '/js/chunk/button-hide-without-href-editor.js';
+        }
+        if ($buttonHideWithoutHrefEditorJs) {
+            wp_enqueue_script(
+                Theme::TEXT_DOMAIN . '_button_hide_without_href_editor',
+                $buttonHideWithoutHrefEditorJs,
+                ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-hooks', 'wp-compose', 'wp-i18n'],
+                false,
+                true
+            );
+        }
+
+        $randomizeOrderEditorJs = Enqueue::getWebpackAssetUrlByKey(MANIFEST_PATH, 'randomize-order-editor.js');
+        if (!$randomizeOrderEditorJs) {
+            $randomizeOrderEditorJs = get_stylesheet_directory_uri() . '/js/chunk/randomize-order-editor.js';
+        }
+        if ($randomizeOrderEditorJs) {
+            wp_enqueue_script(
+                Theme::TEXT_DOMAIN . '_randomize_order_editor',
+                $randomizeOrderEditorJs,
+                ['wp-blocks', 'wp-element', 'wp-block-editor', 'wp-components', 'wp-hooks', 'wp-compose', 'wp-i18n'],
+                false,
+                true
+            );
+        }
     }
 
     /**
