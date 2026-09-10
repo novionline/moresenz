@@ -100,6 +100,9 @@ class SnippetValidator
                     }
                 }
             }
+        } catch (SnippetValidationException $e) {
+            //real whitelist failure — do not mask with the fallback scanner
+            throw $e;
         } catch (\Throwable $e) {
             //allow modern selectors (:not, :has, etc.) when sabberworm fails; only check property names
             self::validateCssPropertyNamesOnly($code);
@@ -118,6 +121,11 @@ class SnippetValidator
             return;
         }
         foreach ($blocks[1] as $block) {
+            //strip url()/strings so data: URIs (and other colon values) are not treated as properties
+            $block = preg_replace('/url\(\s*(["\']).*?\1\s*\)/si', 'url()', $block) ?? $block;
+            $block = preg_replace('/url\(\s*[^)]+\s*\)/si', 'url()', $block) ?? $block;
+            $block = preg_replace('/(["\']).*?\1/s', '""', $block) ?? $block;
+
             //match identifiers (property names) followed by colon; exclude pseudo/at-rules that use : in selectors
             if (!preg_match_all('/([a-zA-Z_\-][a-zA-Z0-9_\-]*)\s*:/', $block, $props)) {
                 continue;

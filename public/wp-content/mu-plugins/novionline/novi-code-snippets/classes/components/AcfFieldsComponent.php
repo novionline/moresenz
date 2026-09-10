@@ -20,6 +20,8 @@ class AcfFieldsComponent extends Singleton
         add_action('acf/init', [$this, 'registerFieldGroup']);
         add_action('acf/init', [$this, 'registerPriorityFieldGroup']);
         add_filter('acf/load_field/name=snippet_priority', [$this, 'defaultPriorityForNewSnippet']);
+        //wp_unslash on meta save strips CSS/JS backslash escapes (\e60a → e60a); re-slash before ACF writes
+        add_filter('acf/update_value/name=snippet_code', [SnippetCodeEscaping::class, 'slashForAcfSave'], 10, 1);
     }
 
     /**
