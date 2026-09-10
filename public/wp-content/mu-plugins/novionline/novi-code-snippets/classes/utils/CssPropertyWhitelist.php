@@ -99,7 +99,7 @@ class CssPropertyWhitelist
             'scroll-padding-inline', 'scroll-padding-inline-end', 'scroll-padding-inline-start',
             'scroll-padding-left', 'scroll-padding-right', 'scroll-padding-top', 'scroll-snap-align',
             'scroll-snap-stop', 'scroll-snap-type', 'scrollbar-color', 'scrollbar-gutter', 'scrollbar-width',
-            'shape-image-threshold', 'shape-margin', 'shape-outside', 'stop-color', 'stop-opacity', 'stroke',
+            'shape-image-threshold', 'shape-margin', 'shape-outside', 'speak', 'stop-color', 'stop-opacity', 'stroke',
             'stroke-dasharray', 'stroke-dashoffset', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit',
             'stroke-opacity', 'stroke-width', 'tab-size', 'table-layout', 'text-align', 'text-align-last',
             'text-combine-upright', 'text-decoration', 'text-decoration-color', 'text-decoration-line',

@@ -43,6 +43,12 @@ class SnippetValidationComponent extends Singleton
             $type = 'css';
         }
         $code = is_string($code) ? $code : '';
+        //safety net if an older save path already stripped content:\eXXXX escapes
+        $restored = SnippetCodeEscaping::restoreStrippedCssContentEscapes($code);
+        if ($restored !== $code) {
+            $code = $restored;
+            SnippetCodeEscaping::updateMeta($postId, 'snippet_code', $code);
+        }
         $result = SnippetValidator::validateWithDetails($code, $type);
         update_post_meta($postId, SnippetValidator::META_VALID, $result['valid'] ? '1' : '0');
         if ($result['valid']) {
@@ -50,7 +56,7 @@ class SnippetValidationComponent extends Singleton
             if (trim($code) !== '') {
                 try {
                     $minified = $type === 'css' ? Minify::css($code) : Minify::js($code);
-                    update_post_meta($postId, SnippetValidator::META_MINIFIED, $minified);
+                    SnippetCodeEscaping::updateMeta($postId, SnippetValidator::META_MINIFIED, $minified);
                     $post = get_post($postId);
                     if ($post) {
                         if ($type === 'css') {
