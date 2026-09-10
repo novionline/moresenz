@@ -105,6 +105,7 @@ class Theme extends Singleton {
         CustomCssCapabilityComponent::getInstance();
         RandomizeOrderComponent::getInstance();
         NoviSectionBgComponent::getInstance();
+        AccessibilityComponent::getInstance();
 
         //handle Polylang customization
         if (class_exists('\Polylang')) {
