@@ -59,19 +59,35 @@
     })
   }
 
+  function initCardHover(grid) {
+    if (grid.dataset.projectCardHoverInit === '1') {
+      return
+    }
+
+    //marquee script exposes shared hover (preload + play); retry briefly if script order races
+    const tryInit = function (attempt) {
+      if (typeof window.noviInitProjectCardHover === 'function') {
+        grid.dataset.projectCardHoverInit = '1'
+        window.noviInitProjectCardHover(grid)
+        return
+      }
+
+      if (attempt >= 20) {
+        return
+      }
+
+      window.setTimeout(function () {
+        tryInit(attempt + 1)
+      }, 50)
+    }
+
+    tryInit(0)
+  }
+
   function initArchiveGrids(root) {
     const scope = root && root.querySelectorAll ? root : document
     scope.querySelectorAll('.project-archive-grid[data-project-card-hover="1"]').forEach(function (grid) {
-      if (grid.dataset.projectCardHoverInit !== '1') {
-        grid.dataset.projectCardHoverInit = '1'
-
-        //marquee script exposes hover init via reusing same link classes;
-        //dispatch a custom event the marquee boot also listens for, or call shared init if present
-        if (typeof window.noviInitProjectCardHover === 'function') {
-          window.noviInitProjectCardHover(grid)
-        }
-      }
-
+      initCardHover(grid)
       initScrollReveal(grid)
     })
   }
