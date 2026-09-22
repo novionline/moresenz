@@ -39,25 +39,30 @@
         gap: 2rem; //figma image↔meta ~32px
         min-width: 0;
         margin: 0;
-        //match homepage nb scrollIntoView fade: opacity only, 1s, delay 0, cubic-bezier(0.65, 0, 0.35, 1)
-        //no translate — parent transform fights video hover compositing
+        //nb-style fade + modest rise; transform clears on is-in-view so video hover compositing works after reveal
         opacity: 0;
-        transition: opacity 1s cubic-bezier(0.65, 0, 0.35, 1);
+        transform: translate3d(0, 2rem, 0);
+        transition:
+            opacity 1.35s cubic-bezier(0.65, 0, 0.35, 1),
+            transform 1.35s cubic-bezier(0.65, 0, 0.35, 1);
 
         &.is-in-view {
             opacity: 1;
+            transform: none;
         }
     }
 
     //editor preview: keep cards visible without waiting for scroll
     &.is-editor-preview &__item {
         opacity: 1;
+        transform: none;
         transition: none;
     }
 
     @media (prefers-reduced-motion: reduce) {
         &__item {
             opacity: 1;
+            transform: none;
             transition: none;
         }
     }
