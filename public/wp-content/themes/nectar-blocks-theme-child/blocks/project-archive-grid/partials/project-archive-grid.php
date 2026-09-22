@@ -2,6 +2,7 @@
 
 use NoviOnline\Core\Partial;
 use NoviOnline\ProjectArchiveGridBlock;
+use NoviOnline\ProjectExcerptHelper;
 use NoviOnline\ProjectPostType;
 use NoviOnline\ProjectSettings;
 use NoviOnline\Theme;
@@ -58,10 +59,8 @@ if ($is_preview) {
                 <?php
                 $postId = $postItem->ID;
                 $postTitle = get_the_title($postId);
-                $excerpt = get_the_excerpt($postId);
-                if ($excerpt !== '') {
-                    $excerpt = wp_trim_words($excerpt, 24, '…');
-                }
+                //prefer stored excerpt; fall back to first long nectar-blocks/text paragraph
+                $excerpt = ProjectExcerptHelper::getForPost($postId, 24);
                 ?>
                 <li class="project-archive-grid__item">
                     <?php Partial::render('project-card', [
