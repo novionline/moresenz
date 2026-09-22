@@ -66,11 +66,11 @@ if ($resolvedImageSizesAttr !== null) {
             <?php if ($hasThumbnail): ?>
                 <?php echo get_the_post_thumbnail($postId, $resolvedImageSize, $imageAttrs); ?>
             <?php else: ?>
-                <motion.div class="project-marquee-slider__watermark" aria-hidden="true">
+                <div class="project-marquee-slider__watermark" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="47" height="32" viewBox="0 0 47 32" fill="none" focusable="false">
                         <path fill="#fff" d="M38.047 17.404 23.504 32 12.362 20.825 0 8.413l1.58-3.216 1.91-3.899L4.104 0h38.77c.167.283.29.554.412.847l1.774 3.609L47 8.424zM34.089 1.61H13.286l10.4 16.57zm10.075 4.943-1.878-3.828-.538-1.116-5.626.003.001 15.34 8.79-8.85zM2.094 8.1l8.79 8.851.002-15.279-5.662-.001-.85 1.752L2.52 7.19l-.426.909m32.253 10.64L34.33 4.454 23.686 21.36 12.676 3.866l-.01 14.881 10.838 10.907z"/>
                     </svg>
-                </motion.div>
+                </div>
             <?php endif; ?>
 
             <?php if ($hasVideoHover && $videoUrl !== ''): ?>
