@@ -6,7 +6,10 @@ use Gravity_Forms\Gravity_SMTP\Data_Store\Data_Store_Router;
 use Gravity_Forms\Gravity_SMTP\Logging\Debug\Debug_Logger;
 use Gravity_Forms\Gravity_SMTP\Logging\Log\Logger;
 use Gravity_Forms\Gravity_SMTP\Data_Store\Data_Store;
+use Gravity_Forms\Gravity_SMTP\Connectors\Oauth\Oauth_Callback_Handler;
+use Gravity_Forms\Gravity_SMTP\Gravity_SMTP;
 use Gravity_Forms\Gravity_SMTP\Models\Event_Model;
+use Gravity_Forms\Gravity_SMTP\Utils\Booliesh;
 use Gravity_Forms\Gravity_SMTP\Utils\Header_Parser;
 use Gravity_Forms\Gravity_SMTP\Utils\Recipient_Parser;
 
@@ -229,6 +232,136 @@ abstract class Connector_Base {
 	}
 
 	/**
+	 * Filter suppressed recipients from to, cc, and bcc fields.
+	 *
+	 * Removes any recipient whose email exists in the suppression list. Updates
+	 * internal attributes so subsequent send() uses filtered recipient lists.
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param \Gravity_Forms\Gravity_SMTP\Models\Suppressed_Emails_Model $suppressed_model
+	 *
+	 * @return array Array of removed entries: [ ['email' => string, 'field' => 'to'|'cc'|'bcc'], ... ]
+	 */
+	public function filter_suppressed_recipients( $suppressed_model ) {
+		$filtered = array();
+
+		// Collect all suppressed emails from the TO collection.
+		$to_collection = $this->get_att( 'to' );
+
+		if ( $to_collection && $to_collection->count() > 0 ) {
+			$suppressed_emails = array();
+
+			foreach ( $to_collection->recipients() as $recipient ) {
+				if ( $suppressed_model->is_email_suppressed( $recipient->email() ) ) {
+					$suppressed_emails[] = strtolower( $recipient->email() );
+				}
+			}
+
+			if ( ! empty( $suppressed_emails ) ) {
+				$removed = $to_collection->filter( $suppressed_emails );
+
+				foreach ( $removed as $recipient ) {
+					$filtered[] = array( 'email' => $recipient->email(), 'field' => 'to' );
+				}
+
+				$this->set_att( 'to', $to_collection );
+			}
+		}
+
+		// Parse headers to check CC and BCC collections.
+		$parsed_headers = $this->get_parsed_headers( $this->get_att( 'headers', array() ) );
+
+		// Filter CC recipients.
+		if ( ! empty( $parsed_headers['cc'] ) && $parsed_headers['cc']->count() > 0 ) {
+			$suppressed_emails = array();
+
+			foreach ( $parsed_headers['cc']->recipients() as $recipient ) {
+				if ( $suppressed_model->is_email_suppressed( $recipient->email() ) ) {
+					$suppressed_emails[] = strtolower( $recipient->email() );
+				}
+			}
+
+			if ( ! empty( $suppressed_emails ) ) {
+				$removed = $parsed_headers['cc']->filter( $suppressed_emails );
+
+				foreach ( $removed as $recipient ) {
+					$filtered[] = array( 'email' => $recipient->email(), 'field' => 'cc' );
+				}
+
+				// Remove empty CC from headers.
+				if ( $parsed_headers['cc']->count() === 0 ) {
+					unset( $parsed_headers['cc'] );
+				}
+			}
+		}
+
+		// Filter BCC recipients.
+		if ( ! empty( $parsed_headers['bcc'] ) && $parsed_headers['bcc']->count() > 0 ) {
+			$suppressed_emails = array();
+
+			foreach ( $parsed_headers['bcc']->recipients() as $recipient ) {
+				if ( $suppressed_model->is_email_suppressed( $recipient->email() ) ) {
+					$suppressed_emails[] = strtolower( $recipient->email() );
+				}
+			}
+
+			if ( ! empty( $suppressed_emails ) ) {
+				$removed = $parsed_headers['bcc']->filter( $suppressed_emails );
+
+				foreach ( $removed as $recipient ) {
+					$filtered[] = array( 'email' => $recipient->email(), 'field' => 'bcc' );
+				}
+
+				// Remove empty BCC from headers.
+				if ( $parsed_headers['bcc']->count() === 0 ) {
+					unset( $parsed_headers['bcc'] );
+				}
+			}
+		}
+
+		// If any filtering occurred, store the parsed headers back so send() uses them.
+		$cc_bcc_filtered = array_filter( $filtered, function( $suppressed_item ) {
+			return $suppressed_item['field'] !== 'to';
+		} );
+
+		if ( ! empty( $cc_bcc_filtered ) ) {
+			$this->set_att( 'headers', $parsed_headers );
+		}
+
+		return $filtered;
+	}
+
+	/**
+	 * Handle a successfully sent email that had recipients filtered due to suppression.
+	 *
+	 * Updates the event status to 'partially-sent' and logs the removed addresses with reasons.
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param array $filtered_recipients Array of removed entries from filter_suppressed_recipients().
+	 *
+	 * @return void
+	 */
+	public function handle_filtered_email( $filtered_recipients ) {
+		$this->events->update( array( 'status' => 'partially-sent' ), $this->email );
+
+		// Build descriptive log message.
+		$messages = array();
+		foreach ( $filtered_recipients as $entry ) {
+			$messages[] = sprintf( '%s (removed from %s)', $entry['email'], $entry['field'] );
+		}
+
+		$log_message = sprintf(
+			'Email sent with filtered recipients. Suppressed addresses removed: %s',
+			implode( ', ', $messages )
+		);
+
+		$this->logger->log( $this->email, 'partially-sent', $log_message );
+		$this->debug_logger->log_info( $this->wrap_debug_with_details( __FUNCTION__, $this->email, $log_message ) );
+	}
+
+	/**
 	 * Initialize the connector and map attributes as necessary.
 	 *
 	 * @since 1.0
@@ -280,6 +413,10 @@ abstract class Connector_Base {
 			$atts['from_name'] = '';
 		}
 
+		if ( ! empty( $atts['attachments'] ) && ! is_array( $atts['attachments'] ) ) {
+			$atts['attachments'] = explode( "\n", str_replace( "\r\n", "\n", $atts['attachments'] ) );
+		}
+
 		$this->atts = $atts;
 
 		do_action( 'gravitysmtp_after_connector_init', $this->email, $this );
@@ -298,6 +435,7 @@ abstract class Connector_Base {
 
 	protected function set_email_log_data( $subject, $message, $to, $from, $headers, $attachments, $source, $params = array() ) {
 		$params = $this->strip_sensitive_log_data( $params );
+		$headers = $this->strip_sensitive_log_data( $headers, true );
 
 		$this->events->update(
 			array(
@@ -307,7 +445,7 @@ abstract class Connector_Base {
 					array(
 						'to'          => $to,
 						'from'        => $from,
-						'headers'     => array(),
+						'headers'     => $headers,
 						'attachments' => $attachments,
 						'source'      => $source,
 						'params'      => $params,
@@ -318,9 +456,31 @@ abstract class Connector_Base {
 		);
 	}
 
-	private function strip_sensitive_log_data( $params ) {
+	private function strip_sensitive_log_data( $params, $parse_headers = false ) {
+		if ( ! is_array( $params ) ) {
+			return array();
+		}
+
+		$header_whitelist = array(
+			'to',
+			'from',
+			'bcc',
+			'cc',
+			'content-type',
+		);
+
 		unset( $params['body'] );
 		unset( $params['headers'] );
+
+		if ( ! $parse_headers ) {
+			return $params;
+		}
+
+		foreach( $params as $key => $value ) {
+			if ( ! in_array( strtolower( $key ), $header_whitelist  ) ) {
+				unset( $params[ $key ] );
+			}
+		}
 
 		return $params;
 	}
@@ -816,6 +976,28 @@ abstract class Connector_Base {
 	}
 
 	/**
+	 * Whether a CONNECTOR_DATA_MAP entry represents a connector that is configured and enabled.
+	 *
+	 * Single source of truth for connector availability checks (routing UI options,
+	 * send-time routing guards) so the rule cannot drift between callers.
+	 *
+	 * @since 2.3.0
+	 *
+	 * @param mixed $map_entry Entry from Connector_Service_Provider::CONNECTOR_DATA_MAP.
+	 *
+	 * @return bool
+	 */
+	public static function is_data_map_entry_active( $map_entry ) {
+		if ( empty( $map_entry ) || ! is_array( $map_entry ) ) {
+			return false;
+		}
+
+		$data = isset( $map_entry['data'] ) && is_array( $map_entry['data'] ) ? $map_entry['data'] : array();
+
+		return ! empty( $data[ self::SETTING_CONFIGURED ] ) && ! empty( $data[ self::SETTING_ENABLED ] );
+	}
+
+	/**
 	 * Whether this connector has been configured by the user. Defaults to checking for stored
 	 * settings values, but can be overridden for other logic.
 	 *
@@ -853,5 +1035,81 @@ abstract class Connector_Base {
 
 	protected function wrap_debug_with_details( $function, $email, $message ) {
 		return sprintf( '%s(): [EMAIL ID %s] - %s', $function, $email, $message );
+	}
+
+	/**
+	 * Determine whether an OAuth connector holds a working access token.
+	 *
+	 * @since 2.3.3
+	 *
+	 * @param string $handler_service The container key of the connector's OAuth handler.
+	 *
+	 * @return string|bool|\WP_Error The access token when connected, false otherwise.
+	 */
+	protected function is_oauth_configured( $handler_service ) {
+		if ( ! Booliesh::get( $this->get_setting( 'access_token', false ) ) ) {
+			return false;
+		}
+
+		$oauth_handler = Gravity_SMTP::container()->get( $handler_service );
+
+		return $oauth_handler->get_access_token();
+	}
+
+	/**
+	 * Map a stored OAuth callback error code to a user-facing message.
+	 *
+	 * @since 2.3.3
+	 *
+	 * @param string $error_code One of the Oauth_Callback_Handler ERROR_* constants.
+	 *
+	 * @return string
+	 */
+	protected function get_oauth_error_message( $error_code ) {
+		switch ( $error_code ) {
+			case Oauth_Callback_Handler::ERROR_INVALID_STATE:
+				/* translators: %s: the email provider name. */
+				return sprintf( esc_html__( 'The %s connection request could not be verified. Please try again.', 'gravitysmtp' ), $this->title );
+			case Oauth_Callback_Handler::ERROR_ACCESS_DENIED:
+				/* translators: %s: the email provider name. */
+				return sprintf( esc_html__( 'Access to %s was denied. Please approve the connection request to complete setup.', 'gravitysmtp' ), $this->title );
+			default:
+				/* translators: %s: the email provider name. */
+				return sprintf( esc_html__( 'Error Connecting to %s. Check your credentials and try again.', 'gravitysmtp' ), $this->title );
+		}
+	}
+
+	/**
+	 * Build the settings Alert field for a stored OAuth callback error.
+	 *
+	 * @since 2.3.3
+	 *
+	 * @param string $error_code One of the Oauth_Callback_Handler ERROR_* constants.
+	 *
+	 * @return array
+	 */
+	protected function get_oauth_error_alert( $error_code ) {
+		return array(
+			'component' => 'Alert',
+			'props'     => array(
+				'id'               => $this->name . '-connection-error',
+				'customIconPrefix' => 'gravity-admin-icon',
+				'theme'            => 'cosmos',
+				'type'             => 'error',
+				'spacing'          => 3,
+			),
+			'fields'    => array(
+				array(
+					'component' => 'Text',
+					'props'     => array(
+						'content' => $this->get_oauth_error_message( $error_code ),
+						'weight'  => 'medium',
+						'size'    => 'text-sm',
+						'spacing' => 2,
+						'tagName' => 'span',
+					),
+				),
+			),
+		);
 	}
 }

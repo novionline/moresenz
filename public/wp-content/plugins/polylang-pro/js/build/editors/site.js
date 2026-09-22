@@ -1,39 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 20
-(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var f=__webpack_require__(677),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
-function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}exports.Fragment=l;exports.jsx=q;exports.jsxs=q;
-
-
-/***/ },
-
-/***/ 848
-(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(20);
-} else // removed by dead control flow
-{}
-
-
-/***/ },
-
 /***/ 677
 (module) {
 
@@ -142,17 +109,17 @@ module.exports = (function() { return this["wp"]["url"]; }());
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -167,39 +134,82 @@ module.exports = (function() { return this["wp"]["url"]; }());
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = (module) => {
+/******/ 		const getter = module && module.__esModule ?
+/******/ 			() => (module['default']) :
+/******/ 			() => (module);
+/******/ 		__webpack_require__.d(getter, { a: getter });
+/******/ 		return getter;
+/******/ 	};
+/******/ 	
+/******/ 	/* webpack/runtime/concatenation wrap */
+/******/ 	// wrap a concatenated module body as a lazy, memoized accessor; mod is
+/******/ 	// set before the body runs so re-entrant calls (require cycles) observe
+/******/ 	// the partial exports like Node.js
+/******/ 	__webpack_require__.cw = (body) => {
+/******/ 		var mod;
+/******/ 		return () => {
+/******/ 			if (body) {
+/******/ 				var fn = body;
+/******/ 				body = 0;
+/******/ 				mod = { exports: {} };
+/******/ 				fn.call(mod.exports, mod, mod.exports);
+/******/ 			}
+/******/ 			return mod.exports;
 /******/ 		};
-/******/ 	})();
+/******/ 	};
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
+/******/ 	// define getter/value functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 			}
-/******/ 		};
-/******/ 	})();
+/******/ 		}
+/******/ 	};
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop));
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
+
+// MODULE: ./node_modules/react/cjs/react-jsx-runtime.production.min.js
+var react_jsx_runtime_production_min_namespaceFn = /*#__PURE__*/__webpack_require__.cw(function(module, exports) {
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var f=external_React_namespaceFn(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}exports.Fragment=l;exports.jsx=q;exports.jsxs=q;
+
+});
+
+// MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime_namespaceFn = /*#__PURE__*/__webpack_require__.cw(function(module, exports) {
+
+
+if (true) {
+  module.exports = react_jsx_runtime_production_min_namespaceFn();
+} else // removed by dead control flow
+{}
+
+});
+
+// EXTERNAL MODULE: external "React"
+var external_React_namespaceFn = () => {
+	return __webpack_require__(677);
+};
 
 // EXTERNAL MODULE: external {"this":["wp","apiFetch"]}
 var external_this_wp_apiFetch_ = __webpack_require__(631);
@@ -259,8 +269,9 @@ var external_this_wp_editSite_ = __webpack_require__(324);
 var external_this_wp_element_ = __webpack_require__(601);
 // EXTERNAL MODULE: external {"this":["wp","primitives"]}
 var external_this_wp_primitives_ = __webpack_require__(933);
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(848);
+;// ./node_modules/react/jsx-runtime.js
+jsx_runtime_namespaceFn();
+
 ;// ./node_modules/@wpsyntex/polylang-react-library/build/icons/translation.js
 /**
  * Translation icon - translation Dashicon.
@@ -272,12 +283,12 @@ var jsx_runtime = __webpack_require__(848);
 
 
 const isPrimitivesComponents = 'undefined' !== typeof wp.primitives;
-const translation = isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const translation = isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "M11 7H9.49c-.63 0-1.25.3-1.59.7L7 5H4.13l-2.39 7h1.69l.74-2H7v4H2c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v2zM6.51 9H4.49l1-2.93zM10 8h7c1.1 0 2 .9 2 2v7c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2v-7c0-1.1.9-2 2-2zm7.25 5v-1.08h-3.17V9.75h-1.16v2.17H9.75V13h1.28c.11.85.56 1.85 1.28 2.62-.87.36-1.89.62-2.31.62-.01.02.22.97.2 1.46.84 0 2.21-.5 3.28-1.15 1.09.65 2.48 1.15 3.34 1.15-.02-.49.2-1.44.2-1.46-.43 0-1.49-.27-2.38-.63.7-.77 1.14-1.77 1.25-2.61h1.36zm-3.81 1.93c-.5-.46-.85-1.13-1.01-1.93h2.09c-.17.8-.51 1.47-1 1.93l-.04.03s-.03-.02-.04-.03z"
   })
 }) : 'translation';
@@ -309,13 +320,17 @@ const App = ({
   }, reason => {
     console.info(reason); // eslint-disable-line no-console
   });
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
     children: children
   });
 };
 /* harmony default export */ const app = (App);
 // EXTERNAL MODULE: external {"this":["wp","data"]}
 var external_this_wp_data_ = __webpack_require__(987);
+// EXTERNAL MODULE: external "lodash"
+var external_lodash_ = __webpack_require__(419);
+// EXTERNAL MODULE: external {"this":["wp","url"]}
+var external_this_wp_url_ = __webpack_require__(172);
 ;// ./js/src/editors/common/settings.js
 /**
  * Module Constants
@@ -338,10 +353,6 @@ const POST_TYPE_WITH_TRASH = ['page'];
 const TEMPLATE_PART_SLUG_SEPARATOR = '___'; // Its value must be synchronized with its equivalent in PHP @see PLL_FSE_Template_Slug::SEPARATOR.
 const TEMPLATE_PART_SLUG_CHECK_LANGUAGE_PATTERN = '[a-z][a-z0-9_-]*'; // Its value must be synchronized with it equivalent in PHP @see PLL_FSE_Template_Slug::SEPARATOR.
 
-// EXTERNAL MODULE: external "lodash"
-var external_lodash_ = __webpack_require__(419);
-// EXTERNAL MODULE: external {"this":["wp","url"]}
-var external_this_wp_url_ = __webpack_require__(172);
 ;// ./js/src/editors/common/utils.js
 /* unused harmony import specifier */ var isBoolean;
 /**
@@ -704,7 +715,7 @@ function maybeAddLangSuffixToTemplatePart(options, langSlug) {
     const language = languages.get(langSlug);
     if (!language.is_default) {
       // No suffix for default language.
-      const langSuffix = TEMPLATE_PART_SLUG_SEPARATOR + langSlug;
+      const langSuffix = (/* inlined export .TEMPLATE_PART_SLUG_SEPARATOR */"___") + langSlug;
       options.data.slug += langSuffix;
     }
   }
@@ -717,7 +728,6 @@ function maybeAddLangSuffixToTemplatePart(options, langSlug) {
 /* unused harmony import specifier */ var isEmpty;
 /* unused harmony import specifier */ var utils_MODULE_CORE_EDITOR_KEY;
 /* unused harmony import specifier */ var utils_MODULE_KEY;
-/* unused harmony import specifier */ var utils_MODULE_CORE_KEY;
 /**
  * WordPress Dependencies
  */
@@ -765,7 +775,7 @@ const isBlockPostEditorContextInitialized = () => {
         resolve(null);
         return;
       }
-      const fromPost = utils_select(utils_MODULE_CORE_KEY).getEntityRecord('postType', fromPostUrlParams.postType, fromPostUrlParams.id, {
+      const fromPost = utils_select((/* inlined export .MODULE_CORE_KEY */"core")).getEntityRecord('postType', fromPostUrlParams.postType, fromPostUrlParams.id, {
         context: 'view'
       } // Use 'view' context so translators can read posts they cannot edit.
       );
@@ -868,7 +878,7 @@ const getCurrentPostFromDataStore = () => {
     postId: siteEditorSelector.getEditedPostId(),
     postType: siteEditorSelector.getEditedPostType()
   };
-  return null === editedContext ? null : (0,external_this_wp_data_.select)(MODULE_CORE_KEY).getEntityRecord('postType', editedContext.postType, editedContext.postId);
+  return null === editedContext ? null : (0,external_this_wp_data_.select)((/* inlined export .MODULE_CORE_KEY */"core")).getEntityRecord('postType', editedContext.postType, editedContext.postId);
 };
 ;// ./js/src/editors/common/components/cache-flush-provider/index.js
 /**
@@ -912,7 +922,7 @@ const CacheFlushProvider = ({
       /**
        * Current language is changing (i.e. navigate to a untranslatable post type screen or main menu).
        */
-      (0,external_this_wp_data_.dispatch)(MODULE_CORE_KEY).invalidateResolutionForStore();
+      ;(0,external_this_wp_data_.dispatch)((/* inlined export .MODULE_CORE_KEY */"core")).invalidateResolutionForStore();
     };
     onPromise().then(() => {
       currentLanguageRef.current = getCurrentLanguage();
@@ -952,12 +962,12 @@ const Sidebar = ({
   children
 }) => {
   const title = (0,external_this_wp_i18n_.__)('Languages', 'polylang-pro');
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(SidebarSlot, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(SidebarSlot, {
       name: sidebarName,
       title: title,
       children: children
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(MoreMenuItemSlot, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(MoreMenuItemSlot, {
       target: sidebarName,
       children: title
     })]
@@ -990,22 +1000,22 @@ function LanguageFlag({
   language
 }) {
   if (!(0,external_lodash_.isNil)(language)) {
-    return !(0,external_lodash_.isEmpty)(language.flag_url) ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    return !(0,external_lodash_.isEmpty)(language.flag_url) ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "pll-select-flag",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("img", {
         src: language.flag_url,
         alt: language.name,
         title: language.name,
         className: "flag"
       })
-    }) : /*#__PURE__*/(0,jsx_runtime.jsxs)("abbr", {
-      children: [language.slug, /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("abbr", {
+      children: [language.slug, /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "screen-reader-text",
         children: language.name
       })]
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
     className: "pll-translation-icon",
     children: icons_translation
   });
@@ -1022,12 +1032,12 @@ function LanguageFlag({
 
 
 const star_isPrimitivesComponents = 'undefined' !== typeof wp.primitives;
-const star = star_isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const star = star_isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "m10 1 3 6 6 .75-4.12 4.62L16 19l-6-3-6 3 1.13-6.63L1 7.75 7 7z"
   })
 }) : 'star-filled';
@@ -1046,11 +1056,11 @@ var external_this_wp_components_ = __webpack_require__(959);
 
 
 
-const DefaultLangIcon = () => /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-  children: [/*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Icon, {
+const DefaultLangIcon = () => /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+  children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Icon, {
     icon: icons_star,
     className: "pll-default-lang-icon"
-  }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+  }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
     className: "screen-reader-text",
     children: (0,external_this_wp_i18n_.__)('Default language.', 'polylang-pro')
   })]
@@ -1074,22 +1084,22 @@ const LanguageItem = ({
   language,
   currentPost
 }) => {
-  const postType = (0,external_this_wp_data_.useSelect)(select => select(MODULE_CORE_KEY).getPostType(currentPost.type), [currentPost]);
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("strong", {
+  const postType = (0,external_this_wp_data_.useSelect)(select => select((/* inlined export .MODULE_CORE_KEY */"core")).getPostType(currentPost.type), [currentPost]);
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("p", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("strong", {
         children: (0,external_this_wp_i18n_.__)('Language', 'polylang-pro')
       })
-    }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("div", {
       className: "pll-language-item",
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(language_flag, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(language_flag, {
         language: language
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+      }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "pll-language-name",
         children: language.name
-      }), language.is_default && /*#__PURE__*/(0,jsx_runtime.jsx)(default_lang_icon, {})]
-    }), language.is_default && /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+      }), language.is_default && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(default_lang_icon, {})]
+    }), language.is_default && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "pll-metabox-info",
         children: 'wp_template_part' === postType?.slug ?? (0,external_this_wp_i18n_.__)('This template part is used for languages that have not yet been translated.', 'polylang-pro')
       })
@@ -1102,9 +1112,9 @@ const LanguageItem = ({
 const MetaboxWrapper = ({
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
     className: "components-panel__body is-opened",
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
       className: "pll-metabox-location",
       children: children
     })
@@ -1121,12 +1131,12 @@ const NotTranslatableNotice = ({
   postType
 }) => {
   if ('wp_template' === postType) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
       className: "pll-metabox-error components-notice is-warning",
       children: (0,external_this_wp_i18n_.__)('Templates are not translatable, only template parts are.', 'polylang-pro')
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
     className: "pll-metabox-error components-notice is-warning",
     children: (0,external_this_wp_i18n_.__)('This entity is not translatable.', 'polylang-pro')
   });
@@ -1151,21 +1161,21 @@ const MetaboxContainer = ({
   children
 }) => {
   if (!isAllowedPostType) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(wrapper, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(not_translatable_notice, {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(wrapper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(not_translatable_notice, {
         postType: postType
       })
     });
   }
   if (isError) {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(wrapper, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(wrapper, {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
         className: "pll-metabox-error components-notice is-error",
         children: (0,external_this_wp_i18n_.__)('Unable to retrieve the content language', 'polylang-pro')
       })
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(wrapper, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(wrapper, {
     children: children
   });
 };
@@ -1175,7 +1185,7 @@ const MetaboxContainer = ({
 const AddOrEditCell = ({
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("td", {
     className: "pll-edit-column pll-column-icon",
     children: children
   });
@@ -1190,9 +1200,9 @@ const AddOrEditCell = ({
 const DefaultLanguageCell = ({
   isDefault
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("td", {
     className: "pll-default-lang-column pll-column-icon",
-    children: isDefault && /*#__PURE__*/(0,jsx_runtime.jsx)(default_lang_icon, {})
+    children: isDefault && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(default_lang_icon, {})
   });
 };
 /* harmony default export */ const default_language = (DefaultLanguageCell);
@@ -1201,7 +1211,7 @@ const DefaultLanguageCell = ({
 const DeleteCell = ({
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("td", {
     className: "pll-delete-column pll-column-icon",
     children: children
   });
@@ -1216,17 +1226,17 @@ const DeleteCell = ({
 const FlagCell = ({
   language
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("th", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("th", {
     className: "pll-language-column",
-    children: !(0,external_lodash_.isEmpty)(language.flag) ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    children: !(0,external_lodash_.isEmpty)(language.flag) ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "pll-select-flag flag",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("img", {
         src: language.flag_url,
         alt: language.name,
         title: language.name
       })
-    }) : /*#__PURE__*/(0,jsx_runtime.jsxs)("abbr", {
-      children: [language.slug, /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("abbr", {
+      children: [language.slug, /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "screen-reader-text",
         children: language.name
       })]
@@ -1239,7 +1249,7 @@ const FlagCell = ({
 const TranslationInputCell = ({
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("td", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("td", {
     className: "pll-translation-column",
     children: children
   });
@@ -1266,12 +1276,12 @@ const TranslationInputCell = ({
 
 
 const plus_isPrimitivesComponents = 'undefined' !== typeof wp.primitive;
-const plus = plus_isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const plus = plus_isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "M17 7v3h-5v5h-3v-5h-5v-3h5v-5h3v5h5z"
   })
 }) : 'plus';
@@ -1308,7 +1318,7 @@ const AddButton = ({
   const accessibilityText = (0,external_this_wp_i18n_.sprintf)(
   // translators: %s is a native language name.
   (0,external_this_wp_i18n_.__)('Add a translation in %s', 'polylang-pro'), language.name);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Button, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Button, {
     href: href,
     disabled: disabled,
     icon: icons_plus,
@@ -1317,7 +1327,7 @@ const AddButton = ({
     onClick: handleAddClick,
     "data-target-language": language.slug // Store the target language to retrieve it through the click event.
     ,
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "screen-reader-text",
       children: accessibilityText
     })
@@ -1335,12 +1345,12 @@ const AddButton = ({
 
 
 const trash_isPrimitivesComponents = 'undefined' !== typeof wp.primitives;
-const trash = trash_isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const trash = trash_isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "M12 4h3c.6 0 1 .4 1 1v1H3V5c0-.6.5-1 1-1h3c.2-1.1 1.3-2 2.5-2s2.3.9 2.5 2zM8 4h3c-.2-.6-.9-1-1.5-1S8.2 3.4 8 4zM4 7h11l-.9 10.1c0 .5-.5.9-1 .9H5.9c-.5 0-.9-.4-1-.9L4 7z"
   })
 }) : 'trash';
@@ -1375,13 +1385,13 @@ const DeleteButton = ({
   const translationScreenReaderText = (0,external_this_wp_i18n_.sprintf)(
   // translators: %s is a native language name.
   (0,external_this_wp_i18n_.__)('Delete the translation in %s', 'polylang-pro'), language.name);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Button, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Button, {
     icon: icons_trash,
     label: translationScreenReaderText,
     disabled: disabled,
     className: "pll-button",
     onClick: onClick,
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "screen-reader-text",
       children: translationScreenReaderText
     })
@@ -1627,12 +1637,12 @@ const DuplicateButton = props => {
 
 
 const pencil_isPrimitivesComponents = 'undefined' !== typeof wp.primitives;
-const pencil = pencil_isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const pencil = pencil_isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "M13.89 3.39l2.71 2.72c0.46 0.46 0.42 1.24 0.030 1.64l-8.010 8.020-5.56 1.16 1.16-5.58s7.6-7.63 7.99-8.030c0.39-0.39 1.22-0.39 1.68 0.070zM11.16 6.18l-5.59 5.61 1.11 1.11 5.54-5.65zM8.19 14.41l5.58-5.6-1.070-1.080-5.59 5.6z"
   })
 }) : 'edit';
@@ -1668,7 +1678,7 @@ const EditButton = ({
 }) => {
   const accessibilityText = (0,external_this_wp_i18n_.sprintf)(/* translators: accessibility text, %s is a native language name. For example Deutsch for German or Français for french. */
   (0,external_this_wp_i18n_.__)('Edit the translation in %s', 'polylang-pro'), language.name);
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Button, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Button, {
     href: href,
     disabled: disabled,
     icon: icons_pencil,
@@ -1677,7 +1687,7 @@ const EditButton = ({
     onClick: handleEditClick,
     "data-target-language": language.slug // Store the target language to retrieve it through the click event.
     ,
-    children: /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "screen-reader-text",
       children: accessibilityText
     })
@@ -2108,8 +2118,8 @@ const TranslationRow = ({
   language,
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)("tr", {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(flag, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("tr", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(flag, {
       language: language
     }), children]
   });
@@ -2467,8 +2477,8 @@ const {
 const PluginFeatureFlagButton = ({
   children,
   className
-}) => /*#__PURE__*/(0,jsx_runtime.jsx)(Fill, {
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+}) => /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(Fill, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
     className: className,
     children: children
   })
@@ -2489,26 +2499,26 @@ PluginFeatureFlagButton.Slot = Slot;
 const TranslationsTableWrapper = ({
   children
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("div", {
     id: "post-translations",
     className: "translations",
-    children: [/*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("div", {
       className: "pll-translations-table-header",
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("p", {
         className: "pll-translations-table-header-title",
-        children: /*#__PURE__*/(0,jsx_runtime.jsx)("strong", {
+        children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("strong", {
           children: (0,external_this_wp_i18n_.__)('Translations', 'polylang-pro')
         })
-      }), /*#__PURE__*/(0,jsx_runtime.jsx)(plugin_feature_flag_button.Slot, {
-        children: fills => fills.length > 0 && /*#__PURE__*/(0,jsx_runtime.jsx)(jsx_runtime.Fragment, {
-          children: /*#__PURE__*/(0,jsx_runtime.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(plugin_feature_flag_button.Slot, {
+        children: fills => fills.length > 0 && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+          children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("div", {
             className: "pll-plugin-feature-button-container",
             children: fills
           })
         })
       })]
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)("table", {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("tbody", {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("table", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("tbody", {
         children: children
       })
     })]
@@ -2569,12 +2579,12 @@ const DeleteModalBody = ({
     if (!isDefaultLang) {
       return null;
     }
-    return /*#__PURE__*/(0,jsx_runtime.jsxs)("p", {
-      children: [(0,external_this_wp_i18n_.__)('You are about to delete an entity in the default language.', 'polylang-pro'), /*#__PURE__*/(0,jsx_runtime.jsx)("br", {}), (0,external_this_wp_i18n_.__)('This will delete its customizations and all its corresponding translations.', 'polylang-pro')]
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("p", {
+      children: [(0,external_this_wp_i18n_.__)('You are about to delete an entity in the default language.', 'polylang-pro'), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("br", {}), (0,external_this_wp_i18n_.__)('This will delete its customizations and all its corresponding translations.', 'polylang-pro')]
     });
   };
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [defaultLangText(), /*#__PURE__*/(0,jsx_runtime.jsx)("p", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+    children: [defaultLangText(), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("p", {
       children: (0,external_this_wp_i18n_.__)('Are you sure you want to delete this translation?', 'polylang-pro')
     })]
   });
@@ -2695,27 +2705,27 @@ const DeleteWithConfirmation = ({
   const {
     handleDelete
   } = use_delete_post();
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(buttons_delete, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)((react_jsx_runtime_production_min_namespaceFn().Fragment), {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(buttons_delete, {
       onClick: openModal,
       language: language,
       disabled: !canTrash || !authorizedLanguages.has(language.slug)
-    }), isOpen && /*#__PURE__*/(0,jsx_runtime.jsxs)(external_this_wp_components_.Modal, {
+    }), isOpen && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)(external_this_wp_components_.Modal, {
       title: "Delete",
       onRequestClose: closeModal,
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(delete_modal_body, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(delete_modal_body, {
         isDefaultLang: language.is_default && 'page' !== post?.type // No message for default language deletion with a page.
-      }), /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("div", {
         role: "group",
         className: "components-button-group buttons",
-        children: [/*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Button, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Button, {
           variant: "tertiary",
           onClick: closeModal,
           type: "button",
           children: (0,external_this_wp_i18n_.__)('Cancel', 'polylang-pro')
-        }), /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
           children: "\xA0"
-        }), /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.Button, {
+        }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.Button, {
           variant: "primary",
           onClick: () => {
             handleDelete(post, post.type).then(() => onDeleteSuccess());
@@ -2879,7 +2889,7 @@ const site_editor_AddOrEditButton = ({
 }) => {
   if (canUpdate || canRead) {
     // Show Edit button for existing translations (disabled if user can only read).
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(edit, {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(edit, {
       href: `#`,
       disabled: !canUpdate,
       language: language,
@@ -2888,7 +2898,7 @@ const site_editor_AddOrEditButton = ({
       }
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(add, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(add, {
     href: `#`,
     disabled: !canCreate,
     language: language,
@@ -2934,15 +2944,15 @@ const SiteEditorTranslationRow = ({
       lang: language
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(rows, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)(rows, {
     language: language,
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(translation_input, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(translation_input, {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "pll-translation-language",
         children: language.name
       })
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(add_or_edit, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(site_editor_AddOrEditButton, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(add_or_edit, {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(site_editor_AddOrEditButton, {
         canUpdate: canUpdate,
         canCreate: canCreate,
         canRead: !!translation,
@@ -2960,13 +2970,13 @@ const SiteEditorTranslationRow = ({
           handleCreateTranslation(language, currentPost);
         }
       })
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(cells_delete, {
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(delete_with_confirmation, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(cells_delete, {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(delete_with_confirmation, {
         post: translation,
         language: language,
         onDeleteSuccess: onDeleteSuccess
       })
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(default_language, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(default_language, {
       isDefault: language.is_default
     })]
   });
@@ -2994,12 +3004,12 @@ const SiteEditorTranslationsTable = ({
   currentPost,
   translationsTableDispatch
 }) => {
-  return /*#__PURE__*/(0,jsx_runtime.jsx)(translations_table_wrapper, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(translations_table_wrapper, {
     children: Array.from(translationsTable).map(([language, translation]) => {
       if (currentPost?.lang === language.slug) {
         return null;
       }
-      return /*#__PURE__*/(0,jsx_runtime.jsx)(site_editor, {
+      return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(site_editor, {
         language: language,
         translation: translation,
         currentPost: currentPost,
@@ -3146,14 +3156,14 @@ const SiteEditorMetabox = () => {
   if (translationTable.size === 0) {
     return null;
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)(container, {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)(container, {
     isError: !selectedLanguage,
     isAllowedPostType: !UNTRANSLATABLE_POST_TYPE.includes(currentPostType),
     postType: currentPostType,
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(language_item, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(language_item, {
       language: selectedLanguage,
       currentPost: currentPost
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(translations_table_site_editor, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(translations_table_site_editor, {
       translationsTable: translationTable,
       currentPost: currentPost,
       translationsTableDispatch: tableDispatch
@@ -3689,19 +3699,19 @@ editors_requests_filter(addParametersToRequest);
 const sidebarName = 'polylang-sidebar';
 const _root = document.createElement('div');
 _root.id = 'pll-root';
-const root = document.body.appendChild(_root);
-(0,external_this_wp_element_.createRoot)(root).render(/*#__PURE__*/(0,jsx_runtime.jsx)(app, {
+const site_root = document.body.appendChild(_root);
+(0,external_this_wp_element_.createRoot)(site_root).render(/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(app, {
   sidebar: () => {
-    return /*#__PURE__*/(0,jsx_runtime.jsx)(sidebar, {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(sidebar, {
       SidebarSlot: external_this_wp_editSite_.PluginSidebar,
       MoreMenuItemSlot: external_this_wp_editSite_.PluginSidebarMoreMenuItem,
       sidebarName: sidebarName,
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)(metaboxes_site_editor, {})
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(metaboxes_site_editor, {})
     });
   },
   sidebarName: sidebarName,
   onPromise: isSiteEditorContextInitialized,
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(cache_flush_provider, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(cache_flush_provider, {
     onPromise: isSiteEditorContextInitialized
   })
 }));

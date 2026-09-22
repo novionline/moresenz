@@ -7,6 +7,7 @@ use Gravity_Forms\Gravity_SMTP\Connectors\Config\Connector_Config;
 use Gravity_Forms\Gravity_SMTP\Connectors\Config\Connector_Endpoints_Config;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Check_Background_Tasks_Endpoint;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Cleanup_Data_Endpoint;
+use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Delete_Connector_Settings_Endpoint;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Get_Connector_Emails;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Get_Single_Email_Data_Endpoint;
 use Gravity_Forms\Gravity_SMTP\Connectors\Endpoints\Save_Connector_Settings_Endpoint;
@@ -77,13 +78,14 @@ class Connector_Service_Provider extends Config_Service_Provider {
 	const MICROSOFT_OAUTH_HANDLER = 'microsoft_oauth_handler';
 	const ZOHO_OAUTH_HANDLER      = 'zoho_oauth_handler';
 
-	const SEND_TEST_ENDPOINT               = 'send_test_endpoint';
-	const CLEANUP_DATA_ENDPOINT            = 'cleanup_data_endpoint';
-	const SAVE_CONNECTOR_SETTINGS_ENDPOINT = 'save_connector_settings_endpoint';
-	const SAVE_PLUGIN_SETTINGS_ENDPOINT    = 'save_plugin_settings_endpoint';
-	const GET_SINGLE_EMAIL_DATA_ENDPOINT   = 'get_single_email_data_endpoint';
-	const CHECK_BACKGROUND_TASKS_ENDPOINT  = 'check_background_tasks_endpoint';
-	const GET_CONNECTOR_EMAILS_ENDPOINT    = 'get_connector_emails_endpoint';
+	const SEND_TEST_ENDPOINT                 = 'send_test_endpoint';
+	const CLEANUP_DATA_ENDPOINT              = 'cleanup_data_endpoint';
+	const SAVE_CONNECTOR_SETTINGS_ENDPOINT   = 'save_connector_settings_endpoint';
+	const DELETE_CONNECTOR_SETTINGS_ENDPOINT = 'delete_connector_settings_endpoint';
+	const SAVE_PLUGIN_SETTINGS_ENDPOINT      = 'save_plugin_settings_endpoint';
+	const GET_SINGLE_EMAIL_DATA_ENDPOINT     = 'get_single_email_data_endpoint';
+	const CHECK_BACKGROUND_TASKS_ENDPOINT    = 'check_background_tasks_endpoint';
+	const GET_CONNECTOR_EMAILS_ENDPOINT      = 'get_connector_emails_endpoint';
 
 	const CONNECTOR_ENDPOINTS_CONFIG = 'connector_endpoints_config';
 
@@ -233,6 +235,10 @@ class Connector_Service_Provider extends Config_Service_Provider {
 			return new Save_Connector_Settings_Endpoint( $container->get( self::DATA_STORE_OPTS ), $container->get( self::DATA_STORE_PLUGIN_OPTS ), $container->get( self::CONNECTOR_FACTORY ) );
 		} );
 
+		$this->container->add( self::DELETE_CONNECTOR_SETTINGS_ENDPOINT, function () use ( $container ) {
+			return new Delete_Connector_Settings_Endpoint( $container->get( self::DATA_STORE_OPTS ), $container->get( self::DATA_STORE_PLUGIN_OPTS ), $container->get( self::CONNECTOR_FACTORY ) );
+		} );
+
 		$this->container->add( self::CLEANUP_DATA_ENDPOINT, function () use ( $container ) {
 			return new Cleanup_Data_Endpoint( $container->get( self::DATA_STORE_PLUGIN_OPTS ) );
 		} );
@@ -295,6 +301,24 @@ class Connector_Service_Provider extends Config_Service_Provider {
 				delete_transient( $configured_key );
 			}
 		}, 11 );
+
+		// Process OAuth callbacks before output, then redirect to a clean URL.
+		add_action( 'admin_init', function () use ( $container ) {
+			if ( ! current_user_can( Roles::EDIT_INTEGRATIONS ) ) {
+				return;
+			}
+
+			$callback_handlers = array(
+				self::ZOHO_OAUTH_HANDLER,
+				self::GOOGLE_OAUTH_HANDLER,
+				self::MICROSOFT_OAUTH_HANDLER,
+			);
+
+			foreach ( $callback_handlers as $service ) {
+				// Each handler only acts on its own callback; a match redirects and exits.
+				$container->get( $service )->handle_response();
+			}
+		} );
 
 		// @todo - replace this with some AJAX action via JS
 		add_action( 'admin_post_smtp_disconnect_google', function () use ( $container ) {
@@ -503,6 +527,10 @@ class Connector_Service_Provider extends Config_Service_Provider {
 			$container->get( self::SAVE_CONNECTOR_SETTINGS_ENDPOINT )->handle();
 		} );
 
+		add_action( 'wp_ajax_' . Delete_Connector_Settings_Endpoint::ACTION_NAME, function () use ( $container ) {
+			$container->get( self::DELETE_CONNECTOR_SETTINGS_ENDPOINT )->handle();
+		} );
+
 		add_action( 'wp_ajax_' . Save_Plugin_Settings_Endpoint::ACTION_NAME, function () use ( $container ) {
 			$container->get( self::SAVE_PLUGIN_SETTINGS_ENDPOINT )->handle();
 		} );
@@ -582,7 +610,9 @@ class Connector_Service_Provider extends Config_Service_Provider {
 
 		$page = filter_input( INPUT_GET, 'page' );
 
-		if ( ! $is_ajax && ! is_string( $page ) ) {
+		$gf_page = filter_input( INPUT_GET, 'gf_page' );
+
+		if ( ! $is_ajax && ! is_string( $page ) && $gf_page !== 'preview' ) {
 			return;
 		}
 
@@ -594,6 +624,10 @@ class Connector_Service_Provider extends Config_Service_Provider {
 			$page = '';
 		}
 
+		if ( ! is_null( $gf_page ) ) {
+			$page = 'gravitysmtp-gform-preview';
+		}
+
 		$plugin_data_store = $this->container->get( self::DATA_STORE_PLUGIN_OPTS );
 		$should_display    = Booliesh::get( $plugin_data_store->get( Save_Plugin_Settings_Endpoint::PARAM_SETUP_WIZARD_SHOULD_DISPLAY, 'config', 'true' ) );
 
@@ -603,12 +637,13 @@ class Connector_Service_Provider extends Config_Service_Provider {
 			'gravitysmtp-settings',
 			'gravitysmtp-suppression',
 			'gravitysmtp-tools',
+			'gravitysmtp-gform-preview',
 		) );
 
 		if ( $is_ajax ) {
 			$action = filter_input( INPUT_POST, 'action' );
 
-			if ( $action === 'migrate_settings' || $action === 'get_dashboard_data' ) {
+			if ( $action === 'migrate_settings' || $action === 'get_dashboard_data' || $action === 'gravitysmtp_preview_conditional_routing' ) {
 				$should_register = true;
 			}
 		}

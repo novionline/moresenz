@@ -204,7 +204,7 @@ class Gravity_SMTP {
 			    notes text,
 			    date_created datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
 			    PRIMARY KEY (id),
-			    FULLTEXT(email, notes)
+					FULLTEXT KEY email_notes (email, notes)
 		    ) $charset_collate;
 		";
 
@@ -268,6 +268,9 @@ class Gravity_SMTP {
 			Feature_Flag_Manager::enable_flag( 'experimental_features_setting' );
 
 			Feature_Flag_Manager::add( 'alerts_management', 'Alerts Management' );
+
+			Feature_Flag_Manager::add( 'smart_routing', 'Email Routing' );
+			Feature_Flag_Manager::enable_flag( 'smart_routing' );
 
 			Feature_Flag_Manager::add( 'mailersend_integration', 'MailerSend Integration' );
 			Feature_Flag_Manager::enable_flag( 'mailersend_integration' );

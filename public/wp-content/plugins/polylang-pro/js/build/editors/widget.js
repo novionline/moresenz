@@ -1,40 +1,6 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 20
-(__unused_webpack_module, exports, __webpack_require__) {
-
-"use strict";
-var __webpack_unused_export__;
-/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var f=__webpack_require__(677),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
-function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}__webpack_unused_export__=l;exports.jsx=q;exports.jsxs=q;
-
-
-/***/ },
-
-/***/ 848
-(module, __unused_webpack_exports, __webpack_require__) {
-
-"use strict";
-
-
-if (true) {
-  module.exports = __webpack_require__(20);
-} else // removed by dead control flow
-{}
-
-
-/***/ },
-
 /***/ 677
 (module) {
 
@@ -122,17 +88,17 @@ module.exports = (function() { return this["wp"]["url"]; }());
 /******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
+/******/ 	const __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		const cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
 /******/ 			return cachedModule.exports;
 /******/ 		}
 /******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 		const module = __webpack_module_cache__[moduleId] = {
 /******/ 			// no module.id needed
 /******/ 			// no module.loaded needed
 /******/ 			exports: {}
@@ -147,39 +113,83 @@ module.exports = (function() { return this["wp"]["url"]; }());
 /******/ 	
 /************************************************************************/
 /******/ 	/* webpack/runtime/compat get default export */
-/******/ 	(() => {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				() => (module['default']) :
-/******/ 				() => (module);
-/******/ 			__webpack_require__.d(getter, { a: getter });
-/******/ 			return getter;
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = (module) => {
+/******/ 		const getter = module && module.__esModule ?
+/******/ 			() => (module['default']) :
+/******/ 			() => (module);
+/******/ 		__webpack_require__.d(getter, { a: getter });
+/******/ 		return getter;
+/******/ 	};
+/******/ 	
+/******/ 	/* webpack/runtime/concatenation wrap */
+/******/ 	// wrap a concatenated module body as a lazy, memoized accessor; mod is
+/******/ 	// set before the body runs so re-entrant calls (require cycles) observe
+/******/ 	// the partial exports like Node.js
+/******/ 	__webpack_require__.cw = (body) => {
+/******/ 		var mod;
+/******/ 		return () => {
+/******/ 			if (body) {
+/******/ 				var fn = body;
+/******/ 				body = 0;
+/******/ 				mod = { exports: {} };
+/******/ 				fn.call(mod.exports, mod, mod.exports);
+/******/ 			}
+/******/ 			return mod.exports;
 /******/ 		};
-/******/ 	})();
+/******/ 	};
 /******/ 	
 /******/ 	/* webpack/runtime/define property getters */
-/******/ 	(() => {
-/******/ 		// define getter functions for harmony exports
-/******/ 		__webpack_require__.d = (exports, definition) => {
-/******/ 			for(var key in definition) {
-/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
-/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
-/******/ 				}
+/******/ 	// define getter/value functions for harmony exports
+/******/ 	__webpack_require__.d = (exports, definition) => {
+/******/ 		for(var key in definition) {
+/******/ 			if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 				Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
 /******/ 			}
-/******/ 		};
-/******/ 	})();
+/******/ 		}
+/******/ 	};
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
-/******/ 	(() => {
-/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
-/******/ 	})();
+/******/ 	__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop));
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
+let __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
+
+// MODULE: ./node_modules/react/cjs/react-jsx-runtime.production.min.js
+var react_jsx_runtime_production_min_namespaceFn = /*#__PURE__*/__webpack_require__.cw(function(module, exports) {
+var __webpack_unused_export__;
+/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+var f=external_React_namespaceFn(),k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
+function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return{$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}__webpack_unused_export__=l;exports.jsx=q;exports.jsxs=q;
+
+});
+
+// MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime_namespaceFn = /*#__PURE__*/__webpack_require__.cw(function(module, exports) {
+
+
+if (true) {
+  module.exports = react_jsx_runtime_production_min_namespaceFn();
+} else // removed by dead control flow
+{}
+
+});
+
+// EXTERNAL MODULE: external "React"
+var external_React_namespaceFn = () => {
+	return __webpack_require__(677);
+};
 
 // EXTERNAL MODULE: external {"this":["wp","apiFetch"]}
 var external_this_wp_apiFetch_ = __webpack_require__(631);
@@ -820,8 +830,9 @@ var external_this_wp_blockEditor_ = __webpack_require__(89);
 var external_this_wp_components_ = __webpack_require__(959);
 // EXTERNAL MODULE: external {"this":["wp","primitives"]}
 var external_this_wp_primitives_ = __webpack_require__(933);
-// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
-var jsx_runtime = __webpack_require__(848);
+;// ./node_modules/react/jsx-runtime.js
+jsx_runtime_namespaceFn();
+
 ;// ./node_modules/@wpsyntex/polylang-react-library/build/icons/translation.js
 /**
  * Translation icon - translation Dashicon.
@@ -833,12 +844,12 @@ var jsx_runtime = __webpack_require__(848);
 
 
 const isPrimitivesComponents = 'undefined' !== typeof wp.primitives;
-const translation = isPrimitivesComponents ? /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.SVG, {
+const translation = isPrimitivesComponents ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.SVG, {
   width: "20",
   height: "20",
   xmlns: "http://www.w3.org/2000/svg",
   viewBox: "0 0 20 20",
-  children: /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_primitives_.Path, {
+  children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_primitives_.Path, {
     d: "M11 7H9.49c-.63 0-1.25.3-1.59.7L7 5H4.13l-2.39 7h1.69l.74-2H7v4H2c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v2zM6.51 9H4.49l1-2.93zM10 8h7c1.1 0 2 .9 2 2v7c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2v-7c0-1.1.9-2 2-2zm7.25 5v-1.08h-3.17V9.75h-1.16v2.17H9.75V13h1.28c.11.85.56 1.85 1.28 2.62-.87.36-1.89.62-2.31.62-.01.02.22.97.2 1.46.84 0 2.21-.5 3.28-1.15 1.09.65 2.48 1.15 3.34 1.15-.02-.49.2-1.44.2-1.46-.43 0-1.49-.27-2.38-.63.7-.77 1.14-1.77 1.25-2.61h1.36zm-3.81 1.93c-.5-.46-.85-1.13-1.01-1.93h2.09c-.17.8-.51 1.47-1 1.93l-.04.03s-.03-.02-.04-.03z"
   })
 }) : 'translation';
@@ -867,22 +878,22 @@ function LanguageFlag({
   language
 }) {
   if (!(0,external_lodash_.isNil)(language)) {
-    return !(0,external_lodash_.isEmpty)(language.flag_url) ? /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    return !(0,external_lodash_.isEmpty)(language.flag_url) ? /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
       className: "pll-select-flag",
-      children: /*#__PURE__*/(0,jsx_runtime.jsx)("img", {
+      children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("img", {
         src: language.flag_url,
         alt: language.name,
         title: language.name,
         className: "flag"
       })
-    }) : /*#__PURE__*/(0,jsx_runtime.jsxs)("abbr", {
-      children: [language.slug, /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+    }) : /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("abbr", {
+      children: [language.slug, /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
         className: "screen-reader-text",
         children: language.name
       })]
     });
   }
-  return /*#__PURE__*/(0,jsx_runtime.jsx)("span", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("span", {
     className: "pll-translation-icon",
     children: icons_translation
   });
@@ -930,11 +941,11 @@ function LanguageDropdown({
       label: name
     }));
   }, [languages]);
-  return /*#__PURE__*/(0,jsx_runtime.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)("div", {
     id: "pll-language-select-control",
-    children: [/*#__PURE__*/(0,jsx_runtime.jsx)(language_flag, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(language_flag, {
       language: selectedLanguage
-    }), /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_components_.SelectControl, {
+    }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_components_.SelectControl, {
       value: selectedLanguageSlug,
       onChange: newLangSlug => handleChange(newLangSlug),
       options: normalizedLanguagesForSelectControl,
@@ -1107,16 +1118,16 @@ const withInspectorControls = (0,external_this_wp_compose_.createHigherOrderComp
       name: (0,external_this_wp_i18n_.__)('All languages', 'polylang-pro')
     });
     const shouldShowLanguageControl = useShouldShowLanguageControl(props.clientId, isLanguageFilterable);
-    return /*#__PURE__*/(0,jsx_runtime.jsxs)(external_this_wp_element_.Fragment, {
-      children: [/*#__PURE__*/(0,jsx_runtime.jsx)(BlockEdit, {
+    return /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)(external_this_wp_element_.Fragment, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(BlockEdit, {
         ...props
-      }), shouldShowLanguageControl && /*#__PURE__*/(0,jsx_runtime.jsx)(external_this_wp_blockEditor_.InspectorControls, {
-        children: /*#__PURE__*/(0,jsx_runtime.jsxs)(external_this_wp_components_.PanelBody, {
+      }), shouldShowLanguageControl && /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(external_this_wp_blockEditor_.InspectorControls, {
+        children: /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsxs)(external_this_wp_components_.PanelBody, {
           title: (0,external_this_wp_i18n_.__)('Languages', 'polylang-pro'),
-          children: [/*#__PURE__*/(0,jsx_runtime.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)("label", {
             htmlFor: "pll_post_lang_choice",
             children: (0,external_this_wp_i18n_.__)('The block is displayed for:', 'polylang-pro')
-          }), /*#__PURE__*/(0,jsx_runtime.jsx)(LanguageDropdown, {
+          }), /*#__PURE__*/(0,react_jsx_runtime_production_min_namespaceFn().jsx)(LanguageDropdown, {
             selectedLanguage: selectedLanguage,
             handleChange: nextLangSlug => {
               props.setAttributes({
