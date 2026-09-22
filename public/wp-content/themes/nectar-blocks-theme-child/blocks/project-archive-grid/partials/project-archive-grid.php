@@ -59,6 +59,7 @@ if ($is_preview) {
                 <?php
                 $postId = $postItem->ID;
                 $postTitle = get_the_title($postId);
+                $permalink = get_permalink($postId);
                 //prefer stored excerpt; fall back to first long nectar-blocks/text paragraph
                 $excerpt = ProjectExcerptHelper::getForPost($postId, 24);
                 ?>
@@ -71,7 +72,10 @@ if ($is_preview) {
                     ], true, get_stylesheet_directory() . '/blocks/project-marquee-slider/partials/'); ?>
 
                     <div class="project-archive-grid__meta">
-                        <h2 class="project-archive-grid__title"><?php echo esc_html($postTitle); ?></h2>
+                        <a class="project-archive-grid__title-link"
+                           href="<?php echo esc_url($permalink); ?>">
+                            <h2 class="project-archive-grid__title"><?php echo esc_html($postTitle); ?></h2>
+                        </a>
                         <?php if ($excerpt !== ''): ?>
                             <p class="project-archive-grid__excerpt"><?php echo esc_html($excerpt); ?></p>
                         <?php endif; ?>
