@@ -1,3 +1,9 @@
+# Direct access to novi-code-snippets without PHP
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^novi-code-snippets/(.*)$ /wp-content/uploads/novi-code-snippets/$1 [L]
+</IfModule>
+
 <Files xmlrpc.php>
    order deny,allow
    deny from all
