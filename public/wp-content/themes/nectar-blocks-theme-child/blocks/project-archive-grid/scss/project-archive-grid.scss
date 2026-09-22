@@ -51,13 +51,13 @@
             opacity: 1;
             transform: none;
             //hold briefly after io so cards don't pop the instant they clip the viewport
-            transition-delay: 0.22s;
+            transition-delay: 0.12s;
         }
 
         //light column stagger on 2-col so the right card trails the left
         @include mixins.mq-up(md) {
             &:nth-child(even).is-in-view {
-                transition-delay: 0.34s;
+                transition-delay: 0.2s;
             }
         }
     }
