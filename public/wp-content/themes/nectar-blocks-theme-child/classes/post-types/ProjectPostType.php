@@ -80,7 +80,7 @@ class ProjectPostType extends Singleton {
                 __('Projects', Theme::TEXT_DOMAIN)
             ),
             'supports' => ['title', 'excerpt', 'editor', 'thumbnail', 'revisions', 'custom-fields'],
-            'has_archive' => false,
+            'has_archive' => true,
             'rewrite' => [
                 'slug' => self::BASE_SLUG,
                 'with_front' => true
