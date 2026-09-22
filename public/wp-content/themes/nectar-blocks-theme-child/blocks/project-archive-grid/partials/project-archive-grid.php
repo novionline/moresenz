@@ -74,7 +74,7 @@ if ($is_preview) {
                     <div class="project-archive-grid__meta">
                         <a class="project-archive-grid__title-link"
                            href="<?php echo esc_url($permalink); ?>">
-                            <h2 class="project-archive-grid__title nectar-gt-WCiQpkcPAD"><?php echo esc_html($postTitle); ?></h2>
+                            <span class="project-archive-grid__title nectar-gt-WCiQpkcPAD"><?php echo esc_html($postTitle); ?></span>
                         </a>
                         <?php if ($excerpt !== ''): ?>
                             <p class="project-archive-grid__excerpt nectar-gt-pejAKfmZLS"><?php echo esc_html($excerpt); ?></p>

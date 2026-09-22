@@ -81,17 +81,18 @@
 
         &:hover,
         &:focus-visible {
-            color: var(--accentPrimary, #9a8a73);
+            color: var(--nectar-accent-color, gold);
         }
     }
 
-    //nectar-gt-WCiQpkcPAD = figma h2 (34px / 48px, light); keep color on the link for gold hover
+    //nectar-gt-WCiQpkcPAD = figma h2 (34px / 48px, light); span keeps h2 look without seo heading
     &__title {
+        display: block;
         margin: 0;
         color: inherit;
     }
 
-    //nectar-gt-pejAKfmZLS = figma subheading-l (20px / 40px, regular)
+    //nectar-gt-pejAKfmZLS = figma subheading-l (20px / 40px, regular); spacing via meta gap only
     &__excerpt {
         margin: 0;
         color: var(--nectar-gc-hnt9bJG9CP, #7e7b78);
