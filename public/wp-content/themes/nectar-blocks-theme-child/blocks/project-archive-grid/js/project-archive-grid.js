@@ -36,7 +36,7 @@
       return
     }
 
-    //nb scrollIntoView fade uses animationDelaySec: 0 — no stagger
+    //css adds transition-delay on is-in-view; io waits until more of the card is visible
     const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
@@ -49,8 +49,8 @@
       },
       {
         root: null,
-        rootMargin: '0px 0px -6% 0px',
-        threshold: 0.12
+        rootMargin: '0px 0px -12% 0px',
+        threshold: 0.2
       }
     )
 
