@@ -74,10 +74,10 @@ if ($is_preview) {
                     <div class="project-archive-grid__meta">
                         <a class="project-archive-grid__title-link"
                            href="<?php echo esc_url($permalink); ?>">
-                            <h2 class="project-archive-grid__title"><?php echo esc_html($postTitle); ?></h2>
+                            <h2 class="project-archive-grid__title nectar-gt-WCiQpkcPAD"><?php echo esc_html($postTitle); ?></h2>
                         </a>
                         <?php if ($excerpt !== ''): ?>
-                            <p class="project-archive-grid__excerpt"><?php echo esc_html($excerpt); ?></p>
+                            <p class="project-archive-grid__excerpt nectar-gt-pejAKfmZLS"><?php echo esc_html($excerpt); ?></p>
                         <?php endif; ?>
                     </div>
                 </li>

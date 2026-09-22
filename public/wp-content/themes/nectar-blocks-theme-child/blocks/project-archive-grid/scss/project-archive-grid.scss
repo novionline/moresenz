@@ -36,7 +36,7 @@
     &__item {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2rem; //figma image↔meta ~32px
         min-width: 0;
         margin: 0;
         //match homepage nb scrollIntoView fade: opacity only, 1s, delay 0, cubic-bezier(0.65, 0, 0.35, 1)
@@ -70,7 +70,7 @@
     &__meta {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 1rem; //figma title↔excerpt ~16px
         width: 100%;
     }
 
@@ -85,19 +85,16 @@
         }
     }
 
+    //nectar-gt-WCiQpkcPAD = figma h2 (34px / 48px, light); keep color on the link for gold hover
     &__title {
         margin: 0;
         color: inherit;
-        font-weight: 300;
-        font-size: clamp(1.5rem, 2vw, 2.125rem);
-        line-height: 1.4;
     }
 
+    //nectar-gt-pejAKfmZLS = figma subheading-l (20px / 40px, regular)
     &__excerpt {
         margin: 0;
         color: var(--nectar-gc-hnt9bJG9CP, #7e7b78);
-        font-size: clamp(1rem, 1.2vw, 1.25rem);
-        line-height: 1.6;
     }
 
     //nb-style numbered pagination (mirrors nectar-blocks-post-grid__pagination)
