@@ -36,9 +36,9 @@
       return
     }
 
-    //subtle stagger capped so lower cards do not wait too long
+    //homepage nb stagger uses 0.125s steps (0 / 0.125 / 0.25 / 0.375); cap so lower cards do not wait too long
     items.forEach(function (item, index) {
-      const delay = Math.min(index, 3) * 0.06
+      const delay = Math.min(index, 3) * 0.125
       item.style.setProperty('--reveal-delay', delay + 's')
     })
 
