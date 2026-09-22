@@ -36,12 +36,7 @@
       return
     }
 
-    //homepage nb stagger uses 0.125s steps (0 / 0.125 / 0.25 / 0.375); cap so lower cards do not wait too long
-    items.forEach(function (item, index) {
-      const delay = Math.min(index, 3) * 0.125
-      item.style.setProperty('--reveal-delay', delay + 's')
-    })
-
+    //nb scrollIntoView fade uses animationDelaySec: 0 — no stagger
     const observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
