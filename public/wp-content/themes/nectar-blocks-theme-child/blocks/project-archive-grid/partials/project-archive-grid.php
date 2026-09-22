@@ -3,6 +3,7 @@
 use NoviOnline\Core\Partial;
 use NoviOnline\ProjectArchiveGridBlock;
 use NoviOnline\ProjectPostType;
+use NoviOnline\ProjectSettings;
 use NoviOnline\Theme;
 
 /**
@@ -10,14 +11,28 @@ use NoviOnline\Theme;
  * @var bool $is_preview
  */
 
-$posts = get_posts([
+$postsPerPage = ProjectSettings::getPostsPerPage();
+$currentPage = $is_preview ? 1 : ProjectArchiveGridBlock::getCurrentPage();
+
+$queryArgs = [
     'post_type' => ProjectPostType::TYPE,
     'post_status' => 'publish',
-    'posts_per_page' => -1,
-    'orderby' => 'menu_order date',
+    'posts_per_page' => $postsPerPage,
+    'paged' => $currentPage,
+    'orderby' => [
+        'menu_order' => 'ASC',
+        'date' => 'ASC',
+    ],
     'order' => 'ASC',
     'suppress_filters' => false,
-]);
+];
+
+$projectsQuery = new WP_Query($queryArgs);
+$posts = $projectsQuery->posts;
+$totalPages = (int) $projectsQuery->max_num_pages;
+$paginationMarkup = (!$is_preview && $postsPerPage !== -1)
+    ? ProjectArchiveGridBlock::getPaginationMarkup($totalPages, $currentPage)
+    : '';
 
 $blockId = isset($block['id']) ? (string)$block['id'] : '';
 $anchor = !empty($block['anchor']) ? (string)$block['anchor'] : $blockId;
@@ -65,5 +80,13 @@ if ($is_preview) {
                 </li>
             <?php endforeach; ?>
         </ul>
+
+        <?php if ($paginationMarkup !== ''): ?>
+            <div class="project-archive-grid__pagination nectar-font-h6 align-center">
+                <?php echo $paginationMarkup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built via paginate_links + esc_url ?>
+            </div>
+        <?php endif; ?>
     <?php endif; ?>
 </section>
+<?php
+wp_reset_postdata();

@@ -1,0 +1,46 @@
+{
+  "key": "group_novi_project_settings",
+  "title": "Project settings",
+  "fields": [
+    {
+      "key": "field_novi_project_posts_per_page",
+      "label": "Posts per page",
+      "name": "project_posts_per_page",
+      "aria-label": "",
+      "type": "range",
+      "instructions": "Configure how many projects to show on the archive before pagination. Use -1 to show all projects. This value is synced across all languages.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 10,
+      "min": -1,
+      "max": 100,
+      "step": "",
+      "prepend": "",
+      "append": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "novi-project-settings"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": true,
+  "description": "",
+  "show_in_rest": 0,
+  "modified": 1758550000
+}

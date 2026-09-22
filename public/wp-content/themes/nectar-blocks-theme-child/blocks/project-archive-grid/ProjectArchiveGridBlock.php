@@ -139,6 +139,59 @@ class ProjectArchiveGridBlock extends Singleton {
     }
 
     /**
+     * Build NB-style numbered pagination markup for the archive grid
+     * @param int $totalPages
+     * @param int $currentPage
+     * @return string
+     */
+    public static function getPaginationMarkup(int $totalPages, int $currentPage = 1): string {
+        if ($totalPages <= 1) {
+            return '';
+        }
+
+        $currentPage = max(1, $currentPage);
+        $permalinkStructure = get_option('permalink_structure');
+        $queryType = (count($_GET)) ? '&' : '?';
+        $format = empty($permalinkStructure) ? $queryType . 'paged=%#%' : 'page/%#%/';
+
+        $leftArrow = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10.8284 12.0007L15.7782 16.9504L14.364 18.3646L8 12.0007L14.364 5.63672L15.7782 7.05093L10.8284 12.0007Z"></path></svg>';
+        $rightArrow = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13.1714 12.0007L8.22168 7.05093L9.63589 5.63672L15.9999 12.0007L9.63589 18.3646L8.22168 16.9504L13.1714 12.0007Z"></path></svg>';
+
+        $links = paginate_links([
+            'base' => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
+            'format' => $format,
+            'type' => 'list',
+            'current' => $currentPage,
+            'total' => $totalPages,
+            'prev_text' => $leftArrow,
+            'next_text' => $rightArrow,
+        ]);
+
+        if (!$links) {
+            return '';
+        }
+
+        $markup = '<nav role="navigation" aria-label="' . esc_attr__('Pagination Navigation', Theme::TEXT_DOMAIN) . '">';
+        $markup .= $links;
+        $markup .= '</nav>';
+
+        return (string) apply_filters('nectar_blocks_post_grid_pagination', $markup);
+    }
+
+    /**
+     * Resolve current paged value for archive pagination URLs
+     * @return int
+     */
+    public static function getCurrentPage(): int {
+        $paged = (int) get_query_var('paged');
+        if ($paged < 1) {
+            $paged = (int) get_query_var('page');
+        }
+
+        return max(1, $paged);
+    }
+
+    /**
      * Init frontend assets (reuses marquee card CSS/JS + archive grid layout)
      * @return void
      */

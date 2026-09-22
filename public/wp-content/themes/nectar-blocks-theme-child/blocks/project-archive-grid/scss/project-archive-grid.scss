@@ -93,4 +93,100 @@
         font-size: clamp(1rem, 1.2vw, 1.25rem);
         line-height: 1.6;
     }
+
+    //nb-style numbered pagination (mirrors nectar-blocks-post-grid__pagination)
+    &__pagination {
+        --pagination-bg-color: var(--accentPrimary);
+        --pagination-color: #fff;
+        --pagination-text-color: var(--light, #fff);
+
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        margin-top: 4rem;
+
+        @include mixins.mq-up(md) {
+            margin-top: 5rem;
+        }
+
+        &.align-left {
+            justify-content: flex-start;
+        }
+
+        &.align-right {
+            justify-content: flex-end;
+        }
+
+        a,
+        button {
+            font-family: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            text-transform: inherit;
+        }
+
+        svg {
+            fill: currentcolor;
+            height: 22px;
+        }
+
+        .page-numbers {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+
+            li {
+                align-items: center;
+                display: flex;
+            }
+
+            .current {
+                background: var(--pagination-bg-color);
+                border: 1px solid var(--pagination-bg-color);
+                border-radius: 5px;
+                color: var(--pagination-color);
+                display: block;
+                font-size: 14px;
+                height: 30px;
+                line-height: 28px;
+                text-align: center;
+                width: 30px;
+            }
+
+            a {
+                color: var(--pagination-text-color);
+                font-size: 14px;
+                text-decoration: none;
+                transition: color 0.25s ease;
+
+                &:hover {
+                    color: var(--pagination-bg-color);
+                }
+
+                &:not(.next):not(.prev) {
+                    border: 1px solid;
+                    border-radius: 5px;
+                    display: block;
+                    height: 30px;
+                    line-height: 28px;
+                    text-align: center;
+                    width: 30px;
+                }
+
+                &.next,
+                &.prev {
+                    align-items: center;
+                    display: flex;
+                    height: 30px;
+                    justify-content: center;
+                    line-height: 30px;
+                    text-align: center;
+                    width: 30px;
+                }
+            }
+        }
+    }
 }

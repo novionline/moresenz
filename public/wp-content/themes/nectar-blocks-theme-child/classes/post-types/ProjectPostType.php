@@ -52,7 +52,32 @@ class ProjectPostType extends Singleton {
         //sync ACF video fields to nectar portfolio video meta format after ACF saves
         add_action('acf/save_post', [$this, 'syncAcfVideoToNectarMeta'], 20);
 
+        //filter archive query (posts per page from Project settings; keeps /page/N/ from 404ing)
+        add_action('pre_get_posts', [$this, 'filterArchiveQuery']);
+
         $this->handleAcfJson();
+    }
+
+    /**
+     * Filter project archive main query: posts per page from Project settings
+     * @param \WP_Query $query
+     * @return \WP_Query
+     */
+    public static function filterArchiveQuery(\WP_Query $query): \WP_Query {
+        if (is_admin() || !$query->is_main_query()) {
+            return $query;
+        }
+
+        if (is_post_type_archive(self::TYPE)) {
+            $query->set('posts_per_page', ProjectSettings::getPostsPerPage());
+            $query->set('orderby', [
+                'menu_order' => 'ASC',
+                'date' => 'ASC',
+            ]);
+            $query->set('order', 'ASC');
+        }
+
+        return $query;
     }
 
     /**

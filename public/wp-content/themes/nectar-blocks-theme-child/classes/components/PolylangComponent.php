@@ -111,7 +111,13 @@ class PolylangComponent extends Singleton {
      * Option page slug => field name, ACF field key and synced option name for "posts per page" (synced across all languages)
      * @var array<string, array{field: string, field_key: string, option: string}>
      */
-    private static array $postsPerPageSyncedMap = [];
+    private static array $postsPerPageSyncedMap = [
+        ProjectSettings::MENU_SLUG => [
+            'field' => 'project_posts_per_page',
+            'field_key' => 'field_novi_project_posts_per_page',
+            'option' => ProjectSettings::SYNCED_OPTION_POSTS_PER_PAGE,
+        ],
+    ];
 
     /**
      * Get original options page id (without Polylang locale suffix) when it is one of our post type settings pages
