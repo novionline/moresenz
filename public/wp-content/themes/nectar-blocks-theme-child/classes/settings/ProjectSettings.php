@@ -21,9 +21,19 @@ class ProjectSettings extends Singleton {
     const SYNCED_OPTION_POSTS_PER_PAGE = 'novi_project_posts_per_page';
 
     /**
+     * Option key for excerpt word count synced across all Polylang languages
+     */
+    const SYNCED_OPTION_EXCERPT_WORD_COUNT = 'novi_project_excerpt_word_count';
+
+    /**
      * Default posts per page for the project archive grid
      */
     const DEFAULT_POSTS_PER_PAGE = 10;
+
+    /**
+     * Default excerpt word count for the project archive grid
+     */
+    const DEFAULT_EXCERPT_WORD_COUNT = 24;
 
     /**
      * ProjectSettings constructor.
@@ -71,5 +81,34 @@ class ProjectSettings extends Singleton {
         return $configuredPostsPerPage === -1 || $configuredPostsPerPage > 0
             ? $configuredPostsPerPage
             : self::DEFAULT_POSTS_PER_PAGE;
+    }
+
+    /**
+     * Get excerpt word count for project archive cards
+     * @return int
+     */
+    public static function getExcerptWordCount(): int {
+        $synced = get_option(self::SYNCED_OPTION_EXCERPT_WORD_COUNT, null);
+        if ($synced !== null && $synced !== '') {
+            $v = (int) $synced;
+            if ($v > 0) {
+                return $v;
+            }
+        }
+
+        $configuredWordCount = null;
+        if (function_exists('get_field')) {
+            $configuredWordCount = get_field('project_excerpt_word_count', self::MENU_SLUG);
+        }
+
+        if ($configuredWordCount === null || $configuredWordCount === '' || $configuredWordCount === false) {
+            return self::DEFAULT_EXCERPT_WORD_COUNT;
+        }
+
+        $configuredWordCount = (int) $configuredWordCount;
+
+        return $configuredWordCount > 0
+            ? $configuredWordCount
+            : self::DEFAULT_EXCERPT_WORD_COUNT;
     }
 }

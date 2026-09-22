@@ -13,20 +13,24 @@ class ProjectExcerptHelper {
     const MIN_PARAGRAPH_WORDS = 20;
 
     /**
-     * Default archive trim length (archive template may trim further)
+     * Fallback archive trim length when project settings return an invalid value
      */
-    const DEFAULT_WORD_LIMIT = 36;
+    const DEFAULT_WORD_LIMIT = 24;
 
     /**
      * Get excerpt for a project: prefer post_excerpt, else first long NB text paragraph
      *
      * @param int $postId
-     * @param int $wordLimit
+     * @param int|null $wordLimit null = use Project settings excerpt word count
      * @return string
      */
-    public static function getForPost(int $postId, int $wordLimit = self::DEFAULT_WORD_LIMIT): string {
+    public static function getForPost(int $postId, ?int $wordLimit = null): string {
         if ($postId <= 0) {
             return '';
+        }
+
+        if ($wordLimit === null) {
+            $wordLimit = ProjectSettings::getExcerptWordCount();
         }
 
         $post = get_post($postId);

@@ -22,6 +22,28 @@
       "step": "",
       "prepend": "",
       "append": ""
+    },
+    {
+      "key": "field_novi_project_excerpt_word_count",
+      "label": "Excerpt word count",
+      "name": "project_excerpt_word_count",
+      "aria-label": "",
+      "type": "number",
+      "instructions": "Maximum number of words shown in project archive excerpts. This value is synced across all languages.",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": 24,
+      "min": 1,
+      "max": 200,
+      "placeholder": "",
+      "step": 1,
+      "prepend": "",
+      "append": "words"
     }
   ],
   "location": [
@@ -42,5 +64,5 @@
   "active": true,
   "description": "",
   "show_in_rest": 0,
-  "modified": 1758550000
+  "modified": 1758554520
 }

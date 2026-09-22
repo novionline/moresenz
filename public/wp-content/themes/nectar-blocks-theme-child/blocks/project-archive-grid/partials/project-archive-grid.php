@@ -61,7 +61,7 @@ if ($is_preview) {
                 $postTitle = get_the_title($postId);
                 $permalink = get_permalink($postId);
                 //prefer stored excerpt; fall back to first long nectar-blocks/text paragraph
-                $excerpt = ProjectExcerptHelper::getForPost($postId, 24);
+                $excerpt = ProjectExcerptHelper::getForPost($postId, ProjectSettings::getExcerptWordCount());
                 ?>
                 <li class="project-archive-grid__item">
                     <?php Partial::render('project-card', [

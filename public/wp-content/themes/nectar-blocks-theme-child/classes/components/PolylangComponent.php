@@ -20,9 +20,9 @@ class PolylangComponent extends Singleton {
         add_filter('pll_get_post_types', [$this, 'filterPllPostTypes'], 10, 2);
         add_filter('pll_get_taxonomies', [$this, 'filterPllTaxonomies'], 10, 2);
 
-        //sync posts-per-page ACF field across all languages (store in plain option, load/save via ACF hooks)
-        add_action('acf/save_post', [$this, 'syncPostsPerPageOptionOnSave'], 20, 1);
-        add_filter('acf/load_value', [$this, 'loadSyncedPostsPerPageValue'], 10, 3);
+        //sync project settings ACF fields across all languages (store in plain options, load/save via ACF hooks)
+        add_action('acf/save_post', [$this, 'syncProjectSettingsOptionsOnSave'], 20, 1);
+        add_filter('acf/load_value', [$this, 'loadSyncedProjectSettingsValue'], 10, 3);
 
         //make Nectar Customizer strings translatable (e.g. search overlay placeholder)
         add_action('init', [$this, 'registerNectarCustomizerStrings'], 20);
@@ -108,14 +108,21 @@ class PolylangComponent extends Singleton {
     }
 
     /**
-     * Option page slug => field name, ACF field key and synced option name for "posts per page" (synced across all languages)
-     * @var array<string, array{field: string, field_key: string, option: string}>
+     * Option page slug => list of field name, ACF field key and synced option (synced across all languages)
+     * @var array<string, list<array{field: string, field_key: string, option: string}>>
      */
-    private static array $postsPerPageSyncedMap = [
+    private static array $syncedProjectSettingsMap = [
         ProjectSettings::MENU_SLUG => [
-            'field' => 'project_posts_per_page',
-            'field_key' => 'field_novi_project_posts_per_page',
-            'option' => ProjectSettings::SYNCED_OPTION_POSTS_PER_PAGE,
+            [
+                'field' => 'project_posts_per_page',
+                'field_key' => 'field_novi_project_posts_per_page',
+                'option' => ProjectSettings::SYNCED_OPTION_POSTS_PER_PAGE,
+            ],
+            [
+                'field' => 'project_excerpt_word_count',
+                'field_key' => 'field_novi_project_excerpt_word_count',
+                'option' => ProjectSettings::SYNCED_OPTION_EXCERPT_WORD_COUNT,
+            ],
         ],
     ];
 
@@ -126,10 +133,10 @@ class PolylangComponent extends Singleton {
      */
     private static function getOriginalOptionIdForSyncedPages(string $postId): ?string {
         $postId = is_string($postId) ? $postId : '';
-        if (isset(self::$postsPerPageSyncedMap[$postId])) {
+        if (isset(self::$syncedProjectSettingsMap[$postId])) {
             return $postId;
         }
-        foreach (array_keys(self::$postsPerPageSyncedMap) as $slug) {
+        foreach (array_keys(self::$syncedProjectSettingsMap) as $slug) {
             if (strpos($postId, $slug . '_') === 0) {
                 return $slug;
             }
@@ -138,42 +145,46 @@ class PolylangComponent extends Singleton {
     }
 
     /**
-     * On save of a post type settings options page, copy posts-per-page field to synced option so it applies to all languages.
+     * On save of a post type settings options page, copy synced fields to plain options so they apply to all languages.
      * Read from $_POST so we use the value just submitted; get_field() can return a cached/old value during save_post.
      * @param int|string $postId
      * @return void
      */
-    public function syncPostsPerPageOptionOnSave($postId): void {
+    public function syncProjectSettingsOptionsOnSave($postId): void {
         $originalId = self::getOriginalOptionIdForSyncedPages((string)$postId);
         if ($originalId === null) {
             return;
         }
-        $config = self::$postsPerPageSyncedMap[$originalId];
-        $submitted = isset($_POST['acf'][$config['field_key']]) ? $_POST['acf'][$config['field_key']] : null;
-        if ($submitted !== null && $submitted !== '') {
-            update_option($config['option'], (int)$submitted);
+        foreach (self::$syncedProjectSettingsMap[$originalId] as $config) {
+            $submitted = isset($_POST['acf'][$config['field_key']]) ? $_POST['acf'][$config['field_key']] : null;
+            if ($submitted !== null && $submitted !== '') {
+                update_option($config['option'], (int)$submitted);
+            }
         }
     }
 
     /**
-     * Load synced posts-per-page value so the same value is shown in the form for all languages
+     * Load synced project settings values so the same value is shown in the form for all languages
      * @param mixed $value
      * @param int|string $postId
      * @param array $field
      * @return mixed
      */
-    public function loadSyncedPostsPerPageValue($value, $postId, array $field) {
+    public function loadSyncedProjectSettingsValue($value, $postId, array $field) {
         $originalId = self::getOriginalOptionIdForSyncedPages((string)$postId);
         if ($originalId === null) {
             return $value;
         }
-        $config = self::$postsPerPageSyncedMap[$originalId];
-        if (($field['name'] ?? '') !== $config['field']) {
+        $fieldName = $field['name'] ?? '';
+        foreach (self::$syncedProjectSettingsMap[$originalId] as $config) {
+            if ($fieldName !== $config['field']) {
+                continue;
+            }
+            $synced = get_option($config['option'], null);
+            if ($synced !== null && $synced !== '') {
+                return (int)$synced;
+            }
             return $value;
-        }
-        $synced = get_option($config['option'], null);
-        if ($synced !== null && $synced !== '') {
-            return (int)$synced;
         }
         return $value;
     }
