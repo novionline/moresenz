@@ -881,6 +881,14 @@
     scope.querySelectorAll('.project-marquee-slider').forEach(initSlider)
   }
 
+  //expose card hover for archive grid (same HTML classes / easings)
+  window.noviInitProjectCardHover = function (root) {
+    if (!root) {
+      return
+    }
+    initCardHover(root)
+  }
+
   let acfPreviewBound = false
 
   function bindAcfBlockPreview() {

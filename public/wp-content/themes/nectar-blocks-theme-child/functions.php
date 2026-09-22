@@ -133,13 +133,14 @@ class Theme extends Singleton {
     public static function initBlocks(): void {
         NoviMenuBlock::getInstance();
         ProjectMarqueeSliderBlock::getInstance();
+        ProjectArchiveGridBlock::getInstance();
     }
 
     /**
      * Init settings pages
      */
     public static function initSettings(): void {
-        //silence is golden
+        ProjectSettings::getInstance();
     }
 }
 
