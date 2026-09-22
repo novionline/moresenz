@@ -66,6 +66,13 @@ class ProjectArchiveGridBlock extends Singleton {
             }
         });
 
+        //priority 1000: after nectar used-css dequeue (999); archive used-css cache omits video overlay/hover rules
+        add_action('wp_enqueue_scripts', function () {
+            if ($this->shouldEnqueueAssets()) {
+                $this->initFrontendAssets();
+            }
+        }, 1000);
+
         add_action('enqueue_block_assets', function () {
             $this->initFrontendAssets();
         });
