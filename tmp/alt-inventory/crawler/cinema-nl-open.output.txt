@@ -1,0 +1,289 @@
+
+ ####                ####             #####        
+ ####                ####           #######        
+ ####      ###       ####         #########        
+ ####     ######     ####       ###### ####        
+  ######################       #####   ####        
+    #######    #######       #####     ####        
+    #######    #######         #       ####        
+  ######################               ####        
+ ####     ######     ####              ####        
+ ####       ##       ####              ####        
+ ####                ####       ################## 
+ ####                ####       ################## 
+
+==================================================
+# SiteOne Crawler, v2.3.0.20260330               #
+# Author: jan.reges@siteone.cz                   #
+==================================================
+
+
+Detected terminal width 138 < 140 chars - compact mode activated.
+
+Progress| URL                                                    | Status | Type     | Time   | Size   | Cache  | Access.  | Best pr.
+--------------------------------------------------------------------------------------------------------------------------------------
+1/1     | /                                                      | 200    | HTML     | 1.4 s  | 574 kB | none   |          | 1/6     
+
+Skipped URLs Summary
+--------------------
+
+No skipped URLs found.
+
+
+Skipped URLs
+------------
+
+No skipped URLs found.
+
+
+External URLs
+-------------
+
+No external URLs found.
+
+
+Redirected URLs
+---------------
+
+No redirects found.
+
+
+404 URLs
+--------
+
+No 404 URLs found.
+
+
+SSL/TLS info
+------------
+
+Info                   | Text                                                                                                        
+---------------------------------------------------------------------------------------------------------------------------------------
+Issuer                 | C = US, O = Let's Encrypt, CN = YE1                                                                         
+Subject                | CN = cinema.moresenz.nl                                                                                     
+Valid from             | Aug 14 13:26:34 2026 GMT (VALID already 27.1 day(s))                                                        
+Valid to               | Nov 12 13:26:33 2026 GMT (VALID still for 62.9 day(s))                                                      
+Supported protocols    | TLSv1.3                                                                                                     
+RAW certificate output | sh: timeout: command not found
+                                                                             
+RAW protocols output   | === ssl2 ===
+sh: timeout: command not found
+
+=== ssl3 ===
+sh: timeout:…===
+sh: timeout: command not found   
+
+
+TOP fastest URLs
+----------------
+
+No fast URLs faster than 1 second(s) found.
+
+
+TOP slowest URLs
+----------------
+
+No slow URLs slower than 0.01 second(s) found.
+
+
+SEO metadata
+------------
+
+No URLs.
+
+
+OpenGraph metadata
+------------------
+
+No URLs with OpenGraph data (og:* or twitter:* meta tags).
+
+
+Heading structure
+-----------------
+
+No URLs to analyze heading structure.
+
+
+HTTP headers
+------------
+
+No HTTP headers found.
+
+
+HTTP header values
+------------------
+
+No HTTP headers found.
+
+
+HTTP Caching by domain
+----------------------
+
+Domain               | Cache type   | URLs  | AVG lifetime | MIN lifetime | MAX lifetime
+------------------------------------------------------------------------------------
+cinema.moresenz.nl   | No cache headers | 1     | -          | -          | -         
+
+
+HTTP Caching by domain and content type
+---------------------------------------
+
+Domain               | Content type | Cache type   | URLs  | AVG lifetime | MIN lifetime | MAX lifetime
+---------------------------------------------------------------------------------------------------
+cinema.moresenz.nl   | HTML         | No cache headers | 1     | -          | -          | -         
+
+
+Best practices
+--------------
+
+Analysis name                            | OK    | Notice | Warning | Critical
+--------------------------------------------------------------------------------
+Non-clickable phone numbers              | 2     | 0      | 0       | 0       
+Heading structure                        | 1     | 0      | 1       | 0       
+DOM depth (> 30)                         | 1     | 0      | 0       | 0       
+Large inline SVGs (> 5120 B)             | 6     | 0      | 0       | 0       
+Invalid inline SVGs                      | 6     | 0      | 0       | 0       
+Duplicate inline SVGs (> 5 and > 1024 B) | 6     | 0      | 0       | 0       
+Title uniqueness (> 10%)                 | 0     | 0      | 1       | 0       
+Description uniqueness (> 10%)           | 0     | 0      | 1       | 0       
+Brotli support                           | 0     | 0      | 0       | 0       
+WebP support                             | 0     | 0      | 1       | 0       
+AVIF support                             | 0     | 0      | 1       | 0       
+
+
+Accessibility
+-------------
+
+Nothing to report.
+
+
+Source domains
+--------------
+
+Domain             | Totals       | HTML        
+--------------------------------------------------
+cinema.moresenz.nl | 1/574kB/1.4s | 1/574kB/1.4s
+
+
+Content types
+-------------
+
+Content type | URLs  | Total size | Total time | Avg time | Status 20x
+------------------------------------------------------------------------
+HTML         | 1     | 574 kB     | 1.4 s      | 1.4 s    | 1         
+
+
+Content types (MIME types)
+--------------------------
+
+Content type               | URLs  | Total size | Total time | Avg time | Status 20x
+--------------------------------------------------------------------------------------
+text/html; charset=UTF-8   | 1     | 574 kB     | 1.4 s      | 1.4 s    | 1         
+
+
+DNS info
+--------
+
+DNS resolving tree                                                    
+------------------------------------------------------------------------
+cinema.moresenz.nl                                                    
+  IPv4: 142.93.143.87                                                 
+  IPv6: 2a03:b0c0:2:f0:0:1:882c:6001                                  
+                                                                      
+DNS server: 192.168.1.1                                               
+
+
+Security
+--------
+
+Nothing to report.
+
+
+Analysis stats
+--------------
+
+Class::method                                        | Exec time | Exec count
+-------------------------------------------------------------------------------
+SslTlsAnalyzer::getTLSandSSLCertificateInfo          | 157 ms    | 1         
+BestPracticeAnalyzer::checkNonClickablePhoneNumbers  | 7 ms      | 1         
+BestPracticeAnalyzer::checkHeadingStructure          | 5 ms      | 1         
+BestPracticeAnalyzer::checkMaxDOMDepth               | 5 ms      | 1         
+BestPracticeAnalyzer::checkInlineSvg                 | 0 ms      | 1         
+BestPracticeAnalyzer::checkMissingQuotesOnAttributes | 0 ms      | 1         
+SeoAndOpenGraphAnalyzer::analyzeSeo                  | 0 ms      | 1         
+SeoAndOpenGraphAnalyzer::analyzeHeadings             | 0 ms      | 1         
+SeoAndOpenGraphAnalyzer::analyzeOpenGraph            | 0 ms      | 1         
+BestPracticeAnalyzer::checkTitleUniqueness           | 0 ms      | 1         
+BestPracticeAnalyzer::checkBrotliSupport             | 0 ms      | 1         
+BestPracticeAnalyzer::checkAvifSupport               | 0 ms      | 1         
+BestPracticeAnalyzer::checkMetaDescriptionUniqueness | 0 ms      | 1         
+BestPracticeAnalyzer::checkWebpSupport               | 0 ms      | 1         
+
+
+Content processor stats
+-----------------------
+
+Class::method                                            | Exec time | Exec count
+-----------------------------------------------------------------------------------
+NextJsProcessor::applyContentChangesBeforeUrlParsing     | 1 ms      | 1         
+AstroProcessor::applyContentChangesBeforeUrlParsing      | 0 ms      | 1         
+SvelteProcessor::applyContentChangesBeforeUrlParsing     | 0 ms      | 1         
+HtmlProcessor::applyContentChangesBeforeUrlParsing       | 0 ms      | 1         
+JavaScriptProcessor::applyContentChangesBeforeUrlParsing | 0 ms      | 1         
+CssProcessor::applyContentChangesBeforeUrlParsing        | 0 ms      | 1         
+
+
+==========================================================================================================================================
+Total execution time 3.5 s using 3 workers and 2048M memory limit
+Total of 1 visited URLs with a total size of 574 kB and power of 0 reqs/s with download speed 165 kB/s
+Response times: AVG 1.4 s MIN 1.4 s MAX 1.4 s TOTAL 1.4 s
+==========================================================================================================================================
+
+╔═════════════════════════════════════════════════════════════════╗
+║                      WEBSITE QUALITY SCORE                      ║
+╠═════════════════════════════════════════════════════════════════╣
+║  Overall         ████████████████████████░   9.6/10  Excellent  ║
+╠═════════════════════════════════════════════════════════════════╣
+║  Performance     ███████████████████████░░   9.0/10  Excellent  ║
+║  SEO             ████████████████████████░   9.4/10  Excellent  ║
+║  Security        █████████████████████████  10.0/10  Excellent  ║
+║  Accessibility   █████████████████████████   9.9/10  Excellent  ║
+║  Best Practices  ████████████████████████░   9.7/10  Excellent  ║
+╚═════════════════════════════════════════════════════════════════╝
+
+Summary
+-------
+
+⛔ SSL/TLS protocol TLSv1.2 is not supported. Ask your admin/provider to add TLSv1.2 support.
+⚠️ No titles provided for uniqueness check.
+⚠️ No meta descriptions provided for uniqueness check.
+⚠️ No WebP image found on the website.
+⚠️ No AVIF image found on the website.
+⚠️ 1 page(s) with skipped heading levels.
+✅ Skipped URLs - no skipped URLs found.
+✅ External URLs - no external URLs found.
+✅ Redirects - no redirects found.
+✅ 404 OK - all pages exists, no non-existent pages found.
+✅ SSL/TLS certificate is valid until Nov 12 13:26:33 2026 GMT. Issued by C = US, O = Let's Encrypt, CN = YE1. Subject is CN = cinema.moresenz.nl.
+✅ SSL/TLS certificate issued by 'C = US, O = Let's Encrypt, CN = YE1'.
+✅ Performance OK - all non-media URLs are faster than 3 seconds.
+✅ HTTP headers - found 0 unique headers.
+✅ All pages support Brotli compression.
+✅ All pages have quoted attributes.
+✅ All pages have inline SVGs smaller than 5120 bytes.
+✅ All pages have inline SVGs with less than 5 duplicates.
+✅ All pages have valid or none inline SVGs.
+✅ All pages without multiple <h1> headings.
+✅ All pages have <h1> heading.
+✅ All pages have DOM depth less than 30.
+✅ All pages have clickable (interactive) phone numbers.
+✅ All pages have valid HTML.
+✅ All pages have image alt attributes.
+✅ All pages have form labels.
+✅ All pages have aria labels.
+✅ All pages have role attributes.
+✅ All pages have lang attribute.
+✅ DNS IPv4 OK: domain cinema.moresenz.nl resolved to 142.93.143.87 (DNS server: 192.168.1.1).
+✅ DNS IPv6 OK: domain cinema.moresenz.nl resolved to 2a03:b0c0:2:f0:0:1:882c:6001 (DNS server: 192.168.1.1).
+✅ Security - no findings.
+📌 HTML report saved to '/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl-open.report.html' and took 0 ms.
+

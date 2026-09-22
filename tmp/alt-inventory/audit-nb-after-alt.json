@@ -1,0 +1,807 @@
+{
+    "ok": false,
+    "summary": {
+        "checked": 55,
+        "with_nb_image": 42,
+        "issue_posts": 35,
+        "thin_css": 2,
+        "missing_css_ids": 33,
+        "roundtrip_fail": 0,
+        "corruption": 0,
+        "issue_type_counts": {
+            "thin_css": 2,
+            "many_missing_css_ids": 33
+        }
+    },
+    "failures": [
+        {
+            "post_id": 19,
+            "type": "page",
+            "slug": "homepage",
+            "title": "Homepage",
+            "css_bytes": 0,
+            "content_block_ids": 1,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "thin_css",
+                    "css_bytes": 0,
+                    "block_ids": 1
+                }
+            ]
+        },
+        {
+            "post_id": 24,
+            "type": "nectar_templates",
+            "slug": "project-single-page",
+            "title": "Project single page",
+            "css_bytes": 0,
+            "content_block_ids": 3,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "thin_css",
+                    "css_bytes": 0,
+                    "block_ids": 3
+                }
+            ]
+        },
+        {
+            "post_id": 27,
+            "type": "novi-project",
+            "slug": "eclipse",
+            "title": "Eclipse",
+            "css_bytes": 22496,
+            "content_block_ids": 77,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-c04zbdt8be9o",
+                        "block-n8jft7t8be9p",
+                        "block-409uixt8be9r",
+                        "block-lkm789t8be9v",
+                        "block-tazzwut8be9v"
+                    ],
+                    "css_bytes": 22496
+                }
+            ]
+        },
+        {
+            "post_id": 54,
+            "type": "wp_block",
+            "slug": "styleguide",
+            "title": "Styleguide",
+            "css_bytes": 2436,
+            "content_block_ids": 28,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 13,
+                    "sample": [
+                        "block-bppgcd45pdzu",
+                        "block-xitlyr45pdzu",
+                        "block-asxosp45pdzv",
+                        "block-aubtku45pdzv",
+                        "block-iyky8r45pdzv"
+                    ],
+                    "css_bytes": 2436
+                }
+            ]
+        },
+        {
+            "post_id": 304,
+            "type": "wp_block",
+            "slug": "footer",
+            "title": "Footer",
+            "css_bytes": 2573,
+            "content_block_ids": 10,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 4,
+                    "sample": [
+                        "block-fjqe9r2l2y5p",
+                        "block-96d1e92l2y5p",
+                        "block-ws56yc2l2y5p",
+                        "block-2mf0tc2l2y5p"
+                    ],
+                    "css_bytes": 2573
+                }
+            ]
+        },
+        {
+            "post_id": 443,
+            "type": "wp_block",
+            "slug": "text-section",
+            "title": "Text section",
+            "css_bytes": 3754,
+            "content_block_ids": 15,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 5,
+                    "sample": [
+                        "block-ru66po8r01k5",
+                        "block-weic4f8r01k6",
+                        "block-e4b9sv8r01k7",
+                        "block-syhjyk8r01k9",
+                        "block-l62abm8r01ka"
+                    ],
+                    "css_bytes": 3754
+                }
+            ]
+        },
+        {
+            "post_id": 448,
+            "type": "wp_block",
+            "slug": "testimonial-slider",
+            "title": "Customer reviews",
+            "css_bytes": 10316,
+            "content_block_ids": 65,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 12,
+                    "sample": [
+                        "block-ompvn6ekc1r2",
+                        "block-xm7042ekc1r2",
+                        "block-c42bhgekc1r2",
+                        "block-0czhbkekc1r5",
+                        "block-heQmXsWwrA"
+                    ],
+                    "css_bytes": 10316
+                }
+            ]
+        },
+        {
+            "post_id": 517,
+            "type": "wp_block",
+            "slug": "faq",
+            "title": "FAQ",
+            "css_bytes": 3325,
+            "content_block_ids": 22,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 10,
+                    "sample": [
+                        "block-7m5hnkapg4qc",
+                        "block-elpv4rapg4qd",
+                        "block-xlsc44apg4qd",
+                        "block-i5xeo7apg4qd",
+                        "block-6i7xw4apg4qd"
+                    ],
+                    "css_bytes": 3325
+                }
+            ]
+        },
+        {
+            "post_id": 548,
+            "type": "wp_block",
+            "slug": "accordion-with-icons",
+            "title": "Project highlights",
+            "css_bytes": 7480,
+            "content_block_ids": 26,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 4,
+                    "sample": [
+                        "block-1okfecgxw8w1",
+                        "block-1c09qzgxw8w2",
+                        "block-f6mp04gxw8w3",
+                        "block-33weipgxw8w3"
+                    ],
+                    "css_bytes": 7480
+                }
+            ]
+        },
+        {
+            "post_id": 551,
+            "type": "wp_block",
+            "slug": "stacked-content-sections",
+            "title": "Stacked content sections",
+            "css_bytes": 17865,
+            "content_block_ids": 83,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 19,
+                    "sample": [
+                        "block-anza1caq8pv0",
+                        "block-7zpvoyaq8pv0",
+                        "block-r83r50aq8pv0",
+                        "block-h9atnzaq8pv1",
+                        "block-raye2daq8pv1"
+                    ],
+                    "css_bytes": 17865
+                }
+            ]
+        },
+        {
+            "post_id": 1059,
+            "type": "wp_block",
+            "slug": "process-steps",
+            "title": "Process steps",
+            "css_bytes": 11305,
+            "content_block_ids": 50,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 7,
+                    "sample": [
+                        "block-949nr6an2iy1",
+                        "block-as8fvcan2iy3",
+                        "block-u9yj9oan2iy4",
+                        "block-9iifs4an2iy5",
+                        "block-zswfutan2iy6"
+                    ],
+                    "css_bytes": 11305
+                }
+            ]
+        },
+        {
+            "post_id": 1411,
+            "type": "wp_block",
+            "slug": "card-slider-with-animated-grid",
+            "title": "Card slider",
+            "css_bytes": 19935,
+            "content_block_ids": 58,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 10,
+                    "sample": [
+                        "block-kl8olgaqddta",
+                        "block-jkxr63aqddtb",
+                        "block-gin60oaqddtc",
+                        "block-8qj0xsaqddtd",
+                        "block-cxlv7haqddte"
+                    ],
+                    "css_bytes": 19935
+                }
+            ]
+        },
+        {
+            "post_id": 1447,
+            "type": "novi-project",
+            "slug": "emerald",
+            "title": "Emerald",
+            "css_bytes": 24886,
+            "content_block_ids": 83,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 8,
+                    "sample": [
+                        "block-wcuv43t8ijsn",
+                        "block-co0vxlt8ijso",
+                        "block-sjmyudt8ijsp",
+                        "block-1gq51ht8ijst",
+                        "block-vyld51t8ijsu"
+                    ],
+                    "css_bytes": 24886
+                }
+            ]
+        },
+        {
+            "post_id": 1460,
+            "type": "novi-project",
+            "slug": "solis",
+            "title": "Solis",
+            "css_bytes": 20517,
+            "content_block_ids": 70,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-uqxovnt8k1tv",
+                        "block-m3d95wt8k1tw",
+                        "block-1zv4s7t8k1ty",
+                        "block-a5au45t8k1u2",
+                        "block-hp0o0jt8k1u2"
+                    ],
+                    "css_bytes": 20517
+                }
+            ]
+        },
+        {
+            "post_id": 1465,
+            "type": "novi-project",
+            "slug": "aureum",
+            "title": "Aureum",
+            "css_bytes": 21013,
+            "content_block_ids": 74,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 8,
+                    "sample": [
+                        "block-ursvekt8pfnf",
+                        "block-76s5jat8pfng",
+                        "block-l2sas9t8pfnh",
+                        "block-enxrp2t8pfnh",
+                        "block-0zx54wt8pfnj"
+                    ],
+                    "css_bytes": 21013
+                }
+            ]
+        },
+        {
+            "post_id": 1486,
+            "type": "novi-project",
+            "slug": "titan",
+            "title": "Titan",
+            "css_bytes": 21011,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-93msfht9t3mq",
+                        "block-86owe5t9t3mr",
+                        "block-kkd1aft9t3ms",
+                        "block-0fxmmkt9t3n2",
+                        "block-s8ey67t9t3n2"
+                    ],
+                    "css_bytes": 21011
+                }
+            ]
+        },
+        {
+            "post_id": 2155,
+            "type": "novi-project",
+            "slug": "nova",
+            "title": "Nova",
+            "css_bytes": 21044,
+            "content_block_ids": 73,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 7,
+                    "sample": [
+                        "block-dabv2lt9u9px",
+                        "block-epny7dt9u9py",
+                        "block-36h53jt9u9pz",
+                        "block-auzh8ut9u9qc",
+                        "block-r3i8bkt9u9qd"
+                    ],
+                    "css_bytes": 21044
+                }
+            ]
+        },
+        {
+            "post_id": 2166,
+            "type": "novi-project",
+            "slug": "fusion",
+            "title": "Fusion",
+            "css_bytes": 20490,
+            "content_block_ids": 70,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-910dght9vkk6",
+                        "block-o2vdn7t9vkk7",
+                        "block-ij0fjst9vkk9",
+                        "block-ba4oc4t9vkke",
+                        "block-jk48xat9vkkf"
+                    ],
+                    "css_bytes": 20490
+                }
+            ]
+        },
+        {
+            "post_id": 2174,
+            "type": "novi-project",
+            "slug": "arc",
+            "title": "Arc",
+            "css_bytes": 21013,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-o16b79t9wlhl",
+                        "block-gn3likt9wlhm",
+                        "block-t91y24t9wlho",
+                        "block-cjd1tbt9wli0",
+                        "block-50ev63t9wli1"
+                    ],
+                    "css_bytes": 21013
+                }
+            ]
+        },
+        {
+            "post_id": 2184,
+            "type": "novi-project",
+            "slug": "highland",
+            "title": "Highland",
+            "css_bytes": 21014,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-mr23aat9yz4h",
+                        "block-krmf27t9yz4i",
+                        "block-amgd2gt9yz4k",
+                        "block-z99hukt9yz4u",
+                        "block-m6ysbqt9yz4u"
+                    ],
+                    "css_bytes": 21014
+                }
+            ]
+        },
+        {
+            "post_id": 2193,
+            "type": "novi-project",
+            "slug": "opus",
+            "title": "Opus",
+            "css_bytes": 21044,
+            "content_block_ids": 74,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 8,
+                    "sample": [
+                        "block-5rh0xft9zsz7",
+                        "block-irwdlkt9zsz8",
+                        "block-dwmxf4t9zsz9",
+                        "block-ukg2rmt9zszi",
+                        "block-edjiewt9zszi"
+                    ],
+                    "css_bytes": 21044
+                }
+            ]
+        },
+        {
+            "post_id": 2203,
+            "type": "novi-project",
+            "slug": "hyperspace",
+            "title": "Hyperspace",
+            "css_bytes": 21565,
+            "content_block_ids": 74,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-eflvcata108k",
+                        "block-uszaeota108l",
+                        "block-obciw6ta108u",
+                        "block-jsyg6yta1091",
+                        "block-0u74pita1092"
+                    ],
+                    "css_bytes": 21565
+                }
+            ]
+        },
+        {
+            "post_id": 2213,
+            "type": "novi-project",
+            "slug": "onyx",
+            "title": "Onyx",
+            "css_bytes": 20124,
+            "content_block_ids": 70,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-esfqhznhptqi",
+                        "block-vm9gkznhptqj",
+                        "block-brwal4nhptqk",
+                        "block-0lqsihnhptqm",
+                        "block-95d89dnhptqm"
+                    ],
+                    "css_bytes": 20124
+                }
+            ]
+        },
+        {
+            "post_id": 2224,
+            "type": "novi-project",
+            "slug": "verde",
+            "title": "Verde",
+            "css_bytes": 20497,
+            "content_block_ids": 70,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-508laqt9sbt6",
+                        "block-8ncblft9sbt6",
+                        "block-ye93g8t9sbt8",
+                        "block-qf22gwt9sbth",
+                        "block-3vaibxt9sbti"
+                    ],
+                    "css_bytes": 20497
+                }
+            ]
+        },
+        {
+            "post_id": 2236,
+            "type": "novi-project",
+            "slug": "apex",
+            "title": "Apex",
+            "css_bytes": 21557,
+            "content_block_ids": 74,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-lyvvhikkewi2",
+                        "block-vkx783kkewi3",
+                        "block-cyhjo5kkewi5",
+                        "block-lzs3uxkkewib",
+                        "block-ddj404kkewic"
+                    ],
+                    "css_bytes": 21557
+                }
+            ]
+        },
+        {
+            "post_id": 2247,
+            "type": "novi-project",
+            "slug": "oakmont",
+            "title": "Oakmont",
+            "css_bytes": 21044,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-7g59dkngr92b",
+                        "block-aa2mrtngr92c",
+                        "block-t0bcvrngr92c",
+                        "block-2wrsfrngr92f",
+                        "block-yonm3angr92f"
+                    ],
+                    "css_bytes": 21044
+                }
+            ]
+        },
+        {
+            "post_id": 2258,
+            "type": "novi-project",
+            "slug": "scala",
+            "title": "Scala",
+            "css_bytes": 21045,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-4x6g8tnglpr3",
+                        "block-jyhsz1nglpr4",
+                        "block-oxv5kdnglpr4",
+                        "block-doqp3snglpr6",
+                        "block-26s2annglpr6"
+                    ],
+                    "css_bytes": 21045
+                }
+            ]
+        },
+        {
+            "post_id": 2330,
+            "type": "novi-project",
+            "slug": "noir",
+            "title": "Noir",
+            "css_bytes": 23053,
+            "content_block_ids": 79,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-9glzu3t8him6",
+                        "block-rf6vjvt8him7",
+                        "block-7gol8ft8him9",
+                        "block-jpx9b4t8hime",
+                        "block-mihzr7t8hime"
+                    ],
+                    "css_bytes": 23053
+                }
+            ]
+        },
+        {
+            "post_id": 2347,
+            "type": "novi-project",
+            "slug": "infinity",
+            "title": "Infinity",
+            "css_bytes": 21535,
+            "content_block_ids": 75,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 7,
+                    "sample": [
+                        "block-zain2vt9r7zm",
+                        "block-sr9mtzt9r7zn",
+                        "block-0rfuv9t9r7zt",
+                        "block-coka3wt9r7zy",
+                        "block-g1uffut9r7zz"
+                    ],
+                    "css_bytes": 21535
+                }
+            ]
+        },
+        {
+            "post_id": 2358,
+            "type": "novi-project",
+            "slug": "vesper",
+            "title": "Vesper",
+            "css_bytes": 21044,
+            "content_block_ids": 73,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 7,
+                    "sample": [
+                        "block-r4vflqt9pi2s",
+                        "block-c5p1xnt9pi2s",
+                        "block-e25kojt9pi2u",
+                        "block-68in91t9pi2y",
+                        "block-0ysjitt9pi2y"
+                    ],
+                    "css_bytes": 21044
+                }
+            ]
+        },
+        {
+            "post_id": 2375,
+            "type": "novi-project",
+            "slug": "oris",
+            "title": "Oris",
+            "css_bytes": 20519,
+            "content_block_ids": 71,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 7,
+                    "sample": [
+                        "block-ah8fl3t8n98k",
+                        "block-35lfhyt8n98l",
+                        "block-c2wq7kt8n98n",
+                        "block-wplt59t8n98r",
+                        "block-fxn7tqt8n98r"
+                    ],
+                    "css_bytes": 20519
+                }
+            ]
+        },
+        {
+            "post_id": 2386,
+            "type": "novi-project",
+            "slug": "nexus",
+            "title": "Nexus",
+            "css_bytes": 20684,
+            "content_block_ids": 71,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-4euxpsoo1rxv",
+                        "block-bkr34voo1rxw",
+                        "block-mlqi7poo1rxx",
+                        "block-ap3p4yoo1ry3",
+                        "block-so68d7oo1ry3"
+                    ],
+                    "css_bytes": 20684
+                }
+            ]
+        },
+        {
+            "post_id": 2395,
+            "type": "novi-project",
+            "slug": "omerta",
+            "title": "Omerta",
+            "css_bytes": 20545,
+            "content_block_ids": 70,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-vbzln8t8lt0w",
+                        "block-opbcelt8lt0x",
+                        "block-x7k5d3t8lt16",
+                        "block-c1u37gt8lt1d",
+                        "block-36gc78t8lt1d"
+                    ],
+                    "css_bytes": 20545
+                }
+            ]
+        },
+        {
+            "post_id": 2404,
+            "type": "novi-project",
+            "slug": "aspen",
+            "title": "Aspen",
+            "css_bytes": 21036,
+            "content_block_ids": 72,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 6,
+                    "sample": [
+                        "block-sdp9zzt8l96i",
+                        "block-c0e4o9t8l96i",
+                        "block-739xvst8l96k",
+                        "block-0k2tupt8l96o",
+                        "block-zcijret8l96p"
+                    ],
+                    "css_bytes": 21036
+                }
+            ]
+        },
+        {
+            "post_id": 2414,
+            "type": "novi-project",
+            "slug": "reserve",
+            "title": "Reserve",
+            "css_bytes": 21568,
+            "content_block_ids": 76,
+            "issue_count": 1,
+            "issues": [
+                {
+                    "type": "many_missing_css_ids",
+                    "missing_count": 8,
+                    "sample": [
+                        "block-jftv16t8koxa",
+                        "block-lt87xlt8koxb",
+                        "block-92q6j3t8koxe",
+                        "block-oqu3hst8koxl",
+                        "block-1gesz1t8koxm"
+                    ],
+                    "css_bytes": 21568
+                }
+            ]
+        }
+    ]
+}

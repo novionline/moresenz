@@ -1,0 +1,81 @@
+
+ ####                ####             #####        
+ ####                ####           #######        
+ ####      ###       ####         #########        
+ ####     ######     ####       ###### ####        
+  ######################       #####   ####        
+    #######    #######       #####     ####        
+    #######    #######         #       ####        
+  ######################               ####        
+ ####     ######     ####              ####        
+ ####       ##       ####              ####        
+ ####                ####       ################## 
+ ####                ####       ################## 
+
+==================================================
+# SiteOne Crawler, v2.3.0.20260330               #
+# Author: jan.reges@siteone.cz                   #
+==================================================
+
+
+Detected terminal width 138 < 140 chars - compact mode activated.
+
+URL                                                                       | Status | Type     | Time   | Size   | Cache  | Access. 
+------------------------------------------------------------------------------------------------------------------------------------
+ /                                                                         | 200    | HTML     | 863 ms | 6 kB   | 0 s    |         
+
+Accessibility
+-------------
+
+Nothing to report.
+
+
+Analysis stats
+--------------
+
+No analysis stats
+
+
+Content processor stats
+-----------------------
+
+Class::method                                            | Exec time | Exec count
+-----------------------------------------------------------------------------------
+NextJsProcessor::applyContentChangesBeforeUrlParsing     | 0 ms      | 1         
+AstroProcessor::applyContentChangesBeforeUrlParsing      | 0 ms      | 1         
+SvelteProcessor::applyContentChangesBeforeUrlParsing     | 0 ms      | 1         
+JavaScriptProcessor::applyContentChangesBeforeUrlParsing | 0 ms      | 1         
+HtmlProcessor::applyContentChangesBeforeUrlParsing       | 0 ms      | 1         
+CssProcessor::applyContentChangesBeforeUrlParsing        | 0 ms      | 1         
+
+
+==========================================================================================================================================
+Total execution time 3.4 s using 3 workers and 2048M memory limit
+Total of 1 visited URLs with a total size of 6 kB and power of 0 reqs/s with download speed 2 kB/s
+Response times: AVG 864 ms MIN 864 ms MAX 864 ms TOTAL 864 ms
+==========================================================================================================================================
+
+╔═════════════════════════════════════════════════════════════════╗
+║                      WEBSITE QUALITY SCORE                      ║
+╠═════════════════════════════════════════════════════════════════╣
+║  Overall         █████████████████████████   9.9/10  Excellent  ║
+╠═════════════════════════════════════════════════════════════════╣
+║  Performance     ████████████████████████░   9.5/10  Excellent  ║
+║  SEO             █████████████████████████  10.0/10  Excellent  ║
+║  Security        █████████████████████████  10.0/10  Excellent  ║
+║  Accessibility   █████████████████████████  10.0/10  Excellent  ║
+║  Best Practices  █████████████████████████  10.0/10  Excellent  ║
+╚═════════════════════════════════════════════════════════════════╝
+
+Summary
+-------
+
+⏩ Loaded robots.txt for domain 'cinema.moresenz.nl': status code 200, size 6 kB and took 768 ms.
+✅ All pages have valid HTML.
+✅ All pages have image alt attributes.
+✅ All pages have form labels.
+✅ All pages have aria labels.
+✅ All pages have role attributes.
+✅ All pages have lang attribute.
+📌 HTML report saved to '/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.report.html' and took 0 ms.
+

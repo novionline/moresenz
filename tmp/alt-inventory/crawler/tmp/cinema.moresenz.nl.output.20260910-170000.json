@@ -1,0 +1,497 @@
+{
+  "crawler": {
+    "command": "siteone-crawler --url=https://cinema.moresenz.nl/ --device=desktop --disable-all-assets --workers=3 --max-reqs-per-sec=5 --ignore-regex=/en/ --ignore-regex=/wp-admin --ignore-regex=/wp-json --ignore-regex=/feed --no-cache --analyzer-filter-regex=accessib|Accessibility|seo|SEO|best --html-report-options=summary,accessibility,best-practices,visited-urls,image-gallery --output-html-report=/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.report.html --output-text-file=/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.output.txt --timezone=Europe/Amsterdam --rows-limit=500 --hide-progress-bar --output=text --no-color",
+    "executedAt": "2026-09-10 15:00:00",
+    "finalUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/26.0.0.0 Safari/537.36 siteone-crawler/2.3.0.20260330",
+    "hostname": "Peters-MBP.home",
+    "name": "SiteOne Crawler",
+    "version": "2.3.0.20260330"
+  },
+  "extraColumnsFromAnalysis": [
+    {
+      "customGroup": null,
+      "customMethod": null,
+      "customPattern": null,
+      "length": 8,
+      "name": "Access.",
+      "truncate": false
+    }
+  ],
+  "options": {
+    "acceptEncoding": "gzip, deflate, br",
+    "acceptInvalidCerts": false,
+    "addHostToOutputFile": false,
+    "addRandomQueryParams": false,
+    "addTimestampToOutputFile": false,
+    "allowedDomainsForCrawling": [],
+    "allowedDomainsForExternalFiles": [],
+    "analyzerFilterRegex": "accessib|Accessibility|seo|SEO|best",
+    "ci": false,
+    "ciMax404": 0,
+    "ciMax5xx": 0,
+    "ciMaxAvgResponse": null,
+    "ciMaxCriticals": 0,
+    "ciMaxWarnings": null,
+    "ciMinAccessibility": 3.0,
+    "ciMinAssets": 10,
+    "ciMinBestPractices": 5.0,
+    "ciMinDocuments": 0,
+    "ciMinPages": 10,
+    "ciMinPerformance": 5.0,
+    "ciMinScore": 5.0,
+    "ciMinSecurity": 5.0,
+    "ciMinSeo": 5.0,
+    "consoleWidth": null,
+    "debug": false,
+    "debugLogFile": null,
+    "debugUrlRegex": [],
+    "device": "desktop",
+    "disableAllAssets": true,
+    "disableAstroInlineModules": false,
+    "disableFiles": true,
+    "disableFonts": true,
+    "disableImages": true,
+    "disableJavascript": true,
+    "disableStyles": true,
+    "doNotTruncateUrl": false,
+    "extraColumns": [],
+    "extraColumnsNamesOnly": [],
+    "fastestMaxTime": 1.0,
+    "fastestTopLimit": 20,
+    "forceColor": false,
+    "forceRelativeUrls": false,
+    "hideColumns": [],
+    "hideProgressBar": true,
+    "htmlReportOptions": "summary,accessibility,best-practices,visited-urls,image-gallery",
+    "htmlToMarkdownFile": null,
+    "htmlToMarkdownOutput": null,
+    "httpAuth": null,
+    "httpCacheCompression": false,
+    "httpCacheDir": "off",
+    "httpCacheTtl": 86400,
+    "ignoreRegex": [
+      "/en/",
+      "/wp-admin",
+      "/wp-json",
+      "/feed"
+    ],
+    "ignoreRobotsTxt": false,
+    "ignoreStoreFileError": false,
+    "includeRegex": [],
+    "keepQueryParams": [],
+    "mailFrom": "siteone-crawler@your-hostname.com",
+    "mailFromName": "SiteOne Crawler",
+    "mailSmtpHost": "localhost",
+    "mailSmtpPass": null,
+    "mailSmtpPort": 25,
+    "mailSmtpUser": null,
+    "mailSubjectTemplate": "Crawler Report for %domain% (%date%)",
+    "mailTo": [],
+    "markdownDisableFiles": false,
+    "markdownDisableImages": false,
+    "markdownExcludeSelector": [],
+    "markdownExportDir": null,
+    "markdownExportSingleFile": null,
+    "markdownExportStoreOnlyUrlRegex": [],
+    "markdownIgnoreStoreFileError": false,
+    "markdownMoveContentBeforeH1ToEnd": false,
+    "markdownRemoveLinksAndImagesFromSingleFile": false,
+    "markdownReplaceContent": [],
+    "markdownReplaceQueryString": [],
+    "maxDepth": 0,
+    "maxHeadingLevel": 3,
+    "maxNon200ResponsesPerBasename": 5,
+    "maxQueueLength": 9000,
+    "maxReqsPerSec": 5.0,
+    "maxSkippedUrls": 10000,
+    "maxUrlLength": 2083,
+    "maxVisitedUrls": 10000,
+    "memoryLimit": "2048M",
+    "noColor": true,
+    "offlineExportDir": null,
+    "offlineExportLowercase": false,
+    "offlineExportNoAutoRedirectHtml": false,
+    "offlineExportPreserveUrlStructure": false,
+    "offlineExportPreserveUrls": false,
+    "offlineExportRemoveUnwantedCode": true,
+    "offlineExportStoreOnlyUrlRegex": [],
+    "outputHtmlReport": "/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.report.html",
+    "outputJsonFile": "/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/tmp/cinema.moresenz.nl.output.20260910-170000.json",
+    "outputTextFile": "/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.output.txt",
+    "outputType": "text",
+    "proxy": null,
+    "regexFilteringOnlyForPages": false,
+    "removeAllAnchorListeners": false,
+    "removeQueryParams": false,
+    "replaceContent": [],
+    "replaceQueryString": [],
+    "resolve": [],
+    "resultStorage": "memory",
+    "resultStorageCompression": false,
+    "resultStorageDir": "/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/tmp/result-storage",
+    "rowsLimit": 500,
+    "serveBindAddress": "127.0.0.1",
+    "serveMarkdownDir": null,
+    "serveOfflineDir": null,
+    "servePort": 8321,
+    "showHelpOnly": false,
+    "showInlineCriticals": false,
+    "showInlineWarnings": false,
+    "showSchemeAndHost": false,
+    "showVersionOnly": false,
+    "singleForeignPage": false,
+    "singlePage": false,
+    "sitemapBasePriority": 0.5,
+    "sitemapPriorityIncrease": 0.1,
+    "sitemapTxtFile": null,
+    "sitemapXmlFile": null,
+    "slowestMaxTime": 3.0,
+    "slowestMinTime": 0.01,
+    "slowestTopLimit": 20,
+    "timeout": 5,
+    "timezone": "Europe/Amsterdam",
+    "transformUrl": [],
+    "uploadEnabled": false,
+    "uploadPassword": null,
+    "uploadRetention": "30d",
+    "uploadTimeout": 3600,
+    "uploadTo": "https://crawler.siteone.io/up",
+    "url": "https://cinema.moresenz.nl/",
+    "urlColumnSize": null,
+    "userAgent": null,
+    "websocketServer": null,
+    "workers": 3
+  },
+  "qualityScores": {
+    "categories": [
+      {
+        "code": "performance",
+        "deductions": [
+          {
+            "points": 0.5,
+            "reason": "Average response time 864ms > 500ms"
+          }
+        ],
+        "label": "Excellent",
+        "name": "Performance",
+        "score": 9.5,
+        "weight": 0.2
+      },
+      {
+        "code": "seo",
+        "deductions": [],
+        "label": "Excellent",
+        "name": "SEO",
+        "score": 10.0,
+        "weight": 0.2
+      },
+      {
+        "code": "security",
+        "deductions": [],
+        "label": "Excellent",
+        "name": "Security",
+        "score": 10.0,
+        "weight": 0.25
+      },
+      {
+        "code": "accessibility",
+        "deductions": [],
+        "label": "Excellent",
+        "name": "Accessibility",
+        "score": 10.0,
+        "weight": 0.2
+      },
+      {
+        "code": "best-practices",
+        "deductions": [],
+        "label": "Excellent",
+        "name": "Best Practices",
+        "score": 10.0,
+        "weight": 0.15
+      }
+    ],
+    "overall": {
+      "code": "overall",
+      "deductions": [],
+      "label": "Excellent",
+      "name": "Overall",
+      "score": 9.9,
+      "weight": 1.0
+    }
+  },
+  "results": [
+    {
+      "cacheLifetime": 0,
+      "cacheTypeFlags": 7699,
+      "elapsedTime": 0.864,
+      "extras": [],
+      "size": 5838,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/"
+    }
+  ],
+  "stats": {
+    "countByStatus": {
+      "200": 1
+    },
+    "totalExecutionTime": 3.361,
+    "totalRequestsTimes": 0.864,
+    "totalRequestsTimesAvg": 0.864,
+    "totalRequestsTimesMax": 0.864,
+    "totalRequestsTimesMin": 0.864,
+    "totalSize": 5838,
+    "totalSizeFormatted": "6 kB",
+    "totalUrls": 1
+  },
+  "summary": {
+    "items": [
+      {
+        "aplCode": "robots-txt-cinema.moresenz.nl",
+        "status": "NOTICE",
+        "text": "Loaded robots.txt for domain 'cinema.moresenz.nl': status code 200, size 6 kB and took 768 ms."
+      },
+      {
+        "aplCode": "pages-with-invalid-html",
+        "status": "OK",
+        "text": "All pages have valid HTML"
+      },
+      {
+        "aplCode": "pages-without-image-alt-attributes",
+        "status": "OK",
+        "text": "All pages have image alt attributes"
+      },
+      {
+        "aplCode": "pages-without-form-labels",
+        "status": "OK",
+        "text": "All pages have form labels"
+      },
+      {
+        "aplCode": "pages-without-aria-labels",
+        "status": "OK",
+        "text": "All pages have aria labels"
+      },
+      {
+        "aplCode": "pages-without-roles",
+        "status": "OK",
+        "text": "All pages have role attributes"
+      },
+      {
+        "aplCode": "pages-without-lang",
+        "status": "OK",
+        "text": "All pages have lang attribute"
+      },
+      {
+        "aplCode": "export-to-html",
+        "status": "INFO",
+        "text": "HTML report saved to '/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/crawler/cinema-nl.report.html' and took 0 ms"
+      }
+    ]
+  },
+  "tables": {
+    "accessibility": {
+      "aplCode": "accessibility",
+      "columns": {
+        "analysisName": {
+          "aplCode": "analysisName",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Analysis name",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "critical": {
+          "aplCode": "critical",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Critical",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "notice": {
+          "aplCode": "notice",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Notice",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "ok": {
+          "aplCode": "ok",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OK",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "warning": {
+          "aplCode": "warning",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Warning",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 7
+        }
+      },
+      "position": "before-url-table",
+      "rows": [],
+      "title": "Accessibility"
+    },
+    "analysis-stats": {
+      "aplCode": "analysis-stats",
+      "columns": {
+        "classAndMethod": {
+          "aplCode": "classAndMethod",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Class::method",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execCount": {
+          "aplCode": "execCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execTime": {
+          "aplCode": "execTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 9
+        }
+      },
+      "position": "after-url-table",
+      "rows": [],
+      "title": "Analysis stats"
+    },
+    "content-processors-stats": {
+      "aplCode": "content-processors-stats",
+      "columns": {
+        "classAndMethod": {
+          "aplCode": "classAndMethod",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Class::method",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execCount": {
+          "aplCode": "execCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execTime": {
+          "aplCode": "execTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 9
+        }
+      },
+      "position": "after-url-table",
+      "rows": [
+        {
+          "classAndMethod": "NextJsProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0.000033042",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "AstroProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0.000000167",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "SvelteProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0.000000042",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "JavaScriptProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "HtmlProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "CssProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "1",
+          "execTime": "0",
+          "execTimeFormatted": "0 ms"
+        }
+      ],
+      "title": "Content processor stats"
+    }
+  }
+}

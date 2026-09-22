@@ -1,0 +1,52 @@
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+Deprecated: basename(): Passing null to parameter #1 ($path) of type string is deprecated in /Users/petertenhoor/sites/moresenz/public/wp-content/plugins/gravityforms/common.php on line 4028
+{
+    "stats": {
+        "targets": 121,
+        "generated": 75,
+        "cacheHits": 44,
+        "failedGenerate": 2,
+        "blockAltsFilled": 135,
+        "blockAltsSkippedNonEmpty": 6,
+        "postsUpdated": 36,
+        "metaUpdated": 114,
+        "metaSkippedNonEmpty": 5,
+        "byBlock": {
+            "nectar-blocks/image": 135
+        },
+        "apply": true,
+        "model": "gemini-3.1-flash-lite",
+        "locale": "nl_NL",
+        "failures": [
+            {
+                "attachmentId": 2233,
+                "error": "too_large"
+            },
+            {
+                "attachmentId": 2391,
+                "error": "too_large"
+            }
+        ]
+    },
+    "usableAlts": 119,
+    "failedOrMissingInCache": 2,
+    "cachePath": "/Users/petertenhoor/sites/moresenz/tmp/alt-inventory/gemini-alt-cache.json",
+    "sampleAlts": {
+        "359": "Vier mensen zitten rond een tafel en overleggen, met op de voorgrond een bouwtekening met het logo van Moresenz.",
+        "422": "Portret van Roan, contactpersoon bij Moresenz, glimlachend in een wit overhemd met een zwarte trui.",
+        "463": "Gouden ster-award voor de Crestron Europe Integration Awards 2021, categorie Best Audio/Video Project.",
+        "479": "Luxe thuisbioscoop met een oranje bank, sfeerverlichting en een groot scherm waarop een scène uit Blade Runner 2049 speelt.",
+        "735": "Luxe thuisbioscoop met tekst over beleving en iconen voor beeld, geluid, verlichting en domotica, met het Moresenz-logo."
+    },
+    "nbSafeWrite": "parse_blocks → attrs.alt/title (+ img html sync) → serialize_blocks → wp_slash → wp_update_post",
+    "promptSource": "wordpress-ai-toolbelt-plugin/partials/prompts/generate-alt-tag-by-image.php",
+    "eclipseSample": "already filled (post 27 / att 2003) — skipped when non-empty"
+}

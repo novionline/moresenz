@@ -1,0 +1,29 @@
+{
+    "ok": true,
+    "model": "gemini-3.1-flash-lite",
+    "locale": "nl_NL",
+    "promptSource": "wordpress-ai-toolbelt-plugin/partials/prompts/generate-alt-tag-by-image.php",
+    "nbSafeWrite": "parse_blocks → mutate attrs.image.alt/title → serialize_blocks → wp_slash → wp_update_post",
+    "postId": 27,
+    "postTitle": "Eclipse",
+    "permalink": "https://moresenz.test/projecten/eclipse/",
+    "edit": "https://moresenz.test/wp-admin/post.php?post=27&action=edit",
+    "blockType": "nectar-blocks/image",
+    "metaUpdated": true,
+    "updated": {
+        "beforeAlt": "",
+        "beforeTitle": "about-this-project",
+        "afterAlt": "Luxe thuisbioscoop met sterrenhemelplafond en een groot scherm waarop een scène uit de film Avatar wordt getoond.",
+        "afterTitle": "Luxe thuisbioscoop met sterrenhemelplafond en een groot scherm waarop een scène uit de film Avatar wordt getoond.",
+        "url": "https://moresenz.test/wp-content/uploads/2026/04/about-this-project.png",
+        "file": "about-this-project.png",
+        "attachmentId": 2003,
+        "blockId": "block-jngokjt8be9q"
+    },
+    "verify": {
+        "alt": "Luxe thuisbioscoop met sterrenhemelplafond en een groot scherm waarop een scène uit de film Avatar wordt getoond.",
+        "title": "Luxe thuisbioscoop met sterrenhemelplafond en een groot scherm waarop een scène uit de film Avatar wordt getoond.",
+        "altEqualsTitle": true,
+        "lostUnicodeEscapes": false
+    }
+}
