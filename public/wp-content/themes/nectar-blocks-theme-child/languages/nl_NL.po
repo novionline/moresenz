@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Novi Online\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-03-19 15:19+0100\n"
-"PO-Revision-Date: 2026-03-19 15:22+0100\n"
+"PO-Revision-Date: 2026-09-22 21:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -278,6 +278,47 @@ msgstr "Vorige pagina"
 #: classes/components/PaginationComponent.php
 msgid "Next page"
 msgstr "Volgende pagina"
+
+#: classes/post-types/ProjectPostType.php:104
+msgid "Project"
+msgstr "Project"
+
+#: classes/post-types/ProjectPostType.php:105
+msgid "Projects"
+msgstr "Projecten"
+
+#: classes/post-types/ProjectPostType.php:128
+msgid "Project category"
+msgstr "Projectcategorie"
+
+#: classes/post-types/ProjectPostType.php:129
+msgid "Project categories"
+msgstr "Projectcategorieën"
+
+#: classes/settings/ProjectSettings.php:48
+#: classes/settings/ProjectSettings.php:49
+msgid "Project settings"
+msgstr "Projectinstellingen"
+
+#: blocks/project-marquee-slider/partials/project-marquee-slider.php:64
+msgid "Projects carousel"
+msgstr "Projectencarrousel"
+
+#: blocks/project-marquee-slider/partials/project-card.php:32
+msgid "View project: %s"
+msgstr "Bekijk project: %s"
+
+#: blocks/project-archive-grid/partials/project-archive-grid.php:54
+msgid "No projects found."
+msgstr "Geen projecten gevonden."
+
+#: blocks/project-marquee-slider/partials/project-marquee-slider.php:76
+msgid "No projects found. Add projects or adjust the block selection settings."
+msgstr "Geen projecten gevonden. Voeg projecten toe of pas de blokselectie-instellingen aan."
+
+#: blocks/project-archive-grid/ProjectArchiveGridBlock.php:181
+msgid "Pagination Navigation"
+msgstr "Paginering"
 
 #. Theme Name of the plugin/theme
 msgid "Nectarblocks Child Theme"
