@@ -1,5 +1,6 @@
 <?php
 
+use NoviOnline\Core\Image;
 use NoviOnline\ProjectMarqueeSliderBlock;
 use NoviOnline\ProjectPostType;
 use NoviOnline\Theme;
@@ -23,6 +24,7 @@ $videoUrl = $hasVideoHover ? ProjectPostType::getVideoUrlByPostId($postId) : '';
 $videoMimeType = $hasVideoHover ? ProjectPostType::getVideoMimeTypeByPostId($postId) : 'video/mp4';
 $hoverImageId = $hasImageHover ? ProjectPostType::getHoverImageIdByPostId($postId) : 0;
 $hasThumbnail = has_post_thumbnail($postId);
+$thumbnailId = $hasThumbnail ? (int) get_post_thumbnail_id($postId) : 0;
 $isWatermarkOnly = !$hasThumbnail && $hoverType === ProjectPostType::HOVER_TYPE_NONE;
 $hasHoverParallax = $hasThumbnail && ($hasVideoHover || $hasImageHover);
 $resolvedImageSize = !empty($imageSize) ? $imageSize : ProjectMarqueeSliderBlock::IMAGE_SIZE;
@@ -33,13 +35,19 @@ $ariaLabel = sprintf(
     $postTitle
 );
 
+//prefer generated attachment alt; fall back to project title when meta is empty
+$thumbnailAlt = $thumbnailId > 0 ? Image::altFromId($thumbnailId) : '';
+if ($thumbnailAlt === '') {
+    $thumbnailAlt = $postTitle;
+}
+
 //shared img attrs; sizes only when caller passes a context-specific value (archive)
 $imageAttrs = [
     'class' => 'project-marquee-slider__image',
     'loading' => 'lazy',
     'decoding' => 'async',
     'draggable' => 'false',
-    'alt' => $postTitle,
+    'alt' => $thumbnailAlt,
 ];
 $hoverImageAttrs = [
     'class' => 'project-marquee-slider__hover-image',

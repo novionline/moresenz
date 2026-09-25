@@ -16,6 +16,10 @@ class NectarBlocksComponent extends Singleton {
      */
     protected function __construct() {
 
+        //skip icomoon font preload only; preserve other nectar_preload_key_requests preloads
+        remove_action('wp_head', 'nectar_preload_key_requests', 5);
+        add_action('wp_head', [$this, 'nectarPreloadKeyRequestsWithoutIcomoon'], 5);
+
         add_filter('nectar_logo_url', [$this, 'filterHomeLogoUrl']);
 
         //enqueue dynamic nectarBlocks CSS for the block editor preview
@@ -29,6 +33,15 @@ class NectarBlocksComponent extends Singleton {
 
         //add a “Block patterns” sub-item under “Nectar Blocks”
         add_action('admin_menu', [$this, 'registerBlockPatternsSubmenu'], 20);
+    }
+
+    /**
+     * Mirror parent nectar_preload_key_requests() but skip icomoon.woff preload.
+     *
+     * @return void
+     */
+    public function nectarPreloadKeyRequestsWithoutIcomoon(): void {
+        //parent only preloads icomoon.woff today; add any future parent preloads here
     }
 
     /**
