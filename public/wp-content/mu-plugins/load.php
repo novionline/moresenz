@@ -30,4 +30,15 @@ if (is_blog_installed()) {
     if (class_exists('NoviOnline\Core') && function_exists('acf_add_local_field_group')) {
         require WPMU_PLUGIN_DIR . '/novionline/novi-code-snippets/novi-code-snippets.php';
     }
+
+    //Novi Content Translator after plugins_loaded so Polylang is available (same as 2bhonest)
+    //do not use NCT hardcoded DeepL fallback; set this site's key via novi_content_translator_settings only
+    if (!defined('NCT_DEEPL_API_KEY')) {
+        define('NCT_DEEPL_API_KEY', '');
+    }
+    add_action('plugins_loaded', function () {
+        if (class_exists('NoviOnline\Core') && function_exists('pll_languages_list')) {
+            require WPMU_PLUGIN_DIR . '/novionline/novi-content-translator/novi-content-translator.php';
+        }
+    });
 }
