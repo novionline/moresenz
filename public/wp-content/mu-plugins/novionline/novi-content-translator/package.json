@@ -1,0 +1,32 @@
+{
+  "name": "novi-content-translator",
+  "version": "1.0.0",
+  "description": "WordPress plugin for Polylang-based content duplication and translation",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --watch --config webpack.config.js --mode development --env development",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production --env production"
+  },
+  "author": "Novi Online",
+  "devDependencies": {
+    "@babel/core": "^7.28.3",
+    "@babel/preset-env": "^7.28.3",
+    "@babel/preset-react": "^7.28.5",
+    "autoprefixer": "^10.4.21",
+    "babel-loader": "^10.0.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "cross-env": "^10.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.2",
+    "cssnano-preset-default": "^7.0.9",
+    "extract-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "glob": "^10.3.10",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.90.0",
+    "sass-loader": "^16.0.5",
+    "terser-webpack-plugin": "^5.3.14",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-manifest-plugin": "^5.0.1"
+  }
+}

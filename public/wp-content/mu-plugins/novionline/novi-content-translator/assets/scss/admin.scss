@@ -1,0 +1,1284 @@
+:root {
+    /* Novi core palette (colors only, no fonts) */
+    --novi-color-white: #ffffff;
+    --novi-color-bg: #fbfaf9;
+    --novi-color-bg-soft: #f3f2f5;
+    --novi-color-surface: #ffffff;
+    --novi-color-surface-elevated: #f3f2f5;
+
+    --novi-color-primary: #945ef0;
+    --novi-color-primary-soft: #9c6af1;
+    --novi-color-primary-dark: #392954;
+    --novi-color-primary-contrast: #ffffff;
+
+    --novi-color-text: #45355f;
+    --novi-color-text-strong: #160237;
+    --novi-color-text-muted: #beb8c7;
+
+    --novi-color-border-subtle: #f3f2f5;
+    --novi-color-border: #beb8c7;
+    --novi-color-border-strong: #45355f;
+
+    --novi-color-success: #066e02;
+    --novi-color-success-soft: #ddfedc;
+    --novi-color-success-accent: #a4fda1;
+
+    --novi-color-error: #f05e5e;
+    --novi-color-error-contrast: #ffffff;
+
+    --novi-color-overlay-dark: #000000;
+    --novi-color-shadow-soft: rgba(0, 0, 0, 0.06);
+
+    --novi-gradient-warm: linear-gradient(180deg, #fbfaf9 0%, #f6c062 100%);
+    --novi-gradient-contrast: linear-gradient(135deg, #e8e6e0 0%, #000000 100%);
+
+    /* Aliases for existing component tokens */
+    --novi-color-light-grey: var(--novi-color-border);
+    --novi-color-light: var(--novi-color-bg-soft);
+    --novi-color-black: var(--novi-color-text-strong);
+    --novi-notification-success: var(--novi-color-success);
+    --novi-notification-error: var(--novi-color-error);
+    --novi-notification-informational: var(--novi-color-primary-soft);
+
+    /* Sidebar trigger button (Novi logo) */
+    --novi-color-sidebar-btn-bg: rgba(57, 41, 84, 0.85);
+    --novi-color-sidebar-btn-bg-hover: var(--novi-color-primary-dark);
+}
+
+.interface-complementary-area__fill {
+    width: 20rem !important;
+}
+
+.interface-complementary-area.editor-sidebar {
+    width: 100% !important;
+}
+
+/* panel trigger button containing the Novi sidebar icon – background only, icon stays visible */
+.components-button:has(.novi-sidebar-icon) {
+    background: var(--novi-color-sidebar-btn-bg);
+    border-radius: 0.125rem;
+    transition: background 0.1s ease-in-out;
+
+    &:hover,
+    &:active,
+    &.is-pressed {
+        background: var(--novi-color-sidebar-btn-bg-hover);
+    }
+}
+
+#novi-content-translator {
+    .ui-sortable-handle {
+        padding: 0.5rem 1rem !important;
+    }
+
+    .inside {
+        padding: 0.5rem 1rem;
+        margin: 0;
+    }
+}
+
+/* shared styles for PHP metabox (classic editor) */
+#novi-content-translator-metabox {
+    .description {
+        margin-bottom: 1rem;
+        color: var(--novi-color-text);
+    }
+
+    .novi-metabox-summary {
+        margin-bottom: 0.5rem;
+        color: var(--novi-color-text);
+
+        .novi-source-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-weight: 500;
+        }
+
+        .novi-source-prefix,
+        .novi-site-name-label {
+            font-size: inherit;
+        }
+    }
+
+    .novi-translator-actions {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-bottom: 1rem;
+
+        .separator {
+            color: var(--novi-color-text-muted);
+        }
+
+        .button-link,
+        .components-button.is-link {
+            display: inline-flex;
+            align-items: center;
+            padding-left: 0;
+            padding-right: 0;
+            border: 0;
+            background: none;
+            color: var(--novi-color-primary);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: inherit;
+            min-height: auto;
+            height: auto;
+
+            .novi-action-label {
+                display: inline-flex;
+                align-items: center;
+                gap: 0.25rem;
+            }
+
+            .novi-action-icon {
+                fill: currentColor;
+            }
+
+            .dashicons.novi-action-icon {
+                font-size: 1rem;
+                width: 1rem;
+                height: 1rem;
+                color: inherit;
+                display: inline-block;
+            }
+
+            &:hover,
+            &:focus {
+                color: var(--novi-color-primary-soft);
+                text-decoration: underline;
+                background: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .novi-translator-sites {
+        list-style: none;
+        margin: 0 0 1rem 0;
+        padding: 0;
+
+        li,
+        > div {
+            margin: 0 0 0.5rem 0;
+            padding: 0;
+        }
+    }
+
+    .novi-language-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        padding: 0.5rem;
+        border: 1px solid var(--novi-color-border-subtle);
+        border-radius: 0.25rem;
+        background-color: var(--novi-color-surface);
+        transition: background-color 0.2s;
+
+        &:hover {
+            background-color: var(--novi-color-bg-soft);
+        }
+    }
+
+    .novi-language-row--compact {
+        padding: 0 !important;
+        background-color: transparent !important;
+    justify-content: flex-start;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+
+    .novi-language-main {
+        flex: initial;
+    }
+    }
+
+    .novi-language-main {
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .novi-language-checkbox,
+    .novi-language-main .components-base-control__field input[type="checkbox"] {
+        margin: 0;
+        margin-right: 0.25rem;
+        accent-color: var(--novi-color-primary);
+    }
+
+    .components-checkbox-control__input[type="checkbox"]:checked,
+    .components-checkbox-control__input[type="checkbox"]:indeterminate {
+        background: var(--novi-color-primary);
+        border-color: var(--novi-color-primary);
+    }
+
+    .novi-site-flag {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        img {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+        }
+    }
+
+    .novi-site-name {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    .novi-site-label-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+    }
+
+    .novi-site-name-label {
+        color: var(--novi-color-text-strong);
+    }
+
+    .novi-existing-translation {
+        color: var(--novi-color-text);
+        opacity: 0.7;
+
+        .novi-existing-translation-label {
+            font-size: 0.5rem;
+            line-height: 1.25em;
+            letter-spacing: 0;
+            text-transform: none;
+        }
+    }
+
+    .novi-existing-translation-link-wrapper {
+        margin-left: auto;
+        font-size: 0.75rem;
+        line-height: 1.25em;
+        display: inline-flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.25rem;
+        flex-basis: 100%;
+    }
+
+    .novi-translation-prefix {
+        font-size: 0.75rem;
+        line-height: 1.25em;
+        font-weight: normal;
+        color: var(--novi-color-text-muted);
+    }
+
+    .novi-existing-translation-link {
+        font-size: 0.75rem;
+        line-height: 1.25em;
+
+        .novi-existing-translation-link-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .novi-link-icon {
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+    }
+
+    #novi-create-translations {
+        width: 100%;
+        margin: 0;
+        margin-top: 0;
+        white-space: normal;
+        padding: 0.5rem;
+        line-height: 1.5em;
+        background-color: var(--novi-color-primary);
+        color: var(--novi-color-primary-contrast);
+        border: 1px solid var(--novi-color-primary);
+
+        &:not(:disabled):hover,
+        &:not(:disabled):focus {
+            background-color: var(--novi-color-primary-soft);
+            border-color: var(--novi-color-primary-soft);
+            color: var(--novi-color-primary-contrast);
+        }
+
+        &:disabled {
+            background-color: var(--novi-color-primary);
+            border-color: var(--novi-color-primary);
+            color: var(--novi-color-primary-contrast);
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    }
+
+    a {
+        color: var(--novi-color-primary);
+        text-decoration: none;
+        transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out, opacity 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+            color: var(--novi-color-primary-soft);
+            text-decoration: underline;
+        }
+    }
+}
+
+/* React sidebar: BEM block – root */
+.novi-ct {
+    padding: 0;
+}
+
+.novi-ct__panel {
+    padding: 0;
+}
+
+/* React sidebar: BEM block – tab bar */
+.novi-ct-tabs__list {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--novi-color-border-subtle);
+}
+
+.novi-ct-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border: none;
+    border-bottom: 0.125rem solid transparent;
+    background: none;
+    cursor: pointer;
+    font-size: 0.8125rem;
+    line-height: 1.25em;
+    color: var(--novi-color-text-muted);
+
+    &:hover {
+        color: var(--novi-color-text);
+    }
+
+    &.novi-ct-tabs__tab--active {
+        color: var(--novi-color-primary);
+        border-bottom-color: var(--novi-color-primary);
+
+        .novi-ct-tabs__tab-icon {
+            color: var(--novi-color-primary);
+        }
+    }
+
+    .novi-ct-tabs__tab-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: inherit;
+
+        svg {
+            width: 1.125rem;
+            height: 1.125rem;
+        }
+    }
+}
+
+/* React sidebar: BEM block – panel content */
+.novi-ct-panel {
+    padding: 1rem;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+
+    .components-base-control__field {
+        margin-bottom: 0;
+    }
+
+    .components-base-control,
+    .components-text-control__input,
+    input[type="text"],
+    input[type="search"] {
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .components-text-control__input,
+    input[type="text"],
+    input[type="search"] {
+        width: 100%;
+    }
+}
+
+.novi-ct-panel__summary {
+    margin-bottom: 0.5rem;
+    color: var(--novi-color-text);
+    line-height: 1.25em;
+}
+
+.novi-ct-panel__summary .novi-ct-panel__source-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.novi-ct-panel__source-prefix {
+    font-size: inherit;
+    line-height: 1.25em;
+    color: var(--novi-color-text-muted);
+}
+
+.novi-ct-panel__summary .novi-ct-panel__site-name {
+    font-size: inherit;
+    color: var(--novi-color-text-strong);
+}
+
+.novi-ct-panel__description {
+    margin-bottom: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.5em;
+    color: var(--novi-color-text);
+}
+
+.novi-ct-panel__formality-label-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+// settings labels: align with wp components typography/behavior
+.novi-ct-panel__setting-group {
+    .components-base-control__label {
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-transform: uppercase;
+        box-sizing: border-box;
+        display: block;
+        padding-top: 0;
+        padding-bottom: 0;
+        max-width: 100%;
+        z-index: 1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.novi-ct-panel__formality-tooltip-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: none;
+    color: var(--novi-color-text-muted);
+    cursor: help;
+    font: inherit;
+    line-height: 1;
+
+    &:hover,
+    &:focus {
+        color: var(--novi-color-primary);
+        background: none;
+        outline: none;
+    }
+}
+
+.novi-ct-panel__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.novi-ct-panel__actions-sep {
+    color: var(--novi-color-text-muted);
+}
+
+.novi-ct-panel__action.button-link,
+.novi-ct-panel__action.components-button.is-link {
+    display: inline-flex;
+    align-items: center;
+    padding-left: 0;
+    padding-right: 0;
+    border: 0;
+    background: none;
+    color: var(--novi-color-primary);
+    cursor: pointer;
+    text-decoration: none;
+    font-size: inherit;
+    min-height: auto;
+    height: auto;
+    line-height: 1.25em;
+
+    .novi-ct-panel__action-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .novi-ct-panel__action-icon {
+        fill: currentColor;
+    }
+
+    &:hover,
+    &:focus {
+        color: var(--novi-color-primary-soft);
+        text-decoration: underline;
+        background: none;
+        box-shadow: none;
+    }
+}
+
+.novi-ct-panel__sites {
+    list-style: none;
+    margin: 0 !important;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.375rem;    
+
+    > div {
+        margin-bottom: 0;
+    }
+}
+
+.novi-ct-panel__language-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+    padding: 0.5rem;
+    border: 1px solid var(--novi-color-border-subtle);
+    border-radius: 0.25rem;
+    background-color: var(--novi-color-surface);
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: var(--novi-color-bg-soft);
+    }
+}
+
+.novi-ct-panel__language-row--compact {
+    padding: 0 !important;
+    background-color: transparent !important;
+    justify-content: flex-start;
+
+    &:hover {
+        background-color: transparent !important;
+    }
+
+    .novi-ct-panel__language-main {
+        flex: initial;
+    }
+}
+
+.novi-ct-panel__language-main {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.novi-ct-panel__language-main .components-base-control__field input[type="checkbox"] {
+    margin: 0;
+    margin-right: 0.25rem;
+    accent-color: var(--novi-color-primary);
+}
+
+.novi-ct-panel .components-checkbox-control__input[type="checkbox"]:checked,
+.novi-ct-panel .components-checkbox-control__input[type="checkbox"]:indeterminate {
+    background: var(--novi-color-primary);
+    border-color: var(--novi-color-primary);
+}
+
+.novi-ct-panel__site-flag {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    img {
+        width: 1rem;
+        height: 1rem;
+        object-fit: contain;
+    }
+}
+
+.novi-ct-panel__site-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.novi-ct-panel__site-name {
+    color: var(--novi-color-text-strong);
+}
+
+.novi-ct-panel__translation-link-wrap {
+    margin-left: auto;
+    font-size: 0.75rem;
+    line-height: 1.25em;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    flex-basis: 100%;
+}
+
+.novi-ct-panel__translation-prefix {
+    font-size: 0.75rem;
+    line-height: 1.25em;
+    font-weight: normal;
+    color: var(--novi-color-text-muted);
+}
+
+.novi-ct-panel__translation-link {
+    font-size: 0.75rem;
+    line-height: 1.25em;
+    color: var(--novi-color-primary);
+    text-decoration: none;
+    transition: color 0.15s ease-in-out, text-decoration 0.15s ease-in-out;
+
+    &:hover,
+    &:focus {
+        color: var(--novi-color-primary-soft);
+        text-decoration: underline;
+    }
+
+    .novi-ct-panel__translation-link-inner {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+    }
+
+    .novi-ct-panel__translation-link-inner small {
+        font-size: 0.75rem;
+        line-height: 1.25em;
+        color: inherit;
+        font-weight: normal;
+    }
+
+    .novi-ct-panel__link-icon {
+        flex-shrink: 0;
+        color: currentColor;
+    }
+}
+
+.novi-ct-panel__messages {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    min-height: 0;
+
+    .components-notice {
+        margin-bottom: 0;
+    }
+}
+
+/* override block editor primary button so our panel buttons stay purple */
+.novi-ct-panel .novi-ct-panel__button,
+.novi-ct-panel .components-button.is-primary.novi-ct-panel__button {
+    width: 100%;
+    margin: 0;
+    margin-top: 0;
+    display: block;
+    height: auto;
+    white-space: normal;
+    padding: 0.5rem;
+    line-height: 1.5em;
+    background-color: var(--novi-color-primary) !important;
+    color: var(--novi-color-primary-contrast) !important;
+    border: 1px solid var(--novi-color-primary) !important;
+
+    &:not(:disabled):hover,
+    &:not(:disabled):focus {
+        background-color: var(--novi-color-primary-soft) !important;
+        border-color: var(--novi-color-primary-soft) !important;
+        color: var(--novi-color-primary-contrast) !important;
+    }
+
+    &:disabled {
+        background-color: var(--novi-color-primary) !important;
+        border-color: var(--novi-color-primary) !important;
+        color: var(--novi-color-primary-contrast) !important;
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+}
+
+/* indeterminate translation progress (classic metabox + React sidebar) */
+.nct-translation-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    p {
+        margin: 0;
+    }
+}
+
+.nct-translation-progress__bar {
+    width: 100%;
+    height: 6px;
+    background-color: var(--novi-color-border-subtle);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+
+.nct-translation-progress__bar-fill {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 45%;
+    background-color: var(--novi-color-primary);
+    border-radius: 999px;
+    animation: nct-translation-progress-indeterminate 1.1s infinite ease-in-out;
+}
+
+@keyframes nct-translation-progress-indeterminate {
+    0% {
+        transform: translateX(-120%);
+    }
+    100% {
+        transform: translateX(220%);
+    }
+}
+
+/* DeepL API key settings (React) */
+.novi-ct-panel {
+    &__setting-group {
+        + .novi-ct-panel__setting-group {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--novi-color-border-subtle);
+        }
+    }
+
+    &__deepl {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        .components-notice__content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .components-notice__actions:empty {
+            display: none;
+        }
+    }
+
+    &__deepl-description {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+    }
+
+    &__deepl-help-trigger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border: 0;
+        background: transparent;
+        color: var(--novi-color-primary);
+        cursor: pointer;
+        padding: 0;
+    }
+
+    &__deepl-help-popover {
+        max-width: 420px;
+        min-width: 340px;
+        padding: 0.75rem 0.875rem;
+        font-size: 12px;
+        line-height: 1.45;
+
+        strong {
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        ol {
+            margin: 0.25rem 0 0.5rem 1rem;
+            padding: 0;
+        }
+
+        a {
+            color: var(--novi-color-primary);
+        }
+    }
+
+    &__deepl-status-row {
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+
+        &--refresh {
+            opacity: 0.9;
+        }
+
+        &--warning {
+            color: #9a3412;
+        }
+    }
+
+    &__deepl-reset-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: var(--novi-color-primary) !important;
+    }
+
+    &__deepl-key-row {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    &__deepl-key-input-wrap {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    &__deepl-save-hint {
+        width: 100%;
+        margin: 0;
+        font-size: 12px;
+        color: var(--novi-color-text-muted, #6b7280);
+    }
+
+    &__deepl-key-input {
+        flex: 1;
+        width: 100%;
+        padding: 0.55rem 0.75rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--novi-color-border-subtle);
+        background-color: transparent;
+        color: inherit;
+
+        &:focus {
+            outline: none;
+            border-color: var(--novi-color-primary);
+            box-shadow: 0 0 0 1px var(--novi-color-primary-soft);
+        }
+    }
+
+    &__deepl-eye {
+        width: 2.35rem;
+        height: 2.35rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--novi-color-border-subtle);
+        background-color: transparent;
+        color: var(--novi-color-primary);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+            outline: none;
+            border-color: var(--novi-color-primary-soft);
+            background-color: var(--novi-color-primary-soft);
+            color: var(--novi-color-primary-contrast);
+        }
+    }
+}
+
+/* overwrite confirmation modal (React) */
+.nct-overwrite-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0;
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0.75rem;
+        max-height: 40vh;
+        overflow-y: auto;
+        border: 1px solid var(--novi-color-border-subtle);
+        border-radius: 0.5rem;
+    }
+
+    &__lang-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--novi-color-border-subtle);
+
+        &:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    &__lang-main {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+    }
+
+    &__lang-flag {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+
+        img {
+            width: 1rem;
+            height: 1rem;
+            object-fit: contain;
+            border-radius: 2px;
+        }
+    }
+
+    &__lang-label {
+        color: var(--novi-color-text-strong);
+    }
+
+    &__lang-title {
+        flex: 1;
+        min-width: 0;
+        word-break: break-word;
+
+        a {
+            color: var(--novi-color-primary);
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                color: var(--novi-color-primary-soft);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    &__link-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: currentColor;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+
+    &__cancel {
+        &.components-button.is-link {
+            color: var(--novi-color-primary);
+
+            &:hover,
+            &:focus {
+                color: var(--novi-color-primary-soft);
+            }
+        }
+    }
+
+    &__confirm {
+        &.components-button.is-primary {
+            background-color: var(--novi-color-primary) !important;
+            border-color: var(--novi-color-primary) !important;
+            color: var(--novi-color-primary-contrast) !important;
+
+            &:not(:disabled):hover,
+            &:not(:disabled):focus {
+                background-color: var(--novi-color-primary-soft) !important;
+                border-color: var(--novi-color-primary-soft) !important;
+                color: var(--novi-color-primary-contrast) !important;
+            }
+        }
+    }
+}
+
+.nct-reusable-modal {
+    &__languages {
+        list-style: none;
+        margin: 0;
+        padding: 0.75rem;
+        max-height: 40vh;
+        overflow-y: auto;
+        border: 1px solid var(--novi-color-border-subtle);
+        border-radius: 0.5rem;
+    }
+
+    &__language-row {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--novi-color-border-subtle);
+
+        &:last-child {
+            border-bottom: 0;
+        }
+    }
+
+    &__language-head {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    &__patterns {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 1.5rem;
+    }
+
+    &__pattern-row {
+        margin: 0;
+        padding: 0.2rem 0;
+    }
+
+    &__pattern-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: var(--novi-color-primary);
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+            color: var(--novi-color-primary-soft);
+            text-decoration: underline;
+        }
+    }
+}
+
+/* Don't translate these words (Settings) */
+.novi-ct-dont-translate {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--novi-color-border-subtle);
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+
+    // long target labels must wrap in the narrow sidebar (override setting-group nowrap)
+    .components-base-control__label {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    &__title {
+        margin: 0 0 0.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--novi-color-text);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    &__source-switcher {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.375rem;
+        margin: 0 0 0.75rem;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    &__source-tab {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.375rem;
+        max-width: 100%;
+        min-width: 0;
+        padding: 0.375rem 0.625rem;
+        border: 1px solid var(--novi-color-border-subtle);
+        border-radius: 0.25rem;
+        background: #fff;
+        cursor: pointer;
+        font-size: 0.75rem;
+        line-height: 1.25em;
+        color: var(--novi-color-text-muted);
+        overflow-wrap: anywhere;
+        word-break: break-word;
+
+        &.is-active {
+            border-color: var(--novi-color-primary);
+            color: var(--novi-color-primary);
+        }
+    }
+
+    &__toolbar {
+        margin-bottom: 0.75rem;
+        max-width: 100%;
+        min-width: 0;
+
+        .components-base-control {
+            margin-bottom: 0;
+            max-width: 100%;
+            min-width: 0;
+        }
+    }
+
+    &__list {
+        display: grid;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    &__row {
+        padding: 0.625rem 0.75rem;
+        border: 1px solid var(--novi-color-border-subtle);
+        border-radius: 0.25rem;
+        background: #fff;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    &__row-main {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: start;
+        max-width: 100%;
+        min-width: 0;
+
+        > * {
+            min-width: 0;
+            max-width: 100%;
+        }
+
+        .components-base-control,
+        > input[type="text"] {
+            flex: 1 1 10rem;
+            margin-bottom: 0;
+            width: 100%;
+            min-width: 0;
+        }
+    }
+
+    &__delete {
+        margin-top: 0.125rem;
+        min-width: 2rem;
+        flex: 0 0 auto;
+        justify-content: center;
+    }
+
+    &__row-options {
+        display: grid;
+        gap: 0.125rem;
+        margin-top: 0.5rem;
+        max-width: 100%;
+        min-width: 0;
+
+        .components-base-control__label,
+        .components-checkbox-control__label {
+            white-space: normal;
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+    }
+
+    &__targets {
+        display: grid;
+        gap: 0.375rem;
+        margin-top: 0.5rem;
+        max-width: 100%;
+        min-width: 0;
+
+        .components-base-control {
+            margin-bottom: 0;
+            max-width: 100%;
+            min-width: 0;
+        }
+    }
+
+    &__target-fallback {
+        display: grid;
+        gap: 0.25rem;
+        font-size: 0.75rem;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+
+        input {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+    }
+
+    &__add {
+        margin-top: 0.25rem;
+    }
+
+    &__pagination {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+        font-size: 0.75rem;
+        color: var(--novi-color-text-muted);
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    &__search-fallback {
+        display: grid;
+        gap: 0.25rem;
+        font-size: 0.75rem;
+        max-width: 100%;
+        min-width: 0;
+
+        input {
+            width: 100%;
+            max-width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
+        }
+    }
+}
+
+

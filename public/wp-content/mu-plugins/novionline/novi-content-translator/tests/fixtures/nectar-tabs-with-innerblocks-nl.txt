@@ -1,0 +1,13 @@
+<!-- wp:nectar-blocks/tabs {"tabItems":[{"label":"Tab één","title":"Tab één","description":"Eerste tabbeschrijving","id":"tab-1"},{"label":"Tab twee","title":"Tab twee","description":"Tweede tabbeschrijving","id":"tab-2"}],"blockId":"block-db496f6218"} -->
+<div class="wp-block-nectar-blocks-tabs nectar-blocks-tabs" id="block-db496f6218"><div class="nectar-blocks-tabs__inner"><div class="nectar-blocks-tabs__nav-wrap"><div role="tablist" class="nectar-blocks-tabs__nav parent-block-db496f6218 nectar-font-h6"><a href="#nectar-tab-pane-0" role="tab" aria-selected="true" tabindex="0" class="nectar-blocks-tabs__nav__link is-active"><span class="nectar-blocks-tabs__nav__link__text"><span class="nectar-blocks-tabs__nav__link__title">Tab één</span></span></a><a href="#nectar-tab-pane-1" role="tab" aria-selected="false" tabindex="-1" class="nectar-blocks-tabs__nav__link"><span class="nectar-blocks-tabs__nav__link__text"><span class="nectar-blocks-tabs__nav__link__title">Tab twee</span></span></a></div></div><div class="nectar-blocks-tabs__content parent-block-db496f6218"><!-- wp:nectar-blocks/tab-section {"blockId":"block-5215d15600"} -->
+<div class="wp-block-nectar-blocks-tab-section nectar-block nectar-blocks-tabs-section nectar-blocks-tabs-section__inner parent-block-block-5215d15600" role="tabpanel" tabindex="0" id="block-5215d15600"><!-- wp:nectar-blocks/text {"blockId":"block-790a217af4","content":"Inhoud van tab één"} -->
+<p id="block-790a217af4" class="wp-block-nectar-blocks-text nectar-blocks-text">Inhoud van tab één</p>
+<!-- /wp:nectar-blocks/text --></div>
+<!-- /wp:nectar-blocks/tab-section -->
+
+<!-- wp:nectar-blocks/tab-section {"blockId":"block-5121840b9c"} -->
+<div class="wp-block-nectar-blocks-tab-section nectar-block nectar-blocks-tabs-section nectar-blocks-tabs-section__inner parent-block-block-5121840b9c" role="tabpanel" tabindex="0" id="block-5121840b9c"><!-- wp:nectar-blocks/text {"blockId":"block-775b7b4375","content":"Inhoud van tab twee"} -->
+<p id="block-775b7b4375" class="wp-block-nectar-blocks-text nectar-blocks-text">Inhoud van tab twee</p>
+<!-- /wp:nectar-blocks/text --></div>
+<!-- /wp:nectar-blocks/tab-section --></div></div></div>
+<!-- /wp:nectar-blocks/tabs -->
