@@ -1,0 +1,477 @@
+[0;33m[0m
+[0;33m ####                ####             #####        [0m
+[0;33m ####                ####           #######        [0m
+[0;33m ####      ###       ####         #########        [0m
+[0;33m ####     ######     ####       ###### ####        [0m
+[0;33m  ######################       #####   ####        [0m
+[0;33m    #######    #######       #####     ####        [0m
+[0;33m    #######    #######         #       ####        [0m
+[0;33m  ######################               ####        [0m
+[0;33m ####     ######     ####              ####        [0m
+[0;33m ####       ##       ####              ####        [0m
+[0;33m ####                ####       ################## [0m
+[0;33m ####                ####       ################## [0m
+[0;33m[0m
+[0;33m==================================================[0m
+[0;33m# SiteOne Crawler, v2.3.0.20260330               #[0m
+[0;33m# Author: jan.reges@siteone.cz                   #[0m
+[0;33m==================================================[0m
+
+
+[0;33mDetected terminal width 138 < 140 chars - compact mode activated.
+
+[0m[38;5;244mProgress| URL                                                    | Status | Type     | Time   | Size   | Cache  | Access.  | Best pr.
+[0m--------------------------------------------------------------------------------------------------------------------------------------
+1/11    | /                                                      | [0;32m200   [0m | HTML     | [1;45m1.4 s [0m | 574 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;35m1[0m/[0;32m6[0m     
+2/11    | /projecten/aspen/                                      | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 277 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+3/11    | /projecten/emerald/                                    | [0;32m200   [0m | HTML     | [1;45m1.7 s [0m | 283 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+4/11    | /projecten/solis/                                      | [0;32m200   [0m | HTML     | [1;45m1.6 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+5/11    | /projecten/reserve/                                    | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+6/11    | /projecten/noir/                                       | [0;32m200   [0m | HTML     | [1;45m1.7 s [0m | 281 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+7/11    | /projecten/eclipse/                                    | [0;32m200   [0m | HTML     | [1;45m2 s   [0m | 279 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+8/11    | /en/                                                   | [0;32m200   [0m | HTML     | [1;45m1.3 s [0m | 161 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m2[0m/[0;32m3[0m    | [1;41m1[0m/[0;35m1[0m/[0;32m2[0m   
+9/11    | /projecten/nexus/                                      | [0;32m200   [0m | HTML     | [1;45m1.6 s [0m | 274 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+10/11   | /projecten/omerta/                                     | [0;32m200   [0m | HTML     | [1;45m1.6 s [0m | 273 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+11/28   | /projecten/                                            | [0;32m200   [0m | HTML     | [1;45m1.7 s [0m | 330 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m2[0m/[0;32m3[0m    | [0;32m7[0m       
+12/28   | /projecten/onyx/                                       | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 277 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+13/28   | /projecten/infinity/                                   | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 274 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+14/28   | /projecten/fusion/                                     | [0;32m200   [0m | HTML     | [1;45m1.8 s [0m | 273 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+15/28   | /projecten/oris/                                       | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 276 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+16/28   | /projecten/vault/                                      | [0;32m200   [0m | HTML     | [1;45m1.4 s [0m | 273 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+17/28   | /projecten/verde/                                      | [0;32m200   [0m | HTML     | [1;45m1.7 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+18/28   | /projecten/aureum/                                     | [0;32m200   [0m | HTML     | [1;45m1.3 s [0m | 274 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+19/28   | /projecten/titan/                                      | [0;32m200   [0m | HTML     | [1;45m1.4 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+20/28   | /projecten/vesper/                                     | [0;32m200   [0m | HTML     | [1;45m1.9 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+21/28   | /projecten/arc/                                        | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 274 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+22/28   | /projecten/apex/                                       | [0;32m200   [0m | HTML     | [1;45m2 s   [0m | 277 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+23/28   | /projecten/nova/                                       | [0;32m200   [0m | HTML     | [1;45m1.7 s [0m | 274 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+24/28   | /projecten/scala/                                      | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 276 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+25/28   | /projecten/highland/                                   | [0;32m200   [0m | HTML     | [1;41m2 s   [0m | 276 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+26/28   | /projecten/opus/                                       | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 276 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+27/28   | /projecten/hyperspace/                                 | [0;32m200   [0m | HTML     | [1;45m1.5 s [0m | 277 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+28/28   | /projecten/oakmont/                                    | [0;32m200   [0m | HTML     | [1;45m1.2 s [0m | 275 kB | [0;35mnone  [0m | [1;41m1[0m/[0;35m3[0m/[0;32m2[0m    | [0;32m7[0m       
+
+[0;34mSkipped URLs Summary
+--------------------
+
+[0m[38;5;244mReason             | Domain          | Unique URLs[0m
+----------------------------------------------------
+Not allowed host   | maps.app.goo.gl | 1          
+
+
+[0;34mSkipped URLs
+------------
+
+[0m[38;5;244mReason             | Skipped URL                                                  | Source              | Found at URL                                                [0m
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Not allowed host   | https://maps.app.goo.gl/4znY4zF9Zarz8dnj8                    | <a href>            | /                                                           
+
+
+[0;34mExternal URLs
+-------------
+
+[0m[38;5;244mExternal URL                                                 | Pages | Found on URL (max 5)                                        [0m
+-------------------------------------------------------------------------------------------------------------------------------------
+https://maps.app.goo.gl/4znY4zF9Zarz8dnj8                    | 1     | /                                                           
+
+
+[0;34mRedirected URLs
+---------------
+
+[0m[38;5;244mNo redirects found.[0m
+
+
+[0;34m404 URLs
+--------
+
+[0m[38;5;244mNo 404 URLs found.[0m
+
+
+[0;34mSSL/TLS info
+------------
+
+[0m[38;5;244mInfo                   | Text                                                                                                        [0m
+---------------------------------------------------------------------------------------------------------------------------------------
+Issuer                 | C = US, O = Let's Encrypt, CN = YE1                                                                         
+Subject                | CN = cinema.moresenz.nl                                                                                     
+Valid from             | Aug 14 13:26:34 2026 GMT (VALID already 41.7 day(s))                                                        
+Valid to               | Nov 12 13:26:33 2026 GMT (VALID still for 48.3 day(s))                                                      
+Supported protocols    | TLSv1.3                                                                                                     
+RAW certificate output | sh: timeout: command not found
+                                                                             
+RAW protocols output   | === ssl2 ===
+sh: timeout: command not found
+
+=== ssl3 ===
+sh: timeout:[0;31m…[0m===
+sh: timeout: command not found   
+
+
+[0;34mTOP fastest URLs
+----------------
+
+[0m[38;5;244mNo fast URLs faster than 1 second(s) found.[0m
+
+
+[0;34mTOP slowest URLs
+----------------
+
+[0m[38;5;244mTime   | Status | Slow URL                                                                                                         [0m
+-------------------------------------------------------------------------------------------------------------------------------------
+[1;41m2 s   [0m | [0;32m200   [0m | /projecten/highland/                                                                                             
+[1;45m2 s   [0m | [0;32m200   [0m | /projecten/eclipse/                                                                                              
+[1;45m2 s   [0m | [0;32m200   [0m | /projecten/apex/                                                                                                 
+[1;45m1.9 s [0m | [0;32m200   [0m | /projecten/vesper/                                                                                               
+[1;45m1.8 s [0m | [0;32m200   [0m | /projecten/fusion/                                                                                               
+[1;45m1.7 s [0m | [0;32m200   [0m | /projecten/verde/                                                                                                
+[1;45m1.7 s [0m | [0;32m200   [0m | /projecten/                                                                                                      
+[1;45m1.7 s [0m | [0;32m200   [0m | /projecten/nova/                                                                                                 
+[1;45m1.7 s [0m | [0;32m200   [0m | /projecten/noir/                                                                                                 
+[1;45m1.7 s [0m | [0;32m200   [0m | /projecten/emerald/                                                                                              
+[1;45m1.6 s [0m | [0;32m200   [0m | /projecten/nexus/                                                                                                
+[1;45m1.6 s [0m | [0;32m200   [0m | /projecten/solis/                                                                                                
+[1;45m1.6 s [0m | [0;32m200   [0m | /projecten/omerta/                                                                                               
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/aspen/                                                                                                
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/scala/                                                                                                
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/arc/                                                                                                  
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/onyx/                                                                                                 
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/infinity/                                                                                             
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/opus/                                                                                                 
+[1;45m1.5 s [0m | [0;32m200   [0m | /projecten/reserve/                                                                                              
+
+
+[0;34mSEO metadata
+------------
+
+[0m[0;33mThis table contains large data and shows max 10 rows. To see them all, use output to HTML using `--output-html-report=tmp/myreport.html`.[0m
+
+[38;5;244mURL                                                | Indexing             | Title        | H1           | Description  | Keywords    [0m
+---------------------------------------------------------------------------------------------------------------------------------------
+/                                                  | Allowed              | Thuisbio[0;31m…[0menz | Jouw thu[0;31m…[0mijl | Thuisbio[0;31m…[0men. |             
+/en/                                               | Allowed              | Homepage[0;31m…[0mema | [1;41mM[0;31m…[0m[0m        |              |             
+/projecten/                                        | Allowed              | Projecte[0;31m…[0mema | Projecte[0;31m…[0merd |              |             
+/projecten/apex/                                   | Allowed              | Apex - M[0;31m…[0mema | Apex         |              |             
+/projecten/arc/                                    | Allowed              | Arc - Mo[0;31m…[0mema | Arc          |              |             
+/projecten/aspen/                                  | Allowed              | Aspen -[0;31m…[0mema  | Aspen        |              |             
+/projecten/aureum/                                 | Allowed              | Aureum -[0;31m…[0mema | Aureum       |              |             
+/projecten/eclipse/                                | Allowed              | Eclipse[0;31m…[0mema  | Eclipse      |              |             
+/projecten/emerald/                                | Allowed              | Emerald[0;31m…[0mema  | Emerald      |              |             
+/projecten/fusion/                                 | Allowed              | Fusion -[0;31m…[0mema | Fusion       |              |             
+
+
+[0;34mOpenGraph metadata
+------------------
+
+[0m[0;33mThis table contains large data and shows max 10 rows. To see them all, use output to HTML using `--output-html-report=tmp/myreport.html`.[0m
+
+[38;5;244mURL                                                | OG Title   | OG Description | OG Image           | Twitter Title | Twitter Description | Twitter Image     [0m
+--------------------------------------------------------------------------------------------------------------------------------------------------
+/                                                  | Thuisbi[0;31m…[0mnz | Thuisbi[0;31m…[0mk. | /wp-content/[0;31m…[0mk.png | Thuisbi[0;31m…[0mnz | Thuisbi[0;31m…[0mk. | /wp-content/[0;31m…[0mk.png
+/en/                                               | Homepag[0;31m…[0mma |            |                    |            |            |                   
+/projecten/                                        | Project[0;31m…[0mma |            |                    |            |            |                   
+/projecten/apex/                                   | Apex -[0;31m…[0mma  | Deze mo[0;31m…[0mn… | /wp-content/[0;31m…[0mx.png |            |            |                   
+/projecten/arc/                                    | Arc - M[0;31m…[0mma | Voor di[0;31m…[0mk… | /wp-content/[0;31m…[0md.png |            |            |                   
+/projecten/aspen/                                  | Aspen -[0;31m…[0mma | Voor de[0;31m…[0me… | /wp-content/[0;31m…[0md.jpg |            |            |                   
+/projecten/aureum/                                 | Aureum[0;31m…[0mma  | Deze ni[0;31m…[0ml… | /wp-content/[0;31m…[0md.png |            |            |                   
+/projecten/eclipse/                                | Eclipse[0;31m…[0mma | Deze on[0;31m…[0ml… | /wp-content/[0;31m…[0mt.png |            |            |                   
+/projecten/emerald/                                | Emerald[0;31m…[0mma | Midden[0;31m…[0mn…  | /wp-content/[0;31m…[0md.png |            |            |                   
+/projecten/fusion/                                 | Fusion[0;31m…[0mma  | Bij de[0;31m…[0me…  | /wp-content/[0;31m…[0mn.png |            |            |                   
+
+
+[0;34mHeading structure
+-----------------
+
+[0m[0;33mThis table contains large data and shows max 10 rows. To see them all, use output to HTML using `--output-html-report=tmp/myreport.html`.[0m
+
+[38;5;244mHeading structure                                                                    | Count | Errors | URL                           [0m
+----------------------------------------------------------------------------------------------------------------------------------------
+<h2> Download onze brochure [#block-9vaz0lgod1ge] <h2> B[0;31m…[0mwroom [#block-9r4e8hgooof9] | 2     | [1;41m2[0m      | /en/                          
+<h1> Jouw thuisbioscoop, ontworpen in jouw stijl [#block[0;31m…[0mchure [#block-9vaz0lgod1ge] | 25    | [1;42m0[0m      | /                             
+<h1> Aspen [#block-6hzrhtt8l968] <h2> Over dit project [[0;31m…[0mchure [#block-9vaz0lgod1ge] | 7     | [1;42m0[0m      | /projecten/aspen/             
+<h1> Emerald [#block-pr3jtst8ijsj] <h2> Over dit project[0;31m…[0mchure [#block-9vaz0lgod1ge] | 7     | [1;42m0[0m      | /projecten/emerald/           
+<h1> Solis [#block-53rp1pt8k1tn] <h2> Over dit project [[0;31m…[0mchure [#block-9vaz0lgod1ge] | 7     | [1;42m0[0m      | /projecten/solis/             
+<h1> Reserve [#block-p5hfqut8kox3] <h2> Over dit project[0;31m…[0mchure [#block-9vaz0lgod1ge] | 6     | [1;42m0[0m      | /projecten/reserve/           
+<h1> Noir [#block-wvwastt8him2] <h2> Over dit project [#[0;31m…[0mchure [#block-9vaz0lgod1ge] | 7     | [1;42m0[0m      | /projecten/noir/              
+<h1> Eclipse [#block-fc132qt8be9k] <h2> Over dit project[0;31m…[0mchure [#block-9vaz0lgod1ge] | 7     | [1;42m0[0m      | /projecten/eclipse/           
+<h1> Nexus [#block-uwfavfoo1rxq] <h2> Over dit project [[0;31m…[0mchure [#block-9vaz0lgod1ge] | 6     | [1;42m0[0m      | /projecten/nexus/             
+<h1> Omerta [#block-h9lvsrt8lt0r] <h2> Over dit project[0;31m…[0mchure [#block-9vaz0lgod1ge]  | 6     | [1;42m0[0m      | /projecten/omerta/            
+
+
+[0;34mHTTP headers
+------------
+
+[0m[38;5;244mHeader                    | Occurs | Unique | Values preview                                   | Min value  | Max value [0m
+--------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy   | 28     | 1      | default-src 'unsafe-eval' 'unsaf[0;31m…[0ml-mixed-content |            |           
+Content-Type              | 28     | 1      | text/html; charset=UTF-8                         |            |           
+Date                      | 28     | -      | [ignored generic values]                         | 2026-09-25 | 2026-09-25
+Link                      | 28     | 20+    | [see values below]                               |            |           
+Permissions-Policy        | 28     | 1      | accelerometer=(self), autoplay=([0;31m…[0mlf), usb=(self) |            |           
+Referrer-Policy           | 28     | 1      | same-origin                                      |            |           
+Server                    | 28     | 1      | Apache                                           |            |           
+Set-Cookie                | 28     | -      | [ignored generic values]                         |            |           
+Strict-Transport-Security | 28     | 1      | max-age=31536000; includeSubDomains; preload     |            |           
+Vary                      | 28     | 1      | Accept-Encoding                                  |            |           
+X-Content-Type-Options    | 28     | 1      | nosniff                                          |            |           
+X-Frame-Options           | 28     | 1      | SAMEORIGIN                                       |            |           
+
+
+[0;34mHTTP header values
+------------------
+
+[0m[38;5;244mHeader                    | Occurs | Value                                                                             [0m
+-------------------------------------------------------------------------------------------------------------------------
+Content-Security-Policy   | 28     | default-src 'unsafe-eval' 'unsafe-inline' * blob:; scri[0;31m…[0ms; block-all-mixed-content
+Content-Type              | 28     | text/html; charset=UTF-8                                                          
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mz.nl/?p=27>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2386>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2347>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2224>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mresenz.nl/>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=1486>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2213>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=1460>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2358>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mresenz.nl/>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2414>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2330>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2404>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2613>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2375>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=1465>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2395>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=1447>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api[0;31m…[0mnl/?p=2166>; rel=shortlink
+Link                      | 1      | <https://cinema.moresenz.nl/wp-json/>; rel="https://api.w.org/"                   
+Permissions-Policy        | 28     | accelerometer=(self), autoplay=(self), camera=(self), e[0;31m…[0mpayment=(self), usb=(self)
+Referrer-Policy           | 28     | same-origin                                                                       
+Server                    | 28     | Apache                                                                            
+Strict-Transport-Security | 28     | max-age=31536000; includeSubDomains; preload                                      
+Vary                      | 28     | Accept-Encoding                                                                   
+X-Content-Type-Options    | 28     | nosniff                                                                           
+X-Frame-Options           | 28     | SAMEORIGIN                                                                        
+
+
+[0;34mHTTP Caching by content type (only from crawlable domains)
+----------------------------------------------------------
+
+[0m[38;5;244mContent type | Cache type   | URLs  | AVG lifetime | MIN lifetime | MAX lifetime[0m
+----------------------------------------------------------------------------
+HTML         | No cache headers | 28    | -          | -          | -         
+
+
+[0;34mHTTP Caching by domain
+----------------------
+
+[0m[38;5;244mDomain               | Cache type   | URLs  | AVG lifetime | MIN lifetime | MAX lifetime[0m
+------------------------------------------------------------------------------------
+cinema.moresenz.nl   | No cache headers | 28    | -          | -          | -         
+
+
+[0;34mHTTP Caching by domain and content type
+---------------------------------------
+
+[0m[38;5;244mDomain               | Content type | Cache type   | URLs  | AVG lifetime | MIN lifetime | MAX lifetime[0m
+---------------------------------------------------------------------------------------------------
+cinema.moresenz.nl   | HTML         | No cache headers | 28    | -          | -          | -         
+
+
+[0;34mTOP non-unique titles
+---------------------
+
+[0m[38;5;244mNothing to report.[0m
+
+
+[0;34mTOP non-unique descriptions
+---------------------------
+
+[0m[38;5;244mCount | Description                                                                                                                     [0m
+------------------------------------------------------------------------------------------------------------------------------------------
+27    |                                                                                                                                 
+
+
+[0;34mBest practices
+--------------
+
+[0m[38;5;244mAnalysis name                            | OK    | Notice | Warning | Critical[0m
+--------------------------------------------------------------------------------
+Duplicate inline SVGs (> 5 and > 1024 B) | [0;32m6[0m     | 0      | 0       | 0       
+Large inline SVGs (> 5120 B)             | [0;32m6[0m     | 0      | 0       | 0       
+Non-clickable phone numbers              | [0;32m2[0m     | 0      | 0       | 0       
+Invalid inline SVGs                      | [0;32m6[0m     | 0      | 0       | 0       
+DOM depth (> 30)                         | [0;32m28[0m    | 0      | 0       | 0       
+Heading structure                        | [0;32m53[0m    | 0      | [1;45m2[0m       | 0       
+Title uniqueness (> 10%)                 | [0;32m28[0m    | 0      | 0       | 0       
+Description uniqueness (> 10%)           | [0;32m1[0m     | 0      | [1;45m1[0m       | 0       
+Brotli support                           | 0     | 0      | [1;45m28[0m      | 0       
+WebP support                             | 0     | 0      | [1;45m1[0m       | 0       
+AVIF support                             | 0     | 0      | [1;45m1[0m       | 0       
+
+
+[0;34mAccessibility
+-------------
+
+[0m[38;5;244mAnalysis name                | OK    | Notice | Warning | Critical[0m
+--------------------------------------------------------------------
+Missing roles                | 0     | 0      | [1;45m4[0m       | 0       
+Missing image alt attributes | [0;32m250[0m   | 0      | [1;45m7[0m       | 0       
+Missing aria labels          | [0;32m31[0m    | 0      | [1;45m87[0m      | [1;41m4[0m       
+Missing html lang attribute  | [0;32m2[0m     | 0      | 0       | 0       
+
+
+[0;34mSource domains
+--------------
+
+[0m[38;5;244mDomain             | Totals     | HTML      [0m
+----------------------------------------------
+cinema.moresenz.nl | 28[38;5;240m/[0m8MB[38;5;240m/[0m44s | 28[38;5;240m/[0m8MB[38;5;240m/[0m44s
+
+
+[0;34mContent types
+-------------
+
+[0m[38;5;244mContent type | URLs  | Total size | Total time | Avg time | Status 20x[0m
+------------------------------------------------------------------------
+HTML         | 28    | 8 MB       | 44 s       | [1;45m1.6 s   [0m | [0;32m28        [0m
+
+
+[0;34mContent types (MIME types)
+--------------------------
+
+[0m[38;5;244mContent type               | URLs  | Total size | Total time | Avg time | Status 20x[0m
+--------------------------------------------------------------------------------------
+text/html; charset=UTF-8   | 28    | 8 MB       | 44 s       | [1;45m1.6 s   [0m | [0;32m28        [0m
+
+
+[0;34mDNS info
+--------
+
+[0m[38;5;244mDNS resolving tree                                                    [0m
+------------------------------------------------------------------------
+cinema.moresenz.nl                                                    
+  IPv4: [1;44m142.93.143.87[0m                                                 
+  IPv6: [1;44m2a03:b0c0:2:f0:0:1:882c:6001[0m                                  
+                                                                      
+DNS server: [1;44m192.168.1.1[0m                                               
+
+
+[0;34mSecurity
+--------
+
+[0m[38;5;244mHeader                     | OK    | Notice | Warning | Critical | Recommendation                                                      [0m
+-----------------------------------------------------------------------------------------------------------------------------------------
+Server                     | 0     | 0      | [1;45m28[0m      | 0        | Server header is set to known 'Apache'. It is[0;31m…[0mal used technologies. 
+Set-Cookie                 | 0     | 0      | [1;45m28[0m      | 0        |                                                                     
+X-Frame-Options            | 0     | [0;34m28[0m     | 0       | 0        | X-Frame-Options header is set to SAMEORIGIN wh[0;31m…[0mresource in a frame. 
+Feature-Policy             | 0     | [0;34m28[0m     | 0       | 0        | Feature-Policy header is not set but Permissio[0;31m…[0ms set. That's enough.
+Strict-Transport-Security  | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+X-XSS-Protection           | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+X-Content-Type-Options     | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+Referrer-Policy            | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+Content-Security-Policy    | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+Permissions-Policy         | [0;32m28[0m    | 0      | 0       | 0        |                                                                     
+
+
+[0;34mAnalysis stats
+--------------
+
+[0m[38;5;244mClass::method                                        | Exec time | Exec count[0m
+-------------------------------------------------------------------------------
+SslTlsAnalyzer::getTLSandSSLCertificateInfo          | [0;32m158 ms   [0m | 1         
+BestPracticeAnalyzer::checkNonClickablePhoneNumbers  | [0;32m75 ms    [0m | 28        
+BestPracticeAnalyzer::checkHeadingStructure          | [0;32m71 ms    [0m | 28        
+AccessibilityAnalyzer::checkMissingLabels            | [0;32m52 ms    [0m | 28        
+AccessibilityAnalyzer::checkMissingAriaLabels        | [0;32m47 ms    [0m | 28        
+AccessibilityAnalyzer::checkMissingRoles             | [0;32m44 ms    [0m | 28        
+AccessibilityAnalyzer::checkMissingLang              | [0;32m42 ms    [0m | 28        
+BestPracticeAnalyzer::checkMaxDOMDepth               | [0;32m42 ms    [0m | 28        
+BestPracticeAnalyzer::checkInlineSvg                 | [0;32m6 ms     [0m | 28        
+BestPracticeAnalyzer::checkMissingQuotesOnAttributes | [0;32m5 ms     [0m | 28        
+AccessibilityAnalyzer::checkImageAltAttributes       | [0;32m3 ms     [0m | 28        
+SeoAndOpenGraphAnalyzer::analyzeHeadings             | [0;32m2 ms     [0m | 1         
+SecurityAnalyzer::checkHtmlSecurity                  | [0;32m1 ms     [0m | 28        
+SecurityAnalyzer::checkHeaders                       | [0;32m0 ms     [0m | 28        
+SeoAndOpenGraphAnalyzer::analyzeSeo                  | [0;32m0 ms     [0m | 1         
+SeoAndOpenGraphAnalyzer::analyzeOpenGraph            | [0;32m0 ms     [0m | 1         
+BestPracticeAnalyzer::checkTitleUniqueness           | [0;32m0 ms     [0m | 1         
+BestPracticeAnalyzer::checkMetaDescriptionUniqueness | [0;32m0 ms     [0m | 1         
+BestPracticeAnalyzer::checkBrotliSupport             | [0;32m0 ms     [0m | 1         
+BestPracticeAnalyzer::checkWebpSupport               | [0;32m0 ms     [0m | 1         
+BestPracticeAnalyzer::checkAvifSupport               | [0;32m0 ms     [0m | 1         
+
+
+[0;34mContent processor stats
+-----------------------
+
+[0m[38;5;244mClass::method                                            | Exec time | Exec count[0m
+-----------------------------------------------------------------------------------
+HtmlProcessor::findUrls                                  | [0;32m57 ms    [0m | 28        
+NextJsProcessor::applyContentChangesBeforeUrlParsing     | [0;32m30 ms    [0m | 28        
+JavaScriptProcessor::findUrls                            | [0;32m23 ms    [0m | 28        
+AstroProcessor::findUrls                                 | [0;32m5 ms     [0m | 28        
+CssProcessor::findUrls                                   | [0;32m2 ms     [0m | 28        
+AstroProcessor::applyContentChangesBeforeUrlParsing      | [0;32m0 ms     [0m | 28        
+NextJsProcessor::findUrls                                | [0;32m0 ms     [0m | 28        
+SvelteProcessor::applyContentChangesBeforeUrlParsing     | [0;32m0 ms     [0m | 28        
+JavaScriptProcessor::applyContentChangesBeforeUrlParsing | [0;32m0 ms     [0m | 28        
+SvelteProcessor::findUrls                                | [0;32m0 ms     [0m | 28        
+HtmlProcessor::applyContentChangesBeforeUrlParsing       | [0;32m0 ms     [0m | 28        
+CssProcessor::applyContentChangesBeforeUrlParsing        | [0;32m0 ms     [0m | 28        
+
+
+==========================================================================================================================================
+Total execution time [0;36m19 s[0m using [0;36m3[0m workers and [0;36m2048M[0m memory limit
+Total of [0;36m28[0m visited URLs with a total size of [0;36m8 MB[0m and power of [0;35m1 reqs/s[0m with download speed [0;35m405 kB/s[0m
+Response times: AVG [0;35m1.6 s[0m MIN [0;32m1.2 s[0m MAX [0;31m2 s[0m TOTAL [0;36m44 s[0m
+==========================================================================================================================================
+
+╔═════════════════════════════════════════════════════════════════╗
+║                      WEBSITE QUALITY SCORE                      ║
+╠═════════════════════════════════════════════════════════════════╣
+║[0;34m  Overall         █████████████████████░░░░   8.2/10  Good     [0m  ║
+╠═════════════════════════════════════════════════════════════════╣
+║[0;32m  Performance     ███████████████████████░░   9.0/10  Excellent[0m  ║
+║[0;32m  SEO             ████████████████████████░   9.4/10  Excellent[0m  ║
+║[0;34m  Security        █████████████████████░░░░   8.5/10  Good     [0m  ║
+║[0;33m  Accessibility   █████████████░░░░░░░░░░░░   5.0/10  Fair     [0m  ║
+║[0;32m  Best Practices  ███████████████████████░░   9.2/10  Excellent[0m  ║
+╚═════════════════════════════════════════════════════════════════╝
+
+[0;34mSummary
+-------
+
+[0m⛔ SSL/TLS protocol TLSv1.2 is not supported. Ask your admin/provider to add TLSv1.2 support.
+⛔ 1 page(s) without <h1> heading.
+⚠️ The description '' exceeds the allowed 10% duplicity. 96% of pages have this same description.
+⚠️ 28 page(s) do not support Brotli compression.
+⚠️ No WebP image found on the website.
+⚠️ No AVIF image found on the website.
+⚠️ 2 page(s) with skipped heading levels.
+⚠️ 26 page(s) without image alt attributes.
+⚠️ 28 page(s) without aria labels.
+⚠️ 28 page(s) without role attributes.
+⚠️ Security - 56 pages(s) with warning(s).
+⏩ Loaded robots.txt for domain 'cinema.moresenz.nl': status code 200, size 176 B and took 343 ms.
+⏩ Skipped URLs - 1 skipped URLs found.
+⏩ External URLs - 1 external URL(s) found.
+✅ Redirects - no redirects found.
+✅ 404 OK - all pages exists, no non-existent pages found.
+✅ SSL/TLS certificate is valid until Nov 12 13:26:33 2026 GMT. Issued by C = US, O = Let's Encrypt, CN = YE1. Subject is CN = cinema.moresenz.nl.
+✅ SSL/TLS certificate issued by 'C = US, O = Let's Encrypt, CN = YE1'.
+✅ Performance OK - all non-media URLs are faster than 3 seconds.
+✅ HTTP headers - found 12 unique headers.
+✅ All 28 unique title(s) are within the allowed 10% duplicity. Highest duplicity title has 3%.
+✅ All pages have quoted attributes.
+✅ All pages have inline SVGs smaller than 5120 bytes.
+✅ All pages have inline SVGs with less than 5 duplicates.
+✅ All pages have valid or none inline SVGs.
+✅ All pages without multiple <h1> headings.
+✅ All pages have DOM depth less than 30.
+✅ All pages have clickable (interactive) phone numbers.
+✅ All pages have valid HTML.
+✅ All pages have form labels.
+✅ All pages have lang attribute.
+✅ DNS IPv4 OK: domain cinema.moresenz.nl resolved to 142.93.143.87 (DNS server: 192.168.1.1).
+✅ DNS IPv6 OK: domain cinema.moresenz.nl resolved to 2a03:b0c0:2:f0:0:1:882c:6001 (DNS server: 192.168.1.1).
+📌 HTML report saved to '/Users/petertenhoor/sites/moresenz/tmp/cinema.moresenz.nl.report.20260925-084440.html' and took 0 ms.
+

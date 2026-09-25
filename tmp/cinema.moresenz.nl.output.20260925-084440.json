@@ -1,0 +1,4010 @@
+{
+  "crawler": {
+    "command": "siteone-crawler --url=https://cinema.moresenz.nl/ --disable-all-assets --output=text --timezone=Europe/Amsterdam --device=desktop --timeout=15 --max-depth=5",
+    "executedAt": "2026-09-25 06:44:40",
+    "finalUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/26.0.0.0 Safari/537.36 siteone-crawler/2.3.0.20260330",
+    "hostname": "Peters-MBP.home",
+    "name": "SiteOne Crawler",
+    "version": "2.3.0.20260330"
+  },
+  "extraColumnsFromAnalysis": [
+    {
+      "customGroup": null,
+      "customMethod": null,
+      "customPattern": null,
+      "length": 8,
+      "name": "Access.",
+      "truncate": false
+    },
+    {
+      "customGroup": null,
+      "customMethod": null,
+      "customPattern": null,
+      "length": 8,
+      "name": "Best pr.",
+      "truncate": false
+    }
+  ],
+  "options": {
+    "acceptEncoding": "gzip, deflate, br",
+    "acceptInvalidCerts": false,
+    "addHostToOutputFile": false,
+    "addRandomQueryParams": false,
+    "addTimestampToOutputFile": false,
+    "allowedDomainsForCrawling": [],
+    "allowedDomainsForExternalFiles": [],
+    "analyzerFilterRegex": null,
+    "ci": false,
+    "ciMax404": 0,
+    "ciMax5xx": 0,
+    "ciMaxAvgResponse": null,
+    "ciMaxCriticals": 0,
+    "ciMaxWarnings": null,
+    "ciMinAccessibility": 3.0,
+    "ciMinAssets": 10,
+    "ciMinBestPractices": 5.0,
+    "ciMinDocuments": 0,
+    "ciMinPages": 10,
+    "ciMinPerformance": 5.0,
+    "ciMinScore": 5.0,
+    "ciMinSecurity": 5.0,
+    "ciMinSeo": 5.0,
+    "consoleWidth": null,
+    "debug": false,
+    "debugLogFile": null,
+    "debugUrlRegex": [],
+    "device": "desktop",
+    "disableAllAssets": true,
+    "disableAstroInlineModules": false,
+    "disableFiles": true,
+    "disableFonts": true,
+    "disableImages": true,
+    "disableJavascript": true,
+    "disableStyles": true,
+    "doNotTruncateUrl": false,
+    "extraColumns": [],
+    "extraColumnsNamesOnly": [],
+    "fastestMaxTime": 1.0,
+    "fastestTopLimit": 20,
+    "forceColor": false,
+    "forceRelativeUrls": false,
+    "hideColumns": [],
+    "hideProgressBar": false,
+    "htmlReportOptions": null,
+    "htmlToMarkdownFile": null,
+    "htmlToMarkdownOutput": null,
+    "httpAuth": null,
+    "httpCacheCompression": false,
+    "httpCacheDir": "/Users/petertenhoor/Library/Caches/siteone-crawler/http-cache",
+    "httpCacheTtl": 86400,
+    "ignoreRegex": [],
+    "ignoreRobotsTxt": false,
+    "ignoreStoreFileError": false,
+    "includeRegex": [],
+    "keepQueryParams": [],
+    "mailFrom": "siteone-crawler@your-hostname.com",
+    "mailFromName": "SiteOne Crawler",
+    "mailSmtpHost": "localhost",
+    "mailSmtpPass": null,
+    "mailSmtpPort": 25,
+    "mailSmtpUser": null,
+    "mailSubjectTemplate": "Crawler Report for %domain% (%date%)",
+    "mailTo": [],
+    "markdownDisableFiles": false,
+    "markdownDisableImages": false,
+    "markdownExcludeSelector": [],
+    "markdownExportDir": null,
+    "markdownExportSingleFile": null,
+    "markdownExportStoreOnlyUrlRegex": [],
+    "markdownIgnoreStoreFileError": false,
+    "markdownMoveContentBeforeH1ToEnd": false,
+    "markdownRemoveLinksAndImagesFromSingleFile": false,
+    "markdownReplaceContent": [],
+    "markdownReplaceQueryString": [],
+    "maxDepth": 5,
+    "maxHeadingLevel": 3,
+    "maxNon200ResponsesPerBasename": 5,
+    "maxQueueLength": 9000,
+    "maxReqsPerSec": 10.0,
+    "maxSkippedUrls": 10000,
+    "maxUrlLength": 2083,
+    "maxVisitedUrls": 10000,
+    "memoryLimit": "2048M",
+    "noColor": false,
+    "offlineExportDir": null,
+    "offlineExportLowercase": false,
+    "offlineExportNoAutoRedirectHtml": false,
+    "offlineExportPreserveUrlStructure": false,
+    "offlineExportPreserveUrls": false,
+    "offlineExportRemoveUnwantedCode": true,
+    "offlineExportStoreOnlyUrlRegex": [],
+    "outputHtmlReport": "/Users/petertenhoor/sites/moresenz/tmp/cinema.moresenz.nl.report.20260925-084440.html",
+    "outputJsonFile": "/Users/petertenhoor/sites/moresenz/tmp/cinema.moresenz.nl.output.20260925-084440.json",
+    "outputTextFile": "/Users/petertenhoor/sites/moresenz/tmp/cinema.moresenz.nl.output.20260925-084440.txt",
+    "outputType": "text",
+    "proxy": null,
+    "regexFilteringOnlyForPages": false,
+    "removeAllAnchorListeners": false,
+    "removeQueryParams": false,
+    "replaceContent": [],
+    "replaceQueryString": [],
+    "resolve": [],
+    "resultStorage": "memory",
+    "resultStorageCompression": false,
+    "resultStorageDir": "/Users/petertenhoor/sites/moresenz/tmp/result-storage",
+    "rowsLimit": 200,
+    "serveBindAddress": "127.0.0.1",
+    "serveMarkdownDir": null,
+    "serveOfflineDir": null,
+    "servePort": 8321,
+    "showHelpOnly": false,
+    "showInlineCriticals": false,
+    "showInlineWarnings": false,
+    "showSchemeAndHost": false,
+    "showVersionOnly": false,
+    "singleForeignPage": false,
+    "singlePage": false,
+    "sitemapBasePriority": 0.5,
+    "sitemapPriorityIncrease": 0.1,
+    "sitemapTxtFile": null,
+    "sitemapXmlFile": null,
+    "slowestMaxTime": 3.0,
+    "slowestMinTime": 0.01,
+    "slowestTopLimit": 20,
+    "timeout": 15,
+    "timezone": "Europe/Amsterdam",
+    "transformUrl": [],
+    "uploadEnabled": false,
+    "uploadPassword": null,
+    "uploadRetention": "30d",
+    "uploadTimeout": 3600,
+    "uploadTo": "https://crawler.siteone.io/up",
+    "url": "https://cinema.moresenz.nl/",
+    "urlColumnSize": null,
+    "userAgent": null,
+    "websocketServer": null,
+    "workers": 3
+  },
+  "qualityScores": {
+    "categories": [
+      {
+        "code": "performance",
+        "deductions": [
+          {
+            "points": 1.0,
+            "reason": "Average response time 1585ms > 1000ms"
+          }
+        ],
+        "label": "Excellent",
+        "name": "Performance",
+        "score": 9.0,
+        "weight": 0.2
+      },
+      {
+        "code": "seo",
+        "deductions": [
+          {
+            "points": 0.3,
+            "reason": "1 page(s) without <h1>"
+          },
+          {
+            "points": 0.3,
+            "reason": "Non-unique meta descriptions detected"
+          }
+        ],
+        "label": "Excellent",
+        "name": "SEO",
+        "score": 9.4,
+        "weight": 0.2
+      },
+      {
+        "code": "security",
+        "deductions": [
+          {
+            "points": 1.5,
+            "reason": "56 page(s) with security warnings"
+          }
+        ],
+        "label": "Good",
+        "name": "Security",
+        "score": 8.5,
+        "weight": 0.25
+      },
+      {
+        "code": "accessibility",
+        "deductions": [
+          {
+            "points": 2.5,
+            "reason": "26 page(s) without image alt attributes"
+          },
+          {
+            "points": 0.2,
+            "reason": "2 page(s) with skipped heading levels"
+          },
+          {
+            "points": 2.3,
+            "reason": "28 page(s) without aria labels"
+          }
+        ],
+        "label": "Fair",
+        "name": "Accessibility",
+        "score": 5.0,
+        "weight": 0.2
+      },
+      {
+        "code": "best-practices",
+        "deductions": [
+          {
+            "points": 0.5,
+            "reason": "No Brotli compression support"
+          },
+          {
+            "points": 0.3,
+            "reason": "No WebP image support"
+          }
+        ],
+        "label": "Excellent",
+        "name": "Best Practices",
+        "score": 9.2,
+        "weight": 0.15
+      }
+    ],
+    "overall": {
+      "code": "overall",
+      "deductions": [],
+      "label": "Good",
+      "name": "Overall",
+      "score": 8.2,
+      "weight": 1.0
+    }
+  },
+  "results": [
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.39,
+      "extras": [],
+      "size": 587271,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.546,
+      "extras": [],
+      "size": 283872,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/aspen/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.666,
+      "extras": [],
+      "size": 289957,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/emerald/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.567,
+      "extras": [],
+      "size": 281782,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/solis/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.471,
+      "extras": [],
+      "size": 282026,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/reserve/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.668,
+      "extras": [],
+      "size": 287801,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/noir/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.997,
+      "extras": [],
+      "size": 285268,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/eclipse/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.28,
+      "extras": [],
+      "size": 165280,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/en/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.592,
+      "extras": [],
+      "size": 280568,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/nexus/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.553,
+      "extras": [],
+      "size": 279573,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/omerta/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.701,
+      "extras": [],
+      "size": 337692,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.491,
+      "extras": [],
+      "size": 283298,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/onyx/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.478,
+      "extras": [],
+      "size": 280806,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/infinity/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.845,
+      "extras": [],
+      "size": 279794,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/fusion/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.456,
+      "extras": [],
+      "size": 283124,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/oris/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.41,
+      "extras": [],
+      "size": 279688,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/vault/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.731,
+      "extras": [],
+      "size": 282093,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/verde/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.32,
+      "extras": [],
+      "size": 280113,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/aureum/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.443,
+      "extras": [],
+      "size": 281946,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/titan/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.927,
+      "extras": [],
+      "size": 281177,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/vesper/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.5,
+      "extras": [],
+      "size": 280700,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/arc/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.996,
+      "extras": [],
+      "size": 283555,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/apex/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.688,
+      "extras": [],
+      "size": 280957,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/nova/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.505,
+      "extras": [],
+      "size": 282240,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/scala/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 2.042,
+      "extras": [],
+      "size": 282661,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/highland/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.476,
+      "extras": [],
+      "size": 283025,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/opus/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.455,
+      "extras": [],
+      "size": 283272,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/hyperspace/"
+    },
+    {
+      "cacheLifetime": null,
+      "cacheTypeFlags": 32768,
+      "elapsedTime": 1.184,
+      "extras": [],
+      "size": 281427,
+      "status": "200",
+      "type": 1,
+      "url": "https://cinema.moresenz.nl/projecten/oakmont/"
+    }
+  ],
+  "stats": {
+    "countByStatus": {
+      "200": 28
+    },
+    "totalExecutionTime": 19.678,
+    "totalRequestsTimes": 44.378,
+    "totalRequestsTimesAvg": 1.585,
+    "totalRequestsTimesMax": 2.042,
+    "totalRequestsTimesMin": 1.184,
+    "totalSize": 8150966,
+    "totalSizeFormatted": "8 MB",
+    "totalUrls": 28
+  },
+  "summary": {
+    "items": [
+      {
+        "aplCode": "ssl-protocol-hint",
+        "status": "CRITICAL",
+        "text": "SSL/TLS protocol TLSv1.2 is not supported. Ask your admin/provider to add TLSv1.2 support."
+      },
+      {
+        "aplCode": "pages-without-h1",
+        "status": "CRITICAL",
+        "text": "1 page(s) without <h1> heading"
+      },
+      {
+        "aplCode": "meta-description-uniqueness",
+        "status": "WARNING",
+        "text": "The description '' exceeds the allowed 10% duplicity. 96% of pages have this same description."
+      },
+      {
+        "aplCode": "brotli-support",
+        "status": "WARNING",
+        "text": "28 page(s) do not support Brotli compression."
+      },
+      {
+        "aplCode": "webp-support",
+        "status": "WARNING",
+        "text": "No WebP image found on the website."
+      },
+      {
+        "aplCode": "avif-support",
+        "status": "WARNING",
+        "text": "No AVIF image found on the website."
+      },
+      {
+        "aplCode": "pages-with-skipped-heading-levels",
+        "status": "WARNING",
+        "text": "2 page(s) with skipped heading levels"
+      },
+      {
+        "aplCode": "pages-without-image-alt-attributes",
+        "status": "WARNING",
+        "text": "26 page(s) without image alt attributes"
+      },
+      {
+        "aplCode": "pages-without-aria-labels",
+        "status": "WARNING",
+        "text": "28 page(s) without aria labels"
+      },
+      {
+        "aplCode": "pages-without-roles",
+        "status": "WARNING",
+        "text": "28 page(s) without role attributes"
+      },
+      {
+        "aplCode": "security",
+        "status": "WARNING",
+        "text": "Security - 56 pages(s) with warning(s)."
+      },
+      {
+        "aplCode": "robots-txt-cinema.moresenz.nl",
+        "status": "NOTICE",
+        "text": "Loaded robots.txt for domain 'cinema.moresenz.nl': status code 200, size 176 B and took 343 ms."
+      },
+      {
+        "aplCode": "skipped",
+        "status": "NOTICE",
+        "text": "Skipped URLs - 1 skipped URLs found"
+      },
+      {
+        "aplCode": "external-urls",
+        "status": "NOTICE",
+        "text": "External URLs - 1 external URL(s) found"
+      },
+      {
+        "aplCode": "redirects",
+        "status": "OK",
+        "text": "Redirects - no redirects found"
+      },
+      {
+        "aplCode": "404",
+        "status": "OK",
+        "text": "404 OK - all pages exists, no non-existent pages found"
+      },
+      {
+        "aplCode": "ssl-certificate-valid",
+        "status": "OK",
+        "text": "SSL/TLS certificate is valid until Nov 12 13:26:33 2026 GMT. Issued by C = US, O = Let's Encrypt, CN = YE1. Subject is CN = cinema.moresenz.nl."
+      },
+      {
+        "aplCode": "certificate-info",
+        "status": "OK",
+        "text": "SSL/TLS certificate issued by 'C = US, O = Let's Encrypt, CN = YE1'."
+      },
+      {
+        "aplCode": "slowUrls",
+        "status": "OK",
+        "text": "Performance OK - all non-media URLs are faster than 3 seconds"
+      },
+      {
+        "aplCode": "unique-headers",
+        "status": "OK",
+        "text": "HTTP headers - found 12 unique headers"
+      },
+      {
+        "aplCode": "title-uniqueness",
+        "status": "OK",
+        "text": "All 28 unique title(s) are within the allowed 10% duplicity. Highest duplicity title has 3%."
+      },
+      {
+        "aplCode": "pages-with-missing-quotes",
+        "status": "OK",
+        "text": "All pages have quoted attributes"
+      },
+      {
+        "aplCode": "pages-with-large-svgs",
+        "status": "OK",
+        "text": "All pages have inline SVGs smaller than 5120 bytes"
+      },
+      {
+        "aplCode": "pages-with-duplicated-svgs",
+        "status": "OK",
+        "text": "All pages have inline SVGs with less than 5 duplicates"
+      },
+      {
+        "aplCode": "pages-with-invalid-svgs",
+        "status": "OK",
+        "text": "All pages have valid or none inline SVGs"
+      },
+      {
+        "aplCode": "pages-with-multiple-h1",
+        "status": "OK",
+        "text": "All pages without multiple <h1> headings"
+      },
+      {
+        "aplCode": "pages-with-deep-dom",
+        "status": "OK",
+        "text": "All pages have DOM depth less than 30"
+      },
+      {
+        "aplCode": "pages-with-non-clickable-phone-numbers",
+        "status": "OK",
+        "text": "All pages have clickable (interactive) phone numbers"
+      },
+      {
+        "aplCode": "pages-with-invalid-html",
+        "status": "OK",
+        "text": "All pages have valid HTML"
+      },
+      {
+        "aplCode": "pages-without-form-labels",
+        "status": "OK",
+        "text": "All pages have form labels"
+      },
+      {
+        "aplCode": "pages-without-lang",
+        "status": "OK",
+        "text": "All pages have lang attribute"
+      },
+      {
+        "aplCode": "dns-ipv4",
+        "status": "OK",
+        "text": "DNS IPv4 OK: domain cinema.moresenz.nl resolved to 142.93.143.87 (DNS server: 192.168.1.1)"
+      },
+      {
+        "aplCode": "dns-ipv6",
+        "status": "OK",
+        "text": "DNS IPv6 OK: domain cinema.moresenz.nl resolved to 2a03:b0c0:2:f0:0:1:882c:6001 (DNS server: 192.168.1.1)"
+      },
+      {
+        "aplCode": "export-to-html",
+        "status": "INFO",
+        "text": "HTML report saved to '/Users/petertenhoor/sites/moresenz/tmp/cinema.moresenz.nl.report.20260925-084440.html' and took 0 ms"
+      }
+    ]
+  },
+  "tables": {
+    "404": {
+      "aplCode": "404",
+      "columns": {
+        "sourceUqId": {
+          "aplCode": "sourceUqId",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Found at URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 61
+        },
+        "statusCode": {
+          "aplCode": "statusCode",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "URL 404",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 61
+        }
+      },
+      "position": "before-url-table",
+      "rows": [],
+      "title": "404 URLs"
+    },
+    "accessibility": {
+      "aplCode": "accessibility",
+      "columns": {
+        "analysisName": {
+          "aplCode": "analysisName",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Analysis name",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "critical": {
+          "aplCode": "critical",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Critical",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "notice": {
+          "aplCode": "notice",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Notice",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "ok": {
+          "aplCode": "ok",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OK",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "warning": {
+          "aplCode": "warning",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Warning",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 7
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "analysisName": "Missing roles",
+          "critical": "0",
+          "notice": "0",
+          "ok": "0",
+          "warning": "4"
+        },
+        {
+          "analysisName": "Missing image alt attributes",
+          "critical": "0",
+          "notice": "0",
+          "ok": "250",
+          "warning": "7"
+        },
+        {
+          "analysisName": "Missing aria labels",
+          "critical": "4",
+          "notice": "0",
+          "ok": "31",
+          "warning": "87"
+        },
+        {
+          "analysisName": "Missing html lang attribute",
+          "critical": "0",
+          "notice": "0",
+          "ok": "2",
+          "warning": "0"
+        }
+      ],
+      "title": "Accessibility"
+    },
+    "analysis-stats": {
+      "aplCode": "analysis-stats",
+      "columns": {
+        "classAndMethod": {
+          "aplCode": "classAndMethod",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Class::method",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execCount": {
+          "aplCode": "execCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execTime": {
+          "aplCode": "execTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 9
+        }
+      },
+      "position": "after-url-table",
+      "rows": [
+        {
+          "classAndMethod": "SslTlsAnalyzer::getTLSandSSLCertificateInfo",
+          "execCount": "1",
+          "execTime": "0.158142583",
+          "execTimeFormatted": "158 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkNonClickablePhoneNumbers",
+          "execCount": "28",
+          "execTime": "0.07552620600000001",
+          "execTimeFormatted": "75 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkHeadingStructure",
+          "execCount": "28",
+          "execTime": "0.07105637499999999",
+          "execTimeFormatted": "71 ms"
+        },
+        {
+          "classAndMethod": "AccessibilityAnalyzer::checkMissingLabels",
+          "execCount": "28",
+          "execTime": "0.052792702",
+          "execTimeFormatted": "52 ms"
+        },
+        {
+          "classAndMethod": "AccessibilityAnalyzer::checkMissingAriaLabels",
+          "execCount": "28",
+          "execTime": "0.04758974800000001",
+          "execTimeFormatted": "47 ms"
+        },
+        {
+          "classAndMethod": "AccessibilityAnalyzer::checkMissingRoles",
+          "execCount": "28",
+          "execTime": "0.04412537399999999",
+          "execTimeFormatted": "44 ms"
+        },
+        {
+          "classAndMethod": "AccessibilityAnalyzer::checkMissingLang",
+          "execCount": "28",
+          "execTime": "0.042712497999999995",
+          "execTimeFormatted": "42 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkMaxDOMDepth",
+          "execCount": "28",
+          "execTime": "0.042415372",
+          "execTimeFormatted": "42 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkInlineSvg",
+          "execCount": "28",
+          "execTime": "0.00636954",
+          "execTimeFormatted": "6 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkMissingQuotesOnAttributes",
+          "execCount": "28",
+          "execTime": "0.005230294",
+          "execTimeFormatted": "5 ms"
+        },
+        {
+          "classAndMethod": "AccessibilityAnalyzer::checkImageAltAttributes",
+          "execCount": "28",
+          "execTime": "0.0038232920000000007",
+          "execTimeFormatted": "3 ms"
+        },
+        {
+          "classAndMethod": "SeoAndOpenGraphAnalyzer::analyzeHeadings",
+          "execCount": "1",
+          "execTime": "0.002018542",
+          "execTimeFormatted": "2 ms"
+        },
+        {
+          "classAndMethod": "SecurityAnalyzer::checkHtmlSecurity",
+          "execCount": "28",
+          "execTime": "0.001355458",
+          "execTimeFormatted": "1 ms"
+        },
+        {
+          "classAndMethod": "SecurityAnalyzer::checkHeaders",
+          "execCount": "28",
+          "execTime": "0.0008423339999999998",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "SeoAndOpenGraphAnalyzer::analyzeSeo",
+          "execCount": "1",
+          "execTime": "0.000147667",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "SeoAndOpenGraphAnalyzer::analyzeOpenGraph",
+          "execCount": "1",
+          "execTime": "0.000105667",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkTitleUniqueness",
+          "execCount": "1",
+          "execTime": "0.000014042",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkMetaDescriptionUniqueness",
+          "execCount": "1",
+          "execTime": "0.000011667",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkBrotliSupport",
+          "execCount": "1",
+          "execTime": "0.000000959",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkWebpSupport",
+          "execCount": "1",
+          "execTime": "0.000000458",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "BestPracticeAnalyzer::checkAvifSupport",
+          "execCount": "1",
+          "execTime": "0.000000375",
+          "execTimeFormatted": "0 ms"
+        }
+      ],
+      "title": "Analysis stats"
+    },
+    "best-practices": {
+      "aplCode": "best-practices",
+      "columns": {
+        "analysisName": {
+          "aplCode": "analysisName",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Analysis name",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "critical": {
+          "aplCode": "critical",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Critical",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "notice": {
+          "aplCode": "notice",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Notice",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "ok": {
+          "aplCode": "ok",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OK",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "warning": {
+          "aplCode": "warning",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Warning",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 7
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "analysisName": "Duplicate inline SVGs",
+          "critical": "0",
+          "notice": "0",
+          "ok": "6",
+          "warning": "0"
+        },
+        {
+          "analysisName": "Large inline SVGs",
+          "critical": "0",
+          "notice": "0",
+          "ok": "6",
+          "warning": "0"
+        },
+        {
+          "analysisName": "Non-clickable phone numbers",
+          "critical": "0",
+          "notice": "0",
+          "ok": "2",
+          "warning": "0"
+        },
+        {
+          "analysisName": "Invalid inline SVGs",
+          "critical": "0",
+          "notice": "0",
+          "ok": "6",
+          "warning": "0"
+        },
+        {
+          "analysisName": "DOM depth",
+          "critical": "0",
+          "notice": "0",
+          "ok": "28",
+          "warning": "0"
+        },
+        {
+          "analysisName": "Heading structure",
+          "critical": "0",
+          "notice": "0",
+          "ok": "53",
+          "warning": "2"
+        },
+        {
+          "analysisName": "Title uniqueness",
+          "critical": "0",
+          "notice": "0",
+          "ok": "28",
+          "warning": "0"
+        },
+        {
+          "analysisName": "Description uniqueness",
+          "critical": "0",
+          "notice": "0",
+          "ok": "1",
+          "warning": "1"
+        },
+        {
+          "analysisName": "Brotli support",
+          "critical": "0",
+          "notice": "0",
+          "ok": "0",
+          "warning": "28"
+        },
+        {
+          "analysisName": "WebP support",
+          "critical": "0",
+          "notice": "0",
+          "ok": "0",
+          "warning": "1"
+        },
+        {
+          "analysisName": "AVIF support",
+          "critical": "0",
+          "notice": "0",
+          "ok": "0",
+          "warning": "1"
+        }
+      ],
+      "title": "Best practices"
+    },
+    "caching-per-content-type": {
+      "aplCode": "caching-per-content-type",
+      "columns": {
+        "avgLifetime": {
+          "aplCode": "avgLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "AVG lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "cacheType": {
+          "aplCode": "cacheType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Cache type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "contentType": {
+          "aplCode": "contentType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Content type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "maxLifetime": {
+          "aplCode": "maxLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MAX lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "minLifetime": {
+          "aplCode": "minLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MIN lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "avgLifetime": "",
+          "cacheType": "No cache headers",
+          "contentType": "HTML",
+          "count": "28",
+          "maxLifetime": "",
+          "minLifetime": ""
+        }
+      ],
+      "title": "HTTP Caching by content type (only from crawlable domains)"
+    },
+    "caching-per-domain": {
+      "aplCode": "caching-per-domain",
+      "columns": {
+        "avgLifetime": {
+          "aplCode": "avgLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "AVG lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "cacheType": {
+          "aplCode": "cacheType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Cache type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "domain": {
+          "aplCode": "domain",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Domain",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 20
+        },
+        "maxLifetime": {
+          "aplCode": "maxLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MAX lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "minLifetime": {
+          "aplCode": "minLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MIN lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "avgLifetime": "",
+          "cacheType": "No cache headers",
+          "count": "28",
+          "domain": "cinema.moresenz.nl",
+          "maxLifetime": "",
+          "minLifetime": ""
+        }
+      ],
+      "title": "HTTP Caching by domain"
+    },
+    "caching-per-domain-and-content-type": {
+      "aplCode": "caching-per-domain-and-content-type",
+      "columns": {
+        "avgLifetime": {
+          "aplCode": "avgLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "AVG lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "cacheType": {
+          "aplCode": "cacheType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Cache type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "contentType": {
+          "aplCode": "contentType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Content type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "domain": {
+          "aplCode": "domain",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Domain",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 20
+        },
+        "maxLifetime": {
+          "aplCode": "maxLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MAX lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "minLifetime": {
+          "aplCode": "minLifetime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "MIN lifetime",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "avgLifetime": "",
+          "cacheType": "No cache headers",
+          "contentType": "HTML",
+          "count": "28",
+          "domain": "cinema.moresenz.nl",
+          "maxLifetime": "",
+          "minLifetime": ""
+        }
+      ],
+      "title": "HTTP Caching by domain and content type"
+    },
+    "certificate-info": {
+      "aplCode": "certificate-info",
+      "columns": {
+        "info": {
+          "aplCode": "info",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Info",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "value": {
+          "aplCode": "value",
+          "escapeOutputHtml": false,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Text",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 108
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "info": "Issuer",
+          "value": "C = US, O = Let's Encrypt, CN = YE1"
+        },
+        {
+          "info": "Subject",
+          "value": "CN = cinema.moresenz.nl"
+        },
+        {
+          "info": "Valid from",
+          "value": "Aug 14 13:26:34 2026 GMT (VALID already 41.7 day(s))"
+        },
+        {
+          "info": "Valid to",
+          "value": "Nov 12 13:26:33 2026 GMT (VALID still for 48.3 day(s))"
+        },
+        {
+          "info": "Supported protocols",
+          "value": "TLSv1.3"
+        },
+        {
+          "info": "RAW certificate output",
+          "value": "sh: timeout: command not found\n"
+        },
+        {
+          "info": "RAW protocols output",
+          "value": "\n=== ssl2 ===\nsh: timeout: command not found\n\n=== ssl3 ===\nsh: timeout: command not found\n\n=== tls1 ===\nsh: timeout: command not found\n\n=== tls1_1 ===\nsh: timeout: command not found\n\n=== tls1_2 ===\nsh: timeout: command not found\n\n=== tls1_3 ===\nsh: timeout: command not found\n"
+        }
+      ],
+      "title": "SSL/TLS info"
+    },
+    "content-processors-stats": {
+      "aplCode": "content-processors-stats",
+      "columns": {
+        "classAndMethod": {
+          "aplCode": "classAndMethod",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Class::method",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execCount": {
+          "aplCode": "execCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "execTime": {
+          "aplCode": "execTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Exec time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 9
+        }
+      },
+      "position": "after-url-table",
+      "rows": [
+        {
+          "classAndMethod": "HtmlProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.05742220899999999",
+          "execTimeFormatted": "57 ms"
+        },
+        {
+          "classAndMethod": "NextJsProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.030699624000000002",
+          "execTimeFormatted": "30 ms"
+        },
+        {
+          "classAndMethod": "JavaScriptProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.023530415",
+          "execTimeFormatted": "23 ms"
+        },
+        {
+          "classAndMethod": "AstroProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.005844459000000002",
+          "execTimeFormatted": "5 ms"
+        },
+        {
+          "classAndMethod": "CssProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.00202754",
+          "execTimeFormatted": "2 ms"
+        },
+        {
+          "classAndMethod": "AstroProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.000009710999999999999",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "NextJsProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.000009289999999999999",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "SvelteProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.0000012489999999999994",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "JavaScriptProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.000000957",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "SvelteProcessor::findUrls",
+          "execCount": "28",
+          "execTime": "0.0000006689999999999999",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "HtmlProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.000000624",
+          "execTimeFormatted": "0 ms"
+        },
+        {
+          "classAndMethod": "CssProcessor::applyContentChangesBeforeUrlParsing",
+          "execCount": "28",
+          "execTime": "0.000000542",
+          "execTimeFormatted": "0 ms"
+        }
+      ],
+      "title": "Content processor stats"
+    },
+    "content-types": {
+      "aplCode": "content-types",
+      "columns": {
+        "avgTime": {
+          "aplCode": "avgTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Avg time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "contentType": {
+          "aplCode": "contentType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Content type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 12
+        },
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "status20x": {
+          "aplCode": "status20x",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status 20x",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "totalSize": {
+          "aplCode": "totalSize",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Total size",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "totalTime": {
+          "aplCode": "totalTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Total time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "avgTime": "1.5849",
+          "contentType": "HTML",
+          "count": "28",
+          "status20x": "28",
+          "totalSize": "8150966",
+          "totalTime": "44.3781"
+        }
+      ],
+      "title": "Content types"
+    },
+    "content-types-raw": {
+      "aplCode": "content-types-raw",
+      "columns": {
+        "avgTime": {
+          "aplCode": "avgTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Avg time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "contentType": {
+          "aplCode": "contentType",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Content type",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 26
+        },
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "status20x": {
+          "aplCode": "status20x",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status 20x",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "totalSize": {
+          "aplCode": "totalSize",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Total size",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "totalTime": {
+          "aplCode": "totalTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Total time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "avgTime": "1.5849",
+          "contentType": "text/html; charset=UTF-8",
+          "count": "28",
+          "status20x": "28",
+          "totalSize": "8150966",
+          "totalTime": "44.3781"
+        }
+      ],
+      "title": "Content types (MIME types)"
+    },
+    "dns": {
+      "aplCode": "dns",
+      "columns": {
+        "info": {
+          "aplCode": "info",
+          "escapeOutputHtml": false,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "DNS resolving tree",
+          "nonBreakingSpaces": true,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 70
+        }
+      },
+      "position": "after-url-table",
+      "rows": [
+        {
+          "info": "cinema.moresenz.nl"
+        },
+        {
+          "info": "  IPv4: 142.93.143.87"
+        },
+        {
+          "info": "  IPv6: 2a03:b0c0:2:f0:0:1:882c:6001"
+        },
+        {
+          "info": ""
+        },
+        {
+          "info": "DNS server: 192.168.1.1"
+        }
+      ],
+      "title": "DNS info"
+    },
+    "external-urls": {
+      "aplCode": "external-urls",
+      "columns": {
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Pages",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "foundOn": {
+          "aplCode": "foundOn",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Found on URL (max 5)",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 60
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "External URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 60
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "count": "1",
+          "foundOn": "https://cinema.moresenz.nl/",
+          "url": "https://maps.app.goo.gl/4znY4zF9Zarz8dnj8"
+        }
+      ],
+      "title": "External URLs"
+    },
+    "fastest-urls": {
+      "aplCode": "fastest-urls",
+      "columns": {
+        "requestTime": {
+          "aplCode": "requestTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "statusCode": {
+          "aplCode": "statusCode",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Fast URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 118
+        }
+      },
+      "position": "before-url-table",
+      "rows": [],
+      "title": "TOP fastest URLs"
+    },
+    "headers": {
+      "aplCode": "headers",
+      "columns": {
+        "header": {
+          "aplCode": "header",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Header",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "maxValue": {
+          "aplCode": "maxValue",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Max value",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "minValue": {
+          "aplCode": "minValue",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Min value",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 10
+        },
+        "occurrences": {
+          "aplCode": "occurrences",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Occurs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "uniqueValues": {
+          "aplCode": "uniqueValues",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Unique",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "valuesPreview": {
+          "aplCode": "valuesPreview",
+          "escapeOutputHtml": false,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Values preview",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 48
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "header": "Content-Security-Policy",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "default-src 'unsafe-eval' 'unsafe-inline' * blob:; script-src 'unsafe-inline' 'u\u001b[0;31m…\u001b[0mecure-requests; block-all-mixed-content"
+        },
+        {
+          "header": "Content-Type",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "text/html; charset=UTF-8"
+        },
+        {
+          "header": "Date",
+          "maxValue": "2026-09-25",
+          "minValue": "2026-09-25",
+          "occurrences": "28",
+          "uniqueValues": "-",
+          "valuesPreview": "[ignored generic values]"
+        },
+        {
+          "header": "Link",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "20+",
+          "valuesPreview": "[see values below]"
+        },
+        {
+          "header": "Permissions-Policy",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "accelerometer=(self), autoplay=(self), camera=(self), encrypted-media=(self), fu\u001b[0;31m…\u001b[0mmidi=(self), payment=(self), usb=(self)"
+        },
+        {
+          "header": "Referrer-Policy",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "same-origin"
+        },
+        {
+          "header": "Server",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "Apache"
+        },
+        {
+          "header": "Set-Cookie",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "-",
+          "valuesPreview": "[ignored generic values]"
+        },
+        {
+          "header": "Strict-Transport-Security",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "header": "Vary",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "Accept-Encoding"
+        },
+        {
+          "header": "X-Content-Type-Options",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "nosniff"
+        },
+        {
+          "header": "X-Frame-Options",
+          "maxValue": "",
+          "minValue": "",
+          "occurrences": "28",
+          "uniqueValues": "1",
+          "valuesPreview": "SAMEORIGIN"
+        }
+      ],
+      "title": "HTTP headers"
+    },
+    "headers-values": {
+      "aplCode": "headers-values",
+      "columns": {
+        "header": {
+          "aplCode": "header",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Header",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "occurrences": {
+          "aplCode": "occurrences",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Occurs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "value": {
+          "aplCode": "value",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Value",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 82
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "header": "Content-Security-Policy",
+          "occurrences": "28",
+          "value": "default-src 'unsafe-eval' 'unsafe-inline' * blob:; script-src 'unsafe-inline' 'unsafe-eval' * blob:; img-src * data:; connect-src *; font-src * data:; upgrade-insecure-requests; block-all-mixed-content"
+        },
+        {
+          "header": "Content-Type",
+          "occurrences": "28",
+          "value": "text/html; charset=UTF-8"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/27>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=27>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2386>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2386>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2347>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2347>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2224>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2224>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/pages/9>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/1486>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=1486>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2213>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2213>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/1460>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=1460>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2358>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2358>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/pages/19>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2414>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2414>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2330>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2330>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2404>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2404>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2613>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2613>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2375>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2375>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/1465>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=1465>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2395>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2395>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/1447>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=1447>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\", <https://cinema.moresenz.nl/wp-json/wp/v2/novi-project/2166>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://cinema.moresenz.nl/?p=2166>; rel=shortlink"
+        },
+        {
+          "header": "Link",
+          "occurrences": "1",
+          "value": "<https://cinema.moresenz.nl/wp-json/>; rel=\"https://api.w.org/\""
+        },
+        {
+          "header": "Permissions-Policy",
+          "occurrences": "28",
+          "value": "accelerometer=(self), autoplay=(self), camera=(self), encrypted-media=(self), fullscreen=(self), geolocation=(self), gyroscope=(self), magnetometer=(self), microphone=(self), midi=(self), payment=(self), usb=(self)"
+        },
+        {
+          "header": "Referrer-Policy",
+          "occurrences": "28",
+          "value": "same-origin"
+        },
+        {
+          "header": "Server",
+          "occurrences": "28",
+          "value": "Apache"
+        },
+        {
+          "header": "Strict-Transport-Security",
+          "occurrences": "28",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "header": "Vary",
+          "occurrences": "28",
+          "value": "Accept-Encoding"
+        },
+        {
+          "header": "X-Content-Type-Options",
+          "occurrences": "28",
+          "value": "nosniff"
+        },
+        {
+          "header": "X-Frame-Options",
+          "occurrences": "28",
+          "value": "SAMEORIGIN"
+        }
+      ],
+      "title": "HTTP header values"
+    },
+    "non-unique-descriptions": {
+      "aplCode": "non-unique-descriptions",
+      "columns": {
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "description": {
+          "aplCode": "description",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Description",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 128
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "count": "27",
+          "description": ""
+        }
+      ],
+      "title": "TOP non-unique descriptions"
+    },
+    "non-unique-titles": {
+      "aplCode": "non-unique-titles",
+      "columns": {
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "title": {
+          "aplCode": "title",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Title",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 128
+        }
+      },
+      "position": "before-url-table",
+      "rows": [],
+      "title": "TOP non-unique titles"
+    },
+    "open-graph": {
+      "aplCode": "open-graph",
+      "columns": {
+        "ogDescription": {
+          "aplCode": "ogDescription",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OG Description",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 10
+        },
+        "ogImage": {
+          "aplCode": "ogImage",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OG Image",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 18
+        },
+        "ogTitle": {
+          "aplCode": "ogTitle",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OG Title",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 10
+        },
+        "twitterDescription": {
+          "aplCode": "twitterDescription",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Twitter Description",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 10
+        },
+        "twitterImage": {
+          "aplCode": "twitterImage",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Twitter Image",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 18
+        },
+        "twitterTitle": {
+          "aplCode": "twitterTitle",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Twitter Title",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 10
+        },
+        "urlPathAndQuery": {
+          "aplCode": "urlPathAndQuery",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 50
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "ogDescription": "Thuisbioscoop laten bouwen? MoreSenz ontwerpt exclusieve home cinema's met perfect beeld, geluid en akoestiek.",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/moresenz-office-building-nijkerk.png",
+          "ogTitle": "Thuisbioscoop op maat | Home cinema specialist | MoreSenz",
+          "twitterDescription": "Thuisbioscoop laten bouwen? MoreSenz ontwerpt exclusieve home cinema's met perfect beeld, geluid en akoestiek.",
+          "twitterImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/moresenz-office-building-nijkerk.png",
+          "twitterTitle": "Thuisbioscoop op maat | Home cinema specialist | MoreSenz",
+          "urlPathAndQuery": "/"
+        },
+        {
+          "ogDescription": "",
+          "ogImage": "",
+          "ogTitle": "Homepage - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/en/"
+        },
+        {
+          "ogDescription": "",
+          "ogImage": "",
+          "ogTitle": "Projecten - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/"
+        },
+        {
+          "ogDescription": "Deze moderne, futuristische thuisbioscoop combineert strak design met een indrukwekkende beleving. Dynamische LED-verlichting is geïntegreerd in de wanden en loopt door over het plafond, waardoor de ruimte verschillende sferen kan aannemen. De rustige afwerking vormt een…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-apex.png",
+          "ogTitle": "Apex - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/apex/"
+        },
+        {
+          "ogDescription": "Voor dit project realiseerden wij een volledig nieuwe uitbouw aan de bestaande woning, speciaal ontworpen als exclusieve thuisbioscoop. De ruime, open indeling is volledig afgestemd op de mobiliteitswensen van de opdrachtgever, waardoor de ruimte optimaal toegankelijk…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Scene-5_3-scaled.png",
+          "ogTitle": "Arc - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/arc/"
+        },
+        {
+          "ogDescription": "Voor deze stadsvilla in het hart van een bruisende Gelderse stad is de kelder speciaal extra uitgegraven om een volwaardige thuisbioscoop met een royale plafondhoogte te realiseren. Hierdoor ontstond alle ruimte voor een comfortabele en indrukwekkende…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/SO2304-Studio-Ocean-Paslaan-Apeldoorn-279-Crop-Full-Size-scaled.jpg",
+          "ogTitle": "Aspen - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/aspen/"
+        },
+        {
+          "ogDescription": "Deze nieuwbouwvilla in Zeeland wordt in 2026 voorzien van een thuisbioscoopruimte in de kelder. De bioscoopruimte wordt maar liefst 64 m2 en maakt ruimte voor minimaal 11 personen.Een warme ruimte met warme tinten, ruimte voor veel…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/05/Scene-2_1-scaled.png",
+          "ogTitle": "Aureum - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/aureum/"
+        },
+        {
+          "ogDescription": "Deze onderkelderde nieuwbouwvilla, gelegen aan de IJssel, is ontworpen als een compleet en samenhangend woonconcept waarin architectuur, interieur en techniek naadloos op elkaar aansluiten. In de kelder is een luxe thuisbioscoop gerealiseerd die volledig in stijl…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/04/Project-highlight.png",
+          "ogTitle": "Eclipse - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/eclipse/"
+        },
+        {
+          "ogDescription": "Midden in het historische hart van Utrecht is deze onderkelderde villa uitgebreid met een compleet ontworpen wellness- en entertainmentverdieping. Naast een sfeervolle wijnkamer en een luxe zwembadruimte bevindt zich hier een op maat gerealiseerde thuisbioscoop, waarin…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/05/project-highlight-first-emerald.png",
+          "ogTitle": "Emerald - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/emerald/"
+        },
+        {
+          "ogDescription": "Bij de realisatie van deze bioscoop is veel aandacht besteed aan een strakke integratie van techniek en interieur. De surroundspeakers zijn onzichtbaar verwerkt in akoestisch dempende voorzetwanden, terwijl de subwoofers zijn ondergebracht in op maat gemaakte…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-fusion.png",
+          "ogTitle": "Fusion - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/fusion/"
+        },
+        {
+          "ogDescription": "In de onderkelderde woning vormt de thuisbioscoop een stijlvol verlengstuk van de karakteristieke Schotse bar. De ruimte is ingericht met royale rode bioscoopstoelen en sfeervolle RGBW LED-verlichting, waardoor de warme, klassieke uitstraling van het Schotse thema…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-highland.png",
+          "ogTitle": "Highland - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/highland/"
+        },
+        {
+          "ogDescription": "In de onderkelderde vakantiewoning, gelegen in een bosrijke omgeving van Gelderland, realiseerden wij een unieke thuisbioscoop volledig in Star Wars-thema. De op maat gemaakte 'arcades', geïnspireerd op het iconische interieur van een Star Destroyer, zijn voorzien…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-hyperspace.png",
+          "ogTitle": "Hyperspace - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/hyperspace/"
+        },
+        {
+          "ogDescription": "Welke filmreeks komt als eerste in je op bij een echte thuisbioscoop? Voor velen is dat zonder twijfel MARVEL. Daarom starten wij binnenkort met de realisatie van een unieke home cinema die volledig in het teken…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Scene-1-scaled.png",
+          "ogTitle": "Infinity - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/infinity/"
+        },
+        {
+          "ogDescription": "Waar vroeger een bijkeuken en bergruimte waren, bevindt zich nu een volwaardige thuisbioscoop met een geheel eigen karakter. Ondanks de compacte afmetingen van de ruimte heeft MoreSenz vanaf het eerste ontwerp meegedacht om iedere vierkante meter…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/PBF3910-HDR-DN-scaled.jpg",
+          "ogTitle": "Nexus - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/nexus/"
+        },
+        {
+          "ogDescription": "In de kelder van deze villa realiseerden wij een exclusieve thuisbioscoop voor een echte filmliefhebber. Vanaf het eerste ontwerp stond vast dat de ruimte intensief gebruikt zou gaan worden, met als doel dagelijks te genieten van…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Robert-Koelewijn-Fotografie-100725-HR-9-scaled.jpg",
+          "ogTitle": "Noir - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/noir/"
+        },
+        {
+          "ogDescription": "In deze villa in het Gooi realiseerden wij volledig turn-key een thuisbioscoop in een ruime kelderverdieping. De bestaande apparatuur van de opdrachtgever is naadloos geïntegreerd met hoogwaardige PMC-luidsprekers in combinatie met Arcam versterking. De wens was…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-nova.png",
+          "ogTitle": "Nova - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/nova/"
+        },
+        {
+          "ogDescription": "Deze thuisbioscoop is ontworpen als een stijlvolle, donkere ruimte waarin luxe en functionaliteit naadloos samenkomen. De exclusieve wandafwerking met subtiele olifantenhuidstructuur vormt samen met het strakke zwarte akoestische spanplafond een krachtige basis. Donker eiken luidsprekerkolommen geven…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-oakmont.png",
+          "ogTitle": "Oakmont - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/oakmont/"
+        },
+        {
+          "ogDescription": "Deze unieke thuisbioscoop is volledig ontworpen in het sfeervolle Godfather-thema en vormt de ideale plek voor lange, gezellige avonden met vrienden en familie. De op maat gemaakte ronde bar en het comfortabele loungegedeelte maken de ruimte…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Scene-2-2-1-scaled.png",
+          "ogTitle": "Omerta - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/omerta/"
+        },
+        {
+          "ogDescription": "De hoogwaardige Bowers & Wilkins-audio vormt het hart van deze thuisbioscoop en zorgt voor een indrukwekkende, natuurgetrouwe geluidsweergave met een krachtig en gecontroleerd geluidsbeeld. Onder het projectiescherm is een volledig op maat gemaakt meubel gerealiseerd waarin…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-onyx.png",
+          "ogTitle": "Onyx - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/onyx/"
+        },
+        {
+          "ogDescription": "Deze ruime thuisbioscoop biedt plaats aan drie royale rijen luxe bioscoopbanken, voorzien van bekerhouders en elektrisch verstelbare functies voor optimaal comfort. Het interieur is afgewerkt met hoogwaardige akoestische materialen, waarbij zachte velours wanden worden gecombineerd met…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-opus.png",
+          "ogTitle": "Opus - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/opus/"
+        },
+        {
+          "ogDescription": "In de onderkelderde villa langs de Amstel is een bijzondere thuisbioscoop gerealiseerd die zich stap voor stap onthult. Vanuit de entree van de kelder loopt u via de hal richting de bioscoop, waarbij de ruimte zich…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Robert-Koelewijn-Fotografie-090925-HR-4-scaled.jpg",
+          "ogTitle": "Oris - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/oris/"
+        },
+        {
+          "ogDescription": "Deze villa beschikte over een kelderruimte van circa 35 m² die voorheen voornamelijk als opslag werd gebruikt. De wens van de opdrachtgever was om deze ruimte te transformeren tot een luxe multifunctionele plek: een thuisbioscoop op…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Robert-Koelewijn-Fotografie-140525-HR-28-scaled.jpg",
+          "ogTitle": "Reserve - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/reserve/"
+        },
+        {
+          "ogDescription": "In de onderkelderde villa realiseerden wij een ruime thuisbioscoop die volledig is afgestemd op het samen beleven van films met familie en kleinkinderen. Daarom is gekozen voor maar liefst twaalf comfortabele rode bioscoopstoelen, zodat er altijd…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/project-highlight-first-scala.png",
+          "ogTitle": "Scala - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/scala/"
+        },
+        {
+          "ogDescription": "High-end thuisbioscoop met de nieuwste apparatuur voor de perfecte home cinema ervaring. De klant is een groot filmfanaat en wilde dit zo laten klinken en voelen zoals de filmmaker het heeft bedacht. Met een 21:9 scherm…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/05/project-highlight-first-solis.png",
+          "ogTitle": "Solis - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/solis/"
+        },
+        {
+          "ogDescription": "Deze recent door de opdrachtgever gekochte villa had op de begane grond een onbenoemde ruimte waarvan de wens voor de opdrachtgever was om hier een thuisbioscoop te realiseren. De ruimte had op verschillende plekken in de…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/05/Scene-1-scaled.png",
+          "ogTitle": "Titan - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/titan/"
+        },
+        {
+          "ogDescription": "Een bijzondere thuisbioscoop, volledig geïntegreerd in een exclusieve woning. Achter de keuken bevindt zich een geheime deur die toegang geeft tot deze ruime privébioscoop. Een uniek project waarin hoogwaardige techniek, comfort en een warme sfeer samenkomen…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/09/48ch-Cinema-4K.png",
+          "ogTitle": "Vault - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/vault/"
+        },
+        {
+          "ogDescription": "In de onderkelderde villa, gelegen op de Veluwe, realiseerden wij een exclusieve thuisbioscoop die naadloos aansluit op de aangrenzende bar en de overige kelderruimte. In nauwe samenwerking met de architect is gekozen voor een warm en…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/MoreSenz-Cinema-3-scaled.jpg",
+          "ogTitle": "Verde - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/verde/"
+        },
+        {
+          "ogDescription": "In het hart van Utrecht realiseerden wij een indrukwekkende thuisbioscoop in de onderkelderde ruimte van een stadsvilla. De royale lounge bank vormt het centrale punt van de ruimte en biedt de perfecte plek om samen te…",
+          "ogImage": "https://cinema.moresenz.nl/wp-content/uploads/2026/07/Robert-Koelewijn-Fotografie-110425-HR-80-scaled.jpg",
+          "ogTitle": "Vesper - MoreSenz Cinema",
+          "twitterDescription": "",
+          "twitterImage": "",
+          "twitterTitle": "",
+          "urlPathAndQuery": "/projecten/vesper/"
+        }
+      ],
+      "title": "OpenGraph metadata"
+    },
+    "redirects": {
+      "aplCode": "redirects",
+      "columns": {
+        "sourceUqId": {
+          "aplCode": "sourceUqId",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Found at URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 39
+        },
+        "statusCode": {
+          "aplCode": "statusCode",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "targetUrl": {
+          "aplCode": "targetUrl",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Target URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 39
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Redirected URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 39
+        }
+      },
+      "position": "before-url-table",
+      "rows": [],
+      "title": "Redirected URLs"
+    },
+    "security": {
+      "aplCode": "security",
+      "columns": {
+        "critical": {
+          "aplCode": "critical",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Critical",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 8
+        },
+        "header": {
+          "aplCode": "header",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Header",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 26
+        },
+        "notice": {
+          "aplCode": "notice",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Notice",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "ok": {
+          "aplCode": "ok",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "OK",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "recommendation": {
+          "aplCode": "recommendation",
+          "escapeOutputHtml": false,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Recommendation",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 68
+        },
+        "warning": {
+          "aplCode": "warning",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Warning",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 7
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "critical": "0",
+          "header": "Server",
+          "highestSeverity": "3",
+          "notice": "0",
+          "ok": "0",
+          "recommendation": "Server header is set to known 'Apache'. It is better not to reveal used technologies.",
+          "warning": "28"
+        },
+        {
+          "critical": "0",
+          "header": "Set-Cookie",
+          "highestSeverity": "3",
+          "notice": "0",
+          "ok": "0",
+          "recommendation": "",
+          "warning": "28"
+        },
+        {
+          "critical": "0",
+          "header": "X-Frame-Options",
+          "highestSeverity": "2",
+          "notice": "28",
+          "ok": "0",
+          "recommendation": "X-Frame-Options header is set to SAMEORIGIN which allows this origin to embed the resource in a frame.",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "Feature-Policy",
+          "highestSeverity": "2",
+          "notice": "28",
+          "ok": "0",
+          "recommendation": "Feature-Policy header is not set but Permissions-Policy is set. That's enough.",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "Strict-Transport-Security",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "X-XSS-Protection",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "X-Content-Type-Options",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "Referrer-Policy",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "Content-Security-Policy",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        },
+        {
+          "critical": "0",
+          "header": "Permissions-Policy",
+          "highestSeverity": "1",
+          "notice": "0",
+          "ok": "28",
+          "recommendation": "",
+          "warning": "0"
+        }
+      ],
+      "title": "Security"
+    },
+    "seo": {
+      "aplCode": "seo",
+      "columns": {
+        "description": {
+          "aplCode": "description",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Description",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 12
+        },
+        "h1": {
+          "aplCode": "h1",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "H1",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 12
+        },
+        "indexing": {
+          "aplCode": "indexing",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Indexing",
+          "nonBreakingSpaces": false,
+          "renderer": {},
+          "truncateIfLonger": false,
+          "width": 20
+        },
+        "keywords": {
+          "aplCode": "keywords",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Keywords",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 12
+        },
+        "title": {
+          "aplCode": "title",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Title",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 12
+        },
+        "urlPathAndQuery": {
+          "aplCode": "urlPathAndQuery",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 50
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "Thuisbioscoop laten bouwen? MoreSenz ontwerpt exclusieve home cinema's met perfect beeld, geluid en akoestiek. Ontdek de mogelijkheden.",
+          "h1": "Jouw thuisbioscoop, ontworpen in jouw stijl",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Thuisbioscoop op maat - Home cinema specialist - MoreSenz",
+          "urlPathAndQuery": "/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Homepage - MoreSenz Cinema",
+          "urlPathAndQuery": "/en/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Projecten die we met trots hebben gerealiseerd",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Projecten - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Apex",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Apex - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/apex/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Arc",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Arc - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/arc/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Aspen",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Aspen - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/aspen/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Aureum",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Aureum - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/aureum/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Eclipse",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Eclipse - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/eclipse/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Emerald",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Emerald - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/emerald/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Fusion",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Fusion - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/fusion/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Highland",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Highland - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/highland/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Hyperspace",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Hyperspace - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/hyperspace/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Infinity",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Infinity - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/infinity/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Nexus",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Nexus - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/nexus/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Noir",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Noir - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/noir/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Nova",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Nova - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/nova/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Oakmont",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Oakmont - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/oakmont/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Omerta",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Omerta - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/omerta/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Onyx",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Onyx - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/onyx/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Opus",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Opus - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/opus/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Oris",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Oris - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/oris/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Reserve",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Reserve - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/reserve/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Scala",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Scala - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/scala/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Solis",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Solis - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/solis/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Titan",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Titan - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/titan/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Vault",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Vault - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/vault/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Verde",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Verde - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/verde/"
+        },
+        {
+          "deniedByRobotsTxt": "false",
+          "description": "",
+          "h1": "Vesper",
+          "indexing": "",
+          "keywords": "",
+          "robotsIndex": "1",
+          "title": "Vesper - MoreSenz Cinema",
+          "urlPathAndQuery": "/projecten/vesper/"
+        }
+      ],
+      "title": "SEO metadata"
+    },
+    "seo-headings": {
+      "aplCode": "seo-headings",
+      "columns": {
+        "headings": {
+          "aplCode": "headings",
+          "escapeOutputHtml": false,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Heading structure",
+          "nonBreakingSpaces": false,
+          "renderer": {},
+          "truncateIfLonger": true,
+          "width": 84
+        },
+        "headingsCount": {
+          "aplCode": "headingsCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Count",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 5
+        },
+        "headingsErrorsCount": {
+          "aplCode": "headingsErrorsCount",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Errors",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "urlPathAndQuery": {
+          "aplCode": "urlPathAndQuery",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 30
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "headings": "<h2> Download onze brochure [#block-9vaz0lgod1ge] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9]",
+          "headingsCount": "2",
+          "headingsErrorsCount": "2",
+          "headingsHtml": "<ul><li><span class=\"help\" title=\"Heading level 2 is not correct. Should be 1.\"><span style=\"color: #ff00ff\">&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</span></span></li><li><span class=\"help\" title=\"Heading level 2 is not correct. Should be 1.\"><span style=\"color: #ff00ff\">&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</span></span></li></ul>",
+          "urlPathAndQuery": "/en/"
+        },
+        {
+          "headings": "<h1> Jouw thuisbioscoop, ontworpen in jouw stijl [#block-5270df7820] <h2> Met een MoreSenz thuisbioscoop zit je er middenin [#block-x2l6upomc0rq] <h2> Je eigen thuisbioscoop op maat laten bouwen [#block-zkq3i0ahwena] <h2> Projecten die we met trots hebben gerealiseerd [#block-dym9d1ukyj98] <h2> Beleef films als nooit tevoren [#block-nbrgcUk5gf] <h2> Gecertificeerd, award winning en premium partner [#block-09xd8zc37vjh] <h2> Maximale beleving begint bij perfecte samenhang. [#block-vdxez9ao1rea] <h3> Beeld [#block-anza1caq8pv0] <h3> Geluid en akoestiek [#block-raye2daq8pv1] <h3> Interieur [#block-ar1gidaq8pv2] <h3> Verlichting [#block-xlcwh6aq8pv3] <h3> Domotica [#block-u1izl6aq8pv3] <h2> Klantervaringen [#block-c42bhgekc1r2] <h2> Voor en mét wie wij werken [#block-0gxrgjaqddtc] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Meest gestelde vragen [#block-7qgo6qapg4qd] <h3> Wat kost een thuisbioscoop laten bouwen? <h3> Hoeveel ruimte heb ik nodig voor een thuisbioscoop? <h3> Kan een thuisbioscoop ook in mijn woonkamer? <h3> Welke beamer heb ik nodig voor mijn thuisbioscoop? <h3> Hoe lang duurt het bouwen van een thuisbioscoop? <h3> Wanneer moeten jullie betrokken worden bij nieuwbouw of verbouwing? <h3> Werkt MoreSenz door heel Nederland? <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "25",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Jouw thuisbioscoop, ontworpen in jouw stijl [#block-5270df7820]<ul><li>&lt;h2&gt; Met een MoreSenz thuisbioscoop zit je er middenin [#block-x2l6upomc0rq]</li><li>&lt;h2&gt; Je eigen thuisbioscoop op maat laten bouwen [#block-zkq3i0ahwena]</li><li>&lt;h2&gt; Projecten die we met trots hebben gerealiseerd [#block-dym9d1ukyj98]</li><li>&lt;h2&gt; Beleef films als nooit tevoren [#block-nbrgcUk5gf]</li><li>&lt;h2&gt; Gecertificeerd, award winning en premium partner [#block-09xd8zc37vjh]</li><li>&lt;h2&gt; Maximale beleving begint bij perfecte samenhang. [#block-vdxez9ao1rea]<ul><li>&lt;h3&gt; Beeld [#block-anza1caq8pv0]</li><li>&lt;h3&gt; Geluid en akoestiek [#block-raye2daq8pv1]</li><li>&lt;h3&gt; Interieur [#block-ar1gidaq8pv2]</li><li>&lt;h3&gt; Verlichting [#block-xlcwh6aq8pv3]</li><li>&lt;h3&gt; Domotica [#block-u1izl6aq8pv3]</li></ul></li><li>&lt;h2&gt; Klantervaringen [#block-c42bhgekc1r2]</li><li>&lt;h2&gt; Voor en mét wie wij werken [#block-0gxrgjaqddtc]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Meest gestelde vragen [#block-7qgo6qapg4qd]<ul><li>&lt;h3&gt; Wat kost een thuisbioscoop laten bouwen?</li><li>&lt;h3&gt; Hoeveel ruimte heb ik nodig voor een thuisbioscoop?</li><li>&lt;h3&gt; Kan een thuisbioscoop ook in mijn woonkamer?</li><li>&lt;h3&gt; Welke beamer heb ik nodig voor mijn thuisbioscoop?</li><li>&lt;h3&gt; Hoe lang duurt het bouwen van een thuisbioscoop?</li><li>&lt;h3&gt; Wanneer moeten jullie betrokken worden bij nieuwbouw of verbouwing?</li><li>&lt;h3&gt; Werkt MoreSenz door heel Nederland?</li></ul></li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/"
+        },
+        {
+          "headings": "<h1> Aspen [#block-6hzrhtt8l968] <h2> Over dit project [#block-c0e4o9t8l96i] <h2> Project highlights [#block-739xvst8l96k] <h2> Project partners [#block-262f5f1831] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Aspen [#block-6hzrhtt8l968]<ul><li>&lt;h2&gt; Over dit project [#block-c0e4o9t8l96i]</li><li>&lt;h2&gt; Project highlights [#block-739xvst8l96k]</li><li>&lt;h2&gt; Project partners [#block-262f5f1831]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/aspen/"
+        },
+        {
+          "headings": "<h1> Emerald [#block-pr3jtst8ijsj] <h2> Over dit project [#block-co0vxlt8ijso] <h2> Project highlights [#block-sjmyudt8ijsp] <h2> Project partners [#block-732e0df403] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Emerald [#block-pr3jtst8ijsj]<ul><li>&lt;h2&gt; Over dit project [#block-co0vxlt8ijso]</li><li>&lt;h2&gt; Project highlights [#block-sjmyudt8ijsp]</li><li>&lt;h2&gt; Project partners [#block-732e0df403]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/emerald/"
+        },
+        {
+          "headings": "<h1> Solis [#block-53rp1pt8k1tn] <h2> Over dit project [#block-m3d95wt8k1tw] <h2> Project highlights [#block-1zv4s7t8k1ty] <h2> Project partners [#block-db4efcc9cb] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Solis [#block-53rp1pt8k1tn]<ul><li>&lt;h2&gt; Over dit project [#block-m3d95wt8k1tw]</li><li>&lt;h2&gt; Project highlights [#block-1zv4s7t8k1ty]</li><li>&lt;h2&gt; Project partners [#block-db4efcc9cb]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/solis/"
+        },
+        {
+          "headings": "<h1> Reserve [#block-p5hfqut8kox3] <h2> Over dit project [#block-lt87xlt8koxb] <h2> Project highlights [#block-92q6j3t8koxe] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Reserve [#block-p5hfqut8kox3]<ul><li>&lt;h2&gt; Over dit project [#block-lt87xlt8koxb]</li><li>&lt;h2&gt; Project highlights [#block-92q6j3t8koxe]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/reserve/"
+        },
+        {
+          "headings": "<h1> Noir [#block-wvwastt8him2] <h2> Over dit project [#block-rf6vjvt8him7] <h2> Project highlights [#block-7gol8ft8him9] <h2> Project partners [#block-7093808c45] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Noir [#block-wvwastt8him2]<ul><li>&lt;h2&gt; Over dit project [#block-rf6vjvt8him7]</li><li>&lt;h2&gt; Project highlights [#block-7gol8ft8him9]</li><li>&lt;h2&gt; Project partners [#block-7093808c45]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/noir/"
+        },
+        {
+          "headings": "<h1> Eclipse [#block-fc132qt8be9k] <h2> Over dit project [#block-n8jft7t8be9p] <h2> Project highlights [#block-409uixt8be9r] <h2> Project partners [#block-2a0b0ae3b0] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Eclipse [#block-fc132qt8be9k]<ul><li>&lt;h2&gt; Over dit project [#block-n8jft7t8be9p]</li><li>&lt;h2&gt; Project highlights [#block-409uixt8be9r]</li><li>&lt;h2&gt; Project partners [#block-2a0b0ae3b0]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/eclipse/"
+        },
+        {
+          "headings": "<h1> Nexus [#block-uwfavfoo1rxq] <h2> Over dit project [#block-bkr34voo1rxw] <h2> Project highlights [#block-mlqi7poo1rxx] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Nexus [#block-uwfavfoo1rxq]<ul><li>&lt;h2&gt; Over dit project [#block-bkr34voo1rxw]</li><li>&lt;h2&gt; Project highlights [#block-mlqi7poo1rxx]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/nexus/"
+        },
+        {
+          "headings": "<h1> Omerta [#block-h9lvsrt8lt0r] <h2> Over dit project [#block-opbcelt8lt0x] <h2> Project highlights [#block-x7k5d3t8lt16] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Omerta [#block-h9lvsrt8lt0r]<ul><li>&lt;h2&gt; Over dit project [#block-opbcelt8lt0x]</li><li>&lt;h2&gt; Project highlights [#block-x7k5d3t8lt16]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/omerta/"
+        },
+        {
+          "headings": "<h1> Projecten die we met trots hebben gerealiseerd [#block-4ba22dbea9] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "4",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Projecten die we met trots hebben gerealiseerd [#block-4ba22dbea9]<ul><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/"
+        },
+        {
+          "headings": "<h1> Onyx [#block-zwnvminhptqg] <h2> Over dit project [#block-vm9gkznhptqj] <h2> Project highlights [#block-brwal4nhptqk] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Onyx [#block-zwnvminhptqg]<ul><li>&lt;h2&gt; Over dit project [#block-vm9gkznhptqj]</li><li>&lt;h2&gt; Project highlights [#block-brwal4nhptqk]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/onyx/"
+        },
+        {
+          "headings": "<h1> Infinity [#block-s69j9ct9r7zi] <h2> Over dit project [#block-sr9mtzt9r7zn] <h2> Project highlights [#block-0rfuv9t9r7zt] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Infinity [#block-s69j9ct9r7zi]<ul><li>&lt;h2&gt; Over dit project [#block-sr9mtzt9r7zn]</li><li>&lt;h2&gt; Project highlights [#block-0rfuv9t9r7zt]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/infinity/"
+        },
+        {
+          "headings": "<h1> Fusion [#block-c6p3yit9vkjz] <h2> Over dit project [#block-o2vdn7t9vkk7] <h2> Project highlights [#block-ij0fjst9vkk9] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Fusion [#block-c6p3yit9vkjz]<ul><li>&lt;h2&gt; Over dit project [#block-o2vdn7t9vkk7]</li><li>&lt;h2&gt; Project highlights [#block-ij0fjst9vkk9]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/fusion/"
+        },
+        {
+          "headings": "<h1> Oris [#block-yxumbyt8n98g] <h2> Over dit project [#block-35lfhyt8n98l] <h2> Project highlights [#block-c2wq7kt8n98n] <h2> Project partners [#block-89f6c2c715] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Oris [#block-yxumbyt8n98g]<ul><li>&lt;h2&gt; Over dit project [#block-35lfhyt8n98l]</li><li>&lt;h2&gt; Project highlights [#block-c2wq7kt8n98n]</li><li>&lt;h2&gt; Project partners [#block-89f6c2c715]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/oris/"
+        },
+        {
+          "headings": "<h1> Vault [#block-o19jlznglpr1] <h2> Over dit project [#block-jyhsz1nglpr4] <h2> Project highlights [#block-oxv5kdnglpr4] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Vault [#block-o19jlznglpr1]<ul><li>&lt;h2&gt; Over dit project [#block-jyhsz1nglpr4]</li><li>&lt;h2&gt; Project highlights [#block-oxv5kdnglpr4]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/vault/"
+        },
+        {
+          "headings": "<h1> Verde [#block-f8hs9jt9sbt2] <h2> Over dit project [#block-8ncblft9sbt6] <h2> Project highlights [#block-ye93g8t9sbt8] <h2> Project partners [#block-d6dce6eb1f] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Verde [#block-f8hs9jt9sbt2]<ul><li>&lt;h2&gt; Over dit project [#block-8ncblft9sbt6]</li><li>&lt;h2&gt; Project highlights [#block-ye93g8t9sbt8]</li><li>&lt;h2&gt; Project partners [#block-d6dce6eb1f]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/verde/"
+        },
+        {
+          "headings": "<h1> Aureum [#block-slg97ut8pfn8] <h2> Over dit project [#block-76s5jat8pfng] <h2> Project highlights [#block-0zx54wt8pfnj] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Aureum [#block-slg97ut8pfn8]<ul><li>&lt;h2&gt; Over dit project [#block-76s5jat8pfng]</li><li>&lt;h2&gt; Project highlights [#block-0zx54wt8pfnj]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/aureum/"
+        },
+        {
+          "headings": "<h1> Titan [#block-0enkozt9t3mm] <h2> Over dit project [#block-86owe5t9t3mr] <h2> Project highlights [#block-kkd1aft9t3ms] <h2> Project highlights [#block-8b990c34a5] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Titan [#block-0enkozt9t3mm]<ul><li>&lt;h2&gt; Over dit project [#block-86owe5t9t3mr]</li><li>&lt;h2&gt; Project highlights [#block-kkd1aft9t3ms]</li><li>&lt;h2&gt; Project highlights [#block-8b990c34a5]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/titan/"
+        },
+        {
+          "headings": "<h1> Vesper [#block-gluo8rt9pi2o] <h2> Over dit project [#block-c5p1xnt9pi2s] <h2> Project highlights [#block-e25kojt9pi2u] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Vesper [#block-gluo8rt9pi2o]<ul><li>&lt;h2&gt; Over dit project [#block-c5p1xnt9pi2s]</li><li>&lt;h2&gt; Project highlights [#block-e25kojt9pi2u]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/vesper/"
+        },
+        {
+          "headings": "<h1> Arc [#block-14manrt9wlhh] <h2> Over dit project [#block-gn3likt9wlhm] <h2> Project highlights [#block-t91y24t9wlho] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Arc [#block-14manrt9wlhh]<ul><li>&lt;h2&gt; Over dit project [#block-gn3likt9wlhm]</li><li>&lt;h2&gt; Project highlights [#block-t91y24t9wlho]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/arc/"
+        },
+        {
+          "headings": "<h1> Apex [#block-huctjqkkewhx] <h2> Over dit project [#block-vkx783kkewi3] <h2> Project highlights [#block-cyhjo5kkewi5] <h2> Project partners [#block-5a887f3f4d] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Apex [#block-huctjqkkewhx]<ul><li>&lt;h2&gt; Over dit project [#block-vkx783kkewi3]</li><li>&lt;h2&gt; Project highlights [#block-cyhjo5kkewi5]</li><li>&lt;h2&gt; Project partners [#block-5a887f3f4d]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/apex/"
+        },
+        {
+          "headings": "<h1> Nova [#block-d76vl2t9u9pt] <h2> Over dit project [#block-epny7dt9u9py] <h2> Project highlights [#block-36h53jt9u9pz] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Nova [#block-d76vl2t9u9pt]<ul><li>&lt;h2&gt; Over dit project [#block-epny7dt9u9py]</li><li>&lt;h2&gt; Project highlights [#block-36h53jt9u9pz]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/nova/"
+        },
+        {
+          "headings": "<h1> Scala [#block-o19jlznglpr1] <h2> Over dit project [#block-jyhsz1nglpr4] <h2> Project highlights [#block-oxv5kdnglpr4] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Scala [#block-o19jlznglpr1]<ul><li>&lt;h2&gt; Over dit project [#block-jyhsz1nglpr4]</li><li>&lt;h2&gt; Project highlights [#block-oxv5kdnglpr4]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/scala/"
+        },
+        {
+          "headings": "<h1> Highland [#block-fal3l3t9yz4d] <h2> Over dit project [#block-krmf27t9yz4i] <h2> Project highlights [#block-amgd2gt9yz4k] <h2> Project Partners [#block-36f881478a] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Highland [#block-fal3l3t9yz4d]<ul><li>&lt;h2&gt; Over dit project [#block-krmf27t9yz4i]</li><li>&lt;h2&gt; Project highlights [#block-amgd2gt9yz4k]</li><li>&lt;h2&gt; Project Partners [#block-36f881478a]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/highland/"
+        },
+        {
+          "headings": "<h1> Opus [#block-l7hzfkt9zsz2] <h2> Over dit project [#block-irwdlkt9zsz8] <h2> Project highlights [#block-f9efa57456] <h2> Project partners [#block-8420c16543] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "7",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Opus [#block-l7hzfkt9zsz2]<ul><li>&lt;h2&gt; Over dit project [#block-irwdlkt9zsz8]</li><li>&lt;h2&gt; Project highlights [#block-f9efa57456]</li><li>&lt;h2&gt; Project partners [#block-8420c16543]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/opus/"
+        },
+        {
+          "headings": "<h1> Hyperspace [#block-pj2ra6ta108g] <h2> Over dit project [#block-uszaeota108l] <h2> Project highlights [#block-obciw6ta108u] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Hyperspace [#block-pj2ra6ta108g]<ul><li>&lt;h2&gt; Over dit project [#block-uszaeota108l]</li><li>&lt;h2&gt; Project highlights [#block-obciw6ta108u]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/hyperspace/"
+        },
+        {
+          "headings": "<h1> Oakmont [#block-qoptbhngr929] <h2> Over dit project [#block-aa2mrtngr92c] <h2> Project highlights [#block-t0bcvrngr92c] <h2> Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt] <h2> Bezoek onze 350m² showroom [#block-9r4e8hgooof9] <h2> Download onze brochure [#block-9vaz0lgod1ge]",
+          "headingsCount": "6",
+          "headingsErrorsCount": "0",
+          "headingsHtml": "<ul><li>&lt;h1&gt; Oakmont [#block-qoptbhngr929]<ul><li>&lt;h2&gt; Over dit project [#block-aa2mrtngr92c]</li><li>&lt;h2&gt; Project highlights [#block-t0bcvrngr92c]</li><li>&lt;h2&gt; Plan een vrijblijvend adviesgesprek [#block-r3gsdpnb5ynt]</li><li>&lt;h2&gt; Bezoek onze 350m² showroom [#block-9r4e8hgooof9]</li><li>&lt;h2&gt; Download onze brochure [#block-9vaz0lgod1ge]</li></ul></li></ul>",
+          "urlPathAndQuery": "/projecten/oakmont/"
+        }
+      ],
+      "title": "Heading structure"
+    },
+    "skipped": {
+      "aplCode": "skipped",
+      "columns": {
+        "reason": {
+          "aplCode": "reason",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Reason",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 18
+        },
+        "sourceAttr": {
+          "aplCode": "sourceAttr",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Source",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 19
+        },
+        "sourceUqId": {
+          "aplCode": "sourceUqId",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Found at URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 60
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Skipped URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 60
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "reason": "Not allowed host",
+          "sourceAttr": "<a href>",
+          "sourceUqId": "/",
+          "url": "https://maps.app.goo.gl/4znY4zF9Zarz8dnj8"
+        }
+      ],
+      "title": "Skipped URLs"
+    },
+    "skipped-summary": {
+      "aplCode": "skipped-summary",
+      "columns": {
+        "count": {
+          "aplCode": "count",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Unique URLs",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 11
+        },
+        "domain": {
+          "aplCode": "domain",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Domain",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "reason": {
+          "aplCode": "reason",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Reason",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 18
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "count": "1",
+          "domain": "maps.app.goo.gl",
+          "reason": "Not allowed host"
+        }
+      ],
+      "title": "Skipped URLs Summary"
+    },
+    "slowest-urls": {
+      "aplCode": "slowest-urls",
+      "columns": {
+        "requestTime": {
+          "aplCode": "requestTime",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Time",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "statusCode": {
+          "aplCode": "statusCode",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Status",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": 6
+        },
+        "url": {
+          "aplCode": "url",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": true,
+          "getDataValueCallback": null,
+          "name": "Slow URL",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": true,
+          "width": 113
+        }
+      },
+      "position": "before-url-table",
+      "rows": [
+        {
+          "requestTime": "2.0424",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/highland/"
+        },
+        {
+          "requestTime": "1.9969",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/eclipse/"
+        },
+        {
+          "requestTime": "1.9955",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/apex/"
+        },
+        {
+          "requestTime": "1.9273",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/vesper/"
+        },
+        {
+          "requestTime": "1.8452",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/fusion/"
+        },
+        {
+          "requestTime": "1.7315",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/verde/"
+        },
+        {
+          "requestTime": "1.7009",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/"
+        },
+        {
+          "requestTime": "1.6876",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/nova/"
+        },
+        {
+          "requestTime": "1.6676",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/noir/"
+        },
+        {
+          "requestTime": "1.6657",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/emerald/"
+        },
+        {
+          "requestTime": "1.5921",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/nexus/"
+        },
+        {
+          "requestTime": "1.5672",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/solis/"
+        },
+        {
+          "requestTime": "1.5526",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/omerta/"
+        },
+        {
+          "requestTime": "1.5457",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/aspen/"
+        },
+        {
+          "requestTime": "1.5053",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/scala/"
+        },
+        {
+          "requestTime": "1.5002",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/arc/"
+        },
+        {
+          "requestTime": "1.4910",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/onyx/"
+        },
+        {
+          "requestTime": "1.4782",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/infinity/"
+        },
+        {
+          "requestTime": "1.4759",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/opus/"
+        },
+        {
+          "requestTime": "1.4714",
+          "statusCode": "200",
+          "url": "https://cinema.moresenz.nl/projecten/reserve/"
+        }
+      ],
+      "title": "TOP slowest URLs"
+    },
+    "source-domains": {
+      "aplCode": "source-domains",
+      "columns": {
+        "HTML": {
+          "aplCode": "HTML",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "HTML",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "domain": {
+          "aplCode": "domain",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": null,
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Domain",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        },
+        "totals": {
+          "aplCode": "totals",
+          "escapeOutputHtml": true,
+          "forcedDataType": null,
+          "formatter": {},
+          "formatterWillChangeValueLength": false,
+          "getDataValueCallback": null,
+          "name": "Totals",
+          "nonBreakingSpaces": false,
+          "renderer": null,
+          "truncateIfLonger": false,
+          "width": -1
+        }
+      },
+      "position": "after-url-table",
+      "rows": [
+        {
+          "Audio": "",
+          "CSS": "",
+          "Document": "",
+          "Font": "",
+          "HTML": "28/8MB/44s",
+          "Image": "",
+          "JS": "",
+          "JSON": "",
+          "Other": "",
+          "Redirect": "",
+          "Video": "",
+          "XML": "",
+          "domain": "cinema.moresenz.nl",
+          "totalCount": "28",
+          "totals": "28/8MB/44s"
+        }
+      ],
+      "title": "Source domains"
+    }
+  }
+}

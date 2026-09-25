@@ -219,15 +219,44 @@ Temp JPEGs written under `/tmp`, deleted after Gemini call.
 - **None** for raster content photos in NB block attrs / featured meta on local NL content.
 - Decorative SVG `alt=""` left intentionally.
 - English (`/en/`) not in scope.
-- Remote/production not touched.
+- Remote/production NL alts filled 2026-09-25 (see section below).
 
-### Remote (cinema.moresenz.nl) — gated
-- Procedure: [`REMOTE-ALT-FILL.md`](./REMOTE-ALT-FILL.md) + committed [`docs/remote-image-alt-fill.md`](../../docs/remote-image-alt-fill.md)
-- **Do not run** until explicit green light. Coming Soon (SeedProd Lite) needs temp disable for public verify; no IP whitelist.
+### Remote (cinema.moresenz.nl) — completed 2026-09-25
+
+**Green light:** “We have green light to fill in the NL alt tags on cinema.moresenz.nl.”
+
+| Item | Value |
+|------|--------|
+| Backup | `/home/moresenz/backups/cinema-pre-alt-fill-20260925-083614.sql` (67M, outside docroot) |
+| Scripts | `/home/moresenz/scripts/alt-inventory/` (non-public) |
+| Sample | Eclipse `#27` / att `2003` — NL alt+title written first |
+| Generated | **143** unique attachment alts (`gemini-3.1-flash-lite`) |
+| Block alts filled | **151** instances (`nectar-blocks/image`) |
+| Posts updated | **38** |
+| Attachment meta updated | **138** (empty only) |
+| Gemini failures / too_large | **0** (no resize-retry needed) |
+| Remaining CMS raster empty alts | **0** |
+| API key on server | removed after run |
+
+**Integrity (post-fill):**
+- `audit-nb-after-alt`: `roundtrip_fail=0`, `corruption=0`, **no** `alt_mismatch` / `title_mismatch`
+- Recently modified posts: **38**, lost unicode escapes: **0**
+- `thin_css` on Homepage `#19` (0 inline images / pattern-driven) and Project template `#24` — expected, not alt damage
+- `many_missing_css_ids` (34) — same false-positive class as local (blocks without custom CSS rules); no CSS regen required
+- `wp nct` not installed on remote — used audit script + unicode check instead
+
+**Verification (Coming Soon temporarily off, then re-enabled):**
+- siteone-crawler: 28 URLs / ~8 MB — reported “26 page(s) without image alt attributes” (counts empty SVG `alt=""`; not authoritative for photos)
+- HTML scan of 26 NL page/project URLs: **0 empty raster alts**; **183** empty SVG (`157` with `aria-hidden`/`role=presentation`)
+- Artifacts: `crawler/cinema-remote-after-alt-20260925-084440.console.txt`, `crawler/cinema-remote-html-alt-scan.json`
+- Coming Soon verified **on** again (`sp-seedprod`, ~5.8 KB shell); `seedprod_settings` remains JSON string
+
+**Still pending:** Polylang English translation of alts (out of scope for this run).
 
 ### Scripts / cache
 - `tmp/alt-inventory/gemini-alt-fill-bulk.php`
 - `tmp/alt-inventory/retry-large-alts.php`
 - `tmp/alt-inventory/fill-one-sample.php` (+ sync HTML helper)
-- `tmp/alt-inventory/gemini-alt-cache.json` (121 usable alts)
+- `tmp/alt-inventory/gemini-alt-cache.json` (local)
+- Remote cache/log: `/home/moresenz/scripts/alt-inventory/gemini-alt-*.json`
 - `tmp/alt-inventory/discover-image-attr-gaps.json`
