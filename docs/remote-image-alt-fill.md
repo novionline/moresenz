@@ -17,6 +17,10 @@ Skip decorative SVGs (`alt=""` OK). Child-theme `AccessibilityComponent` hides d
 
 English (`/en/`) Polylang translation is a **follow-up** after NL is verified — not part of the first remote run unless explicitly requested.
 
+**EN media-library alts (Polylang media twins):** separate pass — DeepL NL→EN via `tmp/pll-en-alt-fill.php` when EN alt is empty or still identical to NL; Gemini for empty EN rasters via `tmp/pll-en-alt-gemini-empty.php`. Local done 2026-09-25; production needs explicit green light.
+
+**Meaningful SVG alts:** `tmp/pll-svg-alt-gemini.php` — decorative SVGs stay empty; supplier brands rule-based; site/cert logos via `rsvg-convert` → PNG → Gemini (per locale). Local NL+EN done 2026-09-25.
+
 ---
 
 ## Prerequisites (before green light work)

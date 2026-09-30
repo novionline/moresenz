@@ -32,6 +32,23 @@ final class NoviCometCacheProxy
     $this->inner = $inner;
   }
 
+  //comet MenuPage binds $this->plugin = &$GLOBALS['comet_cache']; without these,
+  //CMS reads $plugin->options as null and shows Enable as off even when DB enable=1
+  public function __get(string $name): mixed
+  {
+    return $this->inner->$name;
+  }
+
+  public function __isset(string $name): bool
+  {
+    return isset($this->inner->$name);
+  }
+
+  public function __set(string $name, mixed $value): void
+  {
+    $this->inner->$name = $value;
+  }
+
   public function __call(string $name, array $args)
   {
     if ($name === 'wipeCache') {

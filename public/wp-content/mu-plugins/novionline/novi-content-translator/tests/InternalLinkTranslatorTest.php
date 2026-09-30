@@ -222,6 +222,48 @@ class InternalLinkTranslatorTest extends TestCase
         $this->assertFalse($result['changed']);
     }
 
+    public function testExactMatchHomepageRewritePreservesHashFragment(): void
+    {
+        $result = InternalLinkTranslator::rewriteInternalUrl(
+            'https://example.test/#moresenz-about',
+            'en',
+            'nl',
+            ['strict' => true]
+        );
+
+        $this->assertSame('https://example.test/en/#moresenz-about', $result['url']);
+        $this->assertTrue($result['changed']);
+        $this->assertSame('exact_match', $result['reason']);
+    }
+
+    public function testExactMatchHomepageRewritePreservesQueryAndFragment(): void
+    {
+        $result = InternalLinkTranslator::rewriteInternalUrl(
+            'https://example.test/?utm=1#moresenz-contact',
+            'en',
+            'nl',
+            ['strict' => true]
+        );
+
+        $this->assertSame('https://example.test/en/?utm=1#moresenz-contact', $result['url']);
+        $this->assertTrue($result['changed']);
+        $this->assertSame('exact_match', $result['reason']);
+    }
+
+    public function testExactMatchRelativeRootRewritePreservesHashFragment(): void
+    {
+        $result = InternalLinkTranslator::rewriteInternalUrl(
+            '/#section-testimonial-slider',
+            'en',
+            'nl',
+            ['strict' => true]
+        );
+
+        $this->assertSame('/en/#section-testimonial-slider', $result['url']);
+        $this->assertTrue($result['changed']);
+        $this->assertSame('exact_match', $result['reason']);
+    }
+
     public function testPolylangFullPathTranslatedSlugStillRewritesWithoutTwin(): void
     {
         // Deterministic Polylang full-path mapping remains allowed (also in strict mode).

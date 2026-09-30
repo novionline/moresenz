@@ -30,6 +30,9 @@ class GravityFormsComponent extends Singleton {
             //add space placeholder to fields that support placeholders when none is configured
             add_filter('gform_field_content', [$this, 'addSpacePlaceholder'], 10, 5);
 
+            //siteone 2.3 flags inputs without aria-label even when <label for> exists
+            add_filter('gform_field_content', [$this, 'addAriaLabelFromFieldLabel'], 20, 5);
+
             //filter validation message
             add_filter('gform_validation_message', [$this, 'filterValidationMessage'], 10, 2);
 
@@ -160,6 +163,90 @@ class GravityFormsComponent extends Singleton {
         );
 
         return $fieldContent;
+    }
+
+    /**
+     * Mirror the visible field/choice label onto aria-label for form controls.
+     *
+     * Satisfies SiteOne Crawler 2.3 "Missing aria labels" critical checks without
+     * hand-editing form content. aria-label takes precedence in the accessible name
+     * computation, so AT gets a single name matching the visible label.
+     *
+     * @param string $fieldContent
+     * @param object $field
+     * @param mixed $value
+     * @param int $leadId
+     * @param int $formId
+     * @return string
+     */
+    public function addAriaLabelFromFieldLabel(string $fieldContent, object $field, mixed $value, int $leadId, int $formId): string {
+        if ($fieldContent === '' || !preg_match('/<(input|textarea|select)\b/i', $fieldContent)) {
+            return $fieldContent;
+        }
+
+        $fallbackLabel = isset($field->label) ? trim(wp_strip_all_tags((string) $field->label)) : '';
+
+        return (string) preg_replace_callback(
+            '/<(input|textarea|select)\b([^>]*)>/iu',
+            function (array $match) use ($fieldContent, $fallbackLabel): string {
+                $tag = strtolower($match[1]);
+                $attrs = $match[2];
+
+                if (preg_match('/\btype\s*=\s*(["\'])?(hidden|submit|button|reset|image)\1/iu', $attrs)) {
+                    return $match[0];
+                }
+
+                if (preg_match('/\baria-label\s*=/iu', $attrs) || preg_match('/\baria-labelledby\s*=/iu', $attrs)) {
+                    return $match[0];
+                }
+
+                //gf often ends void tags as " /" before ">"
+                $selfClosing = '';
+                if (preg_match('/\s*\/\s*$/u', $attrs)) {
+                    $selfClosing = ' /';
+                    $attrs = preg_replace('/\s*\/\s*$/u', '', $attrs) ?? $attrs;
+                }
+
+                $labelText = '';
+
+                if (preg_match('/\bid=(["\'])([^"\']+)\1/iu', $attrs, $idMatch)) {
+                    $inputId = $idMatch[2];
+                    $quotedId = preg_quote($inputId, '/');
+
+                    if (preg_match('/<label\b[^>]*\bfor=(["\'])' . $quotedId . '\1[^>]*>(.*?)<\/label>/isu', $fieldContent, $labelMatch)) {
+                        $labelText = trim(preg_replace('/\s+/u', ' ', wp_strip_all_tags($labelMatch[2])) ?? '');
+                    }
+                }
+
+                //radio/checkbox choice often wrapped in <label>…<input>…text</label>
+                if ($labelText === '' && preg_match('/\btype\s*=\s*(["\'])?(radio|checkbox)\1/iu', $attrs)) {
+                    $pos = strpos($fieldContent, $match[0]);
+                    if ($pos !== false) {
+                        $before = substr($fieldContent, max(0, $pos - 200), min(200, $pos));
+                        if (preg_match('/<label\b[^>]*>\s*$/iu', $before)) {
+                            $after = substr($fieldContent, $pos + strlen($match[0]), 200);
+                            if (preg_match('/^(.*?)<\/label>/isu', $after, $wrapMatch)) {
+                                $labelText = trim(preg_replace('/\s+/u', ' ', wp_strip_all_tags($wrapMatch[1])) ?? '');
+                            }
+                        }
+                    }
+                }
+
+                if ($labelText === '') {
+                    $labelText = $fallbackLabel;
+                }
+
+                //strip trailing required asterisk noise for a cleaner name
+                $labelText = trim($labelText, " \t\n\r\0\x0B*");
+
+                if ($labelText === '') {
+                    return $match[0];
+                }
+
+                return '<' . $tag . rtrim($attrs) . ' aria-label="' . esc_attr($labelText) . '"' . $selfClosing . '>';
+            },
+            $fieldContent
+        );
     }
 
     /**

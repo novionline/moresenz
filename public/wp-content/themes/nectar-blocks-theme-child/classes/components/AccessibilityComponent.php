@@ -39,6 +39,15 @@ class AccessibilityComponent extends Singleton {
         //decorative nectar button / icon imgs: keep empty alt, hide from AT
         add_filter('render_block', [$this, 'hideDecorativeIconImages'], 20, 2);
 
+        //footer icon-list: unwrap nested <a> inside a.nectar__link (invalid HTML → empty link name)
+        add_filter('render_block', [$this, 'unwrapNestedNectarLinks'], 25, 2);
+
+        //safety net: aria-label on a.nectar__link that still lack an accessible name
+        add_filter('render_block', [$this, 'labelNamelessNectarLinks'], 30, 2);
+
+        //video player inline-pill: drop hardcoded aria-label="Play" when visible label exists
+        add_filter('render_block', [$this, 'syncVideoPlayerCenterPlayName'], 20, 2);
+
         //moresenz footer lives on before_footer_open (global section); wrap as contentinfo
         add_action('nectar_hook_before_footer_open', [$this, 'openFooterLandmark'], 1);
         add_action('nectar_hook_before_outer_wrap_close', [$this, 'closeFooterLandmark'], 1);
@@ -171,6 +180,96 @@ class AccessibilityComponent extends Singleton {
         }
 
         return $this->markDecorativeIconImgs($blockContent);
+    }
+
+    /**
+     * Unwrap nested <a> tags inside a.nectar__link (footer icon-list items).
+     *
+     * HTML5 auto-closes the outer link at the nested <a>, leaving an empty
+     * nectar__link that fails Lighthouse "Links must have discernible text".
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function unwrapNestedNectarLinks($blockContent, array $block) {
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        if (!str_contains($blockContent, 'nectar__link') || !preg_match('/<a\b[^>]*\bnectar__link\b[^>]*>[\s\S]*?<a\b/iu', $blockContent)) {
+            return $blockContent;
+        }
+
+        return $this->unwrapNestedAnchorsInNectarLinks($blockContent);
+    }
+
+    /**
+     * Add aria-label on a.nectar__link that still have no accessible name.
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function labelNamelessNectarLinks($blockContent, array $block) {
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        if (!str_contains($blockContent, 'nectar__link')) {
+            return $blockContent;
+        }
+
+        return $this->injectAriaLabelsOnNamelessNectarLinks($blockContent);
+    }
+
+    /**
+     * When inline-pill has a visible playButtonLabel, drop hardcoded aria-label="Play"
+     * so the accessible name matches the visible text (WCAG 2.5.3 / Lighthouse).
+     *
+     * @param string|null $blockContent
+     * @param array $block
+     * @return string|null
+     */
+    public function syncVideoPlayerCenterPlayName($blockContent, array $block) {
+        if (($block['blockName'] ?? '') !== 'nectar-blocks/video-player') {
+            return $blockContent;
+        }
+
+        if (!is_string($blockContent) || $blockContent === '') {
+            return $blockContent;
+        }
+
+        if (!str_contains($blockContent, 'nectar-blocks-video-player__center-play-label')) {
+            return $blockContent;
+        }
+
+        return (string) preg_replace_callback(
+            '/<button\b([^>]*\bnectar-blocks-video-player__center-play\b[^>]*)>(.*?)<\/button>/is',
+            static function (array $match): string {
+                $attrs = $match[1];
+                $inner = $match[2];
+
+                if (!preg_match(
+                    '/class=(["\'])[^"\']*\bnectar-blocks-video-player__center-play-label\b[^"\']*\1[^>]*>([^<]+)/iu',
+                    $inner,
+                    $labelMatch
+                )) {
+                    return $match[0];
+                }
+
+                $visible = trim(html_entity_decode($labelMatch[2], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+                if ($visible === '') {
+                    return $match[0];
+                }
+
+                //remove aria-label so accessible name = visible pill text
+                $attrs = preg_replace('/\s*\baria-label=(["\'])[^"\']*\1/iu', '', $attrs) ?? $attrs;
+
+                return '<button' . $attrs . '>' . $inner . '</button>';
+            },
+            $blockContent
+        );
     }
 
     /**
@@ -318,5 +417,259 @@ class AccessibilityComponent extends Singleton {
             },
             $html
         );
+    }
+
+    /**
+     * Replace nested <a>…</a> inside a.nectar__link with plain text content.
+     *
+     * @param string $html
+     * @return string
+     */
+    private function unwrapNestedAnchorsInNectarLinks(string $html): string {
+        //prefer the icon-list content pattern (footer mail/phone/linkedin)
+        $html = (string) preg_replace(
+            '/(<div\b[^>]*\bnectar-blocks-icon-list-item__content\b[^>]*>)\s*<a\b[^>]*>(.*?)<\/a>/isu',
+            '$1$2',
+            $html
+        );
+
+        //any remaining nested <a> inside an outer nectar__link (depth-aware)
+        $offset = 0;
+        $result = '';
+        $length = strlen($html);
+
+        while ($offset < $length) {
+            if (!preg_match('/<a\b([^>]*\bclass=(["\'])[^"\']*\bnectar__link\b[^"\']*\2[^>]*)>/iu', $html, $openMatch, PREG_OFFSET_CAPTURE, $offset)) {
+                $result .= substr($html, $offset);
+                break;
+            }
+
+            $openStart = (int) $openMatch[0][1];
+            $openTag = $openMatch[0][0];
+            $attrs = $openMatch[1][0];
+            $innerStart = $openStart + strlen($openTag);
+
+            $result .= substr($html, $offset, $openStart - $offset);
+
+            $depth = 1;
+            $cursor = $innerStart;
+            $innerEnd = null;
+
+            while ($cursor < $length && $depth > 0) {
+                if (!preg_match('/<\/?a\b[^>]*>/iu', $html, $tagMatch, PREG_OFFSET_CAPTURE, $cursor)) {
+                    break;
+                }
+
+                $tag = $tagMatch[0][0];
+                $tagPos = (int) $tagMatch[0][1];
+
+                if (stripos($tag, '</') === 0) {
+                    $depth--;
+                    if ($depth === 0) {
+                        $innerEnd = $tagPos;
+                        $cursor = $tagPos + strlen($tag);
+                        break;
+                    }
+                } else {
+                    $depth++;
+                }
+
+                $cursor = $tagPos + strlen($tag);
+            }
+
+            if ($innerEnd === null) {
+                //malformed — keep as-is from open tag onward
+                $result .= substr($html, $openStart);
+                break;
+            }
+
+            $inner = substr($html, $innerStart, $innerEnd - $innerStart);
+
+            if (preg_match('/<a\b/iu', $inner)) {
+                $inner = (string) preg_replace('/<a\b[^>]*>(.*?)<\/a>/isu', '$1', $inner);
+            }
+
+            $result .= '<a' . $attrs . '>' . $inner . '</a>';
+            $offset = $cursor;
+        }
+
+        return $result !== '' ? $result : $html;
+    }
+
+    /**
+     * Inject aria-label on nameless a.nectar__link anchors.
+     *
+     * @param string $html
+     * @return string
+     */
+    private function injectAriaLabelsOnNamelessNectarLinks(string $html): string {
+        $offset = 0;
+        $result = '';
+        $length = strlen($html);
+
+        while ($offset < $length) {
+            if (!preg_match('/<a\b([^>]*\bclass=(["\'])[^"\']*\bnectar__link\b[^"\']*\2[^>]*)>/iu', $html, $openMatch, PREG_OFFSET_CAPTURE, $offset)) {
+                $result .= substr($html, $offset);
+                break;
+            }
+
+            $openStart = (int) $openMatch[0][1];
+            $openTag = $openMatch[0][0];
+            $attrs = $openMatch[1][0];
+            $innerStart = $openStart + strlen($openTag);
+
+            $result .= substr($html, $offset, $openStart - $offset);
+
+            $depth = 1;
+            $cursor = $innerStart;
+            $innerEnd = null;
+
+            while ($cursor < $length && $depth > 0) {
+                if (!preg_match('/<\/?a\b[^>]*>/iu', $html, $tagMatch, PREG_OFFSET_CAPTURE, $cursor)) {
+                    break;
+                }
+
+                $tag = $tagMatch[0][0];
+                $tagPos = (int) $tagMatch[0][1];
+
+                if (stripos($tag, '</') === 0) {
+                    $depth--;
+                    if ($depth === 0) {
+                        $innerEnd = $tagPos;
+                        $cursor = $tagPos + strlen($tag);
+                        break;
+                    }
+                } else {
+                    $depth++;
+                }
+
+                $cursor = $tagPos + strlen($tag);
+            }
+
+            if ($innerEnd === null) {
+                $result .= substr($html, $openStart);
+                break;
+            }
+
+            $inner = substr($html, $innerStart, $innerEnd - $innerStart);
+
+            if (preg_match('/\baria-label\s*=/iu', $attrs) || preg_match('/\baria-labelledby\s*=/iu', $attrs)) {
+                $result .= '<a' . $attrs . '>' . $inner . '</a>';
+                $offset = $cursor;
+                continue;
+            }
+
+            if ($this->nectarLinkHasAccessibleName($attrs, $inner)) {
+                $result .= '<a' . $attrs . '>' . $inner . '</a>';
+                $offset = $cursor;
+                continue;
+            }
+
+            $label = $this->deriveNectarLinkLabel($attrs, $inner);
+
+            if ($label === '') {
+                $result .= '<a' . $attrs . '>' . $inner . '</a>';
+            } else {
+                $result .= '<a' . rtrim($attrs) . ' aria-label="' . esc_attr($label) . '">' . $inner . '</a>';
+            }
+
+            $offset = $cursor;
+        }
+
+        return $result !== '' ? $result : $html;
+    }
+
+    /**
+     * Whether a nectar__link already has a usable accessible name from content.
+     *
+     * @param string $attrs
+     * @param string $inner
+     * @return bool
+     */
+    private function nectarLinkHasAccessibleName(string $attrs, string $inner): bool {
+        //non-empty screen-reader text
+        if (preg_match('/class=(["\'])[^"\']*screen-reader-text[^"\']*\1[^>]*>([^<]+)/iu', $inner, $srMatch)) {
+            if (trim(html_entity_decode($srMatch[2], ENT_QUOTES | ENT_HTML5, 'UTF-8')) !== '') {
+                return true;
+            }
+        }
+
+        //non-empty img alt
+        if (preg_match_all('/\balt=(["\'])(.*?)\1/iu', $inner, $altMatches)) {
+            foreach ($altMatches[2] as $alt) {
+                if (trim(html_entity_decode($alt, ENT_QUOTES | ENT_HTML5, 'UTF-8')) !== '') {
+                    return true;
+                }
+            }
+        }
+
+        //visible text (strip tags / scripts)
+        $text = wp_strip_all_tags($inner);
+        $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $text = preg_replace('/\s+/u', ' ', $text ?? '') ?? '';
+
+        return trim($text) !== '';
+    }
+
+    /**
+     * Build an aria-label from inner text or href heuristics.
+     *
+     * @param string $attrs
+     * @param string $inner
+     * @return string
+     */
+    private function deriveNectarLinkLabel(string $attrs, string $inner): string {
+        $text = wp_strip_all_tags($inner);
+        $text = html_entity_decode($text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        $text = preg_replace('/\s+/u', ' ', $text ?? '') ?? '';
+        $text = trim($text);
+
+        if ($text !== '') {
+            return $text;
+        }
+
+        if (!preg_match('/\bhref=(["\'])(.*?)\1/iu', $attrs, $hrefMatch)) {
+            return '';
+        }
+
+        $href = trim(html_entity_decode($hrefMatch[2], ENT_QUOTES | ENT_HTML5, 'UTF-8'));
+
+        if ($href === '' || $href === '#') {
+            return '';
+        }
+
+        if (stripos($href, 'mailto:') === 0) {
+            return substr($href, 7);
+        }
+
+        if (stripos($href, 'tel:') === 0) {
+            return substr($href, 4);
+        }
+
+        if (stripos($href, 'linkedin.com') !== false) {
+            return 'LinkedIn';
+        }
+
+        if ($href === '#nectar-to-top') {
+            return __('Back to top', Theme::TEXT_DOMAIN);
+        }
+
+        $homeUrl = untrailingslashit(home_url('/'));
+        $hrefNormalized = untrailingslashit($href);
+
+        if ($hrefNormalized === $homeUrl || $href === '/' || $href === home_url('/')) {
+            $siteName = get_bloginfo('name');
+            return is_string($siteName) && $siteName !== '' ? $siteName : __('Home', Theme::TEXT_DOMAIN);
+        }
+
+        //last path segment as a readable fallback
+        $path = (string) (wp_parse_url($href, PHP_URL_PATH) ?? '');
+        $segment = trim(basename(untrailingslashit($path)));
+
+        if ($segment !== '' && $segment !== '/') {
+            return ucwords(str_replace(['-', '_'], ' ', $segment));
+        }
+
+        return $href;
     }
 }

@@ -69,9 +69,9 @@ if (!class_exists('\NoviOnline\ContentTranslator\NoviContentTranslator')) {
             define('NCT_MANIFEST_PATH', NCT_PLUGIN_PATH . '/dist/manifest.json');
         }
 
-        //define DeepL API key (override in wp-config.php; do not hardcode secrets)
+        //define DeepL API key (to be filled in later)
         if (!defined('NCT_DEEPL_API_KEY')) {
-            define('NCT_DEEPL_API_KEY', '');
+            define('NCT_DEEPL_API_KEY', '25073d63-23a1-4a27-b5fb-e1075d351bc1:fx');
         }
 
         //init translations

@@ -14,6 +14,9 @@ if (is_blog_installed()) {
     //cache warmer ↔ comet: bind warmer HTTP to private NIC (see novi-cache-warmer-loopback README)
     require WPMU_PLUGIN_DIR . '/novionline/novi-cache-warmer-loopback/novi-cache-warmer-loopback.php';
 
+    //block Object Cache Pro outbound license/telemetry requests
+    require WPMU_PLUGIN_DIR . '/novionline/novi-object-cache-privacy/novi-object-cache-privacy.php';
+
     //log Comet / Autoptimize / object-cache wipe events for attribution
     require WPMU_PLUGIN_DIR . '/novionline/novi-cache-wipe-logger/novi-cache-wipe-logger.php';
 

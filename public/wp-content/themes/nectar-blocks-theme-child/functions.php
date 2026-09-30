@@ -98,6 +98,13 @@ class Theme extends Singleton {
         StructuredDataFaqAccordionComponent::getInstance();
         GlobalSectionComponent::getInstance();
         GlobalSectionConditionsComponent::getInstance();
+
+        //popup CPT is registered on init; boot after PUM registers it
+        add_action('init', static function (): void {
+            if (post_type_exists('popup')) {
+                PopupMakerOtherPostsComponent::getInstance();
+            }
+        }, 20);
         HeaderComponent::getInstance();
         OffCanvasNavMenuItemStyleComponent::getInstance();
         SearchComponent::getInstance();

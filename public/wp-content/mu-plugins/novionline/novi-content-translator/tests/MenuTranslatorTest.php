@@ -614,6 +614,63 @@ final class MenuTranslatorTest extends TestCase
         $this->assertStringNotContainsString('Not found-', (string) $items[1]->title);
     }
 
+    public function testCustomHomepageHashLinksRemapToTargetHomeWithFragment(): void
+    {
+        $GLOBALS['__nct_home_url'] = 'https://example.test/';
+        $GLOBALS['__nct_menus'][10] = ['name' => 'Side - NL'];
+        $GLOBALS['__nct_menu_items'][10] = [
+            201 => [
+                'type' => 'custom',
+                'object' => 'custom',
+                'object_id' => 0,
+                'url' => 'https://example.test/#moresenz-about',
+                'title' => 'Over ons',
+                'menu_order' => 1,
+                'parent' => 0,
+                'classes' => [],
+            ],
+            202 => [
+                'type' => 'custom',
+                'object' => 'custom',
+                'object_id' => 0,
+                'url' => 'https://example.test/#moresenz-contact',
+                'title' => 'Contact',
+                'menu_order' => 2,
+                'parent' => 0,
+                'classes' => [],
+            ],
+            203 => [
+                'type' => 'custom',
+                'object' => 'custom',
+                'object_id' => 0,
+                'url' => '#',
+                'title' => 'Bezoek showroom',
+                'menu_order' => 3,
+                'parent' => 0,
+                'classes' => [],
+            ],
+        ];
+
+        DeepLTranslator::setTestTranslator(function (array $texts, string $sourceLang, string $targetLang, array $options = []): array {
+            return [
+                'success' => true,
+                'translations' => array_map(static fn ($t) => '[EN]' . $t, $texts),
+                'error' => null,
+            ];
+        });
+
+        $enMenuId = MenuTranslator::translateMenu(10, 'nl', 'en', ['force' => true, 'strict_links' => true]);
+        $this->assertIsInt($enMenuId);
+        $items = wp_get_nav_menu_items($enMenuId);
+        $this->assertCount(3, $items);
+        usort($items, static fn ($a, $b) => ((int) $a->menu_order) <=> ((int) $b->menu_order));
+
+        $this->assertSame('https://example.test/en/#moresenz-about', (string) $items[0]->url);
+        $this->assertSame('https://example.test/en/#moresenz-contact', (string) $items[1]->url);
+        $this->assertSame('#', (string) $items[2]->url);
+        $this->assertStringNotContainsString('Not found-', (string) $items[0]->title);
+    }
+
     public function testRemapsPopupMakerNavItemPopupIdToPolylangTwin(): void
     {
         $GLOBALS['__nct_menus'][10] = ['name' => 'Side - NL'];

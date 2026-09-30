@@ -138,6 +138,39 @@ class InternalLinkTranslator
     }
 
     /**
+     * Re-attach original query/fragment when a rewrite target omitted them.
+     * Exact-match map keys strip query/fragment (homepage `#section` must become `/en/#section`).
+     */
+    private static function restoreQueryAndFragment(string $original, string $rewritten): string
+    {
+        $original = trim($original);
+        $rewritten = trim($rewritten);
+        if ($original === '' || $rewritten === '') {
+            return $rewritten;
+        }
+
+        $origParts = function_exists('wp_parse_url') ? wp_parse_url($original) : parse_url($original);
+        $newParts = function_exists('wp_parse_url') ? wp_parse_url($rewritten) : parse_url($rewritten);
+        if (!is_array($origParts)) {
+            return $rewritten;
+        }
+
+        $origQuery = (string) ($origParts['query'] ?? '');
+        $origFragment = (string) ($origParts['fragment'] ?? '');
+        $newHasQuery = is_array($newParts) && isset($newParts['query']) && (string) $newParts['query'] !== '';
+        $newHasFragment = is_array($newParts) && isset($newParts['fragment']) && (string) $newParts['fragment'] !== '';
+
+        if ($origQuery !== '' && !$newHasQuery) {
+            $rewritten .= (str_contains($rewritten, '?') ? '&' : '?') . $origQuery;
+        }
+        if ($origFragment !== '' && !$newHasFragment) {
+            $rewritten .= '#' . $origFragment;
+        }
+
+        return $rewritten;
+    }
+
+    /**
      * Preserve trailing slash style from an original URL/href.
      * - If original had a trailing slash in its path, ensure rewritten has one too.
      * - If original had no trailing slash, remove it from rewritten (unless it's the domain root).
@@ -332,13 +365,15 @@ class InternalLinkTranslator
 
             if ($keyAbs !== '' && isset($map[$keyAbs])) {
                 $out = $isAbsoluteInput ? $map[$keyAbs]['absolute'] : $map[$keyAbs]['relative'];
-                $a->setAttribute('href', self::preserveTrailingSlashStyle($href, $out));
+                $out = self::restoreQueryAndFragment($href, self::preserveTrailingSlashStyle($href, $out));
+                $a->setAttribute('href', $out);
                 $stats['rewritten_by_exact_match']++;
                 continue;
             }
             if ($keyRel !== '' && isset($map[$keyRel])) {
                 $out = $isAbsoluteInput ? $map[$keyRel]['absolute'] : $map[$keyRel]['relative'];
-                $a->setAttribute('href', self::preserveTrailingSlashStyle($href, $out));
+                $out = self::restoreQueryAndFragment($href, self::preserveTrailingSlashStyle($href, $out));
+                $a->setAttribute('href', $out);
                 $stats['rewritten_by_exact_match']++;
                 continue;
             }
@@ -439,14 +474,14 @@ class InternalLinkTranslator
         $isAbsoluteInput = $normalized['isAbsolute'];
         if ($keyAbs !== '' && isset($map[$keyAbs])) {
             $out = $isAbsoluteInput ? $map[$keyAbs]['absolute'] : $map[$keyAbs]['relative'];
-            $out = self::preserveTrailingSlashStyle($url, $out);
+            $out = self::restoreQueryAndFragment($url, self::preserveTrailingSlashStyle($url, $out));
             $stats['rewritten_by_exact_match']++;
             self::$statsByKey[$key] = self::mergeStats(self::$statsByKey[$key] ?? self::getEmptyStats(), $stats);
             return ['url' => $out, 'changed' => $out !== $url, 'reason' => 'exact_match', 'stats' => self::$statsByKey[$key]];
         }
         if ($keyRel !== '' && isset($map[$keyRel])) {
             $out = $isAbsoluteInput ? $map[$keyRel]['absolute'] : $map[$keyRel]['relative'];
-            $out = self::preserveTrailingSlashStyle($url, $out);
+            $out = self::restoreQueryAndFragment($url, self::preserveTrailingSlashStyle($url, $out));
             $stats['rewritten_by_exact_match']++;
             self::$statsByKey[$key] = self::mergeStats(self::$statsByKey[$key] ?? self::getEmptyStats(), $stats);
             return ['url' => $out, 'changed' => $out !== $url, 'reason' => 'exact_match', 'stats' => self::$statsByKey[$key]];
