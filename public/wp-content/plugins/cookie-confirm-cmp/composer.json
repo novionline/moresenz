@@ -1,0 +1,13 @@
+{
+  "name": "cookie-confirm/wp-consent-plugin",
+  "version": "1.0.0",
+  "type": "wordpress-plugin",
+  "autoload": {
+    "psr-4": {
+      "CookieConfirm\\": "app"
+    }
+  },
+  "require": {
+    "php": ">=8.0"
+  }
+}

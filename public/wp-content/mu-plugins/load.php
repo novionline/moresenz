@@ -20,6 +20,9 @@ if (is_blog_installed()) {
     //log Comet / Autoptimize / object-cache wipe events for attribution
     require WPMU_PLUGIN_DIR . '/novionline/novi-cache-wipe-logger/novi-cache-wipe-logger.php';
 
+    //cookieconfirm before GTM; preserve consent defaults from metronet dataLayer wipe
+    require WPMU_PLUGIN_DIR . '/novionline/novi-consent-gtm-order/novi-consent-gtm-order.php';
+
     //gated TTFB miss logger + Server-Timing (token/env; see novi-ttfb-profile README)
     require WPMU_PLUGIN_DIR . '/novionline/novi-ttfb-profile/novi-ttfb-profile.php';
 
