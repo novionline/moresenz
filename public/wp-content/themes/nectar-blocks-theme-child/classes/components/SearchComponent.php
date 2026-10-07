@@ -29,7 +29,8 @@ class SearchComponent extends Singleton {
         add_action('wp_ajax_myprefix_autocompletesearch', [$this, 'handleNectarAutocompleteSuggestions'], 0);
         add_action('wp_ajax_nopriv_myprefix_autocompletesearch', [$this, 'handleNectarAutocompleteSuggestions'], 0);
 
-        add_filter('posts_search', [$this, 'includeReusableBlockContentInSearch'], 10, 2);
+        //disabled: performance — dependent/expensive LIKE on huge NB post_content
+        //add_filter('posts_search', [$this, 'includeReusableBlockContentInSearch'], 10, 2);
         add_action('pre_get_posts', [$this, 'expandMainSearchPostTypes'], 11, 1);
 
         //force a non-transparent header on the search results page regardless of the first result
